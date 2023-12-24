@@ -22,6 +22,15 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    ".next/types/app/learn/test/page.tsx",
+    ".next/types/app/learn/layout.tsx",
+    ".next/types/app/learn/page.tsx",
+    ".next/types/app/layout.tsx"
+  ],
   "exclude": ["node_modules"]
 }
