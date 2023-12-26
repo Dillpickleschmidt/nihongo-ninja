@@ -63,7 +63,7 @@ export default function Dialog({
     >
       {/* divRef-> clickable elements that don't close the dialog */}
       <div ref={divRef}>
-        <Navbar locked={locked} />
+        {/* <Navbar locked={locked} /> */}
         {/* Dialog Variants */}
         <div className={cn(dialogVariants({ variant, className }))}>
           {/* Persistent elements in all dialogs */}
@@ -81,7 +81,7 @@ export default function Dialog({
 }
 
 const dialogVariants = cva(
-  "fixed top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] mt-10 rounded-[60px] border-[3.5px] border-[#191919] inline-block overflow-hidden shadow-2xl bg-[#F6E7D2] text-black",
+  "fixed top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] my-auto rounded-[60px] border-[3.5px] border-[#191919] inline-block overflow-hidden shadow-2xl bg-[#F6E7D2] text-black",
   {
     variants: {
       variant: {
@@ -89,6 +89,8 @@ const dialogVariants = cva(
         narrow: "w-[38%] h-[80%]",
         small: "w-[30%] h-[50%]",
         profile: "w-[20%] h-[40%]",
+        reading: "w-[45%] h-[98%] bg-[#F8F5E9]",
+        blank: "w-[30%] h-[50%] rounded-[10px] border-none bg-[#F8F5E9]",
       },
     },
     defaultVariants: {
