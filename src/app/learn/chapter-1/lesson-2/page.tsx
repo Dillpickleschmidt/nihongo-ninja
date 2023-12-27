@@ -118,7 +118,9 @@ export default function Lesson2() {
           </p>
         </div>
         <div className="mt-24 mx-12 !mb-0 flex flex-row justify-end">
-          <Button link="/learn/chapter-1/lesson-3">Next Lesson {"->"}</Button>
+          <Button link="/learn/chapter-1/hiragana-quiz-1">
+            Next Lesson {"->"}
+          </Button>
         </div>
       </div>
     </Dialog>

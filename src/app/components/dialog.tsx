@@ -13,6 +13,8 @@ type DialogProps = React.DialogHTMLAttributes<HTMLDialogElement> &
   VariantProps<typeof dialogVariants> & {
     children: ReactNode
     locked?: boolean // locked changes the navbar appearance to a locked state
+    background?: string
+    showAlertOnClose?: boolean
   }
 
 // Dialog is a modal that appears on top of the page
@@ -21,6 +23,8 @@ export default function Dialog({
   variant,
   className,
   locked = true, // navbar locked by default
+  background,
+  showAlertOnClose = false,
 }: DialogProps) {
   // Opens the dialog
   const dialogRef = useRef<null | HTMLDialogElement>(null)
@@ -30,9 +34,19 @@ export default function Dialog({
     dialogRef.current?.showModal()
   })
 
-  // Closes the dialog
   const router = useRouter()
+
+  // Closes the dialog
   const handleClose = () => {
+    // if showAlertOnClose is true, show a confirmation dialog
+    if (
+      showAlertOnClose &&
+      !window.confirm(
+        "You'll lose your progress. Are you sure you want to leave?"
+      )
+    ) {
+      return
+    }
     // close the dialog if it exists
     dialogRef.current?.close()
     router.push("/learn", { scroll: false })
@@ -72,8 +86,26 @@ export default function Dialog({
               x
             </Button>
           </div>
-          {/* Unique page elements go here */}
-          {children}
+          {/* If a background is provided, render this html */}
+          {background ? (
+            <div className="fixed w-full min-h-screen z-[-1]">
+              {children}
+              <div
+                className="absolute inset-0"
+                style={{
+                  backgroundImage: `url(${background})`,
+                  backgroundRepeat: "repeat",
+                  backgroundSize: "1200px", // Change this value to scale your background image
+                  backgroundBlendMode: "multiply",
+                  opacity: 0.3, // Change this value to set the opacity of the background image
+                  zIndex: -1,
+                }}
+              />
+            </div>
+          ) : (
+            // Otherwise, just render this html
+            children
+          )}
         </div>
       </div>
     </dialog>
@@ -85,6 +117,7 @@ const dialogVariants = cva(
   {
     variants: {
       variant: {
+        xl: "w-[86%] h-[95%]",
         large: "w-[76%] h-[80%]",
         narrow: "w-[38%] h-[80%]",
         small: "w-[30%] h-[50%]",

@@ -149,7 +149,9 @@ export default function Lesson3() {
           >
             What this do?👀
           </Button>
-          <Button link="/learn/chapter-1/lesson-4">Next Lesson {"->"}</Button>
+          <Button link="/learn/chapter-1/hiragana-quiz-2">
+            Next Lesson {"->"}
+          </Button>
         </div>
       </div>
     </Dialog>

@@ -14,7 +14,11 @@ export default function Lesson({ children }: { children: React.ReactNode }) {
         className="grid grid-cols-4 h-[520px] max-w-[91%] gap-4 mt-32 mx-auto text-center text-7xl
             [&>*]:p-5 [&>*]:rounded-2xl [&>*]:flex [&>*]:items-center [&>*]:justify-center [&>*]:shadow-lg [&>*]:drop-shadow-lg [&>*]:saturate-50"
       >
-        <Button variant={"card"} className="bg-red-700">
+        <Button
+          variant={"card"}
+          className="bg-red-700"
+          link="/learn/chapter-1/lesson-1"
+        >
           Reading
         </Button>
         <Button

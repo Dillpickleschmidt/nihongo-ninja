@@ -33,3 +33,14 @@ body {
       #fff9f1 61px
     );
 }
+
+.loading-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #f0f8ff;
+  border-radius: 12px;
+  background: linear-gradient(145deg, #e3e3e3, #bfbfbf);
+  box-shadow: 6px 6px 12px #aeaeae, -6px -6px 12px #f2f2f2;
+}

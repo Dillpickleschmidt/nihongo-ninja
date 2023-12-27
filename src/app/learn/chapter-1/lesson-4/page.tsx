@@ -25,11 +25,12 @@ export default function Lesson4() {
           words like "じゃあね (jaane - see you)".
         </p>
         <p>
-          There are only three players in this game who are smart enough to work
-          together, the small "ゃ", "ゅ", and "ょ". Why are they small? Maybe
-          they were willing to reduce themselves for a greater cause. Truly,
-          they're like the special agents of the Hiragana world, teaming up with
-          others to create these smooth, blended sounds.
+          You'll most often see three players in this game who are smart enough
+          to work together, the small "ゃ", "ゅ", and "ょ", but you'll see
+          others join in the fun too. Why are they small? Probably because they
+          were willing to reduce their egos for a greater cause. Truly, they're
+          like the special agents of the Hiragana world, teaming up with others
+          to create these smooth, blended sounds.
         </p>
         <h3>Why These Sounds?:</h3>
         <p>
@@ -51,7 +52,9 @@ export default function Lesson4() {
           bounds! 🌟🌿📚
         </p>
         <div className="mt-24 mx-12 !mb-0 flex flex-row justify-end">
-          <Button link="/learn/chapter-1/lesson-5">Next Lesson {"->"}</Button>
+          <Button link="/learn/chapter-1/hiragana-quiz-3">
+            Next Lesson {"->"}
+          </Button>
         </div>
       </div>
     </Dialog>
