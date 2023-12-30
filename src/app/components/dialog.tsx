@@ -73,7 +73,7 @@ export default function Dialog({
   return (
     <dialog
       ref={dialogRef}
-      className="backdrop:backdrop-saturate-0 backdrop:backdrop-blur-2xl backdrop:backdrop-brightness-75"
+      className="backdrop:backdrop-saturate-75 backdrop:backdrop-blur-2xl backdrop:backdrop-brightness-75"
     >
       {/* divRef-> clickable elements that don't close the dialog */}
       <div ref={divRef}>
@@ -119,11 +119,11 @@ const dialogVariants = cva(
       variant: {
         xl: "w-[86%] h-[95%]",
         large: "w-[76%] h-[80%]",
+        reading: "w-[45%] h-[98%] bg-[#F8F5E9]",
         narrow: "w-[38%] h-[80%]",
         small: "w-[30%] h-[50%]",
-        profile: "w-[20%] h-[40%]",
-        reading: "w-[45%] h-[98%] bg-[#F8F5E9]",
         blank: "w-[30%] h-[50%] rounded-[10px] border-none bg-[#F8F5E9]",
+        profile: "w-[20%] h-[40%]",
       },
     },
     defaultVariants: {
