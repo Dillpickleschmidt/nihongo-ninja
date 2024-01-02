@@ -125,7 +125,7 @@ export default function Numbers() {
                 </div>
               </div>
               <div className="flex flex-row justify-center pt-6">
-                <Button link="/learn/chapter-1/vocab-numbers">
+                <Button link="/learn/chapter-1/vocab-learn-numbers">
                   Memorize Numbers {"->"}
                 </Button>
               </div>
