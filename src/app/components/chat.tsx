@@ -2,6 +2,7 @@
 
 "use clent"
 import { useRef, useEffect } from "react"
+import supabase from "../lib/supabase/server"
 
 type ChatProps = React.DialogHTMLAttributes<HTMLDialogElement> & {
   isOpen: boolean
@@ -35,6 +36,35 @@ export default function Chat({ isOpen, toggleChatProp }: ChatProps) {
       window.removeEventListener("mousedown", handleOutSideClick)
     }
   }, [])
+
+  const inputRef = useRef<HTMLInputElement>(null)
+
+  async function handleSearch() {
+    const searchText = inputRef.current?.value
+
+    if (searchText && searchText.trim()) {
+      const res = await fetch(location.origin + "/embedding", {
+        method: "POST",
+        body: JSON.stringify({ text: searchText.replace(/\n/g, " ") }),
+      })
+
+      if (res.status !== 200) {
+        alert("Something went wrong")
+      } else {
+        const data = await res.json()
+
+        const { data: vocabulary } = (await supabase?.rpc(
+          "match_chapter_embeddings",
+          {
+            query_embedding: data.embedding,
+            match_threshold: 0.8,
+            match_count: 50,
+          }
+        )) as { data: any }
+        console.log(vocabulary)
+      }
+    }
+  }
 
   return (
     <dialog
@@ -74,9 +104,14 @@ export default function Chat({ isOpen, toggleChatProp }: ChatProps) {
                 className={
                   "rounded-full px-9 py-2 my-9 text-lg placeholder:text-[#666666] w-[530px] bg-[#333333]"
                 }
-                id="ai-input"
+                ref={inputRef}
                 type="text"
                 placeholder="Ask me anything..."
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    handleSearch()
+                  }
+                }}
               />
             </div>
           </div>
