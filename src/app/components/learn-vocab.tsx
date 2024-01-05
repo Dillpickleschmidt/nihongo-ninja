@@ -261,8 +261,15 @@ export default function LearnVocab({ data, shuffleTerms = false }: QuizProps) {
   // If 'finished' is true, render a "finished" page
   if (finished) {
     return (
-      <div className="my-24 text-4xl text-center">
-        You've finished all the questions!
+      <div className="h-[80%] flex flex-col justify-center items-center">
+        <div className="my-24 text-4xl text-center">
+          You've finished all the questions!
+        </div>
+        <div className="">
+          <Button link="/learn/chapter-1/vocab-learn-numbers-10-100">
+            {"Go Learn 11-100 ->"}
+          </Button>
+        </div>
       </div>
     )
   }
@@ -270,24 +277,41 @@ export default function LearnVocab({ data, shuffleTerms = false }: QuizProps) {
   // If showReview is true, render the review UI
   if (showReview) {
     return (
-      <div>
-        {/* Render your review UI here */}
-        <h1 className="text-4xl text-center">Review</h1>
-        {reviewQuestions.map((question, index) => (
-          <div key={index}>
-            <h2 className="text-2xl text-center">{question.key}</h2>
-            <p className="text-xl text-center">{question.value}</p>
+      <div className="h-full flex flex-col justify-center">
+        <div className="2xl:w-[60%] xl:w-[80%] mx-auto px-12 py-10 bg-[#222222] rounded-[10px] border-2 border-neutral-700 border-dashed">
+          {/* Render your review UI here */}
+          <div className="w-full flex justify-center">
+            <h1 className="border-b pb-6 border-yellow-500 border-opacity-75 px-16 text-5xl font-semibold">
+              Review
+            </h1>
           </div>
-        ))}
-        <Button
-          onClick={() => {
-            // When "continue" is clicked, reset questionCount and hide the review UI
-            setQuestionCount(0)
-            setShowReview(false)
-          }}
-        >
-          Continue
-        </Button>
+          <div className="my-6 flex justify-center">
+            <div className="space-y-6">
+              {reviewQuestions.map((question, index) => (
+                <div key={index} className="border-b border-neutral-700 pb-6">
+                  <p className="text-4xl">
+                    {question.key}{" "}
+                    <span className="text-2xl">
+                      - {question.value[0]} {question.value[1]}
+                    </span>
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="w-full flex justify-end">
+            <Button
+              className=""
+              onClick={() => {
+                // When "continue" is clicked, reset questionCount and hide the review UI
+                setQuestionCount(0)
+                setShowReview(false)
+              }}
+            >
+              Continue
+            </Button>
+          </div>
+        </div>
       </div>
     )
   }
@@ -296,109 +320,115 @@ export default function LearnVocab({ data, shuffleTerms = false }: QuizProps) {
   const currentQuestion = questionStack[0]
 
   return (
-    <div className="2xl:max-w-[60%] xl:max-w-[80%] mx-auto mt-24 px-12 py-10 bg-[#222222] rounded-[10px] border-2 border-neutral-700 border-dashed">
-      {/* Render your question here */}
-      <label className="text-sm">Audio</label>
-      <h1 className={`${JapaneseFont} my-16 text-center text-7xl`}>
-        {currentQuestion.key}
-      </h1>
-      {currentQuestion.type === "multiple-choice" ? (
-        // Render UI for multiple-choice question
-        <ul className="grid grid-cols-1 gap-5 mx-4 mt-24 mb-6 lg:grid-cols-2">
-          <Button
-            variant={"vocab"}
-            onClick={(e) => key1 && handleVocabClick(e, key1)}
-            className={greenIfCorrect(key1)}
-          >
-            <span className="mr-5 text-lg">1. </span>
-            {hiragana1 && (
-              <span className={`${JapaneseFont} mr-1`}>{hiragana1} </span>
-            )}
-            {english1}
-          </Button>
-          <Button
-            variant={"vocab"}
-            onClick={(e) => key2 && handleVocabClick(e, key2)}
-            className={greenIfCorrect(key2)}
-          >
-            <span className="mr-5 text-lg">2. </span>
-            {hiragana2 && (
-              <span className={`${JapaneseFont} mr-1`}>{hiragana2} </span>
-            )}
-            {english2}
-          </Button>
-          <Button
-            variant={"vocab"}
-            onClick={(e) => key3 && handleVocabClick(e, key3)}
-            className={greenIfCorrect(key3)}
-          >
-            <span className="mr-5 text-lg">3. </span>
-            {hiragana3 && (
-              <span className={`${JapaneseFont} mr-1`}>{hiragana3} </span>
-            )}
-            {english3}
-          </Button>
-          <Button
-            variant={"vocab"}
-            onClick={(e) => key4 && handleVocabClick(e, key4)}
-            className={greenIfCorrect(key4)}
-          >
-            <span className="mr-5 text-lg">4. </span>
-            {hiragana4 && (
-              <span className={`${JapaneseFont} mr-1`}>{hiragana4} </span>
-            )}
-            {english4}
-          </Button>
-        </ul>
-      ) : (
-        // Render UI for write question
-        <div>
-          {/* Render toggles here */}
-          <label>
-            Compare to first value
-            <input
-              type="checkbox"
-              checked={compareFirst}
-              onChange={(e) => setCompareFirst(e.target.checked)}
-            />
-          </label>
-          <br />
-          <label>
-            Compare to second value
-            <input
-              type="checkbox"
-              checked={compareSecond}
-              onChange={(e) => setCompareSecond(e.target.checked)}
-            />
-          </label>
-          <div className="flex flex-row justify-center">
-            {/* Render your input field for the write question here */}
-            <form
-              onSubmit={(e) => {
-                e.preventDefault() // Prevent the form from refreshing the page
-                handleVocabClick()
-              }}
+    <div>
+      <div
+        className={`h-1 bg-red-500 opacity-75 ease-out duration-500`}
+        style={{ width: `${((questionCount + 1) / 7) * 100}%` }}
+      ></div>
+      <div className="2xl:max-w-[60%] xl:max-w-[80%] mx-auto mt-24 px-12 py-10 bg-[#222222] rounded-[10px] border-2 border-neutral-700 border-dashed">
+        {/* Render your question here */}
+        <label className="text-sm">Audio</label>
+        <h1 className={`${JapaneseFont} my-16 text-center text-7xl`}>
+          {currentQuestion.key}
+        </h1>
+        {currentQuestion.type === "multiple-choice" ? (
+          // Render UI for multiple-choice question
+          <ul className="grid grid-cols-1 gap-5 mx-4 mt-24 mb-6 lg:grid-cols-2">
+            <Button
+              variant={"vocab"}
+              onClick={(e) => key1 && handleVocabClick(e, key1)}
+              className={greenIfCorrect(key1)}
             >
+              <span className="mr-5 text-lg">1. </span>
+              {hiragana1 && (
+                <span className={`${JapaneseFont} mr-1`}>{hiragana1} </span>
+              )}
+              {english1}
+            </Button>
+            <Button
+              variant={"vocab"}
+              onClick={(e) => key2 && handleVocabClick(e, key2)}
+              className={greenIfCorrect(key2)}
+            >
+              <span className="mr-5 text-lg">2. </span>
+              {hiragana2 && (
+                <span className={`${JapaneseFont} mr-1`}>{hiragana2} </span>
+              )}
+              {english2}
+            </Button>
+            <Button
+              variant={"vocab"}
+              onClick={(e) => key3 && handleVocabClick(e, key3)}
+              className={greenIfCorrect(key3)}
+            >
+              <span className="mr-5 text-lg">3. </span>
+              {hiragana3 && (
+                <span className={`${JapaneseFont} mr-1`}>{hiragana3} </span>
+              )}
+              {english3}
+            </Button>
+            <Button
+              variant={"vocab"}
+              onClick={(e) => key4 && handleVocabClick(e, key4)}
+              className={greenIfCorrect(key4)}
+            >
+              <span className="mr-5 text-lg">4. </span>
+              {hiragana4 && (
+                <span className={`${JapaneseFont} mr-1`}>{hiragana4} </span>
+              )}
+              {english4}
+            </Button>
+          </ul>
+        ) : (
+          // Render UI for write question
+          <div>
+            {/* Render toggles here */}
+            <label>
+              Compare to first value
               <input
-                type="text"
-                placeholder="Write your answer here"
-                ref={inputRef}
-                value={userWrittenAnswer}
-                onChange={(e) =>
-                  setUserWrittenAnswer(e.target.value.toLowerCase())
-                }
-                className={`${setInputBoxColor()} w-96 py-4 px-6 bg-[#191919] text-white`}
-                disabled={lock}
+                type="checkbox"
+                checked={compareFirst}
+                onChange={(e) => setCompareFirst(e.target.checked)}
               />
-            </form>
+            </label>
+            <br />
+            <label>
+              Compare to second value
+              <input
+                type="checkbox"
+                checked={compareSecond}
+                onChange={(e) => setCompareSecond(e.target.checked)}
+              />
+            </label>
+            <div className="flex flex-row justify-center">
+              {/* Render your input field for the write question here */}
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault() // Prevent the form from refreshing the page
+                  handleVocabClick()
+                }}
+              >
+                <input
+                  type="text"
+                  placeholder="Write your answer here"
+                  ref={inputRef}
+                  value={userWrittenAnswer}
+                  onChange={(e) =>
+                    setUserWrittenAnswer(e.target.value.toLowerCase())
+                  }
+                  className={`${setInputBoxColor()} w-96 py-4 px-6 bg-[#191919] text-white`}
+                  disabled={lock}
+                />
+              </form>
+            </div>
+            {lock && (
+              <p className="text-lg text-center">
+                Correct answer: {correctWrittenAnswer}
+              </p>
+            )}
           </div>
-          {lock && (
-            <p className="text-lg text-center">
-              Correct answer: {correctWrittenAnswer}
-            </p>
-          )}
-        </div>
-      )}
+        )}
+      </div>
     </div>
   )
 }

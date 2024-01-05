@@ -12,9 +12,9 @@ export default function Lesson8() {
           <p className="!pt-28">
             Now, it's time to dive into something even more thrilling: numbers.
             Yes, numbers! Why, you ask? Imagine you're in Japan, walking into a
-            shop. You see ten beautiful fans, but you only want two. How do you
-            convey this without frantically waving your arms? Numbers, my
-            friend!
+            shop. You see ten beautiful fans of yours, but you only want two.
+            How do you convey this without frantically waving your arms?
+            Numbers, my friend!
           </p>
           <p className="bg-white text-black w-full !mx-0">
             Or picture this: You're at a lively party in Tokyo. Someone asks
@@ -24,7 +24,7 @@ export default function Lesson8() {
           <p className="bg-[#F8F5E9] text-black">
             And let's not forget about telling time. Miss your train because you
             couldn't understand "ごぜんくじ" (9 AM)? Good luck explaining that
-            to your boss in interpretive dance!
+            to your boss!
           </p>
           <p className=" !pb-16">
             Numbers in Japanese aren't just digits; they're your key to avoiding

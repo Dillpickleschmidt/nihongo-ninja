@@ -1,6 +1,7 @@
 import Dialog from "@/app/components/dialog"
 import Button from "@/app/components/button"
 import VocabCard from "@/app/components/vocabulary-card"
+import SelectText from "@/app/components/SelectText"
 
 export default function Lesson7() {
   return (
@@ -178,62 +179,60 @@ export default function Lesson7() {
             ice-breaker and friend-maker.
           </VocabCard>
           <p className="py-0 text-[#F8F5E9] px-16">
-            And there you have it, the essential phrases to navigate the daily
-            Japanese linguistic jungle! Use them wisely, use them often, and
-            watch as you magically transform into a social samurai! 🌟🗣️🎉
+            And there you have it, the essential phrases to not act like a rude
+            person in Japanese! Use them wisely, use them often, and watch as
+            you magically transform into a social samurai! 🌟🗣️🎉
           </p>
         </div>
-        <div className="px-32 text-xl leading-8 [&>*]:py-2">
-          <h3 className="!pt-8 text-4xl font-bold text-center">Practice</h3>
+        {/* Practice */}
+        <div className="px-28 text-2xl leading-8 space-y-7 [&>*]:space-y-4">
+          <h3 className="!pt-32 !pb-6 text-6xl font-bold text-center">
+            Practice
+          </h3>
 
           <p>
             You're leaving for school and say goodbye to your family. What do
             you say?
           </p>
-          <p>
-            a. いただきます <br />
-            b. いってきます <br />
-            c. ただいま <br />
-            d. おやすみなさい
-          </p>
-
+          <SelectText
+            answer="いってきます"
+            a="いただきます"
+            b="いってきます"
+            c="ただいま"
+            d="おやすみなさい"
+          />
           <p>
             You just got back home from work. You open the door and say,
             '__________.'
           </p>
-          <p>
-            a. いってきます <br />
-            b. いただきます <br />
-            c. ただいま <br />
-            d. すみません
-          </p>
-
+          <SelectText
+            answer="ただいま"
+            a="いってきます"
+            b="いただきます"
+            c="ただいま"
+            d="すみません"
+          />
           <p>
             It's late at night and you're about to go to bed. How do you wish
             your roommate a good night?
           </p>
-          <p>
-            a. おやすみなさい <br />
-            b. いってらっしゃい <br />
-            c. ごちそうさまでした <br />
-            d. よろしく おねがいします
-          </p>
-
+          <SelectText
+            answer="おやすみなさい"
+            a="おやすみなさい"
+            b="いってらっしゃい"
+            c="ごちそうさまでした"
+            d="よろしく おねがいします"
+          />
           <p>
             You say 'ごちそうさまでした' after finishing a meal to express
             gratitude.
           </p>
-          <p>True / False</p>
-
+          <SelectText answer="True" a="True" b="False" />
           <p>
             You meet someone for the first time and say 'はじめまして'. Is this
             correct?
           </p>
-          <p>
-            a. Yes <br />
-            b. No
-          </p>
-
+          <SelectText answer="Yes" a="Yes" b="No" />
           <p>Match the following expressions with their meanings:</p>
           <p>
             a. いいえ <br />
@@ -246,34 +245,36 @@ export default function Lesson7() {
           </p>
 
           <p>"Your friend is leaving for a trip. You say:"</p>
-          <p>
-            a. ただいま <br />
-            b. いってらっしゃい <br />
-            c. いただきます <br />
-            d. おかえりなさい <br />
-          </p>
+          <SelectText
+            answer="いってらっしゃい"
+            a="ただいま"
+            b="いってらっしゃい"
+            c="いただきます"
+            d="おかえりなさい"
+          />
           <p>
             "You accidentally step on someone's foot in a crowded train. You
             quickly say:"
           </p>
-          <p>
-            a. いいえ <br />
-            b. すみません <br />
-            c. おやすみなさい <br />
-            d. いただきます
-          </p>
-
+          <SelectText
+            answer="すみません"
+            a="いいえ"
+            b="すみません"
+            c="おやすみなさい"
+            d="いただきます"
+          />
           <p>
             You're at a Japanese pet cafe, and a mischievous cat decides to jump
             onto your table. The cafe staff rushes over and asks if the cat is
             yours. You laugh and respond:
           </p>
-          <p>
-            a. おかえりなさい <br />
-            b. すみません <br />
-            c. いいえ <br />
-            d. いただきます
-          </p>
+          <SelectText
+            answer="いいえ"
+            a="おかえりなさい"
+            b="すみません"
+            c="いいえ"
+            d="いただきます"
+          />
           <p>
             Explanation: Using "いいえ" in this context is a light-hearted way
             to clarify the comical misunderstanding - no, this café-hopping

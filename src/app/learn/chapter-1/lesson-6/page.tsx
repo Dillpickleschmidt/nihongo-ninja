@@ -1,6 +1,7 @@
 import Dialog from "@/app/components/dialog"
 import Button from "@/app/components/button"
 import VocabCard from "@/app/components/vocabulary-card"
+import SelectText from "@/app/components/SelectText"
 
 export default function Lesson6() {
   return (
@@ -125,13 +126,15 @@ export default function Lesson6() {
           </p>
         </div>
         {/* Practice */}
-        <div className="px-32 text-xl leading-8 [&>*]:py-2">
-          <h3 className="!pt-8 text-4xl font-bold text-center">Practice</h3>
+        <div className="px-28 text-2xl leading-8 space-y-7 [&>*]:space-y-4">
+          <h3 className="!pt-32 !pb-6 text-6xl font-bold text-center">
+            Practice
+          </h3>
           <p>
             Match the following greetings with the appropriate time of day
             (Morning, Afternoon, Evening, Leaving):
           </p>
-          <div className="pl-10 [&>*]:py-2">
+          <div className="pl-10">
             <p>{"a) ありがとう"}</p>
             <p>{"b) おはようございます"}</p>
             <p>{"c) こんばんは"}</p>
@@ -141,61 +144,61 @@ export default function Lesson6() {
             You run into a friend in the morning while walking to the store. How
             do you greet them?
           </p>
-          <div className="pl-10 [&>*]:py-2">
-            <p>{"a) こんにちは"}</p>
-            <p>{"b) こんばんは"}</p>
-            <p>{"c) おはようございます"}</p>
-            <p>{"d) じゃあね"}</p>
-          </div>
+          <SelectText
+            answer="おはようございます"
+            a="こんにちは"
+            b="こんばんは"
+            c="おはようございます"
+            d="じゃあね"
+          />
           <p>
             Which greeting would you use when leaving a casual meet-up with
             friends in the afternoon?
           </p>
-          <div className="pl-10 [&>*]:py-2">
-            <p>{"a) ありがとう"}</p>
-            <p>{"b) おはよう"}</p>
-            <p>{"c) じゃあね"}</p>
-            <p>{"d) さようなら"}</p>
-          </div>
+          <SelectText
+            answer="じゃあね"
+            a="ありがとう"
+            b="おはよう"
+            c="じゃあね"
+            d="さようなら"
+          />
           <p>You say 'こんばんは' to your teacher at 9 AM. Is this correct?</p>
-          <div className="pl-10 [&>*]:py-2">
-            <p>{"a) Yes"}</p>
-            <p>{"b) No"}</p>
-          </div>
+          <SelectText answer="No" a="Yes" b="No" />
           <p>
             You've just finished a group project and want to thank everyone for
             their hard work. You say, '___________.
           </p>
-          <div className="pl-10 [&>*]:py-2">
-            <p>{"a) ありがとう"}</p>
-            <p>{"b) ありがとうございます"}</p>
-            <p>{"c) またね"}</p>
-            <p>{"d) さようなら"}</p>
-          </div>
+          <SelectText
+            answer="ありがとうございます"
+            a="ありがとう"
+            b="ありがとうございます"
+            c="またね"
+            d="さようなら"
+          />
           <p>
             It's 8 PM and you are entering a restaurant. The staff greets you.
             You reply with:
           </p>
-          <div className="pl-10 [&>*]:py-2">
-            <p>{"a) おはようございます"}</p>
-            <p>{"b) こんばんは"}</p>
-            <p>{"c) こんにちは"}</p>
-            <p>{"d) じゃあね"}</p>
-          </div>
+          <SelectText
+            answer="こんばんは"
+            a="おはようございます"
+            b="こんばんは"
+            c="こんにちは"
+            d="じゃあね"
+          />
           <p>おはよう is a formal way to say good morning.</p>
-          <div className="pl-10 [&>*]:py-2">
-            <p>True / False</p>
-          </div>
+          <SelectText answer="False" a="True" b="False" />
           <p>
             "You are leaving a business meeting. How do you say goodbye to your
             colleagues?"
           </p>
-          <div className="pl-10 [&>*]:py-2">
-            <p>{"a) さようなら"}</p>
-            <p>{"b) じゃあね"}</p>
-            <p>{"c) またね"}</p>
-            <p>{"d) ありがとう"}</p>
-          </div>
+          <SelectText
+            answer="さようなら"
+            a="さようなら"
+            b="じゃあね"
+            c="またね"
+            d="ありがとう"
+          />
         </div>
         <div className="mt-24 mx-12 !mb-0 flex flex-row justify-end">
           <Button link="/learn/chapter-1/lesson-7">Next Lesson {"->"}</Button>
