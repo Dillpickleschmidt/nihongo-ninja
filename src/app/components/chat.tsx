@@ -3,10 +3,20 @@
 "use clent"
 import { useRef, useEffect } from "react"
 import supabase from "../lib/supabase/server"
+import { Message, experimental_useAssistant as useAssistant } from "ai/react"
 
 type ChatProps = React.DialogHTMLAttributes<HTMLDialogElement> & {
   isOpen: boolean
   toggleChatProp: () => void
+}
+
+const roleToColorMap: Record<Message["role"], string> = {
+  system: "red",
+  user: "",
+  function: "blue",
+  tool: "purple",
+  assistant: "#333333",
+  data: "orange",
 }
 
 export default function Chat({ isOpen, toggleChatProp }: ChatProps) {
@@ -22,6 +32,7 @@ export default function Chat({ isOpen, toggleChatProp }: ChatProps) {
 
   // Handles outside clicks and closes the dialog
   const divRef = useRef<HTMLDivElement | null>(null)
+
   useEffect(() => {
     const handleOutSideClick = (event: MouseEvent) => {
       if (divRef.current && !divRef.current.contains(event.target as Node)) {
@@ -37,82 +48,66 @@ export default function Chat({ isOpen, toggleChatProp }: ChatProps) {
     }
   }, [])
 
+  const { status, messages, input, submitMessage, handleInputChange, error } =
+    useAssistant({
+      api: "../api/chat",
+    })
+
+  // When status changes to accepting messages, focus the input:
   const inputRef = useRef<HTMLInputElement>(null)
-
-  async function handleSearch() {
-    const searchText = inputRef.current?.value
-
-    if (searchText && searchText.trim()) {
-      const res = await fetch(location.origin + "/embedding", {
-        method: "POST",
-        body: JSON.stringify({ text: searchText.replace(/\n/g, " ") }),
-      })
-
-      if (res.status !== 200) {
-        alert("Something went wrong")
-      } else {
-        const data = await res.json()
-
-        const { data: vocabulary } = (await supabase?.rpc(
-          "match_chapter_embeddings",
-          {
-            query_embedding: data.embedding,
-            match_threshold: 0.8,
-            match_count: 50,
-          }
-        )) as { data: any }
-        console.log(vocabulary)
-      }
+  useEffect(() => {
+    if (status === "awaiting_message") {
+      inputRef.current?.focus()
     }
-  }
+  }, [status])
 
   return (
     <dialog
       ref={chatRef}
-      className="backdrop:backdrop-saturate-0 backdrop:backdrop-blur-2xl backdrop:backdrop-brightness-50"
+      className="backdrop:backdrop-saturate-[75%] backdrop:backdrop-blur-2xl backdrop:backdrop-brightness-50"
     >
       {/* divRef-> clickable elements that don't close the dialog */}
       <div ref={divRef}>
-        <div className="fixed top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] overflow-hidden rounded-[25px] w-[30%] h-[83%] bg-[#151515] text-white text-lg text-start">
+        {error != null && (
+          <div className="relative px-6 py-4 text-white bg-red-500 rounded-md">
+            <span className="block sm:inline">
+              Error: {(error as any).toString()}
+            </span>
+          </div>
+        )}
+        <div className="fixed top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] overflow-y-auto overscroll-y-contain no-scrollbar rounded-[25px] w-[30%] h-[83%] bg-[#151515] border-black border-4 text-white text-lg text-start">
           <div className="flex flex-col items-center justify-between w-full h-full mx-auto">
             <div>
               <h1 className="m-12 text-3xl text-center">AI Assistant</h1>
-              <p className="p-10">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste,
-                expedita.
-              </p>
-              <div className="w-full bg-[#333333]">
-                <p className="p-10">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Inventore sequi, harum in voluptates voluptatum delectus eos
-                  dignissimos autem totam facilis numquam libero, quos rem
-                  tempora nostrum quis, praesentium saepe soluta.
-                </p>
-              </div>
-              <p className="p-10">Lorem ipsum dolor sit amet.</p>
-              <div className="w-full bg-[#333333]">
-                <p className="p-10">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Inventore sequi, harum in voluptates voluptatum delectus eos
-                  dignissimos autem totam facilis numquam libero, quos rem
-                  tempora nostrum quis, praesentium saepe soluta.
-                </p>
-              </div>
+              {messages.map((m: Message) => (
+                <div
+                  key={m.id}
+                  className="p-10 whitespace-pre-wrap"
+                  style={{ background: roleToColorMap[m.role] }}
+                >
+                  <strong>{`${m.role}: `}</strong>
+                  {m.role !== "data" && m.content}
+                </div>
+              ))}
+
+              {status === "in_progress" && (
+                <div className="w-full h-8 max-w-md p-2 mb-8 bg-gray-300 rounded-lg dark:bg-gray-600 animate-pulse" />
+              )}
             </div>
+
             <div>
-              <input
-                className={
-                  "rounded-full px-9 py-2 my-9 text-lg placeholder:text-[#666666] w-[530px] bg-[#333333]"
-                }
-                ref={inputRef}
-                type="text"
-                placeholder="Ask me anything..."
-                onKeyDown={(e) => {
-                  if (e.key === "Enter") {
-                    handleSearch()
+              <form onSubmit={submitMessage}>
+                <input
+                  className={
+                    "rounded-[15px] px-9 py-2 my-9 text-lg placeholder:text-[#666666] w-[530px] bg-[#333333]"
                   }
-                }}
-              />
+                  ref={inputRef}
+                  disabled={status !== "awaiting_message"}
+                  value={input}
+                  placeholder="Ask me anything..."
+                  onChange={handleInputChange}
+                />
+              </form>
             </div>
           </div>
         </div>
