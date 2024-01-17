@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "image": "/chapter-1/lesson-6-quiz/Good-morning.png",
+    "dimensions": {
+      "width": 500,
+      "height": 0
+    },
+    "prompt": "What is he most likely saying given the time?",
+    "correctAnswers": ["おはよう", "おはようございます"]
+  },
+  {
+    "id": 2,
+    "image": "/chapter-1/lesson-6-quiz/Good-afternoon.png",
+    "dimensions": {
+      "width": 500,
+      "height": 0
+    },
+    "prompt": "What is she most likely saying given the time?",
+    "correctAnswers": ["こんにちは"]
+  },
+  {
+    "id": 3,
+    "image": "/chapter-1/lesson-6-quiz/Good-evening.png",
+    "dimensions": {
+      "width": 500,
+      "height": 0
+    },
+    "prompt": "たかしさん sees a friend walking down the street at night. What does he say?",
+    "correctAnswers": ["こんばんは"]
+  },
+  {
+    "id": 4,
+    "image": "/chapter-1/lesson-6-quiz/See-you.png",
+    "dimensions": {
+      "width": 500,
+      "height": 0
+    },
+    "prompt": "These classmates are both leaving school. What are they likely saying to each other?",
+    "correctAnswers": ["じゃあね", "またね"]
+  },
+  {
+    "id": 5,
+    "image": "/chapter-1/lesson-6-quiz/See-you-later.png",
+    "dimensions": {
+      "width": 500,
+      "height": 0
+    },
+    "prompt": "She's leaving school for the day. What is she most likely saying to her friend?",
+    "correctAnswers": ["またね", "じゃあね"]
+  }
+]

@@ -1,7 +1,7 @@
 // Basic template for all lessons with variations for different sizes
 
 "use client"
-import { ReactNode } from "react"
+import { ReactNode, use } from "react"
 import { useRef, useEffect } from "react"
 import { useRouter } from "next/navigation"
 import Button from "./button"
@@ -27,12 +27,21 @@ export default function Dialog({
   showAlertOnClose = false,
 }: DialogProps) {
   // Opens the dialog
-  const dialogRef = useRef<null | HTMLDialogElement>(null)
   // useRef holds state and won't rerender on state change
+  const dialogRef = useRef<null | HTMLDialogElement>(null)
+
   useEffect(() => {
-    // if a dialog html element is present in the page, show the dialog
-    dialogRef.current?.showModal()
-  })
+    if (dialogRef.current) {
+      dialogRef.current.showModal() // if a dialog html element is present in the page, show the dialog
+      document.body.classList.add("overflow-hidden") // prevent scrolling of the background
+    } else {
+      document.body.classList.remove("overflow-hidden")
+    }
+
+    return () => {
+      document.body.classList.remove("overflow-hidden")
+    }
+  }, [dialogRef.current])
 
   const router = useRouter()
 
@@ -88,8 +97,7 @@ export default function Dialog({
           </div>
           {/* If a background is provided, render this html */}
           {background ? (
-            <div className="fixed w-full min-h-screen z-[-1]">
-              {children}
+            <div className="relative">
               <div
                 className="absolute inset-0"
                 style={{
@@ -101,6 +109,7 @@ export default function Dialog({
                   zIndex: -1,
                 }}
               />
+              {children}
             </div>
           ) : (
             // Otherwise, just render this html
@@ -113,7 +122,7 @@ export default function Dialog({
 }
 
 const dialogVariants = cva(
-  "fixed top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] my-auto rounded-[60px] border-[3.5px] border-[#191919] inline-block overflow-hidden shadow-2xl bg-[#F6E7D2] text-black",
+  "fixed top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] my-auto rounded-[60px] border-[3.5px] border-[#191919] inline-block overflow-y-auto overscroll-y-contain no-scrollbar shadow-2xl bg-[#F6E7D2] text-black",
   {
     variants: {
       variant: {
@@ -121,6 +130,7 @@ const dialogVariants = cva(
         large: "w-[76%] h-[80%]",
         reading: "w-[45%] h-[98%] bg-[#F8F5E9]",
         narrow: "w-[38%] h-[80%]",
+        md: "w-[30%] h-[70%]",
         small: "w-[30%] h-[50%]",
         blank: "w-[30%] h-[50%] rounded-[10px] border-none bg-[#F8F5E9]",
         profile: "w-[20%] h-[40%]",

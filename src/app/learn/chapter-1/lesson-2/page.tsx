@@ -8,7 +8,7 @@ const JapaneseFont = Noto_Sans_JP({ subsets: ["latin"] })
 export default function Lesson2() {
   return (
     <Dialog variant={"reading"}>
-      <div className="h-full pb-16 overflow-y-auto overscroll-y-contain no-scrollbar">
+      <div className="pb-16">
         <h1 className="pt-32 pb-8 text-[5rem] font-bold leading-[4.25rem] px-16 text-center">
           Let's start learning 🎌Hiragana🎌
         </h1>

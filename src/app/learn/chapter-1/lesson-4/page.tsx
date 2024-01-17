@@ -4,7 +4,7 @@ import Button from "@/app/components/button"
 export default function Lesson4() {
   return (
     <Dialog variant={"reading"}>
-      <div className="h-full pb-16 overflow-y-auto overscroll-y-contain no-scrollbar">
+      <div className="pb-16">
         <h2 className="pt-28 text-4xl font-medium leading-[3.25rem] text-center px-20">
           <span className="text-5xl font-medium">
             Alright, language warriors!

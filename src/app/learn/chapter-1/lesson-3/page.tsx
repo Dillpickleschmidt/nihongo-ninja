@@ -8,7 +8,7 @@ const JapaneseFont = Noto_Sans_JP({ subsets: ["latin"] })
 export default function Lesson3() {
   return (
     <Dialog variant={"reading"}>
-      <div className="h-full pb-16 overflow-y-auto overscroll-y-contain no-scrollbar">
+      <div className="pb-16">
         <h2 className="pt-28 text-5xl font-medium leading-[3.25rem] text-center px-20">
           🌊
         </h2>

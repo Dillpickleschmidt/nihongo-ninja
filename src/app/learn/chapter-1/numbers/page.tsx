@@ -12,7 +12,7 @@ export default function Numbers() {
       variant={"large"}
       className={`${JapaneseFont} bg-[#191919] border-red-400 border-dashed border-2`}
     >
-      <div className="h-full overflow-y-auto py-9 overscroll-y-contain no-scrollbar">
+      <div className="overflow-y-auto py-9">
         <div className="px-44 mx-auto text-2xl w-[92%] min-h-full bg-[#F8F5E9] rounded-[43px] shadow-black shadow-lg">
           <div className="flex justify-between">
             {/* Col 1 */}

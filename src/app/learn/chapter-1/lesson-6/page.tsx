@@ -6,7 +6,7 @@ import SelectText from "@/app/components/SelectText"
 export default function Lesson6() {
   return (
     <Dialog variant={"reading"} className="border-4 border-black bg-[#191919]">
-      <div className="h-full pb-16 overflow-y-auto overscroll-y-contain no-scrollbar text-[#F8F5E9]">
+      <div className="pb-16 text-[#F8F5E9]">
         {/* Header */}
         <h1 className="pt-28 pb-12 text-4xl font-medium leading-[3.25rem] text-center px-20">
           <span className="text-5xl font-medium">Great job</span>, you've
@@ -201,7 +201,9 @@ export default function Lesson6() {
           />
         </div>
         <div className="mt-24 mx-12 !mb-0 flex flex-row justify-end">
-          <Button link="/learn/chapter-1/lesson-7">Next Lesson {"->"}</Button>
+          <Button link="/learn/chapter-1/lesson-6-quiz">
+            Test your knowledge {"->"}
+          </Button>
         </div>
       </div>
     </Dialog>

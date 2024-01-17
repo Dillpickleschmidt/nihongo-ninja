@@ -11,10 +11,15 @@ const JapaneseFont = Noto_Sans_JP({ subsets: ["latin"] })
 
 type QuizProps = {
   data: { [key: string]: string[] }
+  link: string
   shuffleTerms?: boolean
 }
 
-export default function LearnVocab({ data, shuffleTerms = false }: QuizProps) {
+export default function LearnVocab({
+  data,
+  link,
+  shuffleTerms = false,
+}: QuizProps) {
   // Initialize vocabArray state with the transformed data
   const [vocabArray, setVocabArray] = useState(
     Object.entries(data).map(([key, value]) => ({
@@ -266,9 +271,7 @@ export default function LearnVocab({ data, shuffleTerms = false }: QuizProps) {
           You've finished all the questions!
         </div>
         <div className="">
-          <Button link="/learn/chapter-1/vocab-learn-numbers-10-100">
-            {"Go Learn 11-100 ->"}
-          </Button>
+          <Button link={link}>{"Next Lesson"}</Button>
         </div>
       </div>
     )

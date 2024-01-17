@@ -2,13 +2,7 @@
 import { useEffect, useRef, useState } from "react"
 import Dialog from "@/app/components/dialog"
 import Button from "@/app/components/button"
-import {
-  LetterBoxes,
-  mainKana,
-  dakuten,
-  yoon,
-  allKana,
-} from "@/app/components/character-quiz-boxes"
+import { LetterBoxes } from "@/app/components/character-quiz-boxes"
 import HandleBeforeUnload from "@/app/util/handleBeforeUnload"
 
 import { Noto_Sans_JP } from "next/font/google"
@@ -26,12 +20,12 @@ export default function KanaQuiz({ kana, nextLesson }: KanaQuizProps) {
   return (
     <Dialog
       variant={"xl"}
-      className="bg-[#F6E7D2] border-none overscroll-y-contain overflow-y-scroll no-scrollbar"
+      className="bg-[#F6E7D2] border-none"
       background="/wavy-pattern.jpg"
       showAlertOnClose={true}
     >
       <div className="text-center">
-        <h1 className="mt-12 mb-4 text-6xl font-semibold">Type the Romaji</h1>
+        <h1 className="pt-12 mb-4 text-6xl font-semibold">Type the Romaji</h1>
         <h2 className="text-2xl">Press enter to submit.</h2>
         <h2 className="text-2xl">Take it as many times as you like! 👍</h2>
       </div>

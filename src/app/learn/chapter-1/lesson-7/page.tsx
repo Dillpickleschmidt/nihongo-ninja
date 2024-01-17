@@ -6,7 +6,7 @@ import SelectText from "@/app/components/SelectText"
 export default function Lesson7() {
   return (
     <Dialog variant={"reading"} className="border-4 border-black bg-[#191919]">
-      <div className="h-full pb-16 overflow-y-auto overscroll-y-contain no-scrollbar text-[#F8F5E9]">
+      <div className="pb-16 text-[#F8F5E9]">
         <h1 className="pt-28 pb-12 text-4xl font-medium leading-[3.25rem] text-center px-20">
           Welcome to your next lesson. We've got a lot to talk about. This one
           will be well worth your time. Good luck!

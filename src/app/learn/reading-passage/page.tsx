@@ -11,7 +11,7 @@ export default function ReadingPassage() {
     <>
       <Dialog>
         {/* Content */}
-        <div className="h-full overflow-y-auto overflow-x-hidden scrollbar-thin scrollbar-thumb-[#999999] scrollbar-track-transparent hover:scrollbar-thumb-neutral-400 overscroll-y-contain overscroll-x-none">
+        <div className="h-full overflow-x-hidden scrollbar-thin scrollbar-thumb-[#999999] hover:scrollbar-thumb-neutral-400">
           {/* Top Reading Passage Box */}
           <div className="flex flex-row justify-center h-[77%] mb-16 border-4 mr-[-4px] mt-[-4px] ml-[-60px] rounded-b-[60px] overflow-hidden border-black">
             <div className="w-[23%]">

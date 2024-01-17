@@ -6,8 +6,12 @@ import vocabData from "./data.json"
 export default function VocabLearnNumbers() {
   return (
     <Dialog variant={"large"} className="border-4 border-black bg-[#191919]">
-      <div className="h-full overflow-y-auto text-white overscroll-y-contain no-scrollbar">
-        <LearnVocab data={vocabData} shuffleTerms={true} />
+      <div className="text-white overscroll-y-contain">
+        <LearnVocab
+          data={vocabData}
+          link="/learn/chapter-2/lesson-1"
+          shuffleTerms={true}
+        />
       </div>
     </Dialog>
   )
