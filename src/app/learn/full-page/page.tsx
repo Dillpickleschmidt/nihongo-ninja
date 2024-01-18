@@ -5,7 +5,7 @@ import Button from "@/app/components/button"
 const Test = () => {
   return (
     <>
-      <Dialog>
+      <Dialog className="overflow-hidden">
         {/* Background Images */}
         <div className="absolute flex flex-row justify-end w-full">
           <div className="absolute h-[0px] w-[290px] mt-[17%] mr-[-3px]">

@@ -201,7 +201,7 @@ export default function Lesson6() {
           />
         </div>
         <div className="mt-24 mx-12 !mb-0 flex flex-row justify-end">
-          <Button link="/learn/chapter-1/lesson-6-quiz">
+          <Button link="/learn/chapter-1/lesson-6-quiz" autoFocus={true}>
             Test your knowledge {"->"}
           </Button>
         </div>

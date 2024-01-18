@@ -280,8 +280,8 @@ export default function LearnVocab({
   // If showReview is true, render the review UI
   if (showReview) {
     return (
-      <div className="h-full flex flex-col justify-center">
-        <div className="2xl:w-[60%] xl:w-[80%] mx-auto px-12 py-10 bg-[#222222] rounded-[10px] border-2 border-neutral-700 border-dashed">
+      <div className="h-full flex flex-row justify-center">
+        <div className="2xl:w-[60%] xl:w-[80%] fixed top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] px-12 py-10 bg-[#222222] rounded-[10px] border-2 border-neutral-700 border-dashed">
           {/* Render your review UI here */}
           <div className="w-full flex justify-center">
             <h1 className="border-b pb-6 border-yellow-500 border-opacity-75 px-16 text-5xl font-semibold">

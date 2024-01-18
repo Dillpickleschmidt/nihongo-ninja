@@ -1,5 +1,6 @@
 import Dialog from "@/app/components/dialog"
 import Button from "@/app/components/button"
+import Image from "next/image"
 
 import { Noto_Sans_JP } from "next/font/google"
 
@@ -7,18 +8,33 @@ const JapaneseFont = Noto_Sans_JP({ subsets: ["latin"] })
 
 export default function Lesson1() {
   return (
-    <Dialog variant={"reading"} background="/wavy-pattern.jpg">
+    <Dialog
+      variant={"reading"}
+      background="/wavy-pattern-2.jpg"
+      backgroundSize="700px"
+      opacity={9}
+      className="bg-[#191919] text-white"
+    >
       <div className="pb-16">
+        <div>
+          <Image
+            src={"/empty-circle.jpg"}
+            alt="circle"
+            width={1600}
+            height={800}
+            className="absolute mix-blend-lighten opacity-40 mt-[-30px] z-[-1]"
+          />
+        </div>
         <h1
-          className={`${JapaneseFont.className} pt-32 pb-8 text-[5rem] font-bold leading-[3.5rem] px-12 text-center`}
+          className={`${JapaneseFont.className} pt-[16rem] pb-8 text-[5rem] font-bold leading-[3.5rem] px-12 text-center`}
         >
           こにちは！
         </h1>
-        <p className="text-xl text-center">Good morning!</p>
-        <h2 className="pb-2 pt-2 text-[2rem] font-medium leading-[3.5rem] text-center px-24">
+        <p className="text-xl text-center">Good afternoon!</p>
+        <h2 className="pb-2 pt-52 text-[2rem] font-medium leading-[3.5rem] text-center px-24">
           Welcome to your <em>first lesson!</em> ⛩️
         </h2>
-        <div className="px-32 text-xl leading-8 [&>*]:py-6">
+        <div className="px-28 text-xl leading-8 [&>*]:py-6">
           <p>
             <u>Glad you could make it!</u> Now, as a beginner, the first thing
             you'll want to know is that Japanese consists of{" "}
@@ -108,7 +124,9 @@ export default function Lesson1() {
           </p>
         </div>
         <div className="mt-24 mx-12 !mb-0 flex flex-row justify-end">
-          <Button link="/learn/chapter-1/lesson-2">Next Lesson {"->"}</Button>
+          <Button link="/learn/chapter-1/lesson-2" autoFocus={true}>
+            Next Lesson {"->"}
+          </Button>
         </div>
       </div>
     </Dialog>

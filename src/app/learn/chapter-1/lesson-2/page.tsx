@@ -1,16 +1,32 @@
+"use client"
+import { useState, useEffect } from "react"
+import { motion } from "framer-motion"
+import Lottie from "lottie-react"
+import downArrow from "./downArrow.json"
 import Dialog from "@/app/components/dialog"
 import Button from "@/app/components/button"
+import HiraganaChart from "@/app/data/HiraganaChart"
 
 import { Noto_Sans_JP } from "next/font/google"
 
 const JapaneseFont = Noto_Sans_JP({ subsets: ["latin"] })
 
 export default function Lesson2() {
+  const [showSpoiler1, setShowSpoiler1] = useState(false)
+  const [showSpoiler2, setShowSpoiler2] = useState(false)
+
   return (
-    <Dialog variant={"reading"}>
+    <Dialog
+      variant={"reading"}
+      background="/wavy-pattern-2.jpg"
+      backgroundSize="700px"
+      opacity={9}
+    >
       <div className="pb-16">
-        <h1 className="pt-32 pb-8 text-[5rem] font-bold leading-[4.25rem] px-16 text-center">
-          Let's start learning 🎌Hiragana🎌
+        <h1 className="pt-32 pb-8 text-[5rem] font-bold leading-[4.25rem] px-20 text-center">
+          Hiragana: The <span className="text-red-500">A</span>
+          <span className="text-green-500">B</span>
+          <span className="text-blue-500">C</span>s of Japanese
         </h1>
         <h2 className="text-4xl text-center font-bold !pb-4 !pt-12">
           What is Hiragana?
@@ -27,7 +43,7 @@ export default function Lesson2() {
           </p>
           <p>
             There are a total of <strong>42</strong> Hiragana characters. It
-            sounds like a lot, but don't worry! They're all based on the same 5
+            sounds like a lot, but don't worry! They all include the same 5
             vowels that you've already seen.
           </p>
           <div
@@ -60,29 +76,88 @@ export default function Lesson2() {
             Try adding an 's' instead of 'k'. What do you think the sounds will
             be?
           </p>
-          <div
-            className={`${JapaneseFont.className} font-medium text-center text-2xl !py-0`}
-          >
-            <p>さ (sa)</p>
-            <p>し (shi)</p>
-            <p>す (su)</p>
-            <p>せ (se)</p>
-            <p>そ (so)</p>
+
+          {showSpoiler1 && (
+            <motion.div
+              key={`${showSpoiler1}`} // key is used to force a rerender when the index changes
+              initial={{ y: -30, opacity: 0 }}
+              animate={{
+                y: 0,
+                opacity: 1,
+                transition: { duration: 0.5 },
+              }}
+              exit={{ y: 30, opacity: 0 }}
+              className="!pt-0"
+            >
+              <div
+                className={`${JapaneseFont.className} font-medium text-center text-2xl`}
+              >
+                <p>さ (sa)</p>
+                <p>し (shi)</p>
+                <p>す (su)</p>
+                <p>せ (se)</p>
+                <p>そ (so)</p>
+              </div>
+              <p className="mt-6">
+                But wait, し sounds like 'she' instead of 'see'! Not everything
+                maps 1-1, a few characters are pronounced slightly differently
+                than the pattern suggests, but they're nothing that you haven't
+                pronounced before in English.
+              </p>
+            </motion.div>
+          )}
+          <div className="flex justify-center !pt-0">
+            <Button
+              onClick={() => setShowSpoiler1(!showSpoiler1)}
+              className="py-2 px-4 drop-shadow-none text-lg bg-[#222222] text-[#F6E7D2] hover:bg-[#444444] inline-flex items-center"
+            >
+              {showSpoiler1 ? (
+                <p>Hide</p>
+              ) : (
+                <>
+                  <Lottie animationData={downArrow} className="w-6" />
+                </>
+              )}
+            </Button>
           </div>
-          <p>
-            But wait, し sounds like 'she' instead of 'see'! Not everything maps
-            1-1, a few characters are pronounced slightly differently than the
-            pattern suggests, but they're nothing that you haven't pronounced
-            before in English.
-          </p>
           <p>
             Here's a chart containing all 42 Hiragana characters with their
             pronunciations.
           </p>
+
+          {showSpoiler2 && (
+            <motion.div
+              key={`${showSpoiler2}`} // key is used to force a rerender when the index changes
+              initial={{ y: -30, opacity: 0 }}
+              animate={{
+                y: 0,
+                opacity: 1,
+                transition: { duration: 0.5 },
+              }}
+              exit={{ y: 30, opacity: 0 }}
+              className="flex flex-col items-center"
+            >
+              <HiraganaChart />
+            </motion.div>
+          )}
+          <div className="flex justify-center !pt-0">
+            <Button
+              onClick={() => setShowSpoiler2(!showSpoiler2)}
+              className="py-2 px-4 drop-shadow-none text-lg bg-[#222222] text-[#F6E7D2] hover:bg-[#444444] inline-flex items-center"
+            >
+              {showSpoiler2 ? (
+                <p>Hide</p>
+              ) : (
+                <>
+                  <Lottie animationData={downArrow} className="w-6" />
+                </>
+              )}
+            </Button>
+          </div>
           <p>
             You've probably noticed that not all the rows are completely filled.
-            Japanese doesn't have a character for 'yi' or for 'wu'. That just
-            means fewer characters for you to memorize!
+            Japanese doesn't have characters for 'yi', 'ye', 'wi', etc. That
+            just means fewer characters for you to memorize!
           </p>
           <p>
             The pattern seems simple, but the characters themselves might not
@@ -90,14 +165,14 @@ export default function Lesson2() {
             worry, the <em>internet</em> has you covered!
           </p>
           <p>
-            While we pride ourselves on providing fun and engaging materials
-            within our app, our favorite way of learning hiragana is through
-            Tofugu's 'Learn Hiragana' PDF. This guide is a rarity—it's so
-            well-made that we felt compelled to send you here first. It is very
-            effective at helping you quickly memorize every Hiragana character,
-            and you can master Hiragana within days if not hours. Best of all,
-            it's free for all learners—no login/signup required. Go check it
-            out!
+            Our favorite way of learning hiragana is through Tofugu's 'Learn
+            Hiragana' PDF. This guide is a rarity—it's so well-made that we felt
+            compelled to send you here first{" "}
+            <span className="text-sm">(no need to reinvent the wheel)</span>. It
+            is very effective at helping you quickly memorize every Hiragana
+            character, and you can master Hiragana within days if not hours.
+            Best of all, it's free for all learners—no login/signup required. Go
+            check it out!
           </p>
           <p>
             Once you've made your way through all the characters,{" "}
@@ -118,7 +193,7 @@ export default function Lesson2() {
           </p>
         </div>
         <div className="mt-24 mx-12 !mb-0 flex flex-row justify-end">
-          <Button link="/learn/chapter-1/hiragana-quiz-1">
+          <Button link="/learn/chapter-1/hiragana-quiz-1" autoFocus={true}>
             Next Lesson {"->"}
           </Button>
         </div>

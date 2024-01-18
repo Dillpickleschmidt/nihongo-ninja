@@ -149,7 +149,7 @@ export default function Lesson3() {
           >
             What this do?👀
           </Button>
-          <Button link="/learn/chapter-1/hiragana-quiz-2">
+          <Button link="/learn/chapter-1/hiragana-quiz-2" autoFocus={true}>
             Next Lesson {"->"}
           </Button>
         </div>

@@ -114,7 +114,7 @@ export default function Lesson4() {
           </p>
         </div>
         <div className="mt-24 mx-12 !mb-0 flex flex-row justify-end">
-          <Button link="/learn/chapter-1/hiragana-quiz-3">
+          <Button link="/learn/chapter-1/hiragana-quiz-3" autoFocus={true}>
             Next Lesson {"->"}
           </Button>
         </div>

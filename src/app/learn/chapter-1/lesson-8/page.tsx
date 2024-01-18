@@ -38,7 +38,7 @@ export default function Lesson8() {
             the kanji just yet.
           </p>
           <div className="flex flex-row justify-end w-96">
-            <Button link="/learn/chapter-1/numbers">
+            <Button link="/learn/chapter-1/numbers" autoFocus={true}>
               Numbers Sheet {"->"}
             </Button>
           </div>

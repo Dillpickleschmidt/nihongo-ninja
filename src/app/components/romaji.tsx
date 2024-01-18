@@ -1,13 +1,28 @@
 type RomajiProps = {
   children: React.ReactNode
   romaji: string
+  romajiTextSize?: string
+  romajiTextPadding?: string
+  centered?: boolean
 }
 
-export default function Romaji({ children, romaji }: RomajiProps) {
+export default function Romaji({
+  children,
+  romaji,
+  romajiTextSize = "text-base",
+  romajiTextPadding = "pt-0",
+  centered,
+}: RomajiProps) {
   return (
     <>
       <span>{children}</span>
-      <p className="text-base !pt-0">{romaji}</p>
+      <p
+        className={`${romajiTextSize} !${romajiTextPadding} ${
+          centered && "text-center"
+        }`}
+      >
+        {romaji}
+      </p>
     </>
   )
 }

@@ -1,7 +1,7 @@
 // Basic template for all lessons with variations for different sizes
 
 "use client"
-import { ReactNode, use } from "react"
+import { ReactNode } from "react"
 import { useRef, useEffect } from "react"
 import { useRouter } from "next/navigation"
 import Button from "./button"
@@ -14,6 +14,8 @@ type DialogProps = React.DialogHTMLAttributes<HTMLDialogElement> &
     children: ReactNode
     locked?: boolean // locked changes the navbar appearance to a locked state
     background?: string
+    backgroundSize?: string
+    opacity?: number
     showAlertOnClose?: boolean
   }
 
@@ -24,6 +26,8 @@ export default function Dialog({
   className,
   locked = true, // navbar locked by default
   background,
+  backgroundSize = "1200px",
+  opacity = 30,
   showAlertOnClose = false,
 }: DialogProps) {
   // Opens the dialog
@@ -80,55 +84,64 @@ export default function Dialog({
   }, [])
 
   return (
-    <dialog
-      ref={dialogRef}
-      className="backdrop:backdrop-saturate-75 backdrop:backdrop-blur-2xl backdrop:backdrop-brightness-75"
-    >
-      {/* divRef-> clickable elements that don't close the dialog */}
-      <div ref={divRef}>
-        {/* <Navbar locked={locked} /> */}
-        {/* Dialog Variants */}
-        <div className={cn(dialogVariants({ variant, className }))}>
-          {/* Persistent elements in all dialogs */}
-          <div className="fixed flex flex-row justify-end w-full">
-            <Button link="/learn" variant={"system"} className="mt-10 mr-10">
-              x
-            </Button>
-          </div>
-          {/* If a background is provided, render this html */}
-          {background ? (
-            <div className="relative">
-              <div
-                className="absolute inset-0"
-                style={{
-                  backgroundImage: `url(${background})`,
-                  backgroundRepeat: "repeat",
-                  backgroundSize: "1200px", // Change this value to scale your background image
-                  backgroundBlendMode: "multiply",
-                  opacity: 0.3, // Change this value to set the opacity of the background image
-                  zIndex: -1,
-                }}
-              />
-              {children}
+    <div className="relative">
+      <dialog
+        ref={dialogRef}
+        className="backdrop:backdrop-saturate-75 backdrop:backdrop-blur-2xl backdrop:backdrop-brightness-75"
+      >
+        {/* divRef-> clickable elements that don't close the dialog */}
+        <div ref={divRef}>
+          {/* <Navbar locked={locked} /> */}
+          {/* Dialog Variants */}
+          <div className={cn(dialogVariants({ variant, className }))}>
+            {/* Persistent elements in all dialogs */}
+            <div className="fixed w-full flex flex-row justify-end z-50">
+              <Button
+                link="/learn"
+                variant={"system"}
+                className="mt-10 mr-10 py-0 focus:outline-none"
+                autoFocus={false}
+              >
+                x
+              </Button>
             </div>
-          ) : (
-            // Otherwise, just render this html
-            children
-          )}
+            {/* If a background is provided, render this html */}
+            <div className="w-full h-full overflow-y-auto overscroll-y-contain no-scrollbar inline-block rounded-[60px]">
+              {background ? (
+                <div className="relative">
+                  <div
+                    className="absolute inset-0"
+                    style={{
+                      backgroundImage: `url(${background})`,
+                      backgroundRepeat: "repeat",
+                      backgroundSize: backgroundSize, // Change this value to scale your background image
+                      backgroundBlendMode: "multiply",
+                      opacity: opacity / 100, // Change this value to set the opacity of the background image
+                      zIndex: -1,
+                    }}
+                  />
+                  {children}
+                </div>
+              ) : (
+                // Otherwise, just render this html
+                children
+              )}
+            </div>
+          </div>
         </div>
-      </div>
-    </dialog>
+      </dialog>
+    </div>
   )
 }
 
 const dialogVariants = cva(
-  "fixed top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] my-auto rounded-[60px] border-[3.5px] border-[#191919] inline-block overflow-y-auto overscroll-y-contain no-scrollbar shadow-2xl bg-[#F6E7D2] text-black",
+  "fixed top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] my-auto rounded-[60px] border-[3.5px] border-[#191919] shadow-2xl bg-[#F6E7D2] text-black",
   {
     variants: {
       variant: {
         xl: "w-[86%] h-[95%]",
         large: "w-[76%] h-[80%]",
-        reading: "w-[45%] h-[98%] bg-[#F8F5E9]",
+        reading: "w-[45%] h-[98%] border-4 border-black",
         narrow: "w-[38%] h-[80%]",
         md: "w-[30%] h-[70%]",
         small: "w-[30%] h-[50%]",

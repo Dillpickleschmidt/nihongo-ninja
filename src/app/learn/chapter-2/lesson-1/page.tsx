@@ -76,7 +76,9 @@ export default function C2Lesson1() {
           </div>
         </div>
         <div className="mt-24 mx-12 !mb-0 flex flex-row justify-end">
-          <Button link="/learn/chapter-2/lesson-2">Next Lesson {"->"}</Button>
+          <Button link="/learn/chapter-2/lesson-2" autoFocus={true}>
+            Next Lesson {"->"}
+          </Button>
         </div>
       </div>
     </Dialog>

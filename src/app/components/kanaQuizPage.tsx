@@ -20,7 +20,7 @@ export default function KanaQuiz({ kana, nextLesson }: KanaQuizProps) {
   return (
     <Dialog
       variant={"xl"}
-      className="bg-[#F6E7D2] border-none"
+      className="bg-[#F6E7D2]"
       background="/wavy-pattern.jpg"
       showAlertOnClose={true}
     >
