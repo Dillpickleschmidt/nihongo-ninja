@@ -3,6 +3,7 @@ import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import Lottie from "lottie-react"
 import downArrow from "./downArrow.json"
+import upArrow from "./upArrow.json"
 import Dialog from "@/app/components/dialog"
 import Button from "@/app/components/button"
 import HiraganaChart from "@/app/data/HiraganaChart"
@@ -42,7 +43,7 @@ export default function Lesson2() {
             these characters can be combined to form words.
           </p>
           <p>
-            There are a total of <strong>42</strong> Hiragana characters. It
+            There are a total of <strong>46</strong> Hiragana characters. It
             sounds like a lot, but don't worry! They all include the same 5
             vowels that you've already seen.
           </p>
@@ -93,16 +94,15 @@ export default function Lesson2() {
                 className={`${JapaneseFont.className} font-medium text-center text-2xl`}
               >
                 <p>さ (sa)</p>
-                <p>し (shi)</p>
+                <p>し (shi*)</p>
                 <p>す (su)</p>
                 <p>せ (se)</p>
                 <p>そ (so)</p>
               </div>
               <p className="mt-6">
-                But wait, し sounds like 'she' instead of 'see'! Not everything
-                maps 1-1, a few characters are pronounced slightly differently
-                than the pattern suggests, but they're nothing that you haven't
-                pronounced before in English.
+                But wait, し sounds like 'she' instead of 'see'! Some characters
+                do veer <em>slightly</em> off the pattern, but they're nothing
+                that you haven't pronounced before in English.
               </p>
             </motion.div>
           )}
@@ -112,7 +112,7 @@ export default function Lesson2() {
               className="py-2 px-4 drop-shadow-none text-lg bg-[#222222] text-[#F6E7D2] hover:bg-[#444444] inline-flex items-center"
             >
               {showSpoiler1 ? (
-                <p>Hide</p>
+                <Lottie animationData={upArrow} className="w-6" />
               ) : (
                 <>
                   <Lottie animationData={downArrow} className="w-6" />
@@ -121,7 +121,7 @@ export default function Lesson2() {
             </Button>
           </div>
           <p>
-            Here's a chart containing all 42 Hiragana characters with their
+            Here's a chart containing all 46 Hiragana characters with their
             pronunciations.
           </p>
 
@@ -146,7 +146,7 @@ export default function Lesson2() {
               className="py-2 px-4 drop-shadow-none text-lg bg-[#222222] text-[#F6E7D2] hover:bg-[#444444] inline-flex items-center"
             >
               {showSpoiler2 ? (
-                <p>Hide</p>
+                <Lottie animationData={upArrow} className="w-6" />
               ) : (
                 <>
                   <Lottie animationData={downArrow} className="w-6" />
@@ -160,9 +160,12 @@ export default function Lesson2() {
             just means fewer characters for you to memorize!
           </p>
           <p>
-            The pattern seems simple, but the characters themselves might not
-            seem so at first. And 42 of them? That sounds like a lot. But don't
-            worry, the <em>internet</em> has you covered!
+            The pattern seems simple, but the characters themselves are all
+            squiggly and weird! And 46 of them? You may be asking yourself,{" "}
+            <span className="text-2xl font-medium">
+              <em>"How the heck am I supposed to learn these?"</em>
+            </span>{" "}
+            Don't worry, the ✨internet✨ has you covered! 😼
           </p>
           <p>
             Our favorite way of learning hiragana is through Tofugu's 'Learn
@@ -179,8 +182,8 @@ export default function Lesson2() {
             <strong>come back</strong> so we can properly greet each other in
             Japanese! Remember, you don't need to master every hiragana
             character in one go, we'll provide the romaji (the pronunciations)
-            with the hiragana for this chapter, but we'll be ditching it in the
-            next one.
+            with the hiragana for the remainder of this chapter, but we'll be
+            ditching them in the next one.
           </p>
           <p className="text-2xl">🤯</p>
           <p className="text-lg">

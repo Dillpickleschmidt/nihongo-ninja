@@ -66,7 +66,7 @@ export default function HiraganaChart() {
             <tr className="[&>*]:border [&>*]:border-black [&>*]:pt-4 [&>*]:pb-3 [&>*]:px-9">
               <td className="!border-l-0">
                 <Romaji
-                  romaji="sa"
+                  romaji="ka"
                   romajiTextSize="text-2xl"
                   romajiTextPadding={"pt-4"}
                   centered={true}
@@ -76,7 +76,7 @@ export default function HiraganaChart() {
               </td>
               <td>
                 <Romaji
-                  romaji="shi"
+                  romaji="ki"
                   romajiTextSize="text-2xl"
                   romajiTextPadding={"pt-4"}
                   centered={true}
@@ -86,7 +86,7 @@ export default function HiraganaChart() {
               </td>
               <td>
                 <Romaji
-                  romaji="su"
+                  romaji="ku"
                   romajiTextSize="text-2xl"
                   romajiTextPadding={"pt-4"}
                   centered={true}
@@ -96,7 +96,7 @@ export default function HiraganaChart() {
               </td>
               <td>
                 <Romaji
-                  romaji="se"
+                  romaji="ke"
                   romajiTextSize="text-2xl"
                   romajiTextPadding={"pt-4"}
                   centered={true}
@@ -106,12 +106,64 @@ export default function HiraganaChart() {
               </td>
               <td className="!border-r-0">
                 <Romaji
-                  romaji="so"
+                  romaji="ko"
                   romajiTextSize="text-2xl"
                   romajiTextPadding={"pt-4"}
                   centered={true}
                 >
                   こ
+                </Romaji>
+              </td>
+            </tr>
+            <tr className="[&>*]:border [&>*]:border-black [&>*]:pt-4 [&>*]:pb-3 [&>*]:px-9">
+              <td className="!border-l-0">
+                <Romaji
+                  romaji="sa"
+                  romajiTextSize="text-2xl"
+                  romajiTextPadding={"pt-4"}
+                  centered={true}
+                >
+                  さ
+                </Romaji>
+              </td>
+              <td>
+                <Romaji
+                  romaji="shi*"
+                  romajiTextSize="text-2xl"
+                  romajiTextPadding={"pt-4"}
+                  centered={true}
+                >
+                  し
+                </Romaji>
+              </td>
+              <td>
+                <Romaji
+                  romaji="su"
+                  romajiTextSize="text-2xl"
+                  romajiTextPadding={"pt-4"}
+                  centered={true}
+                >
+                  す
+                </Romaji>
+              </td>
+              <td>
+                <Romaji
+                  romaji="se"
+                  romajiTextSize="text-2xl"
+                  romajiTextPadding={"pt-4"}
+                  centered={true}
+                >
+                  せ
+                </Romaji>
+              </td>
+              <td className="!border-r-0">
+                <Romaji
+                  romaji="so"
+                  romajiTextSize="text-2xl"
+                  romajiTextPadding={"pt-4"}
+                  centered={true}
+                >
+                  そ
                 </Romaji>
               </td>
             </tr>
@@ -128,7 +180,7 @@ export default function HiraganaChart() {
               </td>
               <td>
                 <Romaji
-                  romaji="chi"
+                  romaji="chi*"
                   romajiTextSize="text-2xl"
                   romajiTextPadding={"pt-4"}
                   centered={true}
@@ -138,7 +190,7 @@ export default function HiraganaChart() {
               </td>
               <td>
                 <Romaji
-                  romaji="tsu"
+                  romaji="tsu*"
                   romajiTextSize="text-2xl"
                   romajiTextPadding={"pt-4"}
                   centered={true}
@@ -242,7 +294,7 @@ export default function HiraganaChart() {
               </td>
               <td>
                 <Romaji
-                  romaji="fu"
+                  romaji="fu*"
                   romajiTextSize="text-2xl"
                   romajiTextPadding={"pt-4"}
                   centered={true}
@@ -425,7 +477,7 @@ export default function HiraganaChart() {
               <td className="!border-b-0"></td>
               <td className="!border-r-0 !border-b-0">
                 <Romaji
-                  romaji="o"
+                  romaji="o**"
                   romajiTextSize="text-2xl"
                   romajiTextPadding={"pt-4"}
                   centered={true}

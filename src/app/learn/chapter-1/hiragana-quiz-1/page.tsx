@@ -1,5 +1,5 @@
 import KanaQuiz from "@/app/components/kanaQuizPage"
-import { mainKana } from "@/app/components/character-quiz-boxes"
+import { mainKana } from "@/app/components/CharacterQuizBoxes"
 
 export default function HiraganaTest1() {
   return (

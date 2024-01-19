@@ -31,7 +31,7 @@ export default function Lesson1() {
           こにちは！
         </h1>
         <p className="text-xl text-center">Good afternoon!</p>
-        <h2 className="pb-2 pt-52 text-[2rem] font-medium leading-[3.5rem] text-center px-24">
+        <h2 className="pb-2 pt-52 text-5xl font-medium leading-[3.5rem] text-center px-24">
           Welcome to your <em>first lesson!</em> ⛩️
         </h2>
         <div className="px-28 text-xl leading-8 [&>*]:py-6">
