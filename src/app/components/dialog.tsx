@@ -17,6 +17,7 @@ type DialogProps = React.DialogHTMLAttributes<HTMLDialogElement> &
     backgroundSize?: string
     opacity?: number
     showAlertOnClose?: boolean
+    scrollRef?: React.MutableRefObject<HTMLDivElement | null>
   }
 
 // Dialog is a modal that appears on top of the page
@@ -29,6 +30,7 @@ export default function Dialog({
   backgroundSize = "1200px",
   opacity = 30,
   showAlertOnClose = false,
+  scrollRef = useRef<null | HTMLDivElement>(null),
 }: DialogProps) {
   // Opens the dialog
   // useRef holds state and won't rerender on state change
@@ -39,11 +41,11 @@ export default function Dialog({
       dialogRef.current.showModal() // if a dialog html element is present in the page, show the dialog
       document.body.classList.add("overflow-hidden") // prevent scrolling of the background
     } else {
-      document.body.classList.remove("overflow-hidden")
+      document.body.classList.remove("overflow-hidden") // otherwise, remove the overflow-hidden class
     }
 
     return () => {
-      document.body.classList.remove("overflow-hidden")
+      document.body.classList.remove("overflow-hidden") // cleanup function on dismount
     }
   }, [dialogRef.current])
 
@@ -62,10 +64,10 @@ export default function Dialog({
     }
     // close the dialog if it exists
     dialogRef.current?.close()
-    router.push("/learn", { scroll: false })
+    router.push("/learn", { scroll: false }) // scroll: false retains the previous scroll position
   }
 
-  // Handles outside clicks
+  // Handles outside clicks to close the dialog
   const divRef = useRef<HTMLDivElement | null>(null)
   useEffect(() => {
     const handleOutSideClick = (event: MouseEvent) => {
@@ -106,7 +108,10 @@ export default function Dialog({
               </Button>
             </div>
             {/* If a background is provided, render this html */}
-            <div className="w-full h-full overflow-y-auto overscroll-y-contain no-scrollbar inline-block rounded-[60px]">
+            <div
+              className="w-full h-full overflow-y-auto overscroll-y-contain no-scrollbar inline-block rounded-[60px]"
+              ref={scrollRef}
+            >
               {background ? (
                 <div className="relative">
                   <div

@@ -1,5 +1,5 @@
 "use client"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import Dialog from "@/app/components/dialog"
 import Button from "@/app/components/button"
 import { CharacterBox } from "@/app/components/CharacterQuizBoxes"
@@ -10,12 +10,13 @@ import { Noto_Sans_JP } from "next/font/google"
 const JapaneseFont = Noto_Sans_JP({ subsets: ["latin"] })
 
 type KanaQuizProps = {
-  kana: { hiragana: string; romaji: string }[]
+  kana: { hiragana: string; romaji: string[] }[]
   nextLesson: string
 }
 
 export default function KanaQuiz({ kana, nextLesson }: KanaQuizProps) {
   HandleBeforeUnload()
+  const scrollRef = useRef<HTMLDivElement>(null)
 
   const [showResults, setShowResults] = useState(false)
   const [numCorrect, setNumCorrect] = useState(0)
@@ -24,7 +25,7 @@ export default function KanaQuiz({ kana, nextLesson }: KanaQuizProps) {
   const [characterBoxes, setCharacterBoxes] = useState<
     {
       hiragana: string
-      romaji: string
+      romaji: string[]
       userInput: string
       isCorrect: boolean
     }[]
@@ -45,7 +46,7 @@ export default function KanaQuiz({ kana, nextLesson }: KanaQuizProps) {
       newCharacterBoxes[index].userInput = newUserInput
 
       // Update isCorrect property
-      if (newUserInput === newCharacterBoxes[index].romaji) {
+      if (newCharacterBoxes[index].romaji.includes(newUserInput)) {
         newCharacterBoxes[index].isCorrect = true
       } else {
         newCharacterBoxes[index].isCorrect = false
@@ -58,10 +59,18 @@ export default function KanaQuiz({ kana, nextLesson }: KanaQuizProps) {
     })
   }
 
+  const handleScrollDialog = () => {
+    // scroll to the top of the dialog
+    if (scrollRef.current) {
+      scrollRef.current.scrollTo(0, 0)
+    }
+  }
+
   return (
     <Dialog
       variant={"xl"}
       className="bg-[#F6E7D2]"
+      scrollRef={scrollRef}
       background="/wavy-pattern.jpg"
       showAlertOnClose={true}
     >
@@ -140,7 +149,13 @@ export default function KanaQuiz({ kana, nextLesson }: KanaQuizProps) {
         ) : (
           <Button
             className="mt-8 mb-16 mr-12 lg:mb-24 lg:mr-24"
-            onClick={() => setShowResults(true)}
+            onClick={() => {
+              setShowResults(true)
+              if (scrollRef.current) {
+                console.log("here")
+                handleScrollDialog()
+              }
+            }}
           >
             Submit
           </Button>

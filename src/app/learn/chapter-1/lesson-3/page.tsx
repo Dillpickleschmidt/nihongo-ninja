@@ -1,5 +1,6 @@
 import Dialog from "@/app/components/dialog"
 import Button from "@/app/components/button"
+import DakutenChart from "@/app/data/DakutenChart"
 
 import { Noto_Sans_JP } from "next/font/google"
 
@@ -129,7 +130,11 @@ export default function Lesson3() {
             Or maybe because Japanese speakers centuries ago got a little bored
             and decided to mix things up.
           </p>
-          <p className="text-4xl text-center !py-2">🤷🏻</p>
+          <p className="text-center">
+            <span className={`${JapaneseFont.className}`}>わかりません</span>{" "}
+            <span className="text-base">(I don't know)</span>{" "}
+            <span className="text-4xl !py-2">🤷🏻</span>
+          </p>
           <p>
             <span className="text-[1.325rem] font-bold">
               <em>Strap in</em>
@@ -139,7 +144,9 @@ export default function Lesson3() {
             difference? Happy learning, and remember, in the realm of Dakuten
             and Handakuten, <em>expect the unexpected!</em>
           </p>
-          (Provide dialectical hiragana chart)
+          <div className="flex flex-col items-center">
+            <DakutenChart />
+          </div>
         </div>
         <div className="mt-24 mx-12 !mb-0 flex flex-row justify-between">
           <Button

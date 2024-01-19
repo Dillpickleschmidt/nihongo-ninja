@@ -1,0 +1,279 @@
+import Romaji from "@/app/components/romaji"
+import { Noto_Sans_JP } from "next/font/google"
+
+const JapaneseFont = Noto_Sans_JP({ subsets: ["latin"] })
+
+export default function DakutenChart() {
+  return (
+    <>
+      <div className="rounded-3xl border-[3px] border-black !p-0 !m-0 overflow-x-hidden w-[95%]">
+        <table
+          className={`${JapaneseFont.className} table-fixed border-collapse text-5xl bg-[#F8F5E9] bg-opacity-40 w-full`}
+        >
+          <tbody>
+            <tr className="[&>*]:border-b [&>*]:border-l [&>*]:border-r [&>*]:border-black [&>*]:pt-4 [&>*]:pb-3 [&>*]:px-9">
+              <td className="!border-l-0">
+                <Romaji
+                  romaji="ga"
+                  romajiTextSize="text-2xl"
+                  romajiTextPadding={"pt-4"}
+                  centered={true}
+                >
+                  が
+                </Romaji>
+              </td>
+              <td>
+                <Romaji
+                  romaji="gi"
+                  romajiTextSize="text-2xl"
+                  romajiTextPadding={"pt-4"}
+                  centered={true}
+                >
+                  ぎ
+                </Romaji>
+              </td>
+              <td>
+                <Romaji
+                  romaji="gu"
+                  romajiTextSize="text-2xl"
+                  romajiTextPadding={"pt-4"}
+                  centered={true}
+                >
+                  ぐ
+                </Romaji>
+              </td>
+              <td>
+                <Romaji
+                  romaji="ge"
+                  romajiTextSize="text-2xl"
+                  romajiTextPadding={"pt-4"}
+                  centered={true}
+                >
+                  げ
+                </Romaji>
+              </td>
+              <td className="!border-r-0">
+                <Romaji
+                  romaji="go"
+                  romajiTextSize="text-2xl"
+                  romajiTextPadding={"pt-4"}
+                  centered={true}
+                >
+                  ご
+                </Romaji>
+              </td>
+            </tr>
+            <tr className="[&>*]:border [&>*]:border-black [&>*]:pt-4 [&>*]:pb-3 [&>*]:px-9">
+              <td className="!border-l-0">
+                <Romaji
+                  romaji="za"
+                  romajiTextSize="text-2xl"
+                  romajiTextPadding={"pt-4"}
+                  centered={true}
+                >
+                  ざ
+                </Romaji>
+              </td>
+              <td>
+                <Romaji
+                  romaji="ji*"
+                  romajiTextSize="text-2xl"
+                  romajiTextPadding={"pt-4"}
+                  centered={true}
+                >
+                  じ
+                </Romaji>
+              </td>
+              <td>
+                <Romaji
+                  romaji="zu"
+                  romajiTextSize="text-2xl"
+                  romajiTextPadding={"pt-4"}
+                  centered={true}
+                >
+                  ず
+                </Romaji>
+              </td>
+              <td>
+                <Romaji
+                  romaji="ze"
+                  romajiTextSize="text-2xl"
+                  romajiTextPadding={"pt-4"}
+                  centered={true}
+                >
+                  ぜ
+                </Romaji>
+              </td>
+              <td className="!border-r-0">
+                <Romaji
+                  romaji="zo"
+                  romajiTextSize="text-2xl"
+                  romajiTextPadding={"pt-4"}
+                  centered={true}
+                >
+                  ぞ
+                </Romaji>
+              </td>
+            </tr>
+            <tr className="[&>*]:border [&>*]:border-black [&>*]:pt-4 [&>*]:pb-3 [&>*]:px-9">
+              <td className="!border-l-0">
+                <Romaji
+                  romaji="da"
+                  romajiTextSize="text-2xl"
+                  romajiTextPadding={"pt-4"}
+                  centered={true}
+                >
+                  だ
+                </Romaji>
+              </td>
+              <td>
+                <Romaji
+                  romaji="ji*"
+                  romajiTextSize="text-2xl"
+                  romajiTextPadding={"pt-4"}
+                  centered={true}
+                >
+                  ぢ
+                </Romaji>
+              </td>
+              <td>
+                <Romaji
+                  romaji="zu"
+                  romajiTextSize="text-2xl"
+                  romajiTextPadding={"pt-4"}
+                  centered={true}
+                >
+                  づ
+                </Romaji>
+              </td>
+              <td>
+                <Romaji
+                  romaji="de"
+                  romajiTextSize="text-2xl"
+                  romajiTextPadding={"pt-4"}
+                  centered={true}
+                >
+                  で
+                </Romaji>
+              </td>
+              <td className="!border-r-0">
+                <Romaji
+                  romaji="do"
+                  romajiTextSize="text-2xl"
+                  romajiTextPadding={"pt-4"}
+                  centered={true}
+                >
+                  ど
+                </Romaji>
+              </td>
+            </tr>
+            <tr className="[&>*]:border [&>*]:border-black [&>*]:pt-4 [&>*]:pb-3 [&>*]:px-9">
+              <td className="!border-l-0">
+                <Romaji
+                  romaji="ba"
+                  romajiTextSize="text-2xl"
+                  romajiTextPadding={"pt-4"}
+                  centered={true}
+                >
+                  ば
+                </Romaji>
+              </td>
+              <td>
+                <Romaji
+                  romaji="bi"
+                  romajiTextSize="text-2xl"
+                  romajiTextPadding={"pt-4"}
+                  centered={true}
+                >
+                  び
+                </Romaji>
+              </td>
+              <td>
+                <Romaji
+                  romaji="bu"
+                  romajiTextSize="text-2xl"
+                  romajiTextPadding={"pt-4"}
+                  centered={true}
+                >
+                  ぶ
+                </Romaji>
+              </td>
+              <td>
+                <Romaji
+                  romaji="be"
+                  romajiTextSize="text-2xl"
+                  romajiTextPadding={"pt-4"}
+                  centered={true}
+                >
+                  べ
+                </Romaji>
+              </td>
+              <td className="!border-r-0">
+                <Romaji
+                  romaji="bo"
+                  romajiTextSize="text-2xl"
+                  romajiTextPadding={"pt-4"}
+                  centered={true}
+                >
+                  ぼ
+                </Romaji>
+              </td>
+            </tr>
+            <tr className="[&>*]:border [&>*]:border-black [&>*]:pt-4 [&>*]:pb-3 [&>*]:px-9">
+              <td className="!border-l-0 !border-b-0">
+                <Romaji
+                  romaji="pa"
+                  romajiTextSize="text-2xl"
+                  romajiTextPadding={"pt-4"}
+                  centered={true}
+                >
+                  ぱ
+                </Romaji>
+              </td>
+              <td className="!border-b-0">
+                <Romaji
+                  romaji="pi"
+                  romajiTextSize="text-2xl"
+                  romajiTextPadding={"pt-4"}
+                  centered={true}
+                >
+                  ぴ
+                </Romaji>
+              </td>
+              <td className="!border-b-0">
+                <Romaji
+                  romaji="pu"
+                  romajiTextSize="text-2xl"
+                  romajiTextPadding={"pt-4"}
+                  centered={true}
+                >
+                  ぷ
+                </Romaji>
+              </td>
+              <td className="!border-b-0">
+                <Romaji
+                  romaji="pe"
+                  romajiTextSize="text-2xl"
+                  romajiTextPadding={"pt-4"}
+                  centered={true}
+                >
+                  ぺ
+                </Romaji>
+              </td>
+              <td className="!border-r-0 !border-b-0">
+                <Romaji
+                  romaji="po"
+                  romajiTextSize="text-2xl"
+                  romajiTextPadding={"pt-4"}
+                  centered={true}
+                >
+                  ぽ
+                </Romaji>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </>
+  )
+}
