@@ -5,7 +5,7 @@ import Button from "@/app/components/button"
 const Test = () => {
   return (
     <>
-      <Dialog>
+      <Dialog className="overflow-hidden">
         {/* Background Images */}
         <div className="absolute flex flex-row justify-end w-full">
           <div className="absolute h-[0px] w-[290px] mt-[17%] mr-[-3px]">
@@ -49,9 +49,9 @@ const Test = () => {
               <h1 className="xl:mt-52 xl:mb-0 mb-6 lg:mt-24 text-[3.5rem] font-bold leading-[3.5rem]">
                 Welcome to Chapter 2!
               </h1>
-              <p className="lg:pr-6 text-[1.6rem] leading-8 font-medium">
-                What time is it? Who are the heck are you? How old are you?
-                ...are you an American?
+              <p className="mt-4 lg:pr-6 text-[1.6rem] leading-8 font-medium">
+                Ask the time, share your age, tell someone your profession, and
+                more!
               </p>
               <p className="xl:my-12 lg:my-6 text-[1.6rem] leading-8 font-medium">
                 In this unit, you'll learn about:
@@ -62,12 +62,14 @@ const Test = () => {
               >
                 <li>です - to be</li>
                 <li>か - Asking questions</li>
-                <li>Telling the time</li>
-                <li>Professions + Majors</li>
+                <li>じ - Telling the time</li>
+                <li>And lots more!</li>
               </ul>
             </div>
             <div className="ml-52 mt-14">
-              <Button link="/learn/chapter-2/vocab">Get Started!</Button>
+              <Button link="/learn/chapter-2/lesson-1">
+                Get started! {"->"}
+              </Button>
             </div>
           </div>
         </div>

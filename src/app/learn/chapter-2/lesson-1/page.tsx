@@ -17,12 +17,19 @@ export default function C2Lesson1() {
             "It's a state of being, man..."
           </h2>
           <VocabCard title="です - is" pronunciation="desu" hiragana="です">
-            "Desu" is often used to <u>connect the subject to the sentence.</u>{" "}
-            It doesn't strictly mean anything by itself.
-            <br /> <strong>Translation:</strong> In English, "desu" can be
+            です is often used to <u>connect the subject to the sentence.</u> It
+            doesn't strictly mean anything by itself.
+            <br /> <strong>Translation:</strong> In English, です can be
             translated as "is," "are," or "am," but it doesn't carry an exact
             one-to-one translation as it's more about conveying a state of being
             in a polite form.
+            <br />
+            <br />
+            <p className="text-base">
+              *More often than not, Japanese speakers drop the "u" at the end of
+              です when speaking quickly, making it sound more like "des". We
+              encourage you to pick up on that habit as well.
+            </p>
           </VocabCard>
           <div className="py-0 text-[#F8F5E9] px-16">
             <div className="mx-12">

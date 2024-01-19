@@ -1,3 +1,7 @@
+import { Noto_Sans_JP } from "next/font/google"
+
+const JapaneseFont = Noto_Sans_JP({ subsets: ["latin"] })
+
 type RomajiProps = {
   children: React.ReactNode
   romaji: string
@@ -11,18 +15,20 @@ export default function Romaji({
   romaji,
   romajiTextSize = "text-base",
   romajiTextPadding = "pt-0",
-  centered,
+  centered = true,
 }: RomajiProps) {
   return (
-    <>
-      <span>{children}</span>
-      <p
-        className={`${romajiTextSize} !${romajiTextPadding} ${
-          centered && "text-center"
-        }`}
-      >
-        {romaji}
-      </p>
-    </>
+    <div className="inline-flex">
+      <div className="block">
+        <span className={`${JapaneseFont.className}`}>{children}</span>
+        <p
+          className={`${romajiTextSize} !${romajiTextPadding} ${
+            centered && "text-center"
+          }`}
+        >
+          {romaji}
+        </p>
+      </div>
+    </div>
   )
 }

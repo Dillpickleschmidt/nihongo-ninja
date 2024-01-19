@@ -9,7 +9,7 @@ export default function VocabLearnNumbers() {
       <div className="text-white overscroll-y-contain">
         <LearnVocab
           data={vocabData}
-          link="/learn/chapter-2/lesson-1"
+          link="/learn/chapter-2/lesson-welcome"
           shuffleTerms={true}
         />
       </div>
