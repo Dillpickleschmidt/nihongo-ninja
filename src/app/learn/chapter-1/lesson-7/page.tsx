@@ -284,7 +284,7 @@ export default function Lesson7() {
           </p>
         </div>
         <div className="mt-24 mx-12 !mb-0 flex flex-row justify-end">
-          <Button link="/learn/chapter-1/lesson-8" autoFocus={true}>
+          <Button link="/learn/chapter-1/lesson-8-1" autoFocus={true}>
             Next Lesson {"->"}
           </Button>
         </div>

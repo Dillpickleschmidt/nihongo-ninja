@@ -67,7 +67,7 @@ const Test = () => {
               </ul>
             </div>
             <div className="ml-52 mt-14">
-              <Button link="/learn/chapter-2/lesson-1">
+              <Button link="/learn/chapter-2/preview">
                 Get started! {"->"}
               </Button>
             </div>

@@ -233,6 +233,7 @@ export default function LearnVocab({
         // If questionCount reaches 7, show the review UI
         if (questionCount >= 6) {
           setShowReview(true)
+          setQuestionCount(0)
         }
 
         // Add the current question to reviewQuestions
@@ -302,12 +303,12 @@ export default function LearnVocab({
               ))}
             </div>
           </div>
-          <div className="w-full flex justify-end">
+          <div className="w-full flex justify-end outline-none">
             <Button
               className=""
+              autoFocus={true}
               onClick={() => {
-                // When "continue" is clicked, reset questionCount and hide the review UI
-                setQuestionCount(0)
+                // When "continue" is clicked, hide the review UI
                 setShowReview(false)
               }}
             >

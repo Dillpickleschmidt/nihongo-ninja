@@ -102,7 +102,7 @@ export default function Lesson9Pt2() {
         <div className="pt-12 px-32 text-xl leading-8 [&>*]:py-6">
           <p>
             You'll notice that numbers 4, 7, and 9 have two options. Japanese
-            speakers use either option based on unique personal preferences.
+            speakers use either option, so it's good to know both!
           </p>
           <p>
             Just like most languages, 1-10 are essential numbers to know, but

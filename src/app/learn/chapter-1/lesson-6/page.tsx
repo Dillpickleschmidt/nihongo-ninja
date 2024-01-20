@@ -8,20 +8,12 @@ export default function Lesson6() {
     <Dialog variant={"reading"} className="border-4 border-black bg-[#191919]">
       <div className="pb-16 text-[#F8F5E9]">
         {/* Header */}
-        <h1 className="pt-28 pb-12 text-4xl font-medium leading-[3.25rem] text-center px-20">
-          <span className="text-5xl font-medium">Great job</span>, you've
-          finally made it! You've now got a strong grasp of Hiragana! Not only
-          can you <span className="text-5xl">read</span> hiragana, but you also
-          have the phonetic arsenal to <span className="text-5xl">say</span>{" "}
-          pretty much <span className="font-bold">*anything*</span> in
-          Japanese!🔥
-        </h1>
-        <p className="px-32 py-6 text-xl leading-8">
+        <h1 className="pt-28 px-28 pb-6 text-4xl">
           Now that you're familiar with the basics, let's dive into some common
           Japanese greetings. These phrases will be your first steps into
           conversational Japanese, and they're essential for everyday
           interactions.
-        </p>
+        </h1>
         <p className="!py-0">(include audio files)</p>
         {/* Vocabulary */}
         <div className="text-xl leading-8 text-black">
