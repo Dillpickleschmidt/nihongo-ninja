@@ -1,0 +1,21 @@
+{
+  "眼鏡": ["めがね", "glasses"],
+  "歌": ["うた", "song"],
+  "車": ["くるま", "car"],
+  "長い": ["ながい", "long"],
+  "短い": ["みじがい", "short (length)"],
+  "早い": ["はやい", "fast"],
+  "背が高い": ["せがたかい", "tall (stature)"],
+  "背が低い": ["せがひくい", "short (stature)"],
+  "頭がいい": ["あたまがいい", "bright/smart/clever"],
+  "可愛い": ["かわいい", "cute"],
+  "親切": ["しんせつ", "kind"],
+  "便利": ["べんり", "convenient"],
+  "歌う": ["うたう", "to sing"],
+  "被る": ["かぶる", "to put on a hat"],
+  "履く": ["はく", "to put on items below your waist"],
+  "知る": ["しる", "to get to know"],
+  "知っています": ["しっています", "I know"],
+  "知りません": ["しりません", "I do not know"],
+  "住む": ["すむ", "to live"]
+}

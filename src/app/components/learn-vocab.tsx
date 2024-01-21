@@ -1,15 +1,16 @@
 "use client"
 import { useState, useEffect, useRef } from "react"
+import { ReactNode } from "react"
 import Button from "@/app/components/button"
 import ShuffleArray from "@/app/util/shuffleArray"
 import GetAnswerFromState from "@/app/util/getAnswerFromState"
 
-import { Noto_Sans_JP } from "next/font/google"
 import ShuffleRange from "../util/shuffleRange"
-
-const JapaneseFont = Noto_Sans_JP({ subsets: ["latin"] })
+import SpoilerButton from "./SpoilerButton"
+import JapaneseFont from "./JapaneseFont"
 
 type QuizProps = {
+  children?: ReactNode
   data: { [key: string]: string[] }
   link: string
   shuffleTerms?: boolean
@@ -19,6 +20,7 @@ export default function LearnVocab({
   data,
   link,
   shuffleTerms = false,
+  children,
 }: QuizProps) {
   // Initialize vocabArray state with the transformed data
   const [vocabArray, setVocabArray] = useState(
@@ -45,6 +47,7 @@ export default function LearnVocab({
   const [correctButton, setCorrectButton] = useState("")
   const [showReview, setShowReview] = useState(false)
   const [finished, setFinished] = useState(false)
+  const [started, setStarted] = useState(false)
 
   const inputRef = useRef<HTMLInputElement>(null)
 
@@ -264,6 +267,19 @@ export default function LearnVocab({
     }
   }
 
+  if (!started) {
+    return (
+      <div className="text-2xl">
+        <div className="w-full mt-24 flex justify-center items-center">
+          <div>{children}</div>
+        </div>
+        <div className="my-12 flex flex-row justify-center">
+          <Button onClick={() => setStarted(true)}>Start Practicing</Button>
+        </div>
+      </div>
+    )
+  }
+
   // If 'finished' is true, render a "finished" page
   if (finished) {
     return (
@@ -293,8 +309,8 @@ export default function LearnVocab({
             <div className="space-y-6">
               {reviewQuestions.map((question, index) => (
                 <div key={index} className="border-b border-neutral-700 pb-6">
-                  <p className="text-4xl">
-                    {question.key}{" "}
+                  <p className="text-4xl font-medium">
+                    <JapaneseFont>{question.key}</JapaneseFont>{" "}
                     <span className="text-2xl">
                       - {question.value[0]} {question.value[1]}
                     </span>
@@ -332,8 +348,8 @@ export default function LearnVocab({
       <div className="2xl:max-w-[60%] xl:max-w-[80%] mx-auto mt-24 px-12 py-10 bg-[#222222] rounded-[10px] border-2 border-neutral-700 border-dashed">
         {/* Render your question here */}
         <label className="text-sm">Audio</label>
-        <h1 className={`${JapaneseFont} my-16 text-center text-7xl`}>
-          {currentQuestion.key}
+        <h1 className="my-16 text-center text-7xl">
+          <JapaneseFont>{currentQuestion.key}</JapaneseFont>
         </h1>
         {currentQuestion.type === "multiple-choice" ? (
           // Render UI for multiple-choice question
@@ -345,9 +361,9 @@ export default function LearnVocab({
             >
               <span className="mr-5 text-lg">1. </span>
               {hiragana1 && (
-                <span className={`${JapaneseFont} mr-1`}>{hiragana1} </span>
+                <JapaneseFont className="mr-1">{hiragana1} </JapaneseFont>
               )}
-              {english1}
+              <JapaneseFont>{english1}</JapaneseFont>
             </Button>
             <Button
               variant={"vocab"}
@@ -356,9 +372,9 @@ export default function LearnVocab({
             >
               <span className="mr-5 text-lg">2. </span>
               {hiragana2 && (
-                <span className={`${JapaneseFont} mr-1`}>{hiragana2} </span>
+                <JapaneseFont className="mr-1">{hiragana2} </JapaneseFont>
               )}
-              {english2}
+              <JapaneseFont>{english2}</JapaneseFont>
             </Button>
             <Button
               variant={"vocab"}
@@ -367,9 +383,9 @@ export default function LearnVocab({
             >
               <span className="mr-5 text-lg">3. </span>
               {hiragana3 && (
-                <span className={`${JapaneseFont} mr-1`}>{hiragana3} </span>
+                <JapaneseFont className="mr-1">{hiragana3} </JapaneseFont>
               )}
-              {english3}
+              <JapaneseFont>{english3}</JapaneseFont>
             </Button>
             <Button
               variant={"vocab"}
@@ -378,9 +394,9 @@ export default function LearnVocab({
             >
               <span className="mr-5 text-lg">4. </span>
               {hiragana4 && (
-                <span className={`${JapaneseFont} mr-1`}>{hiragana4} </span>
+                <JapaneseFont className="mr-1">{hiragana4} </JapaneseFont>
               )}
-              {english4}
+              <JapaneseFont>{english4}</JapaneseFont>
             </Button>
           </ul>
         ) : (
@@ -432,6 +448,17 @@ export default function LearnVocab({
             )}
           </div>
         )}
+      </div>
+      <div className="mt-12 flex justify-center">
+        <SpoilerButton
+          text="Hint:"
+          className="py-2 px-4 text-neutral-300 border-none"
+        >
+          <p className="mt-6 text-xl">
+            Sounds like "high-yai." Think of something moving so fast it goes
+            high and yells "Yai!"
+          </p>
+        </SpoilerButton>
       </div>
     </div>
   )

@@ -1,9 +1,12 @@
 import { ReactNode } from "react"
+import JapaneseFont from "./JapaneseFont"
+
 type VocabCardProps = {
   children?: ReactNode
   title: string
   hiragana: string
   pronunciation?: string
+
   light?: boolean
 }
 
@@ -20,9 +23,12 @@ export default function VocabCard({
         light ? "bg-[#f7f0dd]" : "bg-[#f7e2c4]"
       }`}
     >
-      <h3 className="text-2xl font-bold !pb-0">{title}</h3>
+      <h3 className="text-2xl font-bold !pb-0">
+        <JapaneseFont>{title}</JapaneseFont>
+      </h3>
       <p className="!pt-4">
-        <strong>Hiragana:</strong> {hiragana} <br />
+        <strong>Hiragana:</strong> <JapaneseFont>{hiragana}</JapaneseFont>
+        <br />
         {pronunciation && (
           <>
             <strong>Pronunciation:</strong> {pronunciation} <br />

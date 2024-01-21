@@ -1,0 +1,19 @@
+{
+  "家族": ["かぞく", "family"],
+  "お兄さん": ["おにいさん", "older brother"],
+  "お姉さん": ["おねえさん", "older sister"],
+  "父": ["ちち", "my father"],
+  "母": ["はは", "my mother"],
+  "兄": ["あに", "my older brother"],
+  "姉": ["あね", "my older sister"],
+  "妹": ["いもうと", "younger sister"],
+  "弟": ["おとうと", "younger brother"],
+  "兄弟": ["きょうだい", "brothers and sisters"],
+  "男の人": ["おとこのひと", "man"],
+  "女の人": ["おんなのひと", "woman"],
+  "会社": ["かいしゃ", "company"],
+  "食堂": ["しょくどう", "cafeteria/dining commons"],
+  "髪": ["かみ", "hair"],
+  "口": ["くち", "mouth"],
+  "目": ["め", "eye"]
+}

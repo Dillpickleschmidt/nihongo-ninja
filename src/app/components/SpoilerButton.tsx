@@ -6,12 +6,23 @@ import Button from "./button"
 
 import upArrow from "./upArrow.json"
 import downArrow from "./downArrow.json"
+import { MdKeyboardArrowDown } from "react-icons/md"
+import { MdOutlineKeyboardArrowUp } from "react-icons/md"
+import { twMerge } from "tailwind-merge"
 
-type SpoilerButtonProps = {
+type SpoilerButtonProps = React.HTMLAttributes<HTMLDivElement> & {
   children: React.ReactNode
+  animated?: boolean
+  text?: string
+  className?: string
 }
 
-export default function SpoilerButton({ children }: SpoilerButtonProps) {
+export default function SpoilerButton({
+  children,
+  animated = false,
+  text,
+  className,
+}: SpoilerButtonProps) {
   const [showSpoiler, setShowSpoiler] = useState(false)
 
   return (
@@ -19,14 +30,31 @@ export default function SpoilerButton({ children }: SpoilerButtonProps) {
       <div className="w-full flex justify-center">
         <Button
           onClick={() => setShowSpoiler(!showSpoiler)}
-          className="py-2 px-4 drop-shadow-none text-lg bg-[#222222] text-[#F6E7D2] hover:bg-[#444444] inline-flex items-center"
+          className={twMerge(
+            "py-2 px-4 drop-shadow-none text-lg bg-[#222222] text-white hover:bg-[#444444] inline-flex items-center",
+            className
+          )}
         >
-          {showSpoiler ? (
+          {text && <p className="mr-2 text-base">{text}</p>}
+          {/* If content is showed and animated is true */}
+          {showSpoiler && animated && (
             <Lottie animationData={upArrow} className="w-6" />
-          ) : (
-            <>
-              <Lottie animationData={downArrow} className="w-6" />
-            </>
+          )}
+          {/* If content is showed and animated is false */}
+          {showSpoiler && (
+            <div className="w-6">
+              <MdOutlineKeyboardArrowUp />
+            </div>
+          )}
+          {/* If content is hidden and animated is true */}
+          {!showSpoiler && animated && (
+            <Lottie animationData={downArrow} className="w-6" />
+          )}
+          {/* If content is hidden and animated is false */}
+          {!showSpoiler && (
+            <div className="w-6">
+              <MdKeyboardArrowDown />
+            </div>
           )}
         </Button>
       </div>

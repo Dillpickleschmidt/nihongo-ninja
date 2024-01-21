@@ -1,5 +1,4 @@
 import Dialog from "@/app/components/dialog"
-import Button from "@/app/components/button"
 import LearnVocab from "@/app/components/learn-vocab"
 import vocabData from "./data.json"
 
@@ -11,7 +10,9 @@ export default function VocabLearnNumbers() {
           data={vocabData}
           link="/learn/chapter-1/vocab-learn-numbers-11-100"
           shuffleTerms={true}
-        />
+        >
+          <h1 className="text-4xl">Practice numbers 0-10</h1>
+        </LearnVocab>
       </div>
     </Dialog>
   )
