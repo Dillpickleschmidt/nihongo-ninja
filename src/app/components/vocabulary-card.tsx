@@ -6,7 +6,6 @@ type VocabCardProps = {
   title: string
   hiragana: string
   pronunciation?: string
-
   light?: boolean
 }
 
@@ -26,7 +25,7 @@ export default function VocabCard({
       <h3 className="text-2xl font-bold !pb-0">
         <JapaneseFont>{title}</JapaneseFont>
       </h3>
-      <p className="!pt-4">
+      <div className="!pt-4">
         <strong>Hiragana:</strong> <JapaneseFont>{hiragana}</JapaneseFont>
         <br />
         {pronunciation && (
@@ -35,7 +34,7 @@ export default function VocabCard({
           </>
         )}
         <strong>Usage:</strong> {children}
-      </p>
+      </div>
     </div>
   )
 }

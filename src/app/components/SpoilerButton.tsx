@@ -15,6 +15,7 @@ type SpoilerButtonProps = React.HTMLAttributes<HTMLDivElement> & {
   animated?: boolean
   text?: string
   className?: string
+  externalOnClick?: (e: React.MouseEvent<HTMLElement>) => void
 }
 
 export default function SpoilerButton({
@@ -22,14 +23,22 @@ export default function SpoilerButton({
   animated = false,
   text,
   className,
+  externalOnClick,
 }: SpoilerButtonProps) {
   const [showSpoiler, setShowSpoiler] = useState(false)
+
+  const handleClick = (e: React.MouseEvent<HTMLElement>) => {
+    setShowSpoiler(!showSpoiler)
+    if (externalOnClick) {
+      externalOnClick(e) // Call the external click handler
+    }
+  }
 
   return (
     <div>
       <div className="w-full flex justify-center">
         <Button
-          onClick={() => setShowSpoiler(!showSpoiler)}
+          onClick={handleClick}
           className={twMerge(
             "py-2 px-4 drop-shadow-none text-lg bg-[#222222] text-white hover:bg-[#444444] inline-flex items-center",
             className

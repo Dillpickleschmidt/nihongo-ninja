@@ -15,14 +15,25 @@ In essence, it's keeping a range of x entries from the array based around the in
 */
 
 type ShuffleProps = {
-  vocabArray: { key: string; value: string[] }[]
+  vocabArray: {
+    key: string
+    value: { hiragana: string; english: string; mnemonics: string }
+  }[]
   currentVocabArrayIndex: number
+}
+
+type ShuffleRangeResult = {
+  hiragana: string[]
+  english: string[]
+  mnemonics?: string[] // Optional property
+  termKey: string
+  keys: string[]
 }
 
 export default function ShuffleRange({
   vocabArray,
   currentVocabArrayIndex,
-}: ShuffleProps) {
+}: ShuffleProps): ShuffleRangeResult {
   // Create a duplicate array
   const duplicateArray = [...vocabArray]
 
@@ -80,19 +91,22 @@ export default function ShuffleRange({
     ;[randomEntries[i], randomEntries[j]] = [randomEntries[j], randomEntries[i]]
   }
 
-  // Return values
-  // If the value has more than 1 entry, the first entry is the hiragana
-  const hiraganaValues = randomEntries.map(
-    (entry) => entry.value.length > 1 && entry.value[0]
-  )
-  // If the value has more than 1 entry, the second entry is the english. Else, the first entry is the english
-  const englishValues = randomEntries.map((entry) =>
-    entry.value.length > 1 ? entry.value[1] : entry.value[0]
-  )
+  // Extract hiragana, english, and mnemonics from the random entries
+  const hiraganaValues = randomEntries.map((entry) => entry.value.hiragana)
+  const englishValues = randomEntries.map((entry) => entry.value.english)
+  // Use optional chaining for mnemonics as it's an optional property
+  const mnemonicsValues = randomEntries.map((entry) => entry.value.mnemonics)
 
-  // Return keys
+  // Extract keys
   const termKey = termEntry?.key
   const keys = randomEntries.map((entry) => entry.key)
 
-  return [hiraganaValues, englishValues, termKey, keys]
+  // Return the final result
+  return {
+    hiragana: hiraganaValues,
+    english: englishValues,
+    mnemonics: mnemonicsValues,
+    termKey: termKey || "",
+    keys: keys,
+  }
 }

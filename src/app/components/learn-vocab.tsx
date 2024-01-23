@@ -9,9 +9,21 @@ import ShuffleRange from "../util/shuffleRange"
 import SpoilerButton from "./SpoilerButton"
 import JapaneseFont from "./JapaneseFont"
 
+type VocabItemValue = {
+  hiragana: string
+  english: string
+  mnemonics: string
+}
+
+type VocabItem = {
+  key: string
+  value: VocabItemValue
+  type: string // type: "multiple-choice" or "write"
+}
+
 type QuizProps = {
   children?: ReactNode
-  data: { [key: string]: string[] }
+  data: { [key: string]: VocabItemValue } // data: { [key: string]: { hiragana: string; english: string; mnemonics: string } }
   link: string
   shuffleTerms?: boolean
 }
@@ -23,21 +35,18 @@ export default function LearnVocab({
   children,
 }: QuizProps) {
   // Initialize vocabArray state with the transformed data
-  const [vocabArray, setVocabArray] = useState(
-    Object.entries(data).map(([key, value]) => ({
-      key,
-      value,
-      type: "multiple-choice",
-    }))
-  )
+  const originalVocabArray = Object.entries(data).map(([key, value]) => ({
+    key,
+    value, // value: { hiragana: string; english: string; mnemonic: string } (VocabItemValue)
+    type: "multiple-choice",
+  }))
+  const [vocabArray, setVocabArray] = useState<VocabItem[]>(originalVocabArray)
   const [questionStack, setQuestionStack] = useState(vocabArray.slice(0, 10))
   const [nextQuestionIndex, setNextQuestionIndex] = useState(10)
   // Used for getting the next question from vocabArray (original data)
   const [currentVocabArrayIndex, setCurrentVocabArrayIndex] = useState(0)
   const [questionCount, setQuestionCount] = useState(0)
-  const [reviewQuestions, setReviewQuestions] = useState<
-    { key: string; value: string[]; type: string }[]
-  >([])
+  const [reviewQuestions, setReviewQuestions] = useState<VocabItem[]>([])
   const [userWrittenAnswer, setUserWrittenAnswer] = useState("")
   const [compareFirst, setCompareFirst] = useState(true)
   const [compareSecond, setCompareSecond] = useState(true)
@@ -55,11 +64,13 @@ export default function LearnVocab({
   const [shuffledOutput, setShuffledOutput] = useState<{
     hiragana: string[]
     english: string[]
+    mnemonics?: string[]
     termKey: string
     keys: string[]
   }>({
     hiragana: [],
     english: [],
+    mnemonics: [],
     termKey: "",
     keys: [],
   })
@@ -80,20 +91,21 @@ export default function LearnVocab({
   // Shuffle the *output* array using the shuffleRange function
   useEffect(() => {
     // Shuffle a copy of the input array in a range and return the first 4 entries in that range
-    const [newHiraganaValues, newEnglishValues, newTermKey, newKeys] =
-      ShuffleRange({
-        vocabArray,
-        currentVocabArrayIndex,
-      })
+    const shuffledResult = ShuffleRange({
+      vocabArray,
+      currentVocabArrayIndex,
+    })
 
     // SET the values from the shuffled range into state
-    newTermKey &&
+    if (shuffledResult.termKey) {
       setShuffledOutput({
-        hiragana: newHiraganaValues as string[],
-        english: newEnglishValues as string[],
-        termKey: newTermKey?.toString(),
-        keys: newKeys as string[],
+        hiragana: shuffledResult.hiragana,
+        english: shuffledResult.english,
+        mnemonics: shuffledResult.mnemonics, // Setting mnemonics if you're using them
+        termKey: shuffledResult.termKey,
+        keys: shuffledResult.keys,
       })
+    }
 
     // console.log("shufflingOutput")
   }, [questionStack])
@@ -127,26 +139,23 @@ export default function LearnVocab({
   var keys = shuffledOutput.keys
 
   function handleVocabClick(e?: React.MouseEvent, clickedKey?: string) {
-    console.log("TermKey:", TermKey)
-    console.log("ClickedKey:", clickedKey)
+    console.log("handleVocabClick called with clickedKey:", clickedKey)
     const newStack = [...questionStack]
     const question = newStack.splice(0, 1)[0]
     const nextQuestion = newStack[0]
 
     function checkWrittenAnswer() {
-      // userWrittenAnswer is already cast to lowercase
-      const lowerCaseQuestionValues = question.value.map(
-        (val) => val.toLowerCase() // Cast each value to lowercase
-      )
-      const splitFirst = lowerCaseQuestionValues[0].split("/")
-      const splitSecond = lowerCaseQuestionValues[1]
-        ? lowerCaseQuestionValues[1].split("/")
-        : []
+      const question = questionStack[0] // current question
+      const answerHiragana = question.value.hiragana.toLowerCase()
+      const answerEnglish = question.value.english.toLowerCase()
+
+      const splitHiragana = answerHiragana.split("/") // Can be multiple hiragana answers
+      const splitEnglish = answerEnglish.split("/") // Can be multiple english answers
 
       const matchesFirst =
-        compareFirst && splitFirst.includes(userWrittenAnswer)
+        compareFirst && splitHiragana.includes(userWrittenAnswer)
       const matchesSecond =
-        compareSecond && splitSecond.includes(userWrittenAnswer)
+        compareSecond && splitEnglish.includes(userWrittenAnswer)
 
       return matchesFirst || matchesSecond
     }
@@ -160,7 +169,7 @@ export default function LearnVocab({
     )
     setCorrectWrittenAnswer(correctAnswerString)
 
-    // Check if the clicked key matches the term key
+    // Check if the clicked key matches the term key (multiple-choice question)
     const matches = TermKey === clickedKey
     if (lock === false) {
       // Lock the user input
@@ -273,6 +282,18 @@ export default function LearnVocab({
         <div className="w-full mt-24 flex justify-center items-center">
           <div>{children}</div>
         </div>
+        <div className="mt-12 flex justify-center">
+          <div>
+            {originalVocabArray.map((values: any) => (
+              <li key={values} className="leading-[1.75]">
+                <JapaneseFont className="font-semibold text-4xl text-sky-400">
+                  {values.key}
+                </JapaneseFont>{" "}
+                - {values.value.hiragana} / {values.value.english}
+              </li>
+            ))}
+          </div>
+        </div>
         <div className="my-12 flex flex-row justify-center">
           <Button onClick={() => setStarted(true)}>Start Practicing</Button>
         </div>
@@ -312,7 +333,7 @@ export default function LearnVocab({
                   <p className="text-4xl font-medium">
                     <JapaneseFont>{question.key}</JapaneseFont>{" "}
                     <span className="text-2xl">
-                      - {question.value[0]} {question.value[1]}
+                      - {question.value.hiragana} / {question.value.english}
                     </span>
                   </p>
                 </div>
@@ -449,15 +470,21 @@ export default function LearnVocab({
           </div>
         )}
       </div>
-      <div className="mt-12 flex justify-center">
+      <div className="mt-12 flex justify-center 2xl:max-w-[60%] xl:max-w-[80%] mx-auto ">
         <SpoilerButton
-          text="Hint:"
+          text="Answer"
           className="py-2 px-4 text-neutral-300 border-none"
+          externalOnClick={(e) => handleVocabClick(e, "incorrectKey")}
         >
-          <p className="mt-6 text-xl">
-            Sounds like "high-yai." Think of something moving so fast it goes
-            high and yells "Yai!"
-          </p>
+          <div className="mt-6 text-xl">
+            <JapaneseFont className="text-3xl font-semibold">
+              <u>
+                {currentQuestion.value.hiragana} /{" "}
+                {currentQuestion.value.english}{" "}
+              </u>
+            </JapaneseFont>
+            - {currentQuestion.value.mnemonics}
+          </div>
         </SpoilerButton>
       </div>
     </div>
