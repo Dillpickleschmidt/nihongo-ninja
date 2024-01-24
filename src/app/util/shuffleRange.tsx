@@ -17,15 +17,15 @@ In essence, it's keeping a range of x entries from the array based around the in
 type ShuffleProps = {
   vocabArray: {
     key: string
-    value: { hiragana: string; english: string; mnemonics: string }
+    value: { hiragana?: string[]; english?: string[]; mnemonics?: string }
   }[]
   currentVocabArrayIndex: number
 }
 
 type ShuffleRangeResult = {
-  hiragana: string[]
-  english: string[]
-  mnemonics?: string[] // Optional property
+  hiragana?: string[][]
+  english?: string[][]
+  mnemonics?: string[]
   termKey: string
   keys: string[]
 }
@@ -92,10 +92,15 @@ export default function ShuffleRange({
   }
 
   // Extract hiragana, english, and mnemonics from the random entries
-  const hiraganaValues = randomEntries.map((entry) => entry.value.hiragana)
-  const englishValues = randomEntries.map((entry) => entry.value.english)
-  // Use optional chaining for mnemonics as it's an optional property
-  const mnemonicsValues = randomEntries.map((entry) => entry.value.mnemonics)
+  const hiraganaValues = randomEntries.map((entry) =>
+    entry.value.hiragana ? entry.value.hiragana : [""]
+  )
+  const englishValues = randomEntries.map((entry) =>
+    entry.value.english ? entry.value.english : [""]
+  )
+  const mnemonicsValues = randomEntries.map((entry) =>
+    entry.value.mnemonics ? entry.value.mnemonics : ""
+  )
 
   // Extract keys
   const termKey = termEntry?.key

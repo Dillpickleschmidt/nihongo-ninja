@@ -1,32 +1,92 @@
 {
-  "じゅういち": ["Eleven", "11"],
-  "じゅうに": ["Twelve", "12"],
-  "じゅうはち": ["Eighteen", "18"],
-  "にじゅう": ["Twenty", "20"],
-  "にじゅうさん": ["Twenty-three", "23"],
-  "にじゅよん": ["Twenty-four", "24"],
-  "さんじゅう": ["Thirty", "30"],
-  "さんじゅういち": ["Thirty-one", "31"],
-  "さんじゅうさん": ["Thirty-three", "33"],
-  "よんじゅう": ["Forty", "40"],
-  "よんじゅういち": ["Forty-one", "41"],
-  "よんじゅうご": ["Forty-five", "45"],
-  "よんじゅうきゅう": ["Forty-nine", "49"],
-  "よんじゅうなな": ["Forty-seven", "47"],
-  "ごじゅう": ["Fifty", "50"],
-  "ごじゅうさん": ["Fifty-three", "53"],
-  "ごじゅうろく": ["Fifty-six", "56"],
-  "ろくじゅう": ["Sixty", "60"],
-  "ろくじゅうに": ["Sixty-two", "62"],
-  "ろくじゅうよん": ["Sixty-four", "64"],
-  "ななじゅう": ["Seventy", "70"],
-  "ななじゅうろく": ["Seventy-six", "76"],
-  "ななじゅうはち": ["Seventy-eight", "78"],
-  "はちじゅう": ["Eighty", "80"],
-  "はちじゅういち": ["Eighty-one", "81"],
-  "はちじゅうきゅう": ["Eighty-nine", "89"],
-  "きゅうじゅう": ["Ninety", "90"],
-  "きゅうじゅうに": ["Ninety-two", "92"],
-  "きゅうじゅうはち": ["Ninety-eight", "98"],
-  "ひゃく": ["One hundred", "100"]
+  "じゅういち": {
+    "english": ["Eleven", "11"]
+  },
+  "じゅうに": {
+    "english": ["Twelve", "12"]
+  },
+  "じゅうはち": {
+    "english": ["Eighteen", "18"]
+  },
+  "にじゅう": {
+    "english": ["Twenty", "20"]
+  },
+  "にじゅうさん": {
+    "english": ["Twenty-three", "23"]
+  },
+  "にじゅよん": {
+    "english": ["Twenty-four", "24"]
+  },
+  "さんじゅう": {
+    "english": ["Thirty", "30"]
+  },
+  "さんじゅういち": {
+    "english": ["Thirty-one", "31"]
+  },
+  "さんじゅうさん": {
+    "english": ["Thirty-three", "33"]
+  },
+  "よんじゅう": {
+    "english": ["Forty", "40"]
+  },
+  "よんじゅういち": {
+    "english": ["Forty-one", "41"]
+  },
+  "よんじゅうご": {
+    "english": ["Forty-five", "45"]
+  },
+  "よんじゅうきゅう": {
+    "english": ["Forty-nine", "49"]
+  },
+  "よんじゅうなな": {
+    "english": ["Forty-seven", "47"]
+  },
+  "ごじゅう": {
+    "english": ["Fifty", "50"]
+  },
+  "ごじゅうさん": {
+    "english": ["Fifty-three", "53"]
+  },
+  "ごじゅうろく": {
+    "english": ["Fifty-six", "56"]
+  },
+  "ろくじゅう": {
+    "english": ["Sixty", "60"]
+  },
+  "ろくじゅうに": {
+    "english": ["Sixty-two", "62"]
+  },
+  "ろくじゅうよん": {
+    "english": ["Sixty-four", "64"]
+  },
+  "ななじゅう": {
+    "english": ["Seventy", "70"]
+  },
+  "ななじゅうろく": {
+    "english": ["Seventy-six", "76"]
+  },
+  "ななじゅうはち": {
+    "english": ["Seventy-eight", "78"]
+  },
+  "はちじゅう": {
+    "english": ["Eighty", "80"]
+  },
+  "はちじゅういち": {
+    "english": ["Eighty-one", "81"]
+  },
+  "はちじゅうきゅう": {
+    "english": ["Eighty-nine", "89"]
+  },
+  "きゅうじゅう": {
+    "english": ["Ninety", "90"]
+  },
+  "きゅうじゅうに": {
+    "english": ["Ninety-two", "92"]
+  },
+  "きゅうじゅうはち": {
+    "english": ["Ninety-eight", "98"]
+  },
+  "ひゃく": {
+    "english": ["One hundred", "100"]
+  }
 }

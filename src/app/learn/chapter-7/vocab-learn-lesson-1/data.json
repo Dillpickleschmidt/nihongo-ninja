@@ -1,12 +1,42 @@
 {
-  "family": ["かぞく"],
-  "grandfather; old man": ["おじいさん"],
-  "grandmother; old woman": ["おばあさん"],
-  "older brother": ["おにいさん"],
-  "older sister": ["おねえさん"],
-  "my father": ["ちち"],
-  "my mother": ["はは"],
-  "my older brother": ["あに"],
-  "my older sister": ["あね"],
-  "younger sister": ["いもうと"]
+  "family": {
+    "hiragana": ["かぞく"],
+    "mnemonics": "Think of 'kazoku' as 'ka-zone-cook.' Imagine your family cooking together in a cozy kitchen zone."
+  },
+  "grandfather; old man": {
+    "hiragana": ["おじいさん"],
+    "mnemonics": "Sounds like 'Oh, gee, son!' Picture an old man saying this to his grandson."
+  },
+  "grandmother; old woman": {
+    "hiragana": ["おばあさん"],
+    "mnemonics": "Sounds like 'Oh, bah, son!' Imagine a grandmother knitting and saying this."
+  },
+  "older brother": {
+    "hiragana": ["おにいさん"],
+    "mnemonics": "Sounds like 'Oh, knee, son!' Imagine an older brother who always kneeled down to tie your shoelaces."
+  },
+  "older sister": {
+    "hiragana": ["おねえさん"],
+    "mnemonics": "Sounds like 'Oh, neigh, son!' Imagine an older sister who loves horses and often mimics a horse's neigh."
+  },
+  "my father": {
+    "hiragana": ["ちち"],
+    "mnemonics": "'Chichi' sounds like 'chee-chee.' Picture your father playing a game of chess ('chee' for chess)."
+  },
+  "my mother": {
+    "hiragana": ["はは"],
+    "mnemonics": "Sounds like laughter 'ha-ha.' Remember your mother's laugh."
+  },
+  "my older brother": {
+    "hiragana": ["あに"],
+    "mnemonics": "Sounds like 'Ah, knee.' Imagine your older brother always hitting his knee on the table."
+  },
+  "my older sister": {
+    "hiragana": ["あね"],
+    "mnemonics": "Sounds like 'Ah, neh.' Imagine your older sister pondering and saying 'Ah, neh' when thinking."
+  },
+  "younger sister": {
+    "hiragana": ["いもうと"],
+    "mnemonics": "Sounds like 'E-moto.' Picture your younger sister riding an e-motorbike."
+  }
 }

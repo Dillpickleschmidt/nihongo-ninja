@@ -1,12 +1,42 @@
 {
-  "younger brother": ["おとうと"],
-  "brothers and sisters": ["きょうだい"],
-  "man": ["おとこのひと"],
-  "woman": ["おんなのひと"],
-  "company": ["かいしゃ"],
-  "cafeteria; dining commons": ["しょくどう"],
-  "department store": ["デパート"],
-  "hair": ["かみ"],
-  "mouth": ["くち"],
-  "eye": ["め"]
+  "younger brother": {
+    "hiragana": ["おとうと"],
+    "mnemonics": "Sounds like 'Oh, toe-toe.' Imagine your younger brother always stubbing his toe."
+  },
+  "brothers and sisters": {
+    "hiragana": ["きょうだい"],
+    "mnemonics": "Think of 'kyo-die.' Picture siblings playing a video game together and saying, 'If you lose (die) in Kyoto...'"
+  },
+  "man": {
+    "hiragana": ["おとこのひと"],
+    "mnemonics": "Sounds like 'Oh, toko no hito.' Imagine a man saying, 'Oh, I'm just a 'toko' (guy) in this place.'"
+  },
+  "woman": {
+    "hiragana": ["おんなのひと"],
+    "mnemonics": "Sounds like 'Oh, nonna hito.' Picture a woman saying, 'Oh, I'm nonna (not a) regular person.'"
+  },
+  "company": {
+    "hiragana": ["かいしゃ"],
+    "mnemonics": "Sounds like 'kai-sha.' Imagine a company on the coast (kai) near the sea."
+  },
+  "cafeteria; dining commons": {
+    "hiragana": ["しょくどう"],
+    "mnemonics": "Sounds like 'shoku-dough.' Picture a cafeteria where they always bake fresh dough."
+  },
+  "department store": {
+    "hiragana": ["デパート"],
+    "mnemonics": "Sounds like 'depart.' Think of a place where you always depart with your money."
+  },
+  "hair": {
+    "hiragana": ["かみ"],
+    "mnemonics": "Sounds like 'kami.' Imagine your hair feeling like divine (kami in Japanese means god) silk."
+  },
+  "mouth": {
+    "hiragana": ["くち"],
+    "mnemonics": "Sounds like 'coochie.' Remember by thinking of a baby's coochie-coo, often said while touching their mouth."
+  },
+  "eye": {
+    "hiragana": ["め"],
+    "mnemonics": "Sounds like 'May.' Think of your eyes always brightening up in the month of May."
+  }
 }

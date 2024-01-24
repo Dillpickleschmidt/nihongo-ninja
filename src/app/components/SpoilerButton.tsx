@@ -1,5 +1,5 @@
 "use client"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 import Lottie from "lottie-react"
 import Button from "./button"
@@ -16,6 +16,7 @@ type SpoilerButtonProps = React.HTMLAttributes<HTMLDivElement> & {
   text?: string
   className?: string
   externalOnClick?: (e: React.MouseEvent<HTMLElement>) => void
+  hideSpoiler?: boolean // Force the spoiler to be hidden from the parent component
 }
 
 export default function SpoilerButton({
@@ -24,6 +25,7 @@ export default function SpoilerButton({
   text,
   className,
   externalOnClick,
+  hideSpoiler = false,
 }: SpoilerButtonProps) {
   const [showSpoiler, setShowSpoiler] = useState(false)
 
@@ -33,6 +35,12 @@ export default function SpoilerButton({
       externalOnClick(e) // Call the external click handler
     }
   }
+
+  useEffect(() => {
+    if (hideSpoiler) {
+      setShowSpoiler(false)
+    }
+  })
 
   return (
     <div>

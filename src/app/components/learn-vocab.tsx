@@ -5,14 +5,18 @@ import Button from "@/app/components/button"
 import ShuffleArray from "@/app/util/shuffleArray"
 import GetAnswerFromState from "@/app/util/getAnswerFromState"
 
+import { Noto_Sans_JP } from "next/font/google"
+
+const NotoSansJPFont = Noto_Sans_JP({ subsets: ["latin"] })
+
 import ShuffleRange from "../util/shuffleRange"
 import SpoilerButton from "./SpoilerButton"
 import JapaneseFont from "./JapaneseFont"
 
 type VocabItemValue = {
-  hiragana: string
-  english: string
-  mnemonics: string
+  hiragana?: string[]
+  english?: string[]
+  mnemonics?: string
 }
 
 type VocabItem = {
@@ -37,7 +41,11 @@ export default function LearnVocab({
   // Initialize vocabArray state with the transformed data
   const originalVocabArray = Object.entries(data).map(([key, value]) => ({
     key,
-    value, // value: { hiragana: string; english: string; mnemonic: string } (VocabItemValue)
+    value: {
+      ...value,
+      hiragana: value.hiragana || [""],
+      english: value.english || [""], // Default to an empty string if english is not provided
+    },
     type: "multiple-choice",
   }))
   const [vocabArray, setVocabArray] = useState<VocabItem[]>(originalVocabArray)
@@ -48,8 +56,8 @@ export default function LearnVocab({
   const [questionCount, setQuestionCount] = useState(0)
   const [reviewQuestions, setReviewQuestions] = useState<VocabItem[]>([])
   const [userWrittenAnswer, setUserWrittenAnswer] = useState("")
-  const [compareFirst, setCompareFirst] = useState(true)
-  const [compareSecond, setCompareSecond] = useState(true)
+  const [compareHiragana, setcompareHiragana] = useState(true)
+  const [compareEnglish, setcompareEnglish] = useState(true)
   const [lock, setLock] = useState(false)
   const [correctWrittenAnswer, setCorrectWrittenAnswer] = useState("")
   const [isWrittenAnswerCorrect, setIsWrittenAnswerCorrect] = useState(false)
@@ -62,8 +70,8 @@ export default function LearnVocab({
 
   // Initialize state for everything returned by ShuffleRange
   const [shuffledOutput, setShuffledOutput] = useState<{
-    hiragana: string[]
-    english: string[]
+    hiragana: string[][]
+    english: string[][]
     mnemonics?: string[]
     termKey: string
     keys: string[]
@@ -84,7 +92,6 @@ export default function LearnVocab({
   }, [])
 
   useEffect(() => {
-    console.log("vocabArray", vocabArray)
     setQuestionStack(vocabArray.slice(0, 10))
   }, [vocabArray])
 
@@ -99,9 +106,9 @@ export default function LearnVocab({
     // SET the values from the shuffled range into state
     if (shuffledResult.termKey) {
       setShuffledOutput({
-        hiragana: shuffledResult.hiragana,
-        english: shuffledResult.english,
-        mnemonics: shuffledResult.mnemonics, // Setting mnemonics if you're using them
+        hiragana: shuffledResult.hiragana ?? [],
+        english: shuffledResult.english ?? [],
+        mnemonics: shuffledResult.mnemonics,
         termKey: shuffledResult.termKey,
         keys: shuffledResult.keys,
       })
@@ -118,16 +125,16 @@ export default function LearnVocab({
   }, [lock])
 
   // Get the hiragana from the shuffled range
-  var hiragana1 = shuffledOutput.hiragana[0]
-  var hiragana2 = shuffledOutput.hiragana[1]
-  var hiragana3 = shuffledOutput.hiragana[2]
-  var hiragana4 = shuffledOutput.hiragana[3]
+  var hiragana1 = shuffledOutput.hiragana[0].join(" / ")
+  var hiragana2 = shuffledOutput.hiragana[1].join(" / ")
+  var hiragana3 = shuffledOutput.hiragana[2].join(" / ")
+  var hiragana4 = shuffledOutput.hiragana[3].join(" / ")
 
   // Get the english from the shuffled range
-  var english1 = shuffledOutput.english[0]
-  var english2 = shuffledOutput.english[1]
-  var english3 = shuffledOutput.english[2]
-  var english4 = shuffledOutput.english[3]
+  var english1 = shuffledOutput.english[0].join(" / ")
+  var english2 = shuffledOutput.english[1].join(" / ")
+  var english3 = shuffledOutput.english[2].join(" / ")
+  var english4 = shuffledOutput.english[3].join(" / ")
 
   // Get the individual keys from the shuffled range
   var key1 = shuffledOutput.keys[0]
@@ -146,25 +153,32 @@ export default function LearnVocab({
 
     function checkWrittenAnswer() {
       const question = questionStack[0] // current question
-      const answerHiragana = question.value.hiragana.toLowerCase()
-      const answerEnglish = question.value.english.toLowerCase()
+      const answerHiragana = question.value.hiragana?.map((value) =>
+        value.toLowerCase()
+      )
+      const answerEnglish = question.value.english?.map((value) =>
+        value.toLowerCase()
+      )
 
-      const splitHiragana = answerHiragana.split("/") // Can be multiple hiragana answers
-      const splitEnglish = answerEnglish.split("/") // Can be multiple english answers
+      const matchesHiragana =
+        compareHiragana && answerHiragana
+          ? answerHiragana.includes(userWrittenAnswer) &&
+            userWrittenAnswer !== ""
+          : false
+      const matchesEnglish =
+        compareEnglish && answerEnglish
+          ? answerEnglish.includes(userWrittenAnswer) &&
+            userWrittenAnswer !== ""
+          : false
 
-      const matchesFirst =
-        compareFirst && splitHiragana.includes(userWrittenAnswer)
-      const matchesSecond =
-        compareSecond && splitEnglish.includes(userWrittenAnswer)
-
-      return matchesFirst || matchesSecond
+      return matchesHiragana || matchesEnglish
     }
     setIsWrittenAnswerCorrect(checkWrittenAnswer())
 
     // Set the correct answer based on the state of the toggles
     const correctAnswerString = GetAnswerFromState(
-      compareFirst,
-      compareSecond,
+      compareHiragana,
+      compareEnglish,
       question
     )
     setCorrectWrittenAnswer(correctAnswerString)
@@ -178,14 +192,16 @@ export default function LearnVocab({
       const target = e && (e.currentTarget as HTMLButtonElement)
       if (target) {
         if (matches) {
-          target.classList.add("bg-green-500", "hover:bg-green-500")
-          // console.log("correct")
+          target.classList.add(
+            "bg-green-500",
+            "hover:bg-green-500",
+            "font-semibold"
+          )
         } else {
+          // Don't add the red background if the user clicked "show answer" button
           target.classList.add("bg-red-500", "hover:bg-red-500")
-          // console.log("incorrect")
           // Find the correct button of the 4 and add the *correct choice* styling to it
           const correctButton = keys.find((e) => TermKey === e)
-          console.log("CorrectButton:", correctButton)
           correctButton && setCorrectButton(correctButton)
         }
       }
@@ -200,6 +216,7 @@ export default function LearnVocab({
           target.classList.remove(
             "bg-green-500",
             "hover:bg-green-500",
+            "font-semibold",
             "bg-red-500",
             "hover:bg-red-500"
           )
@@ -223,7 +240,6 @@ export default function LearnVocab({
             if (nextQuestion) {
               newStack.push(nextQuestion)
               setNextQuestionIndex((prevIndex) => prevIndex + 1) // Increment nextQuestionIndex
-              console.log("nextQuestion", nextQuestion)
             }
           } else {
             // If the question type is 'multiple-choice' and it's answered correctly, change it to 'write' and move it to the end of the stack
@@ -265,12 +281,14 @@ export default function LearnVocab({
   }
 
   function greenIfCorrect(key: string) {
-    return key === correctButton ? "bg-green-500 hover:bg-green-500" : ""
+    return key === correctButton
+      ? "bg-green-500 hover:bg-green-500 font-semibold"
+      : ""
   }
 
   function setInputBoxColor() {
     if (isWrittenAnswerCorrect && lock) {
-      return "bg-green-500 hover:bg-green-500"
+      return "bg-green-500 hover:bg-green-500 font-semibold"
     } else if (lock) {
       return "bg-red-500 hover:bg-red-500"
     }
@@ -284,12 +302,24 @@ export default function LearnVocab({
         </div>
         <div className="mt-12 flex justify-center">
           <div>
-            {originalVocabArray.map((values: any) => (
-              <li key={values} className="leading-[1.75]">
+            {originalVocabArray.map((values: any, index: number) => (
+              <li key={index} className="leading-[1.75]">
                 <JapaneseFont className="font-semibold text-4xl text-sky-400">
                   {values.key}
                 </JapaneseFont>{" "}
-                - {values.value.hiragana} / {values.value.english}
+                -{" "}
+                {values.value.english &&
+                values.value.english[0] &&
+                values.value.hiragana[0]
+                  ? // If both hiragana and english exist, render both
+                    values.value.hiragana &&
+                    " / " &&
+                    values.value.english.join(" / ")
+                  : values.value.hiragana && values.value.hiragana[0]
+                  ? // If only hiragana exists, render hiragana
+                    values.value.hiragana
+                  : // If only english exists, render english
+                    values.value.english.join(" / ")}
               </li>
             ))}
           </div>
@@ -333,7 +363,19 @@ export default function LearnVocab({
                   <p className="text-4xl font-medium">
                     <JapaneseFont>{question.key}</JapaneseFont>{" "}
                     <span className="text-2xl">
-                      - {question.value.hiragana} / {question.value.english}
+                      -{" "}
+                      {question.value.english &&
+                      question.value.english[0] &&
+                      question.value.hiragana?.[0]
+                        ? // If both hiragana and english exist, render both
+                          question.value.hiragana &&
+                          " / " &&
+                          question.value.english.join(" / ")
+                        : question.value.hiragana && question.value.hiragana[0]
+                        ? // If only hiragana exists, render hiragana
+                          question.value.hiragana
+                        : // If only english exists, render english
+                          question.value.english?.join(" / ") ?? ""}
                     </span>
                   </p>
                 </div>
@@ -428,8 +470,8 @@ export default function LearnVocab({
               Compare to first value
               <input
                 type="checkbox"
-                checked={compareFirst}
-                onChange={(e) => setCompareFirst(e.target.checked)}
+                checked={compareHiragana}
+                onChange={(e) => setcompareHiragana(e.target.checked)}
               />
             </label>
             <br />
@@ -437,8 +479,8 @@ export default function LearnVocab({
               Compare to second value
               <input
                 type="checkbox"
-                checked={compareSecond}
-                onChange={(e) => setCompareSecond(e.target.checked)}
+                checked={compareEnglish}
+                onChange={(e) => setcompareEnglish(e.target.checked)}
               />
             </label>
             <div className="flex flex-row justify-center">
@@ -457,7 +499,11 @@ export default function LearnVocab({
                   onChange={(e) =>
                     setUserWrittenAnswer(e.target.value.toLowerCase())
                   }
-                  className={`${setInputBoxColor()} w-96 py-4 px-6 bg-[#191919] text-white`}
+                  className={`${setInputBoxColor()} ${
+                    NotoSansJPFont.className
+                  } ${
+                    lock && "placeholder:opacity-0"
+                  } w-96 py-[.85rem] px-6 bg-[#191919] rounded-md text-white text-xl placeholder:text-base focus:outline-none`}
                   disabled={lock}
                 />
               </form>
@@ -474,16 +520,29 @@ export default function LearnVocab({
         <SpoilerButton
           text="Answer"
           className="py-2 px-4 text-neutral-300 border-none"
-          externalOnClick={(e) => handleVocabClick(e, "incorrectKey")}
+          externalOnClick={(e) => handleVocabClick(e, "showAnswer")}
+          hideSpoiler={!lock}
         >
           <div className="mt-6 text-xl">
             <JapaneseFont className="text-3xl font-semibold">
               <u>
-                {currentQuestion.value.hiragana} /{" "}
-                {currentQuestion.value.english}{" "}
+                {currentQuestion.value.english &&
+                currentQuestion.value.english[0] &&
+                currentQuestion.value.hiragana?.[0]
+                  ? // If both hiragana and english exist, render both
+                    currentQuestion.value.hiragana &&
+                    " / " &&
+                    currentQuestion.value.english.join(" / ")
+                  : currentQuestion.value.hiragana &&
+                    currentQuestion.value.hiragana[0]
+                  ? // If only hiragana exists, render hiragana
+                    currentQuestion.value.hiragana
+                  : // If only english exists, render english
+                    currentQuestion.value.english?.join(" / ") ?? ""}
               </u>
             </JapaneseFont>
-            - {currentQuestion.value.mnemonics}
+            {currentQuestion.value.mnemonics &&
+              " - " + currentQuestion.value.mnemonics}
           </div>
         </SpoilerButton>
       </div>

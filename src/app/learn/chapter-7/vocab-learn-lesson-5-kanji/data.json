@@ -1,16 +1,72 @@
 {
-  "働く": ["はたらく", "to work"],
-  "太る": ["ふとる", "to gain weight"],
-  "太っています": ["ふとっています", "to be on the heavy side/overweight"],
-  "眼鏡を掛ける": ["めがねをかける", "to put on glasses"],
-  "着る": ["きる", "to put on clothes above your waist"],
-  "痩せる": ["やせる", "to lose weight"],
-  "痩せています": ["やせています", "to be thin"],
-  "結婚する": ["けっこんする", "to get married"],
-  "何も": ["なにも + negative", "not...anything"],
-  "～人": ["～にん", "counter for people"],
-  "一人": ["ひとり", "one person"],
-  "二人": ["ふたり", "two people"],
-  "別に": ["べつに + negative", "nothing in particular"],
-  "勿論": ["もちろん", "of course"]
+  "働く": {
+    "hiragana": ["はたらく"],
+    "english": ["to work"],
+    "mnemonics": "Sounds like 'ha-ta-laku.' Imagine working hard while saying 'Ha! Tackle this work!'"
+  },
+  "太る": {
+    "hiragana": ["ふとる"],
+    "english": ["to gain weight"],
+    "mnemonics": "Sounds like 'futo-ru.' Imagine gaining weight and saying 'Futo, I grew!'"
+  },
+  "太っています": {
+    "hiragana": ["ふとっています"],
+    "english": ["to be on the heavy side/overweight"],
+    "mnemonics": "Sounds like 'futo-tte-mass.' Picture someone who's heavy saying, 'Futo, I'm mass!'"
+  },
+  "眼鏡を掛ける": {
+    "hiragana": ["めがねをかける"],
+    "english": ["to put on glasses"],
+    "mnemonics": "Sounds like 'may-gah-neh-wo-kakeru.' Imagine putting on glasses to see the month of May clearly."
+  },
+  "着る": {
+    "hiragana": ["きる"],
+    "english": ["to put on clothes above your waist"],
+    "mnemonics": "Sounds like 'keer.' Picture 'keering' a shirt over your head."
+  },
+  "痩せる": {
+    "hiragana": ["やせる"],
+    "english": ["to lose weight"],
+    "mnemonics": "Sounds like 'ya-sell.' Imagine losing weight and saying, 'Ya, I can sell my old clothes now!'"
+  },
+  "痩せています": {
+    "hiragana": ["やせています"],
+    "english": ["to be thin"],
+    "mnemonics": "Sounds like 'ya-set-te-mass.' Picture a thin person saying, 'Ya, I'm set with this mass!'"
+  },
+  "結婚する": {
+    "hiragana": ["けっこんする"],
+    "english": ["to get married"],
+    "mnemonics": "Sounds like 'kett-kon-suru.' Picture getting married and setting a 'ket' (contract) to connect lives."
+  },
+  "何も": {
+    "hiragana": ["なにも + negative"],
+    "english": ["not...anything"],
+    "mnemonics": "Sounds like 'nani mo.' Picture saying 'Nani? Mo nothing?'"
+  },
+  "～人": {
+    "hiragana": ["～にん"],
+    "english": ["counter for people"],
+    "mnemonics": "Sounds like 'neen.' Imagine counting people and saying 'One neen, two neen...'"
+  },
+  "一人": {
+    "hiragana": ["ひとり"],
+    "english": ["one person"],
+    "mnemonics": "Sounds like 'hitori.' Picture being alone and saying 'Hi, I'm just one here.'"
+  },
+  "二人": {
+    "hiragana": ["ふたり"],
+    "english": ["two people"],
+    "mnemonics": "Sounds like 'futari.' Think of 'two' (fu-ta-ri) people standing together."
+  },
+  "別に": {
+    "hiragana": ["べつに + negative"],
+    "english": ["nothing in particular"],
+    "mnemonics": "Sounds like 'bet-su-ni.' Imagine shrugging and saying 'Bet, it's nothing special.'"
+  },
+  "勿論": {
+    "hiragana": ["もちろん"],
+    "english": ["of course"],
+    "mnemonics": "Sounds like 'mochi-ron.' Picture saying 'Of course!' while eating mochi."
+  }
 }

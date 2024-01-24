@@ -1,21 +1,97 @@
 {
-  "眼鏡": ["めがね", "glasses"],
-  "歌": ["うた", "song"],
-  "車": ["くるま", "car"],
-  "長い": ["ながい", "long"],
-  "短い": ["みじがい", "short (length)"],
-  "早い": ["はやい", "fast"],
-  "背が高い": ["せがたかい", "tall (stature)"],
-  "背が低い": ["せがひくい", "short (stature)"],
-  "頭がいい": ["あたまがいい", "bright/smart/clever"],
-  "可愛い": ["かわいい", "cute"],
-  "親切": ["しんせつ", "kind"],
-  "便利": ["べんり", "convenient"],
-  "歌う": ["うたう", "to sing"],
-  "被る": ["かぶる", "to put on a hat"],
-  "履く": ["はく", "to put on items below your waist"],
-  "知る": ["しる", "to get to know"],
-  "知っています": ["しっています", "I know"],
-  "知りません": ["しりません", "I do not know"],
-  "住む": ["すむ", "to live"]
+  "眼鏡": {
+    "hiragana": ["めがね"],
+    "english": ["glasses"],
+    "mnemonics": "Sounds like 'May-gah-neh.' Picture someone in May going 'Neh' because they can't see without their glasses."
+  },
+  "歌": {
+    "hiragana": ["うた"],
+    "english": ["song"],
+    "mnemonics": "Sounds like 'ooh-tah.' Imagine saying 'ooh' in wonder when you hear a beautiful song."
+  },
+  "車": {
+    "hiragana": ["くるま"],
+    "english": ["car"],
+    "mnemonics": "Sounds like 'cool-ma.' Imagine a really cool mom driving a fancy car."
+  },
+  "長い": {
+    "hiragana": ["ながい"],
+    "english": ["long"],
+    "mnemonics": "Sounds like 'nag-eye.' Think of a long, nagging sigh."
+  },
+  "短い": {
+    "hiragana": ["みじがい"],
+    "english": ["short (length)"],
+    "mnemonics": "Sounds like 'me-gee-guy.' Imagine a short guy who always says 'Me? Gee, I'm short.'"
+  },
+  "速い": {
+    "hiragana": ["はやい"],
+    "english": ["fast"],
+    "mnemonics": "Sounds like 'high-yai.' Think of something moving so fast it goes high and yells 'Yai!'"
+  },
+  "背が高い": {
+    "hiragana": ["せがたかい"],
+    "english": ["tall (stature)"],
+    "mnemonics": "Sounds like 'sega-ta-kai.' Picture a tall person who loves playing Sega games."
+  },
+  "背が低い": {
+    "hiragana": ["せがひくい"],
+    "english": ["short (stature)"],
+    "mnemonics": "Sounds like 'sega-hikui.' Imagine a short person who feels low (hikui) when they can't reach the Sega console."
+  },
+  "頭がいい": {
+    "hiragana": ["あたまがいい"],
+    "english": ["bright/smart/clever"],
+    "mnemonics": "Sounds like 'atama guy E.' Picture a smart guy named E who always uses his head (atama)."
+  },
+  "可愛い": {
+    "hiragana": ["かわいい"],
+    "english": ["cute"],
+    "mnemonics": "Sounds like 'kawaii.' This is similar to the English word 'cawaii' for cute."
+  },
+  "親切": {
+    "hiragana": ["しんせつ"],
+    "english": ["kind"],
+    "mnemonics": "Sounds like 'shin-sets.' Picture a kind person who always sets their heart (shin) on doing good."
+  },
+  "便利": {
+    "hiragana": ["べんり"],
+    "english": ["convenient"],
+    "mnemonics": "Sounds like 'ben-ri.' Imagine Ben, who is always handy and convenient to have around."
+  },
+  "歌う": {
+    "hiragana": ["うたう"],
+    "english": ["to sing"],
+    "mnemonics": "Sounds like 'ooh-ta-oo.' Picture singing a song with 'ooh' sounds."
+  },
+  "被る": {
+    "hiragana": ["かぶる"],
+    "english": ["to put on a hat"],
+    "mnemonics": "Sounds like 'cab-ru.' Imagine putting on a hat before getting into a cab."
+  },
+  "履く": {
+    "hiragana": ["はく"],
+    "english": ["to put on items below your waist"],
+    "mnemonics": "Sounds like 'huck.' Think of 'hucking' on your pants or shoes."
+  },
+  "知る": {
+    "hiragana": ["しる"],
+    "english": ["to get to know"],
+    "mnemonics": "Sounds like 'sheer.' Picture getting to know something as clearly as seeing through sheer fabric."
+  },
+  "知っています": {
+    "hiragana": ["しっています"],
+    "english": ["I know"],
+    "mnemonics": "Sounds like 'sheet-tea-mass.' Imagine confidently saying 'I know' as you sip a cup of tea."
+  },
+  "知りません": {
+    "hiragana": ["しりません"],
+    "english": ["I do not know"],
+    "mnemonics": "Sounds like 'sheer-ma-sen.' Picture saying 'I don't know' with a sheer look of confusion."
+  },
+  "住む": {
+    "hiragana": ["すむ"],
+    "english": ["to live"],
+    "mnemonics": "Sounds like 'sum.' Think of where you live as the sum of your home life."
+  }
 }
