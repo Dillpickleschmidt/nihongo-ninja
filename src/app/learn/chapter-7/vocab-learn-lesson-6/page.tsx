@@ -1,18 +1,21 @@
 import LearnVocab from "@/app/components/learn-vocab"
-import vocabData from "@/app/learn/chapter-7/lesson-5/data.json"
+import vocabData from "@/app/learn/chapter-7/lesson-6/data.json"
 import Dialog from "@/app/components/dialog"
+import ConvertToEnglishKey from "@/app/components/ConvertToEnglishKey"
+
+const convertedData = ConvertToEnglishKey({ data: vocabData })
 
 export default function page() {
   return (
     <Dialog variant={"large"} className="border-4 border-black bg-[#191919]">
       <div className="text-white overscroll-y-contain">
         <LearnVocab
-          data={vocabData}
-          link="/learn/chapter-7/lesson-6"
+          data={convertedData}
+          link="/learn/chapter-7/vocab-learn-lesson-6-kanji"
           shuffleTerms={true}
         >
           <h1 className="text-7xl font-medium text-[#F8F5E9]">
-            Now practice the kanji!
+            Practice the hiragana first!
           </h1>
         </LearnVocab>
       </div>

@@ -68,5 +68,20 @@
     "hiragana": ["もちろん"],
     "english": ["of course"],
     "mnemonics": "Sounds like 'mochi-ron.' Picture saying 'Of course!' while eating mochi."
+  },
+  "はく": {
+    "hiragana": ["はく"],
+    "english": ["to put on items below your waist"],
+    "mnemonics": "Sounds like 'huck.' Think of 'hucking' on your pants or shoes."
+  },
+  "～が": {
+    "hiragana": ["～が"],
+    "english": ["...but"],
+    "mnemonics": "Think of it as a pause, like saying 'ga...' when you're about to say 'but...'"
+  },
+  "よかったら": {
+    "hiragana": ["よかったら"],
+    "english": ["if you like"],
+    "mnemonics": "Sounds like 'yokatta-ra.' Imagine saying, 'If you like (yokatta), then ra (come on)!'"
   }
 }

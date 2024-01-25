@@ -1,0 +1,87 @@
+{
+  "目": {
+    "hiragana": ["め"],
+    "english": ["eye"],
+    "mnemonics": "Sounds like 'me.' Picture 'me' focusing my eyes to see clearly."
+  },
+  "鼻": {
+    "hiragana": ["はな"],
+    "english": ["nose"],
+    "mnemonics": "Sounds like 'Hana.' Imagine a flower ('hana' in Japanese) near your nose."
+  },
+  "耳": {
+    "hiragana": ["みみ"],
+    "english": ["ear"],
+    "mnemonics": "Sounds like 'me-me.' Think of someone saying 'Listen to me' with their ears."
+  },
+  "歯": {
+    "hiragana": ["は"],
+    "english": ["teeth"],
+    "mnemonics": "Sounds like 'ha.' Imagine laughing 'ha-ha' and showing your teeth."
+  },
+  "眉毛": {
+    "hiragana": ["まゆげ"],
+    "english": ["eyebrows"],
+    "mnemonics": "Sounds like 'Mayu-ge.' Picture drawing your eyebrows carefully in May."
+  },
+  "髪": {
+    "hiragana": ["かみ"],
+    "english": ["hair"],
+    "mnemonics": "Think of 'kami' as in origami. Picture folding origami with hair-like delicacy."
+  },
+  "頭": {
+    "hiragana": ["あたま"],
+    "english": ["head"],
+    "mnemonics": "Sounds like 'a-tama.' Imagine a head ('atama') adorned with a crown."
+  },
+  "顔": {
+    "hiragana": ["かお"],
+    "english": ["face"],
+    "mnemonics": "Sounds like 'cow-o.' Picture a face with the calmness of a cow's expression."
+  },
+  "首": {
+    "hiragana": ["くび"],
+    "english": ["neck"],
+    "mnemonics": "Think of 'kubi' as in 'cubicle.' Imagine stretching your neck looking over cubicle walls."
+  },
+  "肩": {
+    "hiragana": ["かた"],
+    "english": ["shoulder"],
+    "mnemonics": "Sounds like 'cutter.' Imagine a strong shoulder cutting through the water in swimming."
+  },
+  "手": {
+    "hiragana": ["て"],
+    "english": ["hand"],
+    "mnemonics": "'Te' as in 'tea.' Picture yourself delicately holding a tea cup in your hand."
+  },
+  "指": {
+    "hiragana": ["ゆび"],
+    "english": ["finger"],
+    "mnemonics": "Sounds like 'you-be.' Think of pointing a finger and saying, 'You be careful.'"
+  },
+  "胸": {
+    "hiragana": ["むね"],
+    "english": ["chest"],
+    "mnemonics": "Sounds like 'mooneh.' Picture a treasure chest, as valuable as the moon."
+  },
+  "背中": {
+    "hiragana": ["せなか"],
+    "english": ["back"],
+    "mnemonics": "Sounds like 'say-naka.' Imagine someone saying 'Naka' (middle) while pointing at their back."
+  },
+  "おなか": {
+    "hiragana": ["おなか"],
+    "english": ["stomach"],
+    "mnemonics": "Sounds like 'Oh! Naka.' Picture feeling a sudden stomachache and exclaiming 'Oh, naka (inside)!'"
+  },
+  "尾尻": {
+    "hiragana": ["おしり"],
+    "english": ["buttocks"],
+    "mnemonics": "Sounds like 'oh-she-ree.' Think of sitting down after a long day saying, 'Oh, finally!'"
+  },
+  "足": {
+    "hiragana": ["あし"],
+    "english": ["leg/foot"],
+    "mnemonics": "Sounds like 'Ah-she.' Imagine stepping into a relaxing bath and saying 'Ah, relief!'"
+  }
+}

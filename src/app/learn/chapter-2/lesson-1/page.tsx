@@ -1,6 +1,6 @@
 import Dialog from "@/app/components/dialog"
 import Button from "@/app/components/button"
-import VocabCard from "@/app/components/vocabulary-card"
+import VocabCard from "@/app/components/VocabCard"
 
 export default function C2Lesson1() {
   return (
