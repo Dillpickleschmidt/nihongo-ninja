@@ -58,7 +58,7 @@ export default function SpoilerButton({
             <Lottie animationData={upArrow} className="w-6" />
           )}
           {/* If content is showed and animated is false */}
-          {showSpoiler && (
+          {showSpoiler && !animated && (
             <div className="w-6">
               <MdOutlineKeyboardArrowUp />
             </div>
@@ -68,7 +68,7 @@ export default function SpoilerButton({
             <Lottie animationData={downArrow} className="w-6" />
           )}
           {/* If content is hidden and animated is false */}
-          {!showSpoiler && (
+          {!showSpoiler && !animated && (
             <div className="w-6">
               <MdKeyboardArrowDown />
             </div>

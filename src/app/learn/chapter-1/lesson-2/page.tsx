@@ -9,6 +9,7 @@ import Button from "@/app/components/button"
 import HiraganaChart from "@/app/data/HiraganaChart"
 
 import { Noto_Sans_JP } from "next/font/google"
+import SpoilerButton from "@/app/components/SpoilerButton"
 
 const JapaneseFont = Noto_Sans_JP({ subsets: ["latin"] })
 
@@ -73,87 +74,37 @@ export default function Lesson2() {
             <p>け (ke) - 'kept'</p>
             <p>こ (ko) - 'corner'</p>
           </div>
-          <p>
+          <p className="!pb-0">
             Try adding an 's' instead of 'k'. What do you think the sounds will
             be?
           </p>
 
-          {showSpoiler1 && (
-            <motion.div
-              key={`${showSpoiler1}`} // key is used to force a rerender when the index changes
-              initial={{ y: -30, opacity: 0 }}
-              animate={{
-                y: 0,
-                opacity: 1,
-                transition: { duration: 0.5 },
-              }}
-              exit={{ y: 30, opacity: 0 }}
-              className="!pt-0"
+          <SpoilerButton animated={true} className="flex justify-center">
+            <div
+              className={`${JapaneseFont.className} mt-6 font-medium text-center text-2xl`}
             >
-              <div
-                className={`${JapaneseFont.className} font-medium text-center text-2xl`}
-              >
-                <p>さ (sa)</p>
-                <p>し (shi*)</p>
-                <p>す (su)</p>
-                <p>せ (se)</p>
-                <p>そ (so)</p>
-              </div>
-              <p className="mt-6">
-                But wait, し sounds like 'she' instead of 'see'! Some characters
-                do veer <em>slightly</em> off the pattern, but they're nothing
-                that you haven't pronounced before in English.
-              </p>
-            </motion.div>
-          )}
-          <div className="flex justify-center !pt-0">
-            <Button
-              onClick={() => setShowSpoiler1(!showSpoiler1)}
-              className="py-2 px-4 drop-shadow-none text-lg bg-[#222222] text-[#F6E7D2] hover:bg-[#444444] inline-flex items-center"
-            >
-              {showSpoiler1 ? (
-                <Lottie animationData={upArrow} className="w-6" />
-              ) : (
-                <>
-                  <Lottie animationData={downArrow} className="w-6" />
-                </>
-              )}
-            </Button>
-          </div>
-          <p>
+              <p>さ (sa)</p>
+              <p>し (shi*)</p>
+              <p>す (su)</p>
+              <p>せ (se)</p>
+              <p>そ (so)</p>
+            </div>
+            <p className="mt-6">
+              But wait, し sounds like 'she' instead of 'see'! Some characters
+              do veer <em>slightly</em> off the pattern, but they're nothing
+              that you haven't pronounced before in English.
+            </p>
+          </SpoilerButton>
+          <p className="!pb-0">
             Here's a chart containing all 46 Hiragana characters with their
             pronunciations.
           </p>
 
-          {showSpoiler2 && (
-            <motion.div
-              key={`${showSpoiler2}`} // key is used to force a rerender when the index changes
-              initial={{ y: -30, opacity: 0 }}
-              animate={{
-                y: 0,
-                opacity: 1,
-                transition: { duration: 0.5 },
-              }}
-              exit={{ y: 30, opacity: 0 }}
-              className="flex flex-col items-center"
-            >
+          <SpoilerButton animated={true}>
+            <div className="mt-12 flex flex-col items-center">
               <HiraganaChart />
-            </motion.div>
-          )}
-          <div className="flex justify-center !pt-0">
-            <Button
-              onClick={() => setShowSpoiler2(!showSpoiler2)}
-              className="py-2 px-4 drop-shadow-none text-lg bg-[#222222] text-[#F6E7D2] hover:bg-[#444444] inline-flex items-center"
-            >
-              {showSpoiler2 ? (
-                <Lottie animationData={upArrow} className="w-6" />
-              ) : (
-                <>
-                  <Lottie animationData={downArrow} className="w-6" />
-                </>
-              )}
-            </Button>
-          </div>
+            </div>
+          </SpoilerButton>
           <p>
             You've probably noticed that not all the rows are completely filled.
             Japanese doesn't have characters for 'yi', 'ye', 'wi', etc. That

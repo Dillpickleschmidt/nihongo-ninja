@@ -30,12 +30,14 @@ type QuizProps = {
   data: { [key: string]: VocabItemValue } // data: { [key: string]: { hiragana: string; english: string; mnemonics: string } }
   link: string
   shuffleTerms?: boolean
+  hideTerms?: boolean
 }
 
 export default function LearnVocab({
   data,
   link,
   shuffleTerms = false,
+  hideTerms = false,
   children,
 }: QuizProps) {
   // Initialize vocabArray state with the transformed data
@@ -124,17 +126,28 @@ export default function LearnVocab({
     }
   }, [lock])
 
+  var hiragana1 = ""
+  var hiragana2 = ""
+  var hiragana3 = ""
+  var hiragana4 = ""
   // Get the hiragana from the shuffled range
-  var hiragana1 = shuffledOutput.hiragana[0].join(" / ")
-  var hiragana2 = shuffledOutput.hiragana[1].join(" / ")
-  var hiragana3 = shuffledOutput.hiragana[2].join(" / ")
-  var hiragana4 = shuffledOutput.hiragana[3].join(" / ")
-
-  // Get the english from the shuffled range
-  var english1 = shuffledOutput.english[0].join(" / ")
-  var english2 = shuffledOutput.english[1].join(" / ")
-  var english3 = shuffledOutput.english[2].join(" / ")
-  var english4 = shuffledOutput.english[3].join(" / ")
+  if (shuffledOutput.hiragana[0] && shuffledOutput.hiragana[0][0]) {
+    var hiragana1 = shuffledOutput.hiragana[0].join(" / ")
+    var hiragana2 = shuffledOutput.hiragana[1].join(" / ")
+    var hiragana3 = shuffledOutput.hiragana[2].join(" / ")
+    var hiragana4 = shuffledOutput.hiragana[3].join(" / ")
+  }
+  var english1 = ""
+  var english2 = ""
+  var english3 = ""
+  var english4 = ""
+  if (shuffledOutput.english[0] && shuffledOutput.english[0][0]) {
+    // Get the english from the shuffled range
+    var english1 = shuffledOutput.english[0].join(" / ")
+    var english2 = shuffledOutput.english[1].join(" / ")
+    var english3 = shuffledOutput.english[2].join(" / ")
+    var english4 = shuffledOutput.english[3].join(" / ")
+  }
 
   // Get the individual keys from the shuffled range
   var key1 = shuffledOutput.keys[0]
@@ -300,32 +313,48 @@ export default function LearnVocab({
         <div className="w-full mt-24 flex justify-center items-center">
           <div>{children}</div>
         </div>
-        <div className="mt-12 flex justify-center">
-          <div>
-            {originalVocabArray.map((values: any, index: number) => (
-              <li key={index} className="leading-[1.75]">
-                <JapaneseFont className="font-semibold text-4xl text-sky-400">
-                  {values.key}
-                </JapaneseFont>{" "}
-                -{" "}
-                {values.value.english &&
-                values.value.english[0] &&
-                values.value.hiragana[0]
-                  ? // If both hiragana and english exist, render both
-                    values.value.hiragana &&
-                    " / " &&
-                    values.value.english.join(" / ")
-                  : values.value.hiragana && values.value.hiragana[0]
-                  ? // If only hiragana exists, render hiragana
-                    values.value.hiragana
-                  : // If only english exists, render english
-                    values.value.english.join(" / ")}
-              </li>
-            ))}
+        {!hideTerms && (
+          <div className="mt-12 flex justify-center">
+            <div>
+              {originalVocabArray.map((values: any, index: number) => (
+                <li
+                  key={index}
+                  className={`leading-[1.75] ${
+                    index % 2 === 0 ? "text-[#b49b7d]" : "text-[#dfcdb3]"
+                  }`}
+                >
+                  <JapaneseFont
+                    className={`font-semibold text-4xl ${
+                      index % 2 === 0 && "text-[#907c64]"
+                    }`}
+                  >
+                    {values.key}
+                  </JapaneseFont>{" "}
+                  -{" "}
+                  {values.value.english &&
+                  values.value.english[0] &&
+                  values.value.hiragana[0]
+                    ? // If both hiragana and english exist, render both
+                      values.value.hiragana &&
+                      " / " &&
+                      values.value.english.join(" / ")
+                    : values.value.hiragana && values.value.hiragana[0]
+                    ? // If only hiragana exists, render hiragana
+                      values.value.hiragana
+                    : // If only english exists, render english
+                      values.value.english.join(" / ")}
+                </li>
+              ))}
+            </div>
           </div>
-        </div>
+        )}
         <div className="my-12 flex flex-row justify-center">
-          <Button onClick={() => setStarted(true)}>Start Practicing</Button>
+          <Button
+            onClick={() => setStarted(true)}
+            className="bg-[#F6E7D2] hover:bg-[#FFF7EC]"
+          >
+            Start Practicing
+          </Button>
         </div>
       </div>
     )
@@ -426,7 +455,7 @@ export default function LearnVocab({
               {hiragana1 && (
                 <JapaneseFont className="mr-1">{hiragana1} </JapaneseFont>
               )}
-              <JapaneseFont>{english1}</JapaneseFont>
+              {english1}
             </Button>
             <Button
               variant={"vocab"}
@@ -437,7 +466,7 @@ export default function LearnVocab({
               {hiragana2 && (
                 <JapaneseFont className="mr-1">{hiragana2} </JapaneseFont>
               )}
-              <JapaneseFont>{english2}</JapaneseFont>
+              {english2}
             </Button>
             <Button
               variant={"vocab"}
@@ -448,7 +477,7 @@ export default function LearnVocab({
               {hiragana3 && (
                 <JapaneseFont className="mr-1">{hiragana3} </JapaneseFont>
               )}
-              <JapaneseFont>{english3}</JapaneseFont>
+              {english3}
             </Button>
             <Button
               variant={"vocab"}
@@ -459,7 +488,7 @@ export default function LearnVocab({
               {hiragana4 && (
                 <JapaneseFont className="mr-1">{hiragana4} </JapaneseFont>
               )}
-              <JapaneseFont>{english4}</JapaneseFont>
+              {english4}
             </Button>
           </ul>
         ) : (
@@ -467,7 +496,7 @@ export default function LearnVocab({
           <div>
             {/* Render toggles here */}
             <label>
-              Compare to first value
+              Compare to hiragana
               <input
                 type="checkbox"
                 checked={compareHiragana}
@@ -476,7 +505,7 @@ export default function LearnVocab({
             </label>
             <br />
             <label>
-              Compare to second value
+              Compare to english
               <input
                 type="checkbox"
                 checked={compareEnglish}

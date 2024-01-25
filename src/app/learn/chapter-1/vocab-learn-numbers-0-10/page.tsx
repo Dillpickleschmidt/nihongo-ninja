@@ -11,7 +11,9 @@ export default function VocabLearnNumbers() {
           link="/learn/chapter-1/vocab-learn-numbers-11-100"
           shuffleTerms={true}
         >
-          <h1 className="text-4xl">Practice numbers 0-10</h1>
+          <h1 className="text-7xl font-medium text-[#F8F5E9]">
+            Practice numbers 0-10
+          </h1>
         </LearnVocab>
       </div>
     </Dialog>

@@ -11,7 +11,9 @@ export default function page() {
           link="/learn/chapter-7/lesson-5"
           shuffleTerms={true}
         >
-          <h1 className="text-7xl font-medium">Now practice the kanji!</h1>
+          <h1 className="text-7xl font-medium text-[#F8F5E9]">
+            Now practice the kanji!
+          </h1>
         </LearnVocab>
       </div>
     </Dialog>

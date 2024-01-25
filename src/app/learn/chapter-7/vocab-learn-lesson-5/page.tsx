@@ -11,7 +11,9 @@ export default function page() {
           link="/learn/chapter-7/vocab-learn-lesson-5-kanji"
           shuffleTerms={true}
         >
-          <h1 className="text-7xl font-medium">Practice the hiragana first!</h1>
+          <h1 className="text-7xl font-medium text-[#F8F5E9]">
+            Practice the hiragana first!
+          </h1>
         </LearnVocab>
       </div>
     </Dialog>

@@ -12,7 +12,7 @@ export default function Lesson1() {
       variant={"reading"}
       background="/wavy-pattern-2.jpg"
       backgroundSize="700px"
-      opacity={9}
+      opacity={5}
       className="bg-[#191919] text-white"
     >
       <div className="pb-16">
