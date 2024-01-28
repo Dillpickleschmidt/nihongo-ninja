@@ -9,9 +9,9 @@ const JapaneseFont = Noto_Sans_JP({ subsets: ["latin"] })
 export default function NarrowPage() {
   return (
     <>
-      <Dialog variant={"narrow"}>
+      <Dialog variant={"narrow"} className="overflow-x-clip">
         {/* Background Images */}
-        <div className="absolute h-[35px] w-[510px] ml-[320px] bottom-[100%]">
+        <div className="absolute h-[35px] w-[510px] ml-[320px]">
           <Image
             src="/bamboo-with-red-sun.jpg"
             alt="red sun with bamboo"

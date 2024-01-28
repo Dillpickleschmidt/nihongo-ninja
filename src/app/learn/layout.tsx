@@ -19,7 +19,7 @@ export default function Lesson({ children }: { children: React.ReactNode }) {
           className="bg-red-700"
           link="/learn/chapter-1/lesson-1"
         >
-          Reading
+          Lessons
         </Button>
         <Button
           variant={"card"}
@@ -33,13 +33,9 @@ export default function Lesson({ children }: { children: React.ReactNode }) {
           className="bg-yellow-500"
           link="/learn/full-page"
         >
-          Listening
+          Games
         </Button>
-        <Button
-          variant={"card"}
-          className="bg-purple-500"
-          link="/learn/narrow-page"
-        >
+        <Button variant={"card"} className="bg-purple-500" link="/flashcards">
           Flashcards
         </Button>
       </ul>

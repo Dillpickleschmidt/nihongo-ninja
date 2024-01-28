@@ -8,7 +8,12 @@ const JapaneseFont = Noto_Sans_JP({ subsets: ["latin"] })
 
 export default function Lesson3() {
   return (
-    <Dialog variant={"reading"}>
+    <Dialog
+      variant={"reading"}
+      background="/wavy-pattern-2.jpg"
+      backgroundSize="700px"
+      opacity={9}
+    >
       <div className="pb-16">
         <h2 className="pt-28 text-5xl font-medium leading-[3.25rem] text-center px-20">
           🌊

@@ -170,7 +170,7 @@ export default function Lesson9Pt2() {
             Think you can say 99? Give it a try!
           </h3>
           <div className="w-full flex justify-center !pt-0">
-            <SpoilerButton>
+            <SpoilerButton animated={true}>
               <h3 className="text-4xl text-center mt-6">
                 <span className="text-red-400">
                   <Romaji romaji="kyuu">きゅう</Romaji>
