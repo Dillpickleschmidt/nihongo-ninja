@@ -1,15 +1,15 @@
 import { redirect } from "next/navigation"
-import readUserSession from "../lib/actions/readUserSession"
-import createSupabaseServerClient from "../lib/supabase/server"
+import readUserSession from "../../lib/actions/readUserSession"
+import createSupabaseServerClient from "../../lib/supabase/server"
 import { BsDatabaseFillUp } from "react-icons/bs"
 import Button from "../components/button"
+import supabase from "../../lib/supabase/server"
 
 export default async function Page() {
   const { data } = await readUserSession()
   if (!data.session) {
     return redirect("/auth")
   }
-  const supabase = await createSupabaseServerClient()
 
   const { data: user } = await supabase
     .from("users")

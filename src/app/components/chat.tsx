@@ -2,7 +2,7 @@
 
 "use clent"
 import { useRef, useEffect } from "react"
-import supabase from "../lib/supabase/server"
+import supabase from "../../lib/supabase/server"
 import { Message, experimental_useAssistant as useAssistant } from "ai/react"
 
 type ChatProps = React.DialogHTMLAttributes<HTMLDialogElement> & {

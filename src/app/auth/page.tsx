@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation"
-import readUserSession from "../lib/actions/readUserSession"
+import readUserSession from "../../lib/actions/readUserSession"
 import OAuthComponent from "./components/OAuthForm"
 
 export default async function page() {
