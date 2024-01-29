@@ -1,0 +1,72 @@
+{
+  "どちらでもいいです": {
+    "hiragana": ["どちらでもいいです"],
+    "english": ["Both (either way) are fine"],
+    "mnemonics": "Placeholder mnemonic for どちらでもいいです."
+  },
+  "質問してもいいですか": {
+    "hiragana": ["しつもんしてもいいですか"],
+    "english": ["May I ask question(s)"],
+    "mnemonics": "質問 looks like inquiring minds coming together, perfect for asking if one 'may ask questions.'"
+  },
+  "ちょっと違います": {
+    "hiragana": ["ちょっとちがいます"],
+    "english": ["A little different"],
+    "mnemonics": "Imagine the kanji 違 as paths diverging, symbolizing something 'a little different.'"
+  },
+  "だいたい同じです": {
+    "hiragana": ["だいたいおなじです"],
+    "english": ["More or less the same"],
+    "mnemonics": "同 has symmetrical parts, representing things that are 'more or less the same.'"
+  },
+  "意味": {
+    "hiragana": ["いみ"],
+    "english": ["meaning"],
+    "mnemonics": "意 looks like a heart (心) over a field (田), signifying the 'heart' or 'meaning' of something."
+  },
+  "同じでした": {
+    "hiragana": ["おなじでした"],
+    "english": ["It was the same"],
+    "mnemonics": "同 again emphasizes symmetry, indicating 'it was the same.'"
+  },
+  "手紙": {
+    "hiragana": ["てがみ"],
+    "english": ["Letter"],
+    "mnemonics": "In 手紙, imagine a hand (手) writing a letter (紙)."
+  },
+  "教科書": {
+    "hiragana": ["きょうかしょ"],
+    "english": ["Textbook"],
+    "mnemonics": "In 手紙, imagine a hand (手) writing a letter (紙)."
+  },
+  "働いて": {
+    "hiragana": ["はたらいて"],
+    "english": ["working", "to work (te-form)"],
+    "mnemonics": "The kanji 働 combines '人' (person) and '動' (movement). Imagine a person ('人') actively moving ('動') at work. The 'いて' ending in hiragana can be remembered as the person saying 'I'm working' in a continuous, ongoing action."
+  },
+  "住んで": {
+    "hiragana": ["すんで"],
+    "english": ["living", "to live (te-form)"],
+    "mnemonics": "The kanji 住 looks like a roof over a person, symbolizing a place where someone 'lives' or 'dwells'. The 'んで' in hiragana can be remembered as the sound of settling down comfortably in your own space, like sighing 'nde' when you relax at home."
+  },
+  "会社": {
+    "hiragana": ["かいしゃ"],
+    "english": ["company", "corporation"],
+    "mnemonics": "The kanji 会 symbolizes a gathering or assembly, and 社 can represent a shrine or an organization. Imagine '会社' as a place where people gather together for a common purpose, like a shrine where everyone congregates for work, symbolizing a 'company' or 'corporation'. The sound 'かいしゃ' can be remembered by thinking of people saying 'kai (meeting) sha (company)' when they head to their corporate jobs."
+  },
+  "おそく": {
+    "hiragana": ["おそく"],
+    "english": ["late", "slowly"],
+    "mnemonics": "The word 'おそく' can be remembered by visualizing a scenario where someone is moving slowly or arriving late. Imagine someone saying, 'Oh, so cool (おそく),' taking their time, unhurried and relaxed, thus being late or moving slowly."
+  },
+  "高校生": {
+    "hiragana": ["こうこうせい"],
+    "english": ["high school student"],
+    "mnemonics": "The term 高校生 combines 高校 (こうこう - high school) and 生 (せい - student). You can visualize it as a student ('生') studying in a tall ('高') building, which is a high school ('校'). The phrase 'こうこうせい' can be remembered by picturing a young student, full of energy, aspiring high in their 'high school' years."
+  },
+  "一緒に": {
+    "hiragana": ["いっしょに"],
+    "english": ["together", "along with"],
+    "mnemonics": "The term 一緒に consists of 一 (いち - one) and 緒 (しょ - tie or join). Imagine the kanji 一緒 as two threads (緒) being tied into one (一), symbolizing unity and coming 'together'. The phrase 'いっしょに' can be remembered by picturing people joining hands and doing activities 'together' in unison."
+  }
+}

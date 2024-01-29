@@ -1,0 +1,77 @@
+{
+  "答える": {
+    "hiragana": ["こたえる"],
+    "english": ["to answer"],
+    "mnemonics": "In 答, picture a mouth under a roof, ready to 'answer' a query."
+  },
+  "買う": {
+    "hiragana": ["かう"],
+    "english": ["to buy"],
+    "mnemonics": "The kanji 買 looks like a person exchanging money to 'buy' something."
+  },
+  "誰": {
+    "hiragana": ["だれ"],
+    "english": ["who"],
+    "mnemonics": "The 誰 kanji looks like a person with a questioning expression, asking 'who?'"
+  },
+  "持って": {
+    "hiragana": ["もって"],
+    "english": ["to have (te-form)"],
+    "mnemonics": "持 resembles a hand holding onto something, signifying 'to have'. Just look at those weird fingers!"
+  },
+  "連れて来る": {
+    "hiragana": ["つれてくる"],
+    "english": ["To bring"],
+    "mnemonics": "In 連, imagine two people linked together to 'bring' along."
+  },
+  "友達を連れてきてもいいですよ！": {
+    "hiragana": ["ともだちをつれてきてもいいですよ"],
+    "english": ["It's good to come with your friends!"],
+    "mnemonics": "Placeholder mnemonic for 友達を連れてきてもいいですよ！."
+  },
+  "先生": {
+    "hiragana": ["せんせい"],
+    "english": ["teacher"],
+    "mnemonics": "The kanji 先 resembles a wise person leading the way, like a 'teacher'."
+  },
+  "持って行けます": {
+    "hiragana": ["もっていけます"],
+    "english": ["you can bring/take (thing) with you"],
+    "mnemonics": "The 持 part looks like a hand carrying something to another place (行)."
+  },
+  "作る": {
+    "hiragana": ["つくる"],
+    "english": ["to make"],
+    "mnemonics": "In 作, envision hands crafting or 'making' something."
+  },
+  "あまり": {
+    "hiragana": ["あまり"],
+    "english": ["Not much"],
+    "mnemonics": "Placeholder mnemonic for あまり."
+  },
+  "課": {
+    "hiragana": ["か"],
+    "english": ["lesson"],
+    "mnemonics": "In 課, envision a speaking podium where lessons are taught."
+  },
+  "第六課": {
+    "hiragana": ["だいろくか"],
+    "english": ["Lesson 6"],
+    "mnemonics": "第 has a flag-like top, marking the 'sixth' (六) 'lesson' (課) in a series."
+  },
+  "読み物": {
+    "hiragana": ["よみもの"],
+    "english": ["reading material"],
+    "mnemonics": "The 読 part looks like a person under a tree, deeply engaged in 'reading material'."
+  },
+  "練習": {
+    "hiragana": ["れんしゅう"],
+    "english": ["practice"],
+    "mnemonics": "In 練, picture diligent hands repeating an action as 'practice'."
+  },
+  "私の好き（な）レストラン": {
+    "hiragana": ["わたしのすきなレストラン"],
+    "english": ["My favorite restaurant"],
+    "mnemonics": "The kanji 好 looks like a person with a heart, loving their 'favorite restaurant'."
+  }
+}

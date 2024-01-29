@@ -1,0 +1,77 @@
+{
+  "高校": {
+    "hiragana": ["こうこう"],
+    "english": ["High school"],
+    "mnemonics": "The kanji 高 looks like a tall tower with a flag on top, representing a 'high' school."
+  },
+  "車": {
+    "hiragana": ["くるま"],
+    "english": ["Car"],
+    "mnemonics": "The kanji 車 resembles a vehicle with wheels on each side, ready to 'car'-ry you."
+  },
+  "乗る": {
+    "hiragana": ["のる"],
+    "english": ["To ride, to board"],
+    "mnemonics": "In 乗, imagine a person on top of a moving vehicle, ready to 'ride'."
+  },
+  "学校": {
+    "hiragana": ["がっこう"],
+    "english": ["School"],
+    "mnemonics": "The 学 part of 学校 looks like a person with a big head, full of knowledge, in a 'school'."
+  },
+  "〜てもいいですか・〜てもよかったですか": {
+    "hiragana": ["〜てもいいですか"],
+    "english": ["Could I? May I?"],
+    "mnemonics": "Placeholder mnemonic for 〜てもいいですか."
+  },
+  "どんな": {
+    "hiragana": ["どんな"],
+    "english": ["What kind of…"],
+    "mnemonics": "Placeholder mnemonic for どんな."
+  },
+  "とても": {
+    "hiragana": ["とても"],
+    "english": ["Very"],
+    "mnemonics": "Placeholder mnemonic for とても."
+  },
+  "後": {
+    "hiragana": ["あと"],
+    "english": ["after"],
+    "mnemonics": "The kanji 後 looks like a person following behind another, symbolizing 'after'."
+  },
+  "早く": {
+    "hiragana": ["はやく"],
+    "english": ["quickly"],
+    "mnemonics": "The top of 早 resembles a sun rising quickly over the horizon."
+  },
+  "宿題": {
+    "hiragana": ["しゅくだい"],
+    "english": ["homework"],
+    "mnemonics": "In 宿, imagine a little house where you do your 'homework'."
+  },
+  "…から": {
+    "hiragana": ["から"],
+    "english": ["Because"],
+    "mnemonics": "Placeholder mnemonic for …から."
+  },
+  "読む": {
+    "hiragana": ["よむ"],
+    "english": ["to read"],
+    "mnemonics": "The kanji 読 looks like a person under a roof with a book, 'reading'."
+  },
+  "近く": {
+    "hiragana": ["ちかく"],
+    "english": ["near"],
+    "mnemonics": "近 looks like a road drawing 'near' to a destination."
+  },
+  "隣": {
+    "hiragana": ["となり"],
+    "english": ["next to"],
+    "mnemonics": "Imagine 隣 as two houses sitting 'next to' each other."
+  },
+  "しつもん": {
+    "hiragana": ["しつもん"],
+    "english": ["question"],
+    "mnemonics": "The 質 part of 質問 resembles a woven net, capturing the 'question'."
+  }
+}

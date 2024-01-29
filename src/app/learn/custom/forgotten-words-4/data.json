@@ -1,0 +1,77 @@
+{
+  "飲んで": {
+    "hiragana": ["のんで"],
+    "english": ["drink (te-form)"],
+    "mnemonics": "In 飲, picture a person drinking a liquid, with the top part of the kanji resembling a bottle."
+  },
+  "安かった": {
+    "hiragana": ["やすかった"],
+    "english": ["it was cheap"],
+    "mnemonics": "The kanji 安 looks like a person relaxing at home, satisfied with a 'cheap' purchase."
+  },
+  "写真": {
+    "hiragana": ["しゃしん"],
+    "english": ["photograph"],
+    "mnemonics": "写 resembles a camera capturing a 'photograph.'"
+  },
+  "山": {
+    "hiragana": ["やま"],
+    "english": ["mountain"],
+    "mnemonics": "山 looks like the peaks of a 'mountain.'"
+  },
+  "料理": {
+    "hiragana": ["りょうり"],
+    "english": ["cooking"],
+    "mnemonics": "料 resembles ingredients and 理 a methodical layout, together signifying 'cooking.'"
+  },
+  "イタリア語": {
+    "hiragana": ["イタリアご"],
+    "english": ["Italian language"],
+    "mnemonics": "Visualize the distinct shapes in イタリア語 representing the elegance of the 'Italian language.'"
+  },
+  "前": {
+    "hiragana": ["まえ"],
+    "english": ["before"],
+    "mnemonics": "前 looks like a person with a guiding arrow, indicating 'before' or 'ahead.'"
+  },
+  "勉強": {
+    "hiragana": ["べんきょう"],
+    "english": ["study"],
+    "mnemonics": "勉 resembles a person bent over books, deeply in 'study.'"
+  },
+  "全然": {
+    "hiragana": ["ぜんぜん"],
+    "english": ["not at all"],
+    "mnemonics": "全 resembles a container with nothing in it, signifying 'not at all.'"
+  },
+  "残念": {
+    "hiragana": ["ざんえん"],
+    "english": ["too bad"],
+    "mnemonics": "In 残, visualize something left incomplete or regrettable, signifying 'too bad.'"
+  },
+  "近い": {
+    "hiragana": ["ちかい"],
+    "english": ["close"],
+    "mnemonics": "近 looks like paths converging, indicating 'close' proximity."
+  },
+  "すぐ": {
+    "hiragana": ["すぐ"],
+    "english": ["Soon"],
+    "mnemonics": "Placeholder mnemonic for すぐ."
+  },
+  "部屋": {
+    "hiragana": ["へや"],
+    "english": ["room"],
+    "mnemonics": "部 looks like divided sections of a 'room.'"
+  },
+  "来る": {
+    "hiragana": ["きる"],
+    "english": ["to come"],
+    "mnemonics": "来 resembles a path leading towards you, indicating 'to come.'"
+  },
+  "待ちましょう": {
+    "hiragana": ["まちましょう"],
+    "english": ["let's wait"],
+    "mnemonics": "Placeholder mnemonic for 待ちましょう."
+  }
+}

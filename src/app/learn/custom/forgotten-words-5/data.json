@@ -1,0 +1,77 @@
+{
+  "町": {
+    "hiragana": ["まち"],
+    "english": ["town"],
+    "mnemonics": "The kanji 町 looks like crossroads in a 'town,' with paths intersecting."
+  },
+  "静か": {
+    "hiragana": ["しずか"],
+    "english": ["quiet"],
+    "mnemonics": "静 resembles a bird on a tree, symbolizing a 'quiet' and peaceful scene."
+  },
+  "その映画は（怖く・怖いじゃ・怖い）ありませんね。": {
+    "hiragana": ["そのえいがはこわくないですね"],
+    "english": ["That movie isn't scary, is it?"],
+    "mnemonics": "怖 has elements that look like a scared face, perfect for describing something 'scary' or 'frightening.'"
+  },
+  "起きる": {
+    "hiragana": ["おきる"],
+    "english": ["to get up/wake up"],
+    "mnemonics": "In 起, visualize a person standing up from lying down, symbolizing 'to get up' or 'wake up.'"
+  },
+  "文法": {
+    "hiragana": ["ぶんぽう"],
+    "english": ["grammar"],
+    "mnemonics": "The 文 part of 文法 looks like written text, associated with 'grammar' rules."
+  },
+  "使った": {
+    "hiragana": ["つかった"],
+    "english": ["used"],
+    "mnemonics": "使 looks like a hand manipulating a tool, indicating something 'used' or 'utilized.'"
+  },
+  "次の質問です": {
+    "hiragana": ["つぎのしつもんです"],
+    "english": ["next question"],
+    "mnemonics": "次 looks like a step leading to the next level, perfect for the 'next question.'"
+  },
+  "何曜日ですか": {
+    "hiragana": ["なんようびですか"],
+    "english": ["what day of the week?"],
+    "mnemonics": "Placeholder mnemonic for 何曜日ですか."
+  },
+  "くだけた言い方": {
+    "hiragana": ["くだけたいいかた"],
+    "english": ["colloquial expression"],
+    "mnemonics": "Placeholder mnemonic for くだけた言い方."
+  },
+  "復習": {
+    "hiragana": ["ふくしゅう"],
+    "english": ["Review"],
+    "mnemonics": "復 resembles returning to something previously done, perfect for 'review.'"
+  },
+  "例": {
+    "hiragana": ["れい"],
+    "english": ["Example"],
+    "mnemonics": "In 例, picture a standard or model being set, representing an 'example.'"
+  },
+  "締め切り": {
+    "hiragana": ["しめきり"],
+    "english": ["Deadline"],
+    "mnemonics": "締 looks like tying up something firmly, symbolizing a 'deadline' that needs to be met."
+  },
+  "発音": {
+    "hiragana": ["はつおん"],
+    "english": ["Pronunciation"],
+    "mnemonics": "発 resembles a mouth with sound waves, indicating the act of 'pronunciation.'"
+  },
+  "使えません": {
+    "hiragana": ["つかえません"],
+    "english": ["Can't use it"],
+    "mnemonics": "使 has elements that block or restrict, fitting for 'can't use it.'"
+  },
+  "だめです": {
+    "hiragana": ["だめです"],
+    "english": ["No good"],
+    "mnemonics": "Placeholder mnemonic for だめです."
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "北": {
+    "hiragana": ["きた"],
+    "english": ["North"],
+    "mnemonics": "The kanji 北 looks like two people back-to-back, pointing 'north'."
+  },
+  "南": {
+    "hiragana": ["みなみ"],
+    "english": ["South"],
+    "mnemonics": "南 resembles a cross indicating direction, pointing 'south'."
+  },
+  "東": {
+    "hiragana": ["ひがし"],
+    "english": ["East"],
+    "mnemonics": "東 looks like a sun rising from the 'east'."
+  },
+  "西": {
+    "hiragana": ["にし"],
+    "english": ["West"],
+    "mnemonics": "西 is like a bird flying towards the setting sun in the 'west'."
+  },
+  "駅": {
+    "hiragana": ["えき"],
+    "english": ["station"],
+    "mnemonics": "The kanji 駅 has parts that resemble tracks leading to a 'station'."
+  },
+  "出て": {
+    "hiragana": ["でて"],
+    "english": ["te-form of 'to exit'"],
+    "mnemonics": "In 出, imagine a person stepping out or 'exiting.'"
+  },
+  "分": {
+    "hiragana": ["ぶん・ぷん"],
+    "english": ["minute"],
+    "mnemonics": "分 looks like a clock dividing time into 'minutes'."
+  },
+  "上田駅": {
+    "hiragana": ["うえだえき"],
+    "english": ["Ueda train station"],
+    "mnemonics": "上田 resembles a location marker, indicating 'Ueda train station."
+  },
+  "北口": {
+    "hiragana": ["きたぐち"],
+    "english": ["North exit"],
+    "mnemonics": "北口 combines 'north' (北) and 'exit' (口), like a mouth pointing northward."
+  },
+  "マンジャーレは、上田駅の南口を出て、右へ五分ぐらいです。": {
+    "hiragana": [
+      "マンジャーレは、うえだえきのみなみぐちをでて、みぎへごふんぐらいです。"
+    ],
+    "english": [
+      "Mangiare is about 5 minutes to the right after exiting the south exit of Ueda Station."
+    ],
+    "mnemonics": "Visualize the journey from the 'south exit' (南口) to the right for about 'five minutes' (五分)."
+  },
+  "店": {
+    "hiragana": ["みせ"],
+    "english": ["store"],
+    "mnemonics": "店 looks like a sheltered place where goods are stored, a 'store'."
+  },
+  "小さい": {
+    "hiragana": ["ちさい"],
+    "english": ["small"],
+    "mnemonics": "The kanji 小 looks like a person with their arms close together, indicating something 'small'."
+  },
+  "兄": {
+    "hiragana": ["あに"],
+    "english": ["brother"],
+    "mnemonics": "兄 has a big hat, like an 'older brother' protecting his siblings."
+  },
+  "先週の週末": {
+    "hiragana": ["せんしゅうのしゅうまつ"],
+    "english": ["last weekend"],
+    "mnemonics": "先週 symbolizes 'last' and 週末 represents 'weekend', like a calendar page turning."
+  },
+  "誕生日": {
+    "hiragana": ["たんじょうび"],
+    "english": ["birthday"],
+    "mnemonics": "誕生日 combines 'birth' (誕生) and 'day' (日), like a cake with candles."
+  }
+}
