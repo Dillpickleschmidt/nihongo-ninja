@@ -1,41 +1,191 @@
-import Navbar from "../components/navbar"
+import Link from "next/link"
 import Dropdown from "./Dropdown"
+import Button from "../components/button"
 
 export default function page() {
   return (
     <div className="h-full scrollbar-thin scrollbar-thumb-[#999999] hover:scrollbar-thumb-neutral-400">
-      <Navbar />
       <div className="text-xl mt-32">
         <div className="w-full flex flex-col items-center">
-          <Dropdown text="Lesson 0">
-            <div>Yo</div>
-            <div>Hi</div>
-            <div>Hello</div>
+          <Dropdown text="Chapter 0">
+            <Button
+              variant={"system"}
+              className="justify-start text-start text-white text-xl ease-out duration-100"
+              link="spaced-repetition/study"
+            >
+              Greetings
+            </Button>
+            <Button
+              variant={"system"}
+              className="justify-start text-start text-white text-xl ease-out duration-100"
+              link="spaced-repetition/study"
+            >
+              Common Phrases
+            </Button>
+            <Button
+              variant={"system"}
+              className="justify-start text-start text-white text-xl ease-out duration-100"
+              link="spaced-repetition/study"
+            >
+              Essential Expressions
+            </Button>
+            <Button
+              variant={"system"}
+              className="justify-start text-start text-white text-xl ease-out duration-100"
+              link="spaced-repetition/study"
+            >
+              Numbers
+            </Button>
           </Dropdown>
-          <Dropdown text="Lesson 1">
-            <div>Yo</div>
-            <div>Hi</div>
-            <div>Hello</div>
+          <Dropdown text="Chapter 1">
+            <Button
+              variant={"system"}
+              className="justify-start text-start text-white text-xl ease-out duration-100"
+              link="spaced-repetition/study"
+            >
+              Greetings
+            </Button>
+            <Button
+              variant={"system"}
+              className="justify-start text-start text-white text-xl ease-out duration-100"
+              link="spaced-repetition/study"
+            >
+              Common Phrases
+            </Button>
+            <Button
+              variant={"system"}
+              className="justify-start text-start text-white text-xl ease-out duration-100"
+              link="spaced-repetition/study"
+            >
+              Essential Expressions
+            </Button>
+            <Button
+              variant={"system"}
+              className="justify-start text-start text-white text-xl ease-out duration-100"
+              link="spaced-repetition/study"
+            >
+              Numbers
+            </Button>
           </Dropdown>
-          <Dropdown text="Lesson 2">
-            <div>Yo</div>
-            <div>Hi</div>
-            <div>Hello</div>
+          <Dropdown text="Chapter 2">
+            <Button
+              variant={"system"}
+              className="justify-start text-start text-white text-xl ease-out duration-100"
+              link="spaced-repetition/study"
+            >
+              Greetings
+            </Button>
+            <Button
+              variant={"system"}
+              className="justify-start text-start text-white text-xl ease-out duration-100"
+              link="spaced-repetition/study"
+            >
+              Common Phrases
+            </Button>
+            <Button
+              variant={"system"}
+              className="justify-start text-start text-white text-xl ease-out duration-100"
+              link="spaced-repetition/study"
+            >
+              Essential Expressions
+            </Button>
+            <Button
+              variant={"system"}
+              className="justify-start text-start text-white text-xl ease-out duration-100"
+              link="spaced-repetition/study"
+            >
+              Numbers
+            </Button>
           </Dropdown>
-          <Dropdown text="Lesson 3">
-            <div>Yo</div>
-            <div>Hi</div>
-            <div>Hello</div>
+          <Dropdown text="Chapter 3">
+            <Button
+              variant={"system"}
+              className="justify-start text-start text-white text-xl ease-out duration-100"
+              link="spaced-repetition/study"
+            >
+              Greetings
+            </Button>
+            <Button
+              variant={"system"}
+              className="justify-start text-start text-white text-xl ease-out duration-100"
+              link="spaced-repetition/study"
+            >
+              Common Phrases
+            </Button>
+            <Button
+              variant={"system"}
+              className="justify-start text-start text-white text-xl ease-out duration-100"
+              link="spaced-repetition/study"
+            >
+              Essential Expressions
+            </Button>
+            <Button
+              variant={"system"}
+              className="justify-start text-start text-white text-xl ease-out duration-100"
+              link="spaced-repetition/study"
+            >
+              Numbers
+            </Button>
           </Dropdown>
-          <Dropdown text="Lesson 4">
-            <div>Yo</div>
-            <div>Hi</div>
-            <div>Hello</div>
+          <Dropdown text="Chapter 4">
+            <Button
+              variant={"system"}
+              className="justify-start text-start text-white text-xl ease-out duration-100"
+              link="spaced-repetition/study"
+            >
+              Greetings
+            </Button>
+            <Button
+              variant={"system"}
+              className="justify-start text-start text-white text-xl ease-out duration-100"
+              link="spaced-repetition/study"
+            >
+              Common Phrases
+            </Button>
+            <Button
+              variant={"system"}
+              className="justify-start text-start text-white text-xl ease-out duration-100"
+              link="spaced-repetition/study"
+            >
+              Essential Expressions
+            </Button>
+            <Button
+              variant={"system"}
+              className="justify-start text-start text-white text-xl ease-out duration-100"
+              link="spaced-repetition/study"
+            >
+              Numbers
+            </Button>
           </Dropdown>
-          <Dropdown text="Lesson 5">
-            <div>Yo</div>
-            <div>Hi</div>
-            <div>Hello</div>
+          <Dropdown text="Chapter 5">
+            <Button
+              variant={"system"}
+              className="justify-start text-start text-white text-xl ease-out duration-100"
+              link="spaced-repetition/study"
+            >
+              Greetings
+            </Button>
+            <Button
+              variant={"system"}
+              className="justify-start text-start text-white text-xl ease-out duration-100"
+              link="spaced-repetition/study"
+            >
+              Common Phrases
+            </Button>
+            <Button
+              variant={"system"}
+              className="justify-start text-start text-white text-xl ease-out duration-100"
+              link="spaced-repetition/study"
+            >
+              Essential Expressions
+            </Button>
+            <Button
+              variant={"system"}
+              className="justify-start text-start text-white text-xl ease-out duration-100"
+              link="spaced-repetition/study"
+            >
+              Numbers
+            </Button>
           </Dropdown>
         </div>
       </div>

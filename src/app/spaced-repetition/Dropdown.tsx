@@ -10,7 +10,7 @@ type DropdownProps = React.HTMLAttributes<HTMLDivElement> & {
 }
 
 export default function Dropdown({ children, text }: DropdownProps) {
-  const [showSpoiler, setShowSpoiler] = useState(false)
+  const [showSpoiler, setShowSpoiler] = useState(true)
   return (
     <div className="w-[45%]">
       <div className="flex justify-between items-center pr-3 border-b border-white border-opacity-15 py-3">
