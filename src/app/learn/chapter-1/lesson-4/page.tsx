@@ -20,7 +20,7 @@ export default function Lesson4() {
               <em>thought</em>
             </u>
           </span>{" "}
-          you had Japanese phonetics in your pocket, it's time to{" "}
+          you had Japanese phonetics in your pocket, it&apos;s time to{" "}
           <span className="text-[2.5rem]">
             <em>twist</em>
           </span>{" "}
@@ -64,26 +64,26 @@ export default function Lesson4() {
             <div>
               <p>
                 Picture this: some of the Hiragana characters decide to team up,
-                and work together. It's a bit like a tag team in a friendly
+                and work together. It&apos;s a bit like a tag team in a friendly
                 game, where two players join forces to win the game.
               </p>
               <br />
               <p>
                 Take "じゃ (ja)" for example. Here, "じ (ji)" teams up with a
-                tiny version of "や (ya)" to create a sound that's not just
-                "jiya" but a smoother, more compact "ja". You'll see this
+                tiny version of "や (ya)" to create a sound that&apos;s not just
+                "jiya" but a smoother, more compact "ja". You&apos;ll see this
                 dynamic duo popping up in words like "じゃあね (jaane - see
                 you)".
               </p>
               <br />
               <p>
-                You'll most often see three players in this game who are smart
-                enough to work together, the small "ゃ", "ゅ", and "ょ", but
-                you'll see others join in the fun too. Why are they small?
-                Probably because they were willing to reduce their egos for a
-                greater cause. Truly, they're like the special agents of the
-                Hiragana world, teaming up with others to create these smooth,
-                blended sounds.
+                You&apos;ll most often see three players in this game who are
+                smart enough to work together, the small "ゃ", "ゅ", and "ょ",
+                but you&apos;ll see others join in the fun too. Why are they
+                small? Probably because they were willing to reduce their egos
+                for a greater cause. Truly, they&apos;re like the special agents
+                of the Hiragana world, teaming up with others to create these
+                smooth, blended sounds.
               </p>
             </div>
           </div>
@@ -98,9 +98,9 @@ export default function Lesson4() {
           <p>
             <span className="text-2xl font-bold">Practice Makes Perfect:</span>{" "}
             These sounds might seem a bit awkward at first, like learning a new
-            dance move. But once you get the rhythm, you'll be flowing through
-            sentences with a newfound <strong>groove</strong>. They add a{" "}
-            <em>smoothness</em> and
+            dance move. But once you get the rhythm, you&apos;ll be flowing
+            through sentences with a newfound <strong>groove</strong>. They add
+            a <em>smoothness</em> and
             <em> efficiency</em> to Japanese, like a sleek high-speed train{" "}
             <u>zipping</u> through the countryside.
           </p>

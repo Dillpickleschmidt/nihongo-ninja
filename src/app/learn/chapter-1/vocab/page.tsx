@@ -7,18 +7,19 @@ export default function Numbers() {
     <Dialog variant={"reading"} className="border-4 border-black bg-[#191919]">
       <div className="pb-20 text-xl text-[#F8F5E9]">
         <h1 className="pt-28 pb-6 text-4xl font-medium leading-[3.25rem] text-center px-20">
-          <span className="text-5xl font-medium">Great job</span>, you've
-          finally made it! You've now got a strong grasp of Hiragana! Not only
-          can you <span className="text-5xl">read</span> hiragana, but you also
-          have the phonetic arsenal to <span className="text-5xl">say</span>{" "}
-          pretty much <span className="font-bold">*anything*</span> in
-          Japanese!🔥
+          <span className="text-5xl font-medium">Great job</span>, you&apos;ve
+          finally made it! You&apos;ve now got a strong grasp of Hiragana! Not
+          only can you <span className="text-5xl">read</span> hiragana, but you
+          also have the phonetic arsenal to{" "}
+          <span className="text-5xl">say</span> pretty much{" "}
+          <span className="font-bold">*anything*</span> in Japanese!🔥
         </h1>
         <p className="px-28 py-6 text-xl leading-8">
-          You're probably tired of practicing hiragana, so here's a quick
-          preview of what you'll learn in the next few lessons. You'll quckly
-          work your way through each word as they come up, and you'll be having
-          real Japanese conversations before you know it!
+          You&apos;re probably tired of practicing hiragana, so here&apos;s a
+          quick preview of what you&apos;ll learn in the next few lessons.
+          You&apos;ll quckly work your way through each word as they come up,
+          and you&apos;ll be having real Japanese conversations before you know
+          it!
         </p>
         <h1 className="mx-auto mt-6 mb-12 text-6xl text-center font-semibold tracking-wide underline-offset-8">
           <u>
@@ -105,7 +106,7 @@ export default function Numbers() {
                 </JapaneseFont>
               </ul>
               <ul>Itte kimasu.</ul>
-              <ul>I'll go and come back.</ul>
+              <ul>I&apos;ll go and come back.</ul>
             </div>
             <div className="[&>*]:w-full">
               <ul>
@@ -123,7 +124,7 @@ export default function Numbers() {
                 </JapaneseFont>
               </ul>
               <ul>Tadaima.</ul>
-              <ul>I'm home.</ul>
+              <ul>I&apos;m home.</ul>
             </div>
             <div className="[&>*]:w-full">
               <ul>
@@ -299,7 +300,7 @@ export default function Numbers() {
               <ul>ten</ul>
             </div>
           </div>
-          <h3 className="mt-4 text-center">...up to 99 (it's easy).</h3>
+          <h3 className="mt-4 text-center">...up to 99 (it&apos;s easy).</h3>
         </div>
         <div className="mt-12 mx-12 !mb-0 flex flex-row justify-end">
           <Button link="/learn/chapter-1/lesson-6" autoFocus={true}>

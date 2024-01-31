@@ -28,7 +28,7 @@ export default function Lesson5() {
           <span className="font-semibold">
             <u>Oh yes</u>
           </span>
-          , it's the roller coaster ride of language learning you{" "}
+          , it&apos;s the roller coaster ride of language learning you{" "}
           <em>never knew you needed</em>.{" "}
           <span className="text-[2.5rem] font-bold">
             <em>Buckle up</em>
@@ -70,11 +70,11 @@ export default function Lesson5() {
             </div>
             <div>
               <p>
-                Imagine you're in a suspenseful movie, and there's that
-                momentary pause that makes your heart skip a beat. That's what
-                double consonants are in the realm of Japanese. They're like
-                tiny, suspenseful hiccups in words that add a whole layer of
-                drama.
+                Imagine you&apos;re in a suspenseful movie, and there&apos;s
+                that momentary pause that makes your heart skip a beat.
+                That&apos;s what double consonants are in the realm of Japanese.
+                They&apos;re like tiny, suspenseful hiccups in words that add a
+                whole layer of drama.
               </p>
               <br />
               <p>
@@ -82,9 +82,10 @@ export default function Lesson5() {
                 <span className={`${JapaneseFont.className} font-semibold`}>
                   がっこう
                 </span>{" "}
-                (gakkou - school)." Without the double 'k', it would just be a
-                boring old "gakou." But with that extra 'k', suddenly, it's
-                (gak-kou) a word with a bit more punch, a bit more{" "}
+                (gakkou - school)." Without the double &apos;k&apos;, it would
+                just be a boring old "gakou." But with that extra &apos;k&apos;,
+                suddenly, it&apos;s (gak-kou) a word with a bit more punch, a
+                bit more{" "}
                 <span className="">
                   "
                   <u>
@@ -92,8 +93,8 @@ export default function Lesson5() {
                   </u>
                   ."
                 </span>{" "}
-                It's the linguistic version of adding an extra shot of espresso
-                to your morning coffee - small but mighty!
+                It&apos;s the linguistic version of adding an extra shot of
+                espresso to your morning coffee - small but mighty!
               </p>
             </div>
           </div>
@@ -127,28 +128,28 @@ export default function Lesson5() {
             </div>
             <div>
               <p>
-                Now, let's switch gears to long vowels. If double consonants are
-                the dramatic pauses, long vowels are like stretching a rubber
-                band, elongating the sound until you think it might just snap.
-                But fear not, it won't!
+                Now, let&apos;s switch gears to long vowels. If double
+                consonants are the dramatic pauses, long vowels are like
+                stretching a rubber band, elongating the sound until you think
+                it might just snap. But fear not, it won&apos;t!
               </p>
               <br />
               <p>
                 Consider "お<u>ばあ</u>さん (o<u>baa</u>san - grandmother)." If
-                you don't stretch the 'aa', you might end up calling someone "
-                お<u>ば</u>さん (o<u>ba</u>san - aunt)," and <em>oh boy</em>,
-                can that lead to some awkward family reunions.
+                you don&apos;t stretch the &apos;aa&apos;, you might end up
+                calling someone " お<u>ば</u>さん (o<u>ba</u>san - aunt)," and{" "}
+                <em>oh boy</em>, can that lead to some awkward family reunions.
               </p>
             </div>
           </div>
           <p className="!pb-0 text-center">*See the extra あ?</p>
           <p>
             Double consonants and long vowels are a <em>*bit*</em> tricky for
-            English speakers. You'll need to be <u>extra</u> diligent about not
-            forgetting double consonants and long vowels when speaking since
-            they can completely change the meaning of the word. If you're having
-            trouble right now, fear not! You'll be hearing and saying them
-            throughout your Japanese journey.
+            English speakers. You&apos;ll need to be <u>extra</u> diligent about
+            not forgetting double consonants and long vowels when speaking since
+            they can completely change the meaning of the word. If you&apos;re
+            having trouble right now, fear not! You&apos;ll be hearing and
+            saying them throughout your Japanese journey.
           </p>
           <h3 className="mt-8 !pb-0 text-4xl font-bold text-center">
             <em>Why, oh </em>
@@ -159,8 +160,8 @@ export default function Lesson5() {
             <span className="text-2xl">
               <em>"Why do these exist?"</em>
             </span>{" "}
-            Well, it's all about adding <em>flavor</em>, my friends! Just like
-            chefs use spices to turn bland food into culinary masterpieces,
+            Well, it&apos;s all about adding <em>flavor</em>, my friends! Just
+            like chefs use spices to turn bland food into culinary masterpieces,
             Japanese uses double consonants and long vowels to turn plain speech
             into <em>*melodious music*</em>.
           </p>
@@ -168,8 +169,8 @@ export default function Lesson5() {
             <span className="text-2xl font-bold">Mastering the Art:</span>{" "}
             Getting these sounds right might feel like trying to pat your head
             and rub your belly at the same time. But once you get the hang of
-            it, you'll be weaving through Japanese conversations with the grace
-            of a linguistic acrobat.
+            it, you&apos;ll be weaving through Japanese conversations with the
+            grace of a linguistic acrobat.
           </p>
           <p>
             So, embark on this exhilarating adventure with gusto! Embrace the

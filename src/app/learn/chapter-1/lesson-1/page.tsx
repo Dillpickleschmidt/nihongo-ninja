@@ -37,7 +37,7 @@ export default function Lesson1() {
         <div className="px-28 text-xl leading-8 [&>*]:py-6">
           <p>
             <u>Glad you could make it!</u> Now, as a beginner, the first thing
-            you'll want to know is that Japanese consists of{" "}
+            you&apos;ll want to know is that Japanese consists of{" "}
             <em>
               <strong>three</strong>
             </em>{" "}
@@ -53,7 +53,7 @@ export default function Lesson1() {
             Hiragana
           </h2>
           <p className="!pt-0">
-            First up, we've got <strong>Hiragana</strong>, your new{" "}
+            First up, we&apos;ve got <strong>Hiragana</strong>, your new{" "}
             <strong>best friend</strong> in Japanese. Hiragana is used for
             native Japanese words, and the whole alphabet revolves around five
             simple vowels:
@@ -72,14 +72,14 @@ export default function Lesson1() {
           </p>
           <p>
             You already saw Hiragana when you created an account. Think of
-            Hiragana as your go-to for most things Japanese. It's like learning
-            your ABCs, but way cooler!
+            Hiragana as your go-to for most things Japanese. It&apos;s like
+            learning your ABCs, but way cooler!
           </p>
           <h2 className="text-4xl text-center font-bold !pb-4 !pt-12">
             Katakana
           </h2>
           <p className="!pt-0">
-            Then, say hello to <strong>Katakana</strong>. It's the twin of
+            Then, say hello to <strong>Katakana</strong>. It&apos;s the twin of
             Hiragana, used for words that come from{" "}
             <strong>other languages</strong>, and is often used in TV
             commercials to emphasize words to make them look <em>*special*</em>.
@@ -103,24 +103,26 @@ export default function Lesson1() {
           </p>
           <h2 className="text-4xl text-center font-bold !pb-4 !pt-12">Kanji</h2>
           <p className="!pt-0">
-            Finally, there's <strong>Kanji</strong>. They're like little{" "}
-            <strong>pictures</strong> that stand for whole words or ideas. They
-            are inherited from traditional Chinese. While China has simplified
-            many of its characters, Japan has kept many of them unchanged, like
-            a collection of preserved art pieces.
+            Finally, there&apos;s <strong>Kanji</strong>. They&apos;re like
+            little <strong>pictures</strong> that stand for whole words or
+            ideas. They are inherited from traditional Chinese. While China has
+            simplified many of its characters, Japan has kept many of them
+            unchanged, like a collection of preserved art pieces.
           </p>
           <p className="mt-0 text-base text-center">
             (Note the pictorial depiction of the sun)
           </p>
           <p>
-            They might look complex, but we'll tackle them bit by bit. Think of
-            them as a journey you'll embark on gradually, uncovering the stories
-            behind each symbol as you grow in your language skills.
+            They might look complex, but we&apos;ll tackle them bit by bit.
+            Think of them as a journey you&apos;ll embark on gradually,
+            uncovering the stories behind each symbol as you grow in your
+            language skills.
           </p>
           <h2 className="text-3xl font-bold !pb-4 !pt-16">Getting Started</h2>
           <p className="!pt-0">
-            Let's start by getting comfy with Hiragana—their pronunciation, and
-            basic writing. It's your <u>key to unlocking everything else.</u>
+            Let&apos;s start by getting comfy with Hiragana—their pronunciation,
+            and basic writing. It&apos;s your{" "}
+            <u>key to unlocking everything else.</u>
           </p>
         </div>
         <div className="mt-24 mx-12 !mb-0 flex flex-row justify-end">

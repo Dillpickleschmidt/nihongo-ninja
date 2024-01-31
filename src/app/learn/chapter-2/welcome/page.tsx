@@ -54,7 +54,7 @@ const Test = () => {
                 more!
               </p>
               <p className="xl:my-12 lg:my-6 text-[1.6rem] leading-8 font-medium">
-                In this unit, you'll learn about:
+                In this unit, you&apos;ll learn about:
               </p>
               <ul
                 className="ml-24 text-[1.6rem] leading-8 font-bold

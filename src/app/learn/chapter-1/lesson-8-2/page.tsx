@@ -8,7 +8,7 @@ export default function Lesson9Pt2() {
     <Dialog variant={"reading"} className="border-4 border-black bg-[#191919]">
       <div className="pb-16 text-[#F8F5E9]">
         <h1 className="pt-24 pb-12 text-4xl font-medium leading-[3.25rem] text-center px-20">
-          Let's learn the basic numbers.
+          Let&apos;s learn the basic numbers.
         </h1>
         <div className="w-full flex justify-center">
           {/* Numbers List Box */}
@@ -101,15 +101,16 @@ export default function Lesson9Pt2() {
         </div>
         <div className="pt-12 px-32 text-xl leading-8 [&>*]:py-6">
           <p>
-            You'll notice that numbers 4, 7, and 9 have two options. Japanese
-            speakers use either option, so it's good to know both!
+            You&apos;ll notice that numbers 4, 7, and 9 have two options.
+            Japanese speakers use either option, so it&apos;s good to know both!
           </p>
           <p>
             Just like most languages, 1-10 are essential numbers to know, but
-            even more so in Japanese. Unlike English, there's no unique words
-            for eleven, twelve, thirteen, etc. Nor are there even unique words
-            for twenty, thirty, forty, etc. Instead, you combine the numbers{" "}
-            <span className="whitespace-nowrap">1-10</span> to create them.
+            even more so in Japanese. Unlike English, there&apos;s no unique
+            words for eleven, twelve, thirteen, etc. Nor are there even unique
+            words for twenty, thirty, forty, etc. Instead, you combine the
+            numbers <span className="whitespace-nowrap">1-10</span> to create
+            them.
           </p>
           <div>
             <p className="text-center">

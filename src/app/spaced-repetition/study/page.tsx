@@ -4,7 +4,7 @@ import Button from "@/components/button"
 import { useState } from "react"
 import { motion } from "framer-motion"
 
-export default function page() {
+export default function Study() {
   const [showAnswer, setShowAnswer] = useState(false)
   return (
     <div>
@@ -30,7 +30,7 @@ export default function page() {
                   <JapaneseFont>
                     <span className="font-medium">だいじょうぶ</span> -{" "}
                     <span className="text-[2.5rem]">
-                      It's okay; not to worry
+                      It&apos;s okay; not to worry
                     </span>
                   </JapaneseFont>
                 </h2>

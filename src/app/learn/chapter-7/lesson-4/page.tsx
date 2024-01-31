@@ -50,8 +50,8 @@ export default function C7Lesson4() {
             title="9. 知りません - I do not know"
             hiragana="しりません"
           >
-            Sounds like "sheer-ma-sen." Picture saying "I don't know" with a
-            sheer look of confusion.
+            Sounds like "sheer-ma-sen." Picture saying "I don&apos;t know" with
+            a sheer look of confusion.
           </VocabCard>
           <VocabCard light={true} title="10. 住む - to live" hiragana="すむ">
             Sounds like "sum." Think of where you live as the sum of your home

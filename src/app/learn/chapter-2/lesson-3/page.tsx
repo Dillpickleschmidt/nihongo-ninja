@@ -9,8 +9,8 @@ export default function C2Lesson2() {
           Meet your new AI peers!
         </h1>
         <h2 className="text-center text-2xl mt-2">
-          Click on each profile to get an introduction. When you're finished,
-          introduce yourself!
+          Click on each profile to get an introduction. When you&apos;re
+          finished, introduce yourself!
         </h2>
         <div
           className="mt-16 mx-24 flex justify-center items-center space-x-8

@@ -10,8 +10,8 @@ export default function C2Preview() {
           Chapter 2 - New friends!
         </h1>
         <h2 className="my-6 text-xl text-center">
-          Here's a quick preview of what you'll be able to say by the end of
-          this chapter.
+          Here&apos;s a quick preview of what you&apos;ll be able to say by the
+          end of this chapter.
         </h2>
         <div className="px-28 text-2xl leading-8 [&>*]:py-6">
           <div>
@@ -35,7 +35,7 @@ export default function C2Preview() {
               </div>
             </div>
             <p className="mt-2 text-xl ml-[9.5rem]">
-              Nice to meet you. I'm Aiko. I'm a first-year student.
+              Nice to meet you. I&apos;m Aiko. I&apos;m a first-year student.
             </p>
           </div>
           <div>
@@ -59,7 +59,7 @@ export default function C2Preview() {
               </div>
             </div>
             <p className="mt-2 text-xl ml-[9.5rem]">
-              Nice to meet you. I'm Hiroto. I'm a second-year student.
+              Nice to meet you. I&apos;m Hiroto. I&apos;m a second-year student.
             </p>
           </div>
           <div>
@@ -108,7 +108,7 @@ export default function C2Preview() {
               </div>
             </div>
             <p className="mt-2 text-xl ml-[9.5rem]">
-              It's engineering. What is your major?
+              It&apos;s engineering. What is your major?
             </p>
           </div>
           <div>
@@ -123,7 +123,7 @@ export default function C2Preview() {
               </div>
             </div>
             <p className="mt-2 text-xl ml-[9.5rem]">
-              It's international relations.
+              It&apos;s international relations.
             </p>
           </div>
           <div>
@@ -170,7 +170,7 @@ export default function C2Preview() {
           </div>
         </div>
         <h1 className="mt-20 mb-12 text-6xl font-medium leading-[5rem] text-center px-20">
-          You'll be able to say this and much more!
+          You&apos;ll be able to say this and much more!
           <br />
           🥷
         </h1>

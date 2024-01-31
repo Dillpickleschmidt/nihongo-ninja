@@ -37,14 +37,14 @@ export default function C7Lesson1() {
           </VocabCard>
           <VocabCard title="5. お姉さん - older sister" hiragana="おねえさん">
             Sounds like "Oh, neigh, son!" Imagine an older sister who loves
-            horses and often mimics a horse's neigh.
+            horses and often mimics a horse&apos;s neigh.
           </VocabCard>
           <VocabCard title="6. 父 - my father" hiragana="ちち" light={true}>
             "Chichi" sounds like "chee-chee." Picture your father playing a game
             of chess ("chee" for chess).
           </VocabCard>
           <VocabCard title="7. 母 - my mother" hiragana="はは">
-            Sounds like laughter "ha-ha." Remember your mother's laugh.
+            Sounds like laughter "ha-ha." Remember your mother&apos;s laugh.
           </VocabCard>
           <VocabCard
             title="8. 兄 - my older brother"

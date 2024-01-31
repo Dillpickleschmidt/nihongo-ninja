@@ -21,16 +21,16 @@ export default function C7Lesson2() {
             and saying, "If you lose (die) in Kyoto..."
           </VocabCard>
           <VocabCard title="3. 男の人 - man" hiragana="おとこのひと">
-            Sounds like "Oh, toko no hito." Imagine a man saying, "Oh, I'm just
-            a 'toko' (guy) in this place."
+            Sounds like "Oh, toko no hito." Imagine a man saying, "Oh, I&apos;m
+            just a &apos;toko&apos; (guy) in this place."
           </VocabCard>
           <VocabCard
             light={true}
             title="4. 女の人 - woman"
             hiragana="おんなのひと"
           >
-            Sounds like "Oh, nonna hito." Picture a woman saying, "Oh, I'm nonna
-            (not a) regular person."
+            Sounds like "Oh, nonna hito." Picture a woman saying, "Oh, I&apos;m
+            nonna (not a) regular person."
           </VocabCard>
           <VocabCard light={true} title="5. 会社 - company" hiragana="かいしゃ">
             Sounds like "kai-sha." Imagine a company on the coast (kai) near the
@@ -56,8 +56,8 @@ export default function C7Lesson2() {
             Japanese means god) silk.
           </VocabCard>
           <VocabCard light={true} title="9. 口 - mouth" hiragana="くち">
-            Sounds like "coochie." Remember by thinking of a baby's coochie-coo,
-            often said while touching their mouth.
+            Sounds like "coochie." Remember by thinking of a baby&apos;s
+            coochie-coo, often said while touching their mouth.
           </VocabCard>
           <VocabCard title="10. 目 - eye" hiragana="め">
             Sounds like "May." Think of your eyes always brightening up in the

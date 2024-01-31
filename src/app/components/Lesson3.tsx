@@ -42,13 +42,13 @@ export default function Lesson3() {
             🌊
           </h2>
           <h2 className="pb-12 text-4xl font-medium leading-[3.25rem] text-center px-20">
-            So you've mastered the gentle curves and strokes of Hiragana, and
-            you're feeling <em>*pretty* confident</em>, right? Well,{" "}
+            So you&apos;ve mastered the gentle curves and strokes of Hiragana,
+            and you&apos;re feeling <em>*pretty* confident</em>, right? Well,{" "}
             <span className="text-[3.5rem]">
               <strong>hold onto your hats</strong>
             </span>
-            , because it's time to <em>spice</em> things up with some dashes and
-            circles —welcome to the dazzling domain of{" "}
+            , because it&apos;s time to <em>spice</em> things up with some
+            dashes and circles —welcome to the dazzling domain of{" "}
             <span className="text-5xl font-bold">Dakuten</span> and{" "}
             <span className="text-5xl font-bold">Handakuten!</span>
           </h2>
@@ -71,24 +71,24 @@ export default function Lesson3() {
               </div>
               <p>
                 Think of Dakuten as little <em>magical</em> marks that have the
-                power to change sounds in a snap. They're like the cool DJs of
-                the Hiragana world, remixing the beats. You take a plain sound
-                like 'ka' (
+                power to change sounds in a snap. They&apos;re like the cool DJs
+                of the Hiragana world, remixing the beats. You take a plain
+                sound like &apos;ka&apos; (
                 <JapaneseFont className={`text-2xl font-semibold`}>
                   か
                 </JapaneseFont>
-                ), slap on a dakuten, and voila, it's suddenly transformed into{" "}
-                <em>'ga'</em> (
+                ), slap on a dakuten, and voila, it&apos;s suddenly transformed
+                into <em>&apos;ga&apos;</em> (
                 <JapaneseFont className={`text-2xl font-semibold`}>
                   が
                 </JapaneseFont>
-                ). It's like adding a little bit of seasoning to your favorite
-                dish - just a small dash changes the whole flavor! 🍜
+                ). It&apos;s like adding a little bit of seasoning to your
+                favorite dish - just a small dash changes the whole flavor! 🍜
               </p>
             </div>
             <p className="mt-0 mb-12 text-base text-center">
-              *It's a small change but take a look at those extra little quote
-              marks on が*
+              *It&apos;s a small change but take a look at those extra little
+              quote marks on が*
             </p>
             <div className="flex flex-row justify-center items-center !pb-0">
               <div
@@ -115,19 +115,19 @@ export default function Lesson3() {
                   sidekicks. These little circles are a bit more selective, only
                   partying with the{" "}
                   <JapaneseFont className={`text-[1.325rem] font-semibold`}>
-                    'h'
+                    &apos;h&apos;
                   </JapaneseFont>{" "}
-                  sounds. Add them to 'ha' (
+                  sounds. Add them to &apos;ha&apos; (
                   <JapaneseFont className={`text-2xl font-semibold`}>
                     は
                   </JapaneseFont>
-                  ), and suddenly you're in the cool, breezy world of{" "}
-                  <em>'pa'</em> (
+                  ), and suddenly you&apos;re in the cool, breezy world of{" "}
+                  <em>&apos;pa&apos;</em> (
                   <JapaneseFont className={`text-2xl font-semibold`}>
                     ぱ
                   </JapaneseFont>
-                  ). It's like putting a fancy hat on a letter and watching it
-                  turn into a social butterfly. 🦋
+                  ). It&apos;s like putting a fancy hat on a letter and watching
+                  it turn into a social butterfly. 🦋
                 </p>
               </div>
             </div>
@@ -150,14 +150,14 @@ export default function Lesson3() {
             </p>
             <p className="text-center">
               <JapaneseFont>わかりません</JapaneseFont>{" "}
-              <span className="text-base">(I don't know)</span>{" "}
+              <span className="text-base">(I don&apos;t know)</span>{" "}
               <span className="text-4xl !py-2">🤷🏻</span>
             </p>
             <p>
               <span className="text-[1.325rem] font-bold">
                 <em>Strap in</em>
               </span>{" "}
-              and let's play with these quirky additions to the Japanese
+              and let&apos;s play with these quirky additions to the Japanese
               alphabet. Who knew a couple of tiny marks could make such a{" "}
               <u>big</u> difference? Happy learning, and remember, in the realm
               of Dakuten and Handakuten, <em>expect the unexpected!</em>

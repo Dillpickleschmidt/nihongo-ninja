@@ -10,7 +10,7 @@ export default function C7Lesson3() {
         <div className="[&>*]:leading-8 text-xl text-black">
           <VocabCard title="1. 眼鏡 - glasses" hiragana="めがね">
             Sounds like "May-gah-neh." Picture someone in May going "Neh"
-            because they can't see without their glasses.
+            because they can&apos;t see without their glasses.
           </VocabCard>
           <VocabCard light={true} title="2. 歌 - song" hiragana="うた">
             Sounds like "ooh-tah." Imagine saying "ooh" in wonder when you hear
@@ -33,7 +33,7 @@ export default function C7Lesson3() {
             hiragana="みじがい"
           >
             Sounds like "me-gee-guy." Imagine a short guy who always says "Me?
-            Gee, I'm short."
+            Gee, I&apos;m short."
           </VocabCard>
           <VocabCard title="7. 早い - fast" hiragana="はやい">
             Sounds like "high-yai." Think of something moving so fast it goes
@@ -52,7 +52,7 @@ export default function C7Lesson3() {
             hiragana="せがひくい"
           >
             Sounds like "sega-hikui." Imagine a short person who feels low
-            (hikui) when they can't reach the Sega console.
+            (hikui) when they can&apos;t reach the Sega console.
           </VocabCard>
           <VocabCard
             light={true}

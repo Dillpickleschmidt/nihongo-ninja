@@ -51,10 +51,10 @@ const Test = () => {
               </h1>
               <p className="lg:pr-6 text-[1.6rem] leading-8 font-medium">
                 Everyone loves shopping. Okay, well, not everyone, but you
-                should study this chapter so you don't go hungry in Japan!
+                should study this chapter so you don&apos;t go hungry in Japan!
               </p>
               <p className="xl:my-12 lg:my-6 text-[1.6rem] leading-8 font-medium">
-                In this unit, you'll learn about:
+                In this unit, you&apos;ll learn about:
               </p>
               <ul
                 className="ml-24 text-[1.6rem] leading-8 font-bold
