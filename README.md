@@ -20,6 +20,8 @@ Here are some of the standout pages demonstrating the current features of Nihong
 
 [nihongoninja.io/learn/chapter-1/lesson-8-2](https://www.nihongoninja.io/learn/chapter-1/lesson-8-2).
 
+[nihongoninja.io/learn/full-page](https://www.nihongoninja.io/learn/full-page).
+
 [AI Chat](https://www.nihongoninja.io/learn) (click navbar).
 
 [nihongoninja.io/learn/chapter-1/vocab](https://www.nihongoninja.io/learn/chapter-1/vocab).

@@ -75,7 +75,7 @@ export default function Chat({ isOpen, toggleChatProp }: ChatProps) {
             </span>
           </div>
         )}
-        <div className="fixed top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] overflow-y-auto overscroll-y-contain no-scrollbar rounded-[25px] w-[30%] h-[83%] bg-[#151515] border-black border-4 text-white text-lg text-start">
+        <div className="fixed top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] overflow-y-auto overscroll-y-contain scrollbar:hidden rounded-[25px] w-[30%] h-[83%] bg-[#151515] border-black border-4 text-white text-lg text-start">
           <div className="flex flex-col items-center justify-between w-full h-full mx-auto">
             <div>
               <h1 className="m-12 text-3xl text-center">AI Assistant</h1>

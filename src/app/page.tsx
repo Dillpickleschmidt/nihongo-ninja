@@ -2,6 +2,7 @@ import Image from "next/image"
 import Lesson3 from "./components/Lesson3"
 import Hero from "./components/Hero"
 import Button from "@/components/button"
+import HomepageImage from "./components/HomepageImage"
 
 export default function Home() {
   return (
@@ -21,14 +22,8 @@ export default function Home() {
             </h3>
           </div>
         </div>
-        <div className="relative w-full flex justify-center">
-          <Image
-            src={"/img/lesson-page.png"}
-            width={1400}
-            height={1080}
-            alt="games-preview-image"
-            className="relative"
-          />
+        <div className="relative w-full flex justify-end">
+          <HomepageImage image="/img/lesson-page.png" />
         </div>
         <div className="h-[500px] bg-[#F6E7D2] flex flex-col justify-center items-center text-black">
           <div className="xl:mx-64 mx-24 space-y-12">
@@ -45,8 +40,11 @@ export default function Home() {
             </h3>
           </div>
         </div>
-        <div className="flex justify-end h-[1670px] my-12">
-          <Lesson3 />
+        <div className="z-1 w-full flex justify-center">
+          <video width="1400" height="1080" loop autoPlay muted>
+            <source src="/video/chat-preview.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
         </div>
         <div className="h-[500px] bg-[#F6E7D2] flex flex-col justify-center items-center text-black">
           <div className="xl:mx-64 mx-24 space-y-12">
@@ -63,17 +61,12 @@ export default function Home() {
             </h3>
           </div>
         </div>
-        <div className="relative h-screen w-full">
-          <Image
-            src={"/img/numbers-game-preview.jpg"}
-            fill={true}
-            alt="games-preview-image"
-            className="relative opacity-20"
-          />
-          <div className="absolute h-full w-full flex flex-col justify-center items-center">
-            <div className="text-8xl text-center font-bold space-y-12">
-              <h2>Not yet developed</h2>
-            </div>
+        <div className="relative w-full flex justify-end items-center">
+          <div className="opacity-20">
+            <HomepageImage image="/img/numbers-game-preview.jpg" />
+          </div>
+          <div className="absolute w-full text-8xl text-center font-bold space-y-12">
+            <h2>Not yet developed</h2>
           </div>
         </div>
         <div className="h-[500px] bg-[#F6E7D2] flex flex-col justify-center items-center text-black">

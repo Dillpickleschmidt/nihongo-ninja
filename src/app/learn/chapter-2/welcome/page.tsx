@@ -2,7 +2,7 @@ import Dialog from "@/components/dialog"
 import Image from "next/image"
 import Button from "@/components/button"
 
-const Test = () => {
+const page = () => {
   return (
     <>
       <Dialog className="overflow-hidden">
@@ -67,7 +67,7 @@ const Test = () => {
               </ul>
             </div>
             <div className="ml-52 mt-14">
-              <Button link="/learn/chapter-2/preview">
+              <Button link="/learn/chapter-1/preview">
                 Get started! {"->"}
               </Button>
             </div>
@@ -78,4 +78,4 @@ const Test = () => {
   )
 }
 
-export default Test
+export default page

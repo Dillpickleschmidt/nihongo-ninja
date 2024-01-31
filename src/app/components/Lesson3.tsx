@@ -26,7 +26,7 @@ export default function Lesson3() {
       ref={targetRef}
       className="relative w-[45%] border-4 border-black rounded-[60px] bg-[#F6E7D2] text-black z-[-2] overflow-hidden"
     >
-      <div className="mt-[-80px]">
+      <div className="mt-[950px]">
         <div
           className="absolute inset-0"
           style={{
