@@ -1,7 +1,7 @@
-import LearnVocab from "@/app/components/learn-vocab"
+import LearnVocab from "@/components/learn-vocab"
 import vocabData from "@/app/learn/chapter-7/lesson-6/data.json"
-import Dialog from "@/app/components/dialog"
-import ConvertToEnglishKey from "@/app/components/ConvertToEnglishKey"
+import Dialog from "@/components/dialog"
+import ConvertToEnglishKey from "@/components/ConvertToEnglishKey"
 
 const convertedData = ConvertToEnglishKey({ data: vocabData })
 

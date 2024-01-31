@@ -1,5 +1,5 @@
 import Image from "next/image"
-import Dialog from "@/app/components/dialog"
+import Dialog from "@/components/dialog"
 import KatanaLinework from "/public/katana-linework.svg"
 
 import { Noto_Sans_JP } from "next/font/google"
@@ -11,7 +11,7 @@ export default function ReadingPassage() {
     <>
       <Dialog>
         {/* Content */}
-        <div className="h-full overflow-x-hidden scrollbar-thin scrollbar-thumb-[#999999] hover:scrollbar-thumb-neutral-400">
+        <div className="h-full overflow-x-hidden scrollbar:w-2.5 scrollbar-track:bg-transparent scrollbar-thumb:bg-[#999999] hover:scrollbar-thumb:bg-neutral-400">
           {/* Top Reading Passage Box */}
           <div className="flex flex-row justify-center h-[77%] mb-16 border-4 mr-[-4px] mt-[-4px] ml-[-60px] rounded-b-[60px] overflow-hidden border-black">
             <div className="w-[23%]">

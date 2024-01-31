@@ -1,6 +1,6 @@
-import Dialog from "@/app/components/dialog"
-import Button from "@/app/components/button"
-import Romaji from "@/app/components/romaji"
+import Dialog from "@/components/dialog"
+import Button from "@/components/button"
+import Romaji from "@/components/romaji"
 
 export default function C2Preview() {
   return (

@@ -1,11 +1,11 @@
 "use client"
 import { useState } from "react"
-import Dialog from "@/app/components/dialog"
-import Button from "@/app/components/button"
+import Dialog from "@/components/dialog"
+import Button from "@/components/button"
 import HiraganaChart from "@/app/data/HiraganaChart"
 
 import { Noto_Sans_JP } from "next/font/google"
-import SpoilerButton from "@/app/components/SpoilerButton"
+import SpoilerButton from "@/components/SpoilerButton"
 
 const JapaneseFont = Noto_Sans_JP({ subsets: ["latin"] })
 

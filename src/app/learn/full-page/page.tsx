@@ -1,6 +1,6 @@
-import Dialog from "@/app/components/dialog"
+import Dialog from "@/components/dialog"
 import Image from "next/image"
-import Button from "@/app/components/button"
+import Button from "@/components/button"
 
 const Test = () => {
   return (

@@ -1,5 +1,5 @@
-import Dialog from "@/app/components/dialog"
-import Button from "@/app/components/button"
+import Dialog from "@/components/dialog"
+import Button from "@/components/button"
 
 export default function C2Lesson2() {
   return (

@@ -1,7 +1,7 @@
-import Dialog from "@/app/components/dialog"
-import Button from "@/app/components/button"
-import VocabCard from "@/app/components/VocabCard"
-import SpoilerButton from "@/app/components/SpoilerButton"
+import Dialog from "@/components/dialog"
+import Button from "@/components/button"
+import VocabCard from "@/components/VocabCard"
+import SpoilerButton from "@/components/SpoilerButton"
 
 export default function Lesson8() {
   return (

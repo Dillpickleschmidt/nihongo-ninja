@@ -1,7 +1,7 @@
-import Dialog from "@/app/components/dialog"
-import Romaji from "@/app/components/romaji"
-import Button from "@/app/components/button"
-import SpoilerButton from "@/app/components/SpoilerButton"
+import Dialog from "@/components/dialog"
+import Romaji from "@/components/romaji"
+import Button from "@/components/button"
+import SpoilerButton from "@/components/SpoilerButton"
 
 export default function Lesson9Pt2() {
   return (
@@ -12,7 +12,7 @@ export default function Lesson9Pt2() {
         </h1>
         <div className="w-full flex justify-center">
           {/* Numbers List Box */}
-          <div className="overflow-y-scroll scrollbar-none flex justify-center rounded-3xl bg-[#2f2f2f] py-6 px-16 text-4xl">
+          <div className="overflow-y-scroll scrollbar:hidden flex justify-center rounded-3xl bg-[#2f2f2f] py-6 px-16 text-4xl">
             <div className="[&>*]:flex [&>*]:items-center [&>*]:pt-4 [&>*]:pb-3 [&>*]:px-9 [&>*]:border-b [&>*]:border-black">
               {/* Individual Box */}
               <div>

@@ -1,7 +1,7 @@
 "use client"
 
-import Button from "@/app/components/button"
-import Dialog from "@/app/components/dialog"
+import Button from "@/components/button"
+import Dialog from "@/components/dialog"
 // Import necessary libraries
 import { useState, useEffect } from "react"
 

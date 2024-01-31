@@ -1,5 +1,5 @@
 "use client"
-import Button from "@/app/components/button"
+import Button from "@/components/button"
 import { createBrowserClient } from "@supabase/ssr"
 
 const supabaseURL = process.env.NEXT_PUBLIC_SUPABASE_URL!

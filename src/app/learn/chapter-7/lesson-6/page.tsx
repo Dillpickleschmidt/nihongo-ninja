@@ -1,7 +1,7 @@
-import Button from "@/app/components/button"
-import Dialog from "@/app/components/dialog"
+import Button from "@/components/button"
+import Dialog from "@/components/dialog"
 import data from "./data.json"
-import VocabCardDataMapped from "@/app/components/VocabCardDataMapped"
+import VocabCardDataMapped from "@/components/VocabCardDataMapped"
 
 export default function C7Lesson6() {
   return (

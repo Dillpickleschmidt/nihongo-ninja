@@ -1,6 +1,6 @@
 import Link from "next/link"
 import Dropdown from "./Dropdown"
-import Button from "../components/button"
+import Button from "../../components/button"
 
 export default function page() {
   return (

@@ -2,7 +2,7 @@ import { redirect } from "next/navigation"
 import readUserSession from "../lib/actions/readUserSession"
 import createSupabaseServerClient from "../lib/supabase/server"
 import { BsDatabaseFillUp } from "react-icons/bs"
-import Button from "../components/button"
+import Button from "../../components/button"
 
 export default async function Page() {
   const { data } = await readUserSession()

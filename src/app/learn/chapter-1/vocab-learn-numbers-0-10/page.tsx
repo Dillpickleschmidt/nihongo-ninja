@@ -1,5 +1,5 @@
-import Dialog from "@/app/components/dialog"
-import LearnVocab from "@/app/components/learn-vocab"
+import Dialog from "@/components/dialog"
+import LearnVocab from "@/components/learn-vocab"
 import vocabData from "./data.json"
 
 export default function VocabLearnNumbers() {

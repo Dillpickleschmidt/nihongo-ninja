@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.className} scrollbar-thin scrollbar-thumb-neutral-500 hover:scrollbar-thumb-[#999999] overscroll-x-none`}
+        className={`${inter.className} scrollbar:w-2.5 scrollbar-track:bg-transparent scrollbar-thumb:bg-neutral-500 hover:scrollbar-thumb:bg-[#999999] overscroll-x-none`}
       >
         {children}
       </body>

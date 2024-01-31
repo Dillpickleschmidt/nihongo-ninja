@@ -1,7 +1,7 @@
 "use client"
-import SpoilerButton from "../components/SpoilerButton"
+import SpoilerButton from "../../components/SpoilerButton"
 import { useState } from "react"
-import Button from "../components/button"
+import Button from "../../components/button"
 import { motion } from "framer-motion"
 
 type DropdownProps = React.HTMLAttributes<HTMLDivElement> & {

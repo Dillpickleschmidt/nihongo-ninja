@@ -1,6 +1,6 @@
 "use client"
-import JapaneseFont from "@/app/components/JapaneseFont"
-import Button from "@/app/components/button"
+import JapaneseFont from "@/components/JapaneseFont"
+import Button from "@/components/button"
 import { useState } from "react"
 import { motion } from "framer-motion"
 

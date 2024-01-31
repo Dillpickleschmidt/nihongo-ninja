@@ -12,26 +12,6 @@ body {
   background: rgb(var(--background-rgb));
 }
 
-/* width */
-::-webkit-scrollbar {
-  width: 9px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: (0, 0, 0, 0);
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #737373;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #999999;
-}
-
 .notes {
   background-attachment: local;
   background-image: linear-gradient(to right, #fff9f1 10px, transparent 10px),

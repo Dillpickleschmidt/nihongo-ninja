@@ -1,7 +1,7 @@
 import Image from "next/image"
 import { Space_Grotesk } from "next/font/google"
-import Button from "../components/button"
-import TimeBasedGreeting from "../components/greeting"
+import Button from "../../components/button"
+import TimeBasedGreeting from "../../components/greeting"
 
 const SpaceGrotesk = Space_Grotesk({ subsets: ["latin"] })
 
@@ -35,7 +35,11 @@ export default function Lesson({ children }: { children: React.ReactNode }) {
         >
           Games
         </Button>
-        <Button variant={"card"} className="bg-purple-500" link="/flashcards">
+        <Button
+          variant={"card"}
+          className="bg-purple-500"
+          link="/spaced-repetition"
+        >
           Flashcards
         </Button>
       </ul>
