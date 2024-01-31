@@ -82,7 +82,7 @@ export default function Lesson8() {
               </u>
             </em>{" "}
             of a sentence. Think of it as a big neon arrow in your sentence
-            pointing at the subject, screaming, "Hey, look here!"
+            pointing at the subject, screaming, &quot;Hey, look here!&quot;
             <br />
             <br />
             <span className="text-base">

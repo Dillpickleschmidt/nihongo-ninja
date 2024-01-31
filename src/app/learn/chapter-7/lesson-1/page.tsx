@@ -40,7 +40,7 @@ export default function C7Lesson1() {
             loves horses and often mimics a horse&apos;s neigh.
           </VocabCard>
           <VocabCard title="6. 父 - my father" hiragana="ちち" light={true}>
-            "&quot;hichi&quot; sounds like &quot;chee-chee.&quot; Picture your
+            &quot;chichi&quot; sounds like &quot;chee-chee.&quot; Picture your
             father playing a game of chess (&quot;chee&quot; for chess).
           </VocabCard>
           <VocabCard title="7. 母 - my mother" hiragana="はは">

@@ -21,8 +21,8 @@ export default function C7Lesson4() {
             convenient to have around.
           </VocabCard>
           <VocabCard light={true} title="4. 歌う - to sing" hiragana="うたう">
-            Sounds like &quot;ooh-ta-oo.&quot; Picture singing a song with "ooh"
-            sounds.
+            Sounds like &quot;ooh-ta-oo.&quot; Picture singing a song with
+            &quot;ooh&quot; sounds.
           </VocabCard>
           <VocabCard title="5. 被る - to put on a hat" hiragana="かぶる">
             Sounds like &quot;cab-ru.&quot; Imagine putting on a hat before
