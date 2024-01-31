@@ -365,7 +365,7 @@ export default function LearnVocab({
     return (
       <div className="h-[80%] flex flex-col justify-center items-center">
         <div className="my-24 text-4xl text-center">
-          You've finished all the questions!
+          You&apos;ve finished all the questions!
         </div>
         <div className="">
           <Button link={link}>{"Next Lesson"}</Button>

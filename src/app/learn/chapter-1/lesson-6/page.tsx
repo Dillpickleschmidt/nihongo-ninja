@@ -24,9 +24,10 @@ export default function Lesson6() {
           >
             This is a polite way to say good morning and is typically used until
             late morning. Drop "ございます" for a more casual version, just
-            "おはよう (Ohayou)". The casual version, "おはよう" is often used
-            among friends, family, or colleagues you&apos;re familiar with. The
-            polite form "おはようございます" is suitable for more formal
+            &quot;おはよう (Ohayou)&quot;. The casual version,
+            &quot;おはよう&quot; is often used among friends, family, or
+            colleagues you&apos;re familiar with. The polite form
+            &quot;おはようございます&quot; is suitable for more formal
             situations or when addressing someone you don&apos;t know well.
             It&apos;s a common greeting in schools, workplaces, or when doing
             morning activities. <br />
@@ -42,10 +43,11 @@ export default function Lesson6() {
           >
             This is the most versatile and common greeting in Japanese.
             It&apos;s used from late morning (around 11 am) until early evening
-            (around 5-6 pm). It&apos;s akin to saying "Good afternoon" or a
-            general "Hello" in English. You&apos;ll hear this greeting in a wide
-            range of settings, from casual encounters to more formal situations.
-            It&apos;s a safe, go-to greeting for most daytime interactions.
+            (around 5-6 pm). It&apos;s akin to saying &quot;Good afternoon&quot;
+            or a general "Hello" in English. You&apos;ll hear this greeting in a
+            wide range of settings, from casual encounters to more formal
+            situations. It&apos;s a safe, go-to greeting for most daytime
+            interactions.
           </VocabCard>
           <VocabCard
             title="3. こんばんは - Good Evening"
@@ -56,7 +58,7 @@ export default function Lesson6() {
             greeting that&apos;s appropriate in both casual and formal
             situations. Whether you&apos;re entering a restaurant in the
             evening, meeting someone for a night event, or just greeting your
-            neighbor, "こんばんは" is the suitable choice.
+            neighbor, &quot;こんばんは&quot; is the suitable choice.
           </VocabCard>
           <VocabCard
             light={true}
@@ -65,12 +67,12 @@ export default function Lesson6() {
             hiragana="じゃあね"
           >
             This phrase is casual and friendly, often used among friends,
-            family, or close colleagues. It&apos;s equivalent to saying "See
-            you," "Bye," or "Catch you later" in English. It implies an informal
-            and easy-going parting, often when you expect to see the person
-            again soon. It&apos;s perfect for everyday casual farewells, like
-            when leaving a café after meeting a friend or saying goodbye at the
-            end of a school or work day.
+            family, or close colleagues. It&apos;s equivalent to saying
+            &quot;See you,&quot; &quot;Bye,&quot; or &quot;Catch you later&quot;
+            in English. It implies an informal and easy-going parting, often
+            when you expect to see the person again soon. It&apos;s perfect for
+            everyday casual farewells, like when leaving a café after meeting a
+            friend or saying goodbye at the end of a school or work day.
           </VocabCard>
           <p className="py-0 text-[#F8F5E9] px-16">
             Another common and slightly more formal way to say goodbye,
@@ -82,11 +84,11 @@ export default function Lesson6() {
             pronunciation="ma-ta-ne"
             hiragana="またね"
           >
-            This phrase is also casual and conveys a similar sense as "じゃあね
-            (Jaa ne)." It&apos;s used in situations where you are expecting to
-            see or speak to the person again in the future. It&apos;s warm and
-            friendly, suitable for parting with friends or colleagues in a
-            casual setting.
+            This phrase is also casual and conveys a similar sense as
+            &quot;じゃあね (Jaa ne).&quot; It&apos;s used in situations where
+            you are expecting to see or speak to the person again in the future.
+            It&apos;s warm and friendly, suitable for parting with friends or
+            colleagues in a casual setting.
           </VocabCard>
           <VocabCard
             light={true}
@@ -95,7 +97,7 @@ export default function Lesson6() {
             hiragana="ありがとうございます"
           >
             A polite way to say thank you. For a more casual form, just
-            "ありがとう (Arigatou)" is commonly used.
+            &quot;ありがとう (Arigatou)&quot; is commonly used.
           </VocabCard>
           <VocabCard
             title="7. さようなら - Goodbye"
@@ -107,10 +109,10 @@ export default function Lesson6() {
             the speaker does not expect to see the person spoken to before
             he/she turns a new page in his/her life—a long time. Therefore,
             it&apos;s not commonly used in daily casual conversation. In more
-            everyday casual settings, phrases like "じゃあね (Jaa ne)" or
-            "またね (Mata ne)" are used among friends or colleagues, with more
-            sophisticated expressions used in the workplace that we&apos;ll
-            explore later.
+            everyday casual settings, phrases like &quot;じゃあね (Jaa ne)&quot;
+            or &quot;またね (Mata ne)&quot; are used among friends or
+            colleagues, with more sophisticated expressions used in the
+            workplace that we&apos;ll explore later.
           </VocabCard>
           <p className="text-[#F8F5E9] px-16">
             These phrases are great for everyday use and help convey a friendly,
@@ -186,8 +188,8 @@ export default function Lesson6() {
           <p>おはよう is a formal way to say good morning.</p>
           <SelectText answer="False" a="True" b="False" />
           <p>
-            "You are leaving a business meeting. How do you say goodbye to your
-            colleagues?"
+            You are leaving a business meeting. How do you say goodbye to your
+            colleagues?
           </p>
           <SelectText
             answer="さようなら"

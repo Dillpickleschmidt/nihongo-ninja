@@ -114,7 +114,8 @@ export default function Lesson9Pt2() {
           </p>
           <div>
             <p className="text-center">
-              To make eleven, you just put together "ten" and "one" to make
+              To make eleven, you just put together &quot;ten&quot; and
+              &quot;one&quot; to make
             </p>
             <h3 className="text-4xl text-center mt-2">
               <Romaji romaji="jyuu">じゅう</Romaji>
@@ -126,7 +127,8 @@ export default function Lesson9Pt2() {
           </div>
           <div>
             <p className="text-center">
-              To make twenty, you put together "two" and "ten" to make
+              To make twenty, you put together &quot;two&quot; and
+              &quot;ten&quot; to make
             </p>
             <h3 className="text-4xl text-center mt-2">
               <span className="text-red-400">
@@ -137,8 +139,8 @@ export default function Lesson9Pt2() {
           </div>
           <div>
             <p className="text-center">
-              To make twenty-one, you put together "two", "ten" and "one" to
-              make
+              To make twenty-one, you put together &quot;two&quot;,
+              &quot;ten&quot; and &quot;one&quot; to make
             </p>
             <h3 className="text-4xl text-center mt-2">
               <span className="text-red-400">
@@ -153,8 +155,8 @@ export default function Lesson9Pt2() {
           </div>
           <div>
             <p className="text-center">
-              To make forty-seven, you put together "four", "ten" and "seven" to
-              make
+              To make forty-seven, you put together &quot;four&quot;,
+              &quot;ten&quot; and &quot;seven&quot; to make
             </p>
             <h3 className="text-4xl text-center mt-2">
               <span className="text-red-400">

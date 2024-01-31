@@ -30,10 +30,14 @@ export default function Dialog({
   backgroundSize = "1200px",
   opacity = 30,
   showAlertOnClose = false,
-  scrollRef = useRef<null | HTMLDivElement>(null),
+  scrollRef: externalScrollRef,
 }: DialogProps) {
   // Opens the dialog
-  // useRef holds state and won't rerender on state change
+  // Always use useRef at the top level of your component
+  const internalScrollRef = useRef<null | HTMLDivElement>(null)
+  // Choose the external ref if provided, else use the internal ref
+  const scrollRef = externalScrollRef || internalScrollRef
+
   const dialogRef = useRef<null | HTMLDialogElement>(null)
 
   useEffect(() => {

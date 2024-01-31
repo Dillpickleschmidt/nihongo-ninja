@@ -78,20 +78,20 @@ export default function Lesson5() {
               </p>
               <br />
               <p>
-                Take "
+                Take &quot;
                 <span className={`${JapaneseFont.className} font-semibold`}>
                   がっこう
                 </span>{" "}
-                (gakkou - school)." Without the double &apos;k&apos;, it would
-                just be a boring old "gakou." But with that extra &apos;k&apos;,
-                suddenly, it&apos;s (gak-kou) a word with a bit more punch, a
-                bit more{" "}
+                (gakkou - school).&quot; Without the double &apos;k&apos;, it
+                would just be a boring old &quot;gakou.&quot; But with that
+                extra &apos;k&apos;, suddenly, it&apos;s (gak-kou) a word with a
+                bit more punch, a bit more{" "}
                 <span className="">
-                  "
+                  &quot;
                   <u>
                     <em>oomph</em>
                   </u>
-                  ."
+                  .&quot;
                 </span>{" "}
                 It&apos;s the linguistic version of adding an extra shot of
                 espresso to your morning coffee - small but mighty!
@@ -135,10 +135,12 @@ export default function Lesson5() {
               </p>
               <br />
               <p>
-                Consider "お<u>ばあ</u>さん (o<u>baa</u>san - grandmother)." If
-                you don&apos;t stretch the &apos;aa&apos;, you might end up
-                calling someone " お<u>ば</u>さん (o<u>ba</u>san - aunt)," and{" "}
-                <em>oh boy</em>, can that lead to some awkward family reunions.
+                Consider &quot;お<u>ばあ</u>さん (o<u>baa</u>san -
+                grandmother).&quot; If you don&apos;t stretch the
+                &apos;aa&apos;, you might end up calling someone &quot; お
+                <u>ば</u>
+                さん (o<u>ba</u>san - aunt),&quot; and <em>oh boy</em>, can that
+                lead to some awkward family reunions.
               </p>
             </div>
           </div>
@@ -158,7 +160,7 @@ export default function Lesson5() {
           <p>
             You may ask,{" "}
             <span className="text-2xl">
-              <em>"Why do these exist?"</em>
+              <em>&quot;Why do these exist?&quot;</em>
             </span>{" "}
             Well, it&apos;s all about adding <em>flavor</em>, my friends! Just
             like chefs use spices to turn bland food into culinary masterpieces,

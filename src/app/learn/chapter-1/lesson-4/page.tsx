@@ -69,21 +69,22 @@ export default function Lesson4() {
               </p>
               <br />
               <p>
-                Take "じゃ (ja)" for example. Here, "じ (ji)" teams up with a
-                tiny version of "や (ya)" to create a sound that&apos;s not just
-                "jiya" but a smoother, more compact "ja". You&apos;ll see this
-                dynamic duo popping up in words like "じゃあね (jaane - see
-                you)".
+                Take &quot;じゃ (ja)&quot; for example. Here, &quot;じ
+                (ji)&quot; teams up with a tiny version of &quot;や (ya)&quot;
+                to create a sound that&apos;s not just &quot;jiya&quot; but a
+                smoother, more compact &quot;ja&quot;. You&apos;ll see this
+                dynamic duo popping up in words like &quot;じゃあね (jaane - see
+                you)&quot;.
               </p>
               <br />
               <p>
                 You&apos;ll most often see three players in this game who are
-                smart enough to work together, the small "ゃ", "ゅ", and "ょ",
-                but you&apos;ll see others join in the fun too. Why are they
-                small? Probably because they were willing to reduce their egos
-                for a greater cause. Truly, they&apos;re like the special agents
-                of the Hiragana world, teaming up with others to create these
-                smooth, blended sounds.
+                smart enough to work together, the small &quot;ゃ&quot;,
+                &quot;ゅ&quot;, and &quot;ょ&quot;, but you&apos;ll see others
+                join in the fun too. Why are they small? Probably because they
+                were willing to reduce their egos for a greater cause. Truly,
+                they&apos;re like the special agents of the Hiragana world,
+                teaming up with others to create these smooth, blended sounds.
               </p>
             </div>
           </div>

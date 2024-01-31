@@ -52,7 +52,7 @@ export default function Lesson({ children }: { children: React.ReactNode }) {
             <h4
               className={`${SpaceGrotesk.className} mt-20 ml-24 text-5xl text-[#191919] font-semibold`}
             >
-              <u>YOU'RE ON CHAPTER 2</u>
+              <u>YOU&apos;RE ON CHAPTER 2</u>
             </h4>
             <div className="flex flex-row justify-center items-center mr-12 mt-12 bg-[#191919] w-28 h-28 rounded-full">
               <h4 className="text-3xl">
@@ -64,7 +64,8 @@ export default function Lesson({ children }: { children: React.ReactNode }) {
         </div>
       </div>
       <h2 className={`${SpaceGrotesk.className} my-24 text-9xl text-center`}>
-        YOU’VE BEEN STUDYING FOR <strong>56</strong> DAYS IN A ROW, YOU’RE ON
+        YOU&apos;VE BEEN STUDYING FOR <strong>56</strong> DAYS IN A ROW,
+        YOU&apos;RE ON
         <strong> FIRE</strong> 🔥!
       </h2>
     </main>

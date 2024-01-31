@@ -137,11 +137,11 @@ export default function Lesson3() {
               </em>
             </h2>
             <p className="!py-0">
-              You might be asking, "
+              You might be asking, &quot;
               <span className="text-2xl">
                 <em>Why all these changes?</em>
               </span>{" "}
-              " Well, because{" "}
+              &quot; Well, because{" "}
               <em>
                 <u>variety is the spice of life!</u>
               </em>{" "}

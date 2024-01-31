@@ -30,7 +30,7 @@ export default function Lesson3() {
           <span className="text-5xl font-bold">Handakuten!</span>
         </h2>
         <div className="px-32 text-xl leading-8 [&>*]:py-6">
-          <p className="!py-0 text-center font-bold text-3xl">( " )</p>
+          <p className="!py-0 text-center font-bold text-3xl">( &quot; )</p>
           <div className="flex flex-row justify-center !pb-0">
             <div
               className="pr-6 pl-2 text-2xl font-bold text-center
@@ -124,11 +124,11 @@ export default function Lesson3() {
             </em>
           </h2>
           <p className="!py-0">
-            You might be asking, "
+            You might be asking, &quot;
             <span className="text-2xl">
               <em>Why all these changes?</em>
             </span>{" "}
-            " Well, because{" "}
+            &quot; Well, because{" "}
             <em>
               <u>variety is the spice of life!</u>
             </em>{" "}

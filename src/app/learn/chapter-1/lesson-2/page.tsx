@@ -10,9 +10,6 @@ import SpoilerButton from "@/components/SpoilerButton"
 const JapaneseFont = Noto_Sans_JP({ subsets: ["latin"] })
 
 export default function Lesson2() {
-  const [showSpoiler1, setShowSpoiler1] = useState(false)
-  const [showSpoiler2, setShowSpoiler2] = useState(false)
-
   return (
     <Dialog
       variant={"reading"}
@@ -112,7 +109,7 @@ export default function Lesson2() {
             The pattern seems simple, but the characters themselves are all
             squiggly and weird! And 46 of them? You may be asking yourself,{" "}
             <span className="text-2xl font-medium">
-              <em>"How the heck am I supposed to learn these?"</em>
+              <em>&quot;How the heck am I supposed to learn these?&quot;</em>
             </span>{" "}
             Don&apos;t worry, the ✨internet✨ has you covered! 😼
           </p>

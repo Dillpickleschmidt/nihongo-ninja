@@ -19,13 +19,13 @@ export default function Lesson8() {
           <p className="bg-white text-black w-full !mx-0 border-b border-[#191919]">
             Or picture this: You&apos;re at a lively party in Tokyo. Someone
             asks your age. Do you start a game of charades, or do you
-            confidently say "にじゅうさい" (20 years old)? Numbers save the day
-            again!
+            confidently say &quot;にじゅうさい&quot; (20 years old)? Numbers
+            save the day again!
           </p>
           <p className="bg-[#F8F5E9] text-black">
             And let&apos;s not forget about telling time. Miss your train
-            because you couldn&apos;t understand "ごぜんくじ" (9 AM)? I hope
-            your friends missed you, at the very least.
+            because you couldn&apos;t understand &quot;ごぜんくじ&quot; (9 AM)?
+            I hope your friends missed you, at the very least.
           </p>
           <p className=" !pb-16">
             Numbers in Japanese aren&apos;t just digits; they&apos;re your key

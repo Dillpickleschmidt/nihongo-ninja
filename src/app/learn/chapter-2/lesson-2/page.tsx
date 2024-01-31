@@ -21,12 +21,13 @@ export default function Lesson8() {
             pronunciation="wa-ta-shi"
             hiragana="わたし"
           >
-            First up, we have わたし, which means "I" or "me". But, plot twist!
-            It&apos;s not just about you. In Japanese, you don&apos;t just go
-            around throwing "わたし" in every sentence like confetti. No, no,
-            no. You use it when you really need to emphasize that it&apos;s YOU
-            we&apos;re talking about. Because, let&apos;s face it, the world
-            doesnt revolve around you... or does it?
+            First up, we have わたし, which means &quot;I&quot; or
+            &quot;me&quot;. But, plot twist! It&apos;s not just about you. In
+            Japanese, you don&apos;t just go around throwing &quot;わたし&quot;
+            in every sentence like confetti. No, no, no. You use it when you
+            really need to emphasize that it&apos;s YOU we&apos;re talking
+            about. Because, let&apos;s face it, the world doesnt revolve around
+            you... or does it?
           </VocabCard>
           <div className="py-0 text-[#F8F5E9] px-16">
             <div className="mx-12 my-12">
@@ -50,14 +51,18 @@ export default function Lesson8() {
                   <div className="w-full flex justify-center mt-4">
                     <div>
                       <p>は (wa) - The topic marker.</p>
-                      <p>も (mo) - "Also" or "too." </p>
+                      <p>も (mo) - &quot;Also&quot; or &quot;too.&quot; </p>
                       <p>を (o) - The object marker. </p>
                       <p>が (ga) - The subject marker.</p>
                       <p>
-                        に (ni) - destination ("to"), a point in time ("at"){" "}
+                        に (ni) - destination (&quot;to&quot;), a point in time
+                        (&quot;at&quot;){" "}
                       </p>
                       <p>で (de) - Where an aciton takes place. </p>
-                      <p>と (to) - "And" (listing nouns) or "with"</p>
+                      <p>
+                        と (to) - &quot;And&quot; (listing nouns) or
+                        &quot;with&quot;
+                      </p>
                     </div>
                   </div>
                   <p className="mt-6">
@@ -81,18 +86,19 @@ export default function Lesson8() {
             <br />
             <br />
             <span className="text-base">
-              *Note that the particle "は" is pronounced "wa" instead of "ha".
+              *Note that the particle &quot;は&quot; is pronounced
+              &quot;wa&quot; instead of &quot;ha&quot;.
             </span>
           </VocabCard>
           <div className="py-0 text-[#F8F5E9] px-16">
             <div className="mx-12">
               <p className="py-4">
                 Put these two together and what do you get? わたしは (watashi
-                wa). It&apos;s like saying, "As for me..." and then pausing for
-                dramatic effect. Everyone&apos;s on the edge of their seats,
-                waiting for what amazing thing you&apos;re going to say about
-                yourself. Will you reveal a secret talent? Your love for cats?
-                The suspense is killing us!
+                wa). It&apos;s like saying, &quot;As for me...&quot; and then
+                pausing for dramatic effect. Everyone&apos;s on the edge of
+                their seats, waiting for what amazing thing you&apos;re going to
+                say about yourself. Will you reveal a secret talent? Your love
+                for cats? The suspense is killing us!
               </p>
               <div className="w-full flex justify-center my-4">
                 <p className="text-2xl py-4 px-8 rounded-2xl bg-[#2a2a2a]">
@@ -131,8 +137,8 @@ export default function Lesson8() {
               <p className="py-4">
                 Overusing わたしは can make you sound a bit self-centered or
                 overly formal in Japanese. It&apos;s like walking into a room
-                and announcing, "As for me..." before every single statement you
-                make.
+                and announcing, &quot;As for me...&quot; before every single
+                statement you make.
               </p>
               <p className="py-4">
                 In Japanese, dropping わたしは is like saying, &apos;You know
