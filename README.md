@@ -6,27 +6,27 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 Here are some of the standout pages demonstrating the current features of Nihongo Ninja:
 
-[nihongoninja.io/](https://nihongoninja.io/).
+[nihongoninja.io/](https://www.nihongoninja.io/).
 
-[nihongoninja.io/learn](https://nihongoninja.io/learn).
+[nihongoninja.io/learn](https://www.nihongoninja.io/learn).
 
-[nihongoninja.io/learn/chapter-1/vocab-learn-numbers-0-10](https://nihongoninja.io/learn/chapter-1/vocab-learn-numbers-0-10).
+[nihongoninja.io/learn/chapter-1/vocab-learn-numbers-0-10](https://www.nihongoninja.io/learn/chapter-1/vocab-learn-numbers-0-10).
 
-[nihongoninja.io/learn/chapter-1/lesson-3](https://nihongoninja.io/learn/chapter-1/lesson-3).
+[nihongoninja.io/learn/chapter-1/lesson-3](https://www.nihongoninja.io/learn/chapter-1/lesson-3).
 
-[nihongoninja.io/learn/chapter-1/hiragana-quiz-1](https://nihongoninja.io/learn/chapter-1/hiragana-quiz-1).
+[nihongoninja.io/learn/chapter-1/hiragana-quiz-1](https://www.nihongoninja.io/learn/chapter-1/hiragana-quiz-1).
 
-[nihongoninja.io/learn/chapter-1/lesson-6](https://nihongoninja.io/learn/chapter-1/lesson-6).
+[nihongoninja.io/learn/chapter-1/lesson-6](https://www.nihongoninja.io/learn/chapter-1/lesson-6).
 
-[nihongoninja.io/learn/chapter-1/lesson-8-2](https://nihongoninja.io/learn/chapter-1/lesson-8-2).
+[nihongoninja.io/learn/chapter-1/lesson-8-2](https://www.nihongoninja.io/learn/chapter-1/lesson-8-2).
 
-[AI Chat](https://nihongoninja.io/learn) (click navbar).
+[AI Chat](https://www.nihongoninja.io/learn) (click navbar).
 
-[nihongoninja.io/learn/chapter-1/vocab](https://nihongoninja.io/learn/chapter-1/vocab).
+[nihongoninja.io/learn/chapter-1/vocab](https://www.nihongoninja.io/learn/chapter-1/vocab).
 
-[nihongoninja.io/learn/chapter-1/lesson-6-quiz](https://nihongoninja.io/learn/chapter-1/lesson-6-quiz).
+[nihongoninja.io/learn/chapter-1/lesson-6-quiz](https://www.nihongoninja.io/learn/chapter-1/lesson-6-quiz).
 
-[nihongoninja.io/spaced-repetition](https://nihongoninja.io/spaced-repetition).
+[nihongoninja.io/spaced-repetition](https://www.nihongoninja.io/spaced-repetition).
 
 ## Installation
 
