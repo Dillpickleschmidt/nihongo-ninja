@@ -1,5 +1,6 @@
 import Image from "next/image"
 import Lesson3 from "./components/Lesson3"
+import Lesson7 from "./components/Lesson7"
 import Hero from "./components/Hero"
 import Button from "@/components/button"
 import HomepageImage from "./components/HomepageImage"
@@ -145,8 +146,9 @@ export default function Home() {
             </h3>
           </div>
         </div>
-        <div className="flex justify-end h-[1670px] my-12">
+        <div className="flex justify-center h-[1670px] my-12 mx-6">
           <Lesson3 />
+          <Lesson7 />
         </div>
         <div className="h-[500px] bg-[#F6E7D2] flex flex-col justify-center items-center text-black">
           <div className="xl:mx-64 mx-24 space-y-12">

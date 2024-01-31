@@ -17,7 +17,7 @@ export default function Lesson3() {
   const x = useTransform(
     scrollYProgress,
     [0.1, 0.25, 0.7, 0.9],
-    ["-50%", "-60%", "-60%", "-40%"]
+    ["20%", "0%", "0%", "10%"]
   )
 
   return (
@@ -26,7 +26,7 @@ export default function Lesson3() {
       ref={targetRef}
       className="relative w-[45%] border-4 border-black rounded-[60px] bg-[#F6E7D2] text-black z-[-2] overflow-hidden"
     >
-      <div className="mt-[950px]">
+      <div className="mt-0">
         <div
           className="absolute inset-0"
           style={{
