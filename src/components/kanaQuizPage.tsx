@@ -98,7 +98,10 @@ export default function KanaQuiz({ kana, nextLesson }: KanaQuizProps) {
             <h1 className="pt-12 mb-4 text-6xl font-semibold">
               Type the Romaji
             </h1>
-            <h2 className="text-2xl">Press enter to submit.</h2>
+            <h2 className="text-2xl">
+              Type the english spelling of each character into their respective
+              boxes.
+            </h2>
             <h2 className="text-2xl">Take it as many times as you like! 👍</h2>
           </>
         )}

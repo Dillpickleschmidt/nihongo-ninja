@@ -1,17 +1,56 @@
+/*
+This component takes json data and returns a UI for learning vocabulary.
+It has two modes: "multiple-choice" and "write".
+In "multiple-choice" mode, the user selects the correct answer from 4 choices.
+In "write" mode, the user types the answer into an input field.
+
+The user will view an introduction page before starting that shows the vocabulary that they'll be tested on.
+There's an option to show a tutorial to guide users before starting.
+The user will view a review page after answering 7 questions.
+The user will view a finished page after answering all questions.
+
+The user will switch between the two modes (read and write) by answering correctly or incorrectly.
+If the user answers correctly, the question will change to "write" mode.
+If the user answers incorrectly, the question will change to "multiple-choice" mode, if not already.
+If the user answers correctly in "write" mode, the question will be removed from the stack.
+
+The user can view the correct answer if they're unsure (which also marks the user answer as wrong).
+The user can also toggle between comparing the answer to hiragana and english.
+
+The user will always be working with a stack of 10 questions at a time, selected from the larger dataset.
+Though the user works with a stack of 10 questios, it presented in groups of 7 questions, followed by the review page.
+  This staggers the questions and makes the learning process feel less predicatable.
+
+The current question that the uswer is working on is always the first in the stack.
+Questions are circulated into the back of the stack after being answered, so the user will see the same questions again.
+Every vocabularly item will be tested at least twice before being removed from the stack (once as multiple-choice,
+  and once as written).
+If an item is removed from the stack, the next item from the larger dataset will be added to the stack, if available.
+
+This module uses an intelligent shuffling process that ensures that the user is consistently seeing similar
+  vocabulary by sampling and reshuffling vocabulary in indexes close to the key term from the original dataset. For more
+  details, see the ShuffleRange component.
+The original dataset is also randomly shuffled by default, but this can be turned off.
+*/
+
 "use client"
 import { useState, useEffect, useRef } from "react"
 import { ReactNode } from "react"
 import Button from "@/components/button"
-import ShuffleArray from "@/app/util/shuffleArray"
-import GetAnswerFromState from "@/app/util/getAnswerFromState"
+import ShuffleArray from "@/components/learn-vocab/shuffleArray"
+import GetAnswerFromState from "@/components/learn-vocab/getAnswerFromState"
 
 import { Noto_Sans_JP } from "next/font/google"
 
 const NotoSansJPFont = Noto_Sans_JP({ subsets: ["latin"] })
 
-import ShuffleRange from "../app/util/shuffleRange"
+import ShuffleRange from "./learn-vocab/shuffleRange"
 import SpoilerButton from "./SpoilerButton"
 import JapaneseFont from "./JapaneseFont"
+import Tutorial from "./learn-vocab/tutorial"
+import StartPage from "./learn-vocab/StartPage"
+import FinishedPage from "./learn-vocab/FinishedPage"
+import ReviewPage from "./learn-vocab/ReviewPage"
 
 type VocabItemValue = {
   hiragana?: string[]
@@ -22,15 +61,16 @@ type VocabItemValue = {
 type VocabItem = {
   key: string
   value: VocabItemValue
-  type: string // type: "multiple-choice" or "write"
+  style: string // type: "multiple-choice" or "write"
 }
 
-type QuizProps = {
+type LearnVocabProps = {
   children?: ReactNode
   data: { [key: string]: VocabItemValue } // data: { [key: string]: { hiragana: string; english: string; mnemonics: string } }
   link: string
   shuffleTerms?: boolean
   hideTerms?: boolean
+  tutorial?: boolean
 }
 
 export default function LearnVocab({
@@ -38,8 +78,9 @@ export default function LearnVocab({
   link,
   shuffleTerms = false,
   hideTerms = false,
+  tutorial = false,
   children,
-}: QuizProps) {
+}: LearnVocabProps) {
   // Initialize vocabArray state with the transformed data
   const originalVocabArray = Object.entries(data).map(([key, value]) => ({
     key,
@@ -48,7 +89,7 @@ export default function LearnVocab({
       hiragana: value.hiragana || [""],
       english: value.english || [""], // Default to an empty string if english is not provided
     },
-    type: "multiple-choice",
+    style: "multiple-choice",
   }))
   const [vocabArray, setVocabArray] = useState<VocabItem[]>(originalVocabArray)
   const [questionStack, setQuestionStack] = useState(vocabArray.slice(0, 10))
@@ -61,12 +102,13 @@ export default function LearnVocab({
   const [compareHiragana, setcompareHiragana] = useState(true)
   const [compareEnglish, setcompareEnglish] = useState(true)
   const [lock, setLock] = useState(false)
-  const [correctWrittenAnswer, setCorrectWrittenAnswer] = useState("")
+  const [correctAnswerFormatted, setCorrectAnswerFormatted] = useState("")
   const [isWrittenAnswerCorrect, setIsWrittenAnswerCorrect] = useState(false)
   const [correctButton, setCorrectButton] = useState("")
   const [showReview, setShowReview] = useState(false)
   const [finished, setFinished] = useState(false)
   const [started, setStarted] = useState(false)
+  const [tutorialStep, setTutorialStep] = useState(-1)
 
   const inputRef = useRef<HTMLInputElement>(null)
 
@@ -158,43 +200,45 @@ export default function LearnVocab({
   var TermKey = shuffledOutput.termKey
   var keys = shuffledOutput.keys
 
-  function handleVocabClick(e?: React.MouseEvent, clickedKey?: string) {
-    console.log("handleVocabClick called with clickedKey:", clickedKey)
+  function checkWrittenAnswer() {
+    // checkWrittenAnswer checks if the written answer is correct and returns a bool.
+    const question = questionStack[0] // current question
+    const answerHiragana = question.value.hiragana?.map((value) =>
+      value.toLowerCase()
+    )
+    const answerEnglish = question.value.english?.map((value) =>
+      value.toLowerCase()
+    )
+
+    const matchesHiragana =
+      compareHiragana && answerHiragana
+        ? answerHiragana.includes(userWrittenAnswer) && userWrittenAnswer !== ""
+        : false
+    const matchesEnglish =
+      compareEnglish && answerEnglish
+        ? answerEnglish.includes(userWrittenAnswer) && userWrittenAnswer !== ""
+        : false
+
+    return matchesHiragana || matchesEnglish
+  }
+
+  function handleUserInput(e?: React.MouseEvent, clickedKey?: string) {
+    // handleUserInput handles the user's input and checks if it's correct
     const newStack = [...questionStack]
-    const question = newStack.splice(0, 1)[0]
+    const question = newStack.splice(0, 1)[0] // Remove the first question from the stack
     const nextQuestion = newStack[0]
 
-    function checkWrittenAnswer() {
-      const question = questionStack[0] // current question
-      const answerHiragana = question.value.hiragana?.map((value) =>
-        value.toLowerCase()
-      )
-      const answerEnglish = question.value.english?.map((value) =>
-        value.toLowerCase()
-      )
+    // Check if the written answer is correct
+    setIsWrittenAnswerCorrect(checkWrittenAnswer()) // returns bool
 
-      const matchesHiragana =
-        compareHiragana && answerHiragana
-          ? answerHiragana.includes(userWrittenAnswer) &&
-            userWrittenAnswer !== ""
-          : false
-      const matchesEnglish =
-        compareEnglish && answerEnglish
-          ? answerEnglish.includes(userWrittenAnswer) &&
-            userWrittenAnswer !== ""
-          : false
-
-      return matchesHiragana || matchesEnglish
-    }
-    setIsWrittenAnswerCorrect(checkWrittenAnswer())
-
-    // Set the correct answer based on the state of the toggles
+    // Returns a formatted string based on the state of the toggles
     const correctAnswerString = GetAnswerFromState(
       compareHiragana,
       compareEnglish,
-      question
+      question // this value is why this const is defined here and why I have to useState for setCorrectAnswerFormatted
     )
-    setCorrectWrittenAnswer(correctAnswerString)
+    // The returned value here differs slightly from what's compared in checkWrittenAnswer
+    setCorrectAnswerFormatted(correctAnswerString)
 
     // Check if the clicked key matches the term key (multiple-choice question)
     const matches = TermKey === clickedKey
@@ -246,7 +290,7 @@ export default function LearnVocab({
 
         // Check if the answer is correctChoice or if the user has written the correct answer (case-insensitive)
         if (matches || checkWrittenAnswer()) {
-          if (question.type === "write") {
+          if (question.style === "write") {
             // If the question type is 'write' and it's answered correctly, leave it as removed and don't add it back to the stack
             // Add a new question from vocabArray to the end of the stack
             const nextQuestion = vocabArray[nextQuestionIndex]
@@ -256,12 +300,12 @@ export default function LearnVocab({
             }
           } else {
             // If the question type is 'multiple-choice' and it's answered correctly, change it to 'write' and move it to the end of the stack
-            question.type = "write"
+            question.style = "write"
             newStack.push(question)
           }
         } else {
           // If the answer is incorrect, change the question type to 'multiple-choice' (if it isn't already) and move it to the end of the stack
-          question.type = "multiple-choice"
+          question.style = "multiple-choice"
           newStack.push(question)
         }
 
@@ -309,126 +353,50 @@ export default function LearnVocab({
 
   if (!started) {
     return (
-      <div className="text-2xl">
-        <div className="w-full mt-24 flex justify-center items-center">
-          <div>{children}</div>
-        </div>
-        {!hideTerms && (
-          <div className="mt-12 flex justify-center">
-            <div>
-              {originalVocabArray.map((values: any, index: number) => (
-                <li
-                  key={index}
-                  className={`leading-[1.75] ${
-                    index % 2 === 0 ? "text-[#b49b7d]" : "text-[#dfcdb3]"
-                  }`}
-                >
-                  <JapaneseFont
-                    className={`font-semibold text-4xl ${
-                      index % 2 === 0 && "text-[#907c64]"
-                    }`}
-                  >
-                    {values.key}
-                  </JapaneseFont>{" "}
-                  -{" "}
-                  {values.value.english &&
-                  values.value.english[0] &&
-                  values.value.hiragana[0]
-                    ? // If both hiragana and english exist, render both
-                      values.value.hiragana &&
-                      " / " &&
-                      values.value.english.join(" / ")
-                    : values.value.hiragana && values.value.hiragana[0]
-                    ? // If only hiragana exists, render hiragana
-                      values.value.hiragana
-                    : // If only english exists, render english
-                      values.value.english.join(" / ")}
-                </li>
-              ))}
-            </div>
-          </div>
-        )}
-        <div className="my-12 flex flex-row justify-center">
-          <Button
-            onClick={() => setStarted(true)}
-            className="bg-[#F6E7D2] hover:bg-[#FFF7EC]"
-          >
-            Start Practicing
-          </Button>
-        </div>
-      </div>
+      <StartPage
+        children={children}
+        hideTerms={hideTerms}
+        tutorial={tutorial}
+        originalVocabArray={originalVocabArray}
+        setTutorialStep={setTutorialStep}
+        setStarted={setStarted}
+        started={started}
+      />
+    )
+  }
+
+  if (tutorialStep >= 0) {
+    return (
+      <Tutorial
+        setTutorialStep={setTutorialStep}
+        tutorialStep={tutorialStep}
+        setLock={setLock}
+        lock={lock}
+        handleUserInput={handleUserInput}
+        setUserWrittenAnswer={setUserWrittenAnswer}
+        userWrittenAnswer={userWrittenAnswer}
+        inputRef={inputRef}
+      />
     )
   }
 
   // If 'finished' is true, render a "finished" page
   if (finished) {
-    return (
-      <div className="h-[80%] flex flex-col justify-center items-center">
-        <div className="my-24 text-4xl text-center">
-          You&apos;ve finished all the questions!
-        </div>
-        <div className="">
-          <Button link={link}>{"Next Lesson"}</Button>
-        </div>
-      </div>
-    )
+    return <FinishedPage link={link} />
   }
 
   // If showReview is true, render the review UI
   if (showReview) {
     return (
-      <div className="h-full flex flex-row justify-center">
-        <div className="2xl:w-[60%] xl:w-[80%] fixed top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] px-12 py-10 bg-[#222222] rounded-[10px] border-2 border-neutral-700 border-dashed">
-          {/* Render your review UI here */}
-          <div className="w-full flex justify-center">
-            <h1 className="border-b pb-6 border-yellow-500 border-opacity-75 px-16 text-5xl font-semibold">
-              Review
-            </h1>
-          </div>
-          <div className="my-6 flex justify-center">
-            <div className="space-y-6">
-              {reviewQuestions.map((question, index) => (
-                <div key={index} className="border-b border-neutral-700 pb-6">
-                  <p className="text-4xl font-medium">
-                    <JapaneseFont>{question.key}</JapaneseFont>{" "}
-                    <span className="text-2xl">
-                      -{" "}
-                      {question.value.english &&
-                      question.value.english[0] &&
-                      question.value.hiragana?.[0]
-                        ? // If both hiragana and english exist, render both
-                          question.value.hiragana &&
-                          " / " &&
-                          question.value.english.join(" / ")
-                        : question.value.hiragana && question.value.hiragana[0]
-                        ? // If only hiragana exists, render hiragana
-                          question.value.hiragana
-                        : // If only english exists, render english
-                          question.value.english?.join(" / ") ?? ""}
-                    </span>
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="w-full flex justify-end outline-none">
-            <Button
-              className=""
-              autoFocus={true}
-              onClick={() => {
-                // When "continue" is clicked, hide the review UI
-                setShowReview(false)
-              }}
-            >
-              Continue
-            </Button>
-          </div>
-        </div>
-      </div>
+      <ReviewPage
+        reviewQuestions={reviewQuestions}
+        setShowReview={setShowReview}
+      />
     )
   }
 
-  // Render the current question
+  // Render the first question from the questionStack
+  // Subsequent questions are handled in handleUserInput, but the current question is always the first in the questionStack.
   const currentQuestion = questionStack[0]
 
   return (
@@ -443,12 +411,12 @@ export default function LearnVocab({
         <h1 className="my-16 text-center text-7xl">
           <JapaneseFont>{currentQuestion.key}</JapaneseFont>
         </h1>
-        {currentQuestion.type === "multiple-choice" ? (
+        {currentQuestion.style === "multiple-choice" ? (
           // Render UI for multiple-choice question
           <ul className="grid grid-cols-1 gap-5 mx-4 mt-24 mb-6 lg:grid-cols-2">
             <Button
               variant={"vocab"}
-              onClick={(e) => key1 && handleVocabClick(e, key1)}
+              onClick={(e) => key1 && handleUserInput(e, key1)}
               className={greenIfCorrect(key1)}
             >
               <span className="mr-5 text-lg">1. </span>
@@ -459,7 +427,7 @@ export default function LearnVocab({
             </Button>
             <Button
               variant={"vocab"}
-              onClick={(e) => key2 && handleVocabClick(e, key2)}
+              onClick={(e) => key2 && handleUserInput(e, key2)}
               className={greenIfCorrect(key2)}
             >
               <span className="mr-5 text-lg">2. </span>
@@ -470,7 +438,7 @@ export default function LearnVocab({
             </Button>
             <Button
               variant={"vocab"}
-              onClick={(e) => key3 && handleVocabClick(e, key3)}
+              onClick={(e) => key3 && handleUserInput(e, key3)}
               className={greenIfCorrect(key3)}
             >
               <span className="mr-5 text-lg">3. </span>
@@ -481,7 +449,7 @@ export default function LearnVocab({
             </Button>
             <Button
               variant={"vocab"}
-              onClick={(e) => key4 && handleVocabClick(e, key4)}
+              onClick={(e) => key4 && handleUserInput(e, key4)}
               className={greenIfCorrect(key4)}
             >
               <span className="mr-5 text-lg">4. </span>
@@ -517,7 +485,7 @@ export default function LearnVocab({
               <form
                 onSubmit={(e) => {
                   e.preventDefault() // Prevent the form from refreshing the page
-                  handleVocabClick()
+                  handleUserInput()
                 }}
               >
                 <input
@@ -539,7 +507,7 @@ export default function LearnVocab({
             </div>
             {lock && (
               <p className="text-lg text-center">
-                Correct answer: {correctWrittenAnswer}
+                Correct answer: {correctAnswerFormatted}
               </p>
             )}
           </div>
@@ -549,7 +517,7 @@ export default function LearnVocab({
         <SpoilerButton
           text="Answer"
           className="py-2 px-4 text-neutral-300 border-none"
-          externalOnClick={(e) => handleVocabClick(e, "showAnswer")}
+          externalOnClick={(e) => handleUserInput(e, "showAnswer")}
           hideSpoiler={!lock}
         >
           <div className="mt-6 text-xl">
