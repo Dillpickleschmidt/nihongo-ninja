@@ -354,14 +354,15 @@ export default function LearnVocab({
   if (!started) {
     return (
       <StartPage
-        children={children}
         hideTerms={hideTerms}
         tutorial={tutorial}
         originalVocabArray={originalVocabArray}
         setTutorialStep={setTutorialStep}
         setStarted={setStarted}
         started={started}
-      />
+      >
+        {children}
+      </StartPage>
     )
   }
 

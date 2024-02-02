@@ -10,7 +10,7 @@ export default function Home() {
     <main>
       <div className="scroll-smooth overscroll-auto">
         <Hero />
-        <div className="h-[500px] bg-[#F6E7D2] flex flex-col justify-center items-center text-black">
+        <div className="min-h-[500px] py-12 bg-[#F6E7D2] flex flex-col justify-center items-center text-black">
           <div className="xl:mx-64 mx-24 space-y-12">
             <h2 className="text-6xl font-medium">
               Ever felt like language apps <u>just don&apos;t cut it</u>?
@@ -26,7 +26,7 @@ export default function Home() {
         <div className="relative w-full flex justify-end">
           <HomepageImage image="/img/lesson-page.png" />
         </div>
-        <div className="h-[500px] bg-[#F6E7D2] flex flex-col justify-center items-center text-black">
+        <div className="min-h-[500px] py-12 bg-[#F6E7D2] flex flex-col justify-center items-center text-black">
           <div className="xl:mx-64 mx-24 space-y-12">
             <h2 className="text-5xl">
               <span className="font-semibold text-7xl">Need feedback?</span> Our
@@ -47,7 +47,7 @@ export default function Home() {
             Your browser does not support the video tag.
           </video>
         </div>
-        <div className="h-[500px] bg-[#F6E7D2] flex flex-col justify-center items-center text-black">
+        <div className="min-h-[500px] py-12 bg-[#F6E7D2] flex flex-col justify-center items-center text-black">
           <div className="xl:mx-64 mx-24 space-y-12">
             <h2 className="text-5xl">
               <span className="font-semibold text-7xl">Games?</span> Oh,
@@ -70,7 +70,7 @@ export default function Home() {
             <h2>Not yet developed</h2>
           </div>
         </div>
-        <div className="h-[500px] bg-[#F6E7D2] flex flex-col justify-center items-center text-black">
+        <div className="min-h-[500px] py-12 bg-[#F6E7D2] flex flex-col justify-center items-center text-black">
           <div className="xl:mx-64 mx-24 space-y-12">
             <h2 className="text-5xl">
               <span className="font-semibold text-7xl">Flashcards?</span> Even
@@ -91,7 +91,7 @@ export default function Home() {
             Your browser does not support the video tag.
           </video>
         </div>
-        <div className="h-[500px] bg-[#F6E7D2] flex flex-col justify-center items-center text-black">
+        <div className="min-h-[500px] py-12 bg-[#F6E7D2] flex flex-col justify-center items-center text-black">
           <div className="xl:mx-64 mx-24 space-y-12">
             <h2 className="text-5xl">
               <span className="font-semibold text-7xl">Forget vocabulary?</span>{" "}
@@ -112,7 +112,7 @@ export default function Home() {
             Your browser does not support the video tag.
           </video>
         </div>
-        <div className="h-[500px] bg-[#F6E7D2] flex flex-col justify-center items-center text-black">
+        <div className="min-h-[500px] py-12 bg-[#F6E7D2] flex flex-col justify-center items-center text-black">
           <div className="xl:mx-64 mx-24 space-y-12">
             <h2 className="text-5xl">
               <span className="font-semibold text-7xl">Kanji.</span> Just the
@@ -131,7 +131,7 @@ export default function Home() {
             Not yet developed
           </h2>
         </div>
-        <div className="h-[500px] bg-[#F6E7D2] flex flex-col justify-center items-center text-black">
+        <div className="min-h-[500px] py-12 bg-[#F6E7D2] flex flex-col justify-center items-center text-black">
           <div className="xl:mx-64 mx-24 space-y-12">
             <h2 className="text-5xl">
               <span className="font-semibold text-7xl">
@@ -150,7 +150,7 @@ export default function Home() {
           <Lesson3 />
           <Lesson7 />
         </div>
-        <div className="h-[500px] bg-[#F6E7D2] flex flex-col justify-center items-center text-black">
+        <div className="min-h-[500px] py-12 bg-[#F6E7D2] flex flex-col justify-center items-center text-black">
           <div className="xl:mx-64 mx-24 space-y-12">
             <h2 className="text-5xl">
               <span className="font-semibold text-7xl">
@@ -169,10 +169,10 @@ export default function Home() {
         </div>
         <div className="w-full h-[800px] bg-[#222222] flex flex-col justify-center items-center">
           <h2 className="text-7xl font-medium p-24 bg-neutral-800 border-2 border-dashed border-neutral-500 rounded-[45px]">
-            Nearly completed
+            In progress...
           </h2>
         </div>
-        <div className="h-[500px] bg-[#F6E7D2] flex flex-col justify-center items-center text-black">
+        <div className="min-h-[500px] py-12 bg-[#F6E7D2] flex flex-col justify-center items-center text-black">
           <div className="xl:mx-64 mx-24 space-y-12">
             <h2 className="text-5xl">
               <span className="font-semibold text-7xl">
@@ -191,10 +191,10 @@ export default function Home() {
         </div>
         <div className="w-full h-[800px] bg-[#222222] flex flex-col justify-center items-center">
           <h2 className="text-7xl font-medium p-24 bg-neutral-800 border-2 border-dashed border-neutral-500 rounded-[45px]">
-            In development
+            In progress...
           </h2>
         </div>
-        <div className="h-[500px] bg-[#F6E7D2] flex flex-col justify-center items-center text-black">
+        <div className="min-h-[500px] py-12 bg-[#F6E7D2] flex flex-col justify-center items-center text-black">
           <div className="xl:mx-64 mx-24 space-y-12">
             <h2 className="text-6xl">
               Sound interesting?{" "}

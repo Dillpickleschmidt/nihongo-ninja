@@ -6,7 +6,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 Here are some of the standout pages demonstrating the current features of Nihongo Ninja:
 
-[Landing Page/](https://www.nihongoninja.io/).
+[Landing Page](https://www.nihongoninja.io/).
 
 [Learning Hub](https://www.nihongoninja.io/learn).
 
@@ -28,9 +28,13 @@ Here are some of the standout pages demonstrating the current features of Nihong
 
 [Chapter 1 Lesson 6 Quiz](https://www.nihongoninja.io/learn/chapter-1/lesson-6-quiz).
 
-[Spaced Repetition](https://www.nihongoninja.io/spaced-repetition) (development in progress).
+[Spaced Repetition](https://www.nihongoninja.io/spaced-repetition) (non-functional, development in progress).
 
-Please note that this project is very much in active development, and is missing some pages and features.
+Please note that this project is in its very early development stage, and is currently missing pages and features that are planned to be added in the future.
+
+Some of the key plans for the future are making the spaced-repetition system functional, implementing several new and exciting games for users to practice with, and adding significantly more lesson content.
+
+Also please note that several pages haven't been optimized for mobile viewing yet...
 
 ## Installation
 
