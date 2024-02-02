@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from "react"
 import Dialog from "@/components/dialog"
 import Button from "@/components/button"
 import { CharacterBox } from "@/components/CharacterQuizBoxes"
-import HandleBeforeUnload from "@/app/util/handleBeforeUnload"
+import HandleBeforeExit from "@/app/util/handleBeforeExit"
 
 import { Noto_Sans_JP } from "next/font/google"
 
@@ -15,7 +15,7 @@ type KanaQuizProps = {
 }
 
 export default function KanaQuiz({ kana, nextLesson }: KanaQuizProps) {
-  HandleBeforeUnload()
+  HandleBeforeExit()
   const scrollRef = useRef<HTMLDivElement>(null)
 
   const [showResults, setShowResults] = useState(false)

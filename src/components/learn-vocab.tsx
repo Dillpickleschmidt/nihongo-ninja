@@ -47,7 +47,7 @@ const NotoSansJPFont = Noto_Sans_JP({ subsets: ["latin"] })
 import ShuffleRange from "./learn-vocab/shuffleRange"
 import SpoilerButton from "./SpoilerButton"
 import JapaneseFont from "./JapaneseFont"
-import Tutorial from "./learn-vocab/tutorial"
+import Tutorial from "./learn-vocab/Tutorial"
 import StartPage from "./learn-vocab/StartPage"
 import FinishedPage from "./learn-vocab/FinishedPage"
 import ReviewPage from "./learn-vocab/ReviewPage"
