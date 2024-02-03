@@ -1,6 +1,5 @@
 import { redirect } from "next/navigation"
 import readUserSession from "../../lib/actions/readUserSession"
-import createSupabaseServerClient from "../../lib/supabase/server"
 import { BsDatabaseFillUp } from "react-icons/bs"
 import Button from "../components/button"
 import supabase from "../../lib/supabase/server"
@@ -14,7 +13,7 @@ export default async function Page() {
   const { data: user } = await supabase
     .from("users")
     .select("role")
-    .eq("id", data.session.user.id)
+    .eq("uid", data.session.user.id)
     .single()
   if (user?.role !== "admin") {
     return redirect("/learn")

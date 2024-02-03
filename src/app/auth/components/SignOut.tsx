@@ -1,11 +1,9 @@
 import Button from "@/app/components/button"
-import createSupabaseServerClient from "@/lib/supabase/server"
+import supabase from "@/lib/supabase/server"
 import { redirect } from "next/navigation"
 
 export default function SignOut() {
   async function signOut() {
-    "use server"
-    const supabase = await createSupabaseServerClient()
     await supabase.auth.signOut()
     redirect("/auth")
   }

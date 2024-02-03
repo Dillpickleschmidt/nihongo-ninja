@@ -145,7 +145,6 @@ export function CardProvider({
         `Change ${State[currentType]} to ${State[change]}, Card next State: ${State[nextState]},current rollback length ${rollBackRef.current.length}`
       )
       setCurrentType(change)
-      callHandler({ ...note }, res)
     })
     return true
   }

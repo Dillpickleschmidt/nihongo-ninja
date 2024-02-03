@@ -6,7 +6,7 @@ export type Json =
   | { [key: string]: Json | undefined }
   | Json[]
 
-export interface Card {
+export type Card = {
   cid: number
   difficulty: number
   due: string
@@ -20,44 +20,22 @@ export interface Card {
   state: Database["public"]["Enums"]["state"]
 }
 
-export interface Note {
+export type Note = {
   answer: string
   cid: number | null
-  extend: Json
+  extend: Json | null
   nid: number
   question: string
   source: string
   sourceid: string | null
-  uid: string | null
+  uid: string
 }
 
-export interface Revlog {
-  cid: number
-  difficulty: number
-  due: string
-  elapsed_days: number
-  grade: Database["public"]["Enums"]["rating"]
-  last_elapsed_days: number
-  lid: string
-  review: string
-  scheduled_days: number
-  stability: number
-  state: Database["public"]["Enums"]["state"]
-}
-
-export enum Rating {
-  Manual = "0",
-  Again = "1",
-  Hard = "2",
-  Good = "3",
-  Easy = "4",
-}
-
-export enum State {
-  New = "0",
-  Learning = "1",
-  Review = "2",
-  Relearning = "3",
+export declare enum State {
+  New = 0,
+  Learning = 1,
+  Review = 2,
+  Relearning = 3,
 }
 
 export interface Database {
@@ -105,7 +83,7 @@ export interface Database {
         }
         Relationships: [
           {
-            foreignKeyName: "card_nid_fkey"
+            foreignKeyName: "fk_note"
             columns: ["nid"]
             isOneToOne: true
             referencedRelation: "note"
@@ -117,32 +95,32 @@ export interface Database {
         Row: {
           answer: string
           cid: number | null
-          extend: Json
+          extend: Json | null
           nid: number
           question: string
           source: string
           sourceid: string | null
-          uid: string | null
+          uid: string
         }
         Insert: {
           answer?: string
           cid?: number | null
-          extend: Json
+          extend?: Json | null
           nid?: number
           question?: string
           source?: string
           sourceid?: string | null
-          uid?: string | null
+          uid: string
         }
         Update: {
           answer?: string
           cid?: number | null
-          extend?: Json
+          extend?: Json | null
           nid?: number
           question?: string
           source?: string
           sourceid?: string | null
-          uid?: string | null
+          uid?: string
         }
         Relationships: [
           {
@@ -151,13 +129,44 @@ export interface Database {
             isOneToOne: false
             referencedRelation: "card"
             referencedColumns: ["cid"]
-          },
+          }
+        ]
+      }
+      parameters: {
+        Row: {
+          card_limit: number
+          enable_fuzz: boolean
+          maximum_interval: number
+          request_retention: number
+          uid: number
+          user_id: string | null
+          w: Json
+        }
+        Insert: {
+          card_limit?: number
+          enable_fuzz?: boolean
+          maximum_interval?: number
+          request_retention?: number
+          uid?: number
+          user_id?: string | null
+          w: Json
+        }
+        Update: {
+          card_limit?: number
+          enable_fuzz?: boolean
+          maximum_interval?: number
+          request_retention?: number
+          uid?: number
+          user_id?: string | null
+          w?: Json
+        }
+        Relationships: [
           {
-            foreignKeyName: "fk_user"
-            columns: ["uid"]
+            foreignKeyName: "parameters_user_id_fkey"
+            columns: ["user_id"]
             isOneToOne: false
             referencedRelation: "users"
-            referencedColumns: ["id"]
+            referencedColumns: ["uid"]
           }
         ]
       }
@@ -180,7 +189,7 @@ export interface Database {
           difficulty: number
           due: string
           elapsed_days: number
-          grade?: Database["public"]["Enums"]["rating"]
+          grade: Database["public"]["Enums"]["rating"]
           last_elapsed_days: number
           lid?: string
           review: string
@@ -235,18 +244,27 @@ export interface Database {
       users: {
         Row: {
           created_at: string
-          id: string
+          email: string
+          name: string
+          oauthtype: string
           role: string
+          uid: string
         }
         Insert: {
           created_at?: string
-          id?: string
-          role?: string
+          email: string
+          name: string
+          oauthtype?: string
+          role: string
+          uid?: string
         }
         Update: {
           created_at?: string
-          id?: string
+          email?: string
+          name?: string
+          oauthtype?: string
           role?: string
+          uid?: string
         }
         Relationships: []
       }

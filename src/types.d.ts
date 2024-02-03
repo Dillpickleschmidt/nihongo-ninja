@@ -1,6 +1,13 @@
 import { Card, Revlog, State } from "ts-fsrs"
 import { Database } from "./lib/supabase/types"
 
+declare enum State {
+  New = 0,
+  Learning = 1,
+  Review = 2,
+  Relearning = 3,
+}
+
 export declare module "ts-fsrs" {
   interface CardSupabase extends Card {
     cid: number
@@ -9,11 +16,11 @@ export declare module "ts-fsrs" {
     elapsed_days: number
     lapses: number
     last_review: string | null
-    nid: string
+    nid: number
     reps: number
     scheduled_days: number
     stability: number
-    state: Database["public"]["Enums"]["state"]
+    state: State
   }
   interface RevlogSupabase extends Revlog {
     cid: number
@@ -52,5 +59,4 @@ export type FSRSPutParams = {
   w: number[]
   enable_fuzz: boolean
   card_limit: number
-  lingq_token: string | null
 }

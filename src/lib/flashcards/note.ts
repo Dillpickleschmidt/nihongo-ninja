@@ -1,6 +1,5 @@
 import { NodeData } from "@/types"
 import { createEmptyCardBySupabase } from "@/lib/supabase/fsrsToSupabase"
-import { Card, Note } from "@/lib/supabase/types"
 import supabase from "../supabase/server"
 
 export async function addNote(data: Partial<NodeData> & { uid: number }) {

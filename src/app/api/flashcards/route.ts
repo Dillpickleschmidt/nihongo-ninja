@@ -13,11 +13,14 @@ import supabase from "@/lib/supabase/server"
 
 async function isAdminOrSelf(uid: number) {
   const { data } = await readUserSession()
+  if (!data.session) {
+    return false
+  }
 
   const { data: user } = await supabase
     .from("users")
     .select("role")
-    .eq("id", data.session.user.id)
+    .eq("uid", data.session.user.id)
     .single()
 
   return user?.role === "admin" || data.session.user.id === String(uid)

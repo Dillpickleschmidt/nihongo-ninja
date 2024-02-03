@@ -1,4 +1,11 @@
-import { CardSupabase, Grade, RecordLog, RevlogSupabase, fsrs } from "ts-fsrs"
+import {
+  Card,
+  CardSupabase,
+  Grade,
+  RecordLog,
+  RevlogSupabase,
+  fsrs,
+} from "ts-fsrs"
 import { getNoteByCid, getNoteByNid } from "./note"
 import supabase from "@/lib/supabase/server"
 import {
@@ -10,11 +17,14 @@ import readUserSession from "../actions/readUserSession"
 
 async function isAdminOrSelf(uid: number) {
   const { data } = await readUserSession()
+  if (!data.session) {
+    return false
+  }
 
   const { data: user } = await supabase
     .from("users")
     .select("role")
-    .eq("id", data.session.user.id)
+    .eq("uid", data.session.user.id)
     .single()
 
   return user?.role === "admin" || data.session.user.id === String(uid)
@@ -103,6 +113,13 @@ export async function schedulerCard(query: Partial<Query>, now: Date) {
   return f.repeat(card, now)
 }
 
+function isCardSupabase(card: Card | CardSupabase): card is CardSupabase {
+  return (
+    (card as CardSupabase).cid !== undefined &&
+    (card as CardSupabase).nid !== undefined
+  )
+}
+
 export async function updateCard(cid: number, now: Date, grade: Grade) {
   // Fetch and schedule the card
   const data: RecordLog = await schedulerCard({ cid }, now)
@@ -134,17 +151,27 @@ export async function updateCard(cid: number, now: Date, grade: Grade) {
     .from("revlog") // or whatever your log table is named
     .insert({
       cid: cid,
-      grade: recordItem.log.rating, // Adjust field names and values as per your schema
-      state: recordItem.log.state,
-      // ... other log fields ...
+      grade: recordItem.log.rating, // Ensure mapping is correct for your enum or representation in Supabase
+      state: recordItem.log.state, // Adjust for Supabase as necessary
+      due: recordItem.log.due,
+      stability: recordItem.log.stability,
+      difficulty: recordItem.log.difficulty,
+      elapsed_days: recordItem.log.elapsed_days,
+      last_elapsed_days: recordItem.log.last_elapsed_days,
+      scheduled_days: recordItem.log.scheduled_days,
+      review: recordItem.log.review,
     })
 
   if (logError) throw logError
 
+  if (!isCardSupabase(recordItem.card)) {
+    throw new Error("recordItem.card is not a CardSupabase")
+  }
+
   return {
     nextState: recordItem.card.state,
     nextDue: recordItem.card.due,
-    nid: (recordItem.card as CardSupabase & { nid: number }).nid,
+    nid: isCardSupabase(recordItem.card) && recordItem.card.nid,
   }
 }
 
@@ -199,7 +226,11 @@ export async function rollbackCard(query: Partial<Query>) {
   }
 
   const f = fsrs(params)
-  const backCard = f.rollback(cardBySupabase, log) as CardSupabase
+  const backCardTemp = f.rollback(cardBySupabase, log)
+  if (!isCardSupabase(backCardTemp)) {
+    throw new Error("backCardTemp is not a CardSupabase")
+  }
+  const backCard = backCardTemp as CardSupabase
 
   // Update the card in Supabase
   let { error: updateError } = await supabase
