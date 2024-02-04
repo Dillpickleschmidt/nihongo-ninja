@@ -1,7 +1,8 @@
 import { NodeData } from "@/types"
 import { createEmptyCardBySupabase } from "@/lib/supabase/fsrsToSupabase"
 import getSupabase from "../supabase/server"
-import { Card, Note, State } from "@/lib/supabase/index"
+import { Card, Note } from "@/lib/supabase/index"
+import { State } from "ts-fsrs"
 
 export async function addNote(data: Partial<NodeData> & { uid: string }) {
   const supabase = await getSupabase()

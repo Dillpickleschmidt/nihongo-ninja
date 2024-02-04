@@ -5,7 +5,8 @@ import {
   Rating as FSRSRating,
   fixState,
 } from "ts-fsrs"
-import { Card, Rating, State } from "@/lib/supabase/index"
+import { Card } from "@/lib/supabase/index"
+import { State, Rating } from "ts-fsrs"
 
 interface CardSupabaseUnChecked
   extends Omit<Card, "cid" | "nid" | "last_review" | "state" | "due"> {
