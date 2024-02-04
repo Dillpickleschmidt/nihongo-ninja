@@ -1,0 +1,23 @@
+import { Card, Note } from "@/lib/supabase/index"
+import React from "react"
+import { QACard } from "."
+import { CardProvider } from "@/context/CardContext"
+import ShowAnswerButton from "./ShowAnswerButton"
+import StatusBar from "./StatusBar"
+import RollbackButton from "./RollbackButton"
+
+export default function CardClient({
+  noteBox,
+}: {
+  noteBox: Array<Array<Note & { card: Card }>>
+}) {
+  return (
+    <CardProvider noteBox0={noteBox}>
+      <QACard />
+      <div className="divider"></div>
+      <StatusBar />
+      <ShowAnswerButton />
+      <RollbackButton />
+    </CardProvider>
+  )
+}

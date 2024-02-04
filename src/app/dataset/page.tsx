@@ -1,24 +1,10 @@
-import { redirect } from "next/navigation"
-import readUserSession from "../lib/actions/readUserSession"
-import createSupabaseServerClient from "../lib/supabase/server"
+import { checkSession, isAdmin } from "@/lib/actions/userSession"
 import { BsDatabaseFillUp } from "react-icons/bs"
 import Button from "../../components/button"
 
 export default async function Page() {
-  const { data } = await readUserSession()
-  if (!data.session) {
-    return redirect("/auth")
-  }
-  const supabase = await createSupabaseServerClient()
-
-  const { data: user } = await supabase
-    .from("users")
-    .select("role")
-    .eq("id", data.session.user.id)
-    .single()
-  if (user?.role !== "admin") {
-    return redirect("/learn")
-  }
+  await checkSession()
+  await isAdmin()
 
   return (
     <div className="max-w-5xl mx-auto h-screen flex justify-center items-center">
