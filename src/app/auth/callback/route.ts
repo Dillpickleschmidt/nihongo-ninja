@@ -31,10 +31,12 @@ export async function GET(request: Request) {
     )
     const { error } = await supabase.auth.exchangeCodeForSession(code)
     if (!error) {
-      return NextResponse.redirect(requestUrl.origin + "/learn")
+      return NextResponse.redirect("https://www.nihongoninja.io/learn")
     }
   }
 
   // return the user to an error page with instructions
-  return NextResponse.redirect(`${origin}/auth/auth-code-error`)
+  return NextResponse.redirect(
+    `https://www.nihongoninja.io/auth/auth-code-error`
+  )
 }
