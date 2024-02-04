@@ -1,8 +1,10 @@
 import { NodeData } from "@/types"
 import { createEmptyCardBySupabase } from "@/lib/supabase/fsrsToSupabase"
-import supabase from "../supabase/server"
+import getSupabase from "../supabase/server"
+import { Card, Note, State } from "@/lib/supabase/index"
 
-export async function addNote(data: Partial<NodeData> & { uid: number }) {
+export async function addNote(data: Partial<NodeData> & { uid: string }) {
+  const supabase = await getSupabase()
   const question = data.question
   const answer = data.answer
   if (!question || !answer) {
@@ -60,48 +62,30 @@ export async function addNote(data: Partial<NodeData> & { uid: number }) {
 
 export async function getNotes({
   uid,
-  take,
-  query,
-  order,
+  state,
+  reviewDate,
+  takeLimit,
 }: {
-  uid: number
-  take?: number
-  query?: any // Adjust this based on how you want to structure your query filters
-  order?: any // Adjust this based on your ordering requirements
-}) {
+  uid: string
+  state: State
+  reviewDate: string // Assuming this is passed in a suitable format (e.g., 'YYYY-MM-DD')
+  takeLimit: number
+}): Promise<(Note & { card: Card })[]> {
+  const supabase = await getSupabase()
   try {
-    // Building the query
-    let supabaseQuery = supabase.from("note").select("*, card(*)")
+    // Call the stored procedure via RPC
+    const response = await supabase.rpc("fetch_notes_with_cards", {
+      uid_param: uid,
+      state_param: state,
+      review_date_param: reviewDate,
+      take_limit_param: takeLimit,
+    })
 
-    // Adding filters
-    if (uid) {
-      supabaseQuery = supabaseQuery.eq("uid", uid)
-    }
+    if (response.error) throw response.error
 
-    if (query) {
-      // You'll need to convert your query object to the format expected by Supabase
-      // This is a placeholder and will depend on how you structure your 'query' object
-      Object.entries(query).forEach(([key, value]) => {
-        supabaseQuery = supabaseQuery.eq(key, value)
-      })
-    }
-
-    // Adding order by
-    if (order) {
-      // Similar to the query, you'll need to adapt this based on your 'order' object structure
-      // For example: supabaseQuery = supabaseQuery.order('columnName', { ascending: false });
-    }
-
-    // Limiting the number of results
-    if (take) {
-      supabaseQuery = supabaseQuery.limit(take)
-    }
-
-    // Executing the query
-    let { data: notes, error } = await supabaseQuery
-
-    if (error) throw error
-    return notes
+    // Assuming the stored procedure returns JSON, parse it accordingly
+    // The actual structure of 'data' will depend on how you've structured your stored procedure's return value
+    return response.data as (Note & { card: Card })[]
   } catch (error) {
     console.error("Error in getNotes:", error)
     return []
@@ -109,6 +93,7 @@ export async function getNotes({
 }
 
 export async function getNoteByNid(nid: number) {
+  const supabase = await getSupabase()
   try {
     // Fetch the first note that matches the nid along with its related card
     let { data: note, error } = await supabase
@@ -126,6 +111,7 @@ export async function getNoteByNid(nid: number) {
 }
 
 export async function getNoteByCid(cid: number) {
+  const supabase = await getSupabase()
   try {
     // Fetch the first note that matches the cid along with its related card
     let { data: note, error } = await supabase
@@ -143,6 +129,7 @@ export async function getNoteByCid(cid: number) {
 }
 
 export async function getNoteByQuestion(question: string) {
+  const supabase = await getSupabase()
   try {
     // Fetch the first note that matches the question along with its related card
     let { data: note, error } = await supabase
@@ -160,6 +147,7 @@ export async function getNoteByQuestion(question: string) {
 }
 
 export async function delNoteByQuestion(question: string) {
+  const supabase = await getSupabase()
   try {
     // Use getNoteByQuestion to find the note
     const note = await getNoteByQuestion(question)

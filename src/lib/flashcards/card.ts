@@ -7,27 +7,18 @@ import {
   fsrs,
 } from "ts-fsrs"
 import { getNoteByCid, getNoteByNid } from "./note"
-import supabase from "@/lib/supabase/server"
 import {
   stateFSRSRatingToSupabase,
   stateFSRSStateToSupabase,
 } from "@/lib/supabase/fsrsToSupabase"
 import { getFSRSParamsByCid } from "./fsrs"
-import readUserSession from "../actions/readUserSession"
+import { checkSession, isAdmin } from "@/lib/actions/userSession"
+import getSupabase from "@/lib/supabase/server"
 
-async function isAdminOrSelf(uid: number) {
-  const { data } = await readUserSession()
-  if (!data.session) {
-    return false
-  }
-
-  const { data: user } = await supabase
-    .from("users")
-    .select("role")
-    .eq("uid", data.session.user.id)
-    .single()
-
-  return user?.role === "admin" || data.session.user.id === String(uid)
+async function isAdminOrSelf(uid: string) {
+  await checkSession()
+  const permission = await isAdmin(uid)
+  return permission
 }
 
 type Query = {
@@ -45,6 +36,7 @@ export async function findCardByNid(nid: number) {
 }
 
 export async function findCardByCid(cid: number) {
+  const supabase = await getSupabase()
   try {
     let { data: card, error } = await supabase
       .from("card")
@@ -64,6 +56,7 @@ export async function findCardByCid(cid: number) {
 }
 
 export async function schedulerCard(query: Partial<Query>, now: Date) {
+  const supabase = await getSupabase()
   if (!query.nid && !query.cid) {
     throw new Error("nid or cid not found")
   }
@@ -121,6 +114,7 @@ function isCardSupabase(card: Card | CardSupabase): card is CardSupabase {
 }
 
 export async function updateCard(cid: number, now: Date, grade: Grade) {
+  const supabase = await getSupabase()
   // Fetch and schedule the card
   const data: RecordLog = await schedulerCard({ cid }, now)
   const recordItem = data[Number(grade) as Grade]
@@ -176,6 +170,7 @@ export async function updateCard(cid: number, now: Date, grade: Grade) {
 }
 
 export async function rollbackCard(query: Partial<Query>) {
+  const supabase = await getSupabase()
   if (!query.nid && !query.cid) {
     throw new Error("nid or cid not found")
   }
@@ -267,6 +262,7 @@ export async function forgetCard(
   now: Date,
   reset_count: boolean = false
 ) {
+  const supabase = await getSupabase()
   // Fetch the card by cid
   let { data: cardBySupabase, error: fetchError } = await supabase
     .from("card")

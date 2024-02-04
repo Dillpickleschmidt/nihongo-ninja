@@ -22,4 +22,6 @@ const supabase = createServerClient(
   }
 )
 
-export default supabase
+export default async function getSupabase() {
+  return supabase
+}

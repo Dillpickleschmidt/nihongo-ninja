@@ -8,22 +8,12 @@ import { getNoteByNid } from "@/lib/flashcards/note"
 import { NextRequest, NextResponse } from "next/server"
 import { Grade, Rating } from "ts-fsrs"
 import { revalidatePath } from "next/cache"
-import readUserSession from "@/lib/actions/readUserSession"
-import supabase from "@/lib/supabase/server"
+import { checkSession, isAdmin } from "@/lib/actions/userSession"
 
-async function isAdminOrSelf(uid: number) {
-  const { data } = await readUserSession()
-  if (!data.session) {
-    return false
-  }
-
-  const { data: user } = await supabase
-    .from("users")
-    .select("role")
-    .eq("uid", data.session.user.id)
-    .single()
-
-  return user?.role === "admin" || data.session.user.id === String(uid)
+async function isAdminOrSelf(uid: string) {
+  await checkSession()
+  const permission = await isAdmin(uid)
+  return permission
 }
 
 export async function GET(request: NextRequest) {

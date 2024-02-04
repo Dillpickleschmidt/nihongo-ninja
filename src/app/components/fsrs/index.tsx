@@ -1,7 +1,7 @@
 "use client"
 import { useCardContext } from "@/context/CardContext"
 import { Question as DefaultQuestion, Answer as DefaultAnswer } from "./Default"
-import { Card, Note } from "@/lib/supabase/types"
+import { Card, Note } from "@/lib/supabase/index"
 import { DetailedAnswer } from "./DetailedAnswer"
 
 export function Question({ open, note }: { open: boolean; note: SourceNote }) {

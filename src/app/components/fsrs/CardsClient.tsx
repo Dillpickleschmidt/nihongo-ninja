@@ -1,4 +1,4 @@
-import { Card, Note } from "@/lib/supabase/types"
+import { Card, Note } from "@/lib/supabase/index"
 import React from "react"
 import { QACard } from "."
 import { CardProvider } from "@/context/CardContext"

@@ -1,16 +1,17 @@
 import { FSRSParameters, default_w, generatorParameters } from "ts-fsrs"
 // import prisma from "./prisma"
-import supabase from "../supabase/server"
 // import { Parameters } from "@prisma/client"
 import { FSRSPutParams } from "@/types"
+import getSupabase from "../supabase/server"
 
 export type ParametersType = {
   params: FSRSParameters
-  uid: number
+  uid: string
   card_limit: number
 }
 
-export async function getFSRSParamsByUid(uid: number): Promise<ParametersType> {
+export async function getFSRSParamsByUid(uid: string): Promise<ParametersType> {
+  const supabase = await getSupabase()
   let { data: rawParams, error } = await supabase
     .from("parameters")
     .select("*")
@@ -23,6 +24,7 @@ export async function getFSRSParamsByUid(uid: number): Promise<ParametersType> {
 }
 
 export async function getFSRSParamsByCid(cid: number): Promise<ParametersType> {
+  const supabase = await getSupabase()
   let { data: card, error } = await supabase
     .from("card")
     .select("nid")
@@ -36,6 +38,7 @@ export async function getFSRSParamsByCid(cid: number): Promise<ParametersType> {
 }
 
 export async function getFSRSParamsByNid(nid: number): Promise<ParametersType> {
+  const supabase = await getSupabase()
   let { data: note, error } = await supabase
     .from("note")
     .select("uid")
@@ -67,6 +70,7 @@ async function processArrayParameters(rawParams: any): Promise<ParametersType> {
 }
 
 export async function updateParameters(params: FSRSPutParams) {
+  const supabase = await getSupabase()
   if (params.w.length !== default_w.length) {
     params.w = default_w
   }

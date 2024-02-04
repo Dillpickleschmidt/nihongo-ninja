@@ -1,28 +1,25 @@
 import { getNotes } from "@/lib/flashcards/note"
-import { Card, Note, State } from "@/lib/supabase/types"
+import { Card, Note, State } from "@/lib/supabase/index"
 import { cache } from "react"
 import CardClient from "@/app/components/fsrs/CardsClient"
 import Finish from "@/app/components/fsrs/card/Finish"
-import { getTodayLearnedNewCardCount } from "@/lib/log"
-import readUserSession from "@/lib/actions/readUserSession"
-import { redirect } from "next/navigation"
+import { getTodayLearnedNewCardCount } from "@/lib/flashcards/log"
+import { getUserUid, checkSession } from "@/lib/actions/userSession"
 import { date_scheduler } from "ts-fsrs"
 
 export const dynamic = "force-dynamic"
 
 type DataResponse = {
-  uid: number
+  uid: string
   now: Date
   todayCount: number
   noteBox0: Array<Array<Note & { card: Card }>>
 }
 
 const getData = cache(async (source?: string): Promise<DataResponse> => {
-  const { data } = await readUserSession()
-  if (!data.session) {
-    return redirect("/auth")
-  }
-  const uid = Number(session.user!!.id)
+  await checkSession()
+  const uid = await getUserUid()
+
   let now = new Date()
   if (now.getHours() < 4) {
     now = date_scheduler(now, -1, true)
@@ -40,25 +37,19 @@ const getData = cache(async (source?: string): Promise<DataResponse> => {
     uid,
     startOfDay
   )
+  // limit is the number of NEW cards that can be learned today
   const states = [State.New, State.Learning, State.Relearning, State.Review]
-  const noteBox = states.map((state) =>
-    getNotes({
+  const noteBox = states.map(async (state) => {
+    return getNotes({
       uid: uid,
-      take: state === State.New ? Math.max(0, limit - todayCount) : undefined,
-      query: {
-        card: {
-          state,
-          due: state === State.Review ? { lte: startOfDay } : undefined,
-        },
-        source: {
-          equals: source,
-        },
-      },
+      state: state,
+      reviewDate: startOfDay.toISOString(), // Convert startOfDay to string
+      takeLimit: state === State.New ? Math.max(0, limit - todayCount) : -1, // -1 means no limit
     })
-  )
+  })
   const noteBox0 = await Promise.all(noteBox)
   return {
-    uid,
+    uid: uid,
     now,
     todayCount,
     noteBox0: noteBox0,

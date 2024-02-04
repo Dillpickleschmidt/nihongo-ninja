@@ -1,5 +1,5 @@
 "use client"
-import { Card, Note } from "@/lib/supabase/types"
+import { Card, Note } from "@/lib/supabase/index"
 import {
   createContext,
   ReactNode,
