@@ -1,14 +1,14 @@
 "use server"
 import { redirect } from "next/navigation"
-import { getSupabase } from "../supabase/server"
+import { createSupabaseServerComponentClient } from "../supabase/server"
 
 export async function readUserSession() {
-  const supabase = await getSupabase()
+  const supabase = await createSupabaseServerComponentClient()
   return supabase.auth.getSession()
 }
 
 export async function getUserUid() {
-  const supabase = await getSupabase()
+  const supabase = await createSupabaseServerComponentClient()
   const session = await readUserSession()
   if (!session) {
     throw new Error("No active session")
@@ -31,7 +31,7 @@ export async function checkSession() {
 }
 
 export async function isAdmin(id?: string) {
-  const supabase = await getSupabase()
+  const supabase = await createSupabaseServerComponentClient()
   await checkSession()
   let uid = undefined
   if (!id) {
