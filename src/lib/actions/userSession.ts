@@ -1,6 +1,6 @@
 "use server"
 import { redirect } from "next/navigation"
-import getSupabase from "../supabase/server"
+import { getSupabase } from "../supabase/server"
 
 export async function readUserSession() {
   const supabase = await getSupabase()

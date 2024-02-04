@@ -1,6 +1,6 @@
 import { NodeData } from "@/types"
 import { createEmptyCardBySupabase } from "@/lib/supabase/fsrsToSupabase"
-import getSupabase from "../supabase/server"
+import { getSupabase } from "../supabase/server"
 import { Card, Note } from "@/lib/supabase/index"
 import { State } from "ts-fsrs"
 

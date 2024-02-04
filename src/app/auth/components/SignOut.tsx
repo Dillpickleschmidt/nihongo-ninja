@@ -1,17 +1,26 @@
 import Button from "@/components/button"
-import getSupabase from "@/lib/supabase/server"
-import { redirect } from "next/navigation"
+import { createSupabaseBrowserClient } from "@/lib/supabase/client" // Assuming this is a client-side usable version
+import { useRouter } from "next/navigation"
 
-export default async function SignOut() {
-  const supabase = await getSupabase()
-  async function signOut() {
+export default function SignOut() {
+  const router = useRouter() // Use useRouter for client-side navigation
+  const supabase = createSupabaseBrowserClient()
+
+  const signOut = async () => {
     await supabase.auth.signOut()
-    redirect("/auth")
+    router.push("/auth") // Use router.push for client-side redirects
   }
 
   return (
-    <form action={signOut}>
-      <Button className="w-full bg-indigo-500">Sign Out</Button>
+    <form
+      onSubmit={(e) => {
+        e.preventDefault() // Prevent form submission
+        signOut()
+      }}
+    >
+      <Button className="w-full bg-indigo-500" type="submit">
+        Sign Out
+      </Button>
     </form>
   )
 }

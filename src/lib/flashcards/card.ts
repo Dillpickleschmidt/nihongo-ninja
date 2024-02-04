@@ -13,7 +13,7 @@ import {
 } from "@/lib/supabase/fsrsToSupabase"
 import { getFSRSParamsByCid } from "./fsrs"
 import { checkSession, isAdmin } from "@/lib/actions/userSession"
-import getSupabase from "@/lib/supabase/server"
+import { getSupabase } from "@/lib/supabase/server"
 
 async function isAdminOrSelf(uid: string) {
   await checkSession()

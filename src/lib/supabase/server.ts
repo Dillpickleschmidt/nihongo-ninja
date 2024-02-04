@@ -27,6 +27,6 @@ export async function getSupabase(serverComponent = false) {
   )
 }
 
-export default async function createSupabaseServerComponentClient() {
+export async function createSupabaseServerComponentClient() {
   return getSupabase(true)
 }

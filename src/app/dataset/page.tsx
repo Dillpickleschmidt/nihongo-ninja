@@ -3,8 +3,8 @@ import { BsDatabaseFillUp } from "react-icons/bs"
 import Button from "../../components/button"
 
 export default async function Page() {
-  await checkSession()
-  await isAdmin()
+  // await checkSession()
+  // await isAdmin()
 
   return (
     <div className="max-w-5xl mx-auto h-screen flex justify-center items-center">

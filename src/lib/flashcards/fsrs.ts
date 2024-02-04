@@ -2,7 +2,7 @@ import { FSRSParameters, default_w, generatorParameters } from "ts-fsrs"
 // import prisma from "./prisma"
 // import { Parameters } from "@prisma/client"
 import { FSRSPutParams } from "@/types"
-import getSupabase from "../supabase/server"
+import { getSupabase } from "../supabase/server"
 
 export type ParametersType = {
   params: FSRSParameters
