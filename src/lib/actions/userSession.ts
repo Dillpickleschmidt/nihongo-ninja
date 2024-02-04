@@ -1,13 +1,13 @@
 import { redirect } from "next/navigation"
-import { createSupabaseBrowserClient } from "../supabase/client"
+import { getSupabase } from "../supabase/server"
 
-export function readUserSession() {
-  const supabase = createSupabaseBrowserClient()
+export async function readUserSession() {
+  const supabase = await getSupabase()
   return supabase.auth.getSession()
 }
 
 export async function getUserUid() {
-  const supabase = createSupabaseBrowserClient()
+  const supabase = await getSupabase()
   const session = readUserSession()
   if (!session) {
     throw new Error("No active session")
@@ -30,7 +30,7 @@ export async function checkSession() {
 }
 
 export async function isAdmin(id?: string) {
-  const supabase = createSupabaseBrowserClient()
+  const supabase = await getSupabase()
   await checkSession()
   let uid = undefined
   if (!id) {
