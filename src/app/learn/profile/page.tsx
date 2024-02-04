@@ -11,7 +11,7 @@ export default function Profile() {
           enim molestiae consequuntur ipsa ducimus repellendus optio. At, vel
           recusandae.
         </p>
-        <SignOut />
+        {/* <SignOut /> */}
       </div>
     </Dialog>
   )
