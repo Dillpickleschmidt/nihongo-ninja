@@ -1,0 +1,77 @@
+{
+  "カメラ": {
+    "english": ["camera"],
+    "hiragana": ["カメラ"],
+    "mnemonics": "Remember 'camera' by imagining a 'camera' capturing a turtle ('kame' in Japanese)."
+  },
+  "カラオケ": {
+    "english": ["karaoke"],
+    "hiragana": ["カラオケ"],
+    "mnemonics": "Think of 'karaoke' as 'car-ah-okay', where everyone sings in the car as if it's a 'karaoke' session."
+  },
+  "所": {
+    "english": ["place"],
+    "hiragana": ["ところ"],
+    "mnemonics": "Imagine 'tokoro' as 'to-call-row', a 'place' where everyone lines up to call."
+  },
+  "トマト": {
+    "english": ["tomato"],
+    "hiragana": ["トマト"],
+    "mnemonics": "Remember 'tomato' by picturing a 'tomato' saying 'to-ma-to', emphasizing each syllable."
+  },
+  "箸": {
+    "english": ["chopsticks"],
+    "hiragana": ["はし"],
+    "mnemonics": "Think of 'hashi' as 'ha-she', she has 'chopsticks' in her hand."
+  },
+  "パーティー": {
+    "english": ["party"],
+    "hiragana": ["パーティー"],
+    "mnemonics": "Imagine 'party' as 'pa-tea', where everyone brings tea to the 'party'."
+  },
+  "バーベキュー": {
+    "english": ["barbecue"],
+    "hiragana": ["バーベキュー"],
+    "mnemonics": "Envision 'barbecue' as 'bar-be-cue', where the bar is the cue to start the 'barbecue'."
+  },
+  "ホームステイ": {
+    "english": ["homestay; living with a local family"],
+    "hiragana": ["ホームステイ"],
+    "mnemonics": "Think of 'homestay' as 'home-stay', staying at a home away from home."
+  },
+  "お風呂": {
+    "english": ["bath"],
+    "hiragana": ["おふる"],
+    "mnemonics": "Imagine 'ofuro' as 'oh-furrow', relaxing in a bath that washes away the day's 'furrows'."
+  },
+  "スペイン": {
+    "english": ["Spain"],
+    "hiragana": ["スペイン"],
+    "mnemonics": "Remember 'Spain' by thinking of 'supein' as 's-pain', the excitement of exploring Spain without the pain of travel."
+  },
+  "何か": {
+    "english": ["something"],
+    "hiragana": ["なにか"],
+    "mnemonics": "Think of 'nanika' as 'nanny-ka', something a nanny might ask about what you want to do."
+  },
+  "上手": {
+    "english": ["skillful; good at..."],
+    "hiragana": ["じょうず"],
+    "mnemonics": "Imagine 'jouzu' as 'Joe's zoo', where Joe is skillful at managing a zoo."
+  },
+  "下手": {
+    "english": ["clumsy; poor at..."],
+    "hiragana": ["へた"],
+    "mnemonics": "Picture 'heta' as 'he-ta(p)', clumsily trying to fix a tap but failing."
+  },
+  "有名": {
+    "english": ["famous"],
+    "hiragana": ["ゆうめい"],
+    "mnemonics": "Think of 'yuumei' as 'you-may', you may know this person because they are 'famous'."
+  },
+  "洗う": {
+    "english": ["to wash"],
+    "hiragana": ["あらう"],
+    "mnemonics": "Imagine 'arau' as 'a-row', lining up all the dishes to 'wash' them."
+  }
+}

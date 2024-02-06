@@ -1,0 +1,77 @@
+{
+  "言う": {
+    "english": ["to say"],
+    "hiragana": ["いう"],
+    "mnemonics": "Think of 'iu' as 'ee-woo', the sound you make when you're about to 'say' something."
+  },
+  "要る": {
+    "english": ["to need"],
+    "hiragana": ["いる"],
+    "mnemonics": "Envision 'iru' as 'I rue', regretting not having what you 'need'."
+  },
+  "遅くなる": {
+    "english": ["to be late"],
+    "hiragana": ["おそくなる"],
+    "mnemonics": "Picture 'osokunaru' as 'oh-so-ku-nar-row', rowing so slowly that you 'be late'."
+  },
+  "お風呂に入る": {
+    "english": ["to take a bath"],
+    "hiragana": ["おふろにはいる"],
+    "mnemonics": "Imagine 'ofuro ni hairu' as 'oh-furrow knee higher', stepping higher with your knee into the bath."
+  },
+  "思う": {
+    "english": ["to think"],
+    "hiragana": ["おもう"],
+    "mnemonics": "Think of 'omou' as 'oh-moo', pondering deeply like a cow 'moo-ing' in thought."
+  },
+  "切る": {
+    "english": ["to cut"],
+    "hiragana": ["きる"],
+    "mnemonics": "Imagine 'kiru' as 'key-rue', rueing the day you had to 'cut' with a key because no scissors were available."
+  },
+  "作る": {
+    "english": ["to make"],
+    "hiragana": ["つくる"],
+    "mnemonics": "Picture 'tsukuru' as 't's-cool-rue', a cool street where everything you want to 'make' comes true."
+  },
+  "降る": {
+    "english": ["rain falls; snow falls"],
+    "hiragana": ["（あめ・ゆきが）ふる"],
+    "mnemonics": "Imagine 'furu' as 'fur-roo', where rain or snow 'falls' like fur from the sky."
+  },
+  "持っていく": {
+    "english": ["to take (a thing)"],
+    "hiragana": ["もっていく"],
+    "mnemonics": "Think of 'motteiku' as 'mote-eek-u', carrying something important with an 'eek' of concern."
+  },
+  "捨てる": {
+    "english": ["to throw away"],
+    "hiragana": ["すてる"],
+    "mnemonics": "Envision 'suteru' as 'sue-terr', suing the clutter by 'throwing away' what you don't need."
+  },
+  "始める": {
+    "english": ["to begin"],
+    "hiragana": ["はじめる"],
+    "mnemonics": "Imagine 'hajimeru' as 'hajimaru', the starting line where you 'begin' a race."
+  },
+  "運転する": {
+    "english": ["to drive"],
+    "hiragana": ["うんてんする"],
+    "mnemonics": "Think of 'unten suru' as 'un-ten-sure', being sure when you 'drive' under ten (speed limit)."
+  },
+  "洗濯する": {
+    "english": ["to do laundry"],
+    "hiragana": ["せんたくする"],
+    "mnemonics": "Picture 'sentaku suru' as 'send-taku-sure', sending clothes to be sure they are 'laundry' cleaned."
+  },
+  "掃除する": {
+    "english": ["to clean"],
+    "hiragana": ["そうじする"],
+    "mnemonics": "Imagine 'souji suru' as 'so-gee-sure', being sure to 'clean' so gee it sparkles."
+  },
+  "料理する": {
+    "english": ["to cook"],
+    "hiragana": ["りょうりする"],
+    "mnemonics": "Think of 'ryouri suru' as 'rye-ori-sure', being sure to 'cook' the rye or any ingredient perfectly."
+  }
+}

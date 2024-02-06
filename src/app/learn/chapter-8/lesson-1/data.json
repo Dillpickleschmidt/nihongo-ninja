@@ -1,0 +1,77 @@
+{
+  "晴れ": {
+    "english": ["sunny weather"],
+    "hiragana": ["はれ"],
+    "mnemonics": "Imagine the sun 'hares' out of the clouds, bringing 'sunny weather'."
+  },
+  "雨": {
+    "english": ["rain"],
+    "hiragana": ["あめ"],
+    "mnemonics": "Think of 'ame' as rain 'amassing' in the sky before it pours down."
+  },
+  "曇り": {
+    "english": ["cloudy weather"],
+    "hiragana": ["くもり"],
+    "mnemonics": "Visualize clouds 'kumori-ng' (covering) the sky, making it 'cloudy'."
+  },
+  "雪": {
+    "english": ["snow"],
+    "hiragana": ["ゆき"],
+    "mnemonics": "Imagine each snowflake saying 'Yuki' as it 'you-key' into locking the landscape in white."
+  },
+  "天気予報": {
+    "english": ["weather forecast"],
+    "hiragana": ["てんきよほう"],
+    "mnemonics": "Think of 'tenkiyohou' as 'ten key' factors you 'ho(u)-ld' check to know the 'weather forecast'."
+  },
+  "気温": {
+    "english": ["temperature (weather—not used for things)"],
+    "hiragana": ["きおん"],
+    "mnemonics": "Imagine the 'ki-on' (key-on) to control the 'temperature' of the weather."
+  },
+  "夏": {
+    "english": ["summer"],
+    "hiragana": ["なつ"],
+    "mnemonics": "Think of 'natsu' as 'not-soo' cool, because it's 'summer'."
+  },
+  "冬": {
+    "english": ["winter"],
+    "hiragana": ["ふゆ"],
+    "mnemonics": "Envision 'fu-yu' as 'few-you', with fewer warm days in 'winter'."
+  },
+  "今朝": {
+    "english": ["this morning"],
+    "hiragana": ["けさ"],
+    "mnemonics": "Think of 'kesa' as 'key-saw' the sunrise 'this morning'."
+  },
+  "明後日": {
+    "english": ["the day after tomorrow"],
+    "hiragana": ["あさって"],
+    "mnemonics": "Imagine saying 'Ah! Sate!' (Ah, set!) plans for 'the day after tomorrow'."
+  },
+  "毎週": {
+    "english": ["every week"],
+    "hiragana": ["まいしゅう"],
+    "mnemonics": "Picture 'my shoe' needing cleaning 'every week'."
+  },
+  "今月": {
+    "english": ["this month"],
+    "hiragana": ["こんげつ"],
+    "mnemonics": "Think of 'kongetsu' as 'con-guests' visiting 'this month'."
+  },
+  "来月": {
+    "english": ["next month"],
+    "hiragana": ["らいげつ"],
+    "mnemonics": "Imagine 'rai-getsu' as 'rye gets' harvested 'next month'."
+  },
+  "会社員": {
+    "english": ["office worker"],
+    "hiragana": ["かいしゃいん"],
+    "mnemonics": "Think of 'kaishain' as 'kai-sha' (company) 'in' which an 'office worker' works."
+  },
+  "仕事": {
+    "english": ["job; work; occupation"],
+    "hiragana": ["しごと"],
+    "mnemonics": "Envision 'shigoto' as 'she got to' go to her 'job; work; occupation'."
+  }
+}

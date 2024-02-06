@@ -1,0 +1,57 @@
+{
+  "うん": {
+    "english": ["uh-huh; yes"],
+    "hiragana": ["うん"],
+    "mnemonics": "Remember 'un' as the sound of agreement, 'uh-huh', nodding your head in 'yes'."
+  },
+  "ううん": {
+    "english": ["uh-uh; no"],
+    "hiragana": ["ううん"],
+    "mnemonics": "Think of 'uun' as the sound of hesitation or denial, 'uh-uh', shaking your head in 'no'."
+  },
+  "いつも": {
+    "english": ["always"],
+    "hiragana": ["いつも"],
+    "mnemonics": "Imagine 'itsumo' as 'it's-mo', 'it's more' than often, it's 'always'."
+  },
+  "遅く": {
+    "english": ["(do something) late"],
+    "hiragana": ["おそく"],
+    "mnemonics": "Picture 'osoku' as 'oh-so-coo', doing things in a cool, relaxed manner, but 'late'."
+  },
+  "乾杯": {
+    "english": ["Cheers! (a toast)"],
+    "hiragana": ["かんぱい"],
+    "mnemonics": "Envision 'kanpai' as 'can-pie', raising a can to toast before enjoying a pie, saying 'Cheers!'."
+  },
+  "みんなで": {
+    "english": ["all (of the people) together"],
+    "hiragana": ["みんなで"],
+    "mnemonics": "Think of 'minnade' as 'minna-day', a day where 'all (of the people) together' celebrate."
+  },
+  "残念": {
+    "english": ["That's too bad."],
+    "hiragana": ["ざんねん"],
+    "mnemonics": "Imagine 'zannen' as 'zan-nen', feeling 'That's too bad' when plans go 'zan' (completely) wrong."
+  },
+  "まだ": {
+    "english": ["not...yet"],
+    "hiragana": ["まだ"],
+    "mnemonics": "Think of 'mada' as 'ma-da', 'ma' (mother) saying 'da (there)'s still time', implying 'not...yet'."
+  },
+  "について": {
+    "english": ["about...; concerning..."],
+    "hiragana": ["～について"],
+    "mnemonics": "Visualize 'ni tsuite' as 'knee-to-it', attaching information directly to the topic, 'about...; concerning...'."
+  },
+  "度": {
+    "english": ["...degrees (temperature)"],
+    "hiragana": ["～ど"],
+    "mnemonics": "Remember 'do' as 'dough', which rises a certain 'degree' in temperature when baking."
+  },
+  "どう": {
+    "english": ["how"],
+    "hiragana": ["どう"],
+    "mnemonics": "Think of 'dou' as 'dough', questioning 'how' it will rise or change shape when you bake it."
+  }
+}

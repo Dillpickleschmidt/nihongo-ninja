@@ -1,0 +1,22 @@
+import Button from "@/components/button"
+import Dialog from "@/components/dialog"
+import data from "./data.json"
+import VocabCardDataMapped from "@/components/VocabCardDataMapped"
+
+export default function page() {
+  return (
+    <Dialog variant={"reading"} className="border-4 border-black bg-[#191919]">
+      <div className="pb-16 text-[#F8F5E9]">
+        <h1 className="pt-28 px-28 pb-6 text-4xl">Chapter 8 Lesson 1</h1>
+        <div className="[&>*]:leading-8 text-xl text-black">
+          <VocabCardDataMapped data={data} />
+        </div>
+        <div className="mt-24 mx-12 !mb-0 flex flex-row justify-end">
+          <Button link="/learn/chapter-8/vocab-learn-lesson-2" autoFocus={true}>
+            Test your knowledge {"->"}
+          </Button>
+        </div>
+      </div>
+    </Dialog>
+  )
+}
