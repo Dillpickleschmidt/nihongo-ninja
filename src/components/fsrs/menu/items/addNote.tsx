@@ -16,7 +16,7 @@ function AddNoteDialog({
   const saveAddNote = () => {
     let question = questionRef.current?.value
     let answer = answerRef.current?.value
-    fetch(`/api/note`, {
+    fetch(`/api/flashcards/note`, {
       method: "post",
       body: JSON.stringify({ question, answer }),
     }).then((res) => console.log(res.json()))
