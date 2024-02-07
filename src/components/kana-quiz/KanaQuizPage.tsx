@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from "react"
 import Dialog from "@/components/Dialog"
 import Button from "@/components/Button"
 import { CharacterBox } from "@/components/kana-quiz/CharacterBox"
-import warningBeforeExit from "@/util/warningBeforeExit"
+import WarningBeforeExit from "@/util/WarningBeforeExit"
 
 // This program does the following:
 // 1. Shuffle the kana
@@ -18,7 +18,7 @@ type KanaQuizProps = {
 
 export default function KanaQuiz({ kana, nextLesson }: KanaQuizProps) {
   // Show a warning about losing progress if the user tries to leave the page
-  warningBeforeExit()
+  WarningBeforeExit()
 
   // Create a reference to a DOM element for scrolling purposes
   const scrollRef = useRef<HTMLDivElement>(null)

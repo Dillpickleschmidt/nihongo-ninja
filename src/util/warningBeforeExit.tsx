@@ -1,5 +1,5 @@
 import { useEffect } from "react"
-export default function warningBeforeExit() {
+export default function WarningBeforeExit() {
   useEffect(() => {
     const warningBeforeExit = (event: BeforeUnloadEvent) => {
       event.preventDefault()
