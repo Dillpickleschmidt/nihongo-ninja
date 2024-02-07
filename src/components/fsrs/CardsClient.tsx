@@ -1,6 +1,6 @@
 import { Card, Note } from "@/lib/supabase/index"
 import React from "react"
-import { QACard } from "."
+import { QACard } from "./Card"
 import { CardProvider } from "@/context/CardContext"
 import ShowAnswerButton from "./ShowAnswerButton"
 import StatusBar from "./StatusBar"

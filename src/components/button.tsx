@@ -12,13 +12,13 @@ type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> &
     link?: string
   }
 
-const Button = ({
+export default function Button({
   children,
   className,
   variant,
   link,
   ...props
-}: ButtonProps) => {
+}: ButtonProps) {
   if (link) {
     return (
       <Link
@@ -57,5 +57,3 @@ const buttonVariants = cva(
     },
   }
 )
-
-export default Button

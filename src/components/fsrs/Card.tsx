@@ -1,6 +1,9 @@
 "use client"
 import { useCardContext } from "@/context/CardContext"
-import { Question as DefaultQuestion, Answer as DefaultAnswer } from "./Default"
+import {
+  Question as DefaultQuestion,
+  Answer as DefaultAnswer,
+} from "./DefaultQ+A"
 import { Card, Note } from "@/lib/supabase/index"
 import { DetailedAnswer } from "./DetailedAnswer"
 

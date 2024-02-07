@@ -3,7 +3,7 @@ import JapaneseFont from "@/components/text/JapaneseFont"
 import Button from "@/components/Button"
 import VocabCard from "@/components/spaced-repetition/VocabCard"
 import SelectText from "@/components/text/MultipleChoiceText"
-import { use, useRef } from "react"
+import { useRef } from "react"
 import { motion, useScroll, useTransform } from "framer-motion"
 
 export default function Lesson7() {

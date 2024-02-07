@@ -2,7 +2,7 @@
 import JapaneseFont from "@/components/text/JapaneseFont"
 import DakutenChart from "../../../components/charts/DakutenChart"
 import Button from "@/components/Button"
-import { use, useRef } from "react"
+import { useRef } from "react"
 import { motion, useScroll, useTransform } from "framer-motion"
 
 export default function Lesson3() {

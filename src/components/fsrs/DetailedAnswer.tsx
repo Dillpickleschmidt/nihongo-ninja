@@ -2,7 +2,7 @@
 import React from "react"
 import Video from "./card/Video"
 import Audio from "./card/Audio"
-import type { SourceNote } from "."
+import type { SourceNote } from "./Card"
 
 export function DetailedAnswer({
   open,

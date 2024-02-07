@@ -1,5 +1,5 @@
 "use client"
-import type { SourceNote } from "."
+import type { SourceNote } from "./Card"
 
 export function Question({ note }: { note: SourceNote }) {
   return (
