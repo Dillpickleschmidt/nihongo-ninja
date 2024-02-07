@@ -93,6 +93,38 @@ export async function getNotes({
   }
 }
 
+export async function getNotesOrdered({
+  uid,
+  state,
+  reviewDate,
+  takeLimit,
+}: {
+  uid: string
+  state: State
+  reviewDate: string // Assuming this is passed in a suitable format (e.g., 'YYYY-MM-DD')
+  takeLimit: number
+}): Promise<(Note & { card: Card })[]> {
+  const supabase = await getSupabase()
+  try {
+    // Call the stored procedure via RPC
+    const response = await supabase.rpc("fetch_notes_with_cards_ordered", {
+      uid_param: uid,
+      take_limit_param: takeLimit,
+      query: { question: { contains: searchWord } },
+      order: { card: { due: "desc" } },
+    })
+
+    if (response.error) throw response.error
+
+    // Assuming the stored procedure returns JSON, parse it accordingly
+    // The actual structure of 'data' will depend on how you've structured your stored procedure's return value
+    return response.data as (Note & { card: Card })[]
+  } catch (error) {
+    console.error("Error in getNotes:", error)
+    return []
+  }
+}
+
 export async function getNoteByNid(nid: number) {
   const supabase = await getSupabase()
   try {
