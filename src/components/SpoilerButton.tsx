@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 import Lottie from "lottie-react"
-import Button from "./button"
+import Button from "./Button"
 
 import upArrow from "./upArrow.json"
 import downArrow from "./downArrow.json"

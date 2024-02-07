@@ -1,7 +1,7 @@
 // JSX to display at the beginning
 
-import JapaneseFont from "../JapaneseFont"
-import Button from "../button"
+import JapaneseFont from "../text/JapaneseFont"
+import Button from "../Button"
 
 type StartPageProps = {
   children: React.ReactNode

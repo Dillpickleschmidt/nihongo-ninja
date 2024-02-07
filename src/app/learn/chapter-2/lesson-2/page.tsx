@@ -1,6 +1,6 @@
-import Dialog from "@/components/dialog"
-import Button from "@/components/button"
-import VocabCard from "@/components/VocabCard"
+import Dialog from "@/components/Dialog"
+import Button from "@/components/Button"
+import VocabCard from "@/components/spaced-repetition/VocabCard"
 import SpoilerButton from "@/components/SpoilerButton"
 
 export default function Lesson8() {

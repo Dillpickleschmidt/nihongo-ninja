@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation"
-import { createSupabaseServerComponentClient } from "../supabase/server"
+import { createSupabaseServerComponentClient } from "../serverClient"
 
 export async function readUserSession() {
   const supabase = await createSupabaseServerComponentClient()

@@ -1,6 +1,6 @@
-import Dialog from "@/components/dialog"
-import Button from "@/components/button"
-import DakutenChart from "@/app/data/DakutenChart"
+import Dialog from "@/components/Dialog"
+import Button from "@/components/Button"
+import DakutenChart from "@/components/charts/DakutenChart"
 
 import { Noto_Sans_JP } from "next/font/google"
 

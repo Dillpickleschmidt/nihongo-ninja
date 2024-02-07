@@ -1,5 +1,5 @@
-import Dialog from "@/components/dialog"
-import PictureQuiz from "@/components/PictureQuiz"
+import Dialog from "@/components/Dialog"
+import PictureQuiz from "@/components/picture-quiz/PictureQuiz"
 import data from "./data.json"
 
 export default function Lesson6Quiz() {

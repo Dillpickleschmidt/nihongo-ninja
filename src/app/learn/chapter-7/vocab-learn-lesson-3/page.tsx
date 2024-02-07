@@ -1,7 +1,7 @@
-import LearnVocab from "@/components/learn-vocab"
+import LearnVocab from "@/components/learn-vocab/LearnVocab"
 import vocabData from "./data.json"
-import Dialog from "@/components/dialog"
-import JapaneseFont from "@/components/JapaneseFont"
+import Dialog from "@/components/Dialog"
+import JapaneseFont from "@/components/text/JapaneseFont"
 
 export default function VocabLearnLesson71() {
   return (

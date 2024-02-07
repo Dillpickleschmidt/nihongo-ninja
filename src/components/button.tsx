@@ -3,7 +3,7 @@
 import { ButtonHTMLAttributes, AnchorHTMLAttributes, ReactNode } from "react"
 import Link from "next/link"
 import { VariantProps, cva } from "class-variance-authority"
-import cn from "../app/util/cn"
+import cn from "../util/cn"
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> &
   AnchorHTMLAttributes<HTMLAnchorElement> &

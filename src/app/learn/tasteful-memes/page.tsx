@@ -1,4 +1,4 @@
-import Dialog from "@/components/dialog"
+import Dialog from "@/components/Dialog"
 
 export default function TastefulMemes() {
   return (

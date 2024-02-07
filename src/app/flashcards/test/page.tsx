@@ -1,10 +1,13 @@
 import { getNotes } from "@/lib/flashcards/note"
 import { Card, Note } from "@/lib/supabase/index"
 import { cache } from "react"
-import CardClient from "@/app/components/fsrs/CardsClient"
-import Finish from "@/app/components/fsrs/card/Finish"
+import CardClient from "@/components/fsrs/CardsClient"
+import Finish from "@/components/fsrs/card/Finish"
 import { getTodayLearnedNewCardCount } from "@/lib/flashcards/log"
-import { getUserUid, checkSession } from "@/lib/actions/userSession"
+import {
+  getUserUid,
+  checkSession,
+} from "@/lib/supabase/user-session/userSession"
 import { date_scheduler, State } from "ts-fsrs"
 
 export const dynamic = "force-dynamic"

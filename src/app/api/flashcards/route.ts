@@ -8,7 +8,7 @@ import { getNoteByNid } from "@/lib/flashcards/note"
 import { NextRequest, NextResponse } from "next/server"
 import { Grade, Rating } from "ts-fsrs"
 import { revalidatePath } from "next/cache"
-import { checkSession, isAdmin } from "@/lib/actions/userSession"
+import { checkSession, isAdmin } from "@/lib/supabase/user-session/userSession"
 
 async function isAdminOrSelf(uid: string) {
   await checkSession()

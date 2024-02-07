@@ -1,4 +1,4 @@
-import Dialog from "@/components/dialog"
+import Dialog from "@/components/Dialog"
 import SignOut from "@/app/auth/components/SignOut"
 
 export default function Profile() {

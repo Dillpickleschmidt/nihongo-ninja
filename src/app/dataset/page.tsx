@@ -1,6 +1,6 @@
-import { checkSession, isAdmin } from "@/lib/actions/userSession"
+import { checkSession, isAdmin } from "@/lib/supabase/user-session/userSession"
 import { BsDatabaseFillUp } from "react-icons/bs"
-import Button from "../../components/button"
+import Button from "../../components/Button"
 
 export default async function Page() {
   // await checkSession()

@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation"
-import { readUserSession } from "@/lib/actions/userSession"
+import { readUserSession } from "@/lib/supabase/user-session/userSession"
 import OAuthComponent from "./components/OAuthForm"
 
 export default async function page() {

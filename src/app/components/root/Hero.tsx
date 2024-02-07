@@ -1,7 +1,7 @@
 "use client"
 import { motion, useScroll, useTransform } from "framer-motion"
 import { useRef } from "react"
-import Button from "@/components/button"
+import Button from "@/components/Button"
 
 export default function Hero() {
   const targetRef = useRef<HTMLDivElement>(null)

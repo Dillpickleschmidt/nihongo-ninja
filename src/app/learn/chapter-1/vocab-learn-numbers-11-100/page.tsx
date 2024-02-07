@@ -1,7 +1,7 @@
-import Dialog from "@/components/dialog"
-import LearnVocab from "@/components/learn-vocab"
+import Dialog from "@/components/Dialog"
+import LearnVocab from "@/components/learn-vocab/LearnVocab"
 import vocabData from "./data.json"
-import JapaneseFont from "@/components/JapaneseFont"
+import JapaneseFont from "@/components/text/JapaneseFont"
 
 export default function VocabLearnNumbers() {
   return (

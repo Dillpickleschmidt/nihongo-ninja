@@ -36,7 +36,7 @@ The original dataset is also randomly shuffled by default, but this can be turne
 "use client"
 import { useState, useEffect, useRef } from "react"
 import { ReactNode } from "react"
-import Button from "@/components/button"
+import Button from "@/components/Button"
 import ShuffleArray from "@/components/learn-vocab/shuffleArray"
 import GetAnswerFromState from "@/components/learn-vocab/getAnswerFromState"
 
@@ -44,13 +44,13 @@ import { Noto_Sans_JP } from "next/font/google"
 
 const NotoSansJPFont = Noto_Sans_JP({ subsets: ["latin"] })
 
-import ShuffleRange from "./learn-vocab/shuffleRange"
-import SpoilerButton from "./SpoilerButton"
-import JapaneseFont from "./JapaneseFont"
-import Tutorial from "./learn-vocab/Tutorial"
-import StartPage from "./learn-vocab/StartPage"
-import FinishedPage from "./learn-vocab/FinishedPage"
-import ReviewPage from "./learn-vocab/ReviewPage"
+import ShuffleRange from "./shuffleRange"
+import SpoilerButton from "../SpoilerButton"
+import JapaneseFont from "../text/JapaneseFont"
+import Tutorial from "./Tutorial"
+import StartPage from "./StartPage"
+import FinishedPage from "./FinishedPage"
+import ReviewPage from "./ReviewPage"
 
 type VocabItemValue = {
   hiragana?: string[]

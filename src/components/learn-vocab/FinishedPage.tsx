@@ -1,6 +1,6 @@
 // JSX to display when the user has finished all the questions in the lesson
 
-import Button from "../button"
+import Button from "../Button"
 
 type FinishedPageProps = {
   link: string

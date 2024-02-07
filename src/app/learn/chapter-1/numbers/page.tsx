@@ -1,6 +1,6 @@
-import Dialog from "@/components/dialog"
-import Button from "@/components/button"
-import Romaji from "@/components/romaji"
+import Dialog from "@/components/Dialog"
+import Button from "@/components/Button"
+import Romaji from "@/components/text/Romaji"
 
 import { Noto_Sans_JP } from "next/font/google"
 

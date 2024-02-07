@@ -1,4 +1,4 @@
-import Romaji from "@/components/romaji"
+import Romaji from "@/components/text/Romaji"
 import { Noto_Sans_JP } from "next/font/google"
 
 const JapaneseFont = Noto_Sans_JP({ subsets: ["latin"] })

@@ -1,6 +1,6 @@
-import Dialog from "@/components/dialog"
-import Button from "@/components/button"
-import JapaneseFont from "@/components/JapaneseFont"
+import Dialog from "@/components/Dialog"
+import Button from "@/components/Button"
+import JapaneseFont from "@/components/text/JapaneseFont"
 
 export default function Numbers() {
   return (

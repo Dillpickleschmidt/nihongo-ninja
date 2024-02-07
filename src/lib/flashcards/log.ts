@@ -1,4 +1,4 @@
-import { getSupabase } from "../supabase/server"
+import { getSupabase } from "../supabase/serverClient"
 import { date_scheduler } from "ts-fsrs"
 
 export async function getTodayLearnedNewCardCount(

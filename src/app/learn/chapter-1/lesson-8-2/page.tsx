@@ -1,6 +1,6 @@
-import Dialog from "@/components/dialog"
-import Romaji from "@/components/romaji"
-import Button from "@/components/button"
+import Dialog from "@/components/Dialog"
+import Romaji from "@/components/text/Romaji"
+import Button from "@/components/Button"
 import SpoilerButton from "@/components/SpoilerButton"
 
 export default function Lesson9Pt2() {

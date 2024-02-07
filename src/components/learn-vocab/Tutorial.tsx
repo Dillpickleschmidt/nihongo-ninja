@@ -2,8 +2,8 @@
 
 "use client"
 import { useState } from "react"
-import Button from "../button"
-import JapaneseFont from "../JapaneseFont"
+import Button from "../Button"
+import JapaneseFont from "../text/JapaneseFont"
 import SpoilerButton from "../SpoilerButton"
 type props = {
   setTutorialStep: (step: number) => void

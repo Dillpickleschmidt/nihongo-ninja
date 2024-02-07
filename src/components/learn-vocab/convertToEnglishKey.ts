@@ -1,3 +1,23 @@
+/*
+This program restructures data so that the English word
+is the key and the rest of the data is the value
+
+example:
+
+家族: {
+  "english": ["family"],
+  "hiragana": ["かぞく"],
+  "mnemonics": "Think of 'kazoku' as 'ka-zone-cook.' Imagine your family cooking together in a cozy kitchen zone."
+}
+
+becomes
+
+"family": {
+  "hiragana": ["かぞく"],
+  "mnemonics": "Think of 'kazoku' as 'ka-zone-cook.' Imagine your family cooking together in a cozy kitchen zone."
+}
+*/
+
 type VocabEntry = {
   hiragana?: string[]
   english?: string[]

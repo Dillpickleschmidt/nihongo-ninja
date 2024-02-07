@@ -1,6 +1,6 @@
-import Button from "@/components/button"
-import Dialog from "@/components/dialog"
-import VocabCard from "@/components/VocabCard"
+import Button from "@/components/Button"
+import Dialog from "@/components/Dialog"
+import VocabCard from "@/components/spaced-repetition/VocabCard"
 
 export default function C7Lesson1() {
   return (

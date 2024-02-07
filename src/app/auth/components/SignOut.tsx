@@ -1,5 +1,5 @@
-import Button from "@/components/button"
-import { createSupabaseBrowserClient } from "@/lib/supabase/client" // Assuming this is a client-side usable version
+import Button from "@/components/Button"
+import { createSupabaseBrowserClient } from "@/lib/supabase/browserClient" // Assuming this is a client-side usable version
 import { useRouter } from "next/navigation"
 
 export default function SignOut() {

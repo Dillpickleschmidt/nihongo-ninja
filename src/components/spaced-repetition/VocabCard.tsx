@@ -1,5 +1,5 @@
 import { ReactNode } from "react"
-import JapaneseFont from "./JapaneseFont"
+import JapaneseFont from "../text/JapaneseFont"
 
 type VocabCardProps = {
   children?: ReactNode

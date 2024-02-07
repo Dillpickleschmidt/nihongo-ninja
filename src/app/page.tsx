@@ -1,9 +1,9 @@
 import Image from "next/image"
-import Lesson3 from "./components/Lesson3"
-import Lesson7 from "./components/Lesson7"
-import Hero from "./components/Hero"
-import Button from "@/components/button"
-import HomepageImage from "./components/HomepageImage"
+import Lesson3 from "./components/root/Lesson3"
+import Lesson7 from "./components/root/Lesson7"
+import Hero from "./components/root/Hero"
+import Button from "@/components/Button"
+import HomepageImage from "./components/root/HomepageImage"
 
 export default function Home() {
   return (

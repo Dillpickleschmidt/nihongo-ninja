@@ -2,10 +2,10 @@
 import { useState, useEffect, useRef, use } from "react"
 import { motion } from "framer-motion"
 import confetti from "canvas-confetti"
-import Dialog from "./dialog"
+import Dialog from "../Dialog"
 import Image from "next/image"
-import Button from "./button"
-import AIFeedback from "./AIFeedback"
+import Button from "../Button"
+import AIFeedback from "../ai-grader/AIFeedback"
 import { Noto_Sans_JP } from "next/font/google"
 import { VscDebugRestart } from "react-icons/vsc"
 

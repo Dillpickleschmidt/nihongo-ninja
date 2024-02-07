@@ -2,11 +2,11 @@
 
 "use client"
 // imports
-import Button from "./button"
+import Button from "./Button"
 import { twMerge } from "tailwind-merge"
 import { useState } from "react"
 
-import Chat from "./chat"
+import Chat from "./chatbot/chat"
 
 // types
 type Props = {

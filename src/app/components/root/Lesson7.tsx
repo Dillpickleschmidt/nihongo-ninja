@@ -1,8 +1,8 @@
 "use client"
-import JapaneseFont from "@/components/JapaneseFont"
-import Button from "@/components/button"
-import VocabCard from "@/components/VocabCard"
-import SelectText from "@/components/SelectText"
+import JapaneseFont from "@/components/text/JapaneseFont"
+import Button from "@/components/Button"
+import VocabCard from "@/components/spaced-repetition/VocabCard"
+import SelectText from "@/components/text/MultipleChoiceText"
 import { use, useRef } from "react"
 import { motion, useScroll, useTransform } from "framer-motion"
 

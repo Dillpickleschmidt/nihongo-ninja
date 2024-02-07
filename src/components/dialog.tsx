@@ -4,10 +4,10 @@
 import { ReactNode } from "react"
 import { useRef, useEffect } from "react"
 import { useRouter } from "next/navigation"
-import Button from "./button"
-import Navbar from "./navbar"
+import Button from "./Button"
+import Navbar from "./Navbar"
 import { VariantProps, cva } from "class-variance-authority"
-import cn from "../app/util/cn"
+import cn from "../util/cn"
 
 type DialogProps = React.DialogHTMLAttributes<HTMLDialogElement> &
   VariantProps<typeof dialogVariants> & {

@@ -1,7 +1,3 @@
-"use client"
-import { useEffect, useState } from "react"
-import { twMerge } from "tailwind-merge"
-
 // Hiragana characters
 export const mainKana = [
   { hiragana: "あ", romaji: ["a"] },
@@ -120,49 +116,3 @@ export const yoon = [
 ]
 
 export const allKana = [...mainKana, ...dakuten, ...yoon]
-
-// This program does the following:
-// 1. Shuffle the kana
-// 2. Map them to character boxes
-// 3. Display the character boxes
-// 4. When the user types in the character box, check if it matches the character
-
-type CharacterBoxProps = React.HTMLAttributes<HTMLDivElement> & {
-  character: string
-  userInput: string
-  onInputChange: (newUserInput: string) => void
-  disabled?: boolean
-  inputTextColor?: string
-  innerBorderColor?: string
-}
-
-// Boxes with a characters in them
-export function CharacterBox({
-  character,
-  userInput,
-  onInputChange,
-  disabled,
-  className,
-  inputTextColor = "text-red-400",
-  innerBorderColor = "border-[#aaaaaa]",
-}: CharacterBoxProps) {
-  return (
-    <div
-      className={twMerge(
-        "m-1 text-[3.5rem] h-52 bg-[#222222] shadow-lg shadow-[#645947] rounded-[12px]",
-        className
-      )}
-    >
-      {character}
-      <div className={`mt-8 mb-4 text-[2.5rem] ${inputTextColor}`}>
-        <input
-          type="text"
-          className={`w-28 bg-[#191919] bg-opacity-0 border-2 ${innerBorderColor} border-dashed rounded-xl text-center`}
-          value={userInput}
-          onChange={(event) => onInputChange(event.target.value)}
-          disabled={disabled}
-        />
-      </div>
-    </div>
-  )
-}

@@ -1,8 +1,8 @@
 "use client"
 import { useState } from "react"
-import Dialog from "@/components/dialog"
-import Button from "@/components/button"
-import HiraganaChart from "@/app/data/HiraganaChart"
+import Dialog from "@/components/Dialog"
+import Button from "@/components/Button"
+import HiraganaChart from "@/components/charts/HiraganaChart"
 
 import { Noto_Sans_JP } from "next/font/google"
 import SpoilerButton from "@/components/SpoilerButton"

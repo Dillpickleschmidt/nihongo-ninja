@@ -1,7 +1,8 @@
 import Image from "next/image"
 import { Space_Grotesk } from "next/font/google"
-import Button from "../../components/button"
-import TimeBasedGreeting from "../../components/greeting"
+import Button from "../../components/Button"
+import TimeBasedGreeting from "@/components/greeting"
+import JapaneseFont from "@/components/text/JapaneseFont"
 
 const SpaceGrotesk = Space_Grotesk({ subsets: ["latin"] })
 
@@ -9,7 +10,14 @@ export default function Lesson({ children }: { children: React.ReactNode }) {
   return (
     <main className="mt-[5rem] max-w-[1650px] mx-auto z-0">
       {children}
-      <TimeBasedGreeting />
+      <div className="lg:flex lg:flex-col ml-5 2xl:max-w-[70%] text-[6.5rem] mt-32">
+        <JapaneseFont>
+          <h1>
+            <TimeBasedGreeting className="font-bold" />、
+          </h1>
+          <h1 className="inline-flex">キュズミックさん！</h1>
+        </JapaneseFont>
+      </div>
       <ul
         className="grid grid-cols-4 h-[520px] max-w-[91%] gap-4 mt-32 mx-auto text-center text-7xl
             [&>*]:p-5 [&>*]:rounded-2xl [&>*]:flex [&>*]:items-center [&>*]:justify-center [&>*]:shadow-lg [&>*]:drop-shadow-lg [&>*]:saturate-50"

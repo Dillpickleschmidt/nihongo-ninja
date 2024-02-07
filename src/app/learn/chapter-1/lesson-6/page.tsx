@@ -1,7 +1,7 @@
-import Dialog from "@/components/dialog"
-import Button from "@/components/button"
-import VocabCard from "@/components/VocabCard"
-import SelectText from "@/components/SelectText"
+import Dialog from "@/components/Dialog"
+import Button from "@/components/Button"
+import VocabCard from "@/components/spaced-repetition/VocabCard"
+import SelectText from "@/components/text/MultipleChoiceText"
 
 export default function Lesson6() {
   return (

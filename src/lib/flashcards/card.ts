@@ -10,10 +10,10 @@ import { getNoteByCid, getNoteByNid } from "./note"
 import {
   stateFSRSRatingToSupabase,
   stateFSRSStateToSupabase,
-} from "@/lib/supabase/fsrsToSupabase"
+} from "@/lib/flashcards/fsrsToSupabase"
 import { getFSRSParamsByCid } from "./fsrs"
-import { checkSession, isAdmin } from "@/lib/actions/userSession"
-import { getSupabase } from "@/lib/supabase/server"
+import { checkSession, isAdmin } from "@/lib/supabase/user-session/userSession"
+import { getSupabase } from "@/lib/supabase/serverClient"
 
 async function isAdminOrSelf(uid: string) {
   await checkSession()

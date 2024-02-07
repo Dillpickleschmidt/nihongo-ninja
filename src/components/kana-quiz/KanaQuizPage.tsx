@@ -1,13 +1,15 @@
 "use client"
 import { useState, useEffect, useRef } from "react"
-import Dialog from "@/components/dialog"
-import Button from "@/components/button"
-import { CharacterBox } from "@/components/CharacterQuizBoxes"
-import HandleBeforeExit from "@/app/util/handleBeforeExit"
+import Dialog from "@/components/Dialog"
+import Button from "@/components/Button"
+import { CharacterBox } from "@/components/kana-quiz/CharacterBox"
+import warningBeforeExit from "@/util/warningBeforeExit"
 
-import { Noto_Sans_JP } from "next/font/google"
-
-const JapaneseFont = Noto_Sans_JP({ subsets: ["latin"] })
+// This program does the following:
+// 1. Shuffle the kana
+// 2. Map them to character boxes
+// 3. Display the character boxes
+// 4. When the user types in the character box, check if it matches the character
 
 type KanaQuizProps = {
   kana: { hiragana: string; romaji: string[] }[]
@@ -15,22 +17,26 @@ type KanaQuizProps = {
 }
 
 export default function KanaQuiz({ kana, nextLesson }: KanaQuizProps) {
-  HandleBeforeExit()
+  // Show a warning about losing progress if the user tries to leave the page
+  warningBeforeExit()
+
+  // Create a reference to a DOM element for scrolling purposes
   const scrollRef = useRef<HTMLDivElement>(null)
 
   const [showResults, setShowResults] = useState(false)
   const [numCorrect, setNumCorrect] = useState(0)
 
-  // Displays all the character boxes
+  // A list of character boxes
   const [characterBoxes, setCharacterBoxes] = useState<
     {
-      hiragana: string
-      romaji: string[]
-      userInput: string
-      isCorrect: boolean
+      hiragana: string // The character
+      romaji: string[] // The correct answer
+      userInput: string // The user's input
+      isCorrect: boolean // Whether the user's input matches the correct answer
     }[]
   >([])
 
+  // Shuffle and initialize character boxes when the component mounts
   useEffect(() => {
     setCharacterBoxes(
       [...kana]
@@ -39,6 +45,7 @@ export default function KanaQuiz({ kana, nextLesson }: KanaQuizProps) {
     )
   }, [])
 
+  // Fires in response to the user typing in a character box
   const handleInputChange = (index: number, newUserInput: string) => {
     // Update the Character box's userInput property and isCorrect property
     setCharacterBoxes((prevCharacterBoxes) => {
@@ -52,6 +59,7 @@ export default function KanaQuiz({ kana, nextLesson }: KanaQuizProps) {
         newCharacterBoxes[index].isCorrect = false
       }
 
+      // Calculate and update the number of correct answers for scoring purposes
       const numCorrect = characterBoxes.filter((box) => box.isCorrect).length
       setNumCorrect(numCorrect)
 
@@ -59,6 +67,7 @@ export default function KanaQuiz({ kana, nextLesson }: KanaQuizProps) {
     })
   }
 
+  // Scroll to the top of the dialog
   const handleScrollDialog = () => {
     // scroll to the top of the dialog
     if (scrollRef.current) {
@@ -75,7 +84,18 @@ export default function KanaQuiz({ kana, nextLesson }: KanaQuizProps) {
       showAlertOnClose={true}
     >
       <div className="text-center">
-        {showResults ? (
+        {!showResults ? (
+          <>
+            <h1 className="pt-12 mb-4 text-6xl font-semibold">
+              Type the Romaji
+            </h1>
+            <h2 className="text-2xl">
+              Type the english spelling of each character into their respective
+              boxes.
+            </h2>
+            <h2 className="text-2xl">Take it as many times as you like! 👍</h2>
+          </>
+        ) : (
           <>
             <h1 className="pt-12 mb-4 text-6xl font-semibold">
               {numCorrect / kana.length <= 0.5
@@ -93,22 +113,9 @@ export default function KanaQuiz({ kana, nextLesson }: KanaQuizProps) {
                 : "Keep it up!"}
             </h2>
           </>
-        ) : (
-          <>
-            <h1 className="pt-12 mb-4 text-6xl font-semibold">
-              Type the Romaji
-            </h1>
-            <h2 className="text-2xl">
-              Type the english spelling of each character into their respective
-              boxes.
-            </h2>
-            <h2 className="text-2xl">Take it as many times as you like! 👍</h2>
-          </>
         )}
       </div>
-      <div
-        className={`${JapaneseFont.className} container grid grid-cols-[repeat(auto-fill,minmax(170px,_1fr))] p-3 mx-auto mt-12 text-center gap-3 text-[#F8F5E9]`}
-      >
+      <div className="container grid grid-cols-[repeat(auto-fill,minmax(170px,_1fr))] p-3 mx-auto mt-12 text-center gap-3 text-[#F8F5E9]">
         {characterBoxes.map((characterBox, index) => (
           <CharacterBox
             key={characterBox.hiragana}
@@ -142,14 +149,8 @@ export default function KanaQuiz({ kana, nextLesson }: KanaQuizProps) {
         ))}
       </div>
       <div className="flex flex-row justify-end w-full">
-        {showResults ? (
-          <Button
-            className="mt-8 mb-16 mr-12 lg:mb-24 lg:mr-24"
-            link={nextLesson}
-          >
-            Next Lesson {"->"}
-          </Button>
-        ) : (
+        {!showResults ? (
+          // submit answers button
           <Button
             className="mt-8 mb-16 mr-12 lg:mb-24 lg:mr-24"
             onClick={() => {
@@ -161,6 +162,14 @@ export default function KanaQuiz({ kana, nextLesson }: KanaQuizProps) {
             }}
           >
             Submit
+          </Button>
+        ) : (
+          // next lesson button
+          <Button
+            className="mt-8 mb-16 mr-12 lg:mb-24 lg:mr-24"
+            link={nextLesson}
+          >
+            Next Lesson {"->"}
           </Button>
         )}
       </div>

@@ -1,5 +1,5 @@
 import Image from "next/image"
-import Dialog from "@/components/dialog"
+import Dialog from "@/components/Dialog"
 import KatanaLinework from "/public/katana-linework.svg"
 
 import { Noto_Sans_JP } from "next/font/google"

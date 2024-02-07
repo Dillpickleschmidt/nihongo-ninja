@@ -1,7 +1,7 @@
 // JSX to display when the user has finished 7 questions
 
-import Button from "../button"
-import JapaneseFont from "../JapaneseFont"
+import Button from "../Button"
+import JapaneseFont from "../text/JapaneseFont"
 
 type VocabItemValue = {
   hiragana?: string[]

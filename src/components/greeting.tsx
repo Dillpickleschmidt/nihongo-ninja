@@ -1,12 +1,10 @@
 // Dynamic greeting component that changes based on time of day
 
 "use client"
-import React, { useState, useEffect } from "react"
-import { Noto_Sans_JP } from "next/font/google"
+import { useState, useEffect } from "react"
+import JapaneseFont from "./text/JapaneseFont"
 
-const JapaneseFont = Noto_Sans_JP({ subsets: ["latin"] })
-
-function TimeBasedGreeting() {
+export default function TimeBasedGreeting({ ...props }) {
   const [greeting, setGreeting] = useState("")
 
   useEffect(() => {
@@ -29,16 +27,5 @@ function TimeBasedGreeting() {
     return () => clearInterval(interval)
   }, [])
 
-  return (
-    <div
-      className={`${JapaneseFont.className} lg:flex lg:flex-col ml-5 2xl:max-w-[70%] text-[6.5rem] mt-32`}
-    >
-      <h1>
-        <strong>{greeting}</strong>、
-      </h1>
-      <h1 className="inline-flex">キュズミックさん！</h1>
-    </div>
-  )
+  return <JapaneseFont {...props}>{greeting}</JapaneseFont>
 }
-
-export default TimeBasedGreeting

@@ -1,5 +1,5 @@
-import Dialog from "@/components/dialog"
-import Button from "@/components/button"
+import Dialog from "@/components/Dialog"
+import Button from "@/components/Button"
 import Image from "next/image"
 
 import { Noto_Sans_JP } from "next/font/google"
