@@ -1,13 +1,6 @@
-import { redirect } from "next/navigation"
-import { readUserSession } from "@/lib/supabase/user-session/userSession"
-import OAuthComponent from "./components/OAuthForm"
+import MainForm from "./components/MainForm"
 
 export default async function page() {
-  const { data } = await readUserSession()
-  if (data.session) {
-    return redirect("/learn")
-  }
-
   return (
     <div className="w-full h-screen flex justify-center items-center">
       <div className="w-[500px] border shadow-sm p-5 rounded-sm space-y-4">
@@ -17,7 +10,7 @@ export default async function page() {
           enim molestiae consequuntur ipsa ducimus repellendus optio. At, vel
           recusandae.
         </p>
-        <OAuthComponent />
+        <MainForm />
       </div>
     </div>
   )

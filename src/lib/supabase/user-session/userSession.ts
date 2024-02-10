@@ -1,8 +1,14 @@
 import { redirect } from "next/navigation"
 import { createSupabaseServerComponentClient } from "../serverClient"
+import { createSupabaseBrowserClient } from "../browserClient"
 
 export async function readUserSession() {
   const supabase = await createSupabaseServerComponentClient()
+  return supabase.auth.getSession()
+}
+
+export function readLocalUserSession() {
+  const supabase = createSupabaseBrowserClient()
   return supabase.auth.getSession()
 }
 
