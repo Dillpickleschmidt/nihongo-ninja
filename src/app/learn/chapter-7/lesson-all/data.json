@@ -1,0 +1,361 @@
+{
+  "家族": {
+    "hiragana": ["かぞく"],
+    "english": ["family"],
+    "mnemonics": "Think of 'kazoku' as 'ka-zone-cook.' Imagine your family cooking together in a cozy kitchen zone."
+  },
+  "おじいさん": {
+    "hiragana": ["おじいさん"],
+    "english": ["grandfather; old man"],
+    "mnemonics": "Sounds like 'Oh, gee, son!' Picture an old man saying this to his grandson."
+  },
+  "おばあさん": {
+    "hiragana": ["おばあさん"],
+    "english": ["grandmother; old woman"],
+    "mnemonics": "Sounds like 'Oh, bah, son!' Imagine a grandmother knitting and saying this."
+  },
+  "お兄さん": {
+    "hiragana": ["おにいさん"],
+    "english": ["older brother"],
+    "mnemonics": "Sounds like 'Oh, knee, son!' Imagine an older brother who always kneeled down to tie your shoelaces."
+  },
+  "お姉さん": {
+    "hiragana": ["おねえさん"],
+    "english": ["older sister"],
+    "mnemonics": "Sounds like 'Oh, neigh, son!' Imagine an older sister who loves horses and often mimics a horse's neigh."
+  },
+  "父": {
+    "hiragana": ["ちち"],
+    "english": ["my father"],
+    "mnemonics": "'Chichi' sounds like 'chee-chee.' Picture your father playing a game of chess ('chee' for chess)."
+  },
+  "母": {
+    "hiragana": ["はは"],
+    "english": ["my mother"],
+    "mnemonics": "Sounds like laughter 'ha-ha.' Remember your mother's laugh."
+  },
+  "兄": {
+    "hiragana": ["あに"],
+    "english": ["my older brother"],
+    "mnemonics": "Sounds like 'Ah, knee.' Imagine your older brother always hitting his knee on the table."
+  },
+  "姉": {
+    "hiragana": ["あね"],
+    "english": ["my older sister"],
+    "mnemonics": "Sounds like 'Ah, neh.' Imagine your older sister pondering and saying 'Ah, neh' when thinking."
+  },
+  "妹": {
+    "hiragana": ["いもうと"],
+    "english": ["younger sister"],
+    "mnemonics": "Sounds like 'E-moto.' Picture your younger sister riding an e-motorbike."
+  },
+  "弟": {
+    "hiragana": ["おとうと"],
+    "english": ["younger brother"],
+    "mnemonics": "Sounds like 'Oh, toe-toe.' Imagine your younger brother always stubbing his toe."
+  },
+  "兄弟": {
+    "hiragana": ["きょうだい"],
+    "english": ["brothers and sisters"],
+    "mnemonics": "Think of 'kyo-die.' Picture siblings playing a video game together and saying, 'If you lose (die) in Kyoto...'"
+  },
+  "男の人": {
+    "hiragana": ["おとこのひと"],
+    "english": ["man"],
+    "mnemonics": "Sounds like 'Oh, toko no hito.' Imagine a man saying, 'Oh, I'm just a 'toko' (guy) in this place.'"
+  },
+  "女の人": {
+    "hiragana": ["おんなのひと"],
+    "english": ["woman"],
+    "mnemonics": "Sounds like 'Oh, nonna hito.' Picture a woman saying, 'Oh, I'm nonna (not a) regular person.'"
+  },
+  "会社": {
+    "hiragana": ["かいしゃ"],
+    "english": ["company"],
+    "mnemonics": "Sounds like 'kai-sha.' Imagine a company on the coast (kai) near the sea."
+  },
+  "食堂": {
+    "hiragana": ["しょくどう"],
+    "english": ["cafeteria"],
+    "mnemonics": "Sounds like 'shoku-dough.' Picture a cafeteria where they always bake fresh dough."
+  },
+  "デパート": {
+    "english": ["department store"],
+    "hiragana": ["デパート"],
+    "mnemonics": "Sounds like 'depart.' Think of a place where you always depart with your money."
+  },
+  "眼鏡": {
+    "hiragana": ["めがね"],
+    "english": ["glasses"],
+    "mnemonics": "Sounds like 'May-gah-neh.' Picture someone in May going 'Neh' because they can't see without their glasses."
+  },
+  "歌": {
+    "hiragana": ["うた"],
+    "english": ["song"],
+    "mnemonics": "Sounds like 'ooh-tah.' Imagine saying 'ooh' in wonder when you hear a beautiful song."
+  },
+  "club activity": {
+    "hiragana": ["サークル"],
+    "mnemonics": "Sounds like 'circle.' Picture a group of people forming a circle for a club meeting."
+  },
+  "車": {
+    "hiragana": ["くるま"],
+    "english": ["car"],
+    "mnemonics": "Sounds like 'cool-ma.' Imagine a really cool mom driving a fancy car."
+  },
+  "長い": {
+    "hiragana": ["ながい"],
+    "english": ["long"],
+    "mnemonics": "Sounds like 'nag-eye.' Think of a long, nagging sigh."
+  },
+  "短い": {
+    "hiragana": ["みじがい"],
+    "english": ["short (length)"],
+    "mnemonics": "Sounds like 'me-gee-guy.' Imagine a short guy who always says 'Me? Gee, I'm short.'"
+  },
+  "速い": {
+    "hiragana": ["はやい"],
+    "english": ["fast"],
+    "mnemonics": "Sounds like 'high-yai.' Think of something moving so fast it goes high and yells 'Yai!'"
+  },
+  "背が高い": {
+    "hiragana": ["せがたかい"],
+    "english": ["tall (stature)"],
+    "mnemonics": "Sounds like 'sega-ta-kai.' Picture a tall person who loves playing Sega games."
+  },
+  "背が低い": {
+    "hiragana": ["せがひくい"],
+    "english": ["short (stature)"],
+    "mnemonics": "Sounds like 'sega-hikui.' Imagine a short person who feels low (hikui) when they can't reach the Sega console."
+  },
+  "頭がいい": {
+    "hiragana": ["あたまがいい"],
+    "english": ["bright/smart/clever"],
+    "mnemonics": "Sounds like 'atama guy E.' Picture a smart guy named E who always uses his head (atama)."
+  },
+  "可愛い": {
+    "hiragana": ["かわいい"],
+    "english": ["cute"],
+    "mnemonics": "Sounds like 'kawaii.' This is similar to the English word 'cawaii' for cute."
+  },
+  "親切": {
+    "hiragana": ["しんせつ"],
+    "english": ["kind"],
+    "mnemonics": "Sounds like 'shin-sets.' Picture a kind person who always sets their heart (shin) on doing good."
+  },
+  "便利": {
+    "hiragana": ["べんり"],
+    "english": ["convenient"],
+    "mnemonics": "Sounds like 'ben-ri.' Imagine Ben, who is always handy and convenient to have around."
+  },
+  "歌う": {
+    "hiragana": ["うたう"],
+    "english": ["to sing"],
+    "mnemonics": "Sounds like 'ooh-ta-oo.' Picture singing a song with 'ooh' sounds."
+  },
+  "被る": {
+    "hiragana": ["かぶる"],
+    "english": ["to put on a hat"],
+    "mnemonics": "Sounds like 'cab-ru.' Imagine putting on a hat before getting into a cab."
+  },
+  "履く": {
+    "hiragana": ["はく"],
+    "english": ["to put on items below your waist"],
+    "mnemonics": "Sounds like 'huck.' Think of 'hucking' on your pants or shoes."
+  },
+  "知る": {
+    "hiragana": ["しる"],
+    "english": ["to get to know"],
+    "mnemonics": "Sounds like 'sheer.' Picture getting to know something as clearly as seeing through sheer fabric."
+  },
+  "知っています": {
+    "hiragana": ["しっています"],
+    "english": ["I know"],
+    "mnemonics": "Sounds like 'sheet-tea-mass.' Imagine confidently saying 'I know' as you sip a cup of tea."
+  },
+  "知りません": {
+    "hiragana": ["しりません"],
+    "english": ["I do not know"],
+    "mnemonics": "Sounds like 'sheer-ma-sen.' Picture saying 'I don't know' with a sheer look of confusion."
+  },
+  "住む": {
+    "hiragana": ["すむ"],
+    "english": ["to live"],
+    "mnemonics": "Sounds like 'sum.' Think of where you live as the sum of your home life."
+  },
+  "働く": {
+    "hiragana": ["はたらく"],
+    "english": ["to work"],
+    "mnemonics": "Sounds like 'ha-ta-laku.' Imagine working hard while saying 'Ha! Tackle this work!'"
+  },
+  "太る": {
+    "hiragana": ["ふとる"],
+    "english": ["to gain weight"],
+    "mnemonics": "Sounds like 'futo-ru.' Imagine gaining weight and saying 'Futo, I grew!'"
+  },
+  "太っています": {
+    "hiragana": ["ふとっています"],
+    "english": ["to be on the heavy side/overweight"],
+    "mnemonics": "Sounds like 'futo-tte-mass.' Picture someone who's heavy saying, 'Futo, I'm mass!'"
+  },
+  "眼鏡を掛ける": {
+    "hiragana": ["めがねをかける"],
+    "english": ["to put on glasses"],
+    "mnemonics": "Sounds like 'may-gah-neh-wo-kakeru.' Imagine putting on glasses to see the month of May clearly."
+  },
+  "着る": {
+    "hiragana": ["きる"],
+    "english": ["to put on clothes above your waist"],
+    "mnemonics": "Sounds like 'keer.' Picture 'keering' a shirt over your head."
+  },
+  "痩せる": {
+    "hiragana": ["やせる"],
+    "english": ["to lose weight"],
+    "mnemonics": "Sounds like 'ya-sell.' Imagine losing weight and saying, 'Ya, I can sell my old clothes now!'"
+  },
+  "痩せています": {
+    "hiragana": ["やせています"],
+    "english": ["to be thin"],
+    "mnemonics": "Sounds like 'ya-set-te-mass.' Picture a thin person saying, 'Ya, I'm set with this mass!'"
+  },
+  "結婚する": {
+    "hiragana": ["けっこんする"],
+    "english": ["to get married"],
+    "mnemonics": "Sounds like 'kett-kon-suru.' Picture getting married and setting a 'ket' (contract) to connect lives."
+  },
+  "何も": {
+    "hiragana": ["なにも + negative"],
+    "english": ["not...anything"],
+    "mnemonics": "Sounds like 'nani mo.' Picture saying 'Nani? Mo nothing?'"
+  },
+  "～人": {
+    "hiragana": ["～にん"],
+    "english": ["counter for people"],
+    "mnemonics": "Sounds like 'neen.' Imagine counting people and saying 'One neen, two neen...'"
+  },
+  "一人": {
+    "hiragana": ["ひとり"],
+    "english": ["one person"],
+    "mnemonics": "Sounds like 'hitori.' Picture being alone and saying 'Hi, I'm just one here.'"
+  },
+  "二人": {
+    "hiragana": ["ふたり"],
+    "english": ["two people"],
+    "mnemonics": "Sounds like 'futari.' Think of 'two' (fu-ta-ri) people standing together."
+  },
+  "別に": {
+    "hiragana": ["べつに + negative"],
+    "english": ["nothing in particular"],
+    "mnemonics": "Sounds like 'bet-su-ni.' Imagine shrugging and saying 'Bet, it's nothing special.'"
+  },
+  "勿論": {
+    "hiragana": ["もちろん"],
+    "english": ["of course"],
+    "mnemonics": "Sounds like 'mochi-ron.' Picture saying 'Of course!' while eating mochi."
+  },
+  "はく": {
+    "hiragana": ["はく"],
+    "english": ["to put on items below your waist"],
+    "mnemonics": "Sounds like 'huck.' Think of 'hucking' on your pants or shoes."
+  },
+  "～が": {
+    "hiragana": ["～が"],
+    "english": ["...but"],
+    "mnemonics": "Think of it as a pause, like saying 'ga...' when you're about to say 'but...'"
+  },
+  "よかったら": {
+    "hiragana": ["よかったら"],
+    "english": ["if you like"],
+    "mnemonics": "Sounds like 'yokatta-ra.' Imagine saying, 'If you like (yokatta), then ra (come on)!'"
+  },
+  "目": {
+    "hiragana": ["め"],
+    "english": ["eye"],
+    "mnemonics": "Sounds like 'me.' Picture 'me' focusing my eyes to see clearly."
+  },
+  "鼻": {
+    "hiragana": ["はな"],
+    "english": ["nose"],
+    "mnemonics": "Sounds like 'Hana.' Imagine a flower ('hana' in Japanese) near your nose."
+  },
+  "耳": {
+    "hiragana": ["みみ"],
+    "english": ["ear"],
+    "mnemonics": "Sounds like 'me-me.' Think of someone saying 'Listen to me' with their ears."
+  },
+  "口": {
+    "hiragana": ["くち"],
+    "english": ["mouth"],
+    "mnemonics": "Sounds like 'coochie.' Remember by thinking of a baby's coochie-coo, often said while touching their mouth."
+  },
+  "歯": {
+    "hiragana": ["は"],
+    "english": ["teeth"],
+    "mnemonics": "Sounds like 'ha.' Imagine laughing 'ha-ha' and showing your teeth."
+  },
+  "眉毛": {
+    "hiragana": ["まゆげ"],
+    "english": ["eyebrows"],
+    "mnemonics": "Sounds like 'Mayu-ge.' Picture drawing your eyebrows carefully in May."
+  },
+  "髪": {
+    "hiragana": ["かみ"],
+    "english": ["hair"],
+    "mnemonics": "Think of 'kami' as in origami. Picture folding origami with hair-like delicacy."
+  },
+  "頭": {
+    "hiragana": ["あたま"],
+    "english": ["head"],
+    "mnemonics": "Sounds like 'a-tama.' Imagine a head ('atama') adorned with a crown."
+  },
+  "顔": {
+    "hiragana": ["かお"],
+    "english": ["face"],
+    "mnemonics": "Sounds like 'cow-o.' Picture a face with the calmness of a cow's expression."
+  },
+  "首": {
+    "hiragana": ["くび"],
+    "english": ["neck"],
+    "mnemonics": "Think of 'kubi' as in 'cubicle.' Imagine stretching your neck looking over cubicle walls."
+  },
+  "肩": {
+    "hiragana": ["かた"],
+    "english": ["shoulder"],
+    "mnemonics": "Sounds like 'cutter.' Imagine a strong shoulder cutting through the water in swimming."
+  },
+  "手": {
+    "hiragana": ["て"],
+    "english": ["hand"],
+    "mnemonics": "'Te' as in 'tea.' Picture yourself delicately holding a tea cup in your hand."
+  },
+  "指": {
+    "hiragana": ["ゆび"],
+    "english": ["finger"],
+    "mnemonics": "Sounds like 'you-be.' Think of pointing a finger and saying, 'You be careful.'"
+  },
+  "胸": {
+    "hiragana": ["むね"],
+    "english": ["chest"],
+    "mnemonics": "Sounds like 'mooneh.' Picture a treasure chest, as valuable as the moon."
+  },
+  "背中": {
+    "hiragana": ["せなか"],
+    "english": ["back"],
+    "mnemonics": "Sounds like 'say-naka.' Imagine someone saying 'Naka' (middle) while pointing at their back."
+  },
+  "おなか": {
+    "hiragana": ["おなか"],
+    "english": ["stomach"],
+    "mnemonics": "Sounds like 'Oh! Naka.' Picture feeling a sudden stomachache and exclaiming 'Oh, naka (inside)!'"
+  },
+  "尾尻": {
+    "hiragana": ["おしり"],
+    "english": ["buttocks"],
+    "mnemonics": "Sounds like 'oh-she-ree.' Think of sitting down after a long day saying, 'Oh, finally!'"
+  },
+  "足": {
+    "hiragana": ["あし"],
+    "english": ["leg/foot"],
+    "mnemonics": "Sounds like 'Ah-she.' Imagine stepping into a relaxing bath and saying 'Ah, relief!'"
+  }
+}
