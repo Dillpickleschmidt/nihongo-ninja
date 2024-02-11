@@ -19,7 +19,10 @@ function AddNoteDialog({
     fetch(`/api/flashcards/note`, {
       method: "post",
       body: JSON.stringify({ question, answer }),
-    }).then((res) => console.log(res.json()))
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+      .catch((error) => console.error("Error adding note:", error))
     handleAppCloseClick()
   }
 

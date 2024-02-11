@@ -8,7 +8,9 @@ export async function addNote(data: Partial<NodeData> & { uid: string }) {
   const supabase = await getSupabase()
   const question = data.question
   const answer = data.answer
+  console.log(question + ", " + answer)
   if (!question || !answer) {
+    console.error("Missing question or answer:", { question, answer })
     return false
   }
   const uid = data.uid
@@ -21,7 +23,7 @@ export async function addNote(data: Partial<NodeData> & { uid: string }) {
       .eq("question", question)
       .single()
 
-    if (findError) throw findError
+    // if (findError) throw findError
 
     if (note) {
       // Update the existing note
@@ -38,6 +40,12 @@ export async function addNote(data: Partial<NodeData> & { uid: string }) {
       return updatedNote
     } else {
       // Create a new note
+
+      // 1. Create the note
+      // 2. Create a new card & associate with note (nid).
+      // 3. Update the note to associate with card (cid).
+
+      // Create the note
       const { data: newNote, error: createError } = await supabase
         .from("note")
         .insert([
@@ -46,14 +54,48 @@ export async function addNote(data: Partial<NodeData> & { uid: string }) {
             question,
             answer,
             extend: data.extend ? JSON.stringify(data.extend) : "",
-            // Assuming createEmptyCardBySupabase is a function that creates a card object
-            card: createEmptyCardBySupabase(),
             source: "manual",
           },
         ])
+        .select()
+      if (createError) {
+        console.error("Error creating note:", createError)
+        return
+      }
 
-      if (createError) throw createError
-      return newNote
+      // Create & associate the card with the newly created note
+      const emptyCard = createEmptyCardBySupabase()
+      const { data: newCard, error: cardError } = await supabase
+        .from("card")
+        .insert([
+          {
+            due: emptyCard.due,
+            stability: emptyCard.stability,
+            difficulty: emptyCard.difficulty,
+            elapsed_days: emptyCard.elapsed_days,
+            scheduled_days: emptyCard.scheduled_days,
+            reps: emptyCard.reps,
+            lapses: emptyCard.lapses,
+            state: emptyCard.state,
+            last_review: emptyCard.last_review,
+            nid: newNote[0].nid, // Associate the card with the newly created note
+          },
+        ])
+        .select()
+      if (cardError) {
+        console.error("Error creating card:", cardError)
+        return
+      }
+
+      // Update the note with the card ID (cid)
+      const { error: updateNoteError } = await supabase
+        .from("note")
+        .update({ cid: newCard[0].cid }) // Assuming newCard is an array with one element
+        .eq("nid", newNote[0].nid) // Assuming newNote is an array with one element
+      if (updateNoteError) {
+        console.error("Error updating note with cid:", updateNoteError)
+        return
+      }
     }
   } catch (error) {
     console.error("Error in addNote:", error)
@@ -74,10 +116,14 @@ export async function getNotes({
 }): Promise<(Note & { card: Card })[]> {
   const supabase = await getSupabase()
   try {
+    // console.log("uid: " + uid)
+    // console.log("state: " + state.toString())
+    // console.log("reviewDate: " + reviewDate)
+    // console.log("takeLimit: " + takeLimit)
     // Call the stored procedure via RPC
     const response = await supabase.rpc("fetch_notes_with_cards", {
       uid_param: uid,
-      state_param: state,
+      state_param: state.toString(),
       review_date_param: reviewDate,
       take_limit_param: takeLimit,
     })

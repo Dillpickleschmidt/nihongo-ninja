@@ -65,9 +65,12 @@ export default async function Page({
   searchParams: { source?: string }
 }) {
   const { noteBox0 } = await getData(searchParams.source)
-  const noteBox = noteBox0.map((noteBox) =>
-    noteBox.sort(() => Math.random() - Math.random())
-  )
+  const noteBox = noteBox0
+    .filter((noteBox) => noteBox !== null) // Filter out null values
+    .map((noteBox) =>
+      noteBox ? noteBox.sort(() => Math.random() - Math.random()) : []
+    ) // Sort non-null arrays
+
   const isFinish = noteBox.every((notes) => notes.length === 0)
   return isFinish ? (
     <Finish />
