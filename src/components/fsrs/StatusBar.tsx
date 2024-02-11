@@ -29,10 +29,10 @@ export default function StatusBar() {
       <div className="badge badge-success gap-2 m-1 p-4 text-white">
         {currentType === State.Review ? (
           <span className="underline underline-offset-4">
-            {noteBox[State.Review].length}
+            {noteBox[State.Review]?.length}
           </span>
         ) : (
-          noteBox[State.Review].length
+          noteBox[State.Review]?.length
         )}
       </div>
     </div>

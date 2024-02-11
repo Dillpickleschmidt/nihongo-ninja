@@ -1,42 +1,51 @@
 {
-  "glasses": {
+  "眼鏡": {
     "hiragana": ["めがね"],
+    "english": ["glasses"],
     "mnemonics": "Sounds like 'May-gah-neh.' Picture someone in May going 'Neh' because they can't see without their glasses."
   },
-  "song": {
+  "歌": {
     "hiragana": ["うた"],
+    "english": ["song"],
     "mnemonics": "Sounds like 'ooh-tah.' Imagine saying 'ooh' in wonder when you hear a beautiful song."
   },
   "club activity": {
     "hiragana": ["サークル"],
     "mnemonics": "Sounds like 'circle.' Picture a group of people forming a circle for a club meeting."
   },
-  "car": {
+  "車": {
     "hiragana": ["くるま"],
+    "english": ["car"],
     "mnemonics": "Sounds like 'cool-ma.' Imagine a really cool mom driving a fancy car."
   },
-  "long": {
+  "長い": {
     "hiragana": ["ながい"],
+    "english": ["long"],
     "mnemonics": "Sounds like 'nag-eye.' Think of a long, nagging sigh."
   },
-  "short (length)": {
+  "短い": {
     "hiragana": ["みじがい"],
+    "english": ["short (length)"],
     "mnemonics": "Sounds like 'me-gee-guy.' Imagine a short guy who always says 'Me? Gee, I'm short.'"
   },
-  "fast": {
+  "速い": {
     "hiragana": ["はやい"],
+    "english": ["fast"],
     "mnemonics": "Sounds like 'high-yai.' Think of something moving so fast it goes high and yells 'Yai!'"
   },
-  "tall (stature)": {
+  "背が高い": {
     "hiragana": ["せがたかい"],
+    "english": ["tall (stature)"],
     "mnemonics": "Sounds like 'sega-ta-kai.' Picture a tall person who loves playing Sega games."
   },
-  "short (stature)": {
+  "背が低い": {
     "hiragana": ["せがひくい"],
+    "english": ["short (stature)"],
     "mnemonics": "Sounds like 'sega-hikui.' Imagine a short person who feels low (hikui) when they can't reach the Sega console."
   },
-  "bright, smart, clever": {
+  "頭がいい": {
     "hiragana": ["あたまがいい"],
+    "english": ["bright/smart/clever"],
     "mnemonics": "Sounds like 'atama guy E.' Picture a smart guy named E who always uses his head (atama)."
   }
 }

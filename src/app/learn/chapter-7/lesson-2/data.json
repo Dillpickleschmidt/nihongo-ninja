@@ -1,42 +1,52 @@
 {
-  "younger brother": {
+  "弟": {
     "hiragana": ["おとうと"],
+    "english": ["younger brother"],
     "mnemonics": "Sounds like 'Oh, toe-toe.' Imagine your younger brother always stubbing his toe."
   },
-  "brothers and sisters": {
+  "兄弟": {
     "hiragana": ["きょうだい"],
+    "english": ["brothers and sisters"],
     "mnemonics": "Think of 'kyo-die.' Picture siblings playing a video game together and saying, 'If you lose (die) in Kyoto...'"
   },
-  "man": {
+  "男の人": {
     "hiragana": ["おとこのひと"],
+    "english": ["man"],
     "mnemonics": "Sounds like 'Oh, toko no hito.' Imagine a man saying, 'Oh, I'm just a 'toko' (guy) in this place.'"
   },
-  "woman": {
+  "女の人": {
     "hiragana": ["おんなのひと"],
+    "english": ["woman"],
     "mnemonics": "Sounds like 'Oh, nonna hito.' Picture a woman saying, 'Oh, I'm nonna (not a) regular person.'"
   },
-  "company": {
+  "会社": {
     "hiragana": ["かいしゃ"],
+    "english": ["company"],
     "mnemonics": "Sounds like 'kai-sha.' Imagine a company on the coast (kai) near the sea."
   },
-  "cafeteria; dining commons": {
+  "食堂": {
     "hiragana": ["しょくどう"],
+    "english": ["cafeteria"],
     "mnemonics": "Sounds like 'shoku-dough.' Picture a cafeteria where they always bake fresh dough."
   },
-  "department store": {
+  "デパート": {
+    "english": ["department store"],
     "hiragana": ["デパート"],
     "mnemonics": "Sounds like 'depart.' Think of a place where you always depart with your money."
   },
-  "hair": {
+  "髪": {
     "hiragana": ["かみ"],
+    "english": ["hair"],
     "mnemonics": "Sounds like 'kami.' Imagine your hair feeling like divine (kami in Japanese means god) silk."
   },
-  "mouth": {
+  "口": {
     "hiragana": ["くち"],
+    "english": ["mouth"],
     "mnemonics": "Sounds like 'coochie.' Remember by thinking of a baby's coochie-coo, often said while touching their mouth."
   },
-  "eye": {
+  "目": {
     "hiragana": ["め"],
+    "english": ["eye"],
     "mnemonics": "Sounds like 'May.' Think of your eyes always brightening up in the month of May."
   }
 }

@@ -1,15 +1,17 @@
 import LearnVocab from "@/components/learn-vocab/LearnVocab"
-import vocabData from "./data.json"
+import vocabData from "@/app/learn/chapter-7/lesson-1/data.json"
 import Dialog from "@/components/Dialog"
-import JapaneseFont from "@/components/text/JapaneseFont"
+import ConvertToEnglishKey from "@/components/learn-vocab/convertToEnglishKey"
 
-export default function VocabLearnLesson71() {
+const convertedData = ConvertToEnglishKey({ data: vocabData })
+
+export default function page() {
   return (
     <Dialog variant={"large"} className="border-4 border-black bg-[#191919]">
       <div className="text-white overscroll-y-contain">
         <LearnVocab
-          data={vocabData}
-          link="/learn/chapter-7/lesson-2"
+          data={convertedData}
+          link="/learn/chapter-7/vocab-learn-lesson-5-kanji"
           shuffleTerms={true}
         >
           <h1 className="text-7xl font-medium text-[#F8F5E9]">

@@ -1,42 +1,52 @@
 {
-  "family": {
+  "家族": {
     "hiragana": ["かぞく"],
+    "english": ["family"],
     "mnemonics": "Think of 'kazoku' as 'ka-zone-cook.' Imagine your family cooking together in a cozy kitchen zone."
   },
-  "grandfather; old man": {
+  "おじいさん": {
     "hiragana": ["おじいさん"],
+    "english": ["grandfather; old man"],
     "mnemonics": "Sounds like 'Oh, gee, son!' Picture an old man saying this to his grandson."
   },
-  "grandmother; old woman": {
+  "おばあさん": {
     "hiragana": ["おばあさん"],
+    "english": ["grandmother; old woman"],
     "mnemonics": "Sounds like 'Oh, bah, son!' Imagine a grandmother knitting and saying this."
   },
-  "older brother": {
+  "お兄さん": {
     "hiragana": ["おにいさん"],
+    "english": ["older brother"],
     "mnemonics": "Sounds like 'Oh, knee, son!' Imagine an older brother who always kneeled down to tie your shoelaces."
   },
-  "older sister": {
+  "お姉さん": {
     "hiragana": ["おねえさん"],
+    "english": ["older sister"],
     "mnemonics": "Sounds like 'Oh, neigh, son!' Imagine an older sister who loves horses and often mimics a horse's neigh."
   },
-  "my father": {
+  "父": {
     "hiragana": ["ちち"],
+    "english": ["my father"],
     "mnemonics": "'Chichi' sounds like 'chee-chee.' Picture your father playing a game of chess ('chee' for chess)."
   },
-  "my mother": {
+  "母": {
     "hiragana": ["はは"],
+    "english": ["my mother"],
     "mnemonics": "Sounds like laughter 'ha-ha.' Remember your mother's laugh."
   },
-  "my older brother": {
+  "兄": {
     "hiragana": ["あに"],
+    "english": ["my older brother"],
     "mnemonics": "Sounds like 'Ah, knee.' Imagine your older brother always hitting his knee on the table."
   },
-  "my older sister": {
+  "姉": {
     "hiragana": ["あね"],
+    "english": ["my older sister"],
     "mnemonics": "Sounds like 'Ah, neh.' Imagine your older sister pondering and saying 'Ah, neh' when thinking."
   },
-  "younger sister": {
+  "妹": {
     "hiragana": ["いもうと"],
+    "english": ["younger sister"],
     "mnemonics": "Sounds like 'E-moto.' Picture your younger sister riding an e-motorbike."
   }
 }
