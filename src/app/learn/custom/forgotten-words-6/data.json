@@ -73,5 +73,10 @@
     "hiragana": ["みなさん"],
     "english": ["everyone", "all of you"],
     "mnemonics": "The kanji 皆 has a form that suggests a gathering of individuals under a single roof or banner. Imagine a scene where a group of people are gathered together, and someone addresses them with 'みなさん' (everyone), emphasizing the collective presence. The phrase 'みなさん' can be remembered by picturing a speaker warmly greeting a crowd, addressing each person as part of the whole group."
+  },
+  "書き": {
+    "hiragana": ["かき"],
+    "english": ["writing"],
+    "mnemonics": "The kanji 書 can be visualized as a hand (扌) holding a brush on the left, poised above a page, ready to 'write' the strokes that make up the character. Imagine the lines and the dot as the strokes you're writing down, capturing the essence of putting thoughts into words."
   }
 }

@@ -11,7 +11,7 @@ export default function page() {
       <div className="text-white overscroll-y-contain">
         <LearnVocab
           data={convertedData}
-          link="/learn/chapter-7/vocab-learn-lesson-5-kanji"
+          link="/learn/chapter-7/vocab-learn-lesson-2-kanji"
           shuffleTerms={true}
         >
           <h1 className="text-7xl font-medium text-[#F8F5E9]">
