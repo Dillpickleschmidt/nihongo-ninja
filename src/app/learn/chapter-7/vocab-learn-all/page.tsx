@@ -1,5 +1,5 @@
 import LearnVocab from "@/components/learn-vocab/LearnVocab"
-import vocabData from "@/app/learn/chapter-7/lesson-summary/data.json"
+import vocabData from "@/app/learn/chapter-7/lesson-all/data.json"
 import Dialog from "@/components/Dialog"
 
 export default function page() {
