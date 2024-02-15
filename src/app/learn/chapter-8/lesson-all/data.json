@@ -1,0 +1,282 @@
+{
+  "晴れ": {
+    "english": ["sunny weather"],
+    "hiragana": ["はれ"],
+    "mnemonics": "Imagine the sun 'hares' out of the clouds, bringing 'sunny weather'."
+  },
+  "雨": {
+    "english": ["rain"],
+    "hiragana": ["あめ"],
+    "mnemonics": "Think of 'ame' as rain 'amassing' in the sky before it pours down."
+  },
+  "曇り": {
+    "english": ["cloudy weather"],
+    "hiragana": ["くもり"],
+    "mnemonics": "Visualize clouds 'kumori-ng' (covering) the sky, making it 'cloudy'."
+  },
+  "雪": {
+    "english": ["snow"],
+    "hiragana": ["ゆき"],
+    "mnemonics": "Imagine each snowflake saying 'Yuki' as it 'you-key' into locking the landscape in white."
+  },
+  "天気予報": {
+    "english": ["weather forecast"],
+    "hiragana": ["てんきよほう"],
+    "mnemonics": "Think of 'tenkiyohou' as 'ten key' factors you 'ho(u)-ld' check to know the 'weather forecast'."
+  },
+  "気温": {
+    "english": ["temperature (weather—not used for things)"],
+    "hiragana": ["きおん"],
+    "mnemonics": "Imagine the 'ki-on' (key-on) to control the 'temperature' of the weather."
+  },
+  "夏": {
+    "english": ["summer"],
+    "hiragana": ["なつ"],
+    "mnemonics": "Think of 'natsu' as 'not-soo' cool, because it's 'summer'."
+  },
+  "冬": {
+    "english": ["winter"],
+    "hiragana": ["ふゆ"],
+    "mnemonics": "Envision 'fu-yu' as 'few-you', with fewer warm days in 'winter'."
+  },
+  "今朝": {
+    "english": ["this morning"],
+    "hiragana": ["けさ"],
+    "mnemonics": "Think of 'kesa' as 'key-saw' the sunrise 'this morning'."
+  },
+  "明後日": {
+    "english": ["the day after tomorrow"],
+    "hiragana": ["あさって"],
+    "mnemonics": "Imagine saying 'Ah! Sate!' (Ah, set!) plans for 'the day after tomorrow'."
+  },
+  "毎週": {
+    "english": ["every week"],
+    "hiragana": ["まいしゅう"],
+    "mnemonics": "Picture 'my shoe' needing cleaning 'every week'."
+  },
+  "今月": {
+    "english": ["this month"],
+    "hiragana": ["こんげつ"],
+    "mnemonics": "Think of 'kongetsu' as 'con-guests' visiting 'this month'."
+  },
+  "来月": {
+    "english": ["next month"],
+    "hiragana": ["らいげつ"],
+    "mnemonics": "Imagine 'rai-getsu' as 'rye gets' harvested 'next month'."
+  },
+  "会社員": {
+    "english": ["office worker"],
+    "hiragana": ["かいしゃいん"],
+    "mnemonics": "Think of 'kaishain' as 'kai-sha' (company) 'in' which an 'office worker' works."
+  },
+  "仕事": {
+    "english": ["job; work; occupation"],
+    "hiragana": ["しごと"],
+    "mnemonics": "Envision 'shigoto' as 'she got to' go to her 'job; work; occupation'."
+  },
+  "カメラ": {
+    "english": ["camera"],
+    "hiragana": ["カメラ"],
+    "mnemonics": "Remember 'camera' by imagining a 'camera' capturing a turtle ('kame' in Japanese)."
+  },
+  "カラオケ": {
+    "english": ["karaoke"],
+    "hiragana": ["カラオケ"],
+    "mnemonics": "Think of 'karaoke' as 'car-ah-okay', where everyone sings in the car as if it's a 'karaoke' session."
+  },
+  "所": {
+    "english": ["place"],
+    "hiragana": ["ところ"],
+    "mnemonics": "Imagine 'tokoro' as 'to-call-row', a 'place' where everyone lines up to call."
+  },
+  "トマト": {
+    "english": ["tomato"],
+    "hiragana": ["トマト"],
+    "mnemonics": "Remember 'tomato' by picturing a 'tomato' saying 'to-ma-to', emphasizing each syllable."
+  },
+  "箸": {
+    "english": ["chopsticks"],
+    "hiragana": ["はし"],
+    "mnemonics": "Think of 'hashi' as 'ha-she', she has 'chopsticks' in her hand."
+  },
+  "パーティー": {
+    "english": ["party"],
+    "hiragana": ["パーティー"],
+    "mnemonics": "Imagine 'party' as 'pa-tea', where everyone brings tea to the 'party'."
+  },
+  "バーベキュー": {
+    "english": ["barbecue"],
+    "hiragana": ["バーベキュー"],
+    "mnemonics": "Envision 'barbecue' as 'bar-be-cue', where the bar is the cue to start the 'barbecue'."
+  },
+  "ホームステイ": {
+    "english": ["homestay; living with a local family"],
+    "hiragana": ["ホームステイ"],
+    "mnemonics": "Think of 'homestay' as 'home-stay', staying at a home away from home."
+  },
+  "お風呂": {
+    "english": ["bath"],
+    "hiragana": ["おふる"],
+    "mnemonics": "Imagine 'ofuro' as 'oh-furrow', relaxing in a bath that washes away the day's 'furrows'."
+  },
+  "スペイン": {
+    "english": ["Spain"],
+    "hiragana": ["スペイン"],
+    "mnemonics": "Remember 'Spain' by thinking of 'supein' as 's-pain', the excitement of exploring Spain without the pain of travel."
+  },
+  "何か": {
+    "english": ["something"],
+    "hiragana": ["なにか"],
+    "mnemonics": "Think of 'nanika' as 'nanny-ka', something a nanny might ask about what you want to do."
+  },
+  "上手": {
+    "english": ["skillful; good at..."],
+    "hiragana": ["じょうず"],
+    "mnemonics": "Imagine 'jouzu' as 'Joe's zoo', where Joe is skillful at managing a zoo."
+  },
+  "下手": {
+    "english": ["clumsy; poor at..."],
+    "hiragana": ["へた"],
+    "mnemonics": "Picture 'heta' as 'he-ta(p)', clumsily trying to fix a tap but failing."
+  },
+  "有名": {
+    "english": ["famous"],
+    "hiragana": ["ゆうめい"],
+    "mnemonics": "Think of 'yuumei' as 'you-may', you may know this person because they are 'famous'."
+  },
+  "洗う": {
+    "english": ["to wash"],
+    "hiragana": ["あらう"],
+    "mnemonics": "Imagine 'arau' as 'a-row', lining up all the dishes to 'wash' them."
+  },
+  "言う": {
+    "english": ["to say"],
+    "hiragana": ["いう"],
+    "mnemonics": "Think of 'iu' as 'ee-woo', the sound you make when you're about to 'say' something."
+  },
+  "要る": {
+    "english": ["to need"],
+    "hiragana": ["いる"],
+    "mnemonics": "Envision 'iru' as 'I rue', regretting not having what you 'need'."
+  },
+  "遅くなる": {
+    "english": ["to be late"],
+    "hiragana": ["おそくなる"],
+    "mnemonics": "Picture 'osokunaru' as 'oh-so-ku-nar-row', rowing so slowly that you 'be late'."
+  },
+  "お風呂に入る": {
+    "english": ["to take a bath"],
+    "hiragana": ["おふろにはいる"],
+    "mnemonics": "Imagine 'ofuro ni hairu' as 'oh-furrow knee higher', stepping higher with your knee into the bath."
+  },
+  "思う": {
+    "english": ["to think"],
+    "hiragana": ["おもう"],
+    "mnemonics": "Think of 'omou' as 'oh-moo', pondering deeply like a cow 'moo-ing' in thought."
+  },
+  "切る": {
+    "english": ["to cut"],
+    "hiragana": ["きる"],
+    "mnemonics": "Imagine 'kiru' as 'key-rue', rueing the day you had to 'cut' with a key because no scissors were available."
+  },
+  "作る": {
+    "english": ["to make"],
+    "hiragana": ["つくる"],
+    "mnemonics": "Picture 'tsukuru' as 't's-cool-rue', a cool street where everything you want to 'make' comes true."
+  },
+  "降る": {
+    "english": ["rain falls; snow falls"],
+    "hiragana": ["（あめ・ゆきが）ふる"],
+    "mnemonics": "Imagine 'furu' as 'fur-roo', where rain or snow 'falls' like fur from the sky."
+  },
+  "持っていく": {
+    "english": ["to take (a thing)"],
+    "hiragana": ["もっていく"],
+    "mnemonics": "Think of 'motteiku' as 'mote-eek-u', carrying something important with an 'eek' of concern."
+  },
+  "捨てる": {
+    "english": ["to throw away"],
+    "hiragana": ["すてる"],
+    "mnemonics": "Envision 'suteru' as 'sue-terr', suing the clutter by 'throwing away' what you don't need."
+  },
+  "始める": {
+    "english": ["to begin"],
+    "hiragana": ["はじめる"],
+    "mnemonics": "Imagine 'hajimeru' as 'hajimaru', the starting line where you 'begin' a race."
+  },
+  "運転する": {
+    "english": ["to drive"],
+    "hiragana": ["うんてんする"],
+    "mnemonics": "Think of 'unten suru' as 'un-ten-sure', being sure when you 'drive' under ten (speed limit)."
+  },
+  "洗濯する": {
+    "english": ["to do laundry"],
+    "hiragana": ["せんたくする"],
+    "mnemonics": "Picture 'sentaku suru' as 'send-taku-sure', sending clothes to be sure they are 'laundry' cleaned."
+  },
+  "掃除する": {
+    "english": ["to clean"],
+    "hiragana": ["そうじする"],
+    "mnemonics": "Imagine 'souji suru' as 'so-gee-sure', being sure to 'clean' so gee it sparkles."
+  },
+  "料理する": {
+    "english": ["to cook"],
+    "hiragana": ["りょうりする"],
+    "mnemonics": "Think of 'ryouri suru' as 'rye-ori-sure', being sure to 'cook' the rye or any ingredient perfectly."
+  },
+  "うん": {
+    "english": ["uh-huh; yes"],
+    "hiragana": ["うん"],
+    "mnemonics": "Remember 'un' as the sound of agreement, 'uh-huh', nodding your head in 'yes'."
+  },
+  "ううん": {
+    "english": ["uh-uh; no"],
+    "hiragana": ["ううん"],
+    "mnemonics": "Think of 'uun' as the sound of hesitation or denial, 'uh-uh', shaking your head in 'no'."
+  },
+  "いつも": {
+    "english": ["always"],
+    "hiragana": ["いつも"],
+    "mnemonics": "Imagine 'itsumo' as 'it's-mo', 'it's more' than often, it's 'always'."
+  },
+  "遅く": {
+    "english": ["(do something) late"],
+    "hiragana": ["おそく"],
+    "mnemonics": "Picture 'osoku' as 'oh-so-coo', doing things in a cool, relaxed manner, but 'late'."
+  },
+  "乾杯": {
+    "english": ["Cheers! (a toast)"],
+    "hiragana": ["かんぱい"],
+    "mnemonics": "Envision 'kanpai' as 'can-pie', raising a can to toast before enjoying a pie, saying 'Cheers!'."
+  },
+  "みんなで": {
+    "english": ["all (of the people) together"],
+    "hiragana": ["みんなで"],
+    "mnemonics": "Think of 'minnade' as 'minna-day', a day where 'all (of the people) together' celebrate."
+  },
+  "残念": {
+    "english": ["That's too bad."],
+    "hiragana": ["ざんねん"],
+    "mnemonics": "Imagine 'zannen' as 'zan-nen', feeling 'That's too bad' when plans go 'zan' (completely) wrong."
+  },
+  "まだ": {
+    "english": ["not...yet"],
+    "hiragana": ["まだ"],
+    "mnemonics": "Think of 'mada' as 'ma-da', 'ma' (mother) saying 'da (there)'s still time', implying 'not...yet'."
+  },
+  "について": {
+    "english": ["about...; concerning..."],
+    "hiragana": ["～について"],
+    "mnemonics": "Visualize 'ni tsuite' as 'knee-to-it', attaching information directly to the topic, 'about...; concerning...'."
+  },
+  "度": {
+    "english": ["...degrees (temperature)"],
+    "hiragana": ["～ど"],
+    "mnemonics": "Remember 'do' as 'dough', which rises a certain 'degree' in temperature when baking."
+  },
+  "どう": {
+    "english": ["how"],
+    "hiragana": ["どう"],
+    "mnemonics": "Think of 'dou' as 'dough', questioning 'how' it will rise or change shape when you bake it."
+  }
+}

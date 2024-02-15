@@ -78,5 +78,15 @@
     "hiragana": ["かき"],
     "english": ["writing"],
     "mnemonics": "The kanji 書 can be visualized as a hand (扌) holding a brush on the left, poised above a page, ready to 'write' the strokes that make up the character. Imagine the lines and the dot as the strokes you're writing down, capturing the essence of putting thoughts into words."
+  },
+  "生活": {
+    "hiragana": ["せいかつ"],
+    "english": ["life", "lifestyle"],
+    "mnemonics": "The kanji 生 (life) combined with 活 (activity) paints a picture of daily activities or the way of life. Imagine 生 as the beginning of life, where everything starts, and 活 as the active, buzzing energy that sustains it. Together, they represent the ongoing, vibrant process of living — from the food we eat, the work we do, to the rest we take."
+  },
+  "大切": {
+    "hiragana": ["たいせつ"],
+    "english": ["important", "precious"],
+    "mnemonics": "Visualize 大 as something 'big' or 'great' and 切 as 'to cut' or 'to decide'. Together, they imply something so significant that it stands out or 'cuts' through everything else, marking its importance. Think of 大切 as identifying what is truly 'great' and 'essential' in your life, distinguishing what matters most amidst the noise and clutter."
   }
 }
