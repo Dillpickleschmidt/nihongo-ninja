@@ -6,7 +6,7 @@ export type Json =
   | { [key: string]: Json | undefined }
   | Json[]
 
-export interface Database {
+export type Database = {
   public: {
     Tables: {
       card: {
@@ -51,13 +51,31 @@ export interface Database {
         }
         Relationships: [
           {
-            foreignKeyName: "fk_note"
+            foreignKeyName: "card_nid_fkey"
             columns: ["nid"]
             isOneToOne: true
             referencedRelation: "note"
             referencedColumns: ["nid"]
           }
         ]
+      }
+      new_record_logs: {
+        Row: {
+          created_at: string | null
+          id: number
+          record_data: Json | null
+        }
+        Insert: {
+          created_at?: string | null
+          id?: number
+          record_data?: Json | null
+        }
+        Update: {
+          created_at?: string | null
+          id?: number
+          record_data?: Json | null
+        }
+        Relationships: []
       }
       note: {
         Row: {
@@ -68,7 +86,7 @@ export interface Database {
           question: string
           source: string
           sourceid: string | null
-          uid: string
+          user_id: string
         }
         Insert: {
           answer?: string
@@ -78,7 +96,7 @@ export interface Database {
           question?: string
           source?: string
           sourceid?: string | null
-          uid: string
+          user_id: string
         }
         Update: {
           answer?: string
@@ -88,11 +106,11 @@ export interface Database {
           question?: string
           source?: string
           sourceid?: string | null
-          uid?: string
+          user_id?: string
         }
         Relationships: [
           {
-            foreignKeyName: "fk_card"
+            foreignKeyName: "note_cid_fkey"
             columns: ["cid"]
             isOneToOne: false
             referencedRelation: "card"
@@ -134,7 +152,7 @@ export interface Database {
             columns: ["user_id"]
             isOneToOne: false
             referencedRelation: "users"
-            referencedColumns: ["uid"]
+            referencedColumns: ["user_id"]
           }
         ]
       }
@@ -211,28 +229,28 @@ export interface Database {
       }
       users: {
         Row: {
-          created_at: string
-          email: string
-          name: string
-          oauthtype: string
-          role: string
-          uid: string
+          created_at: string | null
+          email: string | null
+          name: string | null
+          oauthtype: string | null
+          role: string | null
+          user_id: string
         }
         Insert: {
-          created_at?: string
-          email: string
-          name: string
-          oauthtype?: string
-          role: string
-          uid?: string
+          created_at?: string | null
+          email?: string | null
+          name?: string | null
+          oauthtype?: string | null
+          role?: string | null
+          user_id?: string
         }
         Update: {
-          created_at?: string
-          email?: string
-          name?: string
-          oauthtype?: string
-          role?: string
-          uid?: string
+          created_at?: string | null
+          email?: string | null
+          name?: string | null
+          oauthtype?: string | null
+          role?: string | null
+          user_id?: string
         }
         Relationships: []
       }
@@ -277,6 +295,15 @@ export interface Database {
       [_ in never]: never
     }
     Functions: {
+      fetch_notes_with_cards: {
+        Args: {
+          uid_param: string
+          state_param: string
+          review_date_param: string
+          take_limit_param: number
+        }
+        Returns: Json
+      }
       match_chapter_embeddings: {
         Args: {
           query_embedding: string

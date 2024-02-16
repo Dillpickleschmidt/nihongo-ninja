@@ -1,53 +1,44 @@
 import { redirect } from "next/navigation"
 import { createSupabaseServerComponentClient } from "../serverClient"
-import { createSupabaseBrowserClient } from "../browserClient"
 
 export async function readUserSession() {
-  const supabase = await createSupabaseServerComponentClient()
+  const supabase = createSupabaseServerComponentClient()
   return supabase.auth.getSession()
 }
 
-export function readLocalUserSession() {
-  const supabase = createSupabaseBrowserClient()
-  return supabase.auth.getSession()
-}
-
-export async function getUserUid() {
-  const supabase = await createSupabaseServerComponentClient()
-  const session = readUserSession()
-  if (!session) {
-    throw new Error("No active session")
-  }
-  const {
-    data: { user },
-  } = await supabase.auth.getUser()
-  if (!user) {
-    throw new Error("No user found")
-  }
-  const uid = user.id
-  return uid
-}
-
-export async function checkSession() {
+export async function readRedirectUserSession() {
   const { data } = await readUserSession()
   if (!data.session) {
     return redirect("/auth")
   }
 }
 
+export async function getUserUid() {
+  const supabase = createSupabaseServerComponentClient()
+  readRedirectUserSession()
+  const {
+    data: { user },
+  } = await supabase.auth.getUser()
+  if (!user) {
+    throw new Error("User not found")
+  }
+  const user_id = user.id
+  return user_id
+}
+
 export async function isAdmin(id?: string) {
-  const supabase = await createSupabaseServerComponentClient()
-  await checkSession()
-  let uid = undefined
+  const supabase = createSupabaseServerComponentClient()
+  await readUserSession()
+  let user_id = undefined
   if (!id) {
-    uid = await getUserUid() // Update uid value inside the if statement
+    user_id = await getUserUid() // Update uid value inside the if statement
   } else {
-    uid = id // Update uid value inside the else statement
+    user_id = id // Update uid value inside the else statement
   }
   const { data } = await supabase
     .from("users")
     .select("role")
-    .eq("uid", uid)
+    .eq("user_id", user_id)
     .single()
   return data?.role === "admin"
 }

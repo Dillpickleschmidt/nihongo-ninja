@@ -1,12 +1,12 @@
 "use server"
 
-import { getSupabase } from "@/lib/supabase/serverClient"
+import { createSupabaseServerClient } from "@/lib/supabase/serverClient"
 
 export async function signUpAndSignInWithEmailPassword(data: {
   email: string
   password: string
 }) {
-  const supabase = await getSupabase()
+  const supabase = createSupabaseServerClient()
 
   // Sign up the user
   const signUpResult = await supabase.auth.signUp({
@@ -35,7 +35,7 @@ export async function signInWithEmailPassword(data: {
   email: string
   password: string
 }) {
-  const supabase = await getSupabase()
+  const supabase = createSupabaseServerClient()
 
   // Sign in the user
   const signInResult = await supabase.auth.signInWithPassword({

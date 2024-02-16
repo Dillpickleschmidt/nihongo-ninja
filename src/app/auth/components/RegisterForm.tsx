@@ -2,9 +2,10 @@
 import React, { useEffect, useState } from "react"
 import Button from "@/components/Button"
 import { createSupabaseBrowserClient } from "@/lib/supabase/browserClient"
+import { readLocalUserSession } from "@/lib/supabase/user-session/localUserSession"
 import { useRouter } from "next/navigation"
-import { readLocalUserSession } from "@/lib/supabase/user-session/userSession"
 import { User } from "@supabase/supabase-js"
+import { z } from "zod"
 
 interface FormValues {
   email: string
@@ -12,33 +13,24 @@ interface FormValues {
   confirm: string
 }
 
-function validateForm(values: FormValues) {
-  const errors: Partial<FormValues> = {}
+const formSchema = z.object({
+  email: z.string().email("Invalid email format"),
+  password: z.string().min(6, "Password must be at least 6 characters"),
+  confirm: z.string().min(1, "Confirm password is required"),
+})
 
-  if (!values.email) {
-    errors.email = "Email is required"
-  } else if (!isValidEmail(values.email)) {
-    errors.email = "Invalid email format"
+type FormSchema = z.infer<typeof formSchema>
+
+function validateForm(values: FormSchema) {
+  try {
+    formSchema.parse(values)
+    return {}
+  } catch (error) {
+    if (error instanceof z.ZodError) {
+      return error.flatten().fieldErrors
+    }
+    throw error
   }
-
-  if (!values.password) {
-    errors.password = "Password is required"
-  } else if (values.password.length < 6) {
-    errors.password = "Password must be at least 6 characters"
-  }
-
-  if (!values.confirm) {
-    errors.confirm = "Confirm password is required"
-  } else if (values.confirm !== values.password) {
-    errors.confirm = "Passwords do not match"
-  }
-
-  return errors
-}
-
-function isValidEmail(email: string) {
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-  return emailRegex.test(email)
 }
 
 export default function RegisterComponent() {
@@ -86,34 +78,6 @@ export default function RegisterComponent() {
     if (data.session) {
       router.replace("/learn")
     }
-  }
-
-  const handleLogout = async () => {
-    await supabase.auth.signOut()
-    router.refresh()
-    setUser(null)
-  }
-
-  console.log({ loading, user })
-
-  if (loading) {
-    return <h1>loading..</h1>
-  }
-
-  if (user) {
-    return (
-      <div>
-        <h1 className="mb-4 text-xl font-bold text-gray-700 dark:text-gray-300">
-          You're already logged in
-        </h1>
-        <button
-          onClick={handleLogout}
-          className="w-full p-3 rounded-md bg-red-500 text-white hover:bg-red-600 focus:outline-none"
-        >
-          Logout
-        </button>
-      </div>
-    )
   }
 
   return (

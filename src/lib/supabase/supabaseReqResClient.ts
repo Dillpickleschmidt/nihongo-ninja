@@ -1,7 +1,11 @@
 import { createServerClient } from "@supabase/ssr"
-import { cookies } from "next/headers"
+import { NextResponse, type NextRequest } from "next/server"
+import { getCookie, setCookie } from "cookies-next"
 
-export function createSupabaseServerClient(serverComponent = false) {
+export default function createSupabaseReqResClient(
+  req: NextRequest,
+  res: NextResponse
+) {
   return createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
@@ -9,23 +13,17 @@ export function createSupabaseServerClient(serverComponent = false) {
       cookies: {
         get(name) {
           //return cookie with the name 'name' here
-          return cookies().get(name)?.value
+          return getCookie(name, { req, res })
         },
         set(name, value, options) {
           // set the cookie
-          if (serverComponent) return
-          cookies().set(name, value, options)
+          setCookie(name, value, { req, res, ...options })
         },
         remove(name, options) {
           // delete the cookie
-          if (serverComponent) return
-          cookies().set(name, "", options)
+          setCookie(name, "", { req, res, ...options })
         },
       },
     }
   )
-}
-
-export function createSupabaseServerComponentClient() {
-  return createSupabaseServerClient(true)
 }

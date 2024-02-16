@@ -1,26 +1,34 @@
-import Button from "@/components/Button"
-import { createSupabaseBrowserClient } from "@/lib/supabase/browserClient" // Assuming this is a client-side usable version
+"use client"
+
 import { useRouter } from "next/navigation"
+import { createSupabaseBrowserClient } from "@/lib/supabase/browserClient"
 
 export default function SignOut() {
-  const router = useRouter() // Use useRouter for client-side navigation
-  const supabase = createSupabaseBrowserClient()
+  const router = useRouter()
+  async function HandleSignOut() {
+    const supabase = createSupabaseBrowserClient()
 
-  const signOut = async () => {
-    await supabase.auth.signOut()
-    router.push("/auth") // Use router.push for client-side redirects
+    let { error } = await supabase.auth.signOut()
+    if (error) {
+      throw new Error("Error signing out: " + error.message)
+    }
+    const {
+      data: { user },
+    } = await supabase.auth.getUser()
+    router.refresh()
   }
 
   return (
-    <form
-      onSubmit={(e) => {
-        e.preventDefault() // Prevent form submission
-        signOut()
-      }}
-    >
-      <Button className="w-full bg-indigo-500" type="submit">
-        Sign Out
-      </Button>
-    </form>
+    <div>
+      <h1 className="mb-4 text-xl font-bold text-gray-700 dark:text-gray-300">
+        You're already logged in
+      </h1>
+      <button
+        onClick={HandleSignOut}
+        className="w-full p-3 rounded-md bg-red-500 text-white hover:bg-red-600 focus:outline-none"
+      >
+        Logout
+      </button>
+    </div>
   )
 }
