@@ -12,9 +12,6 @@ export default function SignOut() {
     if (error) {
       throw new Error("Error signing out: " + error.message)
     }
-    const {
-      data: { user },
-    } = await supabase.auth.getUser()
     router.refresh()
   }
 
