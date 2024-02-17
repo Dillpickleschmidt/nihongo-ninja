@@ -9,7 +9,7 @@ import { addNoteSchema } from "./addNoteSchema"
 
 type AddNoteType = z.infer<typeof addNoteSchema>
 
-export default function page() {
+export default function Page() {
   const formRef = useRef<HTMLFormElement>(null)
 
   const [validationError, setValidationError] =
