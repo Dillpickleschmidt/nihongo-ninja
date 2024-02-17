@@ -81,31 +81,31 @@ export type Database = {
         Row: {
           answer: string
           cid: number | null
+          created_by: string
           extend: Json | null
           nid: number
           question: string
-          source: string
-          sourceid: string | null
+          style: string | null
           user_id: string
         }
         Insert: {
           answer?: string
           cid?: number | null
+          created_by?: string
           extend?: Json | null
           nid?: number
           question?: string
-          source?: string
-          sourceid?: string | null
+          style?: string | null
           user_id: string
         }
         Update: {
           answer?: string
           cid?: number | null
+          created_by?: string
           extend?: Json | null
           nid?: number
           question?: string
-          source?: string
-          sourceid?: string | null
+          style?: string | null
           user_id?: string
         }
         Relationships: [

@@ -6,12 +6,14 @@ import { useRef, useState } from "react"
 import { ZodFormattedError, z } from "zod"
 // import { getUserEmail } from "@/lib/supabase/user-session/localUserSession"
 import { addNoteSchema } from "./addNoteSchema"
+import InputBox from "./InputBox"
 
 type AddNoteType = z.infer<typeof addNoteSchema>
 
 export default function Page() {
   const formRef = useRef<HTMLFormElement>(null)
 
+  const [showAdvancedAnswer, setShowAdvancedAnswer] = useState(false)
   const [validationError, setValidationError] =
     useState<ZodFormattedError<AddNoteType> | null>(null)
 
@@ -33,10 +35,10 @@ export default function Page() {
         <h1 className="text-5xl font-medium text-center mb-8">Add a note</h1>
         <form action={action} ref={formRef}>
           {/* <h2 className="mb-4">Add a flashcard to {user_email}'s deck.</h2> */}
-          <label className="text-[1.35rem] font-medium">Question</label>
-          <input
-            name="question"
-            className="mb-2 mt-[.125rem] w-full p-3 rounded-md border border-gray-700 bg-gray-800 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500"
+          <InputBox
+            required={true}
+            name="Question"
+            showAdvancedAnswer={showAdvancedAnswer}
           />
           {validationError?.question && (
             <p className="text-base text-red-400 mb-2">
@@ -50,12 +52,14 @@ export default function Page() {
               <input
                 type="checkbox"
                 name="advancedAnswer"
+                onClick={() => setShowAdvancedAnswer(!showAdvancedAnswer)}
                 className="mx-2 text-red-400 rounded ring-offset-gray-800 bg-gray-700 border-gray-600 cursor-pointer"
                 style={{ boxShadow: "none" }}
               />
             </label>
           </div>
           <input
+            placeholder={showAdvancedAnswer ? "Required" : ""}
             name="answer"
             className="mb-2 mt-[.125rem] w-full p-3 rounded-md border border-gray-700 bg-gray-800 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500"
           />
@@ -63,6 +67,17 @@ export default function Page() {
             <p className="text-base text-red-400 mb-2">
               {validationError.answer._errors.join(", ")}
             </p>
+          )}
+          {showAdvancedAnswer && (
+            <>
+              <InputBox name="Classification" />
+              <InputBox name="Part of Speech" />
+              <InputBox name="Example Sentence" />
+              <InputBox name="Example Sentence Translation" />
+              <InputBox name="Explanation" />
+              <InputBox name="Pronounciation" />
+              <InputBox name="Video" />
+            </>
           )}
           <div className="mt-2">
             <SubmitButton />

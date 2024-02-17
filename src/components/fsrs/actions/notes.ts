@@ -20,7 +20,7 @@ export async function addNote(formData: FormData) {
   const extend = null
   const user_id = await getUserID()
   const admin = await isAdmin(user_id)
-  const source = admin ? "NihongoNinja" : "User"
+  const created_by = admin ? "NihongoNinja" : user_id
 
   const supabase = createSupabaseServerClient()
   console.log(question + ", " + answer)
@@ -56,7 +56,7 @@ export async function addNote(formData: FormData) {
     else {
       const { data: newNote, error: createNoteError } = await supabase
         .from("note")
-        .insert([{ user_id, question, answer, extend, source }])
+        .insert([{ user_id, question, answer, extend, created_by }])
         .select()
         .single()
       if (createNoteError) {
