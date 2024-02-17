@@ -1,4 +1,7 @@
-import { checkSession, isAdmin } from "@/lib/supabase/user-session/userSession"
+import {
+  readRedirectUserSession,
+  isAdmin,
+} from "@/lib/supabase/user-session/userSession"
 import { BsDatabaseFillUp } from "react-icons/bs"
 import Button from "../../components/Button"
 
