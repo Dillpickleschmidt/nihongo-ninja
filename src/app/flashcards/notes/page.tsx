@@ -43,7 +43,18 @@ export default function page() {
               {validationError.question._errors.join(", ")}
             </p>
           )}
-          <label className="text-[1.35rem] font-medium">Answer</label>
+          <div className="w-full flex justify-between items-center">
+            <label className="text-[1.35rem] font-medium">Answer</label>
+            <label className="text-base flex items-center cursor-pointer origin-bottom-right hover:scale-[102%] ease-in duration-100 select-none">
+              <span className="hover:underline">Advanced Answer</span>
+              <input
+                type="checkbox"
+                name="advancedAnswer"
+                className="mx-2 text-red-400 rounded ring-offset-gray-800 bg-gray-700 border-gray-600 cursor-pointer"
+                style={{ boxShadow: "none" }}
+              />
+            </label>
+          </div>
           <input
             name="answer"
             className="mb-2 mt-[.125rem] w-full p-3 rounded-md border border-gray-700 bg-gray-800 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500"

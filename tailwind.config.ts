@@ -36,6 +36,7 @@ const config: Config = {
       addVariant("scrollbar-track", "&::-webkit-scrollbar-track")
       addVariant("scrollbar-thumb", "&::-webkit-scrollbar-thumb")
     },
+    require("@tailwindcss/forms"),
   ],
 }
 export default config
