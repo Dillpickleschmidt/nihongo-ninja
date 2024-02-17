@@ -13,9 +13,8 @@ export async function readRedirectUserSession() {
   }
 }
 
-export async function getUserUid() {
+export async function getUserID() {
   const supabase = createSupabaseServerComponentClient()
-  readRedirectUserSession()
   const {
     data: { user },
   } = await supabase.auth.getUser()
@@ -31,7 +30,7 @@ export async function isAdmin(id?: string) {
   await readUserSession()
   let user_id = undefined
   if (!id) {
-    user_id = await getUserUid() // Update uid value inside the if statement
+    user_id = await getUserID() // Update uid value inside the if statement
   } else {
     user_id = id // Update uid value inside the else statement
   }

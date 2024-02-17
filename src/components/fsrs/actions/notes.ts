@@ -2,24 +2,25 @@
 
 import { createSupabaseServerClient } from "@/lib/supabase/serverClient"
 import { createEmptyCardBySupabase } from "./fsrsToSupabase"
-import { getUserUid, isAdmin } from "@/lib/supabase/user-session/userSession"
-
-type AddNoteParams = {
-  question: string
-  answer: string
-  extend?: string
-  source: string
-  user_id: string
-}
+import { getUserID, isAdmin } from "@/lib/supabase/user-session/userSession"
+import { revalidatePath } from "next/cache"
+import { addNoteSchema } from "@/app/flashcards/notes/addNoteSchema"
 
 export async function addNote(formData: FormData) {
-  const question = formData.get("question") as string
-  const answer = formData.get("answer") as string
+  const { question, answer } = Object.fromEntries(formData)
+
+  const result = addNoteSchema.safeParse({ question, answer })
+  if (result.success === false) {
+    return { error: result.error.format() }
+  }
+
+  // const question = formData.get("question") as string
+  // const answer = formData.get("answer") as string
   // const extend = formData.get("extend") as string
   const extend = null
-  const user_id = await getUserUid()
-  const privelages = await isAdmin(user_id)
-  const source = privelages ? "NihongoNinja" : "User"
+  const user_id = await getUserID()
+  const admin = await isAdmin(user_id)
+  const source = admin ? "NihongoNinja" : "User"
 
   const supabase = createSupabaseServerClient()
   console.log(question + ", " + answer)
@@ -99,4 +100,5 @@ export async function addNote(formData: FormData) {
   } catch (error) {
     console.error("Error in addNote: ", error)
   }
+  revalidatePath("/flashcards/notes")
 }
