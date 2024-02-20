@@ -1,0 +1,77 @@
+{
+  "スキー": {
+    "english": ["ski", "skiing"],
+    "hiragana": ["すきー"],
+    "mnemonics": "Picture 'skiing' down snowy slopes, feeling the 'スキー' rush of cold air."
+  },
+  "お弁当": {
+    "english": ["boxed lunch"],
+    "hiragana": ["おべんとう"],
+    "mnemonics": "Imagine opening a 'bento' box to reveal a delicious 'boxed lunch' adventure."
+  },
+  "ピザ": {
+    "english": ["pizza"],
+    "hiragana": ["ぴざ"],
+    "mnemonics": "Think of 'pizza' slices as 'ピザ' pieces of a delicious pie chart."
+  },
+  "病気": {
+    "english": ["illness", "sickness"],
+    "hiragana": ["びょうき"],
+    "mnemonics": "Visualize 'sickness' as a '病気' dragon, to be defeated with rest and care."
+  },
+  "薬": {
+    "english": ["medicine"],
+    "hiragana": ["くすり"],
+    "mnemonics": "Imagine 'medicine' as a '薬' key unlocking the door to health."
+  },
+  "いい子": {
+    "english": ["good child", "good kid"],
+    "hiragana": ["いいこ"],
+    "mnemonics": "Picture a 'good child' shining brightly, embodying the 'いい子' ideal."
+  },
+  "色": {
+    "english": ["color"],
+    "hiragana": ["いろ"],
+    "mnemonics": "Envision the world in '色' (color), painting life's canvas with vibrant 'colors'."
+  },
+  "今度": {
+    "english": ["near future", "this time", "next time"],
+    "hiragana": ["こんど"],
+    "mnemonics": "Think of '今度' as a promise, a 'next time' filled with opportunities."
+  },
+  "先月": {
+    "english": ["last month"],
+    "hiragana": ["せんげつ"],
+    "mnemonics": "Imagine 'last month' as a '先月' boat sailing away into the past."
+  },
+  "去年": {
+    "english": ["last year"],
+    "hiragana": ["きょねん"],
+    "mnemonics": "Visualize 'last year' as a '去年' door closing, with memories stored behind it."
+  },
+  "青い": {
+    "english": ["blue"],
+    "hiragana": ["あおい"],
+    "mnemonics": "Picture the 'blue' sky, vast and endless, as '青い' freedom."
+  },
+  "赤い": {
+    "english": ["red"],
+    "hiragana": ["あかい"],
+    "mnemonics": "Imagine 'red' as the '赤い' passion of a blooming rose."
+  },
+  "黒い": {
+    "english": ["black"],
+    "hiragana": ["くろい"],
+    "mnemonics": "Think of 'black' as the '黒い' night, mysterious and deep."
+  },
+  "白い": {
+    "english": ["white"],
+    "hiragana": ["しろい"],
+    "mnemonics": "Envision 'white' as the '白い' purity of freshly fallen snow."
+  },
+  "寂しい": {
+    "english": ["lonely", "lonesome"],
+    "hiragana": ["さびしい"],
+    "mnemonics": "Picture 'loneliness' as a '寂しい' single leaf drifting on a silent lake."
+  }
+}

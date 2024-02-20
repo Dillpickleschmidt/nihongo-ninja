@@ -21,17 +21,17 @@
   },
   "メール": {
     "english": ["email"],
-    "hiragana": ["めーる"],
+    "hiragana": ["メール"],
     "mnemonics": "Think of 'mail' electronically zooming through the internet as 'メール'."
   },
   "ギター": {
     "english": ["guitar"],
-    "hiragana": ["ぎたー"],
+    "hiragana": ["ギター"],
     "mnemonics": "Picture a 'guitar' gently weeping, its strings echoing 'ギター' sounds."
   },
   "ピアノ": {
     "english": ["piano"],
-    "hiragana": ["ぴあの"],
+    "hiragana": ["ピアノ"],
     "mnemonics": "Piano sounds like 'piano', so it's easy to remember."
   },
   "コンサート": {
@@ -41,7 +41,7 @@
   },
   "チケット": {
     "english": ["ticket"],
-    "hiragana": ["ちけっと"],
+    "hiragana": ["チケット"],
     "mnemonics": "Ticket, chiketo, sound pretty similar?"
   },
   "歌舞伎": {
@@ -51,7 +51,7 @@
   },
   "スキー": {
     "english": ["ski", "skiing"],
-    "hiragana": ["すきー"],
+    "hiragana": ["スキー"],
     "mnemonics": "Picture 'skiing' down snowy slopes, feeling the 'スキー' rush of cold air."
   },
   "お弁当": {
@@ -61,7 +61,7 @@
   },
   "ピザ": {
     "english": ["pizza"],
-    "hiragana": ["ぴざ"],
+    "hiragana": ["ピザ"],
     "mnemonics": "Think of 'pizza' slices as 'ピザ' pieces of a delicious pie chart."
   },
   "病気": {
@@ -73,205 +73,5 @@
     "english": ["medicine"],
     "hiragana": ["くすり"],
     "mnemonics": "Imagine 'medicine' as a '薬' key unlocking the door to health."
-  },
-  "いい子": {
-    "english": ["good child", "good kid"],
-    "hiragana": ["いいこ"],
-    "mnemonics": "Picture a 'good child' shining brightly, embodying the 'いい子' ideal."
-  },
-  "色": {
-    "english": ["color"],
-    "hiragana": ["いろ"],
-    "mnemonics": "Envision the world in '色' (color), painting life's canvas with vibrant 'colors'."
-  },
-  "今度": {
-    "english": ["near future", "this time", "next time"],
-    "hiragana": ["こんど"],
-    "mnemonics": "Think of '今度' as a promise, a 'next time' filled with opportunities."
-  },
-  "先月": {
-    "english": ["last month"],
-    "hiragana": ["せんげつ"],
-    "mnemonics": "Imagine 'last month' as a '先月' boat sailing away into the past."
-  },
-  "去年": {
-    "english": ["last year"],
-    "hiragana": ["きょねん"],
-    "mnemonics": "Visualize 'last year' as a '去年' door closing, with memories stored behind it."
-  },
-  "青い": {
-    "english": ["blue"],
-    "hiragana": ["あおい"],
-    "mnemonics": "Picture the 'blue' sky, vast and endless, as '青い' freedom."
-  },
-  "赤い": {
-    "english": ["red"],
-    "hiragana": ["あかい"],
-    "mnemonics": "Imagine 'red' as the '赤い' passion of a blooming rose."
-  },
-  "黒い": {
-    "english": ["black"],
-    "hiragana": ["くろい"],
-    "mnemonics": "Think of 'black' as the '黒い' night, mysterious and deep."
-  },
-  "白い": {
-    "english": ["white"],
-    "hiragana": ["しろい"],
-    "mnemonics": "Envision 'white' as the '白い' purity of freshly fallen snow."
-  },
-  "寂しい": {
-    "english": ["lonely", "lonesome"],
-    "hiragana": ["さびしい"],
-    "mnemonics": "Picture 'loneliness' as a '寂しい' single leaf drifting on a silent lake."
-  },
-  "若い": {
-    "english": ["young"],
-    "hiragana": ["わかい"],
-    "mnemonics": "Imagine 'young' as the '若い' spring, full of life and new beginnings."
-  },
-  "意地悪": {
-    "english": ["mean", "mean-spirited", "malicious"],
-    "hiragana": ["いじわる"],
-    "mnemonics": "Think of someone 'mean' as having an '意地悪' twisted smile, hiding their true intent."
-  },
-  "踊る": {
-    "english": ["to dance"],
-    "hiragana": ["おどる"],
-    "mnemonics": "Picture yourself 'dancing' with joy, feet moving as if '踊る' on clouds."
-  },
-  "終わる": {
-    "english": ["something ends", "something finishes"],
-    "hiragana": ["おわる"],
-    "mnemonics": "Imagine a book 'ending', its '終わる' last page gently closing on the story."
-  },
-  "薬を飲む": {
-    "english": ["to take medicine"],
-    "hiragana": ["くすりをのむ"],
-    "mnemonics": "Visualize 'taking medicine' as swallowing a '薬を飲む' key to unlock health."
-  },
-  "人気がある": {
-    "english": ["to be popular"],
-    "hiragana": ["にんきがある"],
-    "mnemonics": "Think of 'being popular' as having a '人気がある' aura that attracts people like a magnet."
-  },
-  "始まる": {
-    "english": ["something begins", "something starts"],
-    "hiragana": ["はじまる"],
-    "mnemonics": "Envision 'beginning' a journey, the '始まる' road stretching out invitingly ahead."
-  },
-  "弾く": {
-    "english": ["to play (a string instrument or piano)"],
-    "hiragana": ["ひく"],
-    "mnemonics": "Picture 'playing' an instrument, your fingers 'ひく' dancing across the strings or keys."
-  },
-  "もらう": {
-    "english": ["to get from someone", "to receive from someone"],
-    "hiragana": ["もらう"],
-    "mnemonics": "Imagine 'receiving' a gift, the 'もらう' joy of unwrapping a surprise."
-  },
-  "覚える": {
-    "english": ["to memorize"],
-    "hiragana": ["おぼえる"],
-    "mnemonics": "Think of 'memorizing' as planting '覚える' seeds in the garden of your mind."
-  },
-  "出る": {
-    "english": ["to exit", "to appear", "to attend"],
-    "hiragana": ["でる"],
-    "mnemonics": "Visualize 'exiting' a door, stepping '出る' out into a new adventure."
-  },
-  "運動する": {
-    "english": ["to exercise"],
-    "hiragana": ["うんどうする"],
-    "mnemonics": "Picture 'exercising' as '運動する' energy flowing through your body, revitalizing you."
-  },
-  "散歩する": {
-    "english": ["to take a walk"],
-    "hiragana": ["さんぽする"],
-    "mnemonics": "Imagine 'taking a walk' as '散歩する' wandering through a storybook landscape."
-  },
-  "そう": {
-    "english": ["(I think) so"],
-    "hiragana": ["そう"],
-    "mnemonics": "Think of 'そう' as nodding in agreement, seeing things 'that way'."
-  },
-  "～から": {
-    "english": ["from..."],
-    "hiragana": ["から"],
-    "mnemonics": "Picture 'から' as the starting point of a journey or reason, the 'from' or 'because' of a story."
-  },
-  "～まで": {
-    "english": ["to (a place/a time)"],
-    "hiragana": ["まで"],
-    "mnemonics": "Imagine 'まで' as the finish line, the 'until' or 'to' point of arrival."
-  },
-  "是非": {
-    "english": ["by all means"],
-    "hiragana": ["ぜひ"],
-    "mnemonics": "Think of '是非' as an enthusiastic nod, 'certainly' going forward 'by all means'."
-  },
-  "ところで": {
-    "english": ["by the way"],
-    "hiragana": ["ところで"],
-    "mnemonics": "Picture 'ところで' as a casual turn in conversation, a 'by the way' moment of insight."
-  },
-  "みんな": {
-    "english": ["all"],
-    "hiragana": ["みんな"],
-    "mnemonics": "Envision 'everyone' gathered together, 'みんな' forming a circle of unity."
-  },
-  "もう": {
-    "english": ["already", "more"],
-    "hiragana": ["もう"],
-    "mnemonics": "Think of 'もう' as reaching a point, 'already' there or wanting 'more'."
-  },
-  "一つ": {
-    "english": ["one thing"],
-    "hiragana": ["ひとつ"],
-    "mnemonics": "Imagine 'one thing' as a '一つ' solitary star shining in the sky."
-  },
-  "二つ": {
-    "english": ["two things"],
-    "hiragana": ["ふたつ"],
-    "mnemonics": "Picture 'two things' as '二つ' companions journeying side by side."
-  },
-  "三つ": {
-    "english": ["three things"],
-    "hiragana": ["みっつ"],
-    "mnemonics": "Envision 'three things' as a '三つ' tripod, stable and balanced."
-  },
-  "四つ": {
-    "english": ["four things"],
-    "hiragana": ["よっつ"],
-    "mnemonics": "Think of 'four things' as '四つ' corners of a square, solid and secure."
-  },
-  "五つ": {
-    "english": ["five things"],
-    "hiragana": ["いつつ"],
-    "mnemonics": "Imagine 'five things' as '五つ' fingers on a hand, each one unique."
-  },
-  "六つ": {
-    "english": ["six things"],
-    "hiragana": ["むっつ"],
-    "mnemonics": "Picture 'six things' as '六つ' seeds, ready to grow into something more."
-  },
-  "七つ": {
-    "english": ["seven things"],
-    "hiragana": ["ななつ"],
-    "mnemonics": "Visualize 'seven things' as '七つ' colors of the rainbow, vibrant and full of life."
-  },
-  "八つ": {
-    "english": ["eight things"],
-    "hiragana": ["やっつ"],
-    "mnemonics": "Think of 'eight things' as '八つ' octopus legs, each moving with purpose."
-  },
-  "九つ": {
-    "english": ["nine things"],
-    "hiragana": ["ここのつ"],
-    "mnemonics": "Imagine 'nine things' as '九つ' planets orbiting in the solar system."
-  },
-  "十": {
-    "english": ["ten things"],
-    "hiragana": ["とお"],
-    "mnemonics": "Envision 'ten' as '十' perfect score, a complete set united."
   }
 }

@@ -1,0 +1,77 @@
+{
+  "～まで": {
+    "english": ["to (a place/a time)"],
+    "hiragana": ["まで"],
+    "mnemonics": "Imagine 'まで' as the finish line, the 'until' or 'to' point of arrival."
+  },
+  "是非": {
+    "english": ["by all means"],
+    "hiragana": ["ぜひ"],
+    "mnemonics": "Think of '是非' as an enthusiastic nod, 'certainly' going forward 'by all means'."
+  },
+  "ところで": {
+    "english": ["by the way"],
+    "hiragana": ["ところで"],
+    "mnemonics": "Picture 'ところで' as a casual turn in conversation, a 'by the way' moment of insight."
+  },
+  "みんな": {
+    "english": ["all"],
+    "hiragana": ["みんな"],
+    "mnemonics": "Envision 'everyone' gathered together, 'みんな' forming a circle of unity."
+  },
+  "もう": {
+    "english": ["already", "more"],
+    "hiragana": ["もう"],
+    "mnemonics": "Think of 'もう' as reaching a point, 'already' there or wanting 'more'."
+  },
+  "一つ": {
+    "english": ["one thing"],
+    "hiragana": ["ひとつ"],
+    "mnemonics": "Imagine 'one thing' as a '一つ' solitary star shining in the sky."
+  },
+  "二つ": {
+    "english": ["two things"],
+    "hiragana": ["ふたつ"],
+    "mnemonics": "Picture 'two things' as '二つ' companions journeying side by side."
+  },
+  "三つ": {
+    "english": ["three things"],
+    "hiragana": ["みっつ"],
+    "mnemonics": "Envision 'three things' as a '三つ' tripod, stable and balanced."
+  },
+  "四つ": {
+    "english": ["four things"],
+    "hiragana": ["よっつ"],
+    "mnemonics": "Think of 'four things' as '四つ' corners of a square, solid and secure."
+  },
+  "五つ": {
+    "english": ["five things"],
+    "hiragana": ["いつつ"],
+    "mnemonics": "Imagine 'five things' as '五つ' fingers on a hand, each one unique."
+  },
+  "六つ": {
+    "english": ["six things"],
+    "hiragana": ["むっつ"],
+    "mnemonics": "Picture 'six things' as '六つ' seeds, ready to grow into something more."
+  },
+  "七つ": {
+    "english": ["seven things"],
+    "hiragana": ["ななつ"],
+    "mnemonics": "Visualize 'seven things' as '七つ' colors of the rainbow, vibrant and full of life."
+  },
+  "八つ": {
+    "english": ["eight things"],
+    "hiragana": ["やっつ"],
+    "mnemonics": "Think of 'eight things' as '八つ' octopus legs, each moving with purpose."
+  },
+  "九つ": {
+    "english": ["nine things"],
+    "hiragana": ["ここのつ"],
+    "mnemonics": "Imagine 'nine things' as '九つ' planets orbiting in the solar system."
+  },
+  "十": {
+    "english": ["ten things"],
+    "hiragana": ["とお"],
+    "mnemonics": "Envision 'ten' as '十' perfect score, a complete set united."
+  }
+}

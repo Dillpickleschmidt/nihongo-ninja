@@ -1,0 +1,77 @@
+{
+  "若い": {
+    "english": ["young"],
+    "hiragana": ["わかい"],
+    "mnemonics": "Imagine 'young' as the '若い' spring, full of life and new beginnings."
+  },
+  "意地悪": {
+    "english": ["mean", "mean-spirited", "malicious"],
+    "hiragana": ["いじわる"],
+    "mnemonics": "Think of someone 'mean' as having an '意地悪' twisted smile, hiding their true intent."
+  },
+  "踊る": {
+    "english": ["to dance"],
+    "hiragana": ["おどる"],
+    "mnemonics": "Picture yourself 'dancing' with joy, feet moving as if '踊る' on clouds."
+  },
+  "終わる": {
+    "english": ["something ends", "something finishes"],
+    "hiragana": ["おわる"],
+    "mnemonics": "Imagine a book 'ending', its '終わる' last page gently closing on the story."
+  },
+  "薬を飲む": {
+    "english": ["to take medicine"],
+    "hiragana": ["くすりをのむ"],
+    "mnemonics": "Visualize 'taking medicine' as swallowing a '薬を飲む' key to unlock health."
+  },
+  "人気がある": {
+    "english": ["to be popular"],
+    "hiragana": ["にんきがある"],
+    "mnemonics": "Think of 'being popular' as having a '人気がある' aura that attracts people like a magnet."
+  },
+  "始まる": {
+    "english": ["something begins", "something starts"],
+    "hiragana": ["はじまる"],
+    "mnemonics": "Envision 'beginning' a journey, the '始まる' road stretching out invitingly ahead."
+  },
+  "弾く": {
+    "english": ["to play (a string instrument or piano)"],
+    "hiragana": ["ひく"],
+    "mnemonics": "Picture 'playing' an instrument, your fingers 'ひく' dancing across the strings or keys."
+  },
+  "もらう": {
+    "english": ["to get from someone", "to receive from someone"],
+    "hiragana": ["もらう"],
+    "mnemonics": "Imagine 'receiving' a gift, the 'もらう' joy of unwrapping a surprise."
+  },
+  "覚える": {
+    "english": ["to memorize"],
+    "hiragana": ["おぼえる"],
+    "mnemonics": "Think of 'memorizing' as planting '覚える' seeds in the garden of your mind."
+  },
+  "出る": {
+    "english": ["to exit", "to appear", "to attend"],
+    "hiragana": ["でる"],
+    "mnemonics": "Visualize 'exiting' a door, stepping '出る' out into a new adventure."
+  },
+  "運動する": {
+    "english": ["to exercise"],
+    "hiragana": ["うんどうする"],
+    "mnemonics": "Picture 'exercising' as '運動する' energy flowing through your body, revitalizing you."
+  },
+  "散歩する": {
+    "english": ["to take a walk"],
+    "hiragana": ["さんぽする"],
+    "mnemonics": "Imagine 'taking a walk' as '散歩する' wandering through a storybook landscape."
+  },
+  "そう": {
+    "english": ["(I think) so"],
+    "hiragana": ["そう"],
+    "mnemonics": "Think of 'そう' as nodding in agreement, seeing things 'that way'."
+  },
+  "～から": {
+    "english": ["from..."],
+    "hiragana": ["から"],
+    "mnemonics": "Picture 'から' as the starting point of a journey or reason, the 'from' or 'because' of a story."
+  }
+}
