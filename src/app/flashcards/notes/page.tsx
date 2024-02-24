@@ -4,7 +4,7 @@ import AddNoteForm from "./components/AddNoteForm"
 import JapaneseFont from "@/components/text/JapaneseFont"
 import Button from "@/components/Button"
 
-export default function page() {
+export default function Page() {
   const [questionText, setQuestionText] = useState("")
   const [answer1Text, setAnswer1Text] = useState("")
   const [answer2Text, setAnswer2Text] = useState("")
