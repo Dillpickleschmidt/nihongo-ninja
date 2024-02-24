@@ -1,88 +1,104 @@
 "use client"
-
-import { addNote } from "@/components/fsrs/actions/notes"
-import { SubmitButton } from "./SubmitButton"
-import { useRef, useState } from "react"
-import { ZodFormattedError, z } from "zod"
-// import { getUserEmail } from "@/lib/supabase/user-session/localUserSession"
+import { useState } from "react"
+import { useForm } from "react-hook-form"
+import { z } from "zod"
+import { zodResolver } from "@hookform/resolvers/zod"
 import { addNoteSchema } from "./addNoteSchema"
-import InputBox from "./InputBox"
+import { addNote } from "@/components/fsrs/actions/notes"
+import AddNoteForm from "./AddNoteForm"
+import JapaneseFont from "@/components/text/JapaneseFont"
+import Button from "@/components/Button"
 
 type AddNoteType = z.infer<typeof addNoteSchema>
 
-export default function Page() {
-  const formRef = useRef<HTMLFormElement>(null)
-
-  const [showAdvancedAnswer, setShowAdvancedAnswer] = useState(false)
-  const [validationError, setValidationError] =
-    useState<ZodFormattedError<AddNoteType> | null>(null)
-
-  // handle form submission
-  async function action(data: FormData) {
-    const result = await addNote(data) // Result would return a validation error if there is one.
-    if (result?.error) {
-      setValidationError(result.error)
-    } else {
-      setValidationError(null)
-      // reset form
-      formRef.current?.reset()
-    }
-  }
+export default function page({}: React.FormHTMLAttributes<HTMLFormElement>) {
+  const [questionText, setQuestionText] = useState("")
+  const [answer1Text, setAnswer1Text] = useState("")
+  const [answer2Text, setAnswer2Text] = useState("")
+  const [answer3Text, setAnswer3Text] = useState("")
+  const [descriptionText, setDescriptionText] = useState("")
 
   return (
-    <div className="w-full flex justify-center text-xl">
-      <div className="mt-48 w-[740px]">
+    <div className="flex flex-col items-center justify-center text-xl text-[#F8F5E9]">
+      <div className="mt-24 w-[740px]">
         <h1 className="text-5xl font-medium text-center mb-8">Add a note</h1>
-        <form action={action} ref={formRef}>
-          {/* <h2 className="mb-4">Add a flashcard to {user_email}'s deck.</h2> */}
-          <InputBox
-            required={true}
-            name="Question"
-            showAdvancedAnswer={showAdvancedAnswer}
-          />
-          {validationError?.question && (
-            <p className="text-base text-red-400 mb-2">
-              {validationError.question._errors.join(", ")}
-            </p>
-          )}
-          <div className="w-full flex justify-between items-center">
-            <label className="text-[1.35rem] font-medium">Answer</label>
-            <label className="text-base flex items-center cursor-pointer origin-bottom-right hover:scale-[102%] ease-in duration-100 select-none">
-              <span className="hover:underline">Advanced Answer</span>
-              <input
-                type="checkbox"
-                name="advancedAnswer"
-                onClick={() => setShowAdvancedAnswer(!showAdvancedAnswer)}
-                className="mx-2 text-red-400 rounded ring-offset-gray-800 bg-gray-700 border-gray-600 cursor-pointer"
-                style={{ boxShadow: "none" }}
-              />
-            </label>
+        <AddNoteForm
+          setQuestionText={setQuestionText}
+          setAnswer1Text={setAnswer1Text}
+          setAnswer2Text={setAnswer2Text}
+          setAnswer3Text={setAnswer3Text}
+          setDescriptionText={setDescriptionText}
+        />
+      </div>
+      <div className="mt-12 mb-24 2xl:w-[50%] xl:w-[75%] px-12 py-10 bg-[#222222] rounded-[10px] border-2 border-neutral-700 border-dashed">
+        <div className="min-h-[500px] flex flex-col justify-between items-center">
+          <div className="flex flex-col justify-between mb-2 mx-16">
+            <h1 className="mt-16 mb-8 text-center text-8xl pb-8 px-12 border-b border-white border-opacity-20">
+              <JapaneseFont>{questionText}</JapaneseFont>
+            </h1>
+            <div>
+              <h2 className="text-center text-5xl">
+                <JapaneseFont>
+                  <span className="font-medium">{answer1Text}</span> -{" "}
+                  <span className="text-[2.5rem]">{answer2Text}</span>
+                </JapaneseFont>
+              </h2>
+            </div>
           </div>
-          <input
-            placeholder={showAdvancedAnswer ? "Required" : ""}
-            name="answer"
-            className="mb-2 mt-[.125rem] w-full p-3 rounded-md border border-gray-700 bg-gray-800 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500"
-          />
-          {validationError?.answer && (
-            <p className="text-base text-red-400 mb-2">
-              {validationError.answer._errors.join(", ")}
-            </p>
-          )}
-          {showAdvancedAnswer && (
-            <>
-              <InputBox name="Classification" />
-              <InputBox name="Part of Speech" />
-              <InputBox name="Example Sentence" />
-              <InputBox name="Example Sentence Translation" />
-              <InputBox name="Explanation" />
-              <InputBox name="Pronounciation" />
-              <InputBox name="Video" />
-            </>
-          )}
-          <div className="mt-2">
-            <SubmitButton />
+          <div className="flex flex-col gap-6 mt-2">
+            <div className="flex justify-center gap-6">
+              <div className="w-12 flex justify-center text-sm font-light py-2 px-4 rounded-2xl underline decoration-1 underline-offset-4 bg-sky-400">
+                30
+              </div>
+              <div className="w-12 flex justify-center text-sm font-light py-2 px-4 rounded-2xl decoration-1 underline-offset-4 bg-red-500">
+                4
+              </div>
+              <div className="w-12 flex justify-center text-sm font-light py-2 px-4 rounded-2xl decoration-1 underline-offset-4 bg-[#42c672]">
+                1
+              </div>
+            </div>
+            <div className="flex justify-center gap-6">
+              <Button
+                variant="card"
+                className="text-base py-3 px-5 shadow-md rounded-lg text-black font-semibold bg-red-500"
+              >
+                <div className="flex flex-row items-center">
+                  Again
+                  <span className="ml-2 w-[21px] h-[21px] bg-white bg-opacity-40 rounded-md inline-flex items-center justify-center text-sm">
+                    1
+                  </span>
+                </div>
+              </Button>
+              <Button
+                variant="card"
+                className="text-base py-3 px-5 shadow-md rounded-lg text-black font-semibold bg-yellow-400"
+              >
+                Hard
+                <span className="ml-2 w-[21px] h-[21px] bg-white bg-opacity-55 rounded-md inline-flex items-center justify-center text-sm">
+                  2
+                </span>
+              </Button>
+              <Button
+                variant="card"
+                className="text-base py-3 px-5 shadow-md rounded-lg text-black font-semibold bg-sky-400"
+              >
+                Good
+                <span className="ml-2 w-[21px] h-[21px] bg-white bg-opacity-45 rounded-md inline-flex items-center justify-center text-sm">
+                  3
+                </span>
+              </Button>
+              <Button
+                variant="card"
+                className="text-base py-3 px-5 shadow-md rounded-lg text-black font-semibold bg-[#42c672]"
+              >
+                Easy
+                <span className="ml-2 w-[21px] h-[21px] bg-white bg-opacity-40 rounded-md inline-flex items-center justify-center text-sm">
+                  4
+                </span>
+              </Button>
+            </div>
           </div>
-        </form>
+        </div>
       </div>
     </div>
   )

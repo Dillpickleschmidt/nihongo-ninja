@@ -5,9 +5,12 @@ import { createEmptyCardBySupabase } from "./fsrsToSupabase"
 import { getUserID, isAdmin } from "@/lib/supabase/user-session/userSession"
 import { revalidatePath } from "next/cache"
 import { addNoteSchema } from "@/app/flashcards/notes/addNoteSchema"
+import { z } from "zod"
 
-export async function addNote(formData: FormData) {
-  const { question, answer } = Object.fromEntries(formData)
+type AddNoteType = z.infer<typeof addNoteSchema>
+
+export async function addNote(formData: AddNoteType) {
+  const { question, answer } = formData
 
   const result = addNoteSchema.safeParse({ question, answer })
   if (result.success === false) {

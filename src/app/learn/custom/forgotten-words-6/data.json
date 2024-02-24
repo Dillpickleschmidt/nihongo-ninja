@@ -88,5 +88,15 @@
     "hiragana": ["たいせつ"],
     "english": ["important", "precious"],
     "mnemonics": "Visualize 大 as something 'big' or 'great' and 切 as 'to cut' or 'to decide'. Together, they imply something so significant that it stands out or 'cuts' through everything else, marking its importance. Think of 大切 as identifying what is truly 'great' and 'essential' in your life, distinguishing what matters most amidst the noise and clutter."
+  },
+  "なる": {
+    "hiragana": ["なる"],
+    "english": ["to become", "to turn into"],
+    "mnemonics": "The verb なる can be remembered by visualizing a transformation or a change, where something 'becomes' or 'turns into' something else. Imagine a scene where a caterpillar 'becomes' a butterfly, or a seed 'turns into' a tree, symbolizing the process of growth and change."
+  },
+  "もう亡くなっています": {
+    "hiragana": ["もうなくなっています"],
+    "english": ["He/She has already passed away"],
+    "mnemonics": "The kanji 亡 (deceased) combined with なくなっています (to have passed away) paints a picture of someone who has already 'passed away.' Imagine the kanji 亡 as a person lying down, symbolizing someone who has 'passed away' and is no longer with us."
   }
 }

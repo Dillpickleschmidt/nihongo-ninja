@@ -2,36 +2,59 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 255, 255, 255;
-  --background-rgb: 25, 25, 25;
+@layer base {
+  :root {
+    --background: 0 0% 9.8%;
+    --foreground: 48 52% 100%;
+
+    --muted: 223 47% 11%;
+    --muted-foreground: 0 0% 40%;
+
+    --accent: 0 0% 20%;
+    --accent-foreground: 210 40% 98%;
+
+    --popover: 224 71% 4%;
+    --popover-foreground: 215 20.2% 65.1%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+
+    --card: 0 0% 13%;
+    --card-foreground: 48 52% 94%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 0 0% 0%;
+
+    --secondary: 222.2 47.4% 11.2%;
+    --secondary-foreground: 210 40% 98%;
+
+    --destructive: 0 91% 65%;
+    --destructive-foreground: 210 40% 98%;
+
+    --ring: 0 0% 40%;
+
+    --radius: 0.5rem;
+  }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: rgb(var(--background-rgb));
-}
-
-.notes {
-  background-attachment: local;
-  background-image: linear-gradient(to right, #fff9f1 10px, transparent 10px),
-    linear-gradient(to left, #fff9f1 10px, transparent 10px),
-    repeating-linear-gradient(
-      #fff9f1,
-      #fff9f1 60px,
-      #ccc 60px,
-      #ccc 61px,
-      #fff9f1 61px
-    );
-}
-
-.loading-box {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: #f0f8ff;
-  border-radius: 12px;
-  background: linear-gradient(145deg, #e3e3e3, #bfbfbf);
-  box-shadow: 6px 6px 12px #aeaeae, -6px -6px 12px #f2f2f2;
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  h1 {
+    @apply text-4xl lg:text-7xl;
+  }
+  h2 {
+    @apply text-2xl lg:text-4xl;
+  }
+  h3 {
+    @apply text-xl lg:text-3xl;
+  }
+  h4 {
+    @apply text-xl;
+  }
 }

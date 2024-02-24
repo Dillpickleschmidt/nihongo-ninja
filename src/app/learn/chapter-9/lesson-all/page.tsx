@@ -13,7 +13,7 @@ export default function page() {
         </div>
         <div className="mt-24 mx-12 !mb-0 flex flex-row justify-end">
           <Button
-            link="/learn/chapter-9/vocab-learn-lesson-all-kanji"
+            link="/learn/chapter-9/vocab-learn-lesson-all"
             autoFocus={true}
           >
             Test your knowledge {"->"}

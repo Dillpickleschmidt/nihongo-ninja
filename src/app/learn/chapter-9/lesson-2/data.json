@@ -1,7 +1,7 @@
 {
   "スキー": {
     "english": ["ski", "skiing"],
-    "hiragana": ["すきー"],
+    "hiragana": ["スキー"],
     "mnemonics": "Picture 'skiing' down snowy slopes, feeling the 'スキー' rush of cold air."
   },
   "お弁当": {
@@ -11,7 +11,7 @@
   },
   "ピザ": {
     "english": ["pizza"],
-    "hiragana": ["ぴざ"],
+    "hiragana": ["ピザ"],
     "mnemonics": "Think of 'pizza' slices as 'ピザ' pieces of a delicious pie chart."
   },
   "病気": {

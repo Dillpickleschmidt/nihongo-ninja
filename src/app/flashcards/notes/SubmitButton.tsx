@@ -1,21 +1,23 @@
 "use client"
 
 import Button from "@/components/Button"
-import { useFormStatus } from "react-dom"
 
-export function SubmitButton() {
-  const { pending } = useFormStatus()
-
+export function SubmitButton({ isLoading }: { isLoading: boolean }) {
   return (
     <div className="h-full flex justify-between items-center">
       <div className="w-1/3"></div>
       <div className="w-1/3 flex justify-center">
-        <Button type="submit" disabled={pending} aria-disabled={pending}>
+        <Button
+          className="rounded-lg"
+          type="submit"
+          disabled={isLoading}
+          aria-disabled={isLoading}
+        >
           Add Note
         </Button>
       </div>
       <div className="w-1/3 flex justify-end text-xl">
-        {pending && "Adding note..."}
+        {isLoading && "Adding note..."}
       </div>
     </div>
   )
