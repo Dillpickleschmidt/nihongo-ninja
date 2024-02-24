@@ -2,7 +2,7 @@
 
 import Button from "@/components/Button"
 
-export function SubmitButton({ isLoading }: { isLoading: boolean }) {
+export default function SubmitButton({ isLoading }: { isLoading: boolean }) {
   return (
     <div className="h-full flex justify-between items-center">
       <div className="w-1/3"></div>

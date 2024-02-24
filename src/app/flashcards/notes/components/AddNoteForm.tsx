@@ -16,7 +16,7 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import Tiptap from "@/components/tiptap/Tiptap"
-import { SubmitButton } from "./SubmitButton"
+import SubmitButton from "./SubmitButton"
 import Basic from "./templates/Basic"
 import Standard from "./templates/Standard"
 

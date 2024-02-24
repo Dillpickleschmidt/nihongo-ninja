@@ -4,7 +4,7 @@ import { createSupabaseServerClient } from "@/lib/supabase/serverClient"
 import { createEmptyCardBySupabase } from "./fsrsToSupabase"
 import { getUserID, isAdmin } from "@/lib/supabase/user-session/userSession"
 import { revalidatePath } from "next/cache"
-import { addNoteSchema } from "@/app/flashcards/notes/addNoteSchema"
+import { addNoteSchema } from "@/app/flashcards/notes/components/addNoteSchema"
 import { z } from "zod"
 
 type AddNoteType = z.infer<typeof addNoteSchema>
