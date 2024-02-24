@@ -1,17 +1,10 @@
 "use client"
 import { useState } from "react"
-import { useForm } from "react-hook-form"
-import { z } from "zod"
-import { zodResolver } from "@hookform/resolvers/zod"
-import { addNoteSchema } from "./components/addNoteSchema"
-import { addNote } from "@/components/fsrs/actions/notes"
 import AddNoteForm from "./components/AddNoteForm"
 import JapaneseFont from "@/components/text/JapaneseFont"
 import Button from "@/components/Button"
 
-type AddNoteType = z.infer<typeof addNoteSchema>
-
-export default function Page({}: React.FormHTMLAttributes<HTMLFormElement>) {
+export default function page() {
   const [questionText, setQuestionText] = useState("")
   const [answer1Text, setAnswer1Text] = useState("")
   const [answer2Text, setAnswer2Text] = useState("")
