@@ -9,6 +9,7 @@ export default function SubmitButton({ isLoading }: { isLoading: boolean }) {
       <div className="w-1/3 flex justify-center">
         <Button
           className="rounded-lg"
+          form="addNoteForm"
           type="submit"
           disabled={isLoading}
           aria-disabled={isLoading}

@@ -5,38 +5,17 @@ import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { addNoteSchema } from "./addNoteSchema"
 import { addNote } from "@/components/fsrs/actions/notes"
-import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form"
-import { Input } from "@/components/ui/input"
-import Tiptap from "@/components/tiptap/Tiptap"
-import SubmitButton from "./SubmitButton"
-import Basic from "./templates/Basic"
-import Standard from "./templates/Standard"
+import { Form } from "@/components/ui/form"
+import SubmitButton from "./form-components/SubmitButton"
+import Basic from "./form-components/templates/Basic"
+import Standard from "./form-components/templates/Standard"
+import Question from "./form-components/templates/Question"
+import Button from "@/components/Button"
+import JapaneseFont from "@/components/text/JapaneseFont"
 
 type AddNoteType = z.infer<typeof addNoteSchema>
 
-type addNoteFormProps = {
-  setQuestionText: (richText: string) => void
-  setAnswer1Text: (richText: string) => void
-  setAnswer2Text: (richText: string) => void
-  setAnswer3Text: (richText: string) => void
-  setDescriptionText: (richText: string) => void
-}
-
-export default function AddNoteForm({
-  setQuestionText,
-  setAnswer1Text,
-  setAnswer2Text,
-  setAnswer3Text,
-  setDescriptionText,
-}: addNoteFormProps) {
+export default function AddNoteForm() {
   const [isLoading, setIsLoading] = useState(false)
   const [showAdvancedAnswer, setShowAdvancedAnswer] = useState(false)
   const [additionalAnswers, setAdditionalAnswers] = useState<string[]>([])
@@ -76,47 +55,89 @@ export default function AddNoteForm({
           style={{ boxShadow: "none" }}
         />
       </label>
-      <Form {...form}>
-        <form onSubmit={form.handleSubmit((data) => action(data))}>
-          <div className="mb-2">
-            <FormField
-              control={form.control}
-              name="question"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Question</FormLabel>
-                  <FormControl>
-                    <Tiptap
-                      onChange={field.onChange}
-                      updateRichText={(richText) => setQuestionText(richText)}
+      <div className="2xl:w-[50%] xl:w-[75%]">
+        <div className="min-h-[500px] px-12 py-10 mt-12 bg-[#222222] rounded-[10px] border-2 border-neutral-700 border-dashed flex flex-col justify-between items-center">
+          <div className="w-full flex flex-col justify-between mb-2 mx-16">
+            <Form {...form}>
+              <form
+                id="addNoteForm"
+                onSubmit={form.handleSubmit((data) => action(data))}
+              >
+                <JapaneseFont>
+                  {!showAdvancedAnswer && (
+                    <Basic
+                      form={form}
+                      setAdditionalAnswers={setAdditionalAnswers}
                     />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
+                  )}
+                  {showAdvancedAnswer && (
+                    <Standard
+                      form={form}
+                      setAdditionalAnswers={setAdditionalAnswers}
+                    />
+                  )}
+                </JapaneseFont>
+              </form>
+            </Form>
           </div>
-          {!showAdvancedAnswer && (
-            <Basic
-              form={form}
-              setAdditionalAnswers={setAdditionalAnswers}
-              setAnswer1Text={setAnswer1Text}
-            />
-          )}
-          {showAdvancedAnswer && (
-            <Standard
-              form={form}
-              setAdditionalAnswers={setAdditionalAnswers}
-              setAnswer1Text={setAnswer1Text}
-              setAnswer2Text={setAnswer2Text}
-              setDescriptionText={setDescriptionText}
-            />
-          )}
-          <div className="mt-8">
-            <SubmitButton isLoading={isLoading} />
+          <div className="flex flex-col gap-6 mt-2">
+            <div className="flex justify-center gap-6">
+              <div className="w-12 flex justify-center text-sm font-light py-2 px-4 rounded-2xl underline decoration-1 underline-offset-4 bg-sky-400">
+                30
+              </div>
+              <div className="w-12 flex justify-center text-sm font-light py-2 px-4 rounded-2xl decoration-1 underline-offset-4 bg-red-500">
+                4
+              </div>
+              <div className="w-12 flex justify-center text-sm font-light py-2 px-4 rounded-2xl decoration-1 underline-offset-4 bg-[#42c672]">
+                1
+              </div>
+            </div>
+            <div className="flex justify-center gap-6">
+              <Button
+                variant="card"
+                className="text-base py-3 px-5 shadow-md rounded-lg text-black font-semibold bg-red-500"
+              >
+                <div className="flex flex-row items-center">
+                  Again
+                  <span className="ml-2 w-[21px] h-[21px] bg-white bg-opacity-40 rounded-md inline-flex items-center justify-center text-sm">
+                    1
+                  </span>
+                </div>
+              </Button>
+              <Button
+                variant="card"
+                className="text-base py-3 px-5 shadow-md rounded-lg text-black font-semibold bg-yellow-400"
+              >
+                Hard
+                <span className="ml-2 w-[21px] h-[21px] bg-white bg-opacity-55 rounded-md inline-flex items-center justify-center text-sm">
+                  2
+                </span>
+              </Button>
+              <Button
+                variant="card"
+                className="text-base py-3 px-5 shadow-md rounded-lg text-black font-semibold bg-sky-400"
+              >
+                Good
+                <span className="ml-2 w-[21px] h-[21px] bg-white bg-opacity-45 rounded-md inline-flex items-center justify-center text-sm">
+                  3
+                </span>
+              </Button>
+              <Button
+                variant="card"
+                className="text-base py-3 px-5 shadow-md rounded-lg text-black font-semibold bg-[#42c672]"
+              >
+                Easy
+                <span className="ml-2 w-[21px] h-[21px] bg-white bg-opacity-40 rounded-md inline-flex items-center justify-center text-sm">
+                  4
+                </span>
+              </Button>
+            </div>
           </div>
-        </form>
-      </Form>
+        </div>
+        <div className="w-full my-8">
+          <SubmitButton isLoading={isLoading} />
+        </div>
+      </div>
     </>
   )
 }

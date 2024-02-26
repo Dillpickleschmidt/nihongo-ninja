@@ -8,6 +8,7 @@ import {
   BsTypeH1,
 } from "react-icons/bs"
 import { MdOutlineCancel } from "react-icons/md"
+import { LuAlignLeft, LuAlignJustify, LuAlignRight } from "react-icons/lu"
 
 export default function Toolbar({ editor }: { editor: any }) {
   return (
@@ -36,6 +37,32 @@ export default function Toolbar({ editor }: { editor: any }) {
           onClick={() => editor.chain().focus().unsetColor().run()}
         >
           <MdOutlineCancel />
+        </Button>
+        <Button
+          type="button"
+          variant={"system"}
+          onClick={() => editor.chain().focus().setTextAlign("left").run()}
+          className={editor.isActive({ textAlign: "left" }) ? "is-active" : ""}
+        >
+          <LuAlignLeft />
+        </Button>
+        <Button
+          type="button"
+          variant={"system"}
+          onClick={() => editor.chain().focus().setTextAlign("center").run()}
+          className={
+            editor.isActive({ textAlign: "center" }) ? "is-active" : ""
+          }
+        >
+          <LuAlignJustify />
+        </Button>
+        <Button
+          type="button"
+          variant={"system"}
+          onClick={() => editor.chain().focus().setTextAlign("right").run()}
+          className={editor.isActive({ textAlign: "right" }) ? "is-active" : ""}
+        >
+          <LuAlignRight />
         </Button>
         <Button
           type="button"
