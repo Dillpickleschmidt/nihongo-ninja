@@ -29,16 +29,14 @@ export default function AddNoteForm() {
     mode: "onSubmit",
     defaultValues: {
       question: "",
-      answers: [""],
+      answers: [],
     },
   })
 
   // handle form submission
   async function action(data: AddNoteType) {
     setIsLoading(true)
-    const answers = [answer1HTML, answer2HTML, answer3HTML]
-      .map(cleanHTML)
-      .filter(Boolean)
+    const answers = [answer1HTML, answer2HTML, answer3HTML].map(cleanHTML)
     const result = await addNote({
       ...data,
       question_raw: cleanHTML(questionHTML),
