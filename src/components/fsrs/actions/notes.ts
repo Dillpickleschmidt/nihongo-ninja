@@ -8,16 +8,22 @@ import { addNoteSchema } from "@/app/flashcards/notes/components/addNoteSchema"
 import { z } from "zod"
 
 type NoteType = z.infer<typeof addNoteSchema>
-type AddNoteType = NoteType & { question_raw: string; answers_raw: string[] }
+type AddNoteType = NoteType & {
+  question_raw: string
+  answers_raw: string[]
+  style: string
+}
 
 export async function addNote(formData: AddNoteType) {
   console.log("formData: ", formData)
-  const { question, answers, question_raw, answers_raw } = formData
+  const { question, answers, question_raw, answers_raw, style } = formData
 
   const result = addNoteSchema.safeParse({ question, answers })
   if (result.success === false) {
+    console.log("Error in addNote: ", result.error.format())
     return { error: result.error.format() }
   }
+  console.log("success")
 
   // const question = formData.get("question") as string
   // const answer = formData.get("answer") as string
@@ -49,7 +55,7 @@ export async function addNote(formData: AddNoteType) {
     if (note) {
       const { data: updatedNote, error: updateError } = await supabase
         .from("note")
-        .update({ answers, question_raw, answers_raw })
+        .update({ answers, question_raw, answers_raw, style })
         .match({ user_id: user_id, nid: note.nid })
       if (updateError) {
         throw updateError
@@ -60,7 +66,15 @@ export async function addNote(formData: AddNoteType) {
       const { data: newNote, error: createNoteError } = await supabase
         .from("note")
         .insert([
-          { user_id, question, answers, created_by, question_raw, answers_raw },
+          {
+            user_id,
+            question,
+            answers,
+            created_by,
+            question_raw,
+            answers_raw,
+            style,
+          },
         ])
         .select()
         .single()

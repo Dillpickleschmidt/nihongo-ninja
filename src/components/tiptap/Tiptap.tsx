@@ -8,7 +8,6 @@ import Italic from "@tiptap/extension-italic"
 import Underline from "@tiptap/extension-underline"
 import Strike from "@tiptap/extension-strike"
 import Heading from "@tiptap/extension-heading"
-import TextStyle from "@tiptap/extension-text-style"
 import { Color } from "@tiptap/extension-color"
 import Placeholder from "@tiptap/extension-placeholder"
 import TextAlign from "@tiptap/extension-text-align"
@@ -50,7 +49,6 @@ export default function Tiptap({
           class: "text-center",
         },
       }),
-      TextStyle,
       Color,
       Placeholder.configure({
         placeholder: placeholderText ? placeholderText : "Write something...",

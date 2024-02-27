@@ -20,16 +20,16 @@ type AddNoteType = NoteType & { question_raw: string; answers_raw: string[] }
 
 export default function AddNoteForm() {
   const [isLoading, setIsLoading] = useState(false)
-  const [showAdvancedAnswer, setShowAdvancedAnswer] = useState(false)
   const { questionHTML, answer1HTML, answer2HTML, answer3HTML } =
     useNoteContext()
+  const [style, setStyle] = useState("basic")
 
   const form = useForm<AddNoteType>({
     resolver: zodResolver(addNoteSchema),
-    mode: "onChange",
+    mode: "onSubmit",
     defaultValues: {
       question: "",
-      answers: [],
+      answers: [""],
     },
   })
 
@@ -43,6 +43,7 @@ export default function AddNoteForm() {
       ...data,
       question_raw: cleanHTML(questionHTML),
       answers_raw: answers,
+      style: style,
     }) // Result would return a validation error if there is one.
     if (result) {
       console.log(result)
@@ -57,7 +58,9 @@ export default function AddNoteForm() {
         <input
           type="checkbox"
           name="advancedAnswer"
-          onClick={() => setShowAdvancedAnswer(!showAdvancedAnswer)}
+          onClick={() => {
+            setStyle("basic" ? "standard" : "basic")
+          }}
           className="mx-2 text-red-400 rounded ring-offset-gray-800 bg-gray-700 border-gray-600 cursor-pointer"
           style={{ boxShadow: "none" }}
         />
@@ -71,8 +74,8 @@ export default function AddNoteForm() {
                 onSubmit={form.handleSubmit((data) => action(data))}
               >
                 <JapaneseFont>
-                  {!showAdvancedAnswer && <Basic form={form} />}
-                  {showAdvancedAnswer && <Standard form={form} />}
+                  {style === "basic" && <Basic form={form} />}
+                  {style === "standard" && <Standard form={form} />}
                 </JapaneseFont>
               </form>
             </Form>

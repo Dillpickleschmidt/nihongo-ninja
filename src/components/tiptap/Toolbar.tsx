@@ -28,7 +28,7 @@ export default function Toolbar({ editor }: { editor: any }) {
               .setColor((event.target as HTMLInputElement).value)
               .run()
           }
-          value={editor.getAttributes("textStyle").color}
+          value={(editor.getAttributes("textStyle") || {}).color || ""}
           className="rounded-sm bg-[#111111]"
         />
         <Button
