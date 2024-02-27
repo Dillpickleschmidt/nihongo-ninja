@@ -79,32 +79,35 @@ export type Database = {
       }
       note: {
         Row: {
-          answer: string
+          answers: string[] | null
+          answers_raw: string[] | null
           cid: number | null
           created_by: string
-          extend: Json | null
           nid: number
-          question: string
+          question: string | null
+          question_raw: string | null
           style: string | null
           user_id: string
         }
         Insert: {
-          answer?: string
+          answers?: string[] | null
+          answers_raw?: string[] | null
           cid?: number | null
           created_by?: string
-          extend?: Json | null
           nid?: number
-          question?: string
+          question?: string | null
+          question_raw?: string | null
           style?: string | null
           user_id: string
         }
         Update: {
-          answer?: string
+          answers?: string[] | null
+          answers_raw?: string[] | null
           cid?: number | null
           created_by?: string
-          extend?: Json | null
           nid?: number
-          question?: string
+          question?: string | null
+          question_raw?: string | null
           style?: string | null
           user_id?: string
         }

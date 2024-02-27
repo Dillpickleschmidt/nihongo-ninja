@@ -12,31 +12,25 @@ import Question from "./Question"
 
 type BasicProps = {
   form: any
-  setAdditionalAnswers: (richText: any) => void
 }
 
-export default function Basic({ form, setAdditionalAnswers }: BasicProps) {
-  const { setAnswer1Text } = useNoteContext()
+export default function Basic({ form }: BasicProps) {
+  const { setAnswer1HTML } = useNoteContext()
   return (
     <>
       <Question form={form} />
       <div className="space-y-4">
         <FormField
           control={form.control}
-          name="answer"
+          name="answers[0]"
           render={({ field }) => (
             <FormItem>
               <FormLabel>Answer</FormLabel>
               <FormControl>
                 <Tiptap
-                  onChange={(richText) => {
-                    field.onChange(richText)
-                    setAdditionalAnswers((prevAnswers: string[]) => {
-                      const updatedAnswers = [...prevAnswers]
-                      updatedAnswers[0] = richText
-                      return updatedAnswers
-                    })
-                    setAnswer1Text(richText)
+                  getContent={(text) => field.onChange(text)}
+                  getRaw={(richText) => {
+                    setAnswer1HTML(richText)
                   }}
                 />
               </FormControl>

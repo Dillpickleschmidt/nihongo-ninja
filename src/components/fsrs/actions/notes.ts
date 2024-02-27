@@ -7,26 +7,26 @@ import { revalidatePath } from "next/cache"
 import { addNoteSchema } from "@/app/flashcards/notes/components/addNoteSchema"
 import { z } from "zod"
 
-type AddNoteType = z.infer<typeof addNoteSchema>
+type NoteType = z.infer<typeof addNoteSchema>
+type AddNoteType = NoteType & { question_raw: string; answers_raw: string[] }
 
 export async function addNote(formData: AddNoteType) {
-  const { question, answer } = formData
+  console.log("formData: ", formData)
+  const { question, answers, question_raw, answers_raw } = formData
 
-  const result = addNoteSchema.safeParse({ question, answer })
+  const result = addNoteSchema.safeParse({ question, answers })
   if (result.success === false) {
     return { error: result.error.format() }
   }
 
   // const question = formData.get("question") as string
   // const answer = formData.get("answer") as string
-  // const extend = formData.get("extend") as string
-  const extend = null
   const user_id = await getUserID()
   const admin = await isAdmin(user_id)
   const created_by = admin ? "NihongoNinja" : user_id
 
   const supabase = createSupabaseServerClient()
-  console.log(question + ", " + answer)
+  console.log(question + ", " + answers[0])
 
   try {
     // 1. Check if note exists
@@ -49,7 +49,7 @@ export async function addNote(formData: AddNoteType) {
     if (note) {
       const { data: updatedNote, error: updateError } = await supabase
         .from("note")
-        .update({ answer, extend })
+        .update({ answers, question_raw, answers_raw })
         .match({ user_id: user_id, nid: note.nid })
       if (updateError) {
         throw updateError
@@ -59,11 +59,15 @@ export async function addNote(formData: AddNoteType) {
     else {
       const { data: newNote, error: createNoteError } = await supabase
         .from("note")
-        .insert([{ user_id, question, answer, extend, created_by }])
+        .insert([
+          { user_id, question, answers, created_by, question_raw, answers_raw },
+        ])
         .select()
         .single()
       if (createNoteError) {
-        throw new Error("Error creating note: " + createNoteError)
+        throw new Error(
+          "Error creating note: " + JSON.stringify(createNoteError)
+        )
       }
 
       // 4. Create a new card & associate with note (nid).

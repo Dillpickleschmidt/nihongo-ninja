@@ -12,30 +12,37 @@ import Standard from "./form-components/templates/Standard"
 import Question from "./form-components/templates/Question"
 import Button from "@/components/Button"
 import JapaneseFont from "@/components/text/JapaneseFont"
+import { useNoteContext } from "@/context/NoteContext"
+import cleanHTML from "@/util/domPurify"
 
-type AddNoteType = z.infer<typeof addNoteSchema>
+type NoteType = z.infer<typeof addNoteSchema>
+type AddNoteType = NoteType & { question_raw: string; answers_raw: string[] }
 
 export default function AddNoteForm() {
   const [isLoading, setIsLoading] = useState(false)
   const [showAdvancedAnswer, setShowAdvancedAnswer] = useState(false)
-  const [additionalAnswers, setAdditionalAnswers] = useState<string[]>([])
+  const { questionHTML, answer1HTML, answer2HTML, answer3HTML } =
+    useNoteContext()
 
-  // useForm hook
   const form = useForm<AddNoteType>({
     resolver: zodResolver(addNoteSchema),
     mode: "onChange",
     defaultValues: {
       question: "",
-      answer: "",
+      answers: [],
     },
   })
 
   // handle form submission
   async function action(data: AddNoteType) {
     setIsLoading(true)
+    const answers = [answer1HTML, answer2HTML, answer3HTML]
+      .map(cleanHTML)
+      .filter(Boolean)
     const result = await addNote({
       ...data,
-      answer: additionalAnswers.join(""),
+      question_raw: cleanHTML(questionHTML),
+      answers_raw: answers,
     }) // Result would return a validation error if there is one.
     if (result) {
       console.log(result)
@@ -64,18 +71,8 @@ export default function AddNoteForm() {
                 onSubmit={form.handleSubmit((data) => action(data))}
               >
                 <JapaneseFont>
-                  {!showAdvancedAnswer && (
-                    <Basic
-                      form={form}
-                      setAdditionalAnswers={setAdditionalAnswers}
-                    />
-                  )}
-                  {showAdvancedAnswer && (
-                    <Standard
-                      form={form}
-                      setAdditionalAnswers={setAdditionalAnswers}
-                    />
-                  )}
+                  {!showAdvancedAnswer && <Basic form={form} />}
+                  {showAdvancedAnswer && <Standard form={form} />}
                 </JapaneseFont>
               </form>
             </Form>

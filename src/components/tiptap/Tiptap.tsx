@@ -18,7 +18,8 @@ import Toolbar from "./Toolbar"
 import Button from "../Button"
 
 type TiptapProps = {
-  onChange: (richText: string) => void
+  getRaw: (richText: string) => void
+  getContent: (richText: string) => void
   placeholderText?: string
   disabled?: boolean
   align?: "left" | "center" | "right"
@@ -27,7 +28,8 @@ type TiptapProps = {
 }
 
 export default function Tiptap({
-  onChange,
+  getRaw,
+  getContent,
   placeholderText,
   disabled = false,
   align,
@@ -67,13 +69,14 @@ export default function Tiptap({
       },
     },
     onUpdate({ editor }) {
-      onChange(editor.getHTML())
-      // console.log(editor.getHTML())
+      getRaw(editor.getHTML())
+      getContent(editor.getText())
     },
     onCreate({ editor }) {
       align && editor.chain().focus().setTextAlign(align).run()
       fontSize && editor.commands.setFontSize(fontSize)
       fontWeight && editor.commands.setFontWeight(fontWeight)
+      // editor.getText
     },
   })
 

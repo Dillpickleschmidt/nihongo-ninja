@@ -14,7 +14,7 @@ type QuestionProps = {
 }
 
 export default function Question({ form }: QuestionProps) {
-  const { setQuestionText } = useNoteContext()
+  const { setQuestionHTML } = useNoteContext()
   return (
     <div className="mt-16 mb-2">
       <FormField
@@ -25,9 +25,11 @@ export default function Question({ form }: QuestionProps) {
             <FormControl>
               <div className="pb-5 px-12 border-b border-white border-opacity-20 text-7xl">
                 <Tiptap
-                  onChange={(richText) => {
-                    field.onChange(richText) // update the form state with the value of the rich text editor
-                    setQuestionText(richText)
+                  getContent={(text) => {
+                    field.onChange(text)
+                  }}
+                  getRaw={(richText) => {
+                    setQuestionHTML(richText)
                   }}
                   placeholderText="Question..."
                   align="center"
