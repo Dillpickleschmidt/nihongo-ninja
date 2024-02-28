@@ -6,6 +6,8 @@ import { getUserID, isAdmin } from "@/lib/supabase/user-session/userSession"
 import { revalidatePath } from "next/cache"
 import { addNoteSchema } from "@/app/flashcards/notes/components/addNoteSchema"
 import { z } from "zod"
+import { State } from "ts-fsrs"
+import { Card, Note } from "@/lib/supabase/index"
 
 type NoteType = z.infer<typeof addNoteSchema>
 type AddNoteType = NoteType & {
@@ -15,7 +17,6 @@ type AddNoteType = NoteType & {
 }
 
 export async function addNote(formData: AddNoteType) {
-  console.log("formData: ", formData)
   const { question, answers, question_raw, answers_raw, style } = formData
 
   const result = addNoteSchema.safeParse({ question, answers })
@@ -23,7 +24,6 @@ export async function addNote(formData: AddNoteType) {
     console.log("Error in addNote: ", result.error.format())
     return { error: result.error.format() }
   }
-  console.log("success")
 
   // const question = formData.get("question") as string
   // const answer = formData.get("answer") as string
@@ -122,4 +122,48 @@ export async function addNote(formData: AddNoteType) {
     console.error("Error in addNote: ", error)
   }
   revalidatePath("/flashcards/notes")
+}
+
+export async function getNotes({
+  user_id,
+  state,
+  due,
+  takeLimit = 50,
+}: {
+  user_id: string
+  state: State
+  due: string // Assuming this is passed in a suitable format (e.g., 'YYYY-MM-DD')
+  takeLimit?: number
+}): Promise<(Note & { card: Card })[]> {
+  const supabase = createSupabaseServerClient()
+  try {
+    // console.log("user_id: " + user_id)
+    // console.log("state: " + state.toString())
+    // console.log("reviewDate: " + due)
+    // console.log("takeLimit: " + takeLimit)
+    // Call the stored procedure via RPC
+    const { data: Note_Card_Data, error: Note_Card_Error } = await supabase
+      .rpc("fetch_notes_with_cards", {
+        user_id_param: user_id,
+        state_param: state.toString(),
+        due_param: due, // rpc function will check if it's <=
+      })
+      .limit(takeLimit)
+
+    if (Note_Card_Error) {
+      throw new Error(
+        "Error in rpc function: " + JSON.stringify(Note_Card_Error)
+      )
+    }
+    console.log(
+      "Note_Card_Data in state",
+      state.toString(),
+      ":",
+      Note_Card_Data
+    )
+    return Note_Card_Data as (Note & { card: Card })[]
+  } catch (error) {
+    console.error("Error in getNotes:", error)
+    return []
+  }
 }

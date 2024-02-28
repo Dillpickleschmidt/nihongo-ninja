@@ -79,36 +79,36 @@ export type Database = {
       }
       note: {
         Row: {
-          answers: string[] | null
-          answers_raw: string[] | null
+          answers: string[]
+          answers_raw: string[]
           cid: number | null
           created_by: string
           nid: number
-          question: string | null
-          question_raw: string | null
-          style: string | null
+          question: string
+          question_raw: string
+          style: string
           user_id: string
         }
         Insert: {
-          answers?: string[] | null
-          answers_raw?: string[] | null
+          answers: string[]
+          answers_raw: string[]
           cid?: number | null
           created_by?: string
           nid?: number
-          question?: string | null
-          question_raw?: string | null
-          style?: string | null
+          question?: string
+          question_raw: string
+          style: string
           user_id: string
         }
         Update: {
-          answers?: string[] | null
-          answers_raw?: string[] | null
+          answers?: string[]
+          answers_raw?: string[]
           cid?: number | null
           created_by?: string
           nid?: number
-          question?: string | null
-          question_raw?: string | null
-          style?: string | null
+          question?: string
+          question_raw?: string
+          style?: string
           user_id?: string
         }
         Relationships: [
