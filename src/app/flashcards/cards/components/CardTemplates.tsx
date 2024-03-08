@@ -2,6 +2,9 @@
 import Basic from "../../notes/components/form-components/templates/Basic"
 import Standard from "../../notes/components/form-components/templates/Standard"
 
+// If a form is provided, it is assumed that the note is being added/edited
+// If a form is not provided, it is assumed that the note is being viewed
+
 type CardTemplatesProps = React.HTMLAttributes<HTMLDivElement> & {
   noteStyle?: string
   noteBox?: any
@@ -16,31 +19,24 @@ export default function CardTemplates({
 }: CardTemplatesProps) {
   return (
     <>
-      {noteStyle && noteBox ? (
-        <div {...props}>
-          {noteStyle === "basic" && (
-            <Basic
-              form={form} // form may not be provided
-              question={noteBox[0][0].question_raw}
-              answer={noteBox[0][0].answers_raw[0]}
-            />
-          )}
-          {noteStyle === "standard" && (
-            <Standard
-              form={form}
-              question={noteBox[0][0].question_raw}
-              answer1={noteBox[0][0].answers_raw[0]}
-              answer2={noteBox[0][0].answers_raw[1]}
-              answer3={noteBox[0][0].answers_raw[2]}
-            />
-          )}
-        </div>
-      ) : (
-        <div {...props}>
-          {noteStyle === "basic" && <Basic form={form} />}
-          {noteStyle === "standard" && <Standard form={form} />}
-        </div>
-      )}
+      <div {...props}>
+        {noteStyle === "basic" && (
+          <Basic
+            form={form} // form may not be provided
+            question={noteBox && noteBox[0][0]?.question_raw}
+            answer={noteBox && noteBox[0][0]?.answers_raw[0]}
+          />
+        )}
+        {noteStyle === "standard" && (
+          <Standard
+            form={form}
+            question={noteBox && noteBox[0][0]?.question_raw}
+            answer1={noteBox && noteBox[0][0]?.answers_raw[0]}
+            answer2={noteBox && noteBox[0][0]?.answers_raw[1]}
+            answer3={noteBox && noteBox[0][0]?.answers_raw[2]}
+          />
+        )}
+      </div>
     </>
   )
 }

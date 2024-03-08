@@ -17,12 +17,12 @@ export async function getTodayLearnedNewCardCount(
     .eq("state", "0")
     .gte("review", startOfDay.toISOString())
     .lt("review", nextDay.toISOString())
-  if (revlogError) {
-    throw new Error(
-      "Error getting count from revlog: " + JSON.stringify(revlogError)
-    )
-  }
-  console.log("todayCount: ", todayCount)
+  // if (revlogError) {
+  //   throw new Error(
+  //     "Error getting count from revlog: " + JSON.stringify(revlogError)
+  //   )
+  // }
+  // console.log("todayCount: ", todayCount)
 
   if (!todayCount) {
     todayCount = 0

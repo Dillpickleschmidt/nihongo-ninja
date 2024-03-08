@@ -9,6 +9,9 @@ import {
 import Tiptap from "@/components/tiptap/Tiptap"
 import { useNoteContext } from "@/context/NoteContext"
 
+// If a form is provided, it is assumed that the note is being added/edited
+// If a form is not provided, it is assumed that the note is being viewed
+
 type QuestionProps = {
   form?: any
   question?: string

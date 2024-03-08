@@ -33,7 +33,7 @@ export default function AddNoteForm({
   const [isLoading, setIsLoading] = useState(false)
   const { questionHTML, answer1HTML, answer2HTML, answer3HTML } =
     useNoteContext()
-  const [style, setStyle] = useState<string>(noteStyle || "basic")
+  const [style, setStyle] = useState<string>(noteStyle || "basic") // Default to basic style if noteStyle is not provided
   const [disabledState, setDisabledState] = useState<boolean>(disabled)
 
   const form = useForm<AddNoteType>({

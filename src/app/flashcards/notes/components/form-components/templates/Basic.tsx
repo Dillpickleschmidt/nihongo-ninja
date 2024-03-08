@@ -10,6 +10,10 @@ import Tiptap from "@/components/tiptap/Tiptap"
 import { useNoteContext } from "@/context/NoteContext"
 import Question from "./Question"
 
+// Basic note template
+// If a form is provided, it is assumed that the note is being added/edited
+// If a form is not provided, it is assumed that the note is being viewed
+
 type BasicProps = {
   form?: any
   question?: string
