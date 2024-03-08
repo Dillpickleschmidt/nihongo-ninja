@@ -1,6 +1,7 @@
 import { getNotes } from "@/components/fsrs/actions/notes"
 import { Card, Note } from "@/lib/supabase/index"
 import {
+  getUserEmail,
   getUserID,
   readRedirectUserSession,
 } from "@/lib/supabase/user-session/userSession"
@@ -9,6 +10,7 @@ import { getTodayLearnedNewCardCount } from "@/components/fsrs/actions/logs"
 import Finish from "./components/Finish"
 import { NoteContextProvider } from "@/context/NoteContext"
 import AddNoteForm from "../notes/components/AddNoteForm"
+import Button from "@/components/Button"
 
 async function getData() {
   await readRedirectUserSession()
@@ -55,6 +57,7 @@ async function getData() {
 }
 
 export default async function Page() {
+  const user_email = await getUserEmail()
   const { noteBox0 } = await getData()
   const noteBox = noteBox0
     .filter((noteBox) => noteBox !== null) // Filter out null values
@@ -62,8 +65,20 @@ export default async function Page() {
       noteBox ? noteBox.sort(() => Math.random() - Math.random()) : []
     ) // Randomize the order of the notes
 
-  const isFinish = noteBox.every((notes) => notes.length === 0)
+  const isEmpty = noteBox.length === 0
 
+  if (isEmpty) {
+    return (
+      <div className="h-screen border-2 flex flex-col items-center">
+        <h1 className="text-3xl font-medium mt-[40vh] mb-6">
+          {user_email} hasn't created any notes yet ☹️
+        </h1>
+        <Button link="/flashcards/notes">Create a note</Button>
+      </div>
+    )
+  }
+
+  const isFinish = noteBox.every((notes) => notes.length === 0)
   let style = noteBox0[0][0].style
 
   return isFinish ? (

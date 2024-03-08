@@ -25,6 +25,18 @@ export async function getUserID() {
   return user_id
 }
 
+export async function getUserEmail() {
+  const supabase = createSupabaseServerComponentClient()
+  const {
+    data: { user },
+  } = await supabase.auth.getUser()
+  if (!user) {
+    throw new Error("User not found")
+  }
+  const email = user.email
+  return email
+}
+
 export async function isAdmin(id?: string) {
   const supabase = createSupabaseServerComponentClient()
   await readUserSession()
