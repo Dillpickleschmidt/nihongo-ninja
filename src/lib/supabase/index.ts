@@ -14,7 +14,7 @@ export type Note = {
   cid?: number | null
   created_by?: string
   nid?: number
-  question?: string
+  question: string
   question_raw: string
   style: string
   user_id: string

@@ -7,6 +7,8 @@ import {
 import { date_scheduler, State } from "ts-fsrs"
 import { getTodayLearnedNewCardCount } from "@/components/fsrs/actions/logs"
 import Finish from "./components/Finish"
+import { NoteContextProvider } from "@/context/NoteContext"
+import AddNoteForm from "../notes/components/AddNoteForm"
 
 async function getData() {
   await readRedirectUserSession()
@@ -61,12 +63,17 @@ export default async function Page() {
     ) // Randomize the order of the notes
 
   const isFinish = noteBox.every((notes) => notes.length === 0)
+
+  let style = noteBox0[0][0].style
+
   return isFinish ? (
     <Finish />
   ) : (
-    <div className="flex justify-center flex-col py-8">
-      {/* <CardClient noteBox={noteBox} /> */}
-      Placeholder
+    <div className="flex flex-col items-center justify-center text-xl text-[#F8F5E9]">
+      {/* Array of states, then array of notes */}
+      <NoteContextProvider>
+        <AddNoteForm disabled={true} noteStyle={style} noteBox={noteBox} />
+      </NoteContextProvider>
     </div>
   )
 }

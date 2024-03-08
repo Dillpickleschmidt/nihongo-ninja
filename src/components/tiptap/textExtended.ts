@@ -31,25 +31,25 @@ export const TextStyleExtended = TextStyle.extend({
       ...this.parent?.(),
       fontSize: {
         default: null,
-        parseHTML: (element) => element.className,
+        parseHTML: (element) => element.style.fontSize,
         renderHTML: (attributes) => {
           if (!attributes["fontSize"]) {
             return {}
           }
           return {
-            class: attributes["fontSize"],
+            style: `font-size: ${attributes["fontSize"]}`,
           }
         },
       },
       fontWeight: {
         default: null,
-        parseHTML: (element) => element.className,
+        parseHTML: (element) => element.style.fontWeight,
         renderHTML: (attributes) => {
           if (!attributes["fontWeight"]) {
             return {}
           }
           return {
-            class: attributes["fontWeight"],
+            style: `font-weight: ${attributes["fontWeight"]}`,
           }
         },
       },

@@ -10,20 +10,21 @@ import Tiptap from "@/components/tiptap/Tiptap"
 import { useNoteContext } from "@/context/NoteContext"
 
 type QuestionProps = {
-  form: any
+  form?: any
+  question?: string
 }
 
-export default function Question({ form }: QuestionProps) {
+export default function Question({ form, question }: QuestionProps) {
   const { setQuestionHTML } = useNoteContext()
   return (
-    <div className="mt-16 mb-2">
-      <FormField
-        control={form.control}
-        name="question"
-        render={({ field }) => (
-          <FormItem>
-            <FormControl>
-              <div className="pb-5 px-12 border-b border-white border-opacity-20 text-7xl">
+    <div className="pb-5 px-12 border-b border-white border-opacity-20 text-7xl">
+      {form ? (
+        <FormField
+          control={form.control}
+          name="question"
+          render={({ field }) => (
+            <FormItem>
+              <FormControl>
                 <Tiptap
                   getContent={(text) => {
                     field.onChange(text)
@@ -33,14 +34,20 @@ export default function Question({ form }: QuestionProps) {
                   }}
                   placeholderText="Question..."
                   align="center"
-                  fontSize="text-8xl"
+                  fontSize="6rem"
+                  content={question}
                 />
-              </div>
-            </FormControl>
-            <FormMessage />
-          </FormItem>
-        )}
-      />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+      ) : (
+        <div
+          className="min-h-10 px-4 py-3 text-xl"
+          dangerouslySetInnerHTML={{ __html: question ?? "" }}
+        ></div>
+      )}
     </div>
   )
 }

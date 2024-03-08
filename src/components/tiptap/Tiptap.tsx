@@ -17,13 +17,14 @@ import Toolbar from "./Toolbar"
 import Button from "../Button"
 
 type TiptapProps = {
-  getRaw: (richText: string) => void
-  getContent: (richText: string) => void
+  getRaw?: (richText: string) => void
+  getContent?: (richText: string) => void
   placeholderText?: string
   disabled?: boolean
   align?: "left" | "center" | "right"
   fontSize?: string
   fontWeight?: string
+  content?: string
 }
 
 export default function Tiptap({
@@ -34,6 +35,7 @@ export default function Tiptap({
   align,
   fontSize,
   fontWeight,
+  content,
 }: TiptapProps) {
   const editor = useEditor({
     extensions: [
@@ -51,14 +53,14 @@ export default function Tiptap({
       }),
       Color,
       Placeholder.configure({
-        placeholder: placeholderText ? placeholderText : "Write something...",
+        placeholder: placeholderText ? placeholderText : "",
       }),
       TextAlign.configure({
         types: ["heading", "paragraph"],
       }),
       TextStyleExtended,
     ],
-    content: "",
+    content: content ? content : "",
     editable: !disabled,
     editorProps: {
       attributes: {
@@ -67,8 +69,8 @@ export default function Tiptap({
       },
     },
     onUpdate({ editor }) {
-      getRaw(editor.getHTML())
-      getContent(editor.getText())
+      getRaw && getRaw(editor.getHTML())
+      getContent && getContent(editor.getText())
     },
     onCreate({ editor }) {
       align && editor.chain().focus().setTextAlign(align).run()
