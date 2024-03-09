@@ -76,7 +76,10 @@ export default function Tiptap({
       align && editor.chain().focus().setTextAlign(align).run()
       fontSize && editor.commands.setFontSize(fontSize)
       fontWeight && editor.commands.setFontWeight(fontWeight)
-      // editor.getText
+
+      // When editing a note, ensure that the input field is updated with the existing note content
+      getRaw && getRaw(editor.getHTML())
+      getContent && getContent(editor.getText())
     },
   })
 

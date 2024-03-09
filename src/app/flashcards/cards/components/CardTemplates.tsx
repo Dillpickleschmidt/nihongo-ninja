@@ -24,7 +24,7 @@ export default function CardTemplates({
           <Basic
             form={form} // form may not be provided
             question={noteBox && noteBox[0][0]?.question_raw}
-            answer={noteBox && noteBox[0][0]?.answers_raw[0]}
+            answer1={noteBox && noteBox[0][0]?.answers_raw[0]}
           />
         )}
         {noteStyle === "standard" && (

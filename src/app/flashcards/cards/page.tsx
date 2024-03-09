@@ -87,7 +87,7 @@ export default async function Page() {
     <div className="flex flex-col items-center justify-center text-xl text-[#F8F5E9]">
       {/* Array of states, then array of notes */}
       <NoteContextProvider>
-        <AddNoteForm disabled={true} noteStyle={style} noteBox={noteBox} />
+        <AddNoteForm editable={false} noteStyle={style} noteBox={noteBox} />
       </NoteContextProvider>
     </div>
   )

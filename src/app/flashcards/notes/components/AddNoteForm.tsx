@@ -16,17 +16,28 @@ import Skeleton from "./Skeleton"
 import CardTemplates from "../../cards/components/CardTemplates"
 import Button from "@/components/Button"
 
+/**
+ * This file provides a form which calls a server action which calls `addNote`.
+ *
+ * `addNote` is used to add a new note or update an existing one in the database.
+ * It validates the input and then interacts with the database to either update an existing note or
+ * create a new one.
+ *
+ * If `editableState` is true, the form will be editable.
+ * If `editableState` is false, it will be set to read-only for faster previewing.
+ */
+
 type NoteType = z.infer<typeof addNoteSchema>
 type AddNoteType = NoteType & { question_raw: string; answers_raw: string[] }
 
 type AddNoteFormProps = {
-  disabled?: boolean
+  editable?: boolean
   noteStyle?: string
   noteBox?: any
 }
 
 export default function AddNoteForm({
-  disabled = false,
+  editable = true,
   noteStyle,
   noteBox,
 }: AddNoteFormProps) {
@@ -34,7 +45,7 @@ export default function AddNoteForm({
   const { questionHTML, answer1HTML, answer2HTML, answer3HTML } =
     useNoteContext()
   const [style, setStyle] = useState<string>(noteStyle || "basic") // Default to basic style if noteStyle is not provided
-  const [disabledState, setDisabledState] = useState<boolean>(disabled)
+  const [editableState, setEditableState] = useState<boolean>(editable)
 
   const form = useForm<AddNoteType>({
     resolver: zodResolver(addNoteSchema),
@@ -63,11 +74,11 @@ export default function AddNoteForm({
 
   return (
     <>
-      {disabledState && (
-        <Button onClick={() => setDisabledState(!disabledState)}>Edit</Button>
+      {!editableState && (
+        <Button onClick={() => setEditableState(!editableState)}>Edit</Button>
       )}
-      <Skeleton setStyle={setStyle} disabled={disabledState}>
-        {!disabledState ? (
+      <Skeleton setStyle={setStyle} editable={editableState}>
+        {editableState ? (
           // For note creation/editing
           <Form {...form}>
             <form
@@ -98,7 +109,7 @@ export default function AddNoteForm({
           )
         )}
       </Skeleton>
-      {!disabledState && (
+      {editableState && (
         <div className="w-full my-8">
           <SubmitButton isLoading={isLoading} />
         </div>

@@ -17,10 +17,10 @@ import Question from "./Question"
 type BasicProps = {
   form?: any
   question?: string
-  answer?: string
+  answer1?: string
 }
 
-export default function Basic({ form, question, answer }: BasicProps) {
+export default function Basic({ form, question, answer1 }: BasicProps) {
   const { setAnswer1HTML } = useNoteContext()
   return (
     <>
@@ -46,7 +46,7 @@ export default function Basic({ form, question, answer }: BasicProps) {
                     getRaw={(richText) => {
                       setAnswer1HTML(richText)
                     }}
-                    content={answer}
+                    content={answer1}
                   />
                 </FormControl>
                 <FormMessage />
@@ -56,7 +56,7 @@ export default function Basic({ form, question, answer }: BasicProps) {
         ) : (
           <div
             className="min-h-10 px-4 py-3 text-xl"
-            dangerouslySetInnerHTML={{ __html: answer ?? "" }}
+            dangerouslySetInnerHTML={{ __html: answer1 ?? "" }}
           ></div>
         )}
       </div>
