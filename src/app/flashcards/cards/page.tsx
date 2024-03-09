@@ -1,5 +1,4 @@
 import { getNotes } from "@/components/fsrs/actions/notes"
-import { Card, Note } from "@/lib/supabase/index"
 import {
   getUserEmail,
   getUserID,
@@ -8,7 +7,7 @@ import {
 import { date_scheduler, State } from "ts-fsrs"
 import { getTodayLearnedNewCardCount } from "@/components/fsrs/actions/logs"
 import Finish from "./components/Finish"
-import { NoteContextProvider } from "@/context/NoteContext"
+import { CardContextProvider } from "@/context/CardContext"
 import AddNoteForm from "../notes/components/AddNoteForm"
 import Button from "@/components/Button"
 
@@ -59,11 +58,9 @@ async function getData() {
 export default async function Page() {
   const user_email = await getUserEmail()
   const { noteBox0 } = await getData()
-  const noteBox = noteBox0
-    .filter((noteBox) => noteBox !== null) // Filter out null values
-    .map((noteBox) =>
-      noteBox ? noteBox.sort(() => Math.random() - Math.random()) : []
-    ) // Randomize the order of the notes
+  const noteBox = noteBox0.map((noteBox) =>
+    noteBox ? noteBox.sort(() => Math.random() - Math.random()) : []
+  ) // Randomize the order of the notes
 
   const isEmpty = noteBox.length === 0
 
@@ -79,16 +76,15 @@ export default async function Page() {
   }
 
   const isFinish = noteBox.every((notes) => notes.length === 0)
-  let style = noteBox0[0][0].style
 
   return isFinish ? (
     <Finish />
   ) : (
     <div className="flex flex-col items-center justify-center text-xl text-[#F8F5E9]">
       {/* Array of states, then array of notes */}
-      <NoteContextProvider>
-        <AddNoteForm editable={false} noteStyle={style} noteBox={noteBox} />
-      </NoteContextProvider>
+      <CardContextProvider noteBox0={noteBox}>
+        <AddNoteForm editable={false} />
+      </CardContextProvider>
     </div>
   )
 }

@@ -7,8 +7,8 @@ import {
   FormMessage,
 } from "@/components/ui/form"
 import Tiptap from "@/components/tiptap/Tiptap"
-import { useNoteContext } from "@/context/NoteContext"
 import Question from "./Question"
+import { useCardContext } from "@/context/CardContext"
 
 type StandardProps = {
   form?: any
@@ -25,7 +25,7 @@ export default function Standard({
   answer2,
   answer3,
 }: StandardProps) {
-  const { setAnswer1HTML, setAnswer2HTML, setAnswer3HTML } = useNoteContext()
+  const { setAnswer1HTML, setAnswer2HTML, setAnswer3HTML } = useCardContext()
   return (
     <>
       <div className="mt-16 mb-2">

@@ -7,8 +7,8 @@ import {
   FormMessage,
 } from "@/components/ui/form"
 import Tiptap from "@/components/tiptap/Tiptap"
-import { useNoteContext } from "@/context/NoteContext"
 import Question from "./Question"
+import { useCardContext } from "@/context/CardContext"
 
 // Basic note template
 // If a form is provided, it is assumed that the note is being added/edited
@@ -21,7 +21,7 @@ type BasicProps = {
 }
 
 export default function Basic({ form, question, answer1 }: BasicProps) {
-  const { setAnswer1HTML } = useNoteContext()
+  const { setAnswer1HTML } = useCardContext()
   return (
     <>
       <div className="mt-16 mb-2">

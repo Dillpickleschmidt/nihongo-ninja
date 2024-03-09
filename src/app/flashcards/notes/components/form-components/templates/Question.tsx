@@ -7,7 +7,7 @@ import {
   FormMessage,
 } from "@/components/ui/form"
 import Tiptap from "@/components/tiptap/Tiptap"
-import { useNoteContext } from "@/context/NoteContext"
+import { useCardContext } from "@/context/CardContext"
 
 // If a form is provided, it is assumed that the note is being added/edited
 // If a form is not provided, it is assumed that the note is being viewed
@@ -18,7 +18,7 @@ type QuestionProps = {
 }
 
 export default function Question({ form, question }: QuestionProps) {
-  const { setQuestionHTML } = useNoteContext()
+  const { setQuestionHTML } = useCardContext()
   return (
     <div className="pb-5 px-12 border-b border-white border-opacity-20 text-7xl">
       {form ? (

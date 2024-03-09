@@ -7,10 +7,8 @@ import { addNoteSchema } from "./addNoteSchema"
 import { addNote } from "@/components/fsrs/actions/notes"
 import { Form } from "@/components/ui/form"
 import SubmitButton from "./form-components/SubmitButton"
-import Basic from "./form-components/templates/Basic"
-import Standard from "./form-components/templates/Standard"
 import JapaneseFont from "@/components/text/JapaneseFont"
-import { useNoteContext } from "@/context/NoteContext"
+import { useCardContext } from "@/context/CardContext"
 import cleanHTML from "@/util/domPurify"
 import Skeleton from "./Skeleton"
 import CardTemplates from "../../cards/components/CardTemplates"
@@ -32,19 +30,13 @@ type AddNoteType = NoteType & { question_raw: string; answers_raw: string[] }
 
 type AddNoteFormProps = {
   editable?: boolean
-  noteStyle?: string
-  noteBox?: any
 }
 
-export default function AddNoteForm({
-  editable = true,
-  noteStyle,
-  noteBox,
-}: AddNoteFormProps) {
+export default function AddNoteForm({ editable = true }: AddNoteFormProps) {
+  const { noteBox, currentStyle, setCurrentStyle } = useCardContext()
   const [isLoading, setIsLoading] = useState(false)
   const { questionHTML, answer1HTML, answer2HTML, answer3HTML } =
-    useNoteContext()
-  const [style, setStyle] = useState<string>(noteStyle || "basic") // Default to basic style if noteStyle is not provided
+    useCardContext()
   const [editableState, setEditableState] = useState<boolean>(editable)
 
   const form = useForm<AddNoteType>({
@@ -64,7 +56,7 @@ export default function AddNoteForm({
       ...data,
       question_raw: cleanHTML(questionHTML),
       answers_raw: answers,
-      style: style,
+      style: currentStyle,
     }) // Result would return a validation error if there is one.
     if (result) {
       console.log(result)
@@ -77,7 +69,7 @@ export default function AddNoteForm({
       {!editableState && (
         <Button onClick={() => setEditableState(!editableState)}>Edit</Button>
       )}
-      <Skeleton setStyle={setStyle} editable={editableState}>
+      <Skeleton setStyle={setCurrentStyle} editable={editableState}>
         {editableState ? (
           // For note creation/editing
           <Form {...form}>
@@ -90,7 +82,7 @@ export default function AddNoteForm({
                 {/* If the note already has existing values, use them and edit note */}
                 <CardTemplates
                   form={form}
-                  noteStyle={style} // Gets existing style for editing existing note
+                  noteStyle={currentStyle} // Gets existing style for editing existing note
                   noteBox={noteBox} // Gets existing Q/A for editing existing note
                   className="w-full"
                 />
@@ -99,10 +91,10 @@ export default function AddNoteForm({
           </Form>
         ) : (
           // For card practice
-          noteStyle &&
+          currentStyle &&
           noteBox && (
             <CardTemplates
-              noteStyle={style}
+              noteStyle={currentStyle}
               noteBox={noteBox}
               className="w-full"
             />

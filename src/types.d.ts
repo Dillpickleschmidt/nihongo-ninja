@@ -35,5 +35,5 @@ export type ExcludeReLearning<T> = Exclude<T, State.Relearning>
 type StateBox = ExcludeReLearning<State>
 // StateBox:
 // 0: New
-// 1: Learning
+// 1: Learning (excluding Relearning)
 // 2: Review

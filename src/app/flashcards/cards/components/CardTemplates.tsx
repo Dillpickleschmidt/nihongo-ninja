@@ -1,4 +1,5 @@
 "use client"
+import { useCardContext } from "@/context/CardContext"
 import Basic from "../../notes/components/form-components/templates/Basic"
 import Standard from "../../notes/components/form-components/templates/Standard"
 
@@ -11,32 +12,27 @@ type CardTemplatesProps = React.HTMLAttributes<HTMLDivElement> & {
   form?: any
 }
 
-export default function CardTemplates({
-  noteStyle,
-  noteBox,
-  form,
-  ...props
-}: CardTemplatesProps) {
-  return (
-    <>
-      <div {...props}>
-        {noteStyle === "basic" && (
-          <Basic
-            form={form} // form may not be provided
-            question={noteBox && noteBox[0][0]?.question_raw}
-            answer1={noteBox && noteBox[0][0]?.answers_raw[0]}
-          />
-        )}
-        {noteStyle === "standard" && (
-          <Standard
-            form={form}
-            question={noteBox && noteBox[0][0]?.question_raw}
-            answer1={noteBox && noteBox[0][0]?.answers_raw[0]}
-            answer2={noteBox && noteBox[0][0]?.answers_raw[1]}
-            answer3={noteBox && noteBox[0][0]?.answers_raw[2]}
-          />
-        )}
-      </div>
-    </>
-  )
+export default function CardTemplates({ form, ...props }: CardTemplatesProps) {
+  const { noteBox, currentStyle } = useCardContext()
+
+  switch (currentStyle) {
+    case "basic":
+      return (
+        <Basic
+          form={form} // form may not be provided
+          question={noteBox && noteBox[0][0]?.question_raw}
+          answer1={noteBox && noteBox[0][0]?.answers_raw[0]}
+        />
+      )
+    case "standard":
+      return (
+        <Standard
+          form={form}
+          question={noteBox && noteBox[0][0]?.question_raw}
+          answer1={noteBox && noteBox[0][0]?.answers_raw[0]}
+          answer2={noteBox && noteBox[0][0]?.answers_raw[1]}
+          answer3={noteBox && noteBox[0][0]?.answers_raw[2]}
+        />
+      )
+  }
 }
