@@ -167,3 +167,17 @@ export async function getNotes({
     return []
   }
 }
+
+export async function getNoteByCid(cid: number) {
+  const supabase = createSupabaseServerClient()
+  const user_id = await getUserID()
+
+  const { data: NoteData, error: NoteError } = await supabase
+    .from("note")
+    .select("*")
+    .match({ user_id: user_id, cid: cid })
+  if (NoteError) {
+    throw new Error("Error finding note by cid: " + JSON.stringify(NoteError))
+  }
+  return NoteData && (NoteData[0] as Note)
+}

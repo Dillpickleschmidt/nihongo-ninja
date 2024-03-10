@@ -80,12 +80,7 @@ export default function AddNoteForm({ editable = true }: AddNoteFormProps) {
             >
               <JapaneseFont>
                 {/* If the note already has existing values, use them and edit note */}
-                <CardTemplates
-                  form={form}
-                  noteStyle={currentStyle} // Gets existing style for editing existing note
-                  noteBox={noteBox} // Gets existing Q/A for editing existing note
-                  className="w-full"
-                />
+                <CardTemplates form={form} />
               </JapaneseFont>
             </form>
           </Form>
@@ -93,11 +88,9 @@ export default function AddNoteForm({ editable = true }: AddNoteFormProps) {
           // For card practice
           currentStyle &&
           noteBox && (
-            <CardTemplates
-              noteStyle={currentStyle}
-              noteBox={noteBox}
-              className="w-full"
-            />
+            <div className="w-full">
+              <CardTemplates />
+            </div>
           )
         )}
       </Skeleton>

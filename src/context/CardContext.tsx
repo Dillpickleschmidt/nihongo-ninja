@@ -1,9 +1,17 @@
 "use client"
 
+import { handleCardUpdate, updateCard } from "@/components/fsrs/actions/cards"
 import { Card, Note } from "@/lib/supabase"
 import { StateBox } from "@/types"
-import { createContext, useContext, useMemo, useState } from "react"
-import { RecordLog, State } from "ts-fsrs"
+import {
+  createContext,
+  startTransition,
+  useContext,
+  useMemo,
+  useRef,
+  useState,
+} from "react"
+import { Grade, RecordLog, State, fixDate } from "ts-fsrs"
 
 type CardContextType = {
   noteBox: { [key in StateBox]: Array<Note & { card: Card }> }
@@ -95,11 +103,8 @@ export function CardContextProvider({
   })
   // Set noteStyle to the first non-empty noteBox style
   const [currentStyle, setCurrentStyle] = useState(() => {
-    let current: StateBox = State.New
-    for (let i = 0; i < 3; i++) {
-      if (noteBox[current].length > 0) {
-        return noteBox[current][0].style
-      }
+    if (noteBox[currentType]?.length > 0) {
+      return noteBox[currentType][0].style || "basic"
     }
     return "basic"
   })
@@ -107,6 +112,71 @@ export function CardContextProvider({
   const [answer1HTML, setAnswer1HTML] = useState("")
   const [answer2HTML, setAnswer2HTML] = useState("")
   const [answer3HTML, setAnswer3HTML] = useState("")
+
+  const rollBackRef = useRef<{ cid: number; nextStateBox: StateBox }[]>([])
+  const [rollbackAble, setRollbackAble] = useState(false)
+
+  type ChangeResponse = {
+    nextState: State
+    nextDue: Date
+  }
+
+  async function handleChange(
+    res: ChangeResponse,
+    note: Note & { card: Card }
+  ) {
+    const { nextState, nextDue } = res
+    if (nextDue) {
+      note.card.due = nextDue.toISOString()
+    }
+
+    const change = updateStateBox(noteBox, currentType, nextDue)
+    // update state and data
+    let updatedNoteBox: Array<Note & { card: Card }> = [...noteBox[currentType]]
+    updatedNoteBox = updatedNoteBox.slice(1)
+    updatedNoteBox = updatedNoteBox.toSorted(
+      (a, b) => fixDate(a.card.due).getTime() - fixDate(b.card.due).getTime()
+    )
+    startTransition(() => {
+      // state update is marked as a transition, a slow re-render did not freeze the user interface.
+      if (nextState !== State.Review) {
+        if (currentType === State.Learning) {
+          setNoteBox[currentType]([...updatedNoteBox, note!])
+          console.log([...updatedNoteBox, note!])
+        } else {
+          if (currentType === State.New || currentType === State.Review) {
+            setNoteBox[currentType](updatedNoteBox)
+          }
+          setNoteBox[State.Learning]((pre) => [...pre, note!])
+        }
+      } else {
+        setNoteBox[currentType](updatedNoteBox)
+      }
+      rollBackRef.current.push({
+        cid: note.card.cid,
+        nextStateBox:
+          nextState === State.Relearning ? State.Learning : nextState,
+      })
+      if (rollBackRef.current.length > 0 && rollbackAble === false) {
+        setRollbackAble(true)
+      }
+      console.log(
+        `Change ${State[currentType]} to ${State[change]}, Card next State: ${State[nextState]},current rollback length ${rollBackRef.current.length}`
+      )
+      setCurrentType(change)
+    })
+    return true
+  }
+
+  async function handleSchedule(grade: Grade) {
+    const note = noteBox[currentType][0]
+    const res = await handleCardUpdate(note.cid, new Date(), grade)
+    if (res) {
+      handleChange(res, note)
+      setOpen(false)
+    }
+  }
+
   const value = {
     noteBox: noteBox,
     setNoteBox: setNoteBox,
@@ -126,4 +196,60 @@ export function CardContextProvider({
     setAnswer3HTML,
   }
   return <CardContext.Provider value={value}>{children}</CardContext.Provider>
+}
+
+function RandomNewOrReviewState(noteBox: {
+  [key in StateBox]: Array<Note & { card: Card }>
+}) {
+  if (noteBox[State.New].length === 0) {
+    return State.Review
+  } else if (noteBox[State.Review].length === 0) {
+    return State.New
+  } else {
+    return Math.random() > 0.5 ? State.Review : State.New
+  }
+}
+
+function updateStateBox(
+  noteBox: { [key in StateBox]: Array<Note & { card: Card }> },
+  currentType: StateBox,
+  nextDue?: Date
+) {
+  let change: StateBox = State.New // default State.New
+  switch (currentType) {
+    case State.New:
+      if (noteBox[State.Learning].length > 0) {
+        change = State.Learning // new -> learning
+      } else if (noteBox[State.Review].length > 0) {
+        change = State.Review // new -> review
+      }
+      break
+    case State.Learning:
+      if (noteBox[State.Review].length > 0) {
+        change = State.Review // learning/relearning -> review
+      } else if (noteBox[State.New].length > 0) {
+        change = State.New // learning/relearning -> new
+      } else {
+        change = State.Learning // learning/relearning -> learning/relearning
+      }
+      break
+    case State.Review:
+      if (noteBox[State.Learning].length > 0) {
+        change = State.Learning // review -> learning
+      } else if (noteBox[State.New].length > 0) {
+        change = State.New // review -> new
+      } else {
+        change = State.Review // review -> review
+      }
+      break
+  }
+  change =
+    change === State.Learning &&
+    noteBox[State.Learning].length > 0 &&
+    fixDate(noteBox[State.Learning][0].card.due).getTime() -
+      new Date().getTime() >
+      0
+      ? RandomNewOrReviewState(noteBox)
+      : change
+  return change
 }

@@ -11,9 +11,9 @@ export type Json =
 export type Note = {
   answers: string[]
   answers_raw: string[]
-  cid?: number | null
+  cid: number
   created_by?: string
-  nid?: number
+  nid: number
   question: string
   question_raw: string
   style: string
@@ -21,7 +21,7 @@ export type Note = {
 }
 
 export type Card = {
-  cid?: number
+  cid: number
   difficulty: number
   due?: string
   elapsed_days: number
@@ -32,4 +32,14 @@ export type Card = {
   scheduled_days: number
   stability: number
   state?: State
+}
+
+export type SupabaseParameters = {
+  card_limit: number
+  enable_fuzz: boolean
+  maximum_interval: number
+  pid: number
+  request_retention: number
+  user_id: string
+  w: Json
 }
