@@ -1,6 +1,5 @@
 // Basic template for all lessons with variations for different sizes
 
-"use client"
 import { ReactNode } from "react"
 import { useRef, useEffect } from "react"
 import { useRouter } from "next/navigation"
@@ -8,6 +7,8 @@ import Button from "./Button"
 import Navbar from "./Navbar"
 import { VariantProps, cva } from "class-variance-authority"
 import cn from "../util/cn"
+import { Card } from "./ui/card"
+import Link from "next/link"
 
 type DialogProps = React.DialogHTMLAttributes<HTMLDialogElement> &
   VariantProps<typeof dialogVariants> & {
@@ -30,31 +31,7 @@ export default function Dialog({
   backgroundSize = "1200px",
   opacity = 30,
   showAlertOnClose = false,
-  scrollRef: externalScrollRef,
 }: DialogProps) {
-  // Opens the dialog
-  // Always use useRef at the top level of your component
-  const internalScrollRef = useRef<null | HTMLDivElement>(null)
-  // Choose the external ref if provided, else use the internal ref
-  const scrollRef = externalScrollRef || internalScrollRef
-
-  const dialogRef = useRef<null | HTMLDialogElement>(null)
-
-  useEffect(() => {
-    if (dialogRef.current) {
-      dialogRef.current.showModal() // if a dialog html element is present in the page, show the dialog
-      document.body.classList.add("overflow-hidden") // prevent scrolling of the background
-    } else {
-      document.body.classList.remove("overflow-hidden") // otherwise, remove the overflow-hidden class
-    }
-
-    return () => {
-      document.body.classList.remove("overflow-hidden") // cleanup function on dismount
-    }
-  }, [dialogRef.current])
-
-  const router = useRouter()
-
   // Closes the dialog
   const handleClose = () => {
     // if showAlertOnClose is true, show a confirmation dialog
@@ -66,80 +43,57 @@ export default function Dialog({
     ) {
       return
     }
-    // close the dialog if it exists
-    dialogRef.current?.close()
-    router.push("/learn", { scroll: false }) // scroll: false retains the previous scroll position
   }
 
-  // Handles outside clicks to close the dialog
-  const divRef = useRef<HTMLDivElement | null>(null)
-  useEffect(() => {
-    const handleOutSideClick = (event: MouseEvent) => {
-      // if the click is outside the div specified, close the dialog (also unmounts this component, calling the cleanup function below)
-      if (divRef.current && !divRef.current.contains(event.target as Node)) {
-        handleClose()
-      }
-    }
-    // When mousedown, call handleOutSideClick
-    window.addEventListener("mousedown", handleOutSideClick)
-
-    // Cleanup function on dismount
-    return () => {
-      window.removeEventListener("mousedown", handleOutSideClick)
-    }
-  }, [])
-
   return (
-    <div className="relative">
-      <dialog
-        ref={dialogRef}
-        className="backdrop:backdrop-saturate-75 backdrop:backdrop-blur-2xl backdrop:backdrop-brightness-75"
-      >
-        {/* divRef-> clickable elements that don't close the dialog */}
-        <div ref={divRef}>
-          {/* <Navbar locked={locked} /> */}
-          {/* Dialog Variants */}
-          <div className={cn(dialogVariants({ variant, className }))}>
-            {/* Persistent elements in all dialogs */}
-            <div className="fixed w-full flex flex-row justify-end z-50">
-              <Button
-                link="/learn"
-                variant={"system"}
-                className="mt-10 mr-10 py-0 focus:outline-none"
-                autoFocus={false}
-              >
-                x
-              </Button>
-            </div>
-            {/* If a background is provided, render this html */}
-            <div
-              className="w-full h-full overflow-y-auto overscroll-y-contain scrollbar:hidden inline-block rounded-[60px]"
-              ref={scrollRef}
+    <>
+      <Card className="fixed inset-0 bg-transparent flex items-center justify-center z-10">
+        <Link
+          className="fixed inset-0 backdrop-saturate-75 backdrop-blur-2xl backdrop-brightness-75 cursor-default"
+          href="/learn"
+          scroll={false}
+        />
+        {/* Dialog Variants */}
+        <div className={cn(dialogVariants({ variant, className }))}>
+          {/* Persistent elements in all dialogs */}
+          <div className="fixed w-full flex flex-row justify-end z-50">
+            <Button
+              link="/learn"
+              variant={"system"}
+              className="mt-10 mr-10 py-0 focus:outline-none"
+              autoFocus={false}
             >
-              {background ? (
-                <div className="relative">
-                  <div
-                    className="absolute inset-0"
-                    style={{
-                      backgroundImage: `url(${background})`,
-                      backgroundRepeat: "repeat",
-                      backgroundSize: backgroundSize, // Change this value to scale your background image
-                      backgroundBlendMode: "multiply",
-                      opacity: opacity / 100, // Change this value to set the opacity of the background image
-                      zIndex: -1,
-                    }}
-                  />
-                  {children}
-                </div>
-              ) : (
-                // Otherwise, just render this html
-                children
-              )}
-            </div>
+              &times;
+            </Button>
+          </div>
+          {/* If a background is provided, render this html */}
+          <div
+            className="w-full h-full overflow-y-auto overscroll-y-contain scrollbar:hidden inline-block rounded-[60px]"
+            // ref={scrollRef}
+          >
+            {background ? (
+              <div className="relative">
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    backgroundImage: `url(${background})`,
+                    backgroundRepeat: "repeat",
+                    backgroundSize: backgroundSize, // Change this value to scale your background image
+                    backgroundBlendMode: "multiply",
+                    opacity: opacity / 100, // Change this value to set the opacity of the background image
+                    zIndex: -1,
+                  }}
+                />
+                {children}
+              </div>
+            ) : (
+              // Otherwise, just render this html
+              children
+            )}
           </div>
         </div>
-      </dialog>
-    </div>
+      </Card>
+    </>
   )
 }
 
