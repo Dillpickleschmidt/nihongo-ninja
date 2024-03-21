@@ -1,7 +1,7 @@
 "use client"
 import StyleDropdown from "./StyleDropdown"
 import StatusBar from "../../cards/components/StatusBar"
-import DifficultyButtons from "../../cards/components/DifficultyButtons"
+import ShowAnswerButton from "../../cards/components/ShowAnswerButton"
 
 type SkeletonProps = {
   children: React.ReactNode
@@ -22,7 +22,7 @@ export default function Skeleton({
           {children}
           <div className="flex flex-col gap-6 mt-2">
             <StatusBar />
-            <DifficultyButtons />
+            <ShowAnswerButton />
           </div>
         </div>
       </div>

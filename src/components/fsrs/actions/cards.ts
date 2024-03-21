@@ -4,6 +4,7 @@ import { CardSupabase, Grade, Rating, RecordLog, fsrs } from "ts-fsrs"
 import { createSupabaseServerClient } from "@/lib/supabase/serverClient"
 import { getUserID, isAdmin } from "@/lib/supabase/user-session/userSession"
 import { getFSRSParamsByCid } from "./fsrs"
+import { Note } from "@/lib/supabase"
 
 export async function getCardByNid(nid: number) {
   const supabase = createSupabaseServerClient()
@@ -20,11 +21,11 @@ export async function getCardByNid(nid: number) {
 
 export async function getCardByCid(cid: number) {
   const supabase = createSupabaseServerClient()
-  const user_id = await getUserID()
+  // const user_id = await getUserID()
   const { data: CardData, error: CardError } = await supabase
     .from("card")
     .select("*")
-    .match({ user_id: user_id, cid: cid })
+    .eq("cid", cid)
   if (CardError) {
     throw new Error("Error finding card by cid: " + JSON.stringify(CardError))
   }
@@ -48,6 +49,11 @@ export async function schedulerCard(cid: number, now: Date) {
   }
 
   const card = await getCardByCid(cid)
+
+  // cast the dates from ISOStrings to Date objects
+  card.due = new Date(card.due)
+  card.last_review = card.last_review ? new Date(card.last_review) : null
+
   const { params, user_id: user_id } = await getFSRSParamsByCid(card.cid)
   const permission = isAdmin(user_id)
   if (!permission) {

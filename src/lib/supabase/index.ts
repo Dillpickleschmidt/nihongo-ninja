@@ -23,10 +23,10 @@ export type Note = {
 export type Card = {
   cid: number
   difficulty: number
-  due?: string
+  due?: string | Date
   elapsed_days: number
   lapses: number
-  last_review?: string | null
+  last_review?: string | Date | null
   nid: number
   reps: number
   scheduled_days: number
@@ -41,5 +41,5 @@ export type SupabaseParameters = {
   pid: number
   request_retention: number
   user_id: string
-  w: Json
+  w: number[]
 }

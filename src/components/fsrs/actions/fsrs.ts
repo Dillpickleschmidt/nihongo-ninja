@@ -41,7 +41,7 @@ async function processArrayParameters(
   const fsrsParameters = generatorParameters({
     request_retention: rawParams.request_retention,
     maximum_interval: rawParams.maximum_interval,
-    w: JSON.parse(String(rawParams.w)),
+    w: rawParams.w,
     enable_fuzz: rawParams.enable_fuzz,
   })
 

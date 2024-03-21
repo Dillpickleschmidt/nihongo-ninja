@@ -128,8 +128,8 @@ export type Database = {
           maximum_interval: number
           pid: number
           request_retention: number
-          user_id: string | null
-          w: Json
+          user_id: string
+          w: number[]
         }
         Insert: {
           card_limit?: number
@@ -137,8 +137,8 @@ export type Database = {
           maximum_interval?: number
           pid?: number
           request_retention?: number
-          user_id?: string | null
-          w: Json
+          user_id: string
+          w?: number[]
         }
         Update: {
           card_limit?: number
@@ -146,8 +146,8 @@ export type Database = {
           maximum_interval?: number
           pid?: number
           request_retention?: number
-          user_id?: string | null
-          w?: Json
+          user_id?: string
+          w?: number[]
         }
         Relationships: [
           {
@@ -201,7 +201,7 @@ export type Database = {
         }
         Relationships: [
           {
-            foreignKeyName: "fk_card"
+            foreignKeyName: "public_revlog_cid_fkey"
             columns: ["cid"]
             isOneToOne: false
             referencedRelation: "card"
@@ -300,10 +300,9 @@ export type Database = {
     Functions: {
       fetch_notes_with_cards: {
         Args: {
-          uid_param: string
+          user_id_param: string
           state_param: string
-          review_date_param: string
-          take_limit_param: number
+          due_param: string
         }
         Returns: Json
       }

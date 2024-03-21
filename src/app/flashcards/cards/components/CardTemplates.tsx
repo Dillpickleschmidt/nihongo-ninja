@@ -13,25 +13,26 @@ type CardTemplatesProps = {
 export default function CardTemplates({ form }: CardTemplatesProps) {
   // Gets existing style for editing existing note
   // Gets existing Q/A for editing existing note
-  const { noteBox, currentStyle } = useCardContext()
+  const { noteBox, currentStyle, currentType } = useCardContext()
+  console.log("currentType", currentType)
 
   switch (currentStyle) {
     case "basic":
       return (
         <Basic
           form={form} // form may not be provided
-          question={noteBox && noteBox[0][0]?.question_raw}
-          answer1={noteBox && noteBox[0][0]?.answers_raw[0].toString()}
+          question={noteBox && noteBox[currentType][0]?.question_raw}
+          answer1={noteBox && noteBox[currentType][0]?.answers_raw[0]}
         />
       )
     case "standard":
       return (
         <Standard
           form={form}
-          question={noteBox && noteBox[0][0]?.question_raw}
-          answer1={noteBox && noteBox[0][0]?.answers_raw[0]}
-          answer2={noteBox && noteBox[0][0]?.answers_raw[1]}
-          answer3={noteBox && noteBox[0][0]?.answers_raw[2]}
+          question={noteBox && noteBox[currentType][0]?.question_raw}
+          answer1={noteBox && noteBox[currentType][0]?.answers_raw[0]}
+          answer2={noteBox && noteBox[currentType][0]?.answers_raw[1]}
+          answer3={noteBox && noteBox[currentType][0]?.answers_raw[2]}
         />
       )
   }

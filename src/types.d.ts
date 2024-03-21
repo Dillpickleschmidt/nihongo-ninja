@@ -12,10 +12,10 @@ export declare module "ts-fsrs" {
   interface CardSupabase extends Card {
     cid: number
     difficulty: number
-    due: string
+    due: string | Date
     elapsed_days: number
     lapses: number
-    last_review: string | null
+    last_review: string | Date | null
     nid: number
     reps: number
     scheduled_days: number

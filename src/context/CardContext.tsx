@@ -1,12 +1,18 @@
 "use client"
 
-import { handleCardUpdate, updateCard } from "@/components/fsrs/actions/cards"
+import {
+  handleCardUpdate,
+  schedulerCard,
+  updateCard,
+} from "@/components/fsrs/actions/cards"
 import { Card, Note } from "@/lib/supabase"
 import { StateBox } from "@/types"
+import { useRouter } from "next/navigation"
 import {
   createContext,
-  startTransition,
+  useTransition,
   useContext,
+  useEffect,
   useMemo,
   useRef,
   useState,
@@ -34,6 +40,10 @@ type CardContextType = {
   setAnswer2HTML: (richText: string) => void
   answer3HTML: string
   setAnswer3HTML: (richText: string) => void
+  schedule: RecordLog | undefined
+  setSchedule: React.Dispatch<React.SetStateAction<RecordLog | undefined>>
+  handleSchedule: (grade: Grade) => Promise<void>
+  rollbackAble: boolean
 }
 
 const CardContext = createContext<CardContextType | undefined>(undefined)
@@ -53,6 +63,8 @@ export function CardContextProvider({
   children: React.ReactNode
   noteBox0: Array<Array<Note & { card: Card }>>
 }) {
+  const [isPending, startTransition] = useTransition()
+  const router = useRouter()
   // Split noteBox0 into NewCard, LearningCard, RelearningCard, ReviewCard
   const [NewCard, LearningCard, RelearningCard, ReviewCard] = noteBox0
 
@@ -93,11 +105,17 @@ export function CardContextProvider({
   // Set currentType to the first non-empty noteBox
   const [currentType, setCurrentType] = useState<StateBox>(() => {
     let current: StateBox = State.New
+    let found = false
     for (let i = 0; i < 3; i++) {
       if (noteBox[current].length > 0) {
+        found = true
         break
       }
       current = (current + 1) as StateBox
+    }
+    if (!found) {
+      // If all noteBox are empty, set current to State.New
+      current = State.New
     }
     return current
   })
@@ -177,6 +195,33 @@ export function CardContextProvider({
     }
   }
 
+  useEffect(() => {
+    const { finished, transferState } = checkFinished(noteBox, currentType)
+    if (finished) {
+      router.refresh()
+      console.log("ok")
+    }
+    if (transferState !== currentType) {
+      startTransition(() => {
+        setCurrentType(transferState)
+      })
+    }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [noteBox, currentType])
+
+  // get schedule
+  useEffect(() => {
+    const note = noteBox[currentType][0]
+    if (note) {
+      const fetchData = async () => {
+        const data = await schedulerCard(note.cid, new Date())
+        setSchedule(data)
+      }
+      fetchData()
+    }
+  }, [currentType, noteBox, setSchedule])
+
   const value = {
     noteBox: noteBox,
     setNoteBox: setNoteBox,
@@ -194,6 +239,10 @@ export function CardContextProvider({
     setAnswer2HTML,
     answer3HTML,
     setAnswer3HTML,
+    schedule,
+    setSchedule,
+    handleSchedule,
+    rollbackAble,
   }
   return <CardContext.Provider value={value}>{children}</CardContext.Provider>
 }
@@ -252,4 +301,28 @@ function updateStateBox(
       ? RandomNewOrReviewState(noteBox)
       : change
   return change
+}
+
+const checkFinished = (
+  noteBox: { [key in StateBox]: Array<Note & { card: Card }> },
+  currentType: StateBox
+) => {
+  let current: StateBox = currentType
+  let i = 0
+  for (; i < 3; i++) {
+    if (noteBox[current].length > 0) {
+      if (current === State.Learning) {
+        const due = fixDate(noteBox[current][0].card.due)
+        if (due.getTime() - new Date().getTime() > 0) {
+          break
+        }
+      }
+      break
+    }
+    current = (current + 1) % 3
+  }
+  return {
+    finished: i === 3,
+    transferState: current,
+  }
 }
