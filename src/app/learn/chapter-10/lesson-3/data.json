@@ -1,0 +1,77 @@
+{
+  "涼しい": {
+    "hiragana": ["すずしい"],
+    "english": ["cool (weather)"],
+    "mnemonics": "Visualize 'soo-zoo-she' as someone saying 'soothe you, she' on a cool day."
+  },
+  "冷たい": {
+    "hiragana": ["つめたい"],
+    "english": ["cold (things/people)"],
+    "mnemonics": "Think of 'tsumetai' as someone saying 'tsu, meaty' while shivering in the cold."
+  },
+  "遅い": {
+    "hiragana": ["おそい"],
+    "english": ["late", "slow"],
+    "mnemonics": "Imagine 'oh-soy' as someone saying 'oh soy!' when realizing they're late."
+  },
+  "眠い": {
+    "hiragana": ["ねむい"],
+    "english": ["sleepy", "drowsy"],
+    "mnemonics": "Visualize 'ne-moo-e' as someone saying 'ne-moo, eh?' when feeling sleepy."
+  },
+  "簡単": {
+    "hiragana": ["かんたん"],
+    "english": ["easy", "simple"],
+    "mnemonics": "Think of 'kan-tan' as someone saying 'can tan' easily."
+  },
+  "かかる": {
+    "hiragana": ["かかる"],
+    "english": ["to take (time)", "to cost"],
+    "mnemonics": "Imagine 'ka-ka-roo' as a kangaroo taking a long time to jump ('ka') over a hurdle."
+  },
+  "泊まる": {
+    "hiragana": ["とまる"],
+    "english": ["to stay (at a hotel)"],
+    "mnemonics": "Visualize 'tomaru' as someone saying 'tomorrow' while deciding to stay overnight."
+  },
+  "なる": {
+    "hiragana": ["なる"],
+    "english": ["to become"],
+    "mnemonics": "Think of 'narwhal' as someone transforming ('naru') into a magical creature."
+  },
+  "決める": {
+    "hiragana": ["きめる"],
+    "english": ["to decide", "to settle"],
+    "mnemonics": "Imagine 'key-meh-roo' as someone deciding the key ('key') to solving a puzzle."
+  },
+  "ごろごろする": {
+    "hiragana": ["ごろごろする"],
+    "english": ["to chill out at home", "to stay home and do nothing"],
+    "mnemonics": "Visualize 'goro-goro' as someone rolling ('goro') around lazily ('goro') on the floor."
+  },
+  "旅行する": {
+    "hiragana": ["りょこうする"],
+    "english": ["to travel"],
+    "mnemonics": "Think of 'ryokou suru' as someone shouting 'rock on!' before embarking on a journey."
+  },
+  "練習する": {
+    "hiragana": ["れんしゅうする"],
+    "english": ["to practice"],
+    "mnemonics": "Imagine 'renshuu suru' as someone saying 'run shoe, run' while practicing sports."
+  },
+  "一番": {
+    "hiragana": ["いちばん"],
+    "english": ["number one", "best"],
+    "mnemonics": "Visualize 'ichi-ban' as someone saying 'itchy bun' to claim they have the best bun."
+  },
+  "どっち・どちら": {
+    "hiragana": ["どっち・どちら"],
+    "english": ["which (of two)"],
+    "mnemonics": "Think of 'dotchy' as someone asking 'dotchy?' to choose between two options."
+  },
+  "速く": {
+    "hiragana": ["はやく"],
+    "english": ["quickly", "early"],
+    "mnemonics": "Imagine 'ha-yaku' as someone urging you to 'hurry up!'"
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "季節": {
+    "hiragana": ["きせつ"],
+    "english": ["season"],
+    "mnemonics": "Visualize 'keysetsu' as a key that sets the seasons."
+  },
+  "春": {
+    "hiragana": ["はる"],
+    "english": ["spring"],
+    "mnemonics": "Think of 'haru' as the sound you make when you sneeze in the spring."
+  },
+  "秋": {
+    "hiragana": ["あき"],
+    "english": ["autumn", "fall"],
+    "mnemonics": "Imagine 'ah-kee' as the sound of a sigh when the leaves fall in autumn."
+  },
+  "牛乳": {
+    "hiragana": ["ぎゅうにゅう"],
+    "english": ["milk"],
+    "mnemonics": "Remember 'gyuunyuu' as 'guy in you' offering you a glass of milk."
+  },
+  "ケーキ": {
+    "hiragana": ["ケーキ"],
+    "english": ["cake"],
+    "mnemonics": "It sounds like the English."
+  },
+  "すし": {
+    "hiragana": ["すし"],
+    "english": ["sushi"],
+    "mnemonics": "Surely you've eaten sushi before, right?"
+  },
+  "天ぷら": {
+    "hiragana": ["てんぷら"],
+    "english": ["tempura"],
+    "mnemonics": "Imagine 'tempura' as a tempura frying in the sky."
+  },
+  "りんご": {
+    "hiragana": ["りんご"],
+    "english": ["apple"],
+    "mnemonics": "Imagine a fantasticly dressed Mexican man excitedly holding an apple to the sky, shounting rrrrriiingooo!"
+  },
+  "料理": {
+    "hiragana": ["りょうり"],
+    "english": ["cooking", "cuisine"],
+    "mnemonics": "Think of 'ryouri' as 'ryo' asking you to try his cooking."
+  },
+  "サッカー": {
+    "hiragana": ["サッカー"],
+    "english": ["soccer"],
+    "mnemonics": "Japanese speakers actually say soccer instead of football?"
+  },
+  "野球": {
+    "hiragana": ["やきゅう"],
+    "english": ["baseball"],
+    "mnemonics": "Visualize 'yakyuu' as a yak wearing a baseball cap and playing baseball."
+  },
+  "医者": {
+    "hiragana": ["いしゃ"],
+    "english": ["doctor"],
+    "mnemonics": "Think of 'eeshah' as someone saying 'I shall' heal you like a doctor."
+  },
+  "お金持ち": {
+    "hiragana": ["おかねもち"],
+    "english": ["wealthy person", "rich person"],
+    "mnemonics": "Imagine 'okanemochi' as someone holding a bag of money saying 'okay, no mochi' to you."
+  },
+  "有名人": {
+    "hiragana": ["ゆうめいじん"],
+    "english": ["celebrity", "famous person"],
+    "mnemonics": "Visualize 'yuumeijin' as a famous person saying 'you may join' their fan club."
+  },
+  "顔": {
+    "hiragana": ["かお"],
+    "english": ["face"],
+    "mnemonics": "Just look at those cows' sweet faces!"
+  }
+}

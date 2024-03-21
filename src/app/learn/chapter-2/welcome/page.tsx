@@ -67,7 +67,7 @@ const page = () => {
               </ul>
             </div>
             <div className="ml-52 mt-14">
-              <Button link="/learn/chapter-1/preview">
+              <Button link="/learn/chapter-2/preview">
                 Get started! {"->"}
               </Button>
             </div>

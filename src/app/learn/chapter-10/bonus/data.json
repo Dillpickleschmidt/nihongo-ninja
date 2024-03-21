@@ -1,0 +1,182 @@
+{
+  "普通": {
+    "hiragana": ["ふつう"],
+    "english": ["local train", "regular"],
+    "mnemonics": "Visualize 'futsuu' as a regular person ('futsuu') taking the local train."
+  },
+  "急行": {
+    "hiragana": ["きゅうこう"],
+    "english": ["express"],
+    "mnemonics": "Think of 'kyuukou' as a train ('kyuukou') rushing past stations."
+  },
+  "特急": {
+    "hiragana": ["とっきゅう"],
+    "english": ["limited express"],
+    "mnemonics": "Remember 'tokkyuu' as a special ('tokkyuu') train offering fast service."
+  },
+  "～生き": {
+    "hiragana": ["～いき"],
+    "english": ["bound for..."],
+    "mnemonics": "Visualize 'iki' as a train bound for a specific destination."
+  },
+  "～方面": {
+    "hiragana": ["～ほうめん"],
+    "english": ["serving...areas"],
+    "mnemonics": "Think of 'houmen' as a train heading in a specific direction."
+  },
+  "乗車券": {
+    "hiragana": ["じょうしゃけん"],
+    "english": ["train ticket", "boarding pass"],
+    "mnemonics": "Remember 'joushaken' as a ticket to board ('jousha') the train."
+  },
+  "自由席": {
+    "hiragana": ["じゆうせき"],
+    "english": ["general admission seat"],
+    "mnemonics": "Visualize 'jiyuuseki' as freely choosing a seat ('jiyuu') on the train."
+  },
+  "定期券": {
+    "hiragana": ["ていきけん"],
+    "english": ["commuter pass"],
+    "mnemonics": "Think of 'teikiken' as a regular ('teiki') pass for commuting."
+  },
+  "一号車": {
+    "hiragana": ["いちごうしゃ"],
+    "english": ["car number one", "first car"],
+    "mnemonics": "Remember 'ichigousha' as the first ('ichigou') car on the train."
+  },
+  "学割": {
+    "hiragana": ["がくわり"],
+    "english": ["student discount"],
+    "mnemonics": "Visualize 'gakuwari' as a discount ('wari') for students ('gaku')."
+  },
+  "往復": {
+    "hiragana": ["おうふく"],
+    "english": ["round trip"],
+    "mnemonics": "Think of 'oufuku' as going ('ou') and coming back ('fuku')."
+  },
+  "指定席": {
+    "hiragana": ["していせき"],
+    "english": ["reserved seat"],
+    "mnemonics": "Remember 'shiteiseki' as a designated ('shitei') seat on the train."
+  },
+  "片道": {
+    "hiragana": ["かたみち"],
+    "english": ["one way"],
+    "mnemonics": "Visualize 'katamichi' as a one-sided ('kata') journey ('michi')."
+  },
+  "交通系ICカード": {
+    "hiragana": ["こうつうけいアイシーカード"],
+    "english": ["public transportation IC card"],
+    "mnemonics": "Think of 'koutsuu kei IC kaado' as an electronic card for public transportation."
+  },
+  "～番線": {
+    "hiragana": ["～ばんせん"],
+    "english": ["platform number ～"],
+    "mnemonics": "Remember 'ban sen' as the number of a platform where the train arrives."
+  },
+  "売店": {
+    "hiragana": ["ばいてん"],
+    "english": ["shop", "stand"],
+    "mnemonics": "Visualize 'baiten' as a shop ('baiten') selling snacks and drinks."
+  },
+  "切符売り場": {
+    "hiragana": ["きっぷうりば"],
+    "english": ["ticket vending area", "ticket counter"],
+    "mnemonics": "Think of 'kippu uriba' as a place ('uriba') to buy tickets ('kippu')."
+  },
+  "出口": {
+    "hiragana": ["でぐち"],
+    "english": ["exit"],
+    "mnemonics": "Remember 'deguchi' as the way ('deguchi') out of the station."
+  },
+  "改札": {
+    "hiragana": ["かいさつ"],
+    "english": ["ticket gate"],
+    "mnemonics": "Visualize 'kaisatsu' as the gate ('kai') where tickets are checked ('satsu')."
+  },
+  "入口": {
+    "hiragana": ["いりぐち"],
+    "english": ["entrance"],
+    "mnemonics": "Think of 'iriguchi' as the way ('iriguchi') into the station."
+  },
+  "ホーム": {
+    "hiragana": ["ほーむ"],
+    "english": ["platform"],
+    "mnemonics": "Remember 'home' as the platform ('home') where trains arrive and depart."
+  },
+  "階段": {
+    "hiragana": ["かいだん"],
+    "english": ["stairs"],
+    "mnemonics": "Visualize 'kaidan' as stairs ('kaidan') leading to the platform."
+  },
+  "乗り換え": {
+    "hiragana": ["のりかえ"],
+    "english": ["transfer", "change trains"],
+    "mnemonics": "Think of 'norikae' as changing ('norikae') trains to reach your destination."
+  },
+  "次発": {
+    "hiragana": ["じはつ"],
+    "english": ["departing second"],
+    "mnemonics": "Remember 'tsugihatsu' as the next ('tsugi') train departing from the station."
+  },
+  "次は～": {
+    "hiragana": ["つぎは～"],
+    "english": ["next (stop),...)"],
+    "mnemonics": "Visualize 'tsugi wa' as the announcer saying 'next is' followed by the destination."
+  },
+  "終電": {
+    "hiragana": ["しゅうでん"],
+    "english": ["last train", "final train"],
+    "mnemonics": "Visualize 'shuuden' as the sound of a train ('den') departing at the end of the day ('shuu')."
+  },
+  "先発": {
+    "hiragana": ["せんぱつ"],
+    "english": ["departing first"],
+    "mnemonics": "Think of 'senpatsu' as being the first to depart ('sen') from a place ('patsu')."
+  },
+  "まもなく発車します": {
+    "hiragana": ["まもなくはっしゃします"],
+    "english": ["We will be departing shortly", "We will be leaving soon"],
+    "mnemonics": "Remember 'mamonaku hassha shimasu' as the announcement made when the train is about to depart soon."
+  },
+  "電車が参れいます": {
+    "hiragana": ["でんしゃがまいれます"],
+    "english": ["A train is arriving"],
+    "mnemonics": "Visualize 'densha ga mairimasu' as passengers ('mairimasu') entering ('mairimasu') the train ('densha')."
+  },
+  "ドアが閉まります。ご注意ください。": {
+    "hiragana": ["どあがしまります。ごちゅういください。"],
+    "english": ["The doors are closing. Please be careful."],
+    "mnemonics": "Think of 'doa ga shimarimasu' as the announcement made when the doors are about to close ('shimaru')."
+  },
+  "この電車は秋葉原に泊まりますか": {
+    "hiragana": ["このでんしゃはあきはばらにとまりますか"],
+    "english": ["Does this train stop at Akihabara?"],
+    "mnemonics": "Visualize 'kono densha wa Akihabara ni tomarimasu ka' as asking if the train ('densha') will stay ('tomarimasu') at Akihabara."
+  },
+  "終電は何時ですか": {
+    "hiragana": ["しゅうでんはなんじですか"],
+    "english": ["What time is the last train?"],
+    "mnemonics": "Remember 'shuuden wa nanji desu ka' as asking for the time ('nanji') of the last train ('shuuden')."
+  },
+  "東京までの指定席を一枚お願いします": {
+    "hiragana": ["とうきょうまでのしていせきをいちまいおねがいします"],
+    "english": ["One reserved ticket to Tokyo, please."],
+    "mnemonics": "Think of 'Tokyo made no shiteiseki o ichimai onegaishimasu' as requesting ('onegaishimasu') one reserved seat ('shiteiseki') to Tokyo ('Tokyo made')."
+  },
+  "学割が使えますか": {
+    "hiragana": ["がくわりがつかえますか"],
+    "english": ["Can I use a student discount?"],
+    "mnemonics": "Visualize 'gakuwari ga tsukaemasu ka' as asking if a student discount ('gakuwari') can be used ('tsukaemasu')."
+  },
+  "鎌倉行の電車はどれですか": {
+    "hiragana": ["かまくらゆきのでんしゃはどれですか"],
+    "english": ["Which one is the train bound for Kamakura?"],
+    "mnemonics": "Remember 'Kamakura yuki no densha wa dore desu ka' as asking which train ('densha') goes to Kamakura ('Kamakura yuki')."
+  },
+  "二番線です": {
+    "hiragana": ["にばんせんです"],
+    "english": ["Track number two"],
+    "mnemonics": "Think of 'niban sen desu' as indicating that it's platform 2 ('niban sen')."
+  }
+}

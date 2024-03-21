@@ -1,0 +1,82 @@
+{
+  "年上": {
+    "hiragana": ["としうえ"],
+    "english": ["someone older"],
+    "mnemonics": "Imagine 'tonic up' as an older person giving you a health tonic."
+  },
+  "駅": {
+    "hiragana": ["えき"],
+    "english": ["train station"],
+    "mnemonics": "Visualize 'eki' as an egg rolling onto a train platform."
+  },
+  "新幹線": {
+    "hiragana": ["しんかんせん"],
+    "english": ["bullet train", "shinkansen"],
+    "mnemonics": "Think of 'shinkansen' as a shin-can shining brightly on the train tracks."
+  },
+  "地下鉄": {
+    "hiragana": ["ちかてつ"],
+    "english": ["subway", "metro"],
+    "mnemonics": "Imagine 'cheek-ate' as someone eating a sandwich while riding the subway."
+  },
+  "船": {
+    "hiragana": ["ふね"],
+    "english": ["ship", "boat"],
+    "mnemonics": "Visualize 'fune' as a fun boat floating on the water."
+  },
+  "飛行機": {
+    "hiragana": ["ひこうき"],
+    "english": ["airplane"],
+    "mnemonics": "Think of 'hee-koh-kee' as someone shouting 'he's coming' before a plane takes off."
+  },
+  "予約": {
+    "hiragana": ["よやく"],
+    "english": ["reservation", "booking"],
+    "mnemonics": "Imagine 'yo-yaku' as someone saying 'yo, yack!' while making a reservation."
+  },
+  "ツアー": {
+    "hiragana": ["ツアー"],
+    "english": ["tour"],
+    "mnemonics": "Sounds like the English."
+  },
+  "動物園": {
+    "hiragana": ["どうぶつえん"],
+    "english": ["zoo"],
+    "mnemonics": "Think of 'dough-boy toon' as cartoon characters visiting a zoo."
+  },
+  "時間": {
+    "hiragana": ["じかん"],
+    "english": ["time", "hours"],
+    "mnemonics": "Imagine 'jikan' as a chicken with a clock for a face squawking the time."
+  },
+  "世界": {
+    "hiragana": ["せかい"],
+    "english": ["world"],
+    "mnemonics": "Visualize 'sekai' as a seagull flying over the world. Or watch basically any anime and you'll surely pick up the meaning."
+  },
+  "美容院": {
+    "hiragana": ["びよういん"],
+    "english": ["beauty parlor", "beauty salon"],
+    "mnemonics": "Think of 'beeyo-een' as someone saying 'be your own' beauty at a salon."
+  },
+  "手袋": {
+    "hiragana": ["てぶくろ"],
+    "english": ["gloves"],
+    "mnemonics": "Imagine 'tebukuro' as someone taking off their gloves from their hands ('te') to show you a book ('bu-kuro')."
+  },
+  "生活": {
+    "hiragana": ["せいかつ"],
+    "english": ["life", "living", "lifestyle"],
+    "mnemonics": "Visualize 'seikatsu' as someone saying 'say ka-ching!' while living a fulfilling life."
+  },
+  "今年": {
+    "hiragana": ["ことし"],
+    "english": ["this year"],
+    "mnemonics": "Think of 'ko-no-me!' as someone yelling 'this year' while pointing at their watch."
+  },
+  "暖かい": {
+    "hiragana": ["あたたかい"],
+    "english": ["warm"],
+    "mnemonics": "Imagine 'ah-tah-kai' as someone saying 'ah, it's kai' when feeling warm."
+  }
+}

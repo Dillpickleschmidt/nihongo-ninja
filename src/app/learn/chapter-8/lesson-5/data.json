@@ -1,0 +1,72 @@
+{
+  "員": {
+    "hiragana": ["いん"],
+    "english": ["member"],
+    "mnemonics": "Visualize 'in' as a member ('in') of a club holding an ID card."
+  },
+  "新": {
+    "hiragana": ["あたら", "しん"],
+    "english": ["new"],
+    "mnemonics": "Think of 'atarashii' as a new ('atarashii') invention ('shin') changing the world."
+  },
+  "聞": {
+    "hiragana": ["ぶん", "き"],
+    "english": ["to listen"],
+    "mnemonics": "Remember 'bun' as listening to a news ('bun') report on the radio."
+  },
+  "作": {
+    "hiragana": ["つく", "さく"],
+    "english": ["to make"],
+    "mnemonics": "Visualize 'tsuku' as making a 'sack' ('saku') of potatoes from scratch."
+  },
+  "仕": {
+    "hiragana": ["し", "つか"],
+    "english": ["to serve"],
+    "mnemonics": "Think of 'shi' as serving ('shi') a cup of tea ('tsuka') to a guest."
+  },
+  "事": {
+    "hiragana": ["ごと", "こと", "じ"],
+    "english": ["thing"],
+    "mnemonics": "Remember 'koto' as a thing ('koto') to be done in the future."
+  },
+  "電": {
+    "hiragana": ["でん"],
+    "english": ["electricity"],
+    "mnemonics": "Visualize 'den' as an electric ('den') wire sparking with electricity."
+  },
+  "車": {
+    "hiragana": ["しゃ", "くるま"],
+    "english": ["car"],
+    "mnemonics": "Think of 'sha' as a car ('sha') zooming past a sign that says 'kuru-ma'."
+  },
+  "休": {
+    "hiragana": ["やす", "きゅう"],
+    "english": ["to rest"],
+    "mnemonics": "Remember 'yasumu' as taking a rest ('yasumu') under a cool breeze ('kyuu')."
+  },
+  "言": {
+    "hiragana": ["い", "こと", "げん"],
+    "english": ["to say"],
+    "mnemonics": "Visualize 'ii' as saying something ('ii') kind ('ii') to someone."
+  },
+  "読": {
+    "hiragana": ["よ", "どく"],
+    "english": ["to read"],
+    "mnemonics": "Think of 'yomu' as reading a book ('yomu') while lying on a dock ('doku')."
+  },
+  "思": {
+    "hiragana": ["おも", "し"],
+    "english": ["to think"],
+    "mnemonics": "Remember 'omoi' as thinking ('omoi') deeply ('shin') about something."
+  },
+  "次": {
+    "hiragana": ["つぎ", "じ"],
+    "english": ["next"],
+    "mnemonics": "Visualize 'tsugi' as the next ('tsugi') train arriving at the station."
+  },
+  "何": {
+    "hiragana": ["なに", "なん"],
+    "english": ["what"],
+    "mnemonics": "Think of 'nani' as asking 'what?' ('nani') in confusion ('nan')."
+  }
+}

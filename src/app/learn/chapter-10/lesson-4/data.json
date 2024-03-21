@@ -1,0 +1,102 @@
+{
+  "歩いて": {
+    "hiragana": ["あるいて"],
+    "english": ["by walking", "on foot"],
+    "mnemonics": "Visualize 'a-row-ee-te' as someone saying 'I row, eat' while walking around."
+  },
+  "～で": {
+    "hiragana": ["～で"],
+    "english": ["by (means of transportation)", "with (a tool)"],
+    "mnemonics": "Think of 'de' as someone saying 'day' as the method of doing something."
+  },
+  "どうやって": {
+    "hiragana": ["どうやって"],
+    "english": ["how", "by what means"],
+    "mnemonics": "Imagine 'doh yaht-te' as someone asking 'dough, yacht?' to figure out a solution."
+  },
+  "どのぐらい": {
+    "hiragana": ["どのぐらい"],
+    "english": ["how much", "how long", "to what extent"],
+    "mnemonics": "Visualize 'dono-gurai' as someone asking 'don't know, gray?' to estimate an amount."
+  },
+  "～週刊": {
+    "hiragana": ["～しゅうかん"],
+    "english": ["for...weeks"],
+    "mnemonics": "Think of 'shuu-kan' as someone saying 'shoe can' for a weekly publication."
+  },
+  "～か月": {
+    "hiragana": ["～かげつ"],
+    "english": ["for...months"],
+    "mnemonics": "Imagine 'ka-gatsu' as someone saying 'cactus' to refer to a number of months."
+  },
+  "～年": {
+    "hiragana": ["～ねん"],
+    "english": ["...years"],
+    "mnemonics": "Visualize 'nen' as someone saying 'men' to refer to a number of years."
+  },
+  "このごろ": {
+    "hiragana": ["このごろ"],
+    "english": ["these days", "lately"],
+    "mnemonics": "Think of 'kono goro' as someone saying 'corn, oh goro!' to talk about recent times."
+  },
+  "～後": {
+    "hiragana": ["～ご"],
+    "english": ["in...time", "later", "after..."],
+    "mnemonics": "Imagine 'go' as someone shouting 'go!' to indicate an event or time after something."
+  },
+  "～か～": {
+    "hiragana": ["～か～"],
+    "english": ["either...or..."],
+    "mnemonics": "Visualize 'ka' as someone asking 'car?' to offer choices between two options."
+  },
+  "普通": {
+    "hiragana": ["ふつう"],
+    "english": ["local train", "regular"],
+    "mnemonics": "Visualize 'futsuu' as a regular person ('futsuu') taking the local train."
+  },
+  "急行": {
+    "hiragana": ["きゅうこう"],
+    "english": ["express"],
+    "mnemonics": "Think of 'kyuukou' as a train ('kyuukou') rushing past stations."
+  },
+  "特急": {
+    "hiragana": ["とっきゅう"],
+    "english": ["limited express"],
+    "mnemonics": "Remember 'tokkyuu' as a special ('tokkyuu') train offering fast service."
+  },
+  "～生き": {
+    "hiragana": ["～いき"],
+    "english": ["bound for..."],
+    "mnemonics": "Visualize 'iki' as a train bound for a specific destination."
+  },
+  "～方面": {
+    "hiragana": ["～ほうめん"],
+    "english": ["serving...areas"],
+    "mnemonics": "Think of 'houmen' as a train heading in a specific direction."
+  },
+  "乗車券": {
+    "hiragana": ["じょうしゃけん"],
+    "english": ["train ticket", "boarding pass"],
+    "mnemonics": "Remember 'joushaken' as a ticket to board ('jousha') the train."
+  },
+  "往復": {
+    "hiragana": ["おうふく"],
+    "english": ["round trip"],
+    "mnemonics": "Think of 'oufuku' as going ('ou') and coming back ('fuku')."
+  },
+  "片道": {
+    "hiragana": ["かたみち"],
+    "english": ["one way"],
+    "mnemonics": "Visualize 'katamichi' as a one-sided ('kata') journey ('michi')."
+  },
+  "出口": {
+    "hiragana": ["でぐち"],
+    "english": ["exit"],
+    "mnemonics": "Remember 'deguchi' as the way ('deguchi') out of the station."
+  },
+  "入口": {
+    "hiragana": ["いりぐち"],
+    "english": ["entrance"],
+    "mnemonics": "Think of 'iriguchi' as the way ('iriguchi') into the station."
+  }
+}

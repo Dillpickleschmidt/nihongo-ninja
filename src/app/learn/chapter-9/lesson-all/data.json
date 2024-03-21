@@ -74,26 +74,6 @@
     "hiragana": ["きょねん"],
     "mnemonics": "Visualize 'last year' as a '去年' door closing, with memories stored behind it."
   },
-  "青い": {
-    "english": ["blue"],
-    "hiragana": ["あおい"],
-    "mnemonics": "Picture the 'blue' sky, vast and endless, as '青い' freedom."
-  },
-  "赤い": {
-    "english": ["red"],
-    "hiragana": ["あかい"],
-    "mnemonics": "Imagine 'red' as the '赤い' passion of a blooming rose."
-  },
-  "黒い": {
-    "english": ["black"],
-    "hiragana": ["くろい"],
-    "mnemonics": "Think of 'black' as the '黒い' night, mysterious and deep."
-  },
-  "白い": {
-    "english": ["white"],
-    "hiragana": ["しろい"],
-    "mnemonics": "Envision 'white' as the '白い' purity of freshly fallen snow."
-  },
   "寂しい": {
     "english": ["lonely", "lonesome"],
     "hiragana": ["さびしい"],
@@ -248,5 +228,165 @@
     "english": ["ten things"],
     "hiragana": ["とお"],
     "mnemonics": "Envision 'ten' as '十' perfect score, a complete set united."
+  },
+  "黒い": {
+    "hiragana": ["くろい"],
+    "english": ["black"],
+    "mnemonics": "Visualize 'kuroi' as the color of a crow ('kuro') flying in the night sky."
+  },
+  "白い": {
+    "hiragana": ["しろい"],
+    "english": ["white"],
+    "mnemonics": "Think of 'shiroi' as the color of snow ('shiro') covering the ground."
+  },
+  "赤い": {
+    "hiragana": ["あかい"],
+    "english": ["red"],
+    "mnemonics": "Remember 'akai' as the color of a ripe apple ('aka') hanging from a tree."
+  },
+  "青い": {
+    "hiragana": ["あおい"],
+    "english": ["blue"],
+    "mnemonics": "Visualize 'aoi' as the color of the sky ('ao') on a clear day."
+  },
+  "黄色い": {
+    "hiragana": ["きいろい"],
+    "english": ["yellow"],
+    "mnemonics": "Think of 'kiiroi' as the color of a ripe banana ('kii') in the sunlight."
+  },
+  "茶色い": {
+    "hiragana": ["ちゃいろい"],
+    "english": ["brown"],
+    "mnemonics": "Remember 'chairoi' as the color of tea ('cha') steeped to perfection."
+  },
+  "緑": {
+    "hiragana": ["みどり"],
+    "english": ["green"],
+    "mnemonics": "Visualize 'midori' as the color of fresh grass ('midori') after a rain shower."
+  },
+  "紫": {
+    "hiragana": ["むらさき"],
+    "english": ["purple"],
+    "mnemonics": "Think of 'murasaki' as the color of royal robes ('murasaki') worn by kings."
+  },
+  "紺色": {
+    "hiragana": ["こんいろ"],
+    "english": ["navy blue"],
+    "mnemonics": "Remember 'kon'iro' as the color of a deep ocean ('kon') at dusk."
+  },
+  "灰色": {
+    "hiragana": ["はいいろ"],
+    "english": ["gray"],
+    "mnemonics": "Visualize 'haiiro' as the color of ash ('hai') from a burnt firewood."
+  },
+  "水色": {
+    "hiragana": ["みずいろ"],
+    "english": ["light blue", "aquamarine"],
+    "mnemonics": "Think of 'mizu'iro' as the color of clear water ('mizu') in a tranquil lake."
+  },
+  "金色": {
+    "hiragana": ["きんいろ"],
+    "english": ["gold"],
+    "mnemonics": "Remember 'kiniro' as the color of shimmering gold ('kin') coins."
+  },
+  "銀色": {
+    "hiragana": ["ぎんいろ"],
+    "english": ["silver"],
+    "mnemonics": "Visualize 'gin'iro' as the color of a shiny silver ('gin') spoon."
+  },
+  "ピンク": {
+    "hiragana": ["ぴんく"],
+    "english": ["pink"],
+    "mnemonics": "Think of 'pinku' as the color of cherry blossoms ('pinku') in the spring."
+  },
+  "オレンジ": {
+    "hiragana": ["おれんじ"],
+    "english": ["orange"],
+    "mnemonics": "Remember 'orenji' as the color of a juicy orange ('orenji') fruit."
+  },
+  "ベージュ": {
+    "hiragana": ["べーじゅ"],
+    "english": ["beige"],
+    "mnemonics": "Visualize 'beige' as the color of sandy beaches under a bright sun."
+  },
+  "売店": {
+    "hiragana": ["ばいてん"],
+    "english": ["shop", "stand"],
+    "mnemonics": "Visualize 'baiten' as a shop ('baiten') selling snacks and drinks."
+  },
+  "午": {
+    "hiragana": ["ご"],
+    "english": ["noon"],
+    "mnemonics": "Visualize 'go' as the sun ('go') shining brightly at noon."
+  },
+  "後": {
+    "hiragana": ["あと", "ご", "うし"],
+    "english": ["after"],
+    "mnemonics": "Think of 'ato' as the footsteps ('ato') left behind after someone ('ushi') has passed by."
+  },
+  "前": {
+    "hiragana": ["まえ", "ぜん"],
+    "english": ["before"],
+    "mnemonics": "Remember 'mae' as looking ahead ('mae') into the past ('zen')."
+  },
+  "名": {
+    "hiragana": ["な", "めい", "みょう"],
+    "english": ["name"],
+    "mnemonics": "Visualize 'na' as a person ('na') writing their name ('mei') with a bright light ('myou')."
+  },
+  "白": {
+    "hiragana": ["しろ", "はく"],
+    "english": ["white"],
+    "mnemonics": "Think of 'shiro' as a white ('shiro') sheet of paper ('haku')."
+  },
+  "雨": {
+    "hiragana": ["あめ", "う"],
+    "english": ["rain"],
+    "mnemonics": "Remember 'ame' as raindrops ('ame') falling from the sky ('u')."
+  },
+  "書": {
+    "hiragana": ["か", "しょ"],
+    "english": ["to write"],
+    "mnemonics": "Visualize 'ka' as writing a letter ('ka') in a book ('sho')."
+  },
+  "友": {
+    "hiragana": ["とも", "ゆう"],
+    "english": ["friend"],
+    "mnemonics": "Think of 'tomo' as a friend ('tomo') saying 'you' ('yuu') are their best friend."
+  },
+  "間": {
+    "hiragana": ["あいだ", "かん", "げん"],
+    "english": ["between"],
+    "mnemonics": "Remember 'aida' as the space ('aida') between two buildings ('kan') in a city ('gen')."
+  },
+  "家": {
+    "hiragana": ["いえ", "や", "か"],
+    "english": ["house"],
+    "mnemonics": "Visualize 'ie' as a house ('ie') with a big yard ('ya') and a gate ('ka')."
+  },
+  "話": {
+    "hiragana": ["はな", "はなし", "わ"],
+    "english": ["to speak"],
+    "mnemonics": "Think of 'hana' as speaking ('hana') about a story ('hanashi') with a friend ('wa')."
+  },
+  "少": {
+    "hiragana": ["すこ", "すく", "しょう"],
+    "english": ["little"],
+    "mnemonics": "Remember 'suko' as having a little ('suko') scoop ('suku') of ice cream."
+  },
+  "古": {
+    "hiragana": ["ふる", "こ"],
+    "english": ["old"],
+    "mnemonics": "Visualize 'furu' as an old ('furu') tree trunk ('ko') covered in moss."
+  },
+  "知": {
+    "hiragana": ["し", "ち"],
+    "english": ["to know"],
+    "mnemonics": "Think of 'shi' as knowing ('shi') the answer to a question ('chi')."
+  },
+  "来": {
+    "hiragana": ["く", "き", "こ", "らい"],
+    "english": ["to come"],
+    "mnemonics": "Remember 'kuru' as someone coming ('kuru') to visit ('rai') your home ('ko')."
   }
 }

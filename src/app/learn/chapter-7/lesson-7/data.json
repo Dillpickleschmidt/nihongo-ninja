@@ -1,0 +1,72 @@
+{
+  "京": {
+    "hiragana": ["きょう"],
+    "english": ["capital"],
+    "mnemonics": "Visualize 'kyou' as the sound of a lion ('kyou') roaring in the capital city."
+  },
+  "子": {
+    "hiragana": ["こ", "し"],
+    "english": ["child"],
+    "mnemonics": "Think of 'ko' as a child ('ko') playing with a toy ship ('ship')."
+  },
+  "小": {
+    "hiragana": ["ち", "しょう"],
+    "english": ["small"],
+    "mnemonics": "Remember 'chi' as a small ('chi') ant carrying a tiny 'show' sign."
+  },
+  "会": {
+    "hiragana": ["あ", "かい"],
+    "english": ["to meet"],
+    "mnemonics": "Visualize 'ai' as two people ('ai') meeting at a conference ('kai')."
+  },
+  "社": {
+    "hiragana": ["しゃ", "じゃ"],
+    "english": ["company"],
+    "mnemonics": "Think of 'sha' as a company ('sha') symbolized by a red 'ja' flag."
+  },
+  "父": {
+    "hiragana": ["ちち", "とう", "ふ"],
+    "english": ["father"],
+    "mnemonics": "Remember 'chichi' as a father ('chichi') lifting weights with his 'toes' and 'foot'."
+  },
+  "母": {
+    "hiragana": ["はは", "かあ", "ば"],
+    "english": ["mother"],
+    "mnemonics": "Visualize 'haha' as a mother ('haha') carrying a 'car' and a 'bag' full of groceries."
+  },
+  "高": {
+    "hiragana": ["たか", "こう"],
+    "english": ["high"],
+    "mnemonics": "Think of 'taka' as a high ('taka') mountain peak with a 'kou' sign at the summit."
+  },
+  "校": {
+    "hiragana": ["こう"],
+    "english": ["school"],
+    "mnemonics": "Remember 'kou' as a school ('kou') building shaped like a 'cow'."
+  },
+  "毎": {
+    "hiragana": ["まい"],
+    "english": ["every"],
+    "mnemonics": "Visualize 'mai' as a sign that says 'may' ('mai') do something every day."
+  },
+  "語": {
+    "hiragana": ["ご"],
+    "english": ["word"],
+    "mnemonics": "Think of 'go' as a word ('go') written on a piece of paper."
+  },
+  "文": {
+    "hiragana": ["ぶん"],
+    "english": ["sentence"],
+    "mnemonics": "Remember 'bun' as a sentence ('bun') written in a book."
+  },
+  "帰る": {
+    "hiragana": ["かえ", "き"],
+    "english": ["to return"],
+    "mnemonics": "Visualize 'kaeru' as a frog ('kaeru') hopping back home ('ki')."
+  },
+  "入": {
+    "hiragana": ["はい", "にゅう", "いり"],
+    "english": ["to enter"],
+    "mnemonics": "Think of 'hai' as a person ('hai') entering a revolving 'new' door ('nyuu') into a building."
+  }
+}

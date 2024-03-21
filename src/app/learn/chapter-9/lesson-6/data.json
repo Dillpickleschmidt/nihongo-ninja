@@ -1,0 +1,77 @@
+{
+  "午": {
+    "hiragana": ["ご"],
+    "english": ["noon"],
+    "mnemonics": "Visualize 'go' as the sun ('go') shining brightly at noon."
+  },
+  "後": {
+    "hiragana": ["あと", "ご", "うし"],
+    "english": ["after"],
+    "mnemonics": "Think of 'ato' as the footsteps ('ato') left behind after someone ('ushi') has passed by."
+  },
+  "前": {
+    "hiragana": ["まえ", "ぜん"],
+    "english": ["before"],
+    "mnemonics": "Remember 'mae' as looking ahead ('mae') into the past ('zen')."
+  },
+  "名": {
+    "hiragana": ["な", "めい", "みょう"],
+    "english": ["name"],
+    "mnemonics": "Visualize 'na' as a person ('na') writing their name ('mei') with a bright light ('myou')."
+  },
+  "白": {
+    "hiragana": ["しろ", "はく"],
+    "english": ["white"],
+    "mnemonics": "Think of 'shiro' as a white ('shiro') sheet of paper ('haku')."
+  },
+  "雨": {
+    "hiragana": ["あめ", "う"],
+    "english": ["rain"],
+    "mnemonics": "Remember 'ame' as raindrops ('ame') falling from the sky ('u')."
+  },
+  "書": {
+    "hiragana": ["か", "しょ"],
+    "english": ["to write"],
+    "mnemonics": "Visualize 'ka' as writing a letter ('ka') in a book ('sho')."
+  },
+  "友": {
+    "hiragana": ["とも", "ゆう"],
+    "english": ["friend"],
+    "mnemonics": "Think of 'tomo' as a friend ('tomo') saying 'you' ('yuu') are their best friend."
+  },
+  "間": {
+    "hiragana": ["あいだ", "かん", "げん"],
+    "english": ["between"],
+    "mnemonics": "Remember 'aida' as the space ('aida') between two buildings ('kan') in a city ('gen')."
+  },
+  "家": {
+    "hiragana": ["いえ", "や", "か"],
+    "english": ["house"],
+    "mnemonics": "Visualize 'ie' as a house ('ie') with a big yard ('ya') and a gate ('ka')."
+  },
+  "話": {
+    "hiragana": ["はな", "はなし", "わ"],
+    "english": ["to speak"],
+    "mnemonics": "Think of 'hana' as speaking ('hana') about a story ('hanashi') with a friend ('wa')."
+  },
+  "少": {
+    "hiragana": ["すこ", "すく", "しょう"],
+    "english": ["little"],
+    "mnemonics": "Remember 'suko' as having a little ('suko') scoop ('suku') of ice cream."
+  },
+  "古": {
+    "hiragana": ["ふる", "こ"],
+    "english": ["old"],
+    "mnemonics": "Visualize 'furu' as an old ('furu') tree trunk ('ko') covered in moss."
+  },
+  "知": {
+    "hiragana": ["し", "ち"],
+    "english": ["to know"],
+    "mnemonics": "Think of 'shi' as knowing ('shi') the answer to a question ('chi')."
+  },
+  "来": {
+    "hiragana": ["く", "き", "こ", "らい"],
+    "english": ["to come"],
+    "mnemonics": "Remember 'kuru' as someone coming ('kuru') to visit ('rai') your home ('ko')."
+  }
+}

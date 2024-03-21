@@ -1,0 +1,402 @@
+{
+  "季節": {
+    "hiragana": ["きせつ"],
+    "english": ["season"],
+    "mnemonics": "Visualize 'keysetsu' as a key that sets the seasons."
+  },
+  "春": {
+    "hiragana": ["はる"],
+    "english": ["spring"],
+    "mnemonics": "Think of 'haru' as the sound you make when you sneeze in the spring."
+  },
+  "秋": {
+    "hiragana": ["あき"],
+    "english": ["autumn", "fall"],
+    "mnemonics": "Imagine 'ah-kee' as the sound of a sigh when the leaves fall in autumn."
+  },
+  "牛乳": {
+    "hiragana": ["ぎゅうにゅう"],
+    "english": ["milk"],
+    "mnemonics": "Remember 'gyuunyuu' as 'guy in you' offering you a glass of milk."
+  },
+  "ケーキ": {
+    "hiragana": ["ケーキ"],
+    "english": ["cake"],
+    "mnemonics": "It sounds like the English."
+  },
+  "すし": {
+    "hiragana": ["すし"],
+    "english": ["sushi"],
+    "mnemonics": "Surely you've eaten sushi before, right?"
+  },
+  "天ぷら": {
+    "hiragana": ["てんぷら"],
+    "english": ["tempura"],
+    "mnemonics": "Imagine 'tempura' as a tempura frying in the sky."
+  },
+  "りんご": {
+    "hiragana": ["りんご"],
+    "english": ["apple"],
+    "mnemonics": "Imagine a fantasticly dressed Mexican man excitedly holding an apple to the sky, shounting rrrrriiingooo!"
+  },
+  "料理": {
+    "hiragana": ["りょうり"],
+    "english": ["cooking", "cuisine"],
+    "mnemonics": "Think of 'ryouri' as 'ryo' asking you to try his cooking."
+  },
+  "サッカー": {
+    "hiragana": ["サッカー"],
+    "english": ["soccer"],
+    "mnemonics": "Japanese speakers actually say soccer instead of football?"
+  },
+  "野球": {
+    "hiragana": ["やきゅう"],
+    "english": ["baseball"],
+    "mnemonics": "Visualize 'yakyuu' as a yak wearing a baseball cap and playing baseball."
+  },
+  "医者": {
+    "hiragana": ["いしゃ"],
+    "english": ["doctor"],
+    "mnemonics": "Think of 'eeshah' as someone saying 'I shall' heal you like a doctor."
+  },
+  "お金持ち": {
+    "hiragana": ["おかねもち"],
+    "english": ["wealthy person", "rich person"],
+    "mnemonics": "Imagine 'okanemochi' as someone holding a bag of money saying 'okay, no mochi' to you."
+  },
+  "有名人": {
+    "hiragana": ["ゆうめいじん"],
+    "english": ["celebrity", "famous person"],
+    "mnemonics": "Visualize 'yuumeijin' as a famous person saying 'you may join' their fan club."
+  },
+  "顔": {
+    "hiragana": ["かお"],
+    "english": ["face"],
+    "mnemonics": "Just look at those cows' sweet faces!"
+  },
+  "年上": {
+    "hiragana": ["としうえ"],
+    "english": ["someone older"],
+    "mnemonics": "Imagine 'tonic up' as an older person giving you a health tonic."
+  },
+  "駅": {
+    "hiragana": ["えき"],
+    "english": ["train station"],
+    "mnemonics": "Visualize 'eki' as an egg rolling onto a train platform."
+  },
+  "新幹線": {
+    "hiragana": ["しんかんせん"],
+    "english": ["bullet train", "shinkansen"],
+    "mnemonics": "Think of 'shinkansen' as a shin-can shining brightly on the train tracks."
+  },
+  "地下鉄": {
+    "hiragana": ["ちかてつ"],
+    "english": ["subway", "metro"],
+    "mnemonics": "Imagine 'cheek-ate' as someone eating a sandwich while riding the subway."
+  },
+  "船": {
+    "hiragana": ["ふね"],
+    "english": ["ship", "boat"],
+    "mnemonics": "Visualize 'fune' as a fun boat floating on the water."
+  },
+  "飛行機": {
+    "hiragana": ["ひこうき"],
+    "english": ["airplane"],
+    "mnemonics": "Think of 'hee-koh-kee' as someone shouting 'he's coming' before a plane takes off."
+  },
+  "予約": {
+    "hiragana": ["よやく"],
+    "english": ["reservation", "booking"],
+    "mnemonics": "Imagine 'yo-yaku' as someone saying 'yo, yack!' while making a reservation."
+  },
+  "ツアー": {
+    "hiragana": ["ツアー"],
+    "english": ["tour"],
+    "mnemonics": "Sounds like the English."
+  },
+  "動物園": {
+    "hiragana": ["どうぶつえん"],
+    "english": ["zoo"],
+    "mnemonics": "Think of 'dough-boy toon' as cartoon characters visiting a zoo."
+  },
+  "時間": {
+    "hiragana": ["じかん"],
+    "english": ["time", "hours"],
+    "mnemonics": "Imagine 'jikan' as a chicken with a clock for a face squawking the time."
+  },
+  "世界": {
+    "hiragana": ["せかい"],
+    "english": ["world"],
+    "mnemonics": "Visualize 'sekai' as a seagull flying over the world. Or watch basically any anime and you'll surely pick up the meaning."
+  },
+  "美容院": {
+    "hiragana": ["びよういん"],
+    "english": ["beauty parlor", "beauty salon"],
+    "mnemonics": "Think of 'beeyo-een' as someone saying 'be your own' beauty at a salon."
+  },
+  "手袋": {
+    "hiragana": ["てぶくろ"],
+    "english": ["gloves"],
+    "mnemonics": "Imagine 'tebukuro' as someone taking off their gloves from their hands ('te') to show you a book ('bu-kuro')."
+  },
+  "生活": {
+    "hiragana": ["せいかつ"],
+    "english": ["life", "living", "lifestyle"],
+    "mnemonics": "Visualize 'seikatsu' as someone saying 'say ka-ching!' while living a fulfilling life."
+  },
+  "今年": {
+    "hiragana": ["ことし"],
+    "english": ["this year"],
+    "mnemonics": "Think of 'ko-no-me!' as someone yelling 'this year' while pointing at their watch."
+  },
+  "暖かい": {
+    "hiragana": ["あたたかい"],
+    "english": ["warm"],
+    "mnemonics": "Imagine 'ah-tah-kai' as someone saying 'ah, it's kai' when feeling warm."
+  },
+  "涼しい": {
+    "hiragana": ["すずしい"],
+    "english": ["cool (weather)"],
+    "mnemonics": "Visualize 'soo-zoo-she' as someone saying 'soothe you, she' on a cool day."
+  },
+  "冷たい": {
+    "hiragana": ["つめたい"],
+    "english": ["cold (things/people)"],
+    "mnemonics": "Think of 'tsumetai' as someone saying 'tsu, meaty' while shivering in the cold."
+  },
+  "遅い": {
+    "hiragana": ["おそい"],
+    "english": ["late", "slow"],
+    "mnemonics": "Imagine 'oh-soy' as someone saying 'oh soy!' when realizing they're late."
+  },
+  "眠い": {
+    "hiragana": ["ねむい"],
+    "english": ["sleepy", "drowsy"],
+    "mnemonics": "Visualize 'ne-moo-e' as someone saying 'ne-moo, eh?' when feeling sleepy."
+  },
+  "簡単": {
+    "hiragana": ["かんたん"],
+    "english": ["easy", "simple"],
+    "mnemonics": "Think of 'kan-tan' as someone saying 'can tan' easily."
+  },
+  "かかる": {
+    "hiragana": ["かかる"],
+    "english": ["to take (time)", "to cost"],
+    "mnemonics": "Imagine 'ka-ka-roo' as a kangaroo taking a long time to jump ('ka') over a hurdle."
+  },
+  "泊まる": {
+    "hiragana": ["とまる"],
+    "english": ["to stay (at a hotel)"],
+    "mnemonics": "Visualize 'tomaru' as someone saying 'tomorrow' while deciding to stay overnight."
+  },
+  "なる": {
+    "hiragana": ["なる"],
+    "english": ["to become"],
+    "mnemonics": "Think of 'narwhal' as someone transforming ('naru') into a magical creature."
+  },
+  "決める": {
+    "hiragana": ["きめる"],
+    "english": ["to decide", "to settle"],
+    "mnemonics": "Imagine 'key-meh-roo' as someone deciding the key ('key') to solving a puzzle."
+  },
+  "ごろごろする": {
+    "hiragana": ["ごろごろする"],
+    "english": ["to chill out at home", "to stay home and do nothing"],
+    "mnemonics": "Visualize 'goro-goro' as someone rolling ('goro') around lazily ('goro') on the floor."
+  },
+  "旅行する": {
+    "hiragana": ["りょこうする"],
+    "english": ["to travel"],
+    "mnemonics": "Think of 'ryokou suru' as someone shouting 'rock on!' before embarking on a journey."
+  },
+  "練習する": {
+    "hiragana": ["れんしゅうする"],
+    "english": ["to practice"],
+    "mnemonics": "Imagine 'renshuu suru' as someone saying 'run shoe, run' while practicing sports."
+  },
+  "一番": {
+    "hiragana": ["いちばん"],
+    "english": ["number one", "best"],
+    "mnemonics": "Visualize 'ichi-ban' as someone saying 'itchy bun' to claim they have the best bun."
+  },
+  "どっち・どちら": {
+    "hiragana": ["どっち・どちら"],
+    "english": ["which (of two)"],
+    "mnemonics": "Think of 'dotchy' as someone asking 'dotchy?' to choose between two options."
+  },
+  "速く": {
+    "hiragana": ["はやく"],
+    "english": ["quickly", "early"],
+    "mnemonics": "Imagine 'ha-yaku' as someone urging you to 'hurry up!'"
+  },
+  "歩いて": {
+    "hiragana": ["あるいて"],
+    "english": ["by walking", "on foot"],
+    "mnemonics": "Visualize 'a-row-ee-te' as someone saying 'I row, eat' while walking around."
+  },
+  "～で": {
+    "hiragana": ["～で"],
+    "english": ["by (means of transportation)", "with (a tool)"],
+    "mnemonics": "Think of 'de' as someone saying 'day' as the method of doing something."
+  },
+  "どうやって": {
+    "hiragana": ["どうやって"],
+    "english": ["how", "by what means"],
+    "mnemonics": "Imagine 'doh yaht-te' as someone asking 'dough, yacht?' to figure out a solution."
+  },
+  "どのぐらい": {
+    "hiragana": ["どのぐらい"],
+    "english": ["how much", "how long", "to what extent"],
+    "mnemonics": "Visualize 'dono-gurai' as someone asking 'don't know, gray?' to estimate an amount."
+  },
+  "～週刊": {
+    "hiragana": ["～しゅうかん"],
+    "english": ["for...weeks"],
+    "mnemonics": "Think of 'shuu-kan' as someone saying 'shoe can' for a weekly publication."
+  },
+  "～か月": {
+    "hiragana": ["～かげつ"],
+    "english": ["for...months"],
+    "mnemonics": "Imagine 'ka-gatsu' as someone saying 'cactus' to refer to a number of months."
+  },
+  "～年": {
+    "hiragana": ["～ねん"],
+    "english": ["...years"],
+    "mnemonics": "Visualize 'nen' as someone saying 'men' to refer to a number of years."
+  },
+  "このごろ": {
+    "hiragana": ["このごろ"],
+    "english": ["these days", "lately"],
+    "mnemonics": "Think of 'kono goro' as someone saying 'corn, oh goro!' to talk about recent times."
+  },
+  "～後": {
+    "hiragana": ["～ご"],
+    "english": ["in...time", "later", "after..."],
+    "mnemonics": "Imagine 'go' as someone shouting 'go!' to indicate an event or time after something."
+  },
+  "～か～": {
+    "hiragana": ["～か～"],
+    "english": ["either...or..."],
+    "mnemonics": "Visualize 'ka' as someone asking 'car?' to offer choices between two options."
+  },
+  "普通": {
+    "hiragana": ["ふつう"],
+    "english": ["local train", "regular"],
+    "mnemonics": "Visualize 'futsuu' as a regular person ('futsuu') taking the local train."
+  },
+  "急行": {
+    "hiragana": ["きゅうこう"],
+    "english": ["express"],
+    "mnemonics": "Think of 'kyuukou' as a train ('kyuukou') rushing past stations."
+  },
+  "特急": {
+    "hiragana": ["とっきゅう"],
+    "english": ["limited express"],
+    "mnemonics": "Remember 'tokkyuu' as a special ('tokkyuu') train offering fast service."
+  },
+  "～生き": {
+    "hiragana": ["～いき"],
+    "english": ["bound for..."],
+    "mnemonics": "Visualize 'iki' as a train bound for a specific destination."
+  },
+  "～方面": {
+    "hiragana": ["～ほうめん"],
+    "english": ["serving...areas"],
+    "mnemonics": "Think of 'houmen' as a train heading in a specific direction."
+  },
+  "乗車券": {
+    "hiragana": ["じょうしゃけん"],
+    "english": ["train ticket", "boarding pass"],
+    "mnemonics": "Remember 'joushaken' as a ticket to board ('jousha') the train."
+  },
+  "往復": {
+    "hiragana": ["おうふく"],
+    "english": ["round trip"],
+    "mnemonics": "Think of 'oufuku' as going ('ou') and coming back ('fuku')."
+  },
+  "片道": {
+    "hiragana": ["かたみち"],
+    "english": ["one way"],
+    "mnemonics": "Visualize 'katamichi' as a one-sided ('kata') journey ('michi')."
+  },
+  "出口": {
+    "hiragana": ["でぐち"],
+    "english": ["exit"],
+    "mnemonics": "Remember 'deguchi' as the way ('deguchi') out of the station."
+  },
+  "入口": {
+    "hiragana": ["いりぐち"],
+    "english": ["entrance"],
+    "mnemonics": "Think of 'iriguchi' as the way ('iriguchi') into the station."
+  },
+  "住": {
+    "hiragana": ["す", "じゅう"],
+    "english": ["to live"],
+    "mnemonics": "Visualize 'su' as someone ('su') living in a house ('juu') in the countryside."
+  },
+  "正": {
+    "hiragana": ["しょう", "せい", "ただ"],
+    "english": ["correct", "right"],
+    "mnemonics": "Think of 'shou' as being correct ('shou') and fair ('sei') in every 'tada' decision."
+  },
+  "年": {
+    "hiragana": ["ねん", "とし"],
+    "english": ["year"],
+    "mnemonics": "Remember 'nen' as the passing of a year ('nen') marked by the change of seasons ('toshi')."
+  },
+  "売": {
+    "hiragana": ["う", "ばい"],
+    "english": ["to sell"],
+    "mnemonics": "Visualize 'u' as selling ('u') a valuable item ('bai') at a bazaar."
+  },
+  "買": {
+    "hiragana": ["か", "ばい"],
+    "english": ["to buy"],
+    "mnemonics": "Think of 'ka' as buying ('ka') a valuable item ('bai') at a bazaar."
+  },
+  "町": {
+    "hiragana": ["まち", "ちょう"],
+    "english": ["town"],
+    "mnemonics": "Remember 'machi' as a lively town ('machi') with tall buildings ('chou')."
+  },
+  "長": {
+    "hiragana": ["なが", "ちょう"],
+    "english": ["long"],
+    "mnemonics": "Visualize 'naga' as a long ('naga') road stretching into the distance ('chou')."
+  },
+  "道": {
+    "hiragana": ["みち", "どう"],
+    "english": ["way"],
+    "mnemonics": "Think of 'michi' as finding your way ('michi') home along a winding path ('dou')."
+  },
+  "雪": {
+    "hiragana": ["ゆき", "せつ"],
+    "english": ["snow"],
+    "mnemonics": "Remember 'yuki' as snow ('yuki') covering the ground in a serene landscape ('setsu')."
+  },
+  "立": {
+    "hiragana": ["た", "りつ"],
+    "english": ["to stand"],
+    "mnemonics": "Visualize 'ta' as someone ('ta') standing ('ri') tall and proud."
+  },
+  "自": {
+    "hiragana": ["じ"],
+    "english": ["oneself"],
+    "mnemonics": "Think of 'ji' as taking care of oneself ('ji') by eating a balanced diet."
+  },
+  "夜": {
+    "hiragana": ["よる", "よ", "や"],
+    "english": ["night"],
+    "mnemonics": "Remember 'yoru' as the time when the moon ('yo') and stars ('ya') light up the night sky."
+  },
+  "朝": {
+    "hiragana": ["あさ", "ちょう"],
+    "english": ["morning"],
+    "mnemonics": "Visualize 'asa' as waking up early in the morning ('asa') to the sound of birds chirping ('chou')."
+  },
+  "持": {
+    "hiragana": ["も", "じ"],
+    "english": ["to hold"],
+    "mnemonics": "Think of 'mo' as holding ('mo') onto a valuable item ('ji') tightly."
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "黒い": {
+    "hiragana": ["くろい"],
+    "english": ["black"],
+    "mnemonics": "Visualize 'kuroi' as the color of a crow ('kuro') flying in the night sky."
+  },
+  "白い": {
+    "hiragana": ["しろい"],
+    "english": ["white"],
+    "mnemonics": "Think of 'shiroi' as the color of snow ('shiro') covering the ground."
+  },
+  "赤い": {
+    "hiragana": ["あかい"],
+    "english": ["red"],
+    "mnemonics": "Remember 'akai' as the color of a ripe apple ('aka') hanging from a tree."
+  },
+  "青い": {
+    "hiragana": ["あおい"],
+    "english": ["blue"],
+    "mnemonics": "Visualize 'aoi' as the color of the sky ('ao') on a clear day."
+  },
+  "黄色い": {
+    "hiragana": ["きいろい"],
+    "english": ["yellow"],
+    "mnemonics": "Think of 'kiiroi' as the color of a ripe banana ('kii') in the sunlight."
+  },
+  "茶色い": {
+    "hiragana": ["ちゃいろい"],
+    "english": ["brown"],
+    "mnemonics": "Remember 'chairoi' as the color of tea ('cha') steeped to perfection."
+  },
+  "緑": {
+    "hiragana": ["みどり"],
+    "english": ["green"],
+    "mnemonics": "Visualize 'midori' as the color of fresh grass ('midori') after a rain shower."
+  },
+  "紫": {
+    "hiragana": ["むらさき"],
+    "english": ["purple"],
+    "mnemonics": "Think of 'murasaki' as the color of royal robes ('murasaki') worn by kings."
+  },
+  "紺色": {
+    "hiragana": ["こんいろ"],
+    "english": ["navy blue"],
+    "mnemonics": "Remember 'kon'iro' as the color of a deep ocean ('kon') at dusk."
+  },
+  "灰色": {
+    "hiragana": ["はいいろ"],
+    "english": ["gray"],
+    "mnemonics": "Visualize 'haiiro' as the color of ash ('hai') from a burnt firewood."
+  },
+  "水色": {
+    "hiragana": ["みずいろ"],
+    "english": ["light blue", "aquamarine"],
+    "mnemonics": "Think of 'mizu'iro' as the color of clear water ('mizu') in a tranquil lake."
+  },
+  "金色": {
+    "hiragana": ["きんいろ"],
+    "english": ["gold"],
+    "mnemonics": "Remember 'kiniro' as the color of shimmering gold ('kin') coins."
+  },
+  "銀色": {
+    "hiragana": ["ぎんいろ"],
+    "english": ["silver"],
+    "mnemonics": "Visualize 'gin'iro' as the color of a shiny silver ('gin') spoon."
+  },
+  "ピンク": {
+    "hiragana": ["ぴんく"],
+    "english": ["pink"],
+    "mnemonics": "Think of 'pinku' as the color of cherry blossoms ('pinku') in the spring."
+  },
+  "オレンジ": {
+    "hiragana": ["おれんじ"],
+    "english": ["orange"],
+    "mnemonics": "Remember 'orenji' as the color of a juicy orange ('orenji') fruit."
+  },
+  "ベージュ": {
+    "hiragana": ["べーじゅ"],
+    "english": ["beige"],
+    "mnemonics": "Visualize 'beige' as the color of sandy beaches under a bright sun."
+  }
+}

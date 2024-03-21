@@ -1,0 +1,72 @@
+{
+  "住": {
+    "hiragana": ["す", "じゅう"],
+    "english": ["to live"],
+    "mnemonics": "Visualize 'su' as someone ('su') living in a house ('juu') in the countryside."
+  },
+  "正": {
+    "hiragana": ["しょう", "せい", "ただ"],
+    "english": ["correct", "right"],
+    "mnemonics": "Think of 'shou' as being correct ('shou') and fair ('sei') in every 'tada' decision."
+  },
+  "年": {
+    "hiragana": ["ねん", "とし"],
+    "english": ["year"],
+    "mnemonics": "Remember 'nen' as the passing of a year ('nen') marked by the change of seasons ('toshi')."
+  },
+  "売": {
+    "hiragana": ["う", "ばい"],
+    "english": ["to sell"],
+    "mnemonics": "Visualize 'u' as selling ('u') a valuable item ('bai') at a bazaar."
+  },
+  "買": {
+    "hiragana": ["か", "ばい"],
+    "english": ["to buy"],
+    "mnemonics": "Think of 'ka' as buying ('ka') a valuable item ('bai') at a bazaar."
+  },
+  "町": {
+    "hiragana": ["まち", "ちょう"],
+    "english": ["town"],
+    "mnemonics": "Remember 'machi' as a lively town ('machi') with tall buildings ('chou')."
+  },
+  "長": {
+    "hiragana": ["なが", "ちょう"],
+    "english": ["long"],
+    "mnemonics": "Visualize 'naga' as a long ('naga') road stretching into the distance ('chou')."
+  },
+  "道": {
+    "hiragana": ["みち", "どう"],
+    "english": ["way"],
+    "mnemonics": "Think of 'michi' as finding your way ('michi') home along a winding path ('dou')."
+  },
+  "雪": {
+    "hiragana": ["ゆき", "せつ"],
+    "english": ["snow"],
+    "mnemonics": "Remember 'yuki' as snow ('yuki') covering the ground in a serene landscape ('setsu')."
+  },
+  "立": {
+    "hiragana": ["た", "りつ"],
+    "english": ["to stand"],
+    "mnemonics": "Visualize 'ta' as someone ('ta') standing ('ri') tall and proud."
+  },
+  "自": {
+    "hiragana": ["じ"],
+    "english": ["oneself"],
+    "mnemonics": "Think of 'ji' as taking care of oneself ('ji') by eating a balanced diet."
+  },
+  "夜": {
+    "hiragana": ["よる", "よ", "や"],
+    "english": ["night"],
+    "mnemonics": "Remember 'yoru' as the time when the moon ('yo') and stars ('ya') light up the night sky."
+  },
+  "朝": {
+    "hiragana": ["あさ", "ちょう"],
+    "english": ["morning"],
+    "mnemonics": "Visualize 'asa' as waking up early in the morning ('asa') to the sound of birds chirping ('chou')."
+  },
+  "持": {
+    "hiragana": ["も", "じ"],
+    "english": ["to hold"],
+    "mnemonics": "Think of 'mo' as holding ('mo') onto a valuable item ('ji') tightly."
+  }
+}
