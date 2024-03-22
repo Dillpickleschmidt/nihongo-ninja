@@ -1,11 +1,20 @@
 "use client"
 import Link from "next/link"
+import { useEffect } from "react"
 
 export default function CloseDialog({
   showAlertOnClose,
 }: {
   showAlertOnClose: boolean
 }) {
+  useEffect(() => {
+    document.body.classList.add("overflow-hidden") // prevent scrolling of the background
+
+    return () => {
+      document.body.classList.remove("overflow-hidden") // cleanup function on dismount
+    }
+  }, [])
+
   const handleClose = (event: React.MouseEvent) => {
     // if showAlertOnClose is true, show a confirmation dialog
     if (

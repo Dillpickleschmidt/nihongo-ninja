@@ -6,7 +6,6 @@ import Navbar from "./Navbar"
 import { VariantProps, cva } from "class-variance-authority"
 import cn from "../util/cn"
 import { Card } from "./ui/card"
-import Link from "next/link"
 import CloseDialog from "./CloseDialog"
 
 type DialogProps = React.DialogHTMLAttributes<HTMLDialogElement> &
@@ -32,8 +31,6 @@ export default function Dialog({
   showAlertOnClose = false,
   scrollRef,
 }: DialogProps) {
-  // Closes the dialog
-
   return (
     <>
       <Card className="fixed inset-0 bg-transparent flex items-center justify-center z-10">

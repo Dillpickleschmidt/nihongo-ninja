@@ -112,9 +112,16 @@ export default function Lesson2() {
             Don&apos;t worry, the ✨internet✨ has you covered! 😼
           </p>
           <p>
-            Our favorite way of learning hiragana is through Tofugu&apos;s
-            &apos;Learn Hiragana&apos; PDF. This guide is a rarity—it&apos;s so
-            well-made that we felt compelled to send you here first{" "}
+            Our favorite way of learning hiragana is through{" "}
+            <a
+              className="text-sky-600 underline"
+              href="https://files.tofugu.com/articles/japanese/2022-07-05-learn-hiragana-book-pdf/tofugu-learn-hiragana-book.pdf"
+              target="_blank"
+            >
+              Tofugu's Learn Hiragana PDF
+            </a>
+            . This guide is a rarity—it&apos;s so well-made that we felt
+            compelled to send you here first{" "}
             <span className="text-sm">(no need to reinvent the wheel)</span>. It
             is very effective at helping you quickly memorize every Hiragana
             character, and you can master Hiragana within days if not hours.

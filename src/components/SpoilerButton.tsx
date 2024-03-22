@@ -48,18 +48,14 @@ export default function SpoilerButton({
         <Button
           onClick={handleClick}
           className={twMerge(
-            "py-2 px-4 drop-shadow-none text-lg bg-[#222222] text-white hover:bg-[#444444] inline-flex items-center",
+            "py-2 px-4 drop-shadow-none text-lg bg-[#222222] text-[#F8F5E9] hover:bg-[#444444] inline-flex items-center",
             className
           )}
         >
           {text && <p className="mr-2 text-base">{text}</p>}
-          {/* If content is showed and animated is true */}
-          {showSpoiler && animated && (
-            <Lottie animationData={upArrow} className="w-6" />
-          )}
-          {/* If content is showed and animated is false */}
-          {showSpoiler && !animated && (
-            <div className="w-6">
+          {/* If content is showed */}
+          {showSpoiler && (
+            <div className="w-6 text-2xl">
               <MdOutlineKeyboardArrowUp />
             </div>
           )}
