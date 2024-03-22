@@ -231,10 +231,7 @@ export default function Numbers() {
                 </div>
               </div>
               <div className="flex flex-row justify-center py-4">
-                <Button
-                  link="/learn/chapter-1/vocab-learn-numbers-0-10"
-                  autoFocus={true}
-                >
+                <Button link="/learn/chapter-1/vocab-learn-numbers-0-10">
                   Memorize Numbers {"->"}
                 </Button>
               </div>

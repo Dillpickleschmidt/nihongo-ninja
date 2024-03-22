@@ -10,9 +10,9 @@ export default function Lesson1() {
   return (
     <Dialog
       variant={"reading"}
-      background="/wavy-pattern-2.jpg"
-      backgroundSize="700px"
-      opacity={4}
+      backgroundImage="/wavy-pattern-2.jpg"
+      backgroundImageSize="700px"
+      backgroundImageOpacity={4}
       className="bg-[#151515] text-white"
     >
       <div className="pb-16">
@@ -30,11 +30,11 @@ export default function Lesson1() {
         >
           こにちは！
         </h1>
-        <p className="text-xl text-center">Good afternoon!</p>
+        <p className="text-center">Good afternoon!</p>
         <h2 className="pb-2 pt-52 text-5xl font-medium leading-[3.5rem] text-center px-24">
           Welcome to your <em>first lesson!</em> ⛩️
         </h2>
-        <div className="px-28 text-xl leading-8 [&>*]:py-6">
+        <div className="px-28 [&>*]:py-6">
           <p>
             <u>Glad you could make it!</u> Now, as a beginner, the first thing
             you&apos;ll want to know is that Japanese consists of{" "}
@@ -126,9 +126,7 @@ export default function Lesson1() {
           </p>
         </div>
         <div className="mt-24 mx-12 !mb-0 flex flex-row justify-end">
-          <Button link="/learn/chapter-1/lesson-2" autoFocus={true}>
-            Next Lesson {"->"}
-          </Button>
+          <Button link="/learn/chapter-1/lesson-2">Next Lesson {"->"}</Button>
         </div>
       </div>
     </Dialog>

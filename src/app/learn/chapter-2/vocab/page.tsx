@@ -5,7 +5,7 @@ import JapaneseFont from "@/components/text/JapaneseFont"
 export default function Numbers() {
   return (
     <Dialog variant={"reading"} className="border-4 border-black bg-[#191919]">
-      <div className="pb-20 text-xl text-[#F8F5E9]">
+      <div className="pb-20 text-[#F8F5E9]">
         {/* Numbers Title */}
         <h1 className="mx-auto mt-20 mb-8 text-6xl text-center font-semibold tracking-wide underline-offset-8">
           <u>
@@ -86,9 +86,7 @@ export default function Numbers() {
           </h3>
         </div>
         <div className="mt-12 mx-12 !mb-0 flex flex-row justify-end">
-          <Button link="/learn/chapter-2/lesson-1" autoFocus={true}>
-            Next Lesson {"->"}
-          </Button>
+          <Button link="/learn/chapter-2/lesson-1">Next Lesson {"->"}</Button>
         </div>
       </div>
     </Dialog>

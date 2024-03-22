@@ -1,5 +1,5 @@
 "use client"
-import { useState, useEffect, useRef, use } from "react"
+import { useState, useEffect, useRef } from "react"
 import { motion } from "framer-motion"
 import confetti from "canvas-confetti"
 import Dialog from "../Dialog"

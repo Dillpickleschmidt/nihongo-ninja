@@ -10,9 +10,9 @@ export default function Lesson3() {
   return (
     <Dialog
       variant={"reading"}
-      background="/wavy-pattern-2.jpg"
-      backgroundSize="700px"
-      opacity={9}
+      backgroundImage="/wavy-pattern-2.jpg"
+      backgroundImageSize="700px"
+      backgroundImageOpacity={9}
     >
       <div className="pb-16">
         <h2 className="pt-28 text-5xl font-medium leading-[3.25rem] text-center px-20">
@@ -29,7 +29,7 @@ export default function Lesson3() {
           <span className="text-5xl font-bold">Dakuten</span> and{" "}
           <span className="text-5xl font-bold">Handakuten!</span>
         </h2>
-        <div className="px-32 text-xl leading-8 [&>*]:py-6">
+        <div className="px-32 [&>*]:py-6">
           <p className="!py-0 text-center font-bold text-3xl">( &quot; )</p>
           <div className="flex flex-row justify-center !pb-0">
             <div
@@ -161,7 +161,7 @@ export default function Lesson3() {
           >
             What this do?👀
           </Button>
-          <Button link="/learn/chapter-1/hiragana-quiz-2" autoFocus={true}>
+          <Button link="/learn/chapter-1/hiragana-quiz-2">
             Next Lesson {"->"}
           </Button>
         </div>

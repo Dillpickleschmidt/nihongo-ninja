@@ -1,5 +1,3 @@
-"use client"
-import { useState } from "react"
 import Dialog from "@/components/Dialog"
 import Button from "@/components/Button"
 import HiraganaChart from "@/components/charts/HiraganaChart"
@@ -13,9 +11,9 @@ export default function Lesson2() {
   return (
     <Dialog
       variant={"reading"}
-      background="/wavy-pattern-2.jpg"
-      backgroundSize="700px"
-      opacity={9}
+      backgroundImage="/wavy-pattern-2.jpg"
+      backgroundImageSize="700px"
+      backgroundImageOpacity={9}
     >
       <div className="pb-16">
         <h1 className="pt-32 pb-8 text-[5rem] font-bold leading-[4.25rem] px-20 text-center">
@@ -26,7 +24,7 @@ export default function Lesson2() {
         <h2 className="text-4xl text-center font-bold !pb-4 !pt-12">
           What is Hiragana?
         </h2>
-        <div className="px-32 text-xl leading-8 [&>*]:py-6">
+        <div className="px-32 [&>*]:py-6">
           <p className="!pt-0">
             Hiragana is one of the three main scripts used in Japanese writing,
             along with Katakana and Kanji, often referred to as the foundational
@@ -142,7 +140,7 @@ export default function Lesson2() {
           </p>
         </div>
         <div className="mt-24 mx-12 !mb-0 flex flex-row justify-end">
-          <Button link="/learn/chapter-1/hiragana-quiz-1" autoFocus={true}>
+          <Button link="/learn/chapter-1/hiragana-quiz-1">
             Next Lesson {"->"}
           </Button>
         </div>

@@ -3,8 +3,8 @@ import Button from "@/components/Button"
 
 export default function C2Lesson2() {
   return (
-    <Dialog className="border-4 border-black bg-[#191919]">
-      <div className="text-xl text-[#F8F5E9]">
+    <Dialog className="bg-[#191919] text-[#F8F5E9]">
+      <div className="">
         <h1 className="pt-24 pb-6 text-6xl font-medium text-center px-20">
           Meet your new AI peers!
         </h1>
@@ -30,9 +30,7 @@ export default function C2Lesson2() {
           <div className="bg-orange-300 bg-opacity-80"></div>
         </div>
         <div className="mx-24 !mb-0 flex flex-row justify-end">
-          <Button link="/learn/chapter-2/lesson-1" autoFocus={true}>
-            Next Lesson {"->"}
-          </Button>
+          <Button link="/learn/chapter-2/lesson-1">Next Lesson {"->"}</Button>
         </div>
       </div>
     </Dialog>

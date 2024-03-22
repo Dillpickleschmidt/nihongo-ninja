@@ -80,7 +80,7 @@ export default function KanaQuiz({ kana, nextLesson }: KanaQuizProps) {
       variant={"xl"}
       className="bg-[#F6E7D2]"
       scrollRef={scrollRef}
-      background="/wavy-pattern.jpg"
+      backgroundImage="/wavy-pattern.jpg"
       showAlertOnClose={true}
     >
       <div className="text-center">
@@ -115,7 +115,7 @@ export default function KanaQuiz({ kana, nextLesson }: KanaQuizProps) {
           </>
         )}
       </div>
-      <div className="container grid grid-cols-[repeat(auto-fill,minmax(170px,_1fr))] p-3 mx-auto mt-12 text-center gap-3 text-[#F8F5E9]">
+      <div className="container grid grid-cols-[repeat(auto-fill,minmax(165px,_1fr))] p-3 mx-auto mt-12 text-center gap-3 text-[#F8F5E9]">
         {characterBoxes.map((characterBox, index) => (
           <CharacterBox
             key={characterBox.hiragana}
@@ -156,7 +156,6 @@ export default function KanaQuiz({ kana, nextLesson }: KanaQuizProps) {
             onClick={() => {
               setShowResults(true)
               if (scrollRef.current) {
-                console.log("here")
                 handleScrollDialog()
               }
             }}

@@ -45,11 +45,13 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        main: "bg-white rounded-full border-2 border-black text-black font-medium hover:bg-neutral-200 px-9 py-3 text-xl shadow-md drop-shadow-lg",
+        main: "bg-white rounded-full border-2 border-black text-black font-medium hover:bg-neutral-200 px-9 py-3 text-xl shadow-md drop-shadow-lg focus:outline-indigo-500",
         system: "px-2 py-2 hover:text-neutral-500 text-black text-2xl",
         card: "text-white font-medium hover:brightness-125 text-5xl",
         vocab:
           "bg-[#191919] rounded-xl border border-neutral-700 py-5 px-8 text-xl text-start font-light hover:bg-[#222222] hover:shadow-md",
+        close:
+          "h-full flex flex-col justify-center items-center bg-[#F6E7D2] pb-1 px-[0.35rem] hover:bg-red-400 border border-black rounded-lg opacity-50 text-black",
       },
     },
     defaultVariants: {

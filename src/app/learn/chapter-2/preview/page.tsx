@@ -9,7 +9,7 @@ export default function C2Preview() {
         <h1 className="pt-16 text-6xl font-medium leading-[3.25rem] text-center px-20">
           Chapter 2 - New friends!
         </h1>
-        <h2 className="my-6 text-xl text-center">
+        <h2 className="my-6 text-center">
           Here&apos;s a quick preview of what you&apos;ll be able to say by the
           end of this chapter.
         </h2>
@@ -175,9 +175,7 @@ export default function C2Preview() {
           🥷
         </h1>
         <div className="mt-12 mx-24 !mb-0 flex flex-row justify-center">
-          <Button link="/learn/chapter-2/vocab" autoFocus={true}>
-            Continue {"->"}
-          </Button>
+          <Button link="/learn/chapter-2/vocab">Continue {"->"}</Button>
         </div>
       </div>
     </Dialog>

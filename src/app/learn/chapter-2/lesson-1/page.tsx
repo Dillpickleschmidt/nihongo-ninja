@@ -4,8 +4,8 @@ import VocabCard from "@/components/spaced-repetition/VocabCard"
 
 export default function C2Lesson1() {
   return (
-    <Dialog variant={"reading"} className="border-4 border-black bg-[#191919]">
-      <div className="pb-16 text-[#F8F5E9]">
+    <Dialog variant={"reading"} className="bg-[#191919] text-[#F8F5E9]">
+      <div className="pb-16">
         <h1 className="pt-28 pb-12 text-4xl font-medium leading-[3.25rem] text-center px-20">
           Exhausted from dancing with digits all day? Are you feeling like a
           ninja calculator from Japan, secretly number-crunching in the shadows?
@@ -13,7 +13,7 @@ export default function C2Lesson1() {
           that&apos;s your golden ticket to broadcasting your vast knowledge to
           the world.
         </h1>
-        <div className="text-xl leading-8 text-black">
+        <div className="text-black">
           <h2 className="py-0 text-[#F8F5E9] text-center px-16 font-bold text-2xl">
             &quot;It&apos;s a state of being, man...&quot;
           </h2>
@@ -91,9 +91,7 @@ export default function C2Lesson1() {
           </div>
         </div>
         <div className="mt-24 mx-12 !mb-0 flex flex-row justify-end">
-          <Button link="/learn/chapter-2/lesson-2" autoFocus={true}>
-            Next Lesson {"->"}
-          </Button>
+          <Button link="/learn/chapter-2/lesson-2">Next Lesson {"->"}</Button>
         </div>
       </div>
     </Dialog>

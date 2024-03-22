@@ -4,8 +4,8 @@ import JapaneseFont from "@/components/text/JapaneseFont"
 
 export default function Numbers() {
   return (
-    <Dialog variant={"reading"} className="border-4 border-black bg-[#191919]">
-      <div className="pb-20 text-xl text-[#F8F5E9]">
+    <Dialog variant={"reading"} className="bg-[#191919] text-[#F8F5E9]">
+      <div className="pb-20">
         <h1 className="pt-28 pb-6 text-4xl font-medium leading-[3.25rem] text-center px-20">
           <span className="text-5xl font-medium">Great job</span>, you&apos;ve
           finally made it! You&apos;ve now got a strong grasp of Hiragana! Not
@@ -303,9 +303,7 @@ export default function Numbers() {
           <h3 className="mt-4 text-center">...up to 99 (it&apos;s easy).</h3>
         </div>
         <div className="mt-12 mx-12 !mb-0 flex flex-row justify-end">
-          <Button link="/learn/chapter-1/lesson-6" autoFocus={true}>
-            Next Lesson {"->"}
-          </Button>
+          <Button link="/learn/chapter-1/lesson-6">Next Lesson {"->"}</Button>
         </div>
       </div>
     </Dialog>

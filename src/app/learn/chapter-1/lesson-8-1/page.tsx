@@ -3,8 +3,8 @@ import Button from "@/components/Button"
 
 export default function Lesson8() {
   return (
-    <Dialog variant={"reading"} className="border-4 border-black bg-[#191919]">
-      <div className="pb-16 text-[#F8F5E9]">
+    <Dialog variant={"reading"} className="bg-[#191919] text-[#F8F5E9]">
+      <div className="pb-16">
         <div
           className="text-4xl leading-[3.25rem] font-medium
         [&>*]:py-12 [&>*]:px-28"
@@ -39,9 +39,7 @@ export default function Lesson8() {
             worry about the kanji just yet.
           </p>
           <div className="flex flex-row justify-end w-96">
-            <Button link="/learn/chapter-1/lesson-8-2" autoFocus={true}>
-              Continue {"->"}
-            </Button>
+            <Button link="/learn/chapter-1/lesson-8-2">Continue {"->"}</Button>
           </div>
         </div>
       </div>

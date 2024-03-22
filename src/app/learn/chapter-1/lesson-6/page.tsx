@@ -5,8 +5,8 @@ import SelectText from "@/components/text/MultipleChoiceText"
 
 export default function Lesson6() {
   return (
-    <Dialog variant={"reading"} className="border-4 border-black bg-[#191919]">
-      <div className="pb-16 text-[#F8F5E9]">
+    <Dialog variant={"reading"} className="bg-[#191919] text-[#F8F5E9]">
+      <div className="pb-16">
         {/* Header */}
         <h1 className="pt-28 px-28 pb-6 text-4xl">
           Now that you&apos;re familiar with the basics, let&apos;s dive into
@@ -16,7 +16,7 @@ export default function Lesson6() {
         </h1>
         <p className="!py-0">(include audio files)</p>
         {/* Vocabulary */}
-        <div className="text-xl leading-8 text-black">
+        <div className=" text-black">
           <VocabCard
             title="1. おはようございます - Good Morning"
             pronunciation="o-ha-yo-u go-za-i-ma-su"
@@ -200,7 +200,7 @@ export default function Lesson6() {
           />
         </div>
         <div className="mt-24 mx-12 !mb-0 flex flex-row justify-end">
-          <Button link="/learn/chapter-1/lesson-6-quiz" autoFocus={true}>
+          <Button link="/learn/chapter-1/lesson-6-quiz">
             Test your knowledge {"->"}
           </Button>
         </div>

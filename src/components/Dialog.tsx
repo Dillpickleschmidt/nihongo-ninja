@@ -1,24 +1,23 @@
 // Basic template for all lessons with variations for different sizes
 
 import { ReactNode } from "react"
-import { useRef, useEffect } from "react"
-import { useRouter } from "next/navigation"
 import Button from "./Button"
 import Navbar from "./Navbar"
 import { VariantProps, cva } from "class-variance-authority"
 import cn from "../util/cn"
 import { Card } from "./ui/card"
 import Link from "next/link"
+import CloseDialog from "./CloseDialog"
 
 type DialogProps = React.DialogHTMLAttributes<HTMLDialogElement> &
   VariantProps<typeof dialogVariants> & {
     children: ReactNode
     locked?: boolean // locked changes the navbar appearance to a locked state
-    background?: string
-    backgroundSize?: string
-    opacity?: number
+    backgroundImage?: string
+    backgroundImageSize?: string
+    backgroundImageOpacity?: number
     showAlertOnClose?: boolean
-    scrollRef?: React.MutableRefObject<HTMLDivElement | null>
+    scrollRef?: React.MutableRefObject<HTMLDivElement | null> // used to scroll to the top of the dialog
   }
 
 // Dialog is a modal that appears on top of the page
@@ -27,60 +26,47 @@ export default function Dialog({
   variant,
   className,
   locked = true, // navbar locked by default
-  background,
-  backgroundSize = "1200px",
-  opacity = 30,
+  backgroundImage,
+  backgroundImageSize = "1200px",
+  backgroundImageOpacity = 30,
   showAlertOnClose = false,
+  scrollRef,
 }: DialogProps) {
   // Closes the dialog
-  const handleClose = () => {
-    // if showAlertOnClose is true, show a confirmation dialog
-    if (
-      showAlertOnClose &&
-      !window.confirm(
-        "You'll lose your progress. Are you sure you want to leave?"
-      )
-    ) {
-      return
-    }
-  }
 
   return (
     <>
       <Card className="fixed inset-0 bg-transparent flex items-center justify-center z-10">
-        <Link
-          className="fixed inset-0 backdrop-saturate-75 backdrop-blur-2xl backdrop-brightness-75 cursor-default"
-          href="/learn"
-          scroll={false}
-        />
+        <CloseDialog showAlertOnClose={showAlertOnClose} />
         {/* Dialog Variants */}
         <div className={cn(dialogVariants({ variant, className }))}>
           {/* Persistent elements in all dialogs */}
-          <div className="fixed w-full flex flex-row justify-end z-50">
+          <div className="absolute w-full flex justify-end z-50">
             <Button
               link="/learn"
-              variant={"system"}
-              className="mt-10 mr-10 py-0 focus:outline-none"
+              variant="system"
+              className="mt-10 mr-10 focus:outline-none text-3xl leading-none"
               autoFocus={false}
+              tabIndex={0}
             >
               &times;
             </Button>
           </div>
-          {/* If a background is provided, render this html */}
           <div
-            className="w-full h-full overflow-y-auto overscroll-y-contain scrollbar:hidden inline-block rounded-[60px]"
-            // ref={scrollRef}
+            className="h-full overflow-y-auto overscroll-y-contain scrollbar:hidden"
+            ref={scrollRef}
           >
-            {background ? (
+            {/* If a background is provided, render this html */}
+            {backgroundImage ? (
               <div className="relative">
                 <div
                   className="absolute inset-0"
                   style={{
-                    backgroundImage: `url(${background})`,
+                    backgroundImage: `url(${backgroundImage})`,
                     backgroundRepeat: "repeat",
-                    backgroundSize: backgroundSize, // Change this value to scale your background image
+                    backgroundSize: backgroundImageSize, // Change this value to scale your background image
                     backgroundBlendMode: "multiply",
-                    opacity: opacity / 100, // Change this value to set the opacity of the background image
+                    opacity: backgroundImageOpacity / 100, // Change this value to set the opacity of the background image
                     zIndex: -1,
                   }}
                 />
@@ -98,13 +84,13 @@ export default function Dialog({
 }
 
 const dialogVariants = cva(
-  "fixed top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] my-auto rounded-[60px] border-[3.5px] border-[#191919] bg-[#F6E7D2] text-black",
+  "fixed rounded-[60px] border-[3.5px] border-[#191919] bg-[#F6E7D2] text-black overflow-hidden",
   {
     variants: {
       variant: {
         xl: "w-[86%] h-[95%]",
         large: "w-[76%] h-[80%]",
-        reading: "w-[45%] h-[98%] border-4 border-black",
+        reading: "w-[45%] h-[98%] border-4 border-black text-xl leading-8",
         narrow: "w-[38%] h-[80%]",
         md: "w-[30%] h-[70%]",
         small: "w-[30%] h-[50%]",
@@ -113,7 +99,7 @@ const dialogVariants = cva(
       },
     },
     defaultVariants: {
-      variant: "large",
+      variant: "reading",
     },
   }
 )

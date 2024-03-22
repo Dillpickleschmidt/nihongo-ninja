@@ -1,4 +1,3 @@
-import Dialog from "@/components/Dialog"
 import PictureQuiz from "@/components/picture-quiz/PictureQuiz"
 import data from "./data.json"
 

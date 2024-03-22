@@ -5,13 +5,13 @@ import SelectText from "@/components/text/MultipleChoiceText"
 
 export default function Lesson7() {
   return (
-    <Dialog variant={"reading"} className="border-4 border-black bg-[#191919]">
-      <div className="pb-16 text-[#F8F5E9]">
+    <Dialog variant={"reading"} className="bg-[#191919] text-[#F8F5E9]">
+      <div className="pb-16">
         <h1 className="pt-28 pb-12 text-4xl font-medium leading-[3.25rem] text-center px-20">
           Welcome to your next lesson. We&apos;ve got a lot to talk about. This
           one will be well worth your time. Good luck!
         </h1>
-        <div className="text-xl leading-8 text-black">
+        <div className="text-black">
           <h2 className="py-0 text-[#F8F5E9] text-center px-16 font-bold text-2xl">
             The big word...
           </h2>
@@ -293,9 +293,7 @@ export default function Lesson7() {
           </p>
         </div>
         <div className="mt-24 mx-12 !mb-0 flex flex-row justify-end">
-          <Button link="/learn/chapter-1/lesson-8-1" autoFocus={true}>
-            Next Lesson {"->"}
-          </Button>
+          <Button link="/learn/chapter-1/lesson-8-1">Next Lesson {"->"}</Button>
         </div>
       </div>
     </Dialog>

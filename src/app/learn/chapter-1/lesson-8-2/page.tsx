@@ -5,8 +5,8 @@ import SpoilerButton from "@/components/SpoilerButton"
 
 export default function Lesson9Pt2() {
   return (
-    <Dialog variant={"reading"} className="border-4 border-black bg-[#191919]">
-      <div className="pb-16 text-[#F8F5E9]">
+    <Dialog variant={"reading"} className="bg-[#191919] text-[#F8F5E9]">
+      <div className="pb-16">
         <h1 className="pt-24 pb-12 text-4xl font-medium leading-[3.25rem] text-center px-20">
           Let&apos;s learn the basic numbers.
         </h1>
@@ -99,7 +99,7 @@ export default function Lesson9Pt2() {
             </div>
           </div>
         </div>
-        <div className="pt-12 px-32 text-xl leading-8 [&>*]:py-6">
+        <div className="pt-12 px-32 [&>*]:py-6">
           <p>
             You&apos;ll notice that numbers 4, 7, and 9 have two options.
             Japanese speakers use either option, so it&apos;s good to know both!
@@ -188,7 +188,7 @@ export default function Lesson9Pt2() {
           </div>
         </div>
         <div className="mt-24 mx-12 !mb-0 flex flex-row justify-end">
-          <Button link="/learn/chapter-1/numbers" autoFocus={true}>
+          <Button link="/learn/chapter-1/numbers">
             See the full chart {"->"}
           </Button>
         </div>

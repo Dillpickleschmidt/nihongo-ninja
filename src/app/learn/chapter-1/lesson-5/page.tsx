@@ -9,9 +9,9 @@ export default function Lesson5() {
   return (
     <Dialog
       variant={"reading"}
-      background="/wavy-pattern-2.jpg"
-      backgroundSize="700px"
-      opacity={9}
+      backgroundImage="/wavy-pattern-2.jpg"
+      backgroundImageSize="700px"
+      backgroundImageOpacity={9}
     >
       <div className="pb-16">
         <h1 className="pt-28 text-4xl font-medium leading-[3.25rem] text-center px-20">
@@ -37,7 +37,7 @@ export default function Lesson5() {
         </h1>
         <h2 className="text-4xl font-medium leading-[3.25rem] text-center px-20"></h2>
 
-        <div className="px-32 text-xl leading-8 [&>*]:py-6">
+        <div className="px-32 [&>*]:py-6">
           <h3 className="font-semibold !pb-4">
             Double Consonants (促音, Sokuon): The Dramatic Pauses of Japanese:
           </h3>
@@ -184,7 +184,7 @@ export default function Lesson5() {
           </p>
         </div>
         <div className="mt-24 mx-12 !mb-0 flex flex-row justify-end">
-          <Button link="/learn/chapter-1/hiragana-test-final" autoFocus={true}>
+          <Button link="/learn/chapter-1/hiragana-test-final">
             Next Lesson {"->"}
           </Button>
         </div>
