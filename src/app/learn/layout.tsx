@@ -12,10 +12,10 @@ export default function Lesson({ children }: { children: React.ReactNode }) {
     <main className="mx-auto">
       {children}
       <div className="mt-24 h-screen w-full z-10">
-        <div className="h-full pb-[11rem] lg:pb-[15rem] xl:pb-[18rem] 2xl:pb-[20rem]">
+        <div className="h-full pb-[12rem] xl:pb-[14rem]">
           <div className="absolute w-full z-30 h-8 bg-[#2d2d2d]/90 backdrop-blur-xl shadow-md"></div>
           <Link href="/learn/chapter-1/welcome">
-            <div className="relative h-full z-20 shadow-md">
+            <div className="relative h-full z-20 shadow-md bg-[#191919]">
               <Image
                 src="/img/japanese-gate.png"
                 fill={true}
@@ -53,7 +53,7 @@ export default function Lesson({ children }: { children: React.ReactNode }) {
         </div>
         <div className="relative w-full flex justify-center">
           <ul
-            className="absolute bottom-[7rem] lg:bottom-[10rem] xl:bottom-[13rem] 2xl:bottom-[15rem] w-full max-w-[95%] lg:max-w-[86%] xl:max-w-[82%] 2xl:max-w-[80%] grid grid-cols-4 h-[520px] gap-4 mt-32 mx-auto text-center text-7xl pointer-events-auto
+            className="absolute bottom-[8rem] xl:bottom-[9rem] w-full max-w-[95%] lg:max-w-[86%] xl:max-w-[82%] 2xl:max-w-[80%] grid grid-cols-4 h-[520px] gap-4 mt-32 mx-auto text-center text-7xl pointer-events-auto
             [&>*]:p-5 [&>*]:rounded-2xl [&>*]:flex [&>*]:items-center [&>*]:justify-center [&>*]:shadow-lg [&>*]:drop-shadow-lg [&>*]:saturate-50"
           >
             <Button
