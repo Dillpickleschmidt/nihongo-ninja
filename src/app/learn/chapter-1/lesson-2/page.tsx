@@ -111,8 +111,10 @@ export default function Lesson2() {
             </span>{" "}
             Don&apos;t worry, the ✨internet✨ has you covered! 😼
           </p>
-          <p>
-            Our favorite way of learning hiragana is through{" "}
+          <p className="text-center text-2xl">
+            Our favorite way of learning hiragana is through
+          </p>
+          <h2 className="text-center text-4xl">
             <a
               className="text-sky-600 underline"
               href="https://files.tofugu.com/articles/japanese/2022-07-05-learn-hiragana-book-pdf/tofugu-learn-hiragana-book.pdf"
@@ -120,8 +122,10 @@ export default function Lesson2() {
             >
               Tofugu's Learn Hiragana PDF
             </a>
-            . This guide is a rarity—it&apos;s so well-made that we felt
-            compelled to send you here first{" "}
+          </h2>
+          <p>
+            This guide is a rarity—it&apos;s so well-made that we felt compelled
+            to send you here first{" "}
             <span className="text-sm">(no need to reinvent the wheel)</span>. It
             is very effective at helping you quickly memorize every Hiragana
             character, and you can master Hiragana within days if not hours.

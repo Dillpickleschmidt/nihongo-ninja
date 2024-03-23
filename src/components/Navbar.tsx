@@ -23,7 +23,7 @@ const Navbar = ({ locked }: Props) => {
   }
   return (
     // Navbar
-    <nav className="fixed top-0 left-0 z-30 w-full text-white bg-[#191919]">
+    <nav className="fixed top-0 left-0 z-40 w-full text-white bg-[#191919] drop-shadow-md">
       <ul className="flex items-center justify-between py-3 mx-auto">
         {/* 3 elements: */}
         <li></li> {/* 1. Empty li for spacing */}

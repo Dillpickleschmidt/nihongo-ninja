@@ -33,7 +33,7 @@ export default function Dialog({
 }: DialogProps) {
   return (
     <>
-      <Card className="fixed inset-0 bg-transparent flex items-center justify-center z-10">
+      <Card className="fixed inset-0 bg-transparent flex items-center justify-center z-50">
         <CloseDialog showAlertOnClose={showAlertOnClose} />
         {/* Dialog Variants */}
         <div className={cn(dialogVariants({ variant, className }))}>

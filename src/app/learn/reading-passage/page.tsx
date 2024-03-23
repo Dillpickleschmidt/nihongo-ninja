@@ -9,7 +9,7 @@ const JapaneseFont = Noto_Sans_JP({ subsets: ["latin"] })
 export default function ReadingPassage() {
   return (
     <>
-      <Dialog>
+      <Dialog variant="large">
         {/* Content */}
         <div className="h-full overflow-x-hidden scrollbar:w-2.5 scrollbar-track:bg-transparent scrollbar-thumb:bg-[#999999] hover:scrollbar-thumb:bg-neutral-400">
           {/* Top Reading Passage Box */}
