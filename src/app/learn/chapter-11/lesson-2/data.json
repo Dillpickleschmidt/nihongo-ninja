@@ -1,0 +1,77 @@
+{
+  "将来": {
+    "hiragana": ["しょうらい"],
+    "english": ["future"],
+    "mnemonics": "Think of 'shourai' as your future plans and aspirations."
+  },
+  "夢": {
+    "hiragana": ["ゆめ"],
+    "english": ["dream"],
+    "mnemonics": "Visualize 'yume' as something you aspire to achieve in your sleep or in life."
+  },
+  "お祭り": {
+    "hiragana": ["おまつり"],
+    "english": ["festival"],
+    "mnemonics": "Imagine 'omatsuri' as a vibrant festival with colorful decorations and lively music."
+  },
+  "お正月": {
+    "hiragana": ["おしょうがつ"],
+    "english": ["New Year's"],
+    "mnemonics": "Associate 'oshougatsu' with the Japanese New Year celebrations."
+  },
+  "お菓子": {
+    "hiragana": ["おかし"],
+    "english": ["snack", "sweets"],
+    "mnemonics": "Think of 'okashi' as delicious snacks or sweets to enjoy."
+  },
+  "ビール": {
+    "hiragana": ["びーる"],
+    "english": ["beer"],
+    "mnemonics": "Visualize 'biiru' as a cold glass of beer, perfect for relaxation."
+  },
+  "おもちゃ": {
+    "hiragana": ["おもちゃ"],
+    "english": ["toy"],
+    "mnemonics": "Think of 'omocha' as something children play with, like toys."
+  },
+  "今学期": {
+    "hiragana": ["こんがっき"],
+    "english": ["this semester"],
+    "mnemonics": "Associate 'kongakki' with the current period of studies."
+  },
+  "来学期": {
+    "hiragana": ["らいがっき"],
+    "english": ["next semester"],
+    "mnemonics": "Think of 'raigakki' as the upcoming semester after the current one."
+  },
+  "授業": {
+    "hiragana": ["じゅぎょう"],
+    "english": ["class"],
+    "mnemonics": "Visualize 'jugyou' as a classroom where learning takes place."
+  },
+  "こちら": {
+    "hiragana": ["こちら"],
+    "english": ["this person (polite)"],
+    "mnemonics": "Remember 'kochira' as a polite way to refer to someone."
+  },
+  "うそをつく": {
+    "hiragana": ["うそをつく"],
+    "english": ["to tell a lie"],
+    "mnemonics": "Think of 'uso wo tsuku' as fabricating a falsehood."
+  },
+  "おなかがすく": {
+    "hiragana": ["おなかがすく"],
+    "english": ["to become hungry"],
+    "mnemonics": "Associate 'onaka ga suku' with the feeling of hunger, your stomach 'emptying.'"
+  },
+  "飼う": {
+    "hiragana": ["かう"],
+    "english": ["to own (a pet)"],
+    "mnemonics": "Visualize 'kau' as taking care of and feeding a pet."
+  },
+  "サボる": {
+    "hiragana": ["さぼる"],
+    "english": ["to cut (classes)"],
+    "mnemonics": "Think of 'saboru' as skipping class or work."
+  }
+}

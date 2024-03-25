@@ -1,0 +1,77 @@
+{
+  "取る": {
+    "hiragana": ["とる"],
+    "english": ["to take (a class)", "to get (a grade)"],
+    "mnemonics": "Associate 'toru' with taking a class or obtaining a grade."
+  },
+  "習う": {
+    "hiragana": ["ならう"],
+    "english": ["to learn"],
+    "mnemonics": "Visualize 'narau' as learning something new by practicing it repeatedly."
+  },
+  "登る": {
+    "hiragana": ["のぼる"],
+    "english": ["to climb"],
+    "mnemonics": "Think of 'noboru' as ascending to the top of a mountain or staircase."
+  },
+  "走る": {
+    "hiragana": ["はしる"],
+    "english": ["to run"],
+    "mnemonics": "Imagine 'hashiru' as swiftly moving forward, like running."
+  },
+  "疲れる": {
+    "hiragana": ["つかれる"],
+    "english": ["to get tired"],
+    "mnemonics": "Associate 'tsukareru' with feeling exhausted after physical or mental exertion."
+  },
+  "やめる": {
+    "hiragana": ["やめる"],
+    "english": ["to quit"],
+    "mnemonics": "Visualize 'yameru' as stopping or quitting an activity or job."
+  },
+  "けんかする": {
+    "hiragana": ["けんかする"],
+    "english": ["to have a fight", "to quarrel"],
+    "mnemonics": "Think of 'kenka suru' as engaging in a heated argument or disagreement."
+  },
+  "紹介する": {
+    "hiragana": ["しょうかいする"],
+    "english": ["to introduce"],
+    "mnemonics": "Associate 'shoukai suru' with presenting or introducing someone to others."
+  },
+  "ダイエットする": {
+    "hiragana": ["だいえっとする"],
+    "english": ["to go on a diet"],
+    "mnemonics": "Visualize 'daietto suru' as actively participating in a diet plan to lose weight."
+  },
+  "遅刻する": {
+    "hiragana": ["ちこくする"],
+    "english": ["to be late (for an appointment)"],
+    "mnemonics": "Think of 'chikoku suru' as arriving late for a scheduled event or meeting."
+  },
+  "留学する": {
+    "hiragana": ["りゅうがくする"],
+    "english": ["to study abroad"],
+    "mnemonics": "Associate 'ryuugaku suru' with pursuing education in a foreign country."
+  },
+  "出身": {
+    "hiragana": ["しゅっしん"],
+    "english": ["coming from"],
+    "mnemonics": "Visualize 'shusshin' as where someone originates or comes from."
+  },
+  "久しぶり": {
+    "hiragana": ["ひさしぶり"],
+    "english": ["it has been a long time"],
+    "mnemonics": "Think of 'hisashiburi' as reuniting with someone after a long time."
+  },
+  "まあまあ": {
+    "hiragana": ["まあまあ"],
+    "english": ["okay", "so-so"],
+    "mnemonics": "Associate 'maamaa' with expressing a mediocre or indifferent feeling."
+  },
+  "もっと": {
+    "hiragana": ["もっと"],
+    "english": ["more"],
+    "mnemonics": "Visualize 'motto' as wanting additional or increased quantity."
+  }
+}

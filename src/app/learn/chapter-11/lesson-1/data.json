@@ -1,0 +1,77 @@
+{
+  "外国": {
+    "hiragana": ["がいこく"],
+    "english": ["foreign country"],
+    "mnemonics": "Imagine yourself standing outside a grand gate ('gai') leading to a foreign land ('koku')."
+  },
+  "オーストラリア": {
+    "hiragana": ["おーすとらりあ"],
+    "english": ["Australia"],
+    "mnemonics": "Sounds like the English"
+  },
+  "川": {
+    "hiragana": ["かわ"],
+    "english": ["river"],
+    "mnemonics": "Picture a cow ('kawa') floating down a river, which helps you remember the pronunciation as well."
+  },
+  "温泉": {
+    "hiragana": ["おんせん"],
+    "english": ["spa", "hot spring"],
+    "mnemonics": "Imagine relaxing in a warm ('on') spa while listening to serene sounds of nature ('sen')."
+  },
+  "つり": {
+    "hiragana": ["つり"],
+    "english": ["fishing"],
+    "mnemonics": "Visualize yourself trying to catch a fish ('tsuri') using a fishing rod."
+  },
+  "湖": {
+    "hiragana": ["みずうみ"],
+    "english": ["lake"],
+    "mnemonics": "Picture a serene lake ('mizuumi') reflecting the surrounding mountains."
+  },
+  "山": {
+    "hiragana": ["やま"],
+    "english": ["mountain"],
+    "mnemonics": "Imagine yourself climbing a steep mountain ('yama') to reach its peak."
+  },
+  "キャンプ": {
+    "hiragana": ["きゃんぷ"],
+    "english": ["camp"],
+    "mnemonics": "Sounds like the English"
+  },
+  "ドライブ": {
+    "hiragana": ["どらいぶ"],
+    "english": ["drive"],
+    "mnemonics": "Sounds like the English"
+  },
+  "神社": {
+    "hiragana": ["じんじゃ"],
+    "english": ["shrine"],
+    "mnemonics": "Imagine walking through the gates ('torii') of a serene shrine ('jinja') surrounded by tall trees."
+  },
+  "美術館": {
+    "hiragana": ["びじゅつかん"],
+    "english": ["art museum"],
+    "mnemonics": "Associate 'bijutsukan' with a museum full of beautiful artworks."
+  },
+  "社長": {
+    "hiragana": ["しゃちょう"],
+    "english": ["president of a company"],
+    "mnemonics": "Imagine 'shachou' as the chief executive of a company, leading its operations."
+  },
+  "歌手": {
+    "hiragana": ["かしゅ"],
+    "english": ["singer"],
+    "mnemonics": "Think of 'kashu' as a singer holding a microphone and singing."
+  },
+  "ルームメイト": {
+    "hiragana": ["るーむめいと"],
+    "english": ["roommate"],
+    "mnemonics": "Associate 'ruumumeito' with someone sharing a room."
+  },
+  "ホストファミリー": {
+    "hiragana": ["ほすとふぁみりー"],
+    "english": ["host family"],
+    "mnemonics": "Remember 'hosutofamirii' as the family hosting you during your stay."
+  }
+}

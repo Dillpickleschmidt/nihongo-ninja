@@ -1,0 +1,92 @@
+{
+  "後": {
+    "hiragana": ["あと"],
+    "english": ["after (an event)"],
+    "mnemonics": "Think of 'ato' as referring to the time following an event."
+  },
+  "そして": {
+    "hiragana": ["そして"],
+    "english": ["and then"],
+    "mnemonics": "Remember 'soshite' as indicating the subsequent action or event."
+  },
+  "～だけ": {
+    "hiragana": ["～だけ"],
+    "english": ["just...", "only..."],
+    "mnemonics": "Think of 'dake' as expressing limitation or exclusivity."
+  },
+  "～てん": {
+    "hiragana": ["～てん"],
+    "english": ["...points"],
+    "mnemonics": "Visualize 'ten' as representing points or scores."
+  },
+  "作家": {
+    "hiragana": ["さっか"],
+    "english": ["writer"],
+    "mnemonics": "Associate 'sakka' with someone who creates literary works or novels."
+  },
+  "ジャーナリスト": {
+    "hiragana": ["じゃーなりすと"],
+    "english": ["journalist"],
+    "mnemonics": "Think of 'jaanarisuto' as someone reporting news and stories for media outlets."
+  },
+  "警察官": {
+    "hiragana": ["けいさつかん"],
+    "english": ["police officer"],
+    "mnemonics": "Visualize 'keisatsukan' as a law enforcement officer maintaining public order."
+  },
+  "消防士": {
+    "hiragana": ["しょうぼうし"],
+    "english": ["firefighter"],
+    "mnemonics": "Associate 'shouboushi' with someone who extinguishes fires and rescues people."
+  },
+  "教師": {
+    "hiragana": ["きょうし"],
+    "english": ["schoolteacher"],
+    "mnemonics": "Think of 'kyoushi' as an educator teaching students in a school setting."
+  },
+  "研究者": {
+    "hiragana": ["けんきゅうしゃ"],
+    "english": ["researcher"],
+    "mnemonics": "Visualize 'kenkyuusha' as someone conducting investigations and experiments."
+  },
+  "宇宙飛行士": {
+    "hiragana": ["うちゅうひこうし"],
+    "english": ["astronaut"],
+    "mnemonics": "Associate 'uchuu hikoushi' with someone who travels and explores outer space."
+  },
+  "スポーツ選手": {
+    "hiragana": ["すぽーつせんしゅ"],
+    "english": ["athlete"],
+    "mnemonics": "Think of 'supootsusenshu' as someone skilled in sports and competitions."
+  },
+  "大統領": {
+    "hiragana": ["だいとうりょう"],
+    "english": ["president of a country"],
+    "mnemonics": "Visualize 'daitouryou' as the leader elected to govern a nation."
+  },
+  "俳優": {
+    "hiragana": ["はいゆう"],
+    "english": ["actor", "actress"],
+    "mnemonics": "Associate 'haiyuu' with performers acting in plays, movies, or TV dramas."
+  },
+  "看護師": {
+    "hiragana": ["かんごし"],
+    "english": ["nurse"],
+    "mnemonics": "Think of 'kangoshi' as someone providing medical care and assistance to patients."
+  },
+  "シェフ": {
+    "hiragana": ["しぇふ"],
+    "english": ["chef"],
+    "mnemonics": "Visualize 'shefu' as a skilled cook or culinary expert in a kitchen."
+  },
+  "漫画家": {
+    "hiragana": ["まんがか"],
+    "english": ["cartoonist"],
+    "mnemonics": "Associate 'mangaka' with someone who creates manga, Japanese comic books."
+  },
+  "職業": {
+    "hiragana": ["しょくぎょう"],
+    "english": ["occupation"],
+    "mnemonics": "Think of 'shokugyou' as the job or profession someone engages in for a living."
+  }
+}

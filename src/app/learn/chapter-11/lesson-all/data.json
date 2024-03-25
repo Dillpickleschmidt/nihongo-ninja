@@ -1,0 +1,317 @@
+{
+  "外国": {
+    "hiragana": ["がいこく"],
+    "english": ["foreign country"],
+    "mnemonics": "Imagine yourself standing outside a grand gate ('gai') leading to a foreign land ('koku')."
+  },
+  "オーストラリア": {
+    "hiragana": ["おーすとらりあ"],
+    "english": ["Australia"],
+    "mnemonics": "Sounds like the English"
+  },
+  "川": {
+    "hiragana": ["かわ"],
+    "english": ["river"],
+    "mnemonics": "Picture a cow ('kawa') floating down a river, which helps you remember the pronunciation as well."
+  },
+  "温泉": {
+    "hiragana": ["おんせん"],
+    "english": ["spa", "hot spring"],
+    "mnemonics": "Imagine relaxing in a warm ('on') spa while listening to serene sounds of nature ('sen')."
+  },
+  "つり": {
+    "hiragana": ["つり"],
+    "english": ["fishing"],
+    "mnemonics": "Visualize yourself trying to catch a fish ('tsuri') using a fishing rod."
+  },
+  "湖": {
+    "hiragana": ["みずうみ"],
+    "english": ["lake"],
+    "mnemonics": "Picture a serene lake ('mizuumi') reflecting the surrounding mountains."
+  },
+  "山": {
+    "hiragana": ["やま"],
+    "english": ["mountain"],
+    "mnemonics": "Imagine yourself climbing a steep mountain ('yama') to reach its peak."
+  },
+  "キャンプ": {
+    "hiragana": ["きゃんぷ"],
+    "english": ["camp"],
+    "mnemonics": "Sounds like the English"
+  },
+  "ドライブ": {
+    "hiragana": ["どらいぶ"],
+    "english": ["drive"],
+    "mnemonics": "Sounds like the English"
+  },
+  "神社": {
+    "hiragana": ["じんじゃ"],
+    "english": ["shrine"],
+    "mnemonics": "Imagine walking through the gates ('torii') of a serene shrine ('jinja') surrounded by tall trees."
+  },
+  "美術館": {
+    "hiragana": ["びじゅつかん"],
+    "english": ["art museum"],
+    "mnemonics": "Associate 'bijutsukan' with a museum full of beautiful artworks."
+  },
+  "社長": {
+    "hiragana": ["しゃちょう"],
+    "english": ["president of a company"],
+    "mnemonics": "Imagine 'shachou' as the chief executive of a company, leading its operations."
+  },
+  "歌手": {
+    "hiragana": ["かしゅ"],
+    "english": ["singer"],
+    "mnemonics": "Think of 'kashu' as a singer holding a microphone and singing."
+  },
+  "ルームメイト": {
+    "hiragana": ["るーむめいと"],
+    "english": ["roommate"],
+    "mnemonics": "Associate 'ruumumeito' with someone sharing a room."
+  },
+  "ホストファミリー": {
+    "hiragana": ["ほすとふぁみりー"],
+    "english": ["host family"],
+    "mnemonics": "Remember 'hosutofamirii' as the family hosting you during your stay."
+  },
+  "将来": {
+    "hiragana": ["しょうらい"],
+    "english": ["future"],
+    "mnemonics": "Think of 'shourai' as your future plans and aspirations."
+  },
+  "夢": {
+    "hiragana": ["ゆめ"],
+    "english": ["dream"],
+    "mnemonics": "Visualize 'yume' as something you aspire to achieve in your sleep or in life."
+  },
+  "お祭り": {
+    "hiragana": ["おまつり"],
+    "english": ["festival"],
+    "mnemonics": "Imagine 'omatsuri' as a vibrant festival with colorful decorations and lively music."
+  },
+  "お正月": {
+    "hiragana": ["おしょうがつ"],
+    "english": ["New Year's"],
+    "mnemonics": "Associate 'oshougatsu' with the Japanese New Year celebrations."
+  },
+  "お菓子": {
+    "hiragana": ["おかし"],
+    "english": ["snack", "sweets"],
+    "mnemonics": "Think of 'okashi' as delicious snacks or sweets to enjoy."
+  },
+  "ビール": {
+    "hiragana": ["びーる"],
+    "english": ["beer"],
+    "mnemonics": "Visualize 'biiru' as a cold glass of beer, perfect for relaxation."
+  },
+  "おもちゃ": {
+    "hiragana": ["おもちゃ"],
+    "english": ["toy"],
+    "mnemonics": "Think of 'omocha' as something children play with, like toys."
+  },
+  "今学期": {
+    "hiragana": ["こんがっき"],
+    "english": ["this semester"],
+    "mnemonics": "Associate 'kongakki' with the current period of studies."
+  },
+  "来学期": {
+    "hiragana": ["らいがっき"],
+    "english": ["next semester"],
+    "mnemonics": "Think of 'raigakki' as the upcoming semester after the current one."
+  },
+  "授業": {
+    "hiragana": ["じゅぎょう"],
+    "english": ["class"],
+    "mnemonics": "Visualize 'jugyou' as a classroom where learning takes place."
+  },
+  "こちら": {
+    "hiragana": ["こちら"],
+    "english": ["this person (polite)"],
+    "mnemonics": "Remember 'kochira' as a polite way to refer to someone."
+  },
+  "うそをつく": {
+    "hiragana": ["うそをつく"],
+    "english": ["to tell a lie"],
+    "mnemonics": "Think of 'uso wo tsuku' as fabricating a falsehood."
+  },
+  "おなかがすく": {
+    "hiragana": ["おなかがすく"],
+    "english": ["to become hungry"],
+    "mnemonics": "Associate 'onaka ga suku' with the feeling of hunger, your stomach 'emptying.'"
+  },
+  "飼う": {
+    "hiragana": ["かう"],
+    "english": ["to own (a pet)"],
+    "mnemonics": "Visualize 'kau' as taking care of and feeding a pet."
+  },
+  "サボる": {
+    "hiragana": ["さぼる"],
+    "english": ["to cut (classes)"],
+    "mnemonics": "Think of 'saboru' as skipping class or work."
+  },
+  "取る": {
+    "hiragana": ["とる"],
+    "english": ["to take (a class)", "to get (a grade)"],
+    "mnemonics": "Associate 'toru' with taking a class or obtaining a grade."
+  },
+  "習う": {
+    "hiragana": ["ならう"],
+    "english": ["to learn"],
+    "mnemonics": "Visualize 'narau' as learning something new by practicing it repeatedly."
+  },
+  "登る": {
+    "hiragana": ["のぼる"],
+    "english": ["to climb"],
+    "mnemonics": "Think of 'noboru' as ascending to the top of a mountain or staircase."
+  },
+  "走る": {
+    "hiragana": ["はしる"],
+    "english": ["to run"],
+    "mnemonics": "Imagine 'hashiru' as swiftly moving forward, like running."
+  },
+  "疲れる": {
+    "hiragana": ["つかれる"],
+    "english": ["to get tired"],
+    "mnemonics": "Associate 'tsukareru' with feeling exhausted after physical or mental exertion."
+  },
+  "やめる": {
+    "hiragana": ["やめる"],
+    "english": ["to quit"],
+    "mnemonics": "Visualize 'yameru' as stopping or quitting an activity or job."
+  },
+  "けんかする": {
+    "hiragana": ["けんかする"],
+    "english": ["to have a fight", "to quarrel"],
+    "mnemonics": "Think of 'kenka suru' as engaging in a heated argument or disagreement."
+  },
+  "紹介する": {
+    "hiragana": ["しょうかいする"],
+    "english": ["to introduce"],
+    "mnemonics": "Associate 'shoukai suru' with presenting or introducing someone to others."
+  },
+  "ダイエットする": {
+    "hiragana": ["だいえっとする"],
+    "english": ["to go on a diet"],
+    "mnemonics": "Visualize 'daietto suru' as actively participating in a diet plan to lose weight."
+  },
+  "遅刻する": {
+    "hiragana": ["ちこくする"],
+    "english": ["to be late (for an appointment)"],
+    "mnemonics": "Think of 'chikoku suru' as arriving late for a scheduled event or meeting."
+  },
+  "留学する": {
+    "hiragana": ["りゅうがくする"],
+    "english": ["to study abroad"],
+    "mnemonics": "Associate 'ryuugaku suru' with pursuing education in a foreign country."
+  },
+  "出身": {
+    "hiragana": ["しゅっしん"],
+    "english": ["coming from"],
+    "mnemonics": "Visualize 'shusshin' as where someone originates or comes from."
+  },
+  "久しぶり": {
+    "hiragana": ["ひさしぶり"],
+    "english": ["it has been a long time"],
+    "mnemonics": "Think of 'hisashiburi' as reuniting with someone after a long time."
+  },
+  "まあまあ": {
+    "hiragana": ["まあまあ"],
+    "english": ["okay", "so-so"],
+    "mnemonics": "Associate 'maamaa' with expressing a mediocre or indifferent feeling."
+  },
+  "もっと": {
+    "hiragana": ["もっと"],
+    "english": ["more"],
+    "mnemonics": "Visualize 'motto' as wanting additional or increased quantity."
+  },
+  "後": {
+    "hiragana": ["あと"],
+    "english": ["after (an event)"],
+    "mnemonics": "Think of 'ato' as referring to the time following an event."
+  },
+  "そして": {
+    "hiragana": ["そして"],
+    "english": ["and then"],
+    "mnemonics": "Remember 'soshite' as indicating the subsequent action or event."
+  },
+  "～だけ": {
+    "hiragana": ["～だけ"],
+    "english": ["just...", "only..."],
+    "mnemonics": "Think of 'dake' as expressing limitation or exclusivity."
+  },
+  "～てん": {
+    "hiragana": ["～てん"],
+    "english": ["...points"],
+    "mnemonics": "Visualize 'ten' as representing points or scores."
+  },
+  "作家": {
+    "hiragana": ["さっか"],
+    "english": ["writer"],
+    "mnemonics": "Associate 'sakka' with someone who creates literary works or novels."
+  },
+  "ジャーナリスト": {
+    "hiragana": ["じゃーなりすと"],
+    "english": ["journalist"],
+    "mnemonics": "Think of 'jaanarisuto' as someone reporting news and stories for media outlets."
+  },
+  "警察官": {
+    "hiragana": ["けいさつかん"],
+    "english": ["police officer"],
+    "mnemonics": "Visualize 'keisatsukan' as a law enforcement officer maintaining public order."
+  },
+  "消防士": {
+    "hiragana": ["しょうぼうし"],
+    "english": ["firefighter"],
+    "mnemonics": "Associate 'shouboushi' with someone who extinguishes fires and rescues people."
+  },
+  "教師": {
+    "hiragana": ["きょうし"],
+    "english": ["schoolteacher"],
+    "mnemonics": "Think of 'kyoushi' as an educator teaching students in a school setting."
+  },
+  "研究者": {
+    "hiragana": ["けんきゅうしゃ"],
+    "english": ["researcher"],
+    "mnemonics": "Visualize 'kenkyuusha' as someone conducting investigations and experiments."
+  },
+  "宇宙飛行士": {
+    "hiragana": ["うちゅうひこうし"],
+    "english": ["astronaut"],
+    "mnemonics": "Associate 'uchuu hikoushi' with someone who travels and explores outer space."
+  },
+  "スポーツ選手": {
+    "hiragana": ["すぽーつせんしゅ"],
+    "english": ["athlete"],
+    "mnemonics": "Think of 'supootsusenshu' as someone skilled in sports and competitions."
+  },
+  "大統領": {
+    "hiragana": ["だいとうりょう"],
+    "english": ["president of a country"],
+    "mnemonics": "Visualize 'daitouryou' as the leader elected to govern a nation."
+  },
+  "俳優": {
+    "hiragana": ["はいゆう"],
+    "english": ["actor", "actress"],
+    "mnemonics": "Associate 'haiyuu' with performers acting in plays, movies, or TV dramas."
+  },
+  "看護師": {
+    "hiragana": ["かんごし"],
+    "english": ["nurse"],
+    "mnemonics": "Think of 'kangoshi' as someone providing medical care and assistance to patients."
+  },
+  "シェフ": {
+    "hiragana": ["しぇふ"],
+    "english": ["chef"],
+    "mnemonics": "Visualize 'shefu' as a skilled cook or culinary expert in a kitchen."
+  },
+  "漫画家": {
+    "hiragana": ["まんがか"],
+    "english": ["cartoonist"],
+    "mnemonics": "Associate 'mangaka' with someone who creates manga, Japanese comic books."
+  },
+  "職業": {
+    "hiragana": ["しょくぎょう"],
+    "english": ["occupation"],
+    "mnemonics": "Think of 'shokugyou' as the job or profession someone engages in for a living."
+  }
+}
