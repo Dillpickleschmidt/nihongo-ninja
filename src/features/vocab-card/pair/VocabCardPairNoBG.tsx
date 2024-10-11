@@ -91,13 +91,13 @@ export default function VocabCardPairNoBG(props: VocabCardPairNoBGProps) {
               <div class="py-12">
                 <h3 class="mb-4 font-japanese text-2xl font-bold">
                   <span class="font-japanese text-[1.375rem]">
-                    {`${props.index + 1}.`}{" "}
+                    {`${props.index + 2}.`}{" "}
                   </span>
                   <span class="font-japanese text-[1.375rem]">
                     {cardTwo.english.join(", ")}
                   </span>
                 </h3>
-                <VocabTextBody data={props.data} index={props.index} />
+                <VocabTextBody data={props.data} index={props.index + 1} />
               </div>
             </div>
           </div>

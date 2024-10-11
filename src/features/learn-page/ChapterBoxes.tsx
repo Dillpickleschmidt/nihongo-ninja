@@ -91,6 +91,7 @@ export default function ChapterBoxes() {
             title: "Culture Note: Japanese Greetings",
             link: "/learn/chapter-0/culture-note-japanese-greetings",
             types: ["culture-note"],
+            disabled: true,
           },
           {
             title: "Greetings Quiz",
@@ -136,11 +137,13 @@ export default function ChapterBoxes() {
             title: "Numbers Game 1",
             link: "",
             types: ["game"],
+            disabled: true,
           },
           {
             title: "Numbers Game 2",
             link: "",
             types: ["game"],
+            disabled: true,
           },
         ]}
       />

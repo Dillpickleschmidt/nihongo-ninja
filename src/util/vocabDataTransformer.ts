@@ -9,12 +9,16 @@ import { VocabItem, RichVocabItem, Card } from "@/types/vocab"
 export function addKanaAndRuby(
   items: VocabItem[],
   furiganaSize?: string,
+  removeDuplicateKana = false,
 ): RichVocabItem[] {
   return items.map((item) => {
     const hiragana = extractHiragana(item.furigana)
     const rubyText = item.furigana.map((furi) =>
       convertFuriganaToRubyHtml(furi, furiganaSize),
     )
+    if (removeDuplicateKana && hiragana && hiragana[0] === item.word) {
+      hiragana.shift()
+    }
     return { ...item, hiragana, rubyText }
   })
 }
