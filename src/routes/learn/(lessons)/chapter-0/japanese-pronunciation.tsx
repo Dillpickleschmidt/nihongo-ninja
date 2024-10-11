@@ -23,7 +23,7 @@ export default function JapanesePronunciation() {
       </div>
 
       <div class="flex w-full justify-center">
-        <div class="mt-6 aspect-auto w-64 overflow-hidden rounded-2xl opacity-75 shadow-xl sm:mt-12">
+        <div class="mt-6 aspect-auto w-64 overflow-hidden rounded-2xl opacity-[85%] shadow-xl sm:mt-12">
           <img
             src="/img/chapter-0/chapter-0-welcome.png"
             alt="welcome PortraitIcon"

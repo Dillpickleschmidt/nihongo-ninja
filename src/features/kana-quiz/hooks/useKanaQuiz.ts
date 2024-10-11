@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { createSignal, createEffect } from "solid-js"
 
 type KanaItem = {
   hiragana: string
@@ -11,17 +11,19 @@ type CharacterBoxState = KanaItem & {
 }
 
 export const useKanaQuiz = (kana: KanaItem[]) => {
-  const [showResults, setShowResults] = useState(false)
-  const [numCorrect, setNumCorrect] = useState(0)
-  const [characterBoxes, setCharacterBoxes] = useState<CharacterBoxState[]>([])
+  const [showResults, setShowResults] = createSignal(false)
+  const [numCorrect, setNumCorrect] = createSignal(0)
+  const [characterBoxes, setCharacterBoxes] = createSignal<CharacterBoxState[]>(
+    [],
+  )
 
-  useEffect(() => {
+  createEffect(() => {
     setCharacterBoxes(
       kana
         .sort(() => Math.random() - 0.5)
         .map((kanaItem) => ({ ...kanaItem, userInput: "", isCorrect: false })),
     )
-  }, [kana])
+  })
 
   const handleInputChange = (index: number, newUserInput: string) => {
     setCharacterBoxes((prevCharacterBoxes) => {

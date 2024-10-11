@@ -1,15 +1,13 @@
 import ContentBox from "@/components/ContentBox"
 import Romaji from "@/components/text/Romaji"
+import { Button } from "@/components/ui/button"
 import Numbers10 from "@/features/charts/Numbers10"
 import Numbers100 from "@/features/charts/Numbers100"
+import { A } from "@solidjs/router"
 
 export default function JapanesePronunciation() {
   return (
     <>
-      {/* <ContentBox
-        nextButtonText="Next Lesson ->"
-        nextButtonLink="/learn/chapter-0/practice/dakuten-handakuten"
-      > */}
       <h1 class="mb-8 px-20 pt-20 text-center text-4xl font-medium leading-[3.25rem]">
         Let's learn the basic numbers.
       </h1>
@@ -24,7 +22,7 @@ export default function JapanesePronunciation() {
           <div class="space-y-12 px-16 pt-12 md:px-28 lg:pl-6 xl:pr-24">
             <p>
               You'll notice that numbers 4, 7, and 9 have two options. Japanese
-              speakers use either option, so it's good to know both!
+              speakers use either option, so you'll want to know both!
             </p>
             <p>
               Just like most languages, 1-10 are essential numbers to know, but
@@ -92,16 +90,20 @@ export default function JapanesePronunciation() {
               </div>
             </div>
             <h3 class="text-center text-2xl font-semibold">
-              Think you can say 99? Give it a try!
+              Think you can say 98? Give it a try!
             </h3>
           </div>
           <div class="mt-24 px-24">{/* <Numbers100 /> */}</div>
         </div>
       </div>
-      <div class="pb-20 dark:text-primary-foreground">
+      <div class="pb-32 dark:text-primary-foreground">
         <Numbers100 />
       </div>
-      {/* </ContentBox> */}
+      <div class="absolute bottom-16 right-16">
+        <A href="/learn/chapter-0/number-matching">
+          <Button>Number Matching {"->"}</Button>
+        </A>
+      </div>
     </>
   )
 }

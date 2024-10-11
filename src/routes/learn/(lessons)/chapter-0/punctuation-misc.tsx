@@ -4,8 +4,8 @@ import PortraitIcon from "@/components/PortraitIcon"
 export default function JapanesePronunciation() {
   return (
     <ContentBox
-      nextButtonText="Next Lesson ->"
-      nextButtonLink="/learn/chapter-0/all-hiragana-quiz"
+      nextButtonText="See Vocab! ->"
+      nextButtonLink="/learn/chapter-0/vocab-list"
     >
       <h1 class="px-20 pt-28 text-center text-[2rem] font-medium leading-[2.875rem]">
         Just When You Thought It Was Safe...{" "}
@@ -27,7 +27,7 @@ export default function JapanesePronunciation() {
       <h2 class="mb-4 mt-12 text-center text-3xl font-bold">
         No Uppercase or Lowercase!
       </h2>
-      <div class="space-y-9 px-16 sm:px-24">
+      <div class="space-y-9 px-16 pb-32 sm:px-24">
         <div class="mr-[5.75rem] mt-9 rounded-2xl border-2 border-dashed border-muted bg-card p-4 shadow-md">
           <PortraitIcon src="/img/student.png" />
           <p>

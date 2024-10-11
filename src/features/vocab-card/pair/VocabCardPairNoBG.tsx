@@ -39,7 +39,7 @@ export default function VocabCardPairNoBG(props: VocabCardPairNoBGProps) {
       >
         <div class="relative flex w-full xl:w-1/2">
           <div class="mr-2 mt-10 flex h-full max-h-[450px] justify-center font-medium sm:mr-4 xl:min-w-32">
-            <p class="japaneseText font-bold leading-6 tracking-[-.2em] sm:mr-4">
+            <p class="japaneseText font-mono font-bold leading-6 tracking-[-.2em] sm:mr-4">
               {filteredCardOneWord}
             </p>
             <p class="japaneseText font-japanese">
@@ -71,7 +71,7 @@ export default function VocabCardPairNoBG(props: VocabCardPairNoBGProps) {
         <Show when={!props.single}>
           <div class="relative flex w-full xl:w-1/2">
             <div class="mr-2 mt-10 flex h-full max-h-[450px] justify-center font-medium md:mr-4 xl:min-w-32">
-              <p class="japaneseText font-bold leading-6 tracking-[-.2em] sm:mr-4">
+              <p class="japaneseText font-mono font-bold leading-6 tracking-[-.2em] sm:mr-4">
                 {filteredCardTwoWord}
               </p>
               <p class="japaneseText font-japanese">
