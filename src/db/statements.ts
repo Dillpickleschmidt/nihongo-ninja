@@ -1,11 +1,6 @@
 import Database from "better-sqlite3"
-import {
-  VocabularyItem,
-  RichVocabularyItem,
-  ExampleSentence,
-  Video,
-} from "@/types/vocab"
-import { addKanaAndRuby } from "@/util/vocabDataTransformer"
+import { VocabItem, RichVocabItem, ExampleSentence, Video } from "@/types/vocab"
+import { addKanaAndRuby, stripFurigana } from "@/util/vocabDataTransformer"
 
 function parseJSON<T>(jsonString: string | null): T | null {
   if (!jsonString) return null
@@ -19,16 +14,19 @@ function parseJSON<T>(jsonString: string | null): T | null {
 
 export async function getVocabularyByPath(
   path: string,
-): Promise<RichVocabularyItem[]> {
+  stripFuriganaFlag = false,
+): Promise<RichVocabItem[]> {
   "use server"
   const DB_PATH = process.cwd() + "/src/db/database.db"
   const db = new Database(DB_PATH)
+  console.log("Fetching vocabulary data...")
+  const startTime = Date.now()
 
   try {
     const stmt = db.prepare("SELECT * FROM vocabulary WHERE path = ?")
     const results = stmt.all(path) as any[]
 
-    const vocabularyItems: VocabularyItem[] = results.map((item) => ({
+    const vocabItems: VocabItem[] = results.map((item) => ({
       ...item,
       furigana: parseJSON<string[]>(item.furigana) || [],
       english: parseJSON<string[]>(item.english) || [],
@@ -40,7 +38,17 @@ export async function getVocabularyByPath(
     }))
 
     // Add kana and ruby text
-    return addKanaAndRuby(vocabularyItems, "0.75rem") // You can adjust the furigana size here
+    let processedItems = addKanaAndRuby(vocabItems, "0.75rem")
+
+    // Strip furigana if the flag is true
+    if (stripFuriganaFlag) {
+      processedItems = stripFurigana(processedItems)
+    }
+
+    const duration = Date.now() - startTime
+    console.log(`Vocabulary data fetched and processed in ${duration}ms`)
+
+    return processedItems
   } finally {
     db.close()
   }

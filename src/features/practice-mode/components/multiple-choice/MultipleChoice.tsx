@@ -1,4 +1,4 @@
-import { createEffect, createMemo, createSignal, For } from "solid-js"
+import { createEffect, createMemo, createSignal, For, onMount } from "solid-js"
 import {
   handleMultipleChoiceSelection,
   presentMultipleChoiceOptions,
@@ -23,6 +23,18 @@ export default function MultipleChoice(props: MultipleChoiceProps) {
   const context = usePracticeModeContext()
 
   const [buttonStates, setButtonStates] = createSignal<ButtonState[]>([])
+
+  const [isTouchDevice, setIsTouchDevice] = createSignal(false)
+
+  onMount(() => {
+    // Check if the device supports touch events
+    // I was having weird button class update issues on mobile devices with onClick
+    setIsTouchDevice("ontouchstart" in window || navigator.maxTouchPoints > 0)
+  })
+
+  const handleEvent = (selection: string, index: number) => {
+    handleSelection(selection, index)
+  }
 
   const choices = createMemo(() =>
     presentMultipleChoiceOptions(
@@ -58,7 +70,7 @@ export default function MultipleChoice(props: MultipleChoiceProps) {
     )
   }
 
-  const getButtonClassNames = (
+  const getButtonClasses = (
     isAnswered: boolean,
     isCorrect: boolean,
     isSelected: boolean,
@@ -99,10 +111,18 @@ export default function MultipleChoice(props: MultipleChoiceProps) {
             return (
               <Button
                 variant="outline"
-                onClick={() => handleSelection(firstAnswerIndex(), index())}
+                // Conditionally assign either onPointerDown or onClick based on device type
+                {...(isTouchDevice()
+                  ? {
+                      onPointerDown: () =>
+                        handleEvent(firstAnswerIndex(), index()),
+                    }
+                  : {
+                      onClick: () => handleEvent(firstAnswerIndex(), index()),
+                    })}
                 disabled={context.hasUserAnswered()}
                 class={cn(
-                  getButtonClassNames(
+                  getButtonClasses(
                     buttonState().isAnswered,
                     buttonState().isCorrect,
                     buttonState().isSelected,

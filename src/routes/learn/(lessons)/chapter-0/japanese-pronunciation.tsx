@@ -13,7 +13,7 @@ export default function JapanesePronunciation() {
           <li>
             <a
               class="text-sky-400 underline"
-              href="https://files.tofugu.com/articles/japanese/2022-07-05-learn-hiragana-book-pdf/tofugu-learn-hiragana-book.pdf"
+              href="https://learnjapanese.moe/guide/"
               target="_blank"
             >
               Japanese Guide - The Moe Way
