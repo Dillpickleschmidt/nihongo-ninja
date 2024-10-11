@@ -1,0 +1,15 @@
+// types.ts
+export type UnitButtonType =
+  | "lesson"
+  | "writing"
+  | "culture-note"
+  | "vocab"
+  | "practice"
+  | "conjugation-practice"
+  | "game"
+  | "video"
+  | "audio"
+  | "grammar-notes"
+  | "reading"
+  | "vocab-list"
+  | "vocab-test"

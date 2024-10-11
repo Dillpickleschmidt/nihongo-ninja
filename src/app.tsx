@@ -1,0 +1,28 @@
+import { ColorModeProvider, ColorModeScript } from "@kobalte/core"
+import { Router } from "@solidjs/router"
+import { FileRoutes } from "@solidjs/start/router"
+import { Suspense } from "solid-js"
+import Nav from "@/features/navbar/Nav"
+import "./app.css"
+import "@fontsource-variable/inter"
+import "@fontsource-variable/noto-sans-jp"
+
+export default function App() {
+  return (
+    <Router
+      root={(props) => (
+        <>
+          <Nav />
+          <Suspense>
+            <ColorModeScript />
+            <ColorModeProvider>
+              <div class="relative font-inter text-lg">{props.children}</div>
+            </ColorModeProvider>
+          </Suspense>
+        </>
+      )}
+    >
+      <FileRoutes />
+    </Router>
+  )
+}
