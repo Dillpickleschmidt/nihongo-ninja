@@ -1,9 +1,9 @@
 import { For, createSignal } from "solid-js"
 import VocabCard from "./VocabCardOrig"
-import type { RichVocabularyItem } from "@/types/vocab"
+import type { RichVocabItem } from "@/types/vocab"
 
 type VocabCardsProps = {
-  data: RichVocabularyItem[]
+  data: RichVocabItem[]
   countOffset?: number
   noFurigana?: boolean
 }

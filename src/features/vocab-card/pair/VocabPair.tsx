@@ -1,8 +1,8 @@
 import VocabText from "../components/VocabText"
-import type { RichVocabularyItem } from "@/types/vocab"
+import type { RichVocabItem } from "@/types/vocab"
 
 type VocabCardPairNoBGProps = {
-  data: RichVocabularyItem[]
+  data: RichVocabItem[]
   index: number
 }
 

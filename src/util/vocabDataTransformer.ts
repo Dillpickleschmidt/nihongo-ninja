@@ -1,15 +1,15 @@
-import { VocabularyItem, RichVocabularyItem } from "@/types/vocab"
+import { VocabItem, RichVocabItem, Card } from "@/types/vocab"
 
 /**
  * Adds hiragana and ruby text to VocabularyItem objects.
  * @param items - An array of VocabularyItem objects to transform.
  * @param furiganaSize - Optional font size for furigana text.
- * @returns An array of RichVocabularyItem objects.
+ * @returns An array of RichVocabItem objects.
  */
 export function addKanaAndRuby(
-  items: VocabularyItem[],
+  items: VocabItem[],
   furiganaSize?: string,
-): RichVocabularyItem[] {
+): RichVocabItem[] {
   return items.map((item) => {
     const hiragana = extractHiragana(item.furigana)
     const rubyText = item.furigana.map((furi) =>
@@ -94,4 +94,85 @@ export function convertFuriganaToRubyHtml<T extends string | string[]>(
   } else {
     return convert(furigana) as T extends string[] ? string[] : string
   }
+}
+
+/**
+ * Converts a VocabItem object to a Card object for use in flashcards.
+ * @param entry - A single VocabItem object to convert.
+ * @param index - The index of the entry in its original array (used for ordering).
+ * @returns A Card object.
+ *
+ * @example
+ * // Input VocabItem:
+ * const vocabItem = {
+ *   word: "食べる",
+ *   furigana: ["食[た]べる"],
+ *   english: ["to eat", "to consume"],
+ *   mnemonics: ["Think of 'taberu' as 'table' where you eat food."],
+ *   example_sentences: [{ japanese: "私はリンゴを食べます。", english: "I eat an apple." }],
+ *   info: ["Ichidan verb"],
+ *   category: "Verbs",
+ *   videos: [{ src: "https://example.com/taberu.mp4", title: "Usage of 食べる" }]
+ * };
+ *
+ * // Output Card:
+ * const card = convertVocabItemToFlashcard(vocabItem, 0);
+ * // Result:
+ * // {
+ * //   key: "食べる",
+ * //   answerCategories: [
+ * //     { category: "Kana", answers: ["たべる"] },
+ * //     { category: "English", answers: ["to eat", "to consume"] }
+ * //   ],
+ * //   mnemonics: ["Think of 'taberu' as 'table' where you eat food."],
+ * //   order: 0,
+ * //   cardStyle: "multiple-choice",
+ * //   wrongAnswerCount: 0,
+ * //   exampleSentences: [{ japanese: "私はリンゴを食べます。", english: "I eat an apple." }],
+ * //   info: ["Ichidan verb"],
+ * //   category: "Verbs",
+ * //   videos: [{ src: "https://example.com/taberu.mp4", title: "Usage of 食べる" }]
+ * // }
+ */
+function convertVocabItemToFlashcard(entry: VocabItem, index: number): Card {
+  const hiraganaArr = extractHiragana(entry.furigana)
+
+  const answerCategories = [
+    ...(hiraganaArr.length > 0
+      ? [{ category: "Kana", answers: hiraganaArr }]
+      : []),
+    ...(entry.english.length > 0
+      ? [{ category: "English", answers: entry.english }]
+      : []),
+  ]
+
+  return {
+    key: entry.word,
+    answerCategories,
+    mnemonics: entry.mnemonics,
+    order: index,
+    cardStyle: "multiple-choice",
+    wrongAnswerCount: 0,
+    exampleSentences: entry.example_sentences,
+    info: entry.info,
+    category: entry.category,
+    videos: entry.videos,
+  }
+}
+
+export function convertVocabItemsToFlashcards(entries: VocabItem[]): Card[] {
+  return entries.map((entry, index) =>
+    convertVocabItemToFlashcard(entry, index),
+  )
+}
+
+function stripFuriganaFromEntry(entry: VocabItem): VocabItem {
+  return {
+    ...entry,
+    furigana: [],
+  }
+}
+
+export function stripFurigana(entries: VocabItem[]): VocabItem[] {
+  return entries.map(stripFuriganaFromEntry)
 }

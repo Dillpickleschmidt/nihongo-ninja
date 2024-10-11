@@ -1,4 +1,4 @@
-import { createResource, Match, Show, Suspense, Switch } from "solid-js"
+import { createResource, Match, Show, Switch } from "solid-js"
 import { Button } from "@/components/ui/button"
 import VideoPlayer from "@/features/video/VideoPlayer"
 import { getDriveThumbnail } from "../video/googleDrive"

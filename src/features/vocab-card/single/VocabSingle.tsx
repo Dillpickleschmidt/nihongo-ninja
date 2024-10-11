@@ -1,9 +1,8 @@
-import { For, Show } from "solid-js"
-import type { RichVocabularyItem } from "@/types/vocab"
+import type { RichVocabItem } from "@/types/vocab"
 import VocabText from "../components/VocabText"
 
 type VocabCardProps = {
-  data: RichVocabularyItem[]
+  data: RichVocabItem[]
   index: number
 }
 

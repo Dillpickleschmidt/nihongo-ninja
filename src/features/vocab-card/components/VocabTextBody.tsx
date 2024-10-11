@@ -1,9 +1,8 @@
-import { For, Show } from "solid-js"
-import { VideoButton } from "../VideoButton"
-import type { RichVocabularyItem } from "@/types/vocab"
+import { For } from "solid-js"
+import type { RichVocabItem } from "@/types/vocab"
 
 type VocabTextBodyProps = {
-  data: RichVocabularyItem[]
+  data: RichVocabItem[]
   index: number
 }
 

@@ -1,10 +1,9 @@
-import type { RichVocabularyItem } from "@/types/vocab"
-import { createEffect, createSignal, For, Show } from "solid-js"
-import { VideoButton } from "../VideoButton"
+import type { RichVocabItem } from "@/types/vocab"
+import { Show } from "solid-js"
 import VocabText from "../components/VocabText"
 
 type VocabCard4NoBGProps = {
-  data: RichVocabularyItem[]
+  data: RichVocabItem[]
   index: number
 }
 

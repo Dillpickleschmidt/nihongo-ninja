@@ -1,10 +1,10 @@
-import type { RichVocabularyItem } from "@/types/vocab"
+import type { RichVocabItem } from "@/types/vocab"
 import { Show } from "solid-js"
 import VocabTextBody from "../components/VocabTextBody"
 import { VideoButton } from "../VideoButton"
 
 type VocabCardPairNoBGProps = {
-  data: RichVocabularyItem[]
+  data: RichVocabItem[]
   index: number
   single?: boolean
 }

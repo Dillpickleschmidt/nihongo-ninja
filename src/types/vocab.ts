@@ -1,14 +1,14 @@
-export interface ExampleSentence {
+export type ExampleSentence = {
   japanese: string
   english: string
 }
 
-export interface Video {
+export type Video = {
   src: string
   title: string
 }
 
-export interface VocabularyItem {
+export type VocabItem = {
   id: number
   created_at: string
   path: string
@@ -23,7 +23,28 @@ export interface VocabularyItem {
   videos: Video[] | null
 }
 
-export interface RichVocabularyItem extends VocabularyItem {
+export type RichVocabItem = VocabItem & {
   hiragana?: string[]
   rubyText?: string[]
+}
+
+export type Card = {
+  key: string
+  answerCategories: {
+    category: string
+    answers: string[]
+  }[]
+  mnemonics: string[]
+  order: number
+  cardStyle: "multiple-choice" | "write" | "done"
+  wrongAnswerCount: number
+  exampleSentences: ExampleSentence[] | null
+  info: string[]
+  category: string | null
+  videos: Video[] | null
+}
+
+export type AnswerCategory = {
+  answers: string[]
+  category: string
 }

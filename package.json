@@ -9,7 +9,7 @@
   "dependencies": {
     "@fontsource-variable/inter": "^5.1.0",
     "@fontsource-variable/noto-sans-jp": "^5.1.0",
-    "@kobalte/core": "^0.13.6",
+    "@kobalte/core": "^0.13.7",
     "@solidjs/router": "^0.14.7",
     "@solidjs/start": "^1.0.8",
     "@types/better-sqlite3": "^7.6.11",
