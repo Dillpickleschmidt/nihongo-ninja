@@ -6,7 +6,7 @@ type VocabCardPairNoBGProps = {
   index: number
 }
 
-export default function VocabPair(props: VocabCardPairNoBGProps) {
+export default function VocabCardPair(props: VocabCardPairNoBGProps) {
   return (
     <div class="py-4 md:px-6 xl:px-12">
       <div class="xl:flex">

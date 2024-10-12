@@ -2,8 +2,8 @@ import { getVocabularyByPath } from "@/db/statements"
 import VocabCardPairNoBG from "@/features/vocab-card/pair/VocabCardPairNoBG"
 import type { RichVocabItem } from "@/types/vocab"
 import { createResource, Show } from "solid-js"
-import VocabPair from "@/features/vocab-card/pair/VocabPair"
-import VocabSingle from "@/features/vocab-card/single/VocabSingle"
+import VocabPair from "@/features/vocab-card/pair/VocabCardPair"
+import VocabSingle from "@/features/vocab-card/single/VocabCardSingle"
 import VocabCard4NoBG from "@/features/vocab-card/quadruplet/VocabCard4NoBG"
 import { A } from "@solidjs/router"
 import { Button } from "@/components/ui/button"
@@ -45,15 +45,11 @@ export default function page() {
         </div>
       </div>
       <Show when={data()}>
-        {
-          <>
-            <VocabCardPairNoBG data={data()!} index={0} />
-            <VocabSingle data={data()!} index={2} />
-            <VocabCardPairNoBG data={data()!} index={3} />
-            <VocabCardPairNoBG data={data()!} index={5} />
-            <VocabCardPairNoBG data={data()!} index={7} single />
-          </>
-        }
+        <VocabCardPairNoBG data={data()!} index={0} />
+        <VocabSingle data={data()!} index={2} />
+        <VocabCardPairNoBG data={data()!} index={3} />
+        <VocabCardPairNoBG data={data()!} index={5} />
+        <VocabCardPairNoBG data={data()!} index={7} single />
       </Show>
       <div class="mt-12 flex flex-col items-center">
         <div class="max-w-[850px] px-4 pb-32 md:px-8">

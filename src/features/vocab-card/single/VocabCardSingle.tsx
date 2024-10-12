@@ -1,12 +1,12 @@
 import type { RichVocabItem } from "@/types/vocab"
 import VocabText from "../components/VocabText"
 
-type VocabCardProps = {
+type VocabCardSingleProps = {
   data: RichVocabItem[]
   index: number
 }
 
-export default function VocabSingle(props: VocabCardProps) {
+export default function VocabCardSingle(props: VocabCardSingleProps) {
   return (
     <div class="md:px-4 xl:px-10">
       <div class="h-full p-4">

@@ -16,13 +16,11 @@ export default function VocabCardPairNoBG(props: VocabCardPairNoBGProps) {
   const filteredCardOneWord = cardOne.english[0]
     .replace(/\(/g, "︵")
     .replace(/\)/g, "︶")
-    .replace(/'/g, "‚")
     .replace(/\//g, "—")
 
   const filteredCardTwoWord = cardTwo.english[0]
     .replace(/\(/g, "︵")
     .replace(/\)/g, "︶")
-    .replace(/'/g, "‚")
     .replace(/\//g, "—")
 
   return (
