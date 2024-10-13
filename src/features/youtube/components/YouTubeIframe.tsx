@@ -1,4 +1,3 @@
-"use client"
 import { createResource } from "solid-js"
 
 type YouTubeIframeProps = {

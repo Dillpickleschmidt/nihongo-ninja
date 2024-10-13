@@ -15,6 +15,7 @@ export default function page() {
         <PracticeModePage
           data={data()!}
           deckName="Greetings & Common Expressions"
+          mode="readings"
         />
       </Show>
     </>

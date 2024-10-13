@@ -7,7 +7,7 @@ import PeopleDescriptorsMisc from "@/features/vocab-list/components/chapter-1/Pe
 import Time from "@/features/vocab-list/components/chapter-1/Time"
 import UsefulExpressions from "@/features/vocab-list/components/chapter-1/UsefulExpressions"
 
-export default async function page() {
+export default function page() {
   return (
     <ContentBox
       nextButtonText="See Upcoming Grammar ->"
@@ -48,6 +48,7 @@ export default async function page() {
           <Minutes />
         </div>
       </div>
+      <div class="pb-32" />
     </ContentBox>
   )
 }

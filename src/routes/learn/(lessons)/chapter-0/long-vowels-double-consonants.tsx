@@ -194,17 +194,15 @@ export default function JapanesePronunciation() {
             Japanese—for example, "hello" versus "helo."
           </p>
           <div class="mx-16 mt-6 rounded-lg border-[2.5px] border-dashed border-card-foreground bg-card/100 shadow-inner">
-            <table class="w-full table-fixed border-collapse font-japanese text-4xl">
-              <tbody>
-                <tr class="[&>*]:h-[4.5rem] [&>*]:border-l-2 [&>*]:border-r-2 [&>*]:border-card-foreground/75 [&>*]:pb-2 [&>*]:text-center">
-                  <td class="!border-l-0">ko</td>
-                  <td>n'</td>
-                  <td>ni</td>
-                  <td>chi</td>
-                  <td class="!border-r-0">wa</td>
-                </tr>
-              </tbody>
-            </table>
+            <div class="w-full border-collapse font-japanese text-4xl">
+              <div class="[&>*]:h-[4.5rem] [&>*]:border-l-2 [&>*]:border-r-2 [&>*]:border-card-foreground/75 [&>*]:pb-2 [&>*]:text-center">
+                <div class="!border-l-0">ko</div>
+                <div>n'</div>
+                <div>ni</div>
+                <div>chi</div>
+                <div class="!border-r-0">wa</div>
+              </div>
+            </div>
           </div>
           <ul class="mt-4 text-center">
             <li>
@@ -254,7 +252,7 @@ export default function JapanesePronunciation() {
           these sounds right might feel like trying to pat your head and rub
           your belly at the same time. But once you get the hang of it, you'll
           be weaving through Japanese conversations with the grace of a
-          linguistic acrobat.
+          linguistic pole dancer.
         </p>
         <div class="-mb-12">
           <p class="mt-6 text-base">

@@ -62,10 +62,10 @@ export default function JapanesePronunciation() {
             </p>
             <br />
             <p>
-              Take &quot;じゃ (jya)&quot; for example. Here, &quot;じ (ji)&quot;
+              Take &quot;じゃ (ja)&quot; for example. Here, &quot;じ (ji)&quot;
               teams up with a tiny version of &quot;や (ya)&quot; to create a
               sound that's not just &quot;jiya&quot; but a smoother, more
-              compact &quot;jya&quot;. You'll see this dynamic duo popping up in
+              compact &quot;ja&quot;. You'll see this dynamic duo popping up in
               words like &quot;じゃあね (jaane - see you)&quot;.
             </p>
             <br />
@@ -89,13 +89,13 @@ export default function JapanesePronunciation() {
           more fluid and natural-sounding.
         </p>
         <p>
-          <span class="text-xl font-bold">Practice Makes Perfect:</span> These
-          sounds might seem a bit awkward at first, like learning a new dance
-          move. But once you get the rhythm, you'll be flowing through sentences
-          with a newfound <strong>groove</strong>. They add a{" "}
-          <em>smoothness</em> and
-          <em> efficiency</em> to Japanese, like a sleek high-speed train{" "}
-          <u>zipping</u> through the countryside.
+          <span class="text-xl font-bold">Practice Makes Perfect:</span>{" "}
+          Navigating these contracted sounds might initially feel like
+          assembling flat-pack furniture with instructions in another language.
+          But stick with it, and you'll find they're actually quite intuitive
+          for English speakers. Before you know it, you'll be weaving through
+          conversations with the grace of someone who's realized the
+          instructions were just there for moral support.
         </p>
         <p>
           <span class="text-[1.125rem] font-medium">
@@ -103,12 +103,11 @@ export default function JapanesePronunciation() {
               <em>Embrace</em>
             </u>
           </span>{" "}
-          these contracted sounds, play around with them, and watch how they add
-          a new rhythm and flow to your speech.{" "}
-          <span class="font-medium">Remember</span>, every new sound is a step
-          closer to fluency, so enjoy these linguistic{" "}
-          <span class="text-xl font-medium">leaps</span> and{" "}
-          <span class="text-xl font-medium">bounds!</span> 🌟
+          these contracted sounds, give them a whirl, and you'll discover
+          they're the linguistic equivalent of finding a shortcut that actually
+          works. Each sound you master brings you closer to fluency, making your
+          Japanese smoother and more natural. To be honest, these are easier
+          than they look on paper.
         </p>
       </div>
     </ContentBox>

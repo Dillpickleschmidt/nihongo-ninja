@@ -7,7 +7,7 @@ import YouTubeVideo from "@/features/youtube/YouTube"
 export default function page() {
   return (
     <ContentBox
-      nextButtonText="See Upcoming Grammar ->"
+      nextButtonText="Next Lesson ->"
       nextButtonLink="/learn/chapter-1/occupations-majors"
     >
       <h1 class="mt-32 px-20 pb-12 text-center text-4xl font-semibold leading-[2.875rem]">
@@ -21,7 +21,7 @@ export default function page() {
         </span>{" "}
         introduction to Japanese grammar
       </h1>
-      <div class="space-y-6 px-16 md:px-24">
+      <div class="space-y-6 px-16 pb-32 md:px-24">
         <div class="flex w-full items-center">
           <div class="mx-4 flex flex-col items-center">
             <h3 class="text-center font-semibold">
@@ -185,41 +185,35 @@ export default function page() {
           </h3>
         </div>
         <p class="pt-3">
-          But if you ever listen to a Japanese conversation, you'll notice{" "}
-          <span class="font-japanese">です</span> is used quite a lot. That's
-          because it softens the tone, adding politeness to speech, which is
-          highly valued in Japanese culture.
+          Yet, <span class="font-japanese">です</span> peppers conversations
+          because it's like saying "please" with every sentence - it's just
+          polite, so you'll hear it used a lot in Japanese.
         </p>
         <div>
           <h3 class="pt-3 text-xl font-bold">Understood Context</h3>
           <p class="pt-2">
-            You'll notice that none of these sentences have a topic like{" "}
+            Notice no{" "}
             <span class="font-semibold underline underline-offset-[3px]">
               I
-            </span>
-            ,{" "}
-            <span class="font-semibold underline underline-offset-[3px]">
-              this
             </span>
             , or{" "}
             <span class="font-semibold underline underline-offset-[3px]">
               it
             </span>
-            . The context often makes it clear who or what the speaker is
-            referring to. For instance,{" "}
-            <span class="font-japanese">ともだちです</span> could mean{" "}
+            ? Context is king. <span class="font-japanese">ともだちです</span>{" "}
+            could be{" "}
             <span class="font-semibold underline underline-offset-[3px]">
-              I
+              I'm
             </span>{" "}
-            am a friend,{" "}
+            a friend,{" "}
             <span class="font-semibold underline underline-offset-[3px]">
-              You
+              You're
             </span>{" "}
-            are a friend,{" "}
+            a friend, or{" "}
             <span class="font-semibold underline underline-offset-[3px]">
-              They
+              They're
             </span>{" "}
-            are friends, etc., depending on the context.
+            friends. Context decides.
           </p>
           <div class="mt-2">
             <small class="text-base">
@@ -238,13 +232,15 @@ export default function page() {
                 <span class="font-japanese">
                   <span class="text-red-400">いちねんせい</span>です
                 </span>{" "}
-                - I am a <span class="text-red-400">first-year student</span>.
+                - <span class="text-red-400">First-year student</span> and
+                already regretting my life choices..
               </li>
               <li>
                 <span class="font-japanese">
                   <span class="text-sky-400">[name]</span>です
                 </span>{" "}
-                - I am <span class="text-sky-400">[name]</span>
+                - I am known as <span class="text-sky-400">[name]</span>, not
+                'hey you'.
               </li>
               <li>
                 <span class="font-japanese">
@@ -256,17 +252,16 @@ export default function page() {
                 <span class="font-japanese">
                   <span class="text-indigo-400">けいざい</span>です
                 </span>{" "}
-                - (My major) is <span class="text-indigo-400">economics</span>.
+                - (My major) is <span class="text-indigo-400">economics</span>,
+                - where I learn why I can't afford anything...
               </li>
               <li>
                 <span class="font-japanese">
                   <span class="text-emerald-400">ほん</span>です
                 </span>{" "}
-                - These are{" "}
-                <span class="font-japanese text-emerald-400">books</span>. /
-                This is a{" "}
-                <span class="font-japanese text-emerald-400">book</span>. /
-                +more...
+                - Could be one{" "}
+                <span class="font-japanese text-emerald-400">book</span>, could
+                be a library's worth.
               </li>
             </ul>
           </div>
@@ -281,7 +276,7 @@ export default function page() {
         <div class="ml-40 min-h-24 rounded-2xl border-2 border-dashed border-muted bg-card p-4 shadow-md">
           <PortraitIcon src="/img/guru.png" class="float-end" />
           <p class="mt-1">
-            Ah, young grasshopper, that's where particles come in.
+            Ah, young grasshopper, that's when we call in the particles.
           </p>
         </div>
         <div class="w-full border-b border-card-foreground pb-3"></div>
@@ -343,8 +338,8 @@ export default function page() {
         <p class="space-y-0 text-sm italic text-muted-foreground">
           *Particles are a totally foreign concept for English speakers. They're
           mini-words that serve only grammatical purposes and have no meaning
-          themselves. But don't worry you'll begin to understand them through
-          seeing more examples.
+          themselves—just pure, unadulterated grammar magic. But don't worry,
+          you'll begin to understand them through seeing more examples.
         </p>
         <div class="w-full space-y-4 rounded-2xl bg-primary/10 py-10 text-center font-semibold">
           <p>
@@ -379,8 +374,7 @@ export default function page() {
               <span class="mr-2">A:</span>Hey, how was your trip to Tokyo?
             </p>
             <p>
-              <span class="mr-2">B:</span>It was awesome! The food was super
-              tasty.
+              <span class="mr-2">B:</span>It was awesome! Food was to die for.
             </p>
             {/* <p>
               <span class="mr-2">A:</span>Nice! Did you check out any
@@ -569,7 +563,7 @@ export default function page() {
           </li>
           <li>
             <span class="font-extrabold">Dropping the topic - </span>
-            Japanese speakers often omit the topic and{" "}
+            Japanese speakers often omit the topic +{" "}
             <span class="font-japanese">は</span> particle when it's obvious
             from context, or when the topic has already been introduced.
           </li>

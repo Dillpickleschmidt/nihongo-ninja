@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button"
-import { Menu } from "lucide-solid"
+import Menu from "lucide-solid/icons/menu"
 
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import SidebarContent from "./SidebarContent"

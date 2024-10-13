@@ -1,6 +1,7 @@
 import ContentBox from "@/components/ContentBox"
 import Furigana from "@/components/text/Furigana"
 import Romaji from "@/components/text/Romaji"
+import { TextField, TextFieldRoot } from "@/components/ui/textfield"
 
 export default function page() {
   return (
@@ -221,7 +222,9 @@ export default function page() {
         </div>
         <div class="flex justify-center pb-6">
           <div>
-            <input placeholder="" class="bg-card text-lg" />
+            <TextFieldRoot class="bg-card text-lg">
+              <TextField type="text" placeholder="" />
+            </TextFieldRoot>
           </div>
         </div>
 
@@ -240,7 +243,9 @@ export default function page() {
         </div>
         <div class="flex justify-center pb-6">
           <div>
-            <input placeholder="" class="bg-card text-lg" />
+            <TextFieldRoot class="bg-card text-lg">
+              <TextField type="text" placeholder="" />
+            </TextFieldRoot>
           </div>
         </div>
 

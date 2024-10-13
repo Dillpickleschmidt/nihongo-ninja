@@ -1,10 +1,11 @@
 import ContentBox from "@/components/ContentBox"
 import Furigana from "@/components/text/Furigana"
+import { TextField, TextFieldRoot } from "@/components/ui/textfield"
 
 export default function page() {
   return (
     <ContentBox
-      nextButtonText="See Upcoming Grammar ->"
+      nextButtonText="Next Lesson ->"
       nextButtonLink="/learn/chapter-1/everyday-expressions"
     >
       <h1 class="px-20 pb-12 pt-24 text-center text-4xl font-bold">
@@ -42,7 +43,13 @@ export default function page() {
             </div>
           </div>
           <div class="mt-6 flex items-center justify-end text-3xl">
-            <input class="mr-2 mt-3 w-[19rem] bg-card !py-1 text-end text-3xl"></input>
+            <TextFieldRoot>
+              <TextField
+                type="text"
+                placeholder=""
+                class="mr-2 mt-3 w-[19rem] bg-card text-end text-3xl"
+              />
+            </TextFieldRoot>
             <div>
               <Furigana furigana={<span>いしゃ</span>}>医者</Furigana>です。
             </div>
@@ -63,7 +70,13 @@ export default function page() {
             </div>
           </div>
           <div class="mt-6 flex items-center justify-end text-3xl">
-            <input class="mr-2 mt-3 w-[13rem] bg-card !py-1 text-end text-3xl"></input>
+            <TextFieldRoot>
+              <TextField
+                type="text"
+                placeholder=""
+                class="mr-2 mt-3 w-[19rem] bg-card text-end text-3xl"
+              />
+            </TextFieldRoot>
             <div>
               <Furigana furigana={<span>かいしゃいん</span>}>会社員</Furigana>
               です。
@@ -88,7 +101,13 @@ export default function page() {
             is a lawyer.
           </p>
           <div class="mt-3 flex items-end text-3xl">
-            <input class="mr-1 w-[26rem] bg-card !py-1 font-japanese text-3xl"></input>
+            <TextFieldRoot>
+              <TextField
+                type="text"
+                placeholder=""
+                class="mr-1 w-[26rem] bg-card font-japanese text-3xl"
+              />
+            </TextFieldRoot>
             。
           </div>
           <p class="mt-12 text-xl">
@@ -98,7 +117,13 @@ export default function page() {
             is a graduate student.
           </p>
           <div class="mt-3 flex items-end text-3xl">
-            <input class="mr-1 w-[31.5rem] bg-card !py-1 font-japanese text-3xl"></input>
+            <TextFieldRoot>
+              <TextField
+                type="text"
+                placeholder=""
+                class="mr-1 w-[31.5rem] bg-card font-japanese text-3xl"
+              />
+            </TextFieldRoot>
             。
           </div>
           <p class="mt-12 text-xl">
@@ -106,12 +131,24 @@ export default function page() {
             economics.
           </p>
           <div class="mt-3 flex items-end text-3xl">
-            <input class="mr-1 w-[22.25rem] bg-card !py-1 font-japanese text-3xl"></input>
+            <TextFieldRoot>
+              <TextField
+                type="text"
+                placeholder=""
+                class="mr-1 w-[22.25rem] bg-card font-japanese text-3xl"
+              />
+            </TextFieldRoot>
             。
           </div>
           <p class="mt-12 text-xl">Grandpa is 60 years old.</p>
           <div class="mt-3 flex items-end text-3xl">
-            <input class="mr-1 w-[29.5rem] bg-card !py-1 font-japanese text-3xl"></input>
+            <TextFieldRoot>
+              <TextField
+                type="text"
+                placeholder=""
+                class="mr-1 w-[29.5rem] bg-card font-japanese text-3xl"
+              />
+            </TextFieldRoot>
             。
           </div>
         </div>
@@ -126,7 +163,13 @@ export default function page() {
           <div>
             <Furigana furigana={<span>わたし</span>}>私</Furigana>は
           </div>
-          <input class="-mb-1 mr-1 w-[22rem] bg-card !py-1 text-3xl"></input>。
+          <TextFieldRoot>
+            <TextField
+              type="text"
+              placeholder=""
+              class="-mb-1 mr-1 w-[22rem] bg-card text-3xl"
+            />
+          </TextFieldRoot>
         </div>
       </div>
     </ContentBox>

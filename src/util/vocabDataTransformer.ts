@@ -104,10 +104,10 @@ export function convertFuriganaToRubyHtml<T extends string | string[]>(
  * Converts a VocabItem object to a Card object for use in flashcards.
  * @param entry - A single VocabItem object to convert.
  * @param index - The index of the entry in its original array (used for ordering).
+ * @param mode - The mode of the flashcard, either "readings" or "kana" answers.
  * @returns A Card object.
  *
  * @example
- * // Input VocabItem:
  * const vocabItem = {
  *   word: "食べる",
  *   furigana: ["食[た]べる"],
@@ -119,15 +119,11 @@ export function convertFuriganaToRubyHtml<T extends string | string[]>(
  *   videos: [{ src: "https://example.com/taberu.mp4", title: "Usage of 食べる" }]
  * };
  *
- * // Output Card:
- * const card = convertVocabItemToFlashcard(vocabItem, 0);
+ * const card = convertVocabItemToFlashcard(vocabItem, 0, "readings");
  * // Result:
  * // {
  * //   key: "食べる",
- * //   answerCategories: [
- * //     { category: "Kana", answers: ["たべる"] },
- * //     { category: "English", answers: ["to eat", "to consume"] }
- * //   ],
+ * //   answerCategories: [{ category: "English", answers: ["to eat", "to consume"] }],
  * //   mnemonics: ["Think of 'taberu' as 'table' where you eat food."],
  * //   order: 0,
  * //   cardStyle: "multiple-choice",
@@ -138,20 +134,18 @@ export function convertFuriganaToRubyHtml<T extends string | string[]>(
  * //   videos: [{ src: "https://example.com/taberu.mp4", title: "Usage of 食べる" }]
  * // }
  */
-function convertVocabItemToFlashcard(entry: VocabItem, index: number): Card {
-  const hiraganaArr = extractHiragana(entry.furigana)
-
-  const answerCategories = [
-    ...(hiraganaArr.length > 0
-      ? [{ category: "Kana", answers: hiraganaArr }]
-      : []),
-    ...(entry.english.length > 0
-      ? [{ category: "English", answers: entry.english }]
-      : []),
-  ]
+function convertVocabItemToFlashcard(
+  entry: VocabItem,
+  index: number,
+  mode: "readings" | "kana",
+): Card {
+  const answerCategories =
+    mode === "kana"
+      ? [{ category: "Kana", answers: extractHiragana(entry.furigana) }]
+      : [{ category: "English", answers: entry.english }]
 
   return {
-    key: entry.word,
+    key: mode === "readings" ? entry.word : entry.english.join(", "),
     answerCategories,
     mnemonics: entry.mnemonics,
     order: index,
@@ -164,10 +158,91 @@ function convertVocabItemToFlashcard(entry: VocabItem, index: number): Card {
   }
 }
 
-export function convertVocabItemsToFlashcards(entries: VocabItem[]): Card[] {
+export function convertVocabItemsToFlashcards(
+  entries: VocabItem[],
+  mode: "readings" | "kana",
+): Card[] {
   return entries.map((entry, index) =>
-    convertVocabItemToFlashcard(entry, index),
+    convertVocabItemToFlashcard(entry, index, mode),
   )
+}
+
+/**
+ * Converts a single VocabItem object from kanji to kana representation.
+ * @param entry - A VocabItem object to convert.
+ * @returns A new VocabItem object with the word converted to kana.
+ */
+function convertSingleKanjiToKana(entry: VocabItem): VocabItem {
+  const hiragana = entry.furigana?.[0] && extractHiragana(entry.furigana[0])
+  return {
+    ...entry,
+    word: hiragana ?? entry.word,
+    furigana: hiragana ? [] : entry.furigana,
+  }
+}
+
+/**
+ * Converts multiple VocabItem objects from kanji to kana representation.
+ * @param entries - An array of VocabItem objects to convert.
+ * @returns A new array of VocabItem objects with words converted to kana.
+ */
+function convertMultipleKanjiToKana(entries: VocabItem[]): VocabItem[] {
+  return entries.map(convertSingleKanjiToKana)
+}
+
+/**
+ * Converts VocabItem objects from kanji to kana representation.
+ * This function can handle both single entries and arrays of entries.
+ * @param entries - A single VocabItem or an array of VocabItem objects to convert.
+ * @returns The same type as the input (T), with words converted to kana.
+ */
+export function convertKanjiToKana<T extends VocabItem | VocabItem[]>(
+  entries: T,
+): T {
+  return (
+    Array.isArray(entries)
+      ? convertMultipleKanjiToKana(entries)
+      : convertSingleKanjiToKana(entries)
+  ) as T
+}
+
+/**
+ * Swaps the word and English properties of a single VocabItem object.
+ * @param entry - A VocabItem object to modify.
+ * @returns A new VocabItem object with word and English properties swapped.
+ */
+function swapSingleWordAndEnglish(entry: VocabItem): VocabItem {
+  return {
+    ...entry,
+    word: entry.english?.join(", ") ?? entry.word,
+    english: [],
+    furigana: [entry.word],
+  }
+}
+
+/**
+ * Swaps the word and English properties of multiple VocabItem objects.
+ * @param entries - An array of VocabItem objects to modify.
+ * @returns A new array of VocabItem objects with word and English properties swapped.
+ */
+function swapMultipleWordAndEnglish(entries: VocabItem[]): VocabItem[] {
+  return entries.map(swapSingleWordAndEnglish)
+}
+
+/**
+ * Swaps the word and English properties of VocabItem objects.
+ * This function can handle both single entries and arrays of entries.
+ * @param entries - A single VocabItem or an array of VocabItem objects to modify.
+ * @returns The same type as the input (T), with word and English properties swapped.
+ */
+export function swapWordAndEnglish<T extends VocabItem | VocabItem[]>(
+  entries: T,
+): T {
+  return (
+    Array.isArray(entries)
+      ? swapMultipleWordAndEnglish(entries)
+      : swapSingleWordAndEnglish(entries)
+  ) as T
 }
 
 function stripFuriganaFromEntry(entry: VocabItem): VocabItem {

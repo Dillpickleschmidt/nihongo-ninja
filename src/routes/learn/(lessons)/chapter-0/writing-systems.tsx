@@ -17,15 +17,15 @@ export default function JapanesePronunciation() {
         <div class="mr-24 rounded-2xl border-2 border-dashed border-muted bg-card p-4 shadow-md">
           <PortraitIcon src="/img/student.png" />
           <p>
-            Wise Monk, I've heard that Japanese has more than one writing
-            system. Is that really true?
+            Wise Monk, what's this I'm hearing about more than one writing
+            system? Is this an ancient truth or mere legend?
           </p>
         </div>
         <div class="ml-24 rounded-2xl border-2 border-dashed border-muted bg-card p-4 shadow-md">
           <PortraitIcon src="/img/guru.png" class="float-end" />
           <p>
             <span class="text-xl">Ah</span>, young grasshopper, your curiosity
-            is like a blossoming sakura tree.{" "}
+            blooms like the weeds in my backyard.{" "}
             <span class="font-semibold">Yes</span>, Japanese has{" "}
             <strong>three</strong> writing systems, and all three can be seen in
             a single sentence.
@@ -38,11 +38,11 @@ export default function JapanesePronunciation() {
           <p class="text-center">
             <span class="font-japanese text-2xl">
               <span class="text-green-500 saturate-[25%]">テレビ</span>
-              <span class="dark:text-background-secondary text-sky-500 saturate-50 dark:saturate-100">
+              <span class="text-sky-500 saturate-50 dark:text-background-secondary dark:saturate-100">
                 を
               </span>
               <span class="text-red-500">見</span>
-              <span class="dark:text-background-secondary text-sky-500 saturate-50 dark:saturate-100">
+              <span class="text-sky-500 saturate-50 dark:text-background-secondary dark:saturate-100">
                 ます
               </span>
             </span>
@@ -54,7 +54,7 @@ export default function JapanesePronunciation() {
               - Katakana
             </li>
             <li>
-              <div class="dark:bg-background-secondary inline-flex h-3 w-3 rounded-full bg-sky-500 saturate-50 dark:saturate-100" />{" "}
+              <div class="inline-flex h-3 w-3 rounded-full bg-sky-500 saturate-50 dark:bg-background-secondary dark:saturate-100" />{" "}
               - Hiragana
             </li>
             <li>
@@ -66,14 +66,16 @@ export default function JapanesePronunciation() {
         <div class="px-2 [&>*]:mt-4">
           <p>
             <span class="font-extrabold">Student:</span> <em>Three</em> writing
-            systems? That sounds complicated, oh wise one.
+            systems? That seems like climbing three mountains at once, oh
+            sagacious one.
           </p>
           <p>
-            <span class="font-extrabold">Sensei:</span> Fear not, for
-            enlightenment comes with understanding. First, we have Hiragana,
-            your loyal companion on this journey. They can represent all of the
-            spoken Japanese sounds that you'll hear, and are often used for
-            native Japanese words. They are built upon five pure vowel sounds:
+            <span class="font-extrabold">Sensei:</span> Fear not, for each
+            system has its purpose, and together, they create harmony. First, we
+            have Hiragana, your loyal companion on this journey. They can
+            represent all of the spoken Japanese sounds that you'll hear, and
+            are often used for native Japanese words. They are built upon five
+            pure vowel sounds:
           </p>
           <div class="text-center font-japanese text-2xl font-medium">
             <p>あ a</p>
@@ -127,32 +129,39 @@ export default function JapanesePronunciation() {
           </div>
           <p>
             <span class="font-extrabold">Student:</span> Uhh, these have the
-            same sounds... So, is Katakana just another set of characters with
-            the same sounds as Hiragana, oh enlightened one?
+            same sounds... So, are they just stylistic variations?
           </p>
           <p>
-            <span class="font-extrabold">Sensei:</span> Exactly, yes. Katakana
-            works in precisely the same way as Hiragana—46 characters, and they
-            all sound the same. Think of it like a funky new font!
+            <span class="font-extrabold">Sensei:</span> Indeed, they are like
+            different robes for the same emperor. Katakana has 46 characters,
+            identical in sound but used for distinct purposes.
+          </p>
+          <p class="text-base font-thin">
+            Got a loanword from English? Write it in Katakana. Heard an
+            onomatopoeia that mimics sounds? Katakana's got you covered. It's
+            also the go-to for emphasis, kind of like how we use italics or ALL
+            CAPS. Plus, it's the script of choice for sci-fi and tech names,
+            giving everything a futuristic vibe. Think of it like a funky font!
           </p>
           <p>
             <span class="font-extrabold">Student:</span> And the final writing
             system, wise monk?
           </p>
           <p>
-            <span class="font-extrabold">Sensei:</span> Lastly, we encounter
-            Kanji, the ancient symbols that hold the wisdom of entire words or
-            ideas. While native Japanese words can be written in just hiragana,
-            in everyday usage, many words are actually written in kanji.
+            <span class="font-extrabold">Sensei:</span> Now, Kanji, oh boy, this
+            is where things get real. Imagine taking Chinese characters, which
+            are essentially pictures or concepts squished into tiny boxes, and
+            using them to write Japanese. Each Kanji can have multiple readings
+            and meanings, turning your study session into a detective game.
           </p>
           <p>
-            <span class="font-extrabold">Student:</span> Why do Japanese people
-            use kanji, oh enlightened one?
+            Why use Kanji? Efficiency and tradition. One symbol can convey what
+            might take several Hiragana characters to express. Also, it makes
+            you look super smart when you can read them.
           </p>
           <p>
-            <span class="font-extrabold">Sensei:</span> These characters are
-            inherited from the neighbors in China. For example, the word kanji
-            is actually written as{" "}
+            These characters are inherited from the neighbors in China. For
+            example, the word kanji is actually written as{" "}
             <span class="font-japanese text-xl">漢字</span> which literally
             means:
           </p>
@@ -168,24 +177,25 @@ export default function JapanesePronunciation() {
           </p>
           <p class="text-center font-japanese text-5xl">日</p>
           <p>
-            <span class="font-extrabold">Student:</span> Uh huh... Well, they
-            seem complex, wise teacher. How shall I conquer them?
+            <span class="font-extrabold">Student:</span> Uh huh...
           </p>
           <p>
-            <span class="font-extrabold">Sensei:</span> Approach Kanji as a
-            great pilgrimage. We shall unravel their mysteries one step at a
-            time. With each character, you shall uncover a new layer of the
-            universe's secrets. 🔭
+            <span class="font-extrabold">Sensei:</span> So, why does Japanese
+            use all three? Well, it's like having different tools in your
+            toolbox. Each system has its own function, making the language
+            incredibly expressive and, let's be honest, a bit of a beautiful
+            mess. Hiragana for the basics and native tweaks, Katakana for the
+            imports and sound effects, and Kanji for depth, meaning, and when
+            you're ready to question all your life choices.
           </p>
           <p>
-            <span class="font-extrabold">Student:</span> Where shall I begin,
-            master?
+            <span class="font-extrabold">Student:</span> Hmm, how should I get
+            started, oh impeccable one?
           </p>
           <p>
-            <span class="font-extrabold">Sensei:</span> Begin with Hiragana,
-            young grasshopper—their pronunciation and simple strokes. Mastering
-            Hiragana is the first step to opening the gate to the vast world of
-            Japanese knowledge.
+            <span class="font-extrabold">Sensei:</span> Begin with Hiragana, if
+            you must—their sounds and strokes are simple, like the fleeting hope
+            you might actually understand all this.
           </p>
           <h2 class="!mt-12 mb-8 text-2xl font-bold">
             Bonus - <span class="font-normal">Romaji</span>
@@ -211,30 +221,30 @@ export default function JapanesePronunciation() {
             <span class="font-extrabold">Sensei:</span> Romaji is primarily used
             for the benefit of learners and in contexts where Japanese
             characters might not be practical, such as on international signage
-            or in technology settings. However, true mastery of Japanese
-            involves moving beyond Romaji and immersing oneself in Hiragana,
-            Katakana, and Kanji.
+            or in technology settings. It's for those who can't be bothered to
+            learn actual Japanese characters.
           </p>
           <p>
-            <span class="font-extrabold">Student:</span> I see. So, Romaji is
-            like training wheels?
+            <span class="font-extrabold">Student:</span> Oh... I see. So, Romaji
+            is like training wheels?
           </p>
           <p>
-            <span class="font-extrabold">Sensei:</span> Precisely, eager
-            student. Romaji can help you get started, but to truly embrace the
-            beauty and depth of the Japanese language, you must delve into its
-            unique scripts. That is why we will only use Romaji during this
-            first chapter.
+            <span class="font-extrabold">Sensei:</span> Mmm, yes, precisely.
+            Romaji can help you get started, but to truly embrace the beauty and
+            depth of the Japanese language, you must delve into its unique
+            scripts. That is why we will only use Romaji during this first
+            chapter.
           </p>
           <p>
             <span class="font-extrabold">Student:</span> Thanks, Sensei. I'll
             make sure to practice reading without relying too much on it.
           </p>
           <p>
-            <span class="font-extrabold">Sensei:</span> Wise decision, young
-            one. Embrace the challenge and let each step bring you closer to
-            fluency. Remember, the journey of learning a language is as
-            important as the destination. Enjoy each moment.
+            <span class="font-extrabold">Sensei:</span>{" "}
+            <span class="text-base italic">Mumbles</span> If only I had chosen
+            to be a hermit... <span class="text-base italic">Smiles</span> Wise
+            decision, young one. Embrace the challenge and let each step bring
+            you closer to fluency.
           </p>
           <h2 class="!mt-12 mb-4 text-2xl font-bold">Summary</h2>
           <ul class="!mt-2 ml-6 list-disc space-y-4">
@@ -254,9 +264,8 @@ export default function JapanesePronunciation() {
             </li>
             <li>
               <span class="font-extrabold">Bonus: Romaji - </span>
-              Latin representation of Japanese words, primarily used for
-              beginners and in contexts where Japanese characters are not
-              practical.
+              Your Latin alphabet crutch, helping you limp along until you can
+              run with the big boys.
             </li>
           </ul>
         </div>

@@ -1,72 +1,69 @@
+import { TextInput } from "@/components/TextInput"
+import { custom, Field, Form, required } from "@modular-forms/solid"
 import { createForm } from "@modular-forms/solid"
-import { createSignal } from "solid-js"
-import { z } from "zod"
-import { toast } from "sonner"
-import { addAPIKey } from "@/features/jpdb/actions/actions"
-import FormButton from "./FormButton"
+import { action, useAction } from "@solidjs/router"
+import { toast } from "solid-sonner"
 
-const FormSchema = z.object({
-  apiKey: z.string().min(1, "API Key is required"),
+type APIKeyForm = {
+  apiKey: string
+}
+
+const addAPIKey = action(async (formData: APIKeyForm) => {
+  "use server"
+
+  await new Promise((resolve, reject) => setTimeout(resolve, 2000))
+  console.log(formData.apiKey + " added")
 })
 
-type FormType = z.infer<typeof FormSchema>
-
 export default function APIKeyForm() {
-  const [form, { Form, Field }] = createForm<FormType>({
-    validate: FormSchema,
-    initialValues: {
-      apiKey: "",
-    },
-  })
+  const [, { Form, Field }] = createForm<APIKeyForm>()
 
-  const [isSubmitting, setIsSubmitting] = createSignal(false)
+  const submitAPIKey = useAction(addAPIKey)
 
-  const onSubmit = async (data: FormType) => {
-    setIsSubmitting(true)
-    try {
-      const formData = new FormData()
-      formData.append("apiKey", data.apiKey)
-      const response = await addAPIKey(formData)
-      if (!response) {
-        toast.error("User must be logged in to add API key.", {
-          position: "bottom-center",
-        })
-      } else {
-        toast.success("API key added successfully!", {
-          position: "bottom-center",
-        })
-        console.log(response)
-      }
-    } catch (error) {
-      toast.error("Failed to add API key.", {
-        position: "bottom-center",
-      })
-    } finally {
-      setIsSubmitting(false)
-    }
+  function handleSubmit(form: APIKeyForm) {
+    const toastId = toast.promise(submitAPIKey(form), {
+      loading: "Loading...",
+      success: (data) => {
+        return `API key has been added`
+      },
+      error: "Error",
+      action: {
+        label: "Dismiss",
+        onClick: () => {
+          toast.dismiss(toastId)
+        },
+      },
+    })
+    return toastId
   }
 
   return (
-    <Form onSubmit={onSubmit} class="w-2/3 space-y-6">
-      <Field name="apiKey">
-        {(field, props) => (
-          <div>
-            <label for={props.name}>API Key</label>
-            <input
+    <div>
+      <Form onSubmit={handleSubmit}>
+        <Field
+          name="apiKey"
+          validate={[
+            required("Please enter JPDB API key."),
+            // arg 1: regex (t/f match), arg 2: error message
+            custom(
+              (value) => /^[0-9a-f]{32}$/i.test(value ?? ""),
+              "Invalid API key format.",
+            ),
+            // email("The email address is badly formatted."),
+          ]}
+        >
+          {(field, props) => (
+            <TextInput
               {...props}
               type="text"
-              placeholder="api key"
-              class="w-full rounded border p-2 text-center font-normal"
+              label="API Key"
               value={field.value}
-              onInput={(e) => field.setValue(e.currentTarget.value)}
-              onBlur={() => field.validate()}
+              error={field.error}
+              required
             />
-            <p class="text-sm text-gray-500">Get it from jpdb settings.</p>
-            {field.error && <p class="text-red-500">{field.error}</p>}
-          </div>
-        )}
-      </Field>
-      <FormButton disabled={isSubmitting()} />
-    </Form>
+          )}
+        </Field>
+      </Form>
+    </div>
   )
 }

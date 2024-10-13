@@ -2,6 +2,7 @@ import { ColorModeProvider, ColorModeScript } from "@kobalte/core"
 import { Router } from "@solidjs/router"
 import { FileRoutes } from "@solidjs/start/router"
 import { Suspense } from "solid-js"
+import { Toaster } from "@/components/ui/sonner"
 import Nav from "@/features/navbar/Nav"
 import "./app.css"
 import "@fontsource-variable/inter"
@@ -17,6 +18,13 @@ export default function App() {
             <ColorModeScript />
             <ColorModeProvider>
               <div class="relative font-inter text-lg">{props.children}</div>
+              <Toaster
+                theme="dark"
+                position="bottom-right"
+                expand={true}
+                richColors
+                // closeButton
+              />
             </ColorModeProvider>
           </Suspense>
         </>

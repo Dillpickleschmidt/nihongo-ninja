@@ -1,18 +1,16 @@
 import { For } from "solid-js"
-import {
-  BookOpen,
-  PencilLine,
-  ScrollText,
-  GraduationCap,
-  Gamepad,
-  Coffee,
-  Video,
-  Volume2,
-  Library,
-  NotebookText,
-  BookOpenText,
-  BookPlus,
-} from "lucide-solid"
+import BookOpen from "lucide-solid/icons/book-open"
+import PencilLine from "lucide-solid/icons/pencil-line"
+import ScrollText from "lucide-solid/icons/scroll-text"
+import GraduationCap from "lucide-solid/icons/graduation-cap"
+import Gamepad from "lucide-solid/icons/gamepad"
+import Coffee from "lucide-solid/icons/coffee"
+import Video from "lucide-solid/icons/video"
+import Volume2 from "lucide-solid/icons/volume-2"
+import Library from "lucide-solid/icons/library"
+import NotebookText from "lucide-solid/icons/notebook-text"
+import BookOpenText from "lucide-solid/icons/book-open-text"
+import BookPlus from "lucide-solid/icons/book-plus"
 import { UnitButtonType } from "./types"
 
 type UnitButtonContentsProps = {

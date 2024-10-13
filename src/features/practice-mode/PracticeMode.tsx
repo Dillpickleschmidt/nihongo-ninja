@@ -8,8 +8,8 @@ import FinishPage from "./components/pages/FinishPage"
 import { split10Cards } from "./util/helperFunctions"
 
 type PracticeModeProps = {
-  deckName: string
   data: Card[]
+  deckName: string
 }
 
 export default function PracticeMode(props: PracticeModeProps) {

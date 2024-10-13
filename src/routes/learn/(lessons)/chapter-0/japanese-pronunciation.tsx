@@ -34,9 +34,10 @@ export default function JapanesePronunciation() {
         Getting started 🍵
       </h2>
       <h2 class="mt-6 px-24 pb-2 text-3xl font-medium leading-[2.5rem]">
-        If you feel intimidated about learning a new language, there's good news
-        for you! Japanese pronunciation is{" "}
-        <span class="font-extrabold">easy</span> if you know English.
+        Feeling a bit <span class="font-extrabold">daunted</span> by the thought
+        of tackling Japanese? Fear not! If you're coming from the world of
+        English, you'll find Japanese pronunciation isn't the dragon you might
+        expect.
       </h2>
       <div class="mb-32 px-16 sm:px-24 [&>*]:my-6">
         <p>
@@ -50,44 +51,43 @@ export default function JapanesePronunciation() {
             This guide
           </a>{" "}
           has some great pointers to get you started. Nihongo Ninja aims to help
-          get you started and be your trusty companion during your Japanese
-          learning journey, teaching you grammar and vocab. But ultimately, the
+          get you started and be your trusty companion, ensuring you know
+          grammar and vocab for when the going gets tough. But ultimately, the
           way you learn is up to you!
         </p>
         <p class="text-base italic text-muted-foreground">
-          *Nihongo Ninja covers N5-N4 Japanese proficiency levels. You learn
-          vocab and grammar in the order of school textbooks, but with better
-          explanations and helpful practice tools. Each topic is taught using
-          the best free handpicked resources from the internet to offer the most
-          helpful explanations.
+          *Nihongo Ninja slashes through the basics from N5-N4 levels. We follow
+          the school textbook trail but with epic explanations and practice
+          tools that actually don't bore you to tears. Each topic? Handpicked
+          from the internet's vast dojo for maximum enlightenment.
         </p>
         <div class="pb-4 pt-2 [&>*]:my-6">
           <div class="mr-[5.75rem] rounded-2xl border-2 border-dashed border-muted bg-card p-4 shadow-md">
             <PortraitIcon src="/img/student.png" />
             <p>
-              Wise Sensei, I want to learn Japanese. I heard that the sounds are
-              similar to English. Is that true?
+              Wise Sensei, I've heard tales that Japanese sounds are akin to
+              those in English. Is that true?
             </p>
           </div>
           <div class="ml-24 rounded-2xl border-2 border-dashed border-muted bg-card p-4 shadow-md">
             <PortraitIcon src="/img/guru.png" class="float-end" />
             <p>
-              Ah, young eager one, indeed, many Japanese sounds are quite
-              familiar to English speakers. For instance, 'ko' (こ), 'ma' (ま),
-              'nu' (ぬ), 'ke' (け), and 'yo' (よ) are pronounced just as you
-              read them in English.
+              Ah, curious one, your ears do not deceive you! Sounds like 'ko'
+              (こ), 'ma' (ま), 'nu' (ぬ), 'ke' (け), and 'yo' (よ) roll off the
+              tongue much like in English.
             </p>
           </div>
         </div>
         <div class="px-2 [&>*]:mt-4">
           <p>
             <span class="font-extrabold">Student:</span> That's good to know.
-            Does that make the path to learning easier, oh enlightened one?
+            So, the journey might be smoother than I feared, oh keeper of
+            knowledge?
           </p>
           <p>
             <span class="font-extrabold">Sensei:</span> Very much so. Japanese
             has a simple phonetic structure. The language revolves around five
-            basic vowel sounds. Listen carefully:
+            basic vowel sounds. Lend me your ears:
           </p>
           <div class="flex w-full justify-center font-japanese text-2xl font-medium">
             <ul>
@@ -133,19 +133,17 @@ export default function JapanesePronunciation() {
           <div class="my-6 ml-6 rounded-2xl border-2 border-dashed border-muted bg-card p-4 shadow-md">
             <PortraitIcon src="/img/guru.png" class="float-end ml-2" />
             <p>
-              These vowels are the core of the Japanese phonetic system. Every
-              other character is just a consonant sound + one of these 5 vowels.
+              These vowels are the heart of every syllable. Add a consonant, and
+              voila, you've got a new sound! Every other character is just a
+              consonant sound + one of these 5 vowels.
             </p>
           </div>
           <p>
-            <span class="font-extrabold">Student:</span> I'm not sure I'm
-            following, wise one. Can you give me an example?
-          </p>
-          <p>
-            <span class="font-extrabold">Sensei:</span> Of course.
+            <span class="font-extrabold">Student:</span> I'm still spinning like
+            a top, Sensei. A demonstration, perhaps?
           </p>
           <p class="text-center">
-            Take the consonant <span class="text-xl font-bold">k</span>:
+            Let's take <span class="text-xl font-bold">k</span> for a spin:
           </p>
           <div class="flex justify-center font-japanese text-2xl font-medium">
             <div>
@@ -157,7 +155,7 @@ export default function JapanesePronunciation() {
             </div>
           </div>
           <p class="text-center">
-            And the consonant <span class="text-xl font-bold">s</span>:
+            And for <span class="text-xl font-bold">s</span>:
           </p>
           <div class="flex justify-center font-japanese text-2xl font-medium">
             <div>
@@ -171,25 +169,24 @@ export default function JapanesePronunciation() {
             </div>
           </div>
           <p>
-            <span class="font-extrabold">Student:</span> Ah, I understand the
-            pattern now. So, I can guess the sounds for t, n, h, and the rest?
+            <span class="font-extrabold">Student:</span> Ah, the mist clears!
+            So, the rest like p, b, t, they follow suit?
           </p>
           <p>
-            <span class="font-extrabold">Sensei:</span> Precisely, young
-            apprentice. Japanese pronunciation is as consistent as the flow of
-            time, unlike the unpredictable English. Once you learn a sound, it
-            remains unchanged.
+            <span class="font-extrabold">Sensei:</span> You're catching on,
+            young apprentice. Master a sound, and it's yours forever with no
+            surprise spellings. Once you learn a sound, it remains unchanged.
           </p>
           <p>
-            As a matter of fact, Japanese has only 71 sounds that combine to
-            create ~100 sound combinations. By contrast, English has ~250 unique
-            sounds and 1000s of combinations. That means your tongue can already
-            pronounce four times more sounds than the average Japanese person
-            can!
+            In fact, Japanese boasts only about 71 basic sounds, crafting around
+            100 combinations, while English juggles with around 250 unique
+            sounds and <span class="font-semibold italic">thousands</span> of
+            chaotic letter combinations. Your tongue is already a polyglot
+            prodigy!
           </p>
           <p>
-            <span class="font-extrabold">Student:</span> That's comforting to
-            hear, wise Sensei. This doesn't seem so hard after all.
+            <span class="font-extrabold">Student:</span> That's quite the
+            reassurance, Sensei. This might just be manageable!
           </p>
           <h2 class="!mt-12 text-2xl font-bold">Your Turn:</h2>
           <p class="!mt-2">

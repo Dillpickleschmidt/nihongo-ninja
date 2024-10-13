@@ -5,12 +5,12 @@ export default function page() {
   return (
     <ContentBox
       nextButtonText="Next Lesson ->"
-      nextButtonLink="/learn/chapter-0/hiragana"
+      nextButtonLink="/learn/chapter-1/kikusasaizu-1-1"
     >
       <h1 class="px-28 pb-6 pt-28 text-center text-4xl font-semibold">
         <em>Fill</em> the Gaps: Master Your Japanese Filler Words
       </h1>
-      <div class="space-y-6 px-16 md:px-24">
+      <div class="space-y-6 px-16 pb-32 md:px-24">
         <h2 class="mt-6 text-center text-2xl font-bold">Let's face it...</h2>
         <p>
           No matter what language proficiency level you're at, you're going to

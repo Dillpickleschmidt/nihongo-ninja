@@ -1,17 +1,26 @@
 import PracticeModePage from "@/features/practice-mode/PracticeModePage"
 import { getVocabularyByPath } from "@/db/statements"
 import { RichVocabItem } from "@/types/vocab"
-import { createResource, Show } from "solid-js"
+import { Show } from "solid-js"
+import { cache, createAsync } from "@solidjs/router"
 
+const getData = cache(async () => {
+  return await getVocabularyByPath("chapter-0/contracted-sounds", true)
+}, "users")
+export const route = {
+  preload: () => getData(),
+}
 export default function page() {
-  const [data] = createResource<RichVocabItem[]>(
-    async () => await getVocabularyByPath("chapter-0/contracted-sounds", true),
-  )
+  const data = createAsync<RichVocabItem[]>(() => getData())
 
   return (
     <>
       <Show when={data()} fallback={<h1>Loading...</h1>}>
-        <PracticeModePage data={data()!} deckName="Contracted Sounds" />
+        <PracticeModePage
+          data={data()!}
+          deckName="Contracted Sounds"
+          mode="readings"
+        />
       </Show>
     </>
   )

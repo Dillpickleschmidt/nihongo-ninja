@@ -110,11 +110,12 @@ export default function JapanesePronunciation() {
           <span class="!py-2 text-3xl">🤷🏻</span>
         </p>
         <p>
+          Let's delve into these script variations with the enthusiasm of{" "}
           <span class="text-[1.1625rem] font-bold">
-            <em>Strap in</em>
-          </span>{" "}
-          and let's play with these quirky additions to the Japanese alphabet.
-          Who knew a couple of tiny marks could make such a <u>big</u>{" "}
+            someone who's just realized there's more to learn after thinking
+            they were done
+          </span>
+          . Who knew a couple of tiny marks could make such a <u>big</u>{" "}
           difference? Happy learning, and remember, in the realm of Dakuten and
           Handakuten, <em>expect the unexpected!</em>
         </p>

@@ -154,9 +154,9 @@ export default function JapanesePronunciation() {
           <div class="ml-24 rounded-2xl border-2 border-dashed border-muted bg-card p-4 shadow-md">
             <PortraitIcon src="/img/guru.png" class="float-end" />
             <p>
-              Excellent observation, young apprentice. Some characters do veer{" "}
-              <em>slightly</em> off the pattern, but they're nothing that you
-              haven't pronounced before in English.
+              Good eye! Japanese likes to keep you on your toes with these. Some
+              characters do veer <em>slightly</em> off the pattern, but they're
+              nothing that you haven't pronounced before in English.
             </p>
           </div>
         </div>
@@ -169,9 +169,9 @@ export default function JapanesePronunciation() {
             one of the most distinctive Hiragana characters you'll encounter—"
             <span class="font-japanese text-xl">ん</span>" (n). Unlike the
             na-ni-nu-ne-no sounds, this "n" is added at the end of a syllable
-            and is the only time a Japanese syllable ends with a consonant. To
-            pronounce it, lift the back of your tongue to the roof of your mouth
-            and produce a sound similar to "un."
+            and is the only time a Japanese syllable ends with a consonant.
+            Pronounce it like you're about to say "no" but got distracted
+            mid-word.
           </p>
         </div>
         <div class="mt-4 flex flex-row justify-center">
@@ -186,22 +186,18 @@ export default function JapanesePronunciation() {
           </p>
         </div>
         <p>
-          You've may have also noticed that not all the rows are completely
-          filled. Japanese doesn't have characters for 'yi', 'ye', 'wi', etc.
-          That just means fewer characters for you to memorize!
+          You'll see gaps in some rows on the chart. Japanese decided to spare
+          you a few extra characters.
         </p>
         <p>
-          <span class="font-extrabold">Student:</span> Sensei, The pattern seems
-          simple, but the characters themselves are all squiggly and weird! And
-          46 of them?{" "}
-          <span class="text-xl font-medium">
-            How the heck am I supposed to learn these?
-          </span>
+          <span class="font-extrabold">Student:</span> Sensei, these
+          characters... they're like scribbles! And remembering{" "}
+          <span class="text-xl font-medium">46 of them?</span> I might need a
+          brain upgrade.
         </p>
         <p>
-          <span class="font-extrabold">Sensei:</span> Ah, worried wombat, do not
-          be intimidated by their appearance. The ✨internet✨ holds many
-          treasures to aid you in your journey. One such treasure is:
+          <span class="font-extrabold">Sensei:</span> Fear not, for the
+          ✨digital realm✨ has come to your rescue:
         </p>
         <h2 class="text-center text-3xl">
           <a
@@ -213,29 +209,21 @@ export default function JapanesePronunciation() {
           </a>
         </h2>
         <p>
-          This guide is a rarity—it's so well-made that we felt compelled to
-          send you here first{" "}
-          <span class="text-xs">(no need to reinvent the wheel)</span>. It is
-          very effective at helping you quickly memorize every Hiragana
-          character, and you can master Hiragana within days if not hours. Best
-          of all, it's free for all learners—no login/signup required. Go check
-          it out!
+          It's so good, we're basically outsourcing your introduction to
+          Hiragana to them. Give it a go. It is very effective at helping you
+          quickly memorize every Hiragana character, and you can master Hiragana
+          within days if not hours. Best of all, it's free for all learners—no
+          login/signup required. Go check it out!
         </p>
         <p>
-          <span class="font-extrabold">Student:</span> I'll definitely look into
-          that. What should I do after I've explored all the characters?
+          <span class="font-extrabold">Student:</span> I'll check that out. What
+          comes after mastering these squiggles?
         </p>
         <p>
-          <span class="font-extrabold">Sensei:</span> Once you've made your way
-          through all the characters,{" "}
-          <span class="text-xl font-semibold">come back</span> so we can
-          properly greet each other in Japanese! Remember, you don't need to
-          master every hiragana character in one go, we'll provide the romaji
-          (the pronunciations) with the hiragana for the remainder of this
-          chapter,{" "}
-          <span class="font-medium">
-            but we'll be ditching them in the next one.
-          </span>
+          <span class="font-extrabold">Sensei:</span> Once you've acquainted
+          yourself with all characters, we'll practice our Japanese greetings.
+          You don't have to be perfect; we'll ease you in with some romaji this
+          time, but next chapter, you're on your own, kid.
         </p>
         <div class="mt-4 flex w-full justify-center">
           <PortraitIcon
@@ -247,11 +235,11 @@ export default function JapanesePronunciation() {
           <p class="text-base">
             <span class="font-bold">A note from sensei: </span>
             <em>
-              Learning Hiragana is like building the foundation of a house. It
-              takes time and practice, but everything you learn after this will
-              rely on this fundamental knowledge. So, take your time, practice
-              regularly, and most importantly, enjoy the process, young
-              grasshopper.
+              Diving into Hiragana is like planting a seed for your language
+              tree. It needs watering (practice) and time to grow, but from this
+              seed, all your Japanese knowledge will branch out. Sow patiently,
+              tend to it regularly, and maybe, just maybe, enjoy watching it
+              grow, young grasshopper.
             </em>
           </p>
           <div class="mt-4 flex w-full justify-center">

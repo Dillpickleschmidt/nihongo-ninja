@@ -1,6 +1,8 @@
 import YouTubeVideo from "@/features/youtube/YouTube"
 import APIKeyForm from "./components/APIKeyForm"
-import { BookPlus } from "lucide-solid"
+import BookPlus from "lucide-solid/icons/book-plus"
+import { A } from "@solidjs/router"
+import { Button } from "@/components/ui/button"
 
 export default function page() {
   return (
@@ -388,7 +390,7 @@ export default function page() {
             <li>
               Paste it here and submit.
               <div class="mt-3 flex flex-col items-center">
-                {/* <APIKeyForm /> */}
+                <APIKeyForm />
               </div>
             </li>
             <li>
@@ -416,6 +418,11 @@ export default function page() {
             </li>
           </ol>
         </div>
+      </div>
+      <div class="absolute bottom-16 right-16">
+        <A href="/learn/chapter-1/kanji-numbers">
+          <Button>Next Lesson {"->"}</Button>
+        </A>
       </div>
     </>
   )

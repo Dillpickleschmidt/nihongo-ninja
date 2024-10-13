@@ -19,8 +19,8 @@ export async function getVocabularyByPath(
   "use server"
   const DB_PATH = process.cwd() + "/src/db/database.db"
   const db = new Database(DB_PATH)
-  console.log("Fetching vocabulary data...")
-  const startTime = Date.now()
+  // console.log("Fetching vocabulary data...")
+  // const startTime = Date.now()
 
   try {
     const stmt = db.prepare("SELECT * FROM vocabulary WHERE path = ?")
@@ -38,15 +38,15 @@ export async function getVocabularyByPath(
     }))
 
     // Add kana and ruby text
-    let processedItems = addKanaAndRuby(vocabItems, "0.75rem")
+    let processedItems = addKanaAndRuby(vocabItems, "1rem")
 
     // Strip furigana if the flag is true
     if (stripFuriganaFlag) {
       processedItems = stripFurigana(processedItems)
     }
 
-    const duration = Date.now() - startTime
-    console.log(`Vocabulary data fetched and processed in ${duration}ms`)
+    // const duration = Date.now() - startTime
+    // console.log(`Vocabulary data fetched and processed in ${duration}ms`)
 
     return processedItems
   } finally {

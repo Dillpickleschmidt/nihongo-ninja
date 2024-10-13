@@ -11,7 +11,11 @@ export default function page() {
   return (
     <>
       <Show when={data()} fallback={<h1>Loading...</h1>}>
-        <PracticeModePage data={data()!} deckName="Dakuten & Handakuten" />
+        <PracticeModePage
+          data={data()!}
+          deckName="Dakuten & Handakuten"
+          mode="readings"
+        />
       </Show>
     </>
   )

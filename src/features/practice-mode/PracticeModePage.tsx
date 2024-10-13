@@ -6,11 +6,15 @@ import { convertVocabItemsToFlashcards } from "@/util/vocabDataTransformer"
 type PracticeModePageProps = {
   data: RichVocabItem[]
   deckName: string
+  mode: "readings" | "kana"
 }
 
 export default function PracticeModePage(props: PracticeModePageProps) {
   // Convert vocab entries to cards
-  const convertedData = convertVocabItemsToFlashcards(props.data) as Card[]
+  const convertedData = convertVocabItemsToFlashcards(
+    props.data,
+    props.mode,
+  ) as Card[]
 
   return (
     <PracticeModeContextProvider>

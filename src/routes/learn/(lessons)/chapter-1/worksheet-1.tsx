@@ -7,7 +7,7 @@ import Romaji from "@/components/text/Romaji"
 export default function page() {
   return (
     <ContentBox
-      nextButtonText="See Upcoming Grammar ->"
+      nextButtonText="Filler words ->"
       nextButtonLink="/learn/chapter-1/anou-etto"
     >
       <h1 class="px-28 pb-6 pt-28 text-center text-4xl font-semibold">

@@ -34,16 +34,6 @@ export default function KanaQuiz(props: KanaQuizProps) {
 
   return (
     <>
-      <div class="mx-12 flex flex-row justify-end pb-16 pt-24">
-        <Show
-          when={showResults()}
-          fallback={<Button onClick={handleSubmit}>Submit</Button>}
-        >
-          <A href={props.nextLesson}>
-            <Button>Next Lesson {"->"}</Button>
-          </A>
-        </Show>
-      </div>
       <div class="text-foreground-secondary text-center">
         <Show
           when={showResults()}
@@ -75,7 +65,7 @@ export default function KanaQuiz(props: KanaQuizProps) {
           </h2>
         </Show>
       </div>
-      <div class="container mx-auto mt-12 grid grid-cols-[repeat(auto-fill,minmax(145px,_1fr))] gap-3 p-3 text-center text-[#F8F5E9]">
+      <div class="container mx-auto mt-12 grid grid-cols-[repeat(auto-fill,minmax(145px,_1fr))] gap-3 p-3 pb-32 text-center text-[#F8F5E9]">
         <For each={characterBoxes()}>
           {(characterBox, index) => (
             <CharacterBox
@@ -107,6 +97,20 @@ export default function KanaQuiz(props: KanaQuizProps) {
             />
           )}
         </For>
+      </div>
+      <div class="absolute bottom-16 right-16">
+        <Show
+          when={showResults()}
+          fallback={
+            <Button size="lg" onClick={handleSubmit}>
+              Submit
+            </Button>
+          }
+        >
+          <A href={props.nextLesson}>
+            <Button size="lg">Next Lesson {"->"}</Button>
+          </A>
+        </Show>
       </div>
     </>
   )

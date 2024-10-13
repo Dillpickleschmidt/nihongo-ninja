@@ -1,4 +1,3 @@
-"use client"
 import { createSignal } from "solid-js"
 import YouTubeIframe from "./components/YouTubeIframe"
 import { cn } from "@/libs/cn"
