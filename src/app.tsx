@@ -15,10 +15,10 @@ export default function App() {
       root={(props) => (
         <>
           <MetaProvider>
-            <Nav />
             <Suspense>
               <ColorModeScript />
               <ColorModeProvider>
+                <Nav />
                 <div class="relative font-inter text-lg">{props.children}</div>
                 <Toaster
                   theme="dark"

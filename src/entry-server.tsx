@@ -1,5 +1,4 @@
 // @refresh reload
-import { MetaProvider } from "@solidjs/meta"
 import { createHandler, StartServer } from "@solidjs/start/server"
 
 export default createHandler(() => (

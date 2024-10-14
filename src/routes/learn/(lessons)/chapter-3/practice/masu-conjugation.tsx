@@ -1,9 +1,9 @@
-import ConjugationPractice from "@/features/conjugation-practice/ConjugationPractice"
+// import ConjugationPractice from "@/features/conjugation-practice/ConjugationPractice"
 
-export default function Page() {
-  return (
-    <>
-      <ConjugationPractice />
-    </>
-  )
-}
+// export default function Page() {
+//   return (
+//     <>
+//       <ConjugationPractice />
+//     </>
+//   )
+// }

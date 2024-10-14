@@ -8,7 +8,6 @@ type PrintButtonProps = {
   ref: () => HTMLElement | undefined
   class?: string
   buttonSize?: number
-  zoom?: boolean
   scale?: number
 }
 
@@ -65,7 +64,7 @@ export default function PrintButton(props: PrintButtonProps) {
       onclone: prepareForPrint,
     }).then((canvas) => {
       const imgData = canvas.toDataURL("image/jpeg", 1.0)
-      const [pageWidth, pageHeight] = [2480, 3508] // A4 dimensions at 300 DPI
+      const [pageWidth, pageHeight] = [1240, 1754] // A4 dimensions at 150 DPI
       const pdf = new jsPDF("p", "px", [pageHeight, pageWidth])
 
       // Calculate scaling to fit page width
