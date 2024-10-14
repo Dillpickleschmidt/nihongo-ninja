@@ -1,4 +1,9 @@
 @tailwind base;
+@layer base {
+  img {
+    @apply inline-block;
+  }
+}
 @tailwind components;
 @tailwind utilities;
 
@@ -75,5 +80,13 @@
   }
   body {
     @apply bg-background text-foreground;
+    line-height: initial !important;
+  }
+  img {
+    @apply inline-block;
+    display: initial !important;
+  }
+  body > div:last-child > span + img {
+    display: inline !important;
   }
 }

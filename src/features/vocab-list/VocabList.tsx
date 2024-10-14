@@ -31,7 +31,7 @@ import C15IrrVAdvMisc from "./components/chapter-15/C15IrrVAdvMisc"
 export default function VocabList() {
   return (
     <>
-      <h1 class="mx-auto mb-6 mt-28 text-center text-5xl font-semibold tracking-wide">
+      <h1 class="mx-auto pb-6 pt-28 text-center text-5xl font-semibold tracking-wide">
         <em>Chapter 0</em>
       </h1>
       <div class="grid w-full grid-cols-1 gap-8 lg:grid-cols-2">

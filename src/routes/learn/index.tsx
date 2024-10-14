@@ -1,10 +1,11 @@
-import { Button } from "@/components/ui/button"
 import ChapterBoxes from "@/features/learn-page/ChapterBoxes"
 import Sidebar from "@/features/sidebar/Sidebar"
+import { Title } from "@solidjs/meta"
 
 export default function index() {
   return (
     <>
+      <Title>Nihongo Ninja - Learn Japanese</Title>
       <div class="px-10 pb-2 pt-10 text-center font-inter text-6xl font-medium text-primary opacity-50 dark:text-muted-foreground dark:opacity-100 lg:pb-[4.5rem] lg:pt-24">
         <h1 class="hidden md:inline-flex">
           日本語<span class="ml-6 italic">Nｉｎｊａ</span>

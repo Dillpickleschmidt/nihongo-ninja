@@ -2,10 +2,12 @@ import { A } from "@solidjs/router"
 import BackgroundImage from "@/components/BackgroundImage"
 import Sidebar from "@/features/sidebar/Sidebar"
 import { Button } from "@/components/ui/button"
+import { Title } from "@solidjs/meta"
 
 export default function Home() {
   return (
     <>
+      <Title>Nihongo Ninja - Welcome Page</Title>
       <style>
         {`
         .custom-gradient-mask {
