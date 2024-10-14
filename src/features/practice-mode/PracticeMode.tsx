@@ -1,4 +1,4 @@
-import { createEffect, createMemo, createSignal } from "solid-js"
+import { createEffect, createMemo, createSignal, JSX } from "solid-js"
 import { usePracticeModeContext } from "./context/PracticeModeContext"
 import { Card } from "@/types/vocab"
 import PracticePage from "./components/pages/PracticePage"
@@ -9,7 +9,7 @@ import { split10Cards } from "./util/helperFunctions"
 
 type PracticeModeProps = {
   data: Card[]
-  deckName: string
+  deckName: string | JSX.Element
 }
 
 export default function PracticeMode(props: PracticeModeProps) {

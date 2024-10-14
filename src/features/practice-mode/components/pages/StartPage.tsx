@@ -6,7 +6,7 @@ import Settings from "lucide-solid/icons/Settings"
 import DeckSettingsDialog from "../DeckSettingsDialog"
 
 type StartPageProps = {
-  deckName: JSX.Element
+  deckName: string | JSX.Element
   shuffleInput: boolean
   setShuffleInput: (value: boolean) => void
 }
