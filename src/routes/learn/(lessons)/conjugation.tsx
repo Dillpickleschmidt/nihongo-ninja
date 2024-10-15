@@ -1,6 +1,6 @@
 import ConjugationPractice from "@/features/conjugation-practice/ConjugationPractice"
 
-export default function Page() {
+export default function conjugation() {
   return (
     <>
       <ConjugationPractice />
