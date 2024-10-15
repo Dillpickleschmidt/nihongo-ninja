@@ -27,14 +27,8 @@ export default function MultipleChoice(props: MultipleChoiceProps) {
   const [isTouchDevice, setIsTouchDevice] = createSignal(false)
 
   onMount(() => {
-    // Check if the device supports touch events
-    // I was having weird button class update issues on mobile devices with onClick
     setIsTouchDevice("ontouchstart" in window || navigator.maxTouchPoints > 0)
   })
-
-  const handleEvent = (selection: string, index: number) => {
-    handleSelection(selection, index)
-  }
 
   const choices = createMemo(() =>
     presentMultipleChoiceOptions(
@@ -55,19 +49,47 @@ export default function MultipleChoice(props: MultipleChoiceProps) {
     )
   })
 
-  const handleSelection = (selection: string, index: number) => {
-    const isCorrect = handleMultipleChoiceSelection(choices(), selection)
-    context.setIsAnswerCorrect(isCorrect)
-    context.setHasUserAnswered(true)
+  const handleSelection = (option: Card, index: number) => {
+    const selectedAnswer = getFirstEnabledAnswer(option)
+    if (selectedAnswer) {
+      const isCorrect = handleMultipleChoiceSelection(choices(), selectedAnswer)
+      context.setIsAnswerCorrect(isCorrect)
+      context.setHasUserAnswered(true)
 
-    setButtonStates((prevStates) =>
-      prevStates.map((state, i) => ({
-        ...state,
-        isSelected: i === index,
-        isCorrect: i === index && isCorrect,
-        isAnswered: true,
-      })),
+      setButtonStates((prevStates) =>
+        prevStates.map((state, i) => ({
+          ...state,
+          isSelected: i === index,
+          isCorrect: i === index && isCorrect,
+          isAnswered: true,
+        })),
+      )
+
+      // If the answer is incorrect, highlight the correct answer
+      if (!isCorrect) {
+        const correctIndex = choices().options.findIndex(
+          (opt) => opt.key === choices().correctOption.key,
+        )
+        if (correctIndex !== -1) {
+          setButtonStates((prevStates) => {
+            const newStates = [...prevStates]
+            newStates[correctIndex] = {
+              ...newStates[correctIndex],
+              isCorrect: true,
+              isAnswered: true,
+            }
+            return newStates
+          })
+        }
+      }
+    }
+  }
+
+  const getFirstEnabledAnswer = (card: Card): string | undefined => {
+    const enabledCategory = card.answerCategories.find((category) =>
+      context.enabledAnswerCategories().includes(category.category),
     )
+    return enabledCategory?.answers[0]
   }
 
   const getButtonClasses = (
@@ -100,7 +122,6 @@ export default function MultipleChoice(props: MultipleChoiceProps) {
                 .flatMap((category) => category.answers),
             )
 
-            const firstAnswerIndex = () => enabledAnswers()[0]
             const buttonState = () =>
               buttonStates()[index()] || {
                 isSelected: false,
@@ -111,14 +132,12 @@ export default function MultipleChoice(props: MultipleChoiceProps) {
             return (
               <Button
                 variant="outline"
-                // Conditionally assign either onPointerDown or onClick based on device type
                 {...(isTouchDevice()
                   ? {
-                      onPointerDown: () =>
-                        handleEvent(firstAnswerIndex(), index()),
+                      onPointerDown: () => handleSelection(option, index()),
                     }
                   : {
-                      onClick: () => handleEvent(firstAnswerIndex(), index()),
+                      onClick: () => handleSelection(option, index()),
                     })}
                 disabled={context.hasUserAnswered()}
                 class={cn(
