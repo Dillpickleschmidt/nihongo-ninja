@@ -757,7 +757,6 @@ export default function ChapterBoxes() {
             title: "Chapter 13 Vocab List",
             link: "/learn/chapter-13/vocab-list",
             types: ["vocab-list"],
-            disabled: true,
           },
           {
             title: "Chapter 13 Grammar Notes",
@@ -826,7 +825,6 @@ export default function ChapterBoxes() {
             title: "Chapter 14 Vocab List",
             link: "/learn/chapter-14/vocab-list",
             types: ["vocab-list"],
-            disabled: true,
           },
           {
             title: "Chapter 14 Grammar Notes",
@@ -910,7 +908,6 @@ export default function ChapterBoxes() {
             title: "Chapter 15 Vocab List",
             link: "/learn/chapter-15/vocab-list",
             types: ["vocab-list"],
-            disabled: true,
           },
           {
             title: "Chapter 15 Grammar Notes",
@@ -981,6 +978,89 @@ export default function ChapterBoxes() {
           {
             title: "All Vocab - Test",
             link: "/learn/chapter-15/all-vocab-test",
+            types: ["vocab-test"],
+          },
+        ]}
+      />
+
+      <ChapterBox
+        text="Chapter 16"
+        class="bg-amber-500 saturate-50"
+        content={[
+          {
+            title: "Chapter 16 Vocab List",
+            link: "/learn/chapter-16/vocab-list",
+            types: ["vocab-list"],
+          },
+          {
+            title: "Chapter 16 Grammar Notes",
+            link: "/learn/grammar-notes",
+            types: ["grammar-notes"],
+            disabled: true,
+          },
+          {
+            title: "Nouns",
+            link: "/learn/chapter-16/nouns",
+            types: ["vocab"],
+          },
+          {
+            title: "Practice Nouns - Kana",
+            link: "/learn/chapter-16/practice/nouns-kana",
+            types: ["practice"],
+          },
+          {
+            title: "Practice Nouns - Readings",
+            link: "/learn/chapter-16/practice/nouns-readings",
+            types: ["practice"],
+          },
+          {
+            title: "Adjectives & U-Verbs",
+            link: "/learn/chapter-16/adj-and-u-v",
+            types: ["vocab"],
+          },
+          {
+            title: "Practice Adj. & U-V - Kana",
+            link: "/learn/chapter-16/practice/adj-and-u-v-kana",
+            types: ["practice"],
+          },
+          {
+            title: "Practice Adj. & U-V - Readings",
+            link: "/learn/chapter-16/practice/adj-and-u-v-readings",
+            types: ["practice"],
+          },
+          {
+            title: "Ru-Verbs & Irregular Verbs",
+            link: "/learn/chapter-16/ru-and-irr-v",
+            types: ["vocab"],
+          },
+          {
+            title: "Practice Ru-V & Irreg V - Kana",
+            link: "/learn/chapter-16/practice/ru-and-irr-v-kana",
+            types: ["practice"],
+          },
+          {
+            title: "Practice Ru-V & Irreg V - Readings",
+            link: "/learn/chapter-16/practice/ru-and-irr-v-readings",
+            types: ["practice"],
+          },
+          {
+            title: "Adverbs & Misc.",
+            link: "/learn/chapter-16/adv-and-misc",
+            types: ["vocab"],
+          },
+          {
+            title: "Practice Adv & Misc. - Kana",
+            link: "/learn/chapter-16/practice/adv-and-misc-kana",
+            types: ["practice"],
+          },
+          {
+            title: "Practice Adv & Misc. - Readings",
+            link: "/learn/chapter-16/practice/adv-and-misc-readings",
+            types: ["practice"],
+          },
+          {
+            title: "All Vocab - Test",
+            link: "/learn/chapter-16/all-vocab-test",
             types: ["vocab-test"],
           },
         ]}

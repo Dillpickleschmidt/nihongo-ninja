@@ -25,8 +25,12 @@ import C14AdjAndVerbs from "./components/chapter-14/C14AdjAndVerbs"
 import C14CountersAdvMisc from "./components/chapter-14/C14CountersAdvMisc"
 import C15Nouns1 from "./components/chapter-15/C15Nouns1"
 import C15Nouns2 from "./components/chapter-15/C15Nouns2"
-import C15GodanAndIchidanV from "./components/chapter-15/GodanAndIchidanV"
+import C15GodanAndIchidanV from "./components/chapter-15/C15GodanAndIchidanV"
 import C15IrrVAdvMisc from "./components/chapter-15/C15IrrVAdvMisc"
+import C16Nouns from "./components/chapter-16/C16Nouns"
+import C16AdjAndUV from "./components/chapter-16/C16AdjAndUV"
+import C16RuAndIrrV from "./components/chapter-16/C16RuAndIrrV"
+import C16AdvAndMisc from "./components/chapter-16/C16AdvAndMisc"
 
 export default function VocabList() {
   return (
@@ -343,6 +347,36 @@ export default function VocabList() {
             Irreg Verbs, Adv., & Misc.
           </h3>
           <C15IrrVAdvMisc />
+        </div>
+      </div>
+
+      <h1 class="mx-auto mb-6 mt-20 text-center text-5xl font-semibold tracking-wide">
+        <em>Chapter 16</em>
+      </h1>
+      <div class="grid w-full grid-cols-1 gap-8 lg:grid-cols-2">
+        <div>
+          <h3 class="mb-3 mt-6 text-center text-2xl font-medium text-orange-400">
+            Nouns
+          </h3>
+          <C16Nouns />
+        </div>
+        <div>
+          <h3 class="mb-3 mt-6 text-center text-2xl font-medium text-orange-400">
+            Adjectives & U-Verbs
+          </h3>
+          <C16AdjAndUV />
+        </div>
+        <div>
+          <h3 class="mb-3 mt-6 text-center text-2xl font-medium text-orange-400">
+            Ru-Verbs & Irregular Verbs
+          </h3>
+          <C16RuAndIrrV />
+        </div>
+        <div>
+          <h3 class="mb-3 mt-6 text-center text-2xl font-medium text-orange-400">
+            Adverbs & Misc.
+          </h3>
+          <C16AdvAndMisc />
         </div>
       </div>
     </>

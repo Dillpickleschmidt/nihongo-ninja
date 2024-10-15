@@ -6,8 +6,8 @@ import { Show } from "solid-js"
 
 const cacheKey = "chapter-14/all"
 const getData = cache(async () => {
-  const nouns_1 = await getVocabularyByPath("chapter-14/nouns")
-  const nouns_2 = await getVocabularyByPath("chapter-14/nouns")
+  const nouns_1 = await getVocabularyByPath("chapter-14/nouns-1")
+  const nouns_2 = await getVocabularyByPath("chapter-14/nouns-2")
   const adj_and_verbs = await getVocabularyByPath("chapter-14/adj-and-verbs")
   const counters_adv_misc = await getVocabularyByPath(
     "chapter-14/counters-adv-misc",

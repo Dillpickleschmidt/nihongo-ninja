@@ -4,9 +4,9 @@ import { addKanaAndRuby } from "@/util/vocabDataTransformer"
 import type { RichVocabItem } from "@/types/vocab"
 import VocabTable from "../VocabTable"
 
-export default function GodanAndIchidanV() {
+export default function C16Nouns() {
   const [data] = createResource<RichVocabItem[]>(async () => {
-    const rawData = await getVocabularyByPath("chapter-15/godan-and-ichidan-v")
+    const rawData = await getVocabularyByPath("chapter-16/nouns")
     return addKanaAndRuby(rawData, "", true)
   })
 
