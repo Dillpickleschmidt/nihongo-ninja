@@ -4,7 +4,7 @@ import { RichVocabItem } from "@/types/vocab"
 import { cache, createAsync } from "@solidjs/router"
 import { Show } from "solid-js"
 
-const path = "chapter-14/adj-and-verbs"
+const cacheKey = "chapter-14/all"
 const getData = cache(async () => {
   const nouns_1 = await getVocabularyByPath("chapter-14/nouns")
   const nouns_2 = await getVocabularyByPath("chapter-14/nouns")
@@ -13,7 +13,7 @@ const getData = cache(async () => {
     "chapter-14/counters-adv-misc",
   )
   return [...nouns_1, ...nouns_2, ...adj_and_verbs, ...counters_adv_misc]
-}, path)
+}, cacheKey)
 export const route = {
   preload: () => getData(),
 }
