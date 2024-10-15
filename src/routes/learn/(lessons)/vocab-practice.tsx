@@ -1,11 +1,13 @@
 import Dropdown from "@/features/vocab-practice/Dropdown"
 import { Button } from "@/components/ui/button"
 import { A } from "@solidjs/router"
+import { Title } from "@solidjs/meta"
 
 export default function page() {
   return (
-    <div class="w-full">
-      <div class="px-4 pt-32 text-lg">
+    <>
+      <Title>Nihongo Ninja - Vocab Practice</Title>
+      <div class="w-full px-4 pt-32 text-lg">
         <div class="flex w-full flex-col items-center">
           <Dropdown text="Chapter 0">
             <A href="/learn/chapter-0/practice/hiragana">
@@ -241,6 +243,6 @@ export default function page() {
           </Dropdown>
         </div>
       </div>
-    </div>
+    </>
   )
 }

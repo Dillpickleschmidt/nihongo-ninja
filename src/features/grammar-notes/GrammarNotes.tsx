@@ -32,7 +32,7 @@ export default function GrammarNotes(props: GrammarNotesProps) {
             {(item) => (
               <div class="flex justify-center">
                 <div class="w-full max-w-[500px]">
-                  <h2 class="mb-4 text-center text-3xl font-semibold">
+                  <h2 class="mt-2 text-center text-3xl font-semibold">
                     {item.title}
                   </h2>
                   <Dialog>
@@ -48,7 +48,7 @@ export default function GrammarNotes(props: GrammarNotesProps) {
                         ref={setContentRef}
                         class="overflow-hidden bg-background-secondary print:!bg-white"
                       >
-                        <div class="fixed right-7 top-6 z-50 print:relative">
+                        <div class="fixed right-7 top-6 z-50">
                           <PrintButton
                             ref={contentRef}
                             buttonSize={20}

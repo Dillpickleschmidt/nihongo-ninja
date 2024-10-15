@@ -1,9 +1,11 @@
 import GrammarNotes from "@/features/grammar-notes/GrammarNotes"
 import { chapter1, chapter2, chapter3 } from "@/features/grammar-notes/data"
+import { Title } from "@solidjs/meta"
 
 export default function page() {
   return (
     <>
+      <Title>Nihongo Ninja - Grammar Notes</Title>
       <div class="px-12 pb-16">
         <h1 class="pt-24 text-center text-6xl font-semibold">Grammar Notes</h1>
         <h2 class="mx-32 mb-4 mt-20 text-center text-4xl font-bold">
