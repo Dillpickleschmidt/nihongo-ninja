@@ -69,34 +69,43 @@ export default function VocabTest({ data, chapter }: VocabTestProps) {
                     <TextFieldLabel class="flex h-full items-center justify-center text-center text-[1.33rem]">
                       {entry.word}
                     </TextFieldLabel>
-                    <div>
-                      <WanakanaWrapper>
-                        <TextField
-                          type="text"
-                          placeholder="kana"
-                          value={userAnswers()[`${index()}-kana`] ?? ""}
-                          onInput={(e) =>
-                            handleInputChange(
-                              index(),
-                              "kana",
-                              e.currentTarget.value,
-                            )
-                          }
-                          class="rounded-sm bg-card !py-[1.125rem] font-japanese text-xl placeholder:!text-base placeholder:opacity-75"
-                        />
-                      </WanakanaWrapper>
-                      <Show when={showAnswers()}>
-                        <>
-                          {isCorrect(index(), "kana") ? (
-                            <span>✅</span>
-                          ) : (
-                            <small class="text-red-500">
-                              {extractHiragana(entry.furigana?.[0] ?? "")}
-                            </small>
-                          )}
-                        </>
-                      </Show>
-                    </div>
+
+                    {/* Only show kana input if the word is not Hiragana/Katakana */}
+                    <Show
+                      when={!isHiragana(entry.word) && !isKatakana(entry.word)}
+                      fallback={<div />}
+                    >
+                      <div>
+                        <WanakanaWrapper>
+                          <TextField
+                            type="text"
+                            placeholder="kana"
+                            value={userAnswers()[`${index()}-kana`] ?? ""}
+                            onInput={(e) =>
+                              handleInputChange(
+                                index(),
+                                "kana",
+                                e.currentTarget.value,
+                              )
+                            }
+                            class="rounded-sm bg-card !py-[1.125rem] font-japanese text-xl placeholder:!text-base placeholder:opacity-75"
+                          />
+                        </WanakanaWrapper>
+                        <Show when={showAnswers()}>
+                          <>
+                            {isCorrect(index(), "kana") ? (
+                              <span>✅</span>
+                            ) : (
+                              <small class="text-red-500">
+                                {extractHiragana(entry.furigana?.[0] ?? "")}
+                              </small>
+                            )}
+                          </>
+                        </Show>
+                      </div>
+                    </Show>
+
+                    {/* English input */}
                     <div>
                       <TextField
                         type="text"
