@@ -1,0 +1,182 @@
+[
+  {
+    "word": "今日中に",
+    "furigana": ["今日中[きょうじゅう]に"],
+    "english": ["by the end of today"],
+    "mnemonics": ["今日 (kyou) means 'today', 中 (juu) means 'during/within'"],
+    "info": [],
+    "example_sentences": [
+      {
+        "japanese": "この仕事を今日中に終わらせましょう。",
+        "english": "Let's finish this work by the end of today."
+      }
+    ],
+    "chapter": 1
+  },
+  {
+    "word": "授業中に",
+    "furigana": ["授業中[じゅぎょうちゅう]に"],
+    "english": ["in class", "during class"],
+    "mnemonics": ["授業 (jugyou) means 'class', 中 (chuu) means 'during'"],
+    "info": [],
+    "example_sentences": [
+      {
+        "japanese": "授業中に携帯電話を使わないでください。",
+        "english": "Please don't use your mobile phone during class."
+      }
+    ],
+    "chapter": 1
+  },
+  {
+    "word": "この間",
+    "furigana": ["この 間[あいだ]"],
+    "english": ["the other day"],
+    "mnemonics": [
+      "この (kono) means 'this', 間 (aida) means 'interval/period'"
+    ],
+    "info": [],
+    "example_sentences": [
+      {
+        "japanese": "この間、友達と映画を見に行きました。",
+        "english": "The other day, I went to see a movie with my friend."
+      }
+    ],
+    "chapter": 1
+  },
+  {
+    "word": "これから",
+    "furigana": ["これから"],
+    "english": ["from now on"],
+    "mnemonics": ["これ (kore) means 'this', から (kara) means 'from'"],
+    "info": [],
+    "example_sentences": [
+      {
+        "japanese": "これから毎日運動します。",
+        "english": "From now on, I'll exercise every day."
+      }
+    ],
+    "chapter": 1
+  },
+  {
+    "word": "このぐらい",
+    "furigana": ["このぐらい"],
+    "english": ["about this much"],
+    "mnemonics": [
+      "この (kono) means 'this', ぐらい (gurai) indicates approximation"
+    ],
+    "info": ["（＝これぐらい/このくらい/これくらい）"],
+    "example_sentences": [
+      {
+        "japanese": "砂糖はこのぐらい入れてください。",
+        "english": "Please add about this much sugar."
+      }
+    ],
+    "chapter": 1
+  },
+  {
+    "word": "自分で",
+    "furigana": ["自分[じぶん]で"],
+    "english": ["(do something) by oneself"],
+    "mnemonics": [
+      "自分 (jibun) means 'oneself', で (de) is a particle indicating means"
+    ],
+    "info": [],
+    "example_sentences": [
+      {
+        "japanese": "この問題は自分で解決しました。",
+        "english": "I solved this problem by myself."
+      }
+    ],
+    "chapter": 1
+  },
+  {
+    "word": "ほかの",
+    "furigana": ["ほかの"],
+    "english": ["other"],
+    "mnemonics": [
+      "ほか (hoka) means 'other/another', の (no) is a possessive particle"
+    ],
+    "info": [],
+    "example_sentences": [
+      {
+        "japanese": "ほかの方法を考えましょう。",
+        "english": "Let's think of other methods."
+      }
+    ],
+    "chapter": 1
+  },
+  {
+    "word": "ええと",
+    "furigana": ["ええと"],
+    "english": ["well...", "let me see..."],
+    "mnemonics": ["Sounds like 'eh' - a sound people make when thinking"],
+    "info": [],
+    "example_sentences": [
+      {
+        "japanese": "ええと、答えは…7だと思います。",
+        "english": "Well... I think the answer is 7."
+      }
+    ],
+    "chapter": 1
+  },
+  {
+    "word": "実は",
+    "furigana": ["実[じつ]は"],
+    "english": ["actually", "in fact"],
+    "mnemonics": [
+      "実 (jitsu) means 'truth/reality', は (wa) is a topic particle"
+    ],
+    "info": [],
+    "example_sentences": [
+      {
+        "japanese": "実は、私は日本に行ったことがあります。",
+        "english": "Actually, I have been to Japan before."
+      }
+    ],
+    "chapter": 1
+  },
+  {
+    "word": "～以外",
+    "furigana": ["～ 以外[いがい]"],
+    "english": ["other than..."],
+    "mnemonics": ["以 (i) means 'by means of', 外 (gai) means 'outside'"],
+    "info": [],
+    "example_sentences": [
+      {
+        "japanese": "田中さん以外は全員来ました。",
+        "english": "Everyone came except for Tanaka-san."
+      }
+    ],
+    "chapter": 1
+  },
+  {
+    "word": "ごめん",
+    "furigana": ["ごめん"],
+    "english": ["I'm sorry. (casual)"],
+    "mnemonics": ["Shortened form of ごめんなさい (gomen nasai)"],
+    "info": [],
+    "example_sentences": [
+      {
+        "japanese": "ごめん、遅れてしまって。",
+        "english": "Sorry, I'm late."
+      }
+    ],
+    "chapter": 1
+  },
+  {
+    "word": "失礼します",
+    "furigana": ["失礼[しつれい]します"],
+    "english": ["Excuse me.", "Sorry to interrupt you."],
+    "mnemonics": [
+      "失礼 (shitsurei) means 'rudeness', します (shimasu) makes it a polite expression"
+    ],
+    "info": [],
+    "example_sentences": [
+      {
+        "japanese": "失礼します。部長はいらっしゃいますか。",
+        "english": "Excuse me. Is the department manager in?"
+      }
+    ],
+    "chapter": 1
+  }
+]

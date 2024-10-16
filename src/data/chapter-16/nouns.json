@@ -1,0 +1,264 @@
+[
+  {
+    "word": "駅員（さん）",
+    "furigana": ["駅員[えきいん]（さん）"],
+    "english": ["station attendant"],
+    "mnemonics": ["駅 (eki) means 'station', 員 (in) means 'member/staff'"],
+    "info": ["（さん） is often added as a polite title"],
+    "example_sentences": [
+      {
+        "japanese": "駅員さんに道を聞きました。",
+        "english": "I asked the station attendant for directions."
+      }
+    ],
+    "chapter": 1
+  },
+  {
+    "word": "親",
+    "furigana": ["親[おや]"],
+    "english": ["parent"],
+    "mnemonics": [
+      "Looks like a person (亻) under a tree (木), like a parent protecting a child"
+    ],
+    "info": [],
+    "example_sentences": [
+      {
+        "japanese": "私の親は先生です。",
+        "english": "My parents are teachers."
+      }
+    ],
+    "chapter": 1
+  },
+  {
+    "word": "親せき",
+    "furigana": ["親[しん]せき"],
+    "english": ["relatives"],
+    "mnemonics": [
+      "親 (shin) means 'parent', せき (seki) is related to 席 (seat), like family members sharing a seat"
+    ],
+    "info": [],
+    "example_sentences": [
+      {
+        "japanese": "親せきが家に来ました。",
+        "english": "My relatives came to our house."
+      }
+    ],
+    "chapter": 1
+  },
+  {
+    "word": "ごみ",
+    "furigana": ["ごみ"],
+    "english": ["garbage"],
+    "mnemonics": ["Sounds like 'gomi', which is close to 'gooey mess'"],
+    "info": [],
+    "example_sentences": [
+      {
+        "japanese": "ごみを捨てましょう。",
+        "english": "Let's throw away the garbage."
+      }
+    ],
+    "chapter": 1
+  },
+  {
+    "word": "砂糖",
+    "furigana": ["砂糖[さとう]"],
+    "english": ["sugar"],
+    "mnemonics": [
+      "砂 (sa) means 'sand', 糖 (tou) means 'sugar' - sugar looks like sand"
+    ],
+    "info": [],
+    "example_sentences": [
+      {
+        "japanese": "コーヒーに砂糖を入れますか。",
+        "english": "Do you put sugar in your coffee?"
+      }
+    ],
+    "chapter": 1
+  },
+  {
+    "word": "ファイル",
+    "furigana": ["ファイル"],
+    "english": ["file folder", "portfolio", "file"],
+    "mnemonics": ["Sounds like the English word 'file'"],
+    "info": [],
+    "example_sentences": [
+      {
+        "japanese": "書類をファイルに入れました。",
+        "english": "I put the documents in the file folder."
+      }
+    ],
+    "chapter": 1
+  },
+  {
+    "word": "大きさ",
+    "furigana": ["大[おお]きさ"],
+    "english": ["size"],
+    "mnemonics": ["大 (oo) means 'big', きさ (-kisa) is a noun-forming suffix"],
+    "info": [],
+    "example_sentences": [
+      {
+        "japanese": "この靴の大きさは合っていますか。",
+        "english": "Does the size of these shoes fit?"
+      }
+    ],
+    "chapter": 1
+  },
+  {
+    "word": "道",
+    "furigana": ["道[みち]"],
+    "english": ["way", "road", "directions"],
+    "mnemonics": ["Looks like a person (亻) walking on a path (⻌)"],
+    "info": [],
+    "example_sentences": [
+      {
+        "japanese": "駅への道を教えてください。",
+        "english": "Please tell me the way to the station."
+      }
+    ],
+    "chapter": 1
+  },
+  {
+    "word": "期末試験",
+    "furigana": ["期末[きまつ]試験[しけん]"],
+    "english": ["final examination"],
+    "mnemonics": [
+      "期末 (kimatsu) means 'end of term', 試験 (shiken) means 'test'"
+    ],
+    "info": [],
+    "example_sentences": [
+      {
+        "japanese": "来週は期末試験です。",
+        "english": "Next week is the final examination."
+      }
+    ],
+    "chapter": 1
+  },
+  {
+    "word": "研究",
+    "furigana": ["研究[けんきゅう]"],
+    "english": ["research"],
+    "mnemonics": [
+      "研 (ken) means 'polish/study', 究 (kyuu) means 'investigate thoroughly'"
+    ],
+    "info": [],
+    "example_sentences": [
+      {
+        "japanese": "大学で日本語の研究をしています。",
+        "english": "I'm doing research on Japanese at university."
+      }
+    ],
+    "chapter": 1
+  },
+  {
+    "word": "大学院",
+    "furigana": ["大学院[だいがくいん]"],
+    "english": ["graduate school"],
+    "mnemonics": [
+      "大学 (daigaku) means 'university', 院 (in) means 'institute'"
+    ],
+    "info": [],
+    "example_sentences": [
+      {
+        "japanese": "来年、大学院に行きたいです。",
+        "english": "I want to go to graduate school next year."
+      }
+    ],
+    "chapter": 1
+  },
+  {
+    "word": "奨学金",
+    "furigana": ["奨学金[しょうがくきん]"],
+    "english": ["scholarship"],
+    "mnemonics": [
+      "奨 (shou) means 'encourage', 学 (gaku) means 'study', 金 (kin) means 'money'"
+    ],
+    "info": [],
+    "example_sentences": [
+      {
+        "japanese": "奨学金を申し込みました。",
+        "english": "I applied for a scholarship."
+      }
+    ],
+    "chapter": 1
+  },
+  {
+    "word": "推薦状",
+    "furigana": ["推薦状[すいせんじょう]"],
+    "english": ["letter of recommendation"],
+    "mnemonics": [
+      "推薦 (suisen) means 'recommendation', 状 (jou) means 'letter'"
+    ],
+    "info": [],
+    "example_sentences": [
+      {
+        "japanese": "先生に推薦状を書いてもらいました。",
+        "english": "I had my teacher write a letter of recommendation for me."
+      }
+    ],
+    "chapter": 1
+  },
+  {
+    "word": "台風",
+    "furigana": ["台風[たいふう]"],
+    "english": ["typhoon"],
+    "mnemonics": [
+      "台 (tai) means 'pedestal', 風 (fuu) means 'wind' - a powerful wind that can topple things"
+    ],
+    "info": [],
+    "example_sentences": [
+      {
+        "japanese": "台風が来るので、外出しないでください。",
+        "english": "A typhoon is coming, so please don't go out."
+      }
+    ],
+    "chapter": 1
+  },
+  {
+    "word": "文化",
+    "furigana": ["文化[ぶんか]"],
+    "english": ["culture"],
+    "mnemonics": [
+      "文 (bun) means 'writing', 化 (ka) means 'change/transform' - culture is shaped by written traditions"
+    ],
+    "info": [],
+    "example_sentences": [
+      {
+        "japanese": "日本の文化に興味があります。",
+        "english": "I'm interested in Japanese culture."
+      }
+    ],
+    "chapter": 1
+  },
+  {
+    "word": "返事",
+    "furigana": ["返事[へんじ]"],
+    "english": ["reply"],
+    "mnemonics": [
+      "返 (hen) means 'return', 事 (ji) means 'matter/thing' - returning a response"
+    ],
+    "info": [],
+    "example_sentences": [
+      {
+        "japanese": "メールの返事を書きました。",
+        "english": "I wrote a reply to the email."
+      }
+    ],
+    "chapter": 1
+  },
+  {
+    "word": "日",
+    "furigana": ["日[ひ]"],
+    "english": ["day"],
+    "mnemonics": [
+      "Looks like a sun with a line through it, representing a day"
+    ],
+    "info": [],
+    "example_sentences": [
+      {
+        "japanese": "今日はいい日ですね。",
+        "english": "It's a nice day today, isn't it?"
+      }
+    ],
+    "chapter": 1
+  }
+]

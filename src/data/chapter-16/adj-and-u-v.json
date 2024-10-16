@@ -1,0 +1,232 @@
+[
+  {
+    "word": "汚い",
+    "furigana": ["汚[きたな]い"],
+    "english": ["dirty"],
+    "mnemonics": [
+      "汚 (kitana) has the water radical (氵), implying unclean water"
+    ],
+    "info": [],
+    "example_sentences": [
+      {
+        "japanese": "この服は汚いので、洗濯しましょう。",
+        "english": "These clothes are dirty, so let's wash them."
+      }
+    ],
+    "chapter": 1
+  },
+  {
+    "word": "起こす",
+    "furigana": ["起[お]こす"],
+    "english": ["to wake (someone) up"],
+    "mnemonics": [
+      "起 (o) means 'wake up', こす (kosu) sounds like 'coax' - coaxing someone to wake up"
+    ],
+    "info": ["（～を） indicates the object being woken up"],
+    "example_sentences": [
+      {
+        "japanese": "朝、弟を起こします。",
+        "english": "I wake up my younger brother in the morning."
+      }
+    ],
+    "chapter": 1
+  },
+  {
+    "word": "おごる",
+    "furigana": ["おごる"],
+    "english": ["to treat (someone) to a meal"],
+    "mnemonics": [
+      "Sounds like 'o-go-ru', which could remind you of 'go out' for a meal"
+    ],
+    "info": [
+      "（person に meal を) indicates the person being treated and the meal"
+    ],
+    "example_sentences": [
+      {
+        "japanese": "友達に昼ごはんをおごりました。",
+        "english": "I treated my friend to lunch."
+      }
+    ],
+    "chapter": 1
+  },
+  {
+    "word": "笑う",
+    "furigana": ["笑[わら]う"],
+    "english": ["to laugh"],
+    "mnemonics": [
+      "笑 (wara) looks like a person laughing with their mouth open"
+    ],
+    "info": [],
+    "example_sentences": [
+      {
+        "japanese": "面白い話を聞いて、みんなが笑いました。",
+        "english": "Everyone laughed after hearing the funny story."
+      }
+    ],
+    "chapter": 1
+  },
+  {
+    "word": "落ち込む",
+    "furigana": ["落[お]ち 込[こ]む"],
+    "english": ["to get depressed"],
+    "mnemonics": [
+      "落ち (ochi) means 'fall', 込む (komu) means 'go into' - falling into a low mood"
+    ],
+    "info": [],
+    "example_sentences": [
+      {
+        "japanese": "試験に失敗して、落ち込んでいます。",
+        "english": "I'm feeling depressed because I failed the exam."
+      }
+    ],
+    "chapter": 1
+  },
+  {
+    "word": "困る",
+    "furigana": ["困[こま]る"],
+    "english": ["to have difficulty"],
+    "mnemonics": [
+      "困 (koma) looks like a box (囗) with a tree (木) inside - being trapped in a difficult situation"
+    ],
+    "info": [],
+    "example_sentences": [
+      {
+        "japanese": "お金がなくて困っています。",
+        "english": "I'm having difficulty because I don't have money."
+      }
+    ],
+    "chapter": 1
+  },
+  {
+    "word": "出す",
+    "furigana": ["出[だ]す"],
+    "english": ["to take (something) out", "to hand in (something)"],
+    "mnemonics": [
+      "出 (da) looks like a mountain with something coming out of it"
+    ],
+    "info": ["（～を） indicates the object being taken out or handed in"],
+    "example_sentences": [
+      {
+        "japanese": "かばんから本を出しました。",
+        "english": "I took out a book from my bag."
+      }
+    ],
+    "chapter": 1
+  },
+  {
+    "word": "直す",
+    "furigana": ["直[なお]す"],
+    "english": ["to correct", "to fix"],
+    "mnemonics": [
+      "直 (nao) means 'straight/direct' - making something right again"
+    ],
+    "info": ["（～を） indicates the object being corrected or fixed"],
+    "example_sentences": [
+      {
+        "japanese": "先生が宿題の間違いを直してくれました。",
+        "english": "The teacher corrected the mistakes in my homework."
+      }
+    ],
+    "chapter": 1
+  },
+  {
+    "word": "見つかる",
+    "furigana": ["見[み]つかる"],
+    "english": ["to be found"],
+    "mnemonics": [
+      "見 (mi) means 'see', つかる (tsukaru) sounds like 'tsukamu' (grasp) - seeing and grasping something"
+    ],
+    "info": ["（～が） indicates the thing being found"],
+    "example_sentences": [
+      {
+        "japanese": "なくした財布が見つかりました。",
+        "english": "The wallet I lost was found."
+      }
+    ],
+    "chapter": 1
+  },
+  {
+    "word": "訳す",
+    "furigana": ["訳[やく]す"],
+    "english": ["to translate"],
+    "mnemonics": [
+      "訳 (yaku) means 'translate/meaning', す (su) is a verb ending"
+    ],
+    "info": [
+      "（source を target  に） indicates the source and target languages"
+    ],
+    "example_sentences": [
+      {
+        "japanese": "この文章を日本語から英語に訳しました。",
+        "english": "I translated this text from Japanese to English."
+      }
+    ],
+    "chapter": 1
+  },
+  {
+    "word": "貸す",
+    "furigana": ["貸[か]す"],
+    "english": ["to lend"],
+    "mnemonics": [
+      "貸 (ka) has the money radical (貝), implying lending money or valuables"
+    ],
+    "info": [
+      "（person に thing を） indicates the person being lent to and the thing being lent"
+    ],
+    "example_sentences": [
+      {
+        "japanese": "友達に本を貸しました。",
+        "english": "I lent a book to my friend."
+      }
+    ],
+    "chapter": 1
+  },
+  {
+    "word": "連れていく",
+    "furigana": ["連[つ]れていく"],
+    "english": ["to take (someone) to (a place)"],
+    "mnemonics": ["連 (tsu) means 'take along', いく (iku) means 'go'"],
+    "info": [
+      "（person を place に） indicates the person being taken and the destination"
+    ],
+    "example_sentences": [
+      {
+        "japanese": "子供を動物園に連れていきます。",
+        "english": "I'm taking the children to the zoo."
+      }
+    ],
+    "chapter": 1
+  },
+  {
+    "word": "道に迷う",
+    "furigana": ["道[みち]に 迷[まよ]う"],
+    "english": ["to become lost", "to lose one's way"],
+    "mnemonics": ["道 (michi) means 'road', 迷う (mayou) means 'to be lost'"],
+    "info": [],
+    "example_sentences": [
+      {
+        "japanese": "新しい町で道に迷いました。",
+        "english": "I got lost in the new town."
+      }
+    ],
+    "chapter": 1
+  },
+  {
+    "word": "迎えに行く",
+    "furigana": ["迎[むか]えに 行[い]く"],
+    "english": ["to go pick up"],
+    "mnemonics": [
+      "迎え (mukae) means 'to meet/greet', 行く (iku) means 'to go'"
+    ],
+    "info": [
+      "（place まで/に person を） indicates the place and person being picked up"
+    ],
+    "example_sentences": [
+      {
+        "japanese": "駅まで友達を迎えに行きます。",
+        "english": "I'm going to the station to pick up my friend."
+      }
+    ],
+    "chapter": 1
+  }
+]

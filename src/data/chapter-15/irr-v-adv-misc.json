@@ -1,0 +1,139 @@
+[
+  {
+    "word": "する",
+    "furigana": ["する"],
+    "english": ["to decide on (an item)"],
+    "mnemonics": [],
+    "info": ["Structure: 〜にする", "This is the easiest way to order food."],
+    "example_sentences": [
+      { "japanese": "私はおすしにします。", "english": "I'll have sushi." },
+      {
+        "japanese": "今日はトンカツにします。",
+        "english": "I'll have tonkatsu today."
+      }
+    ],
+    "chapter": 15,
+    "category": "irr-v"
+  },
+  {
+    "word": "観光する",
+    "furigana": ["観光[かんこう]する"],
+    "english": ["to do sightseeing"],
+    "mnemonics": ["Contains 見 - to see"],
+    "info": [],
+    "example_sentences": [],
+    "chapter": 15,
+    "category": "irr-v"
+  },
+  {
+    "word": "予約する",
+    "furigana": ["予約[よやく]する"],
+    "english": ["to reserve"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": 15,
+    "category": "irr-v"
+  },
+  {
+    "word": "参加する",
+    "furigana": ["参加[さんか]する"],
+    "english": ["to participate"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": 15,
+    "category": "irr-v"
+  },
+  {
+    "word": "卒業する",
+    "furigana": ["卒業[そつぎょう]する"],
+    "english": ["to graduate (from...)"],
+    "mnemonics": [],
+    "info": [
+      "You must use ～を instead of ～から when describing where you're graduating from."
+    ],
+    "example_sentences": [],
+    "chapter": 15,
+    "category": "irr-v"
+  },
+  {
+    "word": "発表する",
+    "furigana": ["発表[はっぴょう]する"],
+    "english": ["to make a presentation", "to make public"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": 15,
+    "category": "irr-v"
+  },
+  {
+    "word": "～けど",
+    "furigana": ["～けど"],
+    "english": ["..., but", "..., so"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": 15,
+    "category": "adverbs-and-other-expressions"
+  },
+  {
+    "word": "～目",
+    "furigana": ["～ 目[め]"],
+    "english": ["-th"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [
+      {
+        "japanes": "二番目の信号を右に曲がってください。",
+        "english": "Turn right on the 2nd traffic light."
+      }
+    ],
+    "chapter": 15,
+    "category": "adverbs-and-other-expressions"
+  },
+  {
+    "word": "一日中",
+    "furigana": ["一日中[いちにちじゅう]"],
+    "english": ["all day long"],
+    "mnemonics": [],
+    "info": ["一年中 - All year long"],
+    "example_sentences": [],
+    "chapter": 15,
+    "category": "adverbs-and-other-expressions"
+  },
+  {
+    "word": "最近",
+    "furigana": ["最近[さいきん]"],
+    "english": ["recently"],
+    "mnemonics": [
+      "最 means 'most' as seen in 最初（さいしょ）The first time  and  最高（さいこう）The top, best"
+    ],
+    "info": [],
+    "example_sentences": [],
+    "chapter": 15,
+    "category": "adverbs-and-other-expressions"
+  },
+  {
+    "word": "もう一度",
+    "furigana": ["もう 一度[いちど]"],
+    "english": ["one more time"],
+    "mnemonics": [],
+    "info": [
+      "In fast speech, もう might be shortened to もいちど, but it should be written もう一度 or もう１回"
+    ],
+    "example_sentences": [],
+    "chapter": 15,
+    "category": "adverbs-and-other-expressions"
+  },
+  {
+    "word": "楽しみです",
+    "furigana": ["楽[たの]しみです"],
+    "english": ["cannot wait", "to look forward to it"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": 15,
+    "category": "adverbs-and-other-expressions"
+  }
+]

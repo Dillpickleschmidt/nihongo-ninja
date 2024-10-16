@@ -1,0 +1,206 @@
+[
+  {
+    "word": "いま",
+    "furigana": ["いま"],
+    "english": ["now", "right now"],
+    "mnemonics": [],
+    "info": [
+      "'いま' means 'now' or 'right now' in Japanese.",
+      "It is commonly used in daily conversations to indicate the present time."
+    ],
+    "example_sentences": [],
+    "chapter": 1
+  },
+  {
+    "word": "ごぜん",
+    "furigana": ["ごぜん"],
+    "english": ["A.M.", "morning"],
+    "mnemonics": [],
+    "info": [
+      "'ごぜん' is used to refer to the morning or A.M. hours.",
+      "It is typically used with numbers to specify times in the morning."
+    ],
+    "example_sentences": [],
+    "chapter": 1
+  },
+  {
+    "word": "ごご",
+    "furigana": ["ごご"],
+    "english": ["P.M.", "afternoon"],
+    "mnemonics": [],
+    "info": [
+      "'ごご' means 'afternoon' or 'P.M.' in Japanese.",
+      "It is used with numbers to specify times in the afternoon or evening."
+    ],
+    "example_sentences": [],
+    "chapter": 1
+  },
+  {
+    "word": "～じ",
+    "furigana": ["～じ"],
+    "english": ["...o'clock", "...hour"],
+    "mnemonics": [],
+    "info": [
+      "'～じ' is used to indicate the hour on the clock in Japanese.",
+      "It is added after numbers to denote specific hours."
+    ],
+    "example_sentences": [],
+    "chapter": 1
+  },
+  {
+    "word": "いちじ",
+    "furigana": ["いちじ"],
+    "english": ["one o'clock", "1:00"],
+    "mnemonics": [],
+    "info": [
+      "'いちじ' means 'one o'clock' or '1:00' in Japanese.",
+      "It combines 'いち' (one) with 'じ' (o'clock) to specify the time."
+    ],
+    "example_sentences": [],
+    "chapter": 1
+  },
+  {
+    "word": "はん",
+    "furigana": ["はん"],
+    "english": ["half", "half past"],
+    "mnemonics": [],
+    "info": [
+      "'はん' means 'half' in Japanese and is used to indicate half past the hour.",
+      "It can be combined with an hour to specify the time."
+    ],
+    "example_sentences": [],
+    "chapter": 1
+  },
+  {
+    "word": "にじはん",
+    "furigana": ["にじはん"],
+    "english": ["half past two", "2:30"],
+    "mnemonics": [],
+    "info": [
+      "'にじはん' means 'half past two' or '2:30' in Japanese.",
+      "It combines 'にじ' (two o'clock) with 'はん' (half) to specify the time."
+    ],
+    "example_sentences": [],
+    "chapter": 1
+  },
+  {
+    "word": "にほん",
+    "furigana": ["にほん"],
+    "english": ["Japan"],
+    "mnemonics": [],
+    "info": [
+      "'にほん' is the Japanese word for 'Japan'.",
+      "It can also be pronounced as 'にっぽん', especially in formal or official contexts."
+    ],
+    "example_sentences": [],
+    "chapter": 1
+  },
+  {
+    "word": "アメリカ",
+    "furigana": ["アメリカ"],
+    "english": ["America", "USA"],
+    "mnemonics": [],
+    "info": [
+      "'アメリカ' (Amerika) is the Japanese word for 'America' or the 'USA'.",
+      "It is written in katakana, which is used for foreign words."
+    ],
+    "example_sentences": [],
+    "chapter": 1
+  },
+  {
+    "word": "イギリス",
+    "furigana": ["イギリス"],
+    "english": ["UK", "Britain", "England"],
+    "mnemonics": [],
+    "info": [
+      "'イギリス' (Igirisu) can refer to the United Kingdom (UK), Britain, or England in everyday use.",
+      "It is a katakana word derived from the Portuguese word for 'English'."
+    ],
+    "example_sentences": [],
+    "chapter": 1
+  },
+  {
+    "word": "オーストラリア",
+    "furigana": ["オーストラリア"],
+    "english": ["Australia"],
+    "mnemonics": [],
+    "info": [
+      "'オーストラリア' (Ōsutoraria) is the Japanese word for 'Australia'.",
+      "Like other country names, it is written in katakana."
+    ],
+    "example_sentences": [],
+    "chapter": 1
+  },
+  {
+    "word": "かんこく",
+    "furigana": ["かんこく"],
+    "english": ["Korea", "South Korea"],
+    "mnemonics": [],
+    "info": [
+      "'かんこく' means 'Korea' or 'South Korea' in Japanese.",
+      "It specifically refers to the Republic of Korea, as opposed to North Korea ('きたちょうせん')."
+    ],
+    "example_sentences": [],
+    "chapter": 1
+  },
+  {
+    "word": "カナダ",
+    "furigana": ["カナダ"],
+    "english": ["Canada"],
+    "mnemonics": [],
+    "info": [
+      "'カナダ' (Kanada) is the Japanese word for 'Canada'.",
+      "It is written in katakana, following the convention for foreign country names."
+    ],
+    "example_sentences": [],
+    "chapter": 1
+  },
+  {
+    "word": "ちゅうごく",
+    "furigana": ["ちゅうごく"],
+    "english": ["China"],
+    "mnemonics": [],
+    "info": [
+      "'ちゅうごく' means 'China' in Japanese.",
+      "It is the standard term used to refer to the People's Republic of China."
+    ],
+    "example_sentences": [],
+    "chapter": 1
+  },
+  {
+    "word": "インド",
+    "furigana": ["インド"],
+    "english": ["India"],
+    "mnemonics": [],
+    "info": [
+      "'インド' (Indo) is the Japanese word for 'India'.",
+      "It is written in katakana, used for foreign country names."
+    ],
+    "example_sentences": [],
+    "chapter": 1
+  },
+  {
+    "word": "エジプト",
+    "furigana": ["エジプト"],
+    "english": ["Egypt"],
+    "mnemonics": [],
+    "info": [
+      "'エジプト' (Ejiputo) is the Japanese word for 'Egypt'.",
+      "It follows the katakana script convention for foreign place names."
+    ],
+    "example_sentences": [],
+    "chapter": 1
+  },
+  {
+    "word": "フィリピン",
+    "furigana": ["フィリピン"],
+    "english": ["Philippines"],
+    "mnemonics": [],
+    "info": [
+      "'フィリピン' (Firipin) is the Japanese word for 'Philippines'.",
+      "It is written in katakana as is common for foreign country names."
+    ],
+    "example_sentences": [],
+    "chapter": 1
+  }
+]

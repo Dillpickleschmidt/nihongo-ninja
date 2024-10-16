@@ -1,0 +1,144 @@
+[
+  {
+    "word": "集める",
+    "furigana": ["集[あつ]める"],
+    "english": ["to collect"],
+    "mnemonics": ["集 (atsu) means 'gather', める (meru) is a verb ending"],
+    "info": ["（を） indicates the object being collected"],
+    "example_sentences": [
+      {
+        "japanese": "切手を集めています。",
+        "english": "I'm collecting stamps."
+      }
+    ],
+    "chapter": 1
+  },
+  {
+    "word": "入れる",
+    "furigana": ["入[い]れる"],
+    "english": ["to put (something) in"],
+    "mnemonics": ["入 (i) means 'enter', れる (reru) is a verb ending"],
+    "info": [
+      "（thing を place に) indicates the thing being put in and where it's being put"
+    ],
+    "example_sentences": [
+      {
+        "japanese": "かばんに本を入れました。",
+        "english": "I put the book in my bag."
+      }
+    ],
+    "chapter": 1
+  },
+  {
+    "word": "見せる",
+    "furigana": ["見[み]せる"],
+    "english": ["to show"],
+    "mnemonics": [
+      "見 (mi) means 'see', せる (seru) is a causative ending - making someone see"
+    ],
+    "info": [
+      "（person に thing を） indicates the person being shown and the thing being shown"
+    ],
+    "example_sentences": [
+      {
+        "japanese": "友達に新しい写真を見せました。",
+        "english": "I showed my new photos to my friend."
+      }
+    ],
+    "chapter": 1
+  },
+  {
+    "word": "乗り遅れる",
+    "furigana": ["乗[の]り 遅[おく]れる"],
+    "english": ["to miss (a train, bus, etc.)"],
+    "mnemonics": [
+      "乗り (nori) means 'to ride', 遅れる (okureru) means 'to be late'"
+    ],
+    "info": ["（～に） indicates the transportation being missed"],
+    "example_sentences": [
+      {
+        "japanese": "電車に乗り遅れて、学校に遅刻しました。",
+        "english": "I missed the train and was late for school."
+      }
+    ],
+    "chapter": 1
+  },
+  {
+    "word": "アイロンをかける",
+    "furigana": ["アイロンをかける"],
+    "english": ["to iron (clothes)"],
+    "mnemonics": [
+      "アイロン (airon) is from English 'iron', かける (kakeru) means 'to apply'"
+    ],
+    "info": ["（～に） indicates the object being ironed"],
+    "example_sentences": [
+      {
+        "japanese": "シャツにアイロンをかけました。",
+        "english": "I ironed the shirt."
+      }
+    ],
+    "chapter": 1
+  },
+  {
+    "word": "朝寝坊する",
+    "furigana": ["朝寝坊[あさねぼう]する"],
+    "english": ["to oversleep"],
+    "mnemonics": ["朝 (asa) means 'morning', 寝坊 (nebou) means 'sleeping in'"],
+    "info": [],
+    "example_sentences": [
+      {
+        "japanese": "今朝、朝寝坊して、遅刻しました。",
+        "english": "I overslept this morning and was late."
+      }
+    ],
+    "chapter": 1
+  },
+  {
+    "word": "案内する",
+    "furigana": ["案内[あんない]する"],
+    "english": ["to show (someone) around"],
+    "mnemonics": ["案内 (annai) means 'guidance', する (suru) makes it a verb"],
+    "info": ["（place を） indicates the place being shown"],
+    "example_sentences": [
+      {
+        "japanese": "友達に町を案内しました。",
+        "english": "I showed my friend around town."
+      }
+    ],
+    "chapter": 1
+  },
+  {
+    "word": "説明する",
+    "furigana": ["説明[せつめい]する"],
+    "english": ["to explain"],
+    "mnemonics": [
+      "説明 (setsumei) means 'explanation', する (suru) makes it a verb"
+    ],
+    "info": [],
+    "example_sentences": [
+      {
+        "japanese": "先生が問題を説明しました。",
+        "english": "The teacher explained the problem."
+      }
+    ],
+    "chapter": 1
+  },
+  {
+    "word": "迎えに来る",
+    "furigana": ["迎[むか]えに 来[く]る"],
+    "english": ["to come to pick up"],
+    "mnemonics": [
+      "迎え (mukae) means 'to meet/greet', 来る (kuru) means 'to come'"
+    ],
+    "info": [
+      "（place まで/に person を） indicates the place and person being picked up"
+    ],
+    "example_sentences": [
+      {
+        "japanese": "母が学校に私を迎えに来ました。",
+        "english": "My mother came to school to pick me up."
+      }
+    ],
+    "chapter": 1
+  }
+]

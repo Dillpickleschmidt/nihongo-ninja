@@ -1,41 +1,29 @@
-import Database from "better-sqlite3"
-import { VocabItem, RichVocabItem, ExampleSentence, Video } from "@/types/vocab"
+import { VocabItem, RichVocabItem } from "@/types/vocab"
 import { addKanaAndRuby, stripFurigana } from "@/util/vocabDataTransformer"
 
-function parseJSON<T>(jsonString: string | null): T | null {
-  if (!jsonString) return null
+const vocabModules = import.meta.glob("../data/**/*.json", { eager: true })
+
+const getVocabData = async (fileName: string): Promise<VocabItem[]> => {
+  const filePath = `../data/${fileName}.json`
   try {
-    return JSON.parse(jsonString) as T
-  } catch {
-    console.error(`Failed to parse JSON: ${jsonString}`)
-    return null
+    if (filePath in vocabModules) {
+      const module = vocabModules[filePath] as { default: VocabItem[] }
+      return module.default
+    } else {
+      throw new Error(`File not found: ${filePath}`)
+    }
+  } catch (e) {
+    console.warn(`The file "${filePath}" could not be loaded.`, e)
+    return []
   }
 }
 
 export async function getVocabularyByPath(
-  path: string,
+  filePath: string,
   stripFuriganaFlag = false,
 ): Promise<RichVocabItem[]> {
-  "use server"
-  const DB_PATH = process.cwd() + "/src/db/database.db"
-  const db = new Database(DB_PATH)
-  // console.log("Fetching vocabulary data...")
-  // const startTime = Date.now()
-
   try {
-    const stmt = db.prepare("SELECT * FROM vocabulary WHERE path = ?")
-    const results = stmt.all(path) as any[]
-
-    const vocabItems: VocabItem[] = results.map((item) => ({
-      ...item,
-      furigana: parseJSON<string[]>(item.furigana) || [],
-      english: parseJSON<string[]>(item.english) || [],
-      example_sentences:
-        parseJSON<ExampleSentence[]>(item.example_sentences) || [],
-      info: parseJSON<string[]>(item.info) || [],
-      mnemonics: parseJSON<string[]>(item.mnemonics) || [],
-      videos: parseJSON<Video[]>(item.videos) || [],
-    }))
+    const vocabItems = await getVocabData(filePath)
 
     // Add kana and ruby text
     let processedItems = addKanaAndRuby(vocabItems, "1rem")
@@ -45,11 +33,9 @@ export async function getVocabularyByPath(
       processedItems = stripFurigana(processedItems)
     }
 
-    // const duration = Date.now() - startTime
-    // console.log(`Vocabulary data fetched and processed in ${duration}ms`)
-
     return processedItems
-  } finally {
-    db.close()
+  } catch (error) {
+    console.error(`Error in getVocabularyByPath for ${filePath}:`, error)
+    return []
   }
 }

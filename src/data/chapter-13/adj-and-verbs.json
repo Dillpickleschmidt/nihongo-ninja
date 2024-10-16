@@ -1,0 +1,182 @@
+[
+  {
+    "word": "うれしい",
+    "furigana": ["うれしい"],
+    "english": ["glad"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": 13,
+    "category": "i-adjective"
+  },
+  {
+    "word": "悲しい",
+    "furigana": ["悲[かな]しい"],
+    "english": ["sad"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": 13,
+    "category": "i-adjective"
+  },
+  {
+    "word": "厳しい",
+    "furigana": ["厳[きび]しい"],
+    "english": ["strict"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": 13,
+    "category": "i-adjective"
+  },
+  {
+    "word": "気分が悪い",
+    "furigana": ["気分[きぶん]が 悪[わる]い"],
+    "english": ["to feel sick"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": 13,
+    "category": "i-adjective"
+  },
+  {
+    "word": "辛い",
+    "furigana": ["辛[から]い"],
+    "english": ["hot and spicy", "salty"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": 13,
+    "category": "i-adjective"
+  },
+  {
+    "word": "すごい",
+    "furigana": ["すごい"],
+    "english": ["incredible", "awesome"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": 13,
+    "category": "i-adjective"
+  },
+  {
+    "word": "近い",
+    "furigana": ["近[ちか]い"],
+    "english": ["close", "near"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": 13,
+    "category": "i-adjective"
+  },
+  {
+    "word": "いろいろ",
+    "furigana": ["いろいろ"],
+    "english": ["various", "different kinds of"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": 13,
+    "category": "na-adjective"
+  },
+  {
+    "word": "幸せ",
+    "furigana": ["幸[しあわ]せ"],
+    "english": ["happy (lasting happiness)"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": 13,
+    "category": "na-adjective"
+  },
+  {
+    "word": "だめ",
+    "furigana": ["だめ"],
+    "english": ["no good"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": 13,
+    "category": "na-adjective"
+  },
+  {
+    "word": "直す",
+    "furigana": ["直す[なおす]"],
+    "english": ["to fix", "to repair", "to correct"],
+    "mnemonics": [],
+    "info": [
+      "It's commonly used for repairing objects, correcting mistakes, or fixing problems.",
+      "You might see this in a Japanese class telling you to correct your mistakes."
+    ],
+    "example_sentences": [
+      "答えを見て、赤ペンで直して次の日のクラスで出す。- Look at the answers, correct them with a red pen, and turn them in for the next day's class."
+    ],
+    "chapter": 13,
+    "category": "ichidan-v"
+  },
+  {
+    "word": "編む",
+    "furigana": ["編[あ]む"],
+    "english": ["to knit"],
+    "mnemonics": [],
+    "info": ["Typically paired with objects using the を particle"],
+    "example_sentences": [],
+    "chapter": 13,
+    "category": "ichidan-v"
+  },
+  {
+    "word": "頑張る",
+    "furigana": ["頑張[がんば]る"],
+    "english": ["to do one's best", "to try hard"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": 13,
+    "category": "ichidan-v"
+  },
+  {
+    "word": "泣く",
+    "furigana": ["泣[な]く"],
+    "english": ["to cry"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": 13,
+    "category": "ichidan-v"
+  },
+  {
+    "word": "磨く",
+    "furigana": ["磨[みが]く"],
+    "english": ["to brush (teeth)", "to polish"],
+    "mnemonics": [],
+    "info": ["Typically paired with objects using the を particle"],
+    "example_sentences": [],
+    "chapter": 13,
+    "category": "ichidan-v"
+  },
+  {
+    "word": "約束を守る",
+    "furigana": ["約束[やくそく]を 守[まも]る"],
+    "english": ["to keep a promise"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": 13,
+    "category": "ichidan-v"
+  },
+  {
+    "word": "感動する",
+    "furigana": ["感動[かんどう]する"],
+    "english": ["to be moved (emotionally)", "to be touched (emotionally)"],
+    "mnemonics": [],
+    "info": [
+      "Often used with the particle に",
+      "Basic structure: [Source of emotion] に 感動する \"[Subject] is moved by [source of emotion]\""
+    ],
+    "example_sentences": [
+      "美しい景色に感動しました。- I was moved by the beautiful scenery."
+    ],
+    "chapter": 13,
+    "category": "irr-v"
+  }
+]
