@@ -2,7 +2,7 @@ import { For, JSX, createMemo } from "solid-js"
 import { usePracticeModeContext } from "../../context/PracticeModeContext"
 import ContentBox from "@/components/ContentBox"
 import { Button } from "@/components/ui/button"
-import Settings from "lucide-solid/icons/Settings"
+import { Settings } from "lucide-solid"
 import DeckSettingsDialog from "../DeckSettingsDialog"
 
 type StartPageProps = {

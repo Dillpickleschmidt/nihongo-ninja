@@ -1,12 +1,14 @@
 import { Button } from "@/components/ui/button"
 import { A } from "@solidjs/router"
-import ScrollText from "lucide-solid/icons/scroll-text"
-import GraduationCap from "lucide-solid/icons/graduation-cap"
-import Gamepad from "lucide-solid/icons/gamepad"
-import Volume2 from "lucide-solid/icons/volume-2"
-import Library from "lucide-solid/icons/library"
-import BookPlus from "lucide-solid/icons/book-plus"
-import TicketPlus from "lucide-solid/icons/ticket-plus"
+import {
+  ScrollText,
+  GraduationCap,
+  Gamepad,
+  Volume2,
+  Library,
+  BookPlus,
+  TicketPlus,
+} from "lucide-solid"
 
 type SidebarContentProps = {
   inDialog?: boolean

@@ -11,12 +11,12 @@ export default defineConfig({
       alias: {
         "@": resolve(__dirname, "./src"),
         // To fix loading ALL icons in dev mode w/Vite
-        "lucide-solid/icons": fileURLToPath(
-          new URL(
-            "./node_modules/lucide-solid/dist/source/icons",
-            import.meta.url,
-          ),
-        ),
+        // "lucide-solid/icons": fileURLToPath(
+        //   new URL(
+        //     "./node_modules/lucide-solid/dist/source/icons",
+        //     import.meta.url,
+        //   ),
+        // ),
       },
     },
   },

@@ -1,6 +1,6 @@
 import YouTubeVideo from "@/features/youtube/YouTube"
 import APIKeyForm from "./components/APIKeyForm"
-import BookPlus from "lucide-solid/icons/book-plus"
+import { BookPlus } from "lucide-solid"
 import { A } from "@solidjs/router"
 import { Button } from "@/components/ui/button"
 

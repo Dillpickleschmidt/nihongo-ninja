@@ -1,6 +1,6 @@
 import { Button } from "./ui/button"
 import { cn } from "@/libs/cn"
-import Printer from "lucide-solid/icons/printer"
+import { Printer } from "lucide-solid"
 import jsPDF from "jspdf"
 import html2canvas from "html2canvas"
 
