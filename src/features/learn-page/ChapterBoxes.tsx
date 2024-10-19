@@ -751,11 +751,11 @@ export default function ChapterBoxes() {
 
       <ChapterBox
         text="Chapter 4"
-        class="bg-teal-500 saturate-[65%]"
+        class="bg-teal-600 saturate-[65%]"
         content={[
           {
             title: "Chapter 4 Vocab List",
-            link: "/learn/chapter-16/vocab-list",
+            link: "/learn/chapter-4/vocab-list",
             types: ["vocab-list"],
             disabled: true,
           },
@@ -828,6 +828,90 @@ export default function ChapterBoxes() {
           {
             title: "All Vocab - Test",
             link: "/learn/chapter-4/all-vocab-test",
+            types: ["vocab-test"],
+          },
+        ]}
+      />
+
+      <ChapterBox
+        text="Chapter 5"
+        class="bg-pink-500 saturate-[50%]"
+        content={[
+          {
+            title: "Chapter 5 Vocab List",
+            link: "/learn/chapter-5/vocab-list",
+            types: ["vocab-list"],
+            disabled: true,
+          },
+          {
+            title: "Chapter 5 Grammar Notes",
+            link: "/learn/grammar-notes",
+            types: ["grammar-notes"],
+            disabled: true,
+          },
+          {
+            title: "Nouns 1",
+            link: "/learn/chapter-5/nouns",
+            types: ["vocab"],
+          },
+          {
+            title: "Practice Nouns 1 - Readings",
+            link: "/learn/chapter-5/practice/nouns-readings",
+            types: ["practice"],
+          },
+          {
+            title: "Practice Nouns 1 - Kana",
+            link: "/learn/chapter-5/practice/nouns-kana",
+            types: ["practice"],
+          },
+          {
+            title: "Nouns 2",
+            link: "/learn/chapter-5/i-adjectives",
+            types: ["vocab"],
+          },
+          {
+            title: "Practice Nouns 2 - Readings",
+            link: "/learn/chapter-5/practice/i-adjectives-readings",
+            types: ["practice"],
+          },
+          {
+            title: "Practice Nouns 2 - Kana",
+            link: "/learn/chapter-5/practice/i-adjectives-kana",
+            types: ["practice"],
+          },
+          {
+            title: "Na-Adjectives",
+            link: "/learn/chapter-5/na-adjectives",
+            types: ["vocab"],
+          },
+          {
+            title: "Practice Na-Adjectives - Readings",
+            link: "/learn/chapter-5/practice/na-adjectives-readings",
+            types: ["practice"],
+          },
+          {
+            title: "Practice Na-Adjectives - Kana",
+            link: "/learn/chapter-5/practice/na-adjectives-kana",
+            types: ["practice"],
+          },
+          {
+            title: "Verbs, Adv, & Misc.",
+            link: "/learn/chapter-5/verbs-adv-misc",
+            types: ["vocab"],
+          },
+          {
+            title: "Practice Verbs, Adv, & Misc. - Readings",
+            link: "/learn/chapter-5/practice/verbs-adv-misc-readings",
+            types: ["practice"],
+          },
+          {
+            title: "Practice Verbs, Adv, & Misc. - Kana",
+            link: "/learn/chapter-5/practice/verbs-adv-misc-kana",
+            types: ["practice"],
+          },
+          {
+            title: "All Vocab - Test",
+            link: "/learn/chapter-5/all-vocab-test",
             types: ["vocab-test"],
           },
         ]}
