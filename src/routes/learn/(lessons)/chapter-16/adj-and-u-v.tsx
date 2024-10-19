@@ -22,7 +22,7 @@ export default function page() {
   return (
     <>
       <h1 class="px-28 pb-6 pt-28 text-center text-4xl font-semibold">
-        Adjectives & Ru-Verbs
+        Adjectives & U-Verbs
       </h1>
       <Show when={data()}>
         <VocabCard4NoBG data={data()!} index={0} />
@@ -33,7 +33,7 @@ export default function page() {
       </Show>
       <div class="pb-32" />
       <div class="absolute bottom-16 right-16">
-        <A href="/learn/chapter-16/practice/adj-and-ru-v-readings">
+        <A href="/learn/chapter-16/practice/adj-and-u-v-readings">
           <Button>Next Lesson {"->"}</Button>
         </A>
       </div>

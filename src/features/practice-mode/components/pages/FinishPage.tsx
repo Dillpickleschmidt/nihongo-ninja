@@ -1,7 +1,6 @@
 import { For } from "solid-js"
 import { Button } from "@/components/ui/button"
 import { usePracticeModeContext } from "../../context/PracticeModeContext"
-import ContentBox from "@/components/ContentBox"
 import { A } from "@solidjs/router"
 
 export default function FinishPage() {
@@ -9,7 +8,6 @@ export default function FinishPage() {
 
   return (
     <>
-      {/* <ContentBox nextButtonText="" nextButtonLink=""> */}
       <div class="fixed bottom-0 z-50 my-6 flex w-full justify-center">
         <A href="/learn">
           <Button size="lg" class="mb-4 mt-2 w-40 bg-orange-500">
@@ -24,7 +22,7 @@ export default function FinishPage() {
         <div class="mt-2 text-4xl">🎉</div>
       </div>
       <div class="pb-28 lg:mx-48 2xl:mx-96">
-        <For each={context.data()}>
+        <For each={context.store.data}>
           {(entry) => (
             <div class="my-2 rounded-xl bg-card p-6 shadow-md">
               <p class="text-2xl font-bold !text-orange-500 text-primary">
@@ -33,10 +31,9 @@ export default function FinishPage() {
               <For
                 each={entry.answerCategories.filter(
                   (category) =>
-                    context
-                      .enabledAnswerCategories()
-                      .includes(category.category) &&
-                    category.answers.length > 0,
+                    context.store.enabledAnswerCategories.includes(
+                      category.category,
+                    ) && category.answers.length > 0,
                 )}
               >
                 {(categoryObj) => (
@@ -67,7 +64,6 @@ export default function FinishPage() {
           )}
         </For>
       </div>
-      {/* </ContentBox> */}
     </>
   )
 }

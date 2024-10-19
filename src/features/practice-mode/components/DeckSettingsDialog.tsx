@@ -14,20 +14,20 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
+import { usePracticeModeContext } from "../context/PracticeModeContext"
 
 type DeckSettingsDialogProps = {
   children: JSX.Element
-  shuffleInput: boolean
-  setShuffleInput: (value: boolean) => void
 }
 
 export default function DeckSettingsDialog(props: DeckSettingsDialogProps) {
-  const [checked, setChecked] = createSignal(props.shuffleInput)
+  const context = usePracticeModeContext()
+  const [checked, setChecked] = createSignal(context.store.shuffleInput)
 
   const handleCheckboxChange = () => {
     const newValue = !checked()
     setChecked(newValue)
-    props.setShuffleInput(newValue)
+    context.setStore("shuffleInput", newValue)
   }
 
   return (

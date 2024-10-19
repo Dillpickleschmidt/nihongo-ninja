@@ -1004,13 +1004,13 @@ export default function ChapterBoxes() {
             types: ["vocab"],
           },
           {
-            title: "Practice Nouns - Kana",
-            link: "/learn/chapter-16/practice/nouns-kana",
+            title: "Practice Nouns - Readings",
+            link: "/learn/chapter-16/practice/nouns-readings",
             types: ["practice"],
           },
           {
-            title: "Practice Nouns - Readings",
-            link: "/learn/chapter-16/practice/nouns-readings",
+            title: "Practice Nouns - Kana",
+            link: "/learn/chapter-16/practice/nouns-kana",
             types: ["practice"],
           },
           {
@@ -1019,13 +1019,13 @@ export default function ChapterBoxes() {
             types: ["vocab"],
           },
           {
-            title: "Practice Adj. & U-V - Kana",
-            link: "/learn/chapter-16/practice/adj-and-u-v-kana",
+            title: "Practice Adj. & U-V - Readings",
+            link: "/learn/chapter-16/practice/adj-and-u-v-readings",
             types: ["practice"],
           },
           {
-            title: "Practice Adj. & U-V - Readings",
-            link: "/learn/chapter-16/practice/adj-and-u-v-readings",
+            title: "Practice Adj. & U-V - Kana",
+            link: "/learn/chapter-16/practice/adj-and-u-v-kana",
             types: ["practice"],
           },
           {
@@ -1034,13 +1034,13 @@ export default function ChapterBoxes() {
             types: ["vocab"],
           },
           {
-            title: "Practice Ru-V & Irreg V - Kana",
-            link: "/learn/chapter-16/practice/ru-and-irr-v-kana",
+            title: "Practice Ru-V & Irreg V - Readings",
+            link: "/learn/chapter-16/practice/ru-and-irr-v-readings",
             types: ["practice"],
           },
           {
-            title: "Practice Ru-V & Irreg V - Readings",
-            link: "/learn/chapter-16/practice/ru-and-irr-v-readings",
+            title: "Practice Ru-V & Irreg V - Kana",
+            link: "/learn/chapter-16/practice/ru-and-irr-v-kana",
             types: ["practice"],
           },
           {
@@ -1049,13 +1049,13 @@ export default function ChapterBoxes() {
             types: ["vocab"],
           },
           {
-            title: "Practice Adv & Misc. - Kana",
-            link: "/learn/chapter-16/practice/adv-and-misc-kana",
+            title: "Practice Adv & Misc. - Readings",
+            link: "/learn/chapter-16/practice/adv-and-misc-readings",
             types: ["practice"],
           },
           {
-            title: "Practice Adv & Misc. - Readings",
-            link: "/learn/chapter-16/practice/adv-and-misc-readings",
+            title: "Practice Adv & Misc. - Kana",
+            link: "/learn/chapter-16/practice/adv-and-misc-kana",
             types: ["practice"],
           },
           {

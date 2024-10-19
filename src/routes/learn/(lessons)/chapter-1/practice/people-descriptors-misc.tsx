@@ -1,6 +1,6 @@
 import type { RichVocabItem } from "@/types/vocab"
 import { createResource, Show } from "solid-js"
-import PracticeModePage from "@/features/practice-mode/PracticeModePage"
+import PracticeMode from "@/features/practice-mode/PracticeMode"
 import { getVocabularyByPath } from "@/db/statements"
 
 export default function Page() {
@@ -10,7 +10,7 @@ export default function Page() {
 
   return (
     <Show when={data()} fallback={<h1>Loading...</h1>}>
-      <PracticeModePage
+      <PracticeMode
         data={data()!}
         deckName="People, Descriptors, Misc"
         mode="kana"

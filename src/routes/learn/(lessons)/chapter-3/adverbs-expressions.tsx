@@ -44,7 +44,7 @@ export default function page() {
       </Show>
       <div class="pb-32" />
       <div class="absolute bottom-16 right-16">
-        <A href="/learn/chapter-3/practice/adjectives-adverbs-expressions-readings">
+        <A href="/learn/chapter-3/practice/adverbs-expressions-readings">
           <Button>Next Lesson {"->"}</Button>
         </A>
       </div>

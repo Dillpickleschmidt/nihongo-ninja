@@ -1,4 +1,4 @@
-import PracticeModePage from "@/features/practice-mode/PracticeModePage"
+import PracticeMode from "@/features/practice-mode/PracticeMode"
 import { getVocabularyByPath } from "@/db/statements"
 import { RichVocabItem } from "@/types/vocab"
 import { Show } from "solid-js"
@@ -16,7 +16,7 @@ export default function page() {
   return (
     <>
       <Show when={data()} fallback={<h1>Loading...</h1>}>
-        <PracticeModePage data={data()!} deckName="Things" mode="kana" />
+        <PracticeMode data={data()!} deckName="Things" mode="kana" />
       </Show>
     </>
   )

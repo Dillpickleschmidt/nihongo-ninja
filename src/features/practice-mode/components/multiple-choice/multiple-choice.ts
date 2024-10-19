@@ -20,19 +20,12 @@ type MultipleChoices = {
  */
 export function presentMultipleChoiceOptions(
   data: Card[],
-  shuffleInput = true,
   currentCardIndex: number,
 ): MultipleChoices {
   if (data.length < 4) {
     throw new Error("Not enough entries to select 4 options")
   }
-
-  let entries = data
-
-  if (shuffleInput) {
-    // Shuffle the entries array
-    entries = [...entries].sort(() => 0.5 - Math.random())
-  }
+  const entries = data
 
   // Extract the entry at the current card index
   const correctEntry = entries[currentCardIndex]
@@ -53,7 +46,7 @@ export function presentMultipleChoiceOptions(
   // Combine the correct entry with the selected entries
   const selectedEntries = [correctEntry, ...select3Entries]
 
-  // Shuffle the selected entries
+  // Shuffle the entries after combining
   const shuffledSelectedEntries = selectedEntries.sort(
     () => 0.5 - Math.random(),
   )
@@ -65,28 +58,15 @@ export function presentMultipleChoiceOptions(
 }
 
 /**
- * Checks if the user's answer is correct based on enabled categories.
+ * Checks if the user's selection is correct based on enabled categories.
  * @param multipleChoices The multiple choice options and correct option.
- * @param userAnswer The user's answer to check.
- * @returns True if the answer is correct, false otherwise.
+ * @param selection The user's selection to check.
+ * @returns True if the selection is correct, false otherwise.
  */
-export function handleMultipleChoiceSelection(
+export function compareMultipleChoiceAnswer(
   multipleChoices: MultipleChoices,
-  userAnswer: string,
+  selection: Card,
 ): boolean {
   const { correctOption } = multipleChoices
-
-  if (!correctOption || !correctOption.answerCategories) {
-    throw new Error("Correct option or answer categories not found")
-  }
-
-  // Flatten the enabled answers from all categories
-  const answers = correctOption.answerCategories.flatMap(
-    (category) => category.answers,
-  )
-
-  // console.log("enabledAnswers: ", answers)
-
-  // Check if the user's answer matches any of the enabled answers
-  return answers.includes(userAnswer)
+  return selection === correctOption
 }

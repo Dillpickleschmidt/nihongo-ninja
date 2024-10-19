@@ -1,6 +1,6 @@
 import { createEffect, createMemo, createSignal, onMount } from "solid-js"
 import { usePracticeModeContext } from "../../context/PracticeModeContext"
-import { handleWrittenAnswer, presentWriteOptions } from "./write"
+import { handleWrittenAnswer } from "./write"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/types/vocab"
 import {
@@ -9,53 +9,31 @@ import {
   TextFieldRoot,
 } from "@/components/ui/textfield"
 
-type WriteComponentProps = {
-  data: Card[]
-  shuffleInput?: boolean
-}
-
-export default function WriteComponent(props: WriteComponentProps) {
-  const context = usePracticeModeContext()
-
-  const correctEntry = createMemo(() =>
-    presentWriteOptions(
-      props.data,
-      props.shuffleInput ?? true,
-      context.currentCardIndex(),
-    ),
-  )
+export default function WriteComponent() {
   const [userAnswer, setUserAnswer] = createSignal("")
   let inputRef: HTMLInputElement | undefined
 
-  createEffect(() => {
-    context.setCorrectEntry(correctEntry())
-    setUserAnswer("")
-  })
+  const context = usePracticeModeContext()
 
+  const correctEntry = createMemo(
+    () => context.store.activeDeck[context.store.currentCardIndex],
+  )
   createEffect(() => {
-    if (!context.hasUserAnswered() && inputRef) {
+    if (!context.store.hasUserAnswered && inputRef) {
       inputRef.focus()
+      setUserAnswer("")
     }
   })
 
-  const handleInput = (answer: string) => {
-    context.setIsAnswerCorrect(
-      handleWrittenAnswer(
-        answer,
-        correctEntry(),
-        context.enabledAnswerCategories(),
-      ),
+  function handleSubmit() {
+    context.setStore("hasUserAnswered", true)
+    const isAnswerCorrect = handleWrittenAnswer(
+      userAnswer(),
+      correctEntry(),
+      context.store.enabledAnswerCategories,
     )
-    context.setHasUserAnswered(true)
-
-    const enabledAnswers = correctEntry()
-      .answerCategories.filter((category) =>
-        context.enabledAnswerCategories().includes(category.category),
-      )
-      .flatMap((category) => category.answers)
-
-    console.log("User answer: ", answer)
-    console.log("Correct answer: ", enabledAnswers.join(", "))
+    context.setStore("isAnswerCorrect", isAnswerCorrect)
+    // console.log("User answer: ", answer)
   }
 
   return (
@@ -67,25 +45,25 @@ export default function WriteComponent(props: WriteComponentProps) {
           value={userAnswer()}
           onInput={(e) => setUserAnswer(e.currentTarget.value)}
           onKeyDown={(e: KeyboardEvent) => {
-            if (e.key === "Enter" && !context.hasUserAnswered()) {
+            if (e.key === "Enter" && !context.store.hasUserAnswered) {
               e.preventDefault()
-              handleInput(userAnswer())
+              handleSubmit()
             }
           }}
           autofocus
-          disabled={context.hasUserAnswered()}
+          disabled={context.store.hasUserAnswered}
           class={`${
-            context.hasUserAnswered() &&
-            (context.isAnswerCorrect() ? "text-green-500" : "text-red-500")
+            context.store.hasUserAnswered &&
+            (context.store.isAnswerCorrect ? "text-green-500" : "text-red-500")
           } font-bold opacity-100 xl:!text-lg`}
         />
-        {!context.hasUserAnswered() && (
+        {!context.store.hasUserAnswered && (
           <TextFieldDescription>Type your answer.</TextFieldDescription>
         )}
       </TextFieldRoot>
       <Button
-        onClick={() => handleInput(userAnswer())}
-        disabled={context.hasUserAnswered()}
+        onClick={() => handleSubmit()}
+        disabled={context.store.hasUserAnswered}
         class="my-2 disabled:opacity-90"
       >
         Submit

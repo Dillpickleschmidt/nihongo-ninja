@@ -1,14 +1,11 @@
 import { For, JSX, createMemo } from "solid-js"
 import { usePracticeModeContext } from "../../context/PracticeModeContext"
-import ContentBox from "@/components/ContentBox"
 import { Button } from "@/components/ui/button"
 import { Settings } from "lucide-solid"
 import DeckSettingsDialog from "../DeckSettingsDialog"
 
 type StartPageProps = {
   deckName: string | JSX.Element
-  shuffleInput: boolean
-  setShuffleInput: (value: boolean) => void
 }
 
 export default function StartPage(props: StartPageProps) {
@@ -16,18 +13,14 @@ export default function StartPage(props: StartPageProps) {
 
   // Sort data based on the order property
   const sortedData = createMemo(() =>
-    [...context.data()].sort((a, b) => a.order - b.order),
+    [...context.store.data].sort((a, b) => a.order - b.order),
   )
 
   return (
     <>
-      {/* <ContentBox
-        nextButtonText="Next Lesson ->"
-        nextButtonLink="/learn/chapter-0/all-hiragana-quiz"
-      > */}
       <div class="fixed bottom-0 z-50 my-6 flex w-full justify-center">
         <Button
-          onClick={() => context.setCurrentPage("practice")}
+          onClick={() => context.setStore("currentPage", "practice")}
           size="lg"
           class="w-[480px] bg-orange-500"
         >
@@ -40,10 +33,7 @@ export default function StartPage(props: StartPageProps) {
             Practice {props.deckName}
           </h1>
           <div class="absolute bottom-0 right-4">
-            <DeckSettingsDialog
-              shuffleInput={props.shuffleInput}
-              setShuffleInput={props.setShuffleInput}
-            >
+            <DeckSettingsDialog>
               <Button variant="ghost">
                 <Settings class="h-7 w-7" />
               </Button>
@@ -62,10 +52,9 @@ export default function StartPage(props: StartPageProps) {
                 <For
                   each={entry.answerCategories.filter(
                     (category) =>
-                      context
-                        .enabledAnswerCategories()
-                        .includes(category.category) &&
-                      category.answers.length > 0,
+                      context.store.enabledAnswerCategories.includes(
+                        category.category,
+                      ) && category.answers.length > 0,
                   )}
                 >
                   {(categoryObj, i) => (
@@ -94,7 +83,6 @@ export default function StartPage(props: StartPageProps) {
           </For>
         </div>
       </div>
-      {/* </ContentBox> */}
     </>
   )
 }
