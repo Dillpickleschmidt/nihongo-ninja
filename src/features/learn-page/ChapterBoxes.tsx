@@ -750,6 +750,90 @@ export default function ChapterBoxes() {
       />
 
       <ChapterBox
+        text="Chapter 4"
+        class="bg-teal-500 saturate-[65%]"
+        content={[
+          {
+            title: "Chapter 4 Vocab List",
+            link: "/learn/chapter-16/vocab-list",
+            types: ["vocab-list"],
+            disabled: true,
+          },
+          {
+            title: "Chapter 4 Grammar Notes",
+            link: "/learn/grammar-notes",
+            types: ["grammar-notes"],
+            disabled: true,
+          },
+          {
+            title: "Nouns 1",
+            link: "/learn/chapter-4/nouns-1",
+            types: ["vocab"],
+          },
+          {
+            title: "Practice Nouns 1 - Readings",
+            link: "/learn/chapter-4/practice/nouns-1-readings",
+            types: ["practice"],
+          },
+          {
+            title: "Practice Nouns 1 - Kana",
+            link: "/learn/chapter-4/practice/nouns-1-kana",
+            types: ["practice"],
+          },
+          {
+            title: "Nouns 2",
+            link: "/learn/chapter-4/nouns-2",
+            types: ["vocab"],
+          },
+          {
+            title: "Practice Nouns 2 - Readings",
+            link: "/learn/chapter-4/practice/nouns-2-readings",
+            types: ["practice"],
+          },
+          {
+            title: "Practice Nouns 2 - Kana",
+            link: "/learn/chapter-4/practice/nouns-2-kana",
+            types: ["practice"],
+          },
+          {
+            title: "Verbs, Adv, & Misc.",
+            link: "/learn/chapter-4/verbs-adv-misc",
+            types: ["vocab"],
+          },
+          {
+            title: "Practice V, Adv, & Misc. - Readings",
+            link: "/learn/chapter-4/practice/verbs-adv-misc-readings",
+            types: ["practice"],
+          },
+          {
+            title: "Practice V, Adv, & Misc. - Kana",
+            link: "/learn/chapter-4/practice/verbs-adv-misc-kana",
+            types: ["practice"],
+          },
+          {
+            title: "Location Words",
+            link: "/learn/chapter-4/location-words",
+            types: ["vocab"],
+          },
+          {
+            title: "Practice Location Words - Readings",
+            link: "/learn/chapter-4/practice/location-words-readings",
+            types: ["practice"],
+          },
+          {
+            title: "Practice Location Words - Kana",
+            link: "/learn/chapter-4/practice/location-words-kana",
+            types: ["practice"],
+          },
+          {
+            title: "All Vocab - Test",
+            link: "/learn/chapter-4/all-vocab-test",
+            types: ["vocab-test"],
+          },
+        ]}
+      />
+
+      <ChapterBox
         text="Chapter 13"
         class="bg-green-600 saturate-[65%]"
         content={[
