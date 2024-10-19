@@ -10,7 +10,7 @@ import type { RichVocabItem } from "@/types/vocab"
 import VocabCards from "@/features/vocab-card/VocabCards"
 import ContentBox from "@/components/ContentBox"
 
-const path = "chapter-5/nouns"
+const path = "chapter-6/nouns"
 const getData = cache(async () => {
   return await getVocabularyByPath(path)
 }, path)
@@ -23,7 +23,7 @@ export default function page() {
 
   return (
     <ContentBox
-      nextButtonLink="/learn/chapter-5/practice/nouns-readings"
+      nextButtonLink="/learn/chapter-6/practice/nouns-readings"
       nextButtonText="Next Lesson ->"
     >
       <h1 class="px-28 pb-6 pt-28 text-center text-4xl font-semibold">Nouns</h1>

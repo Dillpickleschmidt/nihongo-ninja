@@ -835,7 +835,7 @@ export default function ChapterBoxes() {
 
       <ChapterBox
         text="Chapter 5"
-        class="bg-pink-500 saturate-[50%]"
+        class="bg-amber-500 saturate-[50%]"
         content={[
           {
             title: "Chapter 5 Vocab List",
@@ -912,6 +912,75 @@ export default function ChapterBoxes() {
           {
             title: "All Vocab - Test",
             link: "/learn/chapter-5/all-vocab-test",
+            types: ["vocab-test"],
+          },
+        ]}
+      />
+
+      <ChapterBox
+        text="Chapter 6"
+        class="bg-red-500 saturate-50"
+        content={[
+          {
+            title: "Chapter 6 Vocab List",
+            link: "/learn/chapter-6/vocab-list",
+            types: ["vocab-list"],
+            disabled: true,
+          },
+          {
+            title: "Chapter 6 Grammar Notes",
+            link: "/learn/grammar-notes",
+            types: ["grammar-notes"],
+            disabled: true,
+          },
+          {
+            title: "Nouns",
+            link: "/learn/chapter-6/nouns",
+            types: ["vocab"],
+          },
+          {
+            title: "Practice Nouns - Readings",
+            link: "/learn/chapter-6/practice/nouns-readings",
+            types: ["practice"],
+          },
+          {
+            title: "Practice Nouns - Kana",
+            link: "/learn/chapter-6/practice/nouns-kana",
+            types: ["practice"],
+          },
+          {
+            title: "U-Verbs & Adjectives",
+            link: "/learn/chapter-6/u-verbs-and-adj",
+            types: ["vocab"],
+          },
+          {
+            title: "Practice U-V & Adj - Readings",
+            link: "/learn/chapter-6/practice/u-verbs-and-adj-readings",
+            types: ["practice"],
+          },
+          {
+            title: "Practice U-V & Adj - Kana",
+            link: "/learn/chapter-6/practice/u-verbs-and-adj-kana",
+            types: ["practice"],
+          },
+          {
+            title: "Ru-Verbs, Irr-Verbs, & Misc.",
+            link: "/learn/chapter-6/ru-v-irr-v-adv-misc",
+            types: ["vocab"],
+          },
+          {
+            title: "Practice Ru-V, Irr-V, & Misc. - Readings",
+            link: "/learn/chapter-6/practice/ru-v-irr-v-adv-misc-readings",
+            types: ["practice"],
+          },
+          {
+            title: "Practice Ru-V, Irr-V, & Misc. - Kana",
+            link: "/learn/chapter-6/practice/ru-v-irr-v-adv-misc-kana",
+            types: ["practice"],
+          },
+          {
+            title: "All Vocab - Test",
+            link: "/learn/chapter-6/all-vocab-test",
             types: ["vocab-test"],
           },
         ]}
