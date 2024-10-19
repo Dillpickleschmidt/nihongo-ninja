@@ -7,6 +7,8 @@ import VocabCard4NoBG from "@/features/vocab-card/quadruplet/VocabCard4NoBG"
 import { A, cache, createAsync } from "@solidjs/router"
 import { Button } from "@/components/ui/button"
 import type { RichVocabItem } from "@/types/vocab"
+import VocabCards from "@/features/vocab-card/VocabCards"
+import ContentBox from "@/components/ContentBox"
 
 const path = "chapter-15/nouns-1"
 const getData = cache(async () => {
@@ -20,23 +22,17 @@ export default function page() {
   const data = createAsync<RichVocabItem[]>(() => getData())
 
   return (
-    <>
+    <ContentBox
+      nextButtonLink="/learn/chapter-15/practice/nouns-1-readings"
+      nextButtonText="Next Lesson ->"
+    >
       <h1 class="px-28 pb-6 pt-28 text-center text-4xl font-semibold">
         Nouns 1
       </h1>
       <Show when={data()}>
-        <VocabCard4NoBG data={data()!} index={0} />
-        <VocabCard4NoBG data={data()!} index={4} />
-        <VocabCard4NoBG data={data()!} index={8} />
-        <VocabCard4NoBG data={data()!} index={12} />
-        <VocabCard4NoBG data={data()!} index={16} />
+        <VocabCards data={data()!} />
       </Show>
       <div class="pb-32" />
-      <div class="absolute bottom-16 right-16">
-        <A href="/learn/chapter-15/practice/nouns-1-readings">
-          <Button>Next Lesson {"->"}</Button>
-        </A>
-      </div>
-    </>
+    </ContentBox>
   )
 }
