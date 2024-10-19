@@ -1,0 +1,177 @@
+[
+  {
+    "word": "歌う",
+    "furigana": ["歌[うた]う"],
+    "english": ["to sing"],
+    "mnemonics": [
+      "Sounds like 'ooh-ta-oo.' Picture singing a song with 'ooh' sounds."
+    ],
+    "particles": [
+      {
+        "particle": "を"
+      }
+    ],
+    "chapter": 7
+  },
+  {
+    "word": "被る",
+    "furigana": ["被[かぶ]る"],
+    "english": ["to put on a hat"],
+    "mnemonics": [
+      "Sounds like 'cab-ru.' Imagine putting on a hat before getting into a cab."
+    ],
+    "particles": [
+      {
+        "particle": "を"
+      }
+    ],
+    "chapter": 7
+  },
+  {
+    "word": "履く",
+    "furigana": ["履[は]く"],
+    "english": ["to put on items below your waist"],
+    "mnemonics": [
+      "Sounds like 'huck.' Think of 'hucking' on your pants or shoes."
+    ],
+    "particles": [
+      {
+        "particle": "を"
+      }
+    ],
+    "chapter": 7
+  },
+  {
+    "word": "知る",
+    "furigana": ["知[し]る"],
+    "english": ["to get to know"],
+    "mnemonics": [
+      "Sounds like 'sheer.' Picture getting to know something as clearly as seeing through sheer fabric."
+    ],
+    "particles": [
+      {
+        "particle": "を"
+      }
+    ],
+    "chapter": 7
+  },
+  {
+    "word": "知っています",
+    "furigana": ["知[し]って います"],
+    "english": ["I know"],
+    "mnemonics": [
+      "Sounds like 'sheet-tea-mass.' Imagine confidently saying 'I know' as you sip a cup of tea."
+    ],
+    "chapter": 7
+  },
+  {
+    "word": "知りません",
+    "furigana": ["知[し]りません"],
+    "english": ["I do not know"],
+    "mnemonics": [
+      "Sounds like 'sheer-ma-sen.' Picture saying 'I don't know' with a sheer look of confusion."
+    ],
+    "chapter": 7
+  },
+  {
+    "word": "住む",
+    "furigana": ["住[す]む"],
+    "english": ["to live"],
+    "mnemonics": [
+      "Sounds like 'sum.' Think of where you live as the sum of your home life.",
+      "I live at... ～に住んでいます"
+    ],
+    "chapter": 7
+  },
+  {
+    "word": "働く",
+    "furigana": ["働[はたら]く"],
+    "english": ["to work"],
+    "mnemonics": [
+      "Sounds like 'ha-ta-laku.' Imagine working hard while saying 'Ha! Tackle this work!'"
+    ],
+    "chapter": 7
+  },
+  {
+    "word": "太る",
+    "furigana": ["太[ふと]る"],
+    "english": ["to gain weight"],
+    "mnemonics": [
+      "Sounds like 'futo-ru.' Imagine gaining weight and saying 'Futo, I grew!'"
+    ],
+    "chapter": 7
+  },
+  {
+    "word": "太っています",
+    "furigana": ["太[ふと]っています"],
+    "english": ["to be on the heavy side/overweight"],
+    "mnemonics": [
+      "Sounds like 'futo-tte-mass.' Picture someone who's heavy saying, 'Futo, I'm mass!'"
+    ],
+    "chapter": 7
+  },
+  {
+    "word": "眼鏡を掛ける",
+    "furigana": ["眼鏡[めがね]を 掛[か]ける"],
+    "english": ["to put on glasses"],
+    "mnemonics": [
+      "Sounds like 'may-gah-neh-wo-kakeru.' Imagine putting on glasses to see the month of May clearly."
+    ],
+    "chapter": 7
+  },
+  {
+    "word": "着る",
+    "furigana": ["着[き]る"],
+    "english": ["to put on clothes above your waist"],
+    "mnemonics": [
+      "Sounds like 'keer.' Picture 'keering' a shirt over your head."
+    ],
+    "particles": [
+      {
+        "particle": "を"
+      }
+    ],
+    "chapter": 7
+  },
+  {
+    "word": "痩せる",
+    "furigana": ["痩[や]せる"],
+    "english": ["to lose weight"],
+    "mnemonics": [
+      "Sounds like 'ya-sell.' Imagine losing weight and saying, 'Ya, I can sell my old clothes now!'"
+    ],
+    "chapter": 7
+  },
+  {
+    "word": "痩せています",
+    "furigana": ["痩[や]せています"],
+    "english": ["to be thin"],
+    "mnemonics": [
+      "Sounds like 'ya-set-te-mass.' Picture a thin person saying, 'Ya, I'm set with this mass!'"
+    ],
+    "chapter": 7
+  },
+  {
+    "word": "結婚する",
+    "furigana": ["結婚[けっこん]する"],
+    "english": ["to get married"],
+    "mnemonics": [
+      "Sounds like 'kett-kon-suru.' Picture getting married and setting a 'ket' (contract) to connect lives."
+    ],
+    "particles": [
+      {
+        "particle": "を"
+      }
+    ],
+    "chapter": 7
+  },
+  {
+    "word": "はく",
+    "furigana": ["はく"],
+    "english": ["to put on items below your waist"],
+    "mnemonics": [
+      "Sounds like 'huck.' Think of 'hucking' on your pants or shoes."
+    ],
+    "chapter": 7
+  }
+]

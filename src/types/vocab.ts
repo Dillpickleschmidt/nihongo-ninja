@@ -8,6 +8,13 @@ export type Video = {
   title: string
 }
 
+export type Particle = {
+  label?: string
+  particle: string
+}
+
+export type ParticleUsage = Particle | Particle[]
+
 export type VocabItem = {
   id: number
   created_at: string
@@ -21,6 +28,7 @@ export type VocabItem = {
   mnemonics: string[]
   category: string | null
   videos: Video[] | null
+  particles: ParticleUsage[]
 }
 
 export type RichVocabItem = VocabItem & {

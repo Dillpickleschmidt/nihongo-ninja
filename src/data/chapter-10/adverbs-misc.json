@@ -1,0 +1,147 @@
+[
+  {
+    "word": "一番",
+    "furigana": ["一[いち]番[ばん]"],
+    "english": ["best"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [],
+    "example_sentences": [],
+    "chapter": 10,
+    "videos": []
+  },
+  {
+    "word": "どっち／どちら",
+    "furigana": [],
+    "english": ["which"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [],
+    "example_sentences": [],
+    "chapter": 10,
+    "videos": []
+  },
+  {
+    "word": "早く／速く",
+    "furigana": ["早[はや]く／速[はや]く"],
+    "english": ["(do something) early", "fast"],
+    "mnemonics": [],
+    "info": ["早く: early", "速く: fast"],
+    "particles": [],
+    "example_sentences": [],
+    "chapter": 10,
+    "videos": []
+  },
+  {
+    "word": "歩いて",
+    "furigana": ["歩[ある]いて"],
+    "english": ["on foot"],
+    "mnemonics": [],
+    "info": ["Te-form of 歩く (to walk)"],
+    "particles": [],
+    "example_sentences": [],
+    "chapter": 10,
+    "videos": []
+  },
+  {
+    "word": "で",
+    "furigana": [],
+    "english": ["by (means of transportation)", "with (a tool)"],
+    "mnemonics": [],
+    "info": ["Particle"],
+    "particles": [],
+    "example_sentences": [],
+    "chapter": 10,
+    "videos": []
+  },
+  {
+    "word": "どうやって",
+    "furigana": [],
+    "english": ["how", "by what means"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [],
+    "example_sentences": [],
+    "chapter": 10,
+    "videos": []
+  },
+  {
+    "word": "どのぐらい",
+    "furigana": [],
+    "english": ["how much", "how long"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [],
+    "example_sentences": [],
+    "chapter": 10,
+    "videos": []
+  },
+  {
+    "word": "週間",
+    "furigana": ["週[しゅう]間[かん]"],
+    "english": ["for... weeks"],
+    "mnemonics": [],
+    "info": ["Used with a number, e.g., 一週間 (for one week)"],
+    "particles": [],
+    "example_sentences": [],
+    "chapter": 10,
+    "videos": []
+  },
+  {
+    "word": "か月",
+    "furigana": ["か月[げつ]"],
+    "english": ["for... months"],
+    "mnemonics": [],
+    "info": ["Used with a number, e.g., 一か月 (for one month)"],
+    "particles": [],
+    "example_sentences": [],
+    "chapter": 10,
+    "videos": []
+  },
+  {
+    "word": "年",
+    "furigana": ["年[ねん]"],
+    "english": ["... years"],
+    "mnemonics": [],
+    "info": ["Used with a number, e.g., 一年 (one year)"],
+    "particles": [],
+    "example_sentences": [],
+    "chapter": 10,
+    "videos": []
+  },
+  {
+    "word": "このごろ",
+    "furigana": [],
+    "english": ["these days"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [],
+    "example_sentences": [],
+    "chapter": 10,
+    "videos": []
+  },
+  {
+    "word": "後",
+    "furigana": ["後[ご]"],
+    "english": ["in... time", "after..."],
+    "mnemonics": [],
+    "info": [
+      "Used with a time expression, e.g., 一時間後 (in one hour/after one hour)"
+    ],
+    "particles": [],
+    "example_sentences": [],
+    "chapter": 10,
+    "videos": []
+  },
+  {
+    "word": "～か～",
+    "furigana": [],
+    "english": ["or"],
+    "mnemonics": [],
+    "info": ["Used to connect two options"],
+    "particles": [],
+    "example_sentences": [],
+    "chapter": 10,
+    "videos": []
+  }
+]

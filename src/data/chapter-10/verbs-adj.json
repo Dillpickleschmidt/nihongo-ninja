@@ -1,0 +1,165 @@
+[
+  {
+    "word": "暖かい",
+    "furigana": ["暖[あたた]かい"],
+    "english": ["warm"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [],
+    "example_sentences": [],
+    "chapter": 10,
+    "videos": []
+  },
+  {
+    "word": "涼しい",
+    "furigana": ["涼[すず]しい"],
+    "english": ["cool (weather - not used for things)"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [],
+    "example_sentences": [],
+    "chapter": 10,
+    "videos": []
+  },
+  {
+    "word": "冷たい",
+    "furigana": ["冷[つめ]たい"],
+    "english": ["cold (things/people)"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [],
+    "example_sentences": [],
+    "chapter": 10,
+    "videos": []
+  },
+  {
+    "word": "遅い",
+    "furigana": ["遅[おそ]い"],
+    "english": ["slow", "late"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [],
+    "example_sentences": [],
+    "chapter": 10,
+    "videos": []
+  },
+  {
+    "word": "眠い",
+    "furigana": ["眠[ねむ]い"],
+    "english": ["sleepy"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [],
+    "example_sentences": [],
+    "chapter": 10,
+    "videos": []
+  },
+  {
+    "word": "簡単",
+    "furigana": ["簡[かん]単[たん]"],
+    "english": ["easy", "simple"],
+    "mnemonics": [],
+    "info": ["な-adjective"],
+    "particles": [],
+    "example_sentences": [],
+    "chapter": 10,
+    "videos": []
+  },
+  {
+    "word": "かかる",
+    "furigana": [],
+    "english": ["to take (amount of time/money)"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [
+      {
+        "particle": "が"
+      }
+    ],
+    "example_sentences": [],
+    "chapter": 10,
+    "videos": []
+  },
+  {
+    "word": "泊まる",
+    "furigana": ["泊[と]まる"],
+    "english": ["to stay (at a hotel, etc.)"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [
+      {
+        "particle": "に"
+      }
+    ],
+    "example_sentences": [],
+    "chapter": 10,
+    "videos": []
+  },
+  {
+    "word": "なる",
+    "furigana": [],
+    "english": ["to become"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [
+      {
+        "particle": "に"
+      }
+    ],
+    "example_sentences": [],
+    "chapter": 10,
+    "videos": []
+  },
+  {
+    "word": "決める",
+    "furigana": ["決[き]める"],
+    "english": ["to decide"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [
+      {
+        "particle": "を"
+      }
+    ],
+    "example_sentences": [],
+    "chapter": 10,
+    "videos": []
+  },
+  {
+    "word": "ごろごろする",
+    "furigana": [],
+    "english": ["to chill out at home", "to stay home and do nothing"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [],
+    "example_sentences": [],
+    "chapter": 10,
+    "videos": []
+  },
+  {
+    "word": "旅行する",
+    "furigana": ["旅行[りょこう]する"],
+    "english": ["to travel"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [],
+    "example_sentences": [],
+    "chapter": 10,
+    "videos": []
+  },
+  {
+    "word": "練習する",
+    "furigana": ["練習[れんしゅう]する"],
+    "english": ["to practice"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [
+      {
+        "particle": "を"
+      }
+    ],
+    "example_sentences": [],
+    "chapter": 10,
+    "videos": []
+  }
+]

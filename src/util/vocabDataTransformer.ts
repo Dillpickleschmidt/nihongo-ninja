@@ -90,7 +90,7 @@ export function convertFuriganaToRubyHtml<T extends string | string[]>(
       }
     }
 
-    return rubyText.replace(/[\[\]]/g, "")
+    return rubyText.replace(/[\[\]\s]/g, "")
   }
 
   if (Array.isArray(furigana)) {

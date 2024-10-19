@@ -1,0 +1,117 @@
+[
+  {
+    "word": "好き",
+    "furigana": ["好[す]き"],
+    "english": ["fond of", "to like"],
+    "mnemonics": [],
+    "info": ["な-adjective"],
+    "particles": [
+      {
+        "particle": "が"
+      }
+    ],
+    "example_sentences": [],
+    "chapter": 5,
+    "videos": []
+  },
+  {
+    "word": "嫌い",
+    "furigana": ["嫌[きら]い"],
+    "english": ["disgusted with", "to dislike"],
+    "mnemonics": [],
+    "info": ["な-adjective"],
+    "particles": [
+      {
+        "particle": "が"
+      }
+    ],
+    "example_sentences": [],
+    "chapter": 5,
+    "videos": []
+  },
+  {
+    "word": "大好き",
+    "furigana": ["大[だい]好[す]き"],
+    "english": ["very fond of", "to love"],
+    "mnemonics": [],
+    "info": ["な-adjective"],
+    "particles": [
+      {
+        "particle": "が"
+      }
+    ],
+    "example_sentences": [],
+    "chapter": 5,
+    "videos": []
+  },
+  {
+    "word": "大嫌い",
+    "furigana": ["大[だい]嫌[きら]い"],
+    "english": ["to hate"],
+    "mnemonics": [],
+    "info": ["な-adjective"],
+    "particles": [
+      {
+        "particle": "が"
+      }
+    ],
+    "example_sentences": [],
+    "chapter": 5,
+    "videos": []
+  },
+  {
+    "word": "きれい",
+    "furigana": [],
+    "english": ["beautiful", "clean"],
+    "mnemonics": [],
+    "info": ["な-adjective"],
+    "particles": [],
+    "example_sentences": [],
+    "chapter": 5,
+    "videos": []
+  },
+  {
+    "word": "元気",
+    "furigana": ["元[げん]気[き]"],
+    "english": ["healthy", "energetic"],
+    "mnemonics": [],
+    "info": ["な-adjective"],
+    "particles": [],
+    "example_sentences": [],
+    "chapter": 5,
+    "videos": []
+  },
+  {
+    "word": "静か",
+    "furigana": ["静[しず]か"],
+    "english": ["quiet"],
+    "mnemonics": [],
+    "info": ["な-adjective"],
+    "particles": [],
+    "example_sentences": [],
+    "chapter": 5,
+    "videos": []
+  },
+  {
+    "word": "にぎやか",
+    "furigana": [],
+    "english": ["lively"],
+    "mnemonics": [],
+    "info": ["な-adjective"],
+    "particles": [],
+    "example_sentences": [],
+    "chapter": 5,
+    "videos": []
+  },
+  {
+    "word": "暇",
+    "furigana": ["暇[ひま]"],
+    "english": ["not busy", "to have a lot of free time"],
+    "mnemonics": [],
+    "info": ["な-adjective"],
+    "particles": [],
+    "example_sentences": [],
+    "chapter": 5,
+    "videos": []
+  }
+]

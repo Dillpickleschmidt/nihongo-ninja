@@ -1,0 +1,236 @@
+[
+  {
+    "word": "会う",
+    "furigana": ["会[あ]う"],
+    "english": ["to meet", "to see (a person)"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [
+      {
+        "particle": "に"
+      }
+    ],
+    "example_sentences": [],
+    "chapter": 4,
+    "videos": []
+  },
+  {
+    "word": "ある",
+    "furigana": [],
+    "english": ["there is ..."],
+    "mnemonics": [],
+    "info": [],
+    "particles": [
+      {
+        "label": "place",
+        "particle": "に"
+      },
+      {
+        "label": "thing",
+        "particle": "が"
+      }
+    ],
+    "example_sentences": [],
+    "chapter": 4,
+    "videos": []
+  },
+  {
+    "word": "買う",
+    "furigana": ["買[か]う"],
+    "english": ["to buy"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [
+      {
+        "particle": "を"
+      }
+    ],
+    "example_sentences": [],
+    "chapter": 4,
+    "videos": []
+  },
+  {
+    "word": "書く",
+    "furigana": ["書[か]く"],
+    "english": ["to write"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [
+      {
+        "label": "person",
+        "particle": "に"
+      },
+      {
+        "label": "thing",
+        "particle": "を"
+      }
+    ],
+    "example_sentences": [],
+    "chapter": 4,
+    "videos": []
+  },
+  {
+    "word": "撮る",
+    "furigana": ["撮[と]る"],
+    "english": ["to take (a picture)"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [
+      {
+        "particle": "を"
+      }
+    ],
+    "example_sentences": [],
+    "chapter": 4,
+    "videos": []
+  },
+  {
+    "word": "待つ",
+    "furigana": ["待[ま]つ"],
+    "english": ["to wait"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [
+      {
+        "particle": "を"
+      }
+    ],
+    "example_sentences": [],
+    "chapter": 4,
+    "videos": []
+  },
+  {
+    "word": "分かる",
+    "furigana": ["分[わ]かる"],
+    "english": ["to understand"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [
+      {
+        "particle": "が"
+      }
+    ],
+    "example_sentences": [],
+    "chapter": 4,
+    "videos": []
+  },
+  {
+    "word": "いる",
+    "furigana": [],
+    "english": ["(a person) is in...", "stays at ..."],
+    "mnemonics": [],
+    "info": [],
+    "particles": [
+      {
+        "label": "place",
+        "particle": "に"
+      },
+      {
+        "label": "person",
+        "particle": "が"
+      }
+    ],
+    "example_sentences": [],
+    "chapter": 4,
+    "videos": []
+  },
+  {
+    "word": "～ぐらい",
+    "furigana": [],
+    "english": ["about (approximate measure)"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [],
+    "example_sentences": [],
+    "chapter": 4,
+    "videos": []
+  },
+  {
+    "word": "ごめんなさい",
+    "furigana": [],
+    "english": ["I'm sorry."],
+    "mnemonics": [],
+    "info": [],
+    "particles": [],
+    "example_sentences": [],
+    "chapter": 4,
+    "videos": []
+  },
+  {
+    "word": "それから",
+    "furigana": [],
+    "english": ["and then"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [],
+    "example_sentences": [],
+    "chapter": 4,
+    "videos": []
+  },
+  {
+    "word": "だから",
+    "furigana": [],
+    "english": ["so", "therefore"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [],
+    "example_sentences": [],
+    "chapter": 4,
+    "videos": []
+  },
+  {
+    "word": "たくさん",
+    "furigana": [],
+    "english": ["many", "a lot"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [],
+    "example_sentences": [],
+    "chapter": 4,
+    "videos": []
+  },
+  {
+    "word": "～と",
+    "furigana": [],
+    "english": ["together with (a person)"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [],
+    "example_sentences": [],
+    "chapter": 4,
+    "videos": []
+  },
+  {
+    "word": "どうして",
+    "furigana": [],
+    "english": ["why"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [],
+    "example_sentences": [],
+    "chapter": 4,
+    "videos": []
+  },
+  {
+    "word": "一人で",
+    "furigana": ["一[ひと]人[り]で"],
+    "english": ["alone"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [],
+    "example_sentences": [],
+    "chapter": 4,
+    "videos": []
+  },
+  {
+    "word": "もしもし",
+    "furigana": [],
+    "english": ["Hello? (used on the phone)"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [],
+    "example_sentences": [],
+    "chapter": 4,
+    "videos": []
+  }
+]

@@ -1,0 +1,158 @@
+[
+  {
+    "word": "歩く",
+    "furigana": ["歩[ある]く"],
+    "english": ["to walk"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [],
+    "example_sentences": [],
+    "chapter": 12,
+    "videos": []
+  },
+  {
+    "word": "風邪をひく",
+    "furigana": ["風邪[かぜ]をひく"],
+    "english": ["to catch a cold"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [
+      {
+        "particle": "を"
+      }
+    ],
+    "example_sentences": [],
+    "chapter": 12,
+    "videos": []
+  },
+  {
+    "word": "熱がある",
+    "furigana": ["熱[ねつ]がある"],
+    "english": ["to have a fever"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [
+      {
+        "particle": "が"
+      }
+    ],
+    "example_sentences": [],
+    "chapter": 12,
+    "videos": []
+  },
+  {
+    "word": "のどが渇く",
+    "furigana": ["のどが渇[かわ]く"],
+    "english": ["to become thirsty"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [
+      {
+        "particle": "が"
+      }
+    ],
+    "example_sentences": [],
+    "chapter": 12,
+    "videos": []
+  },
+  {
+    "word": "払う",
+    "furigana": ["払[はら]う"],
+    "english": ["to pay"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [
+      {
+        "particle": "を"
+      }
+    ],
+    "example_sentences": [],
+    "chapter": 12,
+    "videos": []
+  },
+  {
+    "word": "なくす",
+    "furigana": [],
+    "english": ["to lose"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [
+      {
+        "particle": "を"
+      }
+    ],
+    "example_sentences": [],
+    "chapter": 12,
+    "videos": []
+  },
+  {
+    "word": "興味がある",
+    "furigana": ["興味[きょうみ]がある"],
+    "english": ["to be interested (in ...)"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [
+      {
+        "particle": "に"
+      },
+      {
+        "particle": "が"
+      }
+    ],
+    "example_sentences": [],
+    "chapter": 12,
+    "videos": []
+  },
+  {
+    "word": "せきが出る",
+    "furigana": ["せきが出[で]る"],
+    "english": ["to cough"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [
+      {
+        "particle": "が"
+      }
+    ],
+    "example_sentences": [],
+    "chapter": 12,
+    "videos": []
+  },
+  {
+    "word": "別れる",
+    "furigana": ["別[わか]れる"],
+    "english": ["to break up", "to separate"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [
+      {
+        "particle": "と"
+      }
+    ],
+    "example_sentences": [],
+    "chapter": 12,
+    "videos": []
+  },
+  {
+    "word": "緊張する",
+    "furigana": ["緊[きん]張[ちょう]する"],
+    "english": ["to get nervous"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [],
+    "example_sentences": [],
+    "chapter": 12,
+    "videos": []
+  },
+  {
+    "word": "心配する",
+    "furigana": ["心[しん]配[ぱい]する"],
+    "english": ["to worry"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [],
+    "example_sentences": [],
+    "chapter": 12,
+    "videos": []
+  }
+]

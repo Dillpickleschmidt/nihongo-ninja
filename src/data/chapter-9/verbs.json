@@ -1,0 +1,163 @@
+[
+  {
+    "word": "踊る",
+    "furigana": ["踊[おど]る"],
+    "english": ["to dance"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [],
+    "example_sentences": [],
+    "chapter": 9,
+    "videos": []
+  },
+  {
+    "word": "終わる",
+    "furigana": ["終[お]わる"],
+    "english": ["(something) ends"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [
+      {
+        "particle": "が"
+      }
+    ],
+    "example_sentences": [],
+    "chapter": 9,
+    "videos": []
+  },
+  {
+    "word": "薬を飲む",
+    "furigana": ["薬[くすり]を飲[の]む"],
+    "english": ["to take medicine"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [
+      {
+        "particle": "を"
+      }
+    ],
+    "example_sentences": [],
+    "chapter": 9,
+    "videos": []
+  },
+  {
+    "word": "人気がある",
+    "furigana": ["人気[にんき]がある"],
+    "english": ["to be popular"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [
+      {
+        "particle": "が"
+      }
+    ],
+    "example_sentences": [],
+    "chapter": 9,
+    "videos": []
+  },
+  {
+    "word": "始まる",
+    "furigana": ["始[はじ]まる"],
+    "english": ["(something) begins"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [
+      {
+        "particle": "が"
+      }
+    ],
+    "example_sentences": [],
+    "chapter": 9,
+    "videos": []
+  },
+  {
+    "word": "弾く",
+    "furigana": ["弾[ひ]く"],
+    "english": ["to play (a string instrument or piano)"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [
+      {
+        "particle": "を"
+      }
+    ],
+    "example_sentences": [],
+    "chapter": 9,
+    "videos": []
+  },
+  {
+    "word": "もらう",
+    "furigana": [],
+    "english": ["to get (from somebody)"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [
+      {
+        "label": "person",
+        "particle": "に"
+      },
+      {
+        "label": "thing",
+        "particle": "を"
+      }
+    ],
+    "example_sentences": [],
+    "chapter": 9,
+    "videos": []
+  },
+  {
+    "word": "覚える",
+    "furigana": ["覚[おぼ]える"],
+    "english": ["to memorize"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [
+      {
+        "particle": "を"
+      }
+    ],
+    "example_sentences": [],
+    "chapter": 9,
+    "videos": []
+  },
+  {
+    "word": "出る",
+    "furigana": ["出[で]る"],
+    "english": ["to appear", "to attend", "to exit"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [
+      {
+        "particle": "に"
+      },
+      {
+        "particle": "を"
+      }
+    ],
+    "example_sentences": [],
+    "chapter": 9,
+    "videos": []
+  },
+  {
+    "word": "運動する",
+    "furigana": ["運動[うんどう]する"],
+    "english": ["to do physical exercises"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [],
+    "example_sentences": [],
+    "chapter": 9,
+    "videos": []
+  },
+  {
+    "word": "散歩する",
+    "furigana": ["散歩[さんぽ]する"],
+    "english": ["to take a walk"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [],
+    "example_sentences": [],
+    "chapter": 9,
+    "videos": []
+  }
+]

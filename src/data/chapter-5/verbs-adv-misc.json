@@ -1,0 +1,136 @@
+[
+  {
+    "word": "泳ぐ",
+    "furigana": ["泳[およ]ぐ"],
+    "english": ["to swim"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [],
+    "example_sentences": [],
+    "chapter": 5,
+    "videos": []
+  },
+  {
+    "word": "聞く",
+    "furigana": ["聞[き]く"],
+    "english": ["to ask"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [
+      {
+        "label": "person",
+        "particle": "に"
+      }
+    ],
+    "example_sentences": [],
+    "chapter": 5,
+    "videos": []
+  },
+  {
+    "word": "乗る",
+    "furigana": ["乗[の]る"],
+    "english": ["to ride", "to board"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [
+      {
+        "particle": "に"
+      }
+    ],
+    "example_sentences": [],
+    "chapter": 5,
+    "videos": []
+  },
+  {
+    "word": "やる",
+    "furigana": [],
+    "english": ["to do", "to perform"],
+    "mnemonics": [],
+    "info": ["(less formal)"],
+    "particles": [
+      {
+        "particle": "を"
+      }
+    ],
+    "example_sentences": [],
+    "chapter": 5,
+    "videos": []
+  },
+  {
+    "word": "出かける",
+    "furigana": ["出[で]かける"],
+    "english": ["to go out"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [],
+    "example_sentences": [],
+    "chapter": 5,
+    "videos": []
+  },
+  {
+    "word": "一緒に",
+    "furigana": ["一[いっ]緒[しょ]に"],
+    "english": ["together"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [],
+    "example_sentences": [],
+    "chapter": 5,
+    "videos": []
+  },
+  {
+    "word": "すごく",
+    "furigana": [],
+    "english": ["extremely"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [],
+    "example_sentences": [],
+    "chapter": 5,
+    "videos": []
+  },
+  {
+    "word": "大丈夫",
+    "furigana": ["大[だい]丈[じょう]夫[ぶ]"],
+    "english": ["It's okay.", "Not to worry.", "Everything is under control."],
+    "mnemonics": [],
+    "info": [],
+    "particles": [],
+    "example_sentences": [],
+    "chapter": 5,
+    "videos": []
+  },
+  {
+    "word": "とても",
+    "furigana": [],
+    "english": ["very"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [],
+    "example_sentences": [],
+    "chapter": 5,
+    "videos": []
+  },
+  {
+    "word": "どんな",
+    "furigana": [],
+    "english": ["what kind of ..."],
+    "mnemonics": [],
+    "info": [],
+    "particles": [],
+    "example_sentences": [],
+    "chapter": 5,
+    "videos": []
+  },
+  {
+    "word": "〜枚",
+    "furigana": ["〜 枚[まい]"],
+    "english": ["[counter for flat objects]"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [],
+    "example_sentences": [],
+    "chapter": 5,
+    "videos": []
+  }
+]

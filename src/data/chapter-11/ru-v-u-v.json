@@ -1,0 +1,144 @@
+[
+  {
+    "word": "うそをつく",
+    "furigana": [],
+    "english": ["to tell a lie"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [
+      {
+        "particle": "を"
+      }
+    ],
+    "example_sentences": [],
+    "chapter": 11,
+    "videos": []
+  },
+  {
+    "word": "おなかがすく",
+    "furigana": [],
+    "english": ["to become hungry"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [
+      {
+        "particle": "が"
+      }
+    ],
+    "example_sentences": [],
+    "chapter": 11,
+    "videos": []
+  },
+  {
+    "word": "飼う",
+    "furigana": ["飼[か]う"],
+    "english": ["to own (a pet)"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [
+      {
+        "particle": "を"
+      }
+    ],
+    "example_sentences": [],
+    "chapter": 11,
+    "videos": []
+  },
+  {
+    "word": "サボる",
+    "furigana": [],
+    "english": ["to cut (classes)"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [
+      {
+        "particle": "を"
+      }
+    ],
+    "example_sentences": [],
+    "chapter": 11,
+    "videos": []
+  },
+  {
+    "word": "取る",
+    "furigana": ["取[と]る"],
+    "english": ["to take (a class)", "to get (a grade)"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [
+      {
+        "particle": "を"
+      }
+    ],
+    "example_sentences": [],
+    "chapter": 11,
+    "videos": []
+  },
+  {
+    "word": "習う",
+    "furigana": ["習[なら]う"],
+    "english": ["to learn"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [
+      {
+        "particle": "を"
+      }
+    ],
+    "example_sentences": [],
+    "chapter": 11,
+    "videos": []
+  },
+  {
+    "word": "登る",
+    "furigana": ["登[のぼ]る"],
+    "english": ["to climb"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [
+      {
+        "particle": "に"
+      }
+    ],
+    "example_sentences": [],
+    "chapter": 11,
+    "videos": []
+  },
+  {
+    "word": "走る",
+    "furigana": ["走[はし]る"],
+    "english": ["to run"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [],
+    "example_sentences": [],
+    "chapter": 11,
+    "videos": []
+  },
+  {
+    "word": "疲れる",
+    "furigana": ["疲[つか]れる"],
+    "english": ["to get tired"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [],
+    "example_sentences": [],
+    "chapter": 11,
+    "videos": []
+  },
+  {
+    "word": "やめる",
+    "furigana": [],
+    "english": ["to quit"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [
+      {
+        "particle": "を"
+      }
+    ],
+    "example_sentences": [],
+    "chapter": 11,
+    "videos": []
+  }
+]

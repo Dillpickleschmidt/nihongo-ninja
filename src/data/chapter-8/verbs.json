@@ -1,0 +1,219 @@
+[
+  {
+    "word": "洗う",
+    "furigana": ["洗[あら]う"],
+    "english": ["to wash"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [
+      {
+        "particle": "を"
+      }
+    ],
+    "example_sentences": [],
+    "chapter": 8,
+    "videos": []
+  },
+  {
+    "word": "言う",
+    "furigana": ["言[い]う"],
+    "english": ["to say"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [
+      {
+        "particle": "と"
+      }
+    ],
+    "example_sentences": [],
+    "chapter": 8,
+    "videos": []
+  },
+  {
+    "word": "いる",
+    "furigana": [],
+    "english": ["to need"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [
+      {
+        "particle": "が"
+      }
+    ],
+    "example_sentences": [],
+    "chapter": 8,
+    "videos": []
+  },
+  {
+    "word": "遅くなる",
+    "furigana": ["遅[おそ]くなる"],
+    "english": ["to be late"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [],
+    "example_sentences": [],
+    "chapter": 8,
+    "videos": []
+  },
+  {
+    "word": "お風呂に入る",
+    "furigana": ["お風呂[ふろ]に入[はい]る"],
+    "english": ["to take a bath"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [
+      {
+        "particle": "に"
+      }
+    ],
+    "example_sentences": [],
+    "chapter": 8,
+    "videos": []
+  },
+  {
+    "word": "思う",
+    "furigana": ["思[おも]う"],
+    "english": ["to think"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [
+      {
+        "particle": "と"
+      }
+    ],
+    "example_sentences": [],
+    "chapter": 8,
+    "videos": []
+  },
+  {
+    "word": "切る",
+    "furigana": ["切[き]る"],
+    "english": ["to cut"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [
+      {
+        "particle": "を"
+      }
+    ],
+    "example_sentences": [],
+    "chapter": 8,
+    "videos": []
+  },
+  {
+    "word": "作る",
+    "furigana": ["作[つく]る"],
+    "english": ["to make"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [
+      {
+        "particle": "を"
+      }
+    ],
+    "example_sentences": [],
+    "chapter": 8,
+    "videos": []
+  },
+  {
+    "word": "降る",
+    "furigana": ["降[ふ]る"],
+    "english": ["(rain/snow) falls"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [
+      {
+        "particle": "が"
+      }
+    ],
+    "example_sentences": [],
+    "chapter": 8,
+    "videos": []
+  },
+  {
+    "word": "捨てる",
+    "furigana": ["捨[す]てる"],
+    "english": ["to throw away"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [
+      {
+        "particle": "を"
+      }
+    ],
+    "example_sentences": [],
+    "chapter": 8,
+    "videos": []
+  },
+  {
+    "word": "始める",
+    "furigana": ["始[はじ]める"],
+    "english": ["to begin"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [
+      {
+        "particle": "を"
+      }
+    ],
+    "example_sentences": [],
+    "chapter": 8,
+    "videos": []
+  },
+  {
+    "word": "運転する",
+    "furigana": ["運転[うんてん]する"],
+    "english": ["to drive"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [
+      {
+        "particle": "を"
+      }
+    ],
+    "example_sentences": [],
+    "chapter": 8,
+    "videos": []
+  },
+  {
+    "word": "洗濯する",
+    "furigana": ["洗濯[せんたく]する"],
+    "english": ["to do laundry"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [
+      {
+        "particle": "を"
+      }
+    ],
+    "example_sentences": [],
+    "chapter": 8,
+    "videos": []
+  },
+  {
+    "word": "掃除する",
+    "furigana": ["掃除[そうじ]する"],
+    "english": ["to clean"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [
+      {
+        "particle": "を"
+      }
+    ],
+    "example_sentences": [],
+    "chapter": 8,
+    "videos": []
+  },
+  {
+    "word": "料理する",
+    "furigana": ["料理[りょうり]する"],
+    "english": ["to cook"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [],
+    "example_sentences": [],
+    "chapter": 8,
+    "videos": []
+  }
+]

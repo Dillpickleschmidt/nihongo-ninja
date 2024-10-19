@@ -1,0 +1,178 @@
+[
+  {
+    "word": "新しい",
+    "furigana": ["新[あたら]しい"],
+    "english": ["new"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [],
+    "example_sentences": [],
+    "chapter": 5,
+    "videos": []
+  },
+  {
+    "word": "古い",
+    "furigana": ["古[ふる]い"],
+    "english": ["old (object, cannot be used for a person or an animal)"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [],
+    "example_sentences": [],
+    "chapter": 5,
+    "videos": []
+  },
+  {
+    "word": "暑い",
+    "furigana": ["暑[あつ]い"],
+    "english": ["hot (weather)"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [],
+    "example_sentences": [],
+    "chapter": 5,
+    "videos": []
+  },
+  {
+    "word": "寒い",
+    "furigana": ["寒[さむ]い"],
+    "english": ["cold (weather)"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [],
+    "example_sentences": [],
+    "chapter": 5,
+    "videos": []
+  },
+  {
+    "word": "熱い",
+    "furigana": ["熱[あつ]い"],
+    "english": ["hot (object)"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [],
+    "example_sentences": [],
+    "chapter": 5,
+    "videos": []
+  },
+  {
+    "word": "忙しい",
+    "furigana": ["忙[いそが]しい"],
+    "english": ["busy (people/days)"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [],
+    "example_sentences": [],
+    "chapter": 5,
+    "videos": []
+  },
+  {
+    "word": "大きい",
+    "furigana": ["大[おお]きい"],
+    "english": ["large"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [],
+    "example_sentences": [],
+    "chapter": 5,
+    "videos": []
+  },
+  {
+    "word": "小さい",
+    "furigana": ["小[ちい]さい"],
+    "english": ["small"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [],
+    "example_sentences": [],
+    "chapter": 5,
+    "videos": []
+  },
+  {
+    "word": "面白い",
+    "furigana": ["面[おも]白[しろ]い"],
+    "english": ["interesting", "funny"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [],
+    "example_sentences": [],
+    "chapter": 5,
+    "videos": []
+  },
+  {
+    "word": "つまらない",
+    "furigana": [],
+    "english": ["boring"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [],
+    "example_sentences": [],
+    "chapter": 5,
+    "videos": []
+  },
+  {
+    "word": "やさしい",
+    "furigana": [],
+    "english": ["kind (person)", "easy (problem)"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [],
+    "example_sentences": [],
+    "chapter": 5,
+    "videos": []
+  },
+  {
+    "word": "難しい",
+    "furigana": ["難[むずか]しい"],
+    "english": ["difficult"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [],
+    "example_sentences": [],
+    "chapter": 5,
+    "videos": []
+  },
+  {
+    "word": "かっこいい",
+    "furigana": [],
+    "english": ["good-looking", "cool"],
+    "mnemonics": [],
+    "info": ["conjugates like いい"],
+    "particles": [],
+    "example_sentences": [],
+    "chapter": 5,
+    "videos": []
+  },
+  {
+    "word": "怖い",
+    "furigana": ["怖[こわ]い"],
+    "english": ["frightening"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [],
+    "example_sentences": [],
+    "chapter": 5,
+    "videos": []
+  },
+  {
+    "word": "楽しい",
+    "furigana": ["楽[たの]しい"],
+    "english": ["fun"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [],
+    "example_sentences": [],
+    "chapter": 5,
+    "videos": []
+  },
+  {
+    "word": "安い",
+    "furigana": ["安[やす]い"],
+    "english": ["cheap", "inexpensive"],
+    "mnemonics": [],
+    "info": [],
+    "particles": [],
+    "example_sentences": [],
+    "chapter": 5,
+    "videos": []
+  }
+]
