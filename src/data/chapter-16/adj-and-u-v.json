@@ -13,7 +13,7 @@
         "english": "These clothes are dirty, so let's wash them."
       }
     ],
-    "chapter": 1
+    "chapter": 16
   },
   {
     "word": "起こす",
@@ -22,14 +22,22 @@
     "mnemonics": [
       "起 (o) means 'wake up', こす (kosu) sounds like 'coax' - coaxing someone to wake up"
     ],
-    "info": ["（～を） indicates the object being woken up"],
+    "info": [
+      "Transitive verb (V.T.)",
+      "Compare with intransitive verb (V.I.) 起きる (to wake up)"
+    ],
+    "particles": [
+      {
+        "particle": "を"
+      }
+    ],
     "example_sentences": [
       {
         "japanese": "朝、弟を起こします。",
         "english": "I wake up my younger brother in the morning."
       }
     ],
-    "chapter": 1
+    "chapter": 16
   },
   {
     "word": "おごる",
@@ -39,7 +47,17 @@
       "Sounds like 'o-go-ru', which could remind you of 'go out' for a meal"
     ],
     "info": [
-      "（person に meal を) indicates the person being treated and the meal"
+      "Common mistake: ❌️晩ごはんを買ってあげる (Don't use 買う when treating someone)"
+    ],
+    "particles": [
+      {
+        "label": "person",
+        "particle": "に"
+      },
+      {
+        "label": "meal",
+        "particle": "を"
+      }
     ],
     "example_sentences": [
       {
@@ -47,7 +65,7 @@
         "english": "I treated my friend to lunch."
       }
     ],
-    "chapter": 1
+    "chapter": 16
   },
   {
     "word": "笑う",
@@ -56,14 +74,23 @@
     "mnemonics": [
       "笑 (wara) looks like a person laughing with their mouth open"
     ],
-    "info": [],
+    "info": [
+      "Different types of laughter:",
+      "アハハと笑う (to laugh 'ahaha')",
+      "ガハハと笑う (to burst into laughter)",
+      "ウフフと笑う (to giggle)",
+      "エヘヘと笑う (embarrassed grin)",
+      "ニコニコ笑う (to smile)",
+      "ニコッと笑う (to grin)",
+      "クスッと笑う (to chuckle)"
+    ],
     "example_sentences": [
       {
         "japanese": "面白い話を聞いて、みんなが笑いました。",
         "english": "Everyone laughed after hearing the funny story."
       }
     ],
-    "chapter": 1
+    "chapter": 16
   },
   {
     "word": "落ち込む",
@@ -72,19 +99,22 @@
     "mnemonics": [
       "落ち (ochi) means 'fall', 込む (komu) means 'go into' - falling into a low mood"
     ],
-    "info": [],
+    "info": [
+      "落ち込む means 'to GET depressed'",
+      "落ち込んでいる means 'to be depressed' (ongoing state)"
+    ],
     "example_sentences": [
       {
         "japanese": "試験に失敗して、落ち込んでいます。",
         "english": "I'm feeling depressed because I failed the exam."
       }
     ],
-    "chapter": 1
+    "chapter": 16
   },
   {
     "word": "困る",
     "furigana": ["困[こま]る"],
-    "english": ["to have difficulty"],
+    "english": ["to have difficulty", "to have troubles"],
     "mnemonics": [
       "困 (koma) looks like a box (囗) with a tree (木) inside - being trapped in a difficult situation"
     ],
@@ -95,7 +125,7 @@
         "english": "I'm having difficulty because I don't have money."
       }
     ],
-    "chapter": 1
+    "chapter": 16
   },
   {
     "word": "出す",
@@ -104,14 +134,21 @@
     "mnemonics": [
       "出 (da) looks like a mountain with something coming out of it"
     ],
-    "info": ["（～を） indicates the object being taken out or handed in"],
+    "info": [
+      "Common uses: 宿題を出す (to hand in homework), ごみを出す (to take out the garbage)"
+    ],
+    "particles": [
+      {
+        "particle": "を"
+      }
+    ],
     "example_sentences": [
       {
         "japanese": "かばんから本を出しました。",
         "english": "I took out a book from my bag."
       }
     ],
-    "chapter": 1
+    "chapter": 16
   },
   {
     "word": "直す",
@@ -120,14 +157,21 @@
     "mnemonics": [
       "直 (nao) means 'straight/direct' - making something right again"
     ],
-    "info": ["（～を） indicates the object being corrected or fixed"],
+    "info": [
+      "Common uses: 宿題を直す (to correct homework), 家具を直す (to fix furniture)"
+    ],
+    "particles": [
+      {
+        "particle": "を"
+      }
+    ],
     "example_sentences": [
       {
         "japanese": "先生が宿題の間違いを直してくれました。",
         "english": "The teacher corrected the mistakes in my homework."
       }
     ],
-    "chapter": 1
+    "chapter": 16
   },
   {
     "word": "見つかる",
@@ -136,14 +180,26 @@
     "mnemonics": [
       "見 (mi) means 'see', つかる (tsukaru) sounds like 'tsukamu' (grasp) - seeing and grasping something"
     ],
-    "info": ["（～が） indicates the thing being found"],
+    "info": [
+      "Intransitive verb (V.I.)",
+      "Related: 見つける (V.T., to find, item-focused), 探す (V.T., to search, action-focused)"
+    ],
+    "particles": [
+      {
+        "particle": "が"
+      }
+    ],
     "example_sentences": [
       {
         "japanese": "なくした財布が見つかりました。",
         "english": "The wallet I lost was found."
+      },
+      {
+        "japanese": "私はずっと仕事を探していた。そして、やっと仕事が見つかった！",
+        "english": "I had been looking for a job for a long time. Finally, I found one!"
       }
     ],
-    "chapter": 1
+    "chapter": 16
   },
   {
     "word": "訳す",
@@ -153,7 +209,17 @@
       "訳 (yaku) means 'translate/meaning', す (su) is a verb ending"
     ],
     "info": [
-      "（source を target  に） indicates the source and target languages"
+      "Kanji breakdown: 言 (say) + 尺 (measure) - measuring what is said in another language"
+    ],
+    "particles": [
+      {
+        "label": "source",
+        "particle": "を"
+      },
+      {
+        "label": "target",
+        "particle": "に"
+      }
     ],
     "example_sentences": [
       {
@@ -161,7 +227,7 @@
         "english": "I translated this text from Japanese to English."
       }
     ],
-    "chapter": 1
+    "chapter": 16
   },
   {
     "word": "貸す",
@@ -170,8 +236,16 @@
     "mnemonics": [
       "貸 (ka) has the money radical (貝), implying lending money or valuables"
     ],
-    "info": [
-      "（person に thing を） indicates the person being lent to and the thing being lent"
+    "info": ["Opposite: 借りる (to borrow)"],
+    "particles": [
+      {
+        "label": "person",
+        "particle": "に"
+      },
+      {
+        "label": "thing",
+        "particle": "を"
+      }
     ],
     "example_sentences": [
       {
@@ -179,15 +253,23 @@
         "english": "I lent a book to my friend."
       }
     ],
-    "chapter": 1
+    "chapter": 16
   },
   {
     "word": "連れていく",
     "furigana": ["連[つ]れていく"],
     "english": ["to take (someone) to (a place)"],
     "mnemonics": ["連 (tsu) means 'take along', いく (iku) means 'go'"],
-    "info": [
-      "（person を place に） indicates the person being taken and the destination"
+    "info": ["Opposite: 連れてくる (to bring someone)"],
+    "particles": [
+      {
+        "label": "person",
+        "particle": "を"
+      },
+      {
+        "label": "place",
+        "particle": "に"
+      }
     ],
     "example_sentences": [
       {
@@ -195,7 +277,7 @@
         "english": "I'm taking the children to the zoo."
       }
     ],
-    "chapter": 1
+    "chapter": 16
   },
   {
     "word": "道に迷う",
@@ -209,7 +291,7 @@
         "english": "I got lost in the new town."
       }
     ],
-    "chapter": 1
+    "chapter": 16
   },
   {
     "word": "迎えに行く",
@@ -218,15 +300,31 @@
     "mnemonics": [
       "迎え (mukae) means 'to meet/greet', 行く (iku) means 'to go'"
     ],
-    "info": [
-      "（place まで/に person を） indicates the place and person being picked up"
+    "info": ["Opposite: 迎えに来る (to come to pick up)"],
+    "particles": [
+      {
+        "label": "place",
+        "particle": "まで"
+      },
+      {
+        "label": "place",
+        "particle": "に"
+      },
+      {
+        "label": "person",
+        "particle": "を"
+      }
     ],
     "example_sentences": [
       {
         "japanese": "駅まで友達を迎えに行きます。",
         "english": "I'm going to the station to pick up my friend."
+      },
+      {
+        "japanese": "子どもを学校まで車で迎えに行く",
+        "english": "to go pick up the child at school by car"
       }
     ],
-    "chapter": 1
+    "chapter": 16
   }
 ]
