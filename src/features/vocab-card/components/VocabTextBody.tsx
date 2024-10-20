@@ -11,6 +11,31 @@ export default function VocabTextBody(props: VocabTextBodyProps) {
   return (
     <>
       <div class="min-h-32">
+        {item.particles && (
+          <ul class="pb-4 text-xl">
+            <For each={item.particles}>
+              {(object) => (
+                <>
+                  {object.label ? (
+                    <li class="font-bold">
+                      {object.label} -{" "}
+                      <span class="font-japanese text-2xl">
+                        {object.particle}
+                      </span>
+                    </li>
+                  ) : (
+                    <li class="font-bold">
+                      Particle:{" "}
+                      <span class="font-japanese text-2xl">
+                        {object.particle}
+                      </span>
+                    </li>
+                  )}
+                </>
+              )}
+            </For>
+          </ul>
+        )}
         <For each={item.mnemonics}>
           {(mnemonic, idx) => (
             <p class="space-y-6">

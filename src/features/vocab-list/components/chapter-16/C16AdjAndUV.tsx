@@ -6,7 +6,7 @@ import VocabTable from "../VocabTable"
 
 export default function C16AdjAndUV() {
   const [data] = createResource<RichVocabItem[]>(async () => {
-    const rawData = await getVocabularyByPath("chapter-16/adj-and-ru-v")
+    const rawData = await getVocabularyByPath("chapter-16/adj-and-u-v")
     return addKanaAndRuby(rawData, "", true)
   })
 
