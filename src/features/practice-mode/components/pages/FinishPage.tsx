@@ -19,7 +19,7 @@ export default function FinishPage() {
         <h1 class="text-center text-5xl font-semibold">
           You've finished this deck!
         </h1>
-        <div class="mt-2 text-4xl">🎉</div>
+        <div class="mt-2 text-center text-4xl">🎉</div>
       </div>
       <div class="pb-28 lg:mx-48 2xl:mx-96">
         <For each={context.store.data}>

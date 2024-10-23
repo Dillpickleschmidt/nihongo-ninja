@@ -1,8 +1,9 @@
-import { For, Show } from "solid-js"
+import { For, onMount, Show } from "solid-js"
 import { TextField, TextFieldRoot } from "@/components/ui/textfield"
 import { TextArea } from "@/components/ui/textarea"
 import PrintButton from "@/components/PrintButton"
 import { Title } from "@solidjs/meta"
+import { createSignal } from "solid-js"
 
 const TableCell = (props: { class?: string; children: any }) => (
   <td
@@ -83,8 +84,13 @@ const TableRow = (props: { isFirstRow?: boolean }) => (
 )
 
 export default function Page() {
-  let printContent: HTMLDivElement
+  const [printContent, setPrintContent] = createSignal<HTMLDivElement>()
+  const [isMounted, setIsMounted] = createSignal(false)
   const formItems = ["Lesson:", "Section:", "名前:"]
+
+  onMount(() => {
+    setIsMounted(true)
+  })
 
   return (
     <>
@@ -113,9 +119,7 @@ export default function Page() {
         <div class="origin-top-left scale-50 lg:scale-75 2xl:scale-100">
           <div class="min-h-screen min-w-[1780px] pb-28 pt-8 sm:px-16 md:px-24 lg:px-12">
             <div
-              ref={(el) => {
-                printContent = el // el is created but not yet added to the DOM
-              }}
+              ref={setPrintContent}
               class="print:bg relative flex w-full flex-col items-center border-2 border-card bg-background p-20 font-japanese print:border-none print:text-black"
             >
               <div class="absolute top-4 italic print:hidden">
@@ -125,8 +129,8 @@ export default function Page() {
                 <h2 class="mb-1 mr-2 font-bold italic text-card-foreground print:hidden">
                   CLICK TO PRINT {"->"}
                 </h2>
-                <Show when={printContent!}>
-                  <PrintButton ref={() => printContent} buttonSize={48} />
+                <Show when={isMounted() && printContent()}>
+                  <PrintButton ref={printContent} buttonSize={48} />
                 </Show>
               </div>
               <div class="flex items-end">
