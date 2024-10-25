@@ -14,7 +14,10 @@
     "furigana": ["お客[きゃく]さん"],
     "english": ["guest", "visitor", "client", "customer"],
     "mnemonics": [],
-    "info": [],
+    "info": [
+      "客 (きゃく) is the blunt, descriptive version of お客さん",
+      "お客様 (おきゃくさま) is the polite version"
+    ],
     "example_sentences": [],
     "chapter": null,
     "category": "noun"
@@ -24,7 +27,7 @@
     "furigana": ["首相[しゅしょう]"],
     "english": ["prime minister"],
     "mnemonics": [],
-    "info": [],
+    "info": ["Also known as 総理大臣（そうりだいじん）"],
     "example_sentences": [],
     "chapter": null,
     "category": "noun"
@@ -44,7 +47,9 @@
     "furigana": ["給料[きゅうりょう]"],
     "english": ["salary"],
     "mnemonics": [],
-    "info": [],
+    "info": [
+      "The 料 in 給料 is also used in 授業料（じゅぎょうりょう）-> tuition"
+    ],
     "example_sentences": [],
     "chapter": null,
     "category": "noun"
@@ -54,7 +59,7 @@
     "furigana": ["残業[ざんぎょう]"],
     "english": ["overtime work"],
     "mnemonics": [],
-    "info": [],
+    "info": ["Literally means \"work that remains\""],
     "example_sentences": [],
     "chapter": null,
     "category": "noun"
@@ -114,7 +119,7 @@
     "furigana": ["宝[たから]くじ"],
     "english": ["lottery"],
     "mnemonics": [],
-    "info": [],
+    "info": ["宝 means treasure"],
     "example_sentences": [],
     "chapter": null,
     "category": "noun"
@@ -124,7 +129,10 @@
     "furigana": ["紙[かみ]"],
     "english": ["paper"],
     "mnemonics": [],
-    "info": [],
+    "info": [
+      "Found in 折り紙（おりがみ）(origami)",
+      "折る means to fold or to break sticks into pieces"
+    ],
     "example_sentences": [],
     "chapter": null,
     "category": "noun"

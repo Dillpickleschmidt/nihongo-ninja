@@ -4,7 +4,7 @@
     "furigana": ["お湯[ゆ]"],
     "english": ["hot water"],
     "mnemonics": [],
-    "info": [],
+    "info": ["Do not say 熱い水 for hot water"],
     "example_sentences": [],
     "chapter": null,
     "category": "noun"
@@ -30,11 +30,11 @@
     "category": "noun"
   },
   {
-    "word": "ニューズ",
-    "furigana": ["ニューズ"],
+    "word": "ニュース",
+    "furigana": ["ニュース"],
     "english": ["news"],
     "mnemonics": [],
-    "info": [],
+    "info": ["Correct spelling is ニュース, not ニューズ"],
     "example_sentences": [],
     "chapter": null,
     "category": "noun"
@@ -84,8 +84,17 @@
     "furigana": ["違[ちが]い"],
     "english": ["difference"],
     "mnemonics": [],
-    "info": [],
-    "example_sentences": [],
+    "info": [
+      "Related verb: 違う (to be different)",
+      "Do not say 違いです",
+      "Compare with: どう違うと思いますか。-> How do you think it's different?"
+    ],
+    "example_sentences": [
+      {
+        "japanese": "どんな違いがあると思いますか。",
+        "english": "What differences do you think there are?"
+      }
+    ],
     "chapter": null,
     "category": "noun"
   },
@@ -94,7 +103,7 @@
     "furigana": ["秘密[ひみつ]"],
     "english": ["secret"],
     "mnemonics": [],
-    "info": [],
+    "info": ["Common phrase: 秘密を守る (keep the secret)"],
     "example_sentences": [],
     "chapter": null,
     "category": "noun"

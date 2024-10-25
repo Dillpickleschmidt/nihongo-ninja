@@ -24,7 +24,13 @@
     "furigana": ["少[すく]ない"],
     "english": ["a little", "a few"],
     "mnemonics": [],
-    "info": [],
+    "info": [
+      "Opposite: 多い",
+      "Related: 少し",
+      "Usage notes:",
+      "❌多い人 ⭕️多くの人 ⭕️人が多い",
+      "❌少ない人 ⭕️人が少ない"
+    ],
     "example_sentences": [],
     "chapter": null,
     "category": "i-adj"
@@ -44,7 +50,10 @@
     "furigana": ["強[つよ]い"],
     "english": ["strong"],
     "mnemonics": [],
-    "info": [],
+    "info": [
+      "Opposite: 弱い",
+      "Related: 勉強 - makes you strong and powerful!"
+    ],
     "example_sentences": [],
     "chapter": null,
     "category": "i-adj"
@@ -55,7 +64,12 @@
     "english": ["the worst"],
     "mnemonics": [],
     "info": [],
-    "example_sentences": [],
+    "example_sentences": [
+      {
+        "japanese": "最悪なパターン",
+        "english": "Worst pattern/scenario"
+      }
+    ],
     "chapter": null,
     "category": "na-adj"
   },
@@ -64,8 +78,23 @@
     "furigana": ["ずいぶん"],
     "english": ["very"],
     "mnemonics": [],
-    "info": [],
-    "example_sentences": [],
+    "info": [
+      "Implies something exceeds expectations or normal standards",
+      "Often carries a nuance of surprise or being impressed",
+      "Can have either positive or negative connotations depending on context",
+      "More subjective and emotional than とても",
+      "Often used when there's a notable change or difference from a previous state"
+    ],
+    "example_sentences": [
+      {
+        "japanese": "ずいぶん痩せましたね。",
+        "english": "You've lost quite a lot of weight! (implying more than expected)"
+      },
+      {
+        "japanese": "最近、ずいぶん寒くなってきた。",
+        "english": "It's gotten considerably colder lately. (noting a significant change)"
+      }
+    ],
     "chapter": null,
     "category": "adverb"
   },
@@ -114,7 +143,7 @@
     "furigana": ["やっぱり"],
     "english": ["after all"],
     "mnemonics": [],
-    "info": [],
+    "info": ["Formal version: やはり"],
     "example_sentences": [],
     "chapter": null,
     "category": "adverb"

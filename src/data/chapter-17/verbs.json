@@ -4,7 +4,7 @@
     "furigana": ["選[えら]ぶ"],
     "english": ["to choose", "to select"],
     "mnemonics": [],
-    "info": [],
+    "info": ["Related word: 選挙(せんきょ) meaning election"],
     "example_sentences": [],
     "chapter": null,
     "category": "godan-v",
@@ -68,7 +68,11 @@
     "furigana": ["脱[ぬ]ぐ"],
     "english": ["to take off (clothes)"],
     "mnemonics": [],
-    "info": [],
+    "info": [
+      "Used in pairs with wearing verbs:",
+      "シャツを着る、脱ぐ (for shirts)",
+      "ブーツをはく、ブーツを脱ぐ (for boots)"
+    ],
     "example_sentences": [],
     "chapter": null,
     "category": "godan-v",
@@ -84,8 +88,13 @@
     "furigana": ["混[こ]む"],
     "english": ["to get crowded"],
     "mnemonics": [],
-    "info": [],
-    "example_sentences": [],
+    "info": ["Used to describe traffic: (道が）混んでいる (there is traffic)"],
+    "example_sentences": [
+      {
+        "japanese": "道が混んでいる",
+        "english": "There is traffic"
+      }
+    ],
     "chapter": null,
     "category": "godan-v",
     "particles": [
@@ -126,7 +135,10 @@
     "furigana": ["生[う]まれる"],
     "english": ["to be born"],
     "mnemonics": [],
-    "info": [],
+    "info": [
+      "Intransitive verb (v.i.)",
+      "Related: 生む (v.t., transitive version)"
+    ],
     "example_sentences": [],
     "chapter": null,
     "category": "ichidan-v",
@@ -159,7 +171,12 @@
     "english": ["to be sufficient", "to be enough"],
     "mnemonics": [],
     "info": [],
-    "example_sentences": [],
+    "example_sentences": [
+      {
+        "japanese": "時間が足りない",
+        "english": "There isn't enough time"
+      }
+    ],
     "chapter": null,
     "category": "ichidan-v",
     "particles": [
@@ -190,7 +207,12 @@
     "furigana": ["お祈[いの]りする"],
     "english": ["to pray"],
     "mnemonics": [],
-    "info": [],
+    "info": [
+      "General term for praying in any context",
+      "お参（まい）りする specifically means to visit and worship at a religious site (temple/shrine)",
+      "お祈りする - can be done anywhere (home, church, etc.)",
+      "お参りする - involves physically going to a religious location and performing specific rituals"
+    ],
     "example_sentences": [],
     "chapter": null,
     "category": "suru-v",
@@ -202,21 +224,15 @@
     ]
   },
   {
-    "word": "化粧する",
-    "furigana": ["化粧[けしょう]する"],
-    "english": ["to put makeup on"],
-    "mnemonics": [],
-    "info": [],
-    "example_sentences": [],
-    "chapter": null,
-    "category": "suru-v"
-  },
-  {
     "word": "就職する",
     "furigana": ["就職[しゅうしょく]する"],
     "english": ["to get a full-time job"],
     "mnemonics": [],
-    "info": ["Used when specifying the company with に particle"],
+    "info": [
+      "Similar expressions:",
+      "〜で働く (to work at)",
+      "〜に務める (to work for/serve at)"
+    ],
     "example_sentences": [],
     "chapter": null,
     "category": "suru-v",
@@ -231,7 +247,7 @@
     "word": "離婚する",
     "furigana": ["離婚[りこん]する"],
     "english": ["to get a divorce"],
-    "mnemonics": [],
+    "mnemonics": ["The 婚 character is the same as in 結婚 (marriage)"],
     "info": [],
     "example_sentences": [],
     "chapter": null,
@@ -240,22 +256,6 @@
       {
         "label": "person",
         "particle": "と"
-      }
-    ]
-  },
-  {
-    "word": "する",
-    "furigana": ["する"],
-    "english": ["to wear small items (necktie, watch, etc.)"],
-    "mnemonics": [],
-    "info": ["Used specifically for small accessories"],
-    "example_sentences": [],
-    "chapter": null,
-    "category": "suru-v",
-    "particles": [
-      {
-        "label": "item",
-        "particle": "を"
       }
     ]
   }
