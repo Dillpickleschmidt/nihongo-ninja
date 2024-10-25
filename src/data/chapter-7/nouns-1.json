@@ -4,6 +4,7 @@
     "furigana": ["家[か] 族[ぞく]"],
     "english": ["family"],
     "mnemonics": [],
+    "info": [],
     "chapter": 7
   },
   {
@@ -11,6 +12,7 @@
     "furigana": ["おじいさん"],
     "english": ["grandfather; old man"],
     "mnemonics": ["\"Oh! Gee, son, I see you're good with the ladies, too!\""],
+    "info": [],
     "chapter": 7
   },
   {
@@ -18,6 +20,7 @@
     "furigana": ["おばあさん"],
     "english": ["grandmother; old woman"],
     "mnemonics": ["\"Bah! Rediculous!\" said the old woman to her son."],
+    "info": [],
     "chapter": 7
   },
   {
@@ -25,6 +28,7 @@
     "furigana": ["お 兄[にい]さん"],
     "english": ["older brother"],
     "mnemonics": [],
+    "info": [],
     "chapter": 7
   },
   {
@@ -32,6 +36,7 @@
     "furigana": ["お 姉[ねえ]さん"],
     "english": ["older sister"],
     "mnemonics": [],
+    "info": [],
     "chapter": 7
   },
   {
@@ -39,6 +44,7 @@
     "furigana": ["父[ちち]"],
     "english": ["my father"],
     "mnemonics": [],
+    "info": [],
     "chapter": 7
   },
   {
@@ -48,6 +54,7 @@
     "mnemonics": [
       "There are enough \"Your mom\" jokes out there that surely you'll laugh at at least one, haha."
     ],
+    "info": [],
     "chapter": 7
   },
   {
@@ -57,6 +64,7 @@
     "mnemonics": [
       "\"AH, MY KNEE!\" your older brother exclaims as he fell off his bike."
     ],
+    "info": [],
     "chapter": 7
   },
   {
@@ -64,6 +72,7 @@
     "furigana": ["姉[あね]"],
     "english": ["my older sister"],
     "mnemonics": [],
+    "info": [],
     "chapter": 7
   },
   {
@@ -73,6 +82,7 @@
     "mnemonics": [
       "Sounds like 'emote'. Imagine your little sister making faces at you."
     ],
+    "info": [],
     "chapter": 7
   },
   {
@@ -82,6 +92,7 @@
     "mnemonics": [
       "Sounds like 'Oh, toe-toe.' Imagine your younger brother always stubbing his toe."
     ],
+    "info": [],
     "chapter": 7
   },
   {
@@ -91,6 +102,7 @@
     "mnemonics": [
       "Picture siblings playing a video game together and saying, 'Today (きょう), you die!（だい）'"
     ],
+    "info": [],
     "chapter": 7
   },
   {
@@ -100,6 +112,7 @@
     "mnemonics": [
       "Sounds like 'Oh, toko no hito.' Imagine a man saying, 'Oh, I'm just a 'toko' (guy) in this place.'"
     ],
+    "info": [],
     "chapter": 7
   },
   {
@@ -109,6 +122,7 @@
     "mnemonics": [
       "Sounds like 'Oh, nonna hito.' Picture a woman saying, 'Oh, I'm nonna (not a) regular person.'"
     ],
+    "info": [],
     "chapter": 7
   },
   {
@@ -118,6 +132,7 @@
     "mnemonics": [
       "Sounds like 'kai-sha.' Imagine a company on the coast (kai) near the sea."
     ],
+    "info": [],
     "chapter": 7
   },
   {
@@ -127,6 +142,7 @@
     "mnemonics": [
       "Sounds like 'shoku-dough.' Picture a cafeteria where they always bake fresh dough."
     ],
+    "info": [],
     "chapter": 7
   },
   {
@@ -134,6 +150,7 @@
     "furigana": ["デパート"],
     "english": ["department store"],
     "mnemonics": ["The place where you always depart with your money."],
+    "info": [],
     "chapter": 7
   },
   {
@@ -141,6 +158,7 @@
     "furigana": ["歌[うた]"],
     "english": ["song"],
     "mnemonics": [],
+    "info": [],
     "chapter": 7
   },
   {
@@ -148,6 +166,7 @@
     "furigana": ["サークル"],
     "english": ["club activity"],
     "mnemonics": [],
+    "info": [],
     "chapter": 7
   },
   {
@@ -155,6 +174,7 @@
     "furigana": ["車[くるま]"],
     "english": ["car"],
     "mnemonics": [],
+    "info": [],
     "chapter": 7
   }
 ]

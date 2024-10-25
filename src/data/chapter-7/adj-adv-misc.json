@@ -4,6 +4,7 @@
     "furigana": ["長[なが]い"],
     "english": ["long"],
     "mnemonics": ["Imagine a long nagging sound."],
+    "info": [],
     "chapter": 7
   },
   {
@@ -13,6 +14,7 @@
     "mnemonics": [
       "Sounds like midget, but this is for length, not height. The word for short stature is listed below."
     ],
+    "info": [],
     "chapter": 7
   },
   {
@@ -20,6 +22,7 @@
     "furigana": ["速[はや]い"],
     "english": ["fast"],
     "mnemonics": [],
+    "info": [],
     "chapter": 7
   },
   {
@@ -27,6 +30,7 @@
     "furigana": ["背[せ]が 高[たか]い"],
     "english": ["tall (stature)"],
     "mnemonics": [],
+    "info": [],
     "chapter": 7
   },
   {
@@ -36,6 +40,7 @@
     "mnemonics": [
       "Sounds like 'se-ga-hiku-ee.' Picture a short Sega game console saying 'ee!'"
     ],
+    "info": [],
     "chapter": 7
   },
   {
@@ -61,6 +66,7 @@
     "mnemonics": [
       "Sounds like 'shin-sets.' Picture a kind person who always sets their heart (shin) on doing good."
     ],
+    "info": [],
     "chapter": 7
   },
   {
@@ -70,6 +76,7 @@
     "mnemonics": [
       "Ben's really great to have around. He's a skilled handiman, and I very rarely forget his name—very convenient."
     ],
+    "info": [],
     "chapter": 7
   },
   {
@@ -77,6 +84,7 @@
     "furigana": ["～が"],
     "english": ["...but"],
     "mnemonics": [],
+    "info": [],
     "chapter": 7
   },
   {
@@ -84,6 +92,7 @@
     "furigana": ["何[なに]も + negative"],
     "english": ["not...anything"],
     "mnemonics": [],
+    "info": [],
     "chapter": 7
   },
   {
@@ -91,6 +100,7 @@
     "furigana": ["～人[にん]"],
     "english": ["counter for people"],
     "mnemonics": [],
+    "info": [],
     "chapter": 7
   },
   {
@@ -98,6 +108,7 @@
     "furigana": ["一[ひと]人[り]"],
     "english": ["one person"],
     "mnemonics": [],
+    "info": [],
     "chapter": 7
   },
   {
@@ -105,6 +116,7 @@
     "furigana": ["二[ふた]人[り]"],
     "english": ["two people"],
     "mnemonics": [],
+    "info": [],
     "chapter": 7
   },
   {
@@ -112,6 +124,7 @@
     "furigana": ["別[べつ]に + negative"],
     "english": ["nothing in particular"],
     "mnemonics": [],
+    "info": [],
     "chapter": 7
   },
   {
@@ -119,6 +132,7 @@
     "furigana": ["勿論[もちろん]"],
     "english": ["of course"],
     "mnemonics": [],
+    "info": [],
     "chapter": 7
   },
   {
@@ -126,6 +140,7 @@
     "furigana": ["よかったら"],
     "english": ["if you like"],
     "mnemonics": [],
+    "info": [],
     "chapter": 7
   }
 ]
