@@ -1805,6 +1805,89 @@ export default function ChapterBoxes() {
           },
         ]}
       />
+
+      <ChapterBox
+        text="Chapter 17"
+        class="bg-sky-600 saturate-50"
+        content={[
+          {
+            title: "Chapter 17 Vocab List",
+            link: "/learn/chapter-17/vocab-list",
+            types: ["vocab-list"],
+          },
+          {
+            title: "Chapter 17 Grammar Notes",
+            link: "/learn/grammar-notes",
+            types: ["grammar-notes"],
+            disabled: true,
+          },
+          {
+            title: "Nouns 1",
+            link: "/learn/chapter-17/nouns-1",
+            types: ["vocab"],
+          },
+          {
+            title: "Practice Nouns 1 - Readings",
+            link: "/learn/chapter-17/practice/nouns-1-readings",
+            types: ["practice"],
+          },
+          {
+            title: "Practice Nouns 1 - Kana",
+            link: "/learn/chapter-17/practice/nouns-1-kana",
+            types: ["practice"],
+          },
+          {
+            title: "Nouns 2",
+            link: "/learn/chapter-17/nouns-2",
+            types: ["vocab"],
+          },
+          {
+            title: "Practice Nouns 2 - Readings",
+            link: "/learn/chapter-17/practice/nouns-2-readings",
+            types: ["practice"],
+          },
+          {
+            title: "Practice Nouns 2 - Kana",
+            link: "/learn/chapter-17/practice/nouns-2-kana",
+            types: ["practice"],
+          },
+          {
+            title: "Verbs",
+            link: "/learn/chapter-17/verbs",
+            types: ["vocab"],
+          },
+          {
+            title: "Practice Verbs - Readings",
+            link: "/learn/chapter-17/practice/verbs-readings",
+            types: ["practice"],
+          },
+          {
+            title: "Practice Verbs - Kana",
+            link: "/learn/chapter-17/practice/verbs-kana",
+            types: ["practice"],
+          },
+          {
+            title: "Adj, Adv, & Misc.",
+            link: "/learn/chapter-17/adj-adv-misc",
+            types: ["vocab"],
+          },
+          {
+            title: "Practice Adj, Adv, & Misc. - Readings",
+            link: "/learn/chapter-17/practice/adj-adv-misc-readings",
+            types: ["practice"],
+          },
+          {
+            title: "Practice Adj, Adv, & Misc. - Kana",
+            link: "/learn/chapter-17/practice/adj-adv-misc-kana",
+            types: ["practice"],
+          },
+          {
+            title: "All Vocab - Test",
+            link: "/learn/chapter-17/all-vocab-test",
+            types: ["vocab-test"],
+          },
+        ]}
+      />
     </>
   )
 }

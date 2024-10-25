@@ -1,0 +1,142 @@
+[
+  {
+    "word": "赤ちゃん",
+    "furigana": ["赤[あか]ちゃん"],
+    "english": ["baby"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": null,
+    "category": "noun"
+  },
+  {
+    "word": "お客さん",
+    "furigana": ["お客[きゃく]さん"],
+    "english": ["guest", "visitor", "client", "customer"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": null,
+    "category": "noun"
+  },
+  {
+    "word": "首相",
+    "furigana": ["首相[しゅしょう]"],
+    "english": ["prime minister"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": null,
+    "category": "noun"
+  },
+  {
+    "word": "サラリーマン",
+    "furigana": ["サラリーマン"],
+    "english": ["salaryman", "office worker"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": null,
+    "category": "noun"
+  },
+  {
+    "word": "給料",
+    "furigana": ["給料[きゅうりょう]"],
+    "english": ["salary"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": null,
+    "category": "noun"
+  },
+  {
+    "word": "残業",
+    "furigana": ["残業[ざんぎょう]"],
+    "english": ["overtime work"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": null,
+    "category": "noun"
+  },
+  {
+    "word": "パンダ",
+    "furigana": ["パンダ"],
+    "english": ["panda"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": null,
+    "category": "noun"
+  },
+  {
+    "word": "コンタクト",
+    "furigana": ["コンタクト"],
+    "english": ["contact lenses"],
+    "mnemonics": [],
+    "info": ["Often specified as コンタクトレンズ"],
+    "example_sentences": [],
+    "chapter": null,
+    "category": "noun"
+  },
+  {
+    "word": "ひげ",
+    "furigana": ["ひげ"],
+    "english": ["beard"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": null,
+    "category": "noun"
+  },
+  {
+    "word": "ブーツ",
+    "furigana": ["ブーツ"],
+    "english": ["boots"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": null,
+    "category": "noun"
+  },
+  {
+    "word": "かぎ",
+    "furigana": ["かぎ"],
+    "english": ["lock", "key"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": null,
+    "category": "noun"
+  },
+  {
+    "word": "宝くじ",
+    "furigana": ["宝[たから]くじ"],
+    "english": ["lottery"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": null,
+    "category": "noun"
+  },
+  {
+    "word": "紙",
+    "furigana": ["紙[かみ]"],
+    "english": ["paper"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": null,
+    "category": "noun"
+  },
+  {
+    "word": "スプーン",
+    "furigana": ["スプーン"],
+    "english": ["spoon"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": null,
+    "category": "noun"
+  }
+]

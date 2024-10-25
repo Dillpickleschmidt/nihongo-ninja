@@ -1,0 +1,262 @@
+[
+  {
+    "word": "選ぶ",
+    "furigana": ["選[えら]ぶ"],
+    "english": ["to choose", "to select"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": null,
+    "category": "godan-v",
+    "particles": [
+      {
+        "label": "item",
+        "particle": "を"
+      }
+    ]
+  },
+  {
+    "word": "お湯を沸かす",
+    "furigana": ["お湯[ゆ]を沸[わ]かす"],
+    "english": ["to boil water"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": null,
+    "category": "godan-v",
+    "particles": [
+      {
+        "label": "item",
+        "particle": "を"
+      }
+    ]
+  },
+  {
+    "word": "髪をとかす",
+    "furigana": ["髪[かみ]をとかす"],
+    "english": ["to comb one's hair"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": null,
+    "category": "godan-v",
+    "particles": [
+      {
+        "label": "item",
+        "particle": "を"
+      }
+    ]
+  },
+  {
+    "word": "ひげをそる",
+    "furigana": ["ひげをそる"],
+    "english": ["to shave one's beard"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": null,
+    "category": "godan-v",
+    "particles": [
+      {
+        "label": "item",
+        "particle": "を"
+      }
+    ]
+  },
+  {
+    "word": "脱ぐ",
+    "furigana": ["脱[ぬ]ぐ"],
+    "english": ["to take off (clothes)"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": null,
+    "category": "godan-v",
+    "particles": [
+      {
+        "label": "item",
+        "particle": "を"
+      }
+    ]
+  },
+  {
+    "word": "混む",
+    "furigana": ["混[こ]む"],
+    "english": ["to get crowded"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": null,
+    "category": "godan-v",
+    "particles": [
+      {
+        "label": "subject",
+        "particle": "が"
+      }
+    ]
+  },
+  {
+    "word": "宝くじに当たる",
+    "furigana": ["宝[たから]くじに当[あ]たる"],
+    "english": ["to win a lottery"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": null,
+    "category": "godan-v"
+  },
+  {
+    "word": "いれる",
+    "furigana": ["いれる"],
+    "english": ["to make tea, coffee, etc."],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": null,
+    "category": "ichidan-v",
+    "particles": [
+      {
+        "label": "item",
+        "particle": "を"
+      }
+    ]
+  },
+  {
+    "word": "生まれる",
+    "furigana": ["生[う]まれる"],
+    "english": ["to be born"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": null,
+    "category": "ichidan-v",
+    "particles": [
+      {
+        "label": "subject",
+        "particle": "が"
+      }
+    ]
+  },
+  {
+    "word": "かぎをかける",
+    "furigana": ["かぎをかける"],
+    "english": ["to lock"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": null,
+    "category": "ichidan-v",
+    "particles": [
+      {
+        "label": "target",
+        "particle": "に"
+      }
+    ]
+  },
+  {
+    "word": "足りる",
+    "furigana": ["足[た]りる"],
+    "english": ["to be sufficient", "to be enough"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": null,
+    "category": "ichidan-v",
+    "particles": [
+      {
+        "label": "subject",
+        "particle": "が"
+      }
+    ]
+  },
+  {
+    "word": "慣れる",
+    "furigana": ["慣[な]れる"],
+    "english": ["to get used to"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": null,
+    "category": "ichidan-v",
+    "particles": [
+      {
+        "label": "target",
+        "particle": "に"
+      }
+    ]
+  },
+  {
+    "word": "お祈りする",
+    "furigana": ["お祈[いの]りする"],
+    "english": ["to pray"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": null,
+    "category": "suru-v",
+    "particles": [
+      {
+        "label": "target",
+        "particle": "に"
+      }
+    ]
+  },
+  {
+    "word": "化粧する",
+    "furigana": ["化粧[けしょう]する"],
+    "english": ["to put makeup on"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": null,
+    "category": "suru-v"
+  },
+  {
+    "word": "就職する",
+    "furigana": ["就職[しゅうしょく]する"],
+    "english": ["to get a full-time job"],
+    "mnemonics": [],
+    "info": ["Used when specifying the company with に particle"],
+    "example_sentences": [],
+    "chapter": null,
+    "category": "suru-v",
+    "particles": [
+      {
+        "label": "company",
+        "particle": "に"
+      }
+    ]
+  },
+  {
+    "word": "離婚する",
+    "furigana": ["離婚[りこん]する"],
+    "english": ["to get a divorce"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": null,
+    "category": "suru-v",
+    "particles": [
+      {
+        "label": "person",
+        "particle": "と"
+      }
+    ]
+  },
+  {
+    "word": "する",
+    "furigana": ["する"],
+    "english": ["to wear small items (necktie, watch, etc.)"],
+    "mnemonics": [],
+    "info": ["Used specifically for small accessories"],
+    "example_sentences": [],
+    "chapter": null,
+    "category": "suru-v",
+    "particles": [
+      {
+        "label": "item",
+        "particle": "を"
+      }
+    ]
+  }
+]

@@ -56,7 +56,7 @@ export default function VocabTest({ data, chapter }: VocabTestProps) {
 
   return (
     <ContentBox nextButtonText="Next Lesson ->" nextButtonLink="/learn">
-      <h1 class="border-b-2 border-orange-400 px-28 pb-12 pt-24 text-center text-4xl font-semibold">
+      <h1 class="mx-20 border-b-2 border-orange-400 px-8 pb-12 pt-24 text-center text-4xl font-semibold">
         Chapter {chapter} Vocab Test
       </h1>
       <div class="px-12 pb-32 sm:px-16 md:px-24">

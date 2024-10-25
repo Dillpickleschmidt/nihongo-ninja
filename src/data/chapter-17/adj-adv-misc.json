@@ -1,0 +1,152 @@
+[
+  {
+    "word": "危ない",
+    "furigana": ["危[あぶ]ない"],
+    "english": ["dangerous"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": null,
+    "category": "i-adj"
+  },
+  {
+    "word": "うらやましい",
+    "furigana": ["うらやましい"],
+    "english": ["envious"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": null,
+    "category": "i-adj"
+  },
+  {
+    "word": "少ない",
+    "furigana": ["少[すく]ない"],
+    "english": ["a little", "a few"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": null,
+    "category": "i-adj"
+  },
+  {
+    "word": "都合が悪い",
+    "furigana": ["都合[つごう]が悪[わる]い"],
+    "english": ["inconvenient", "to have a scheduling conflict"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": null,
+    "category": "expression"
+  },
+  {
+    "word": "強い",
+    "furigana": ["強[つよ]い"],
+    "english": ["strong"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": null,
+    "category": "i-adj"
+  },
+  {
+    "word": "最悪",
+    "furigana": ["最悪[さいあく]"],
+    "english": ["the worst"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": null,
+    "category": "na-adj"
+  },
+  {
+    "word": "ずいぶん",
+    "furigana": ["ずいぶん"],
+    "english": ["very"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": null,
+    "category": "adverb"
+  },
+  {
+    "word": "例えば",
+    "furigana": ["例[たと]えば"],
+    "english": ["for example"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": null,
+    "category": "expression"
+  },
+  {
+    "word": "～に比べて",
+    "furigana": ["に比[くら]べて"],
+    "english": ["compared with..."],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": null,
+    "category": "expression"
+  },
+  {
+    "word": "～によると",
+    "furigana": ["によると"],
+    "english": ["according to..."],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": null,
+    "category": "expression"
+  },
+  {
+    "word": "前",
+    "furigana": ["前[まえ]"],
+    "english": ["before..."],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": null,
+    "category": "expression"
+  },
+  {
+    "word": "やっぱり",
+    "furigana": ["やっぱり"],
+    "english": ["after all"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": null,
+    "category": "adverb"
+  },
+  {
+    "word": "～かな（あ）",
+    "furigana": ["かな（あ）"],
+    "english": ["I wonder... (casual)"],
+    "mnemonics": [],
+    "info": ["Casual expression used for wondering or uncertainty"],
+    "example_sentences": [],
+    "chapter": null,
+    "category": "expression"
+  },
+  {
+    "word": "そうか",
+    "furigana": ["そうか"],
+    "english": ["I see. (casual)"],
+    "mnemonics": [],
+    "info": ["Casual expression of understanding"],
+    "example_sentences": [],
+    "chapter": null,
+    "category": "expression"
+  },
+  {
+    "word": "おめでとうございます",
+    "furigana": ["おめでとうございます"],
+    "english": ["Congratulations!"],
+    "mnemonics": [],
+    "info": ["Polite congratulatory expression"],
+    "example_sentences": [],
+    "chapter": null,
+    "category": "expression"
+  }
+]
