@@ -106,29 +106,55 @@ export default function WriteComponent() {
         </Show>
       </div>
       <div class="space-y-2">
-        <TextFieldRoot class="w-full max-w-xs">
-          <div class="h-6">
-            {!context.store.hasUserAnswered && (
-              <TextFieldDescription>Type your answer.</TextFieldDescription>
-            )}
-          </div>
-          <TextField
-            type="text"
-            ref={inputRef}
-            value={userAnswer()}
-            onInput={(e) => setUserAnswer(e.currentTarget.value)}
-            onKeyDown={handleKeyDown}
-            autofocus
-            disabled={context.store.hasUserAnswered}
-            class={`${
-              context.store.hasUserAnswered
-                ? isMainAnswerCorrect()
-                  ? "text-green-500"
-                  : "text-red-500"
-                : ""
-            } font-bold opacity-100 xl:!text-lg`}
-          />
-        </TextFieldRoot>
+        <div class="flex items-end space-x-4">
+          <TextFieldRoot class="w-full max-w-xs">
+            <div class="h-6">
+              {!context.store.hasUserAnswered && (
+                <TextFieldDescription>Type your answer.</TextFieldDescription>
+              )}
+            </div>
+            <TextField
+              type="text"
+              ref={inputRef}
+              value={userAnswer()}
+              onInput={(e) => setUserAnswer(e.currentTarget.value)}
+              onKeyDown={handleKeyDown}
+              autofocus
+              disabled={context.store.hasUserAnswered}
+              class={`${
+                context.store.hasUserAnswered
+                  ? isMainAnswerCorrect()
+                    ? "text-green-500"
+                    : "text-red-500"
+                  : ""
+              } font-bold opacity-100 xl:!text-lg`}
+            />
+          </TextFieldRoot>
+          <Show
+            when={
+              context.store.hasUserAnswered && !context.store.isAnswerCorrect
+            }
+          >
+            <div>
+              <Button
+                class="bg-green-500"
+                onClick={() => {
+                  setIsMainAnswerCorrect(true)
+                  context.setStore("isAnswerCorrect", true)
+                  particleAnswers().forEach((_, index) => {
+                    setParticleCorrectness((prev) => {
+                      const newCorrectness = [...prev]
+                      newCorrectness[index] = true
+                      return newCorrectness
+                    })
+                  })
+                }}
+              >
+                No, I was correct
+              </Button>
+            </div>
+          </Show>
+        </div>
         <Show when={!!correctEntry().particles}>
           <ul class="space-y-2 pb-4 text-xl">
             <For each={correctEntry().particles}>
