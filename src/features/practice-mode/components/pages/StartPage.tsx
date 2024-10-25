@@ -28,8 +28,8 @@ export default function StartPage(props: StartPageProps) {
         </Button>
       </div>
       <div class="w-full pb-10 pt-24">
-        <div class="relative lg:mx-48 2xl:mx-96">
-          <h1 class="text-center text-5xl font-semibold">
+        <div class="relative flex justify-center lg:mx-48 2xl:mx-96">
+          <h1 class="text-center text-5xl font-semibold sm:mx-14">
             Practice {props.deckName}
           </h1>
           <div class="absolute bottom-0 right-4">
