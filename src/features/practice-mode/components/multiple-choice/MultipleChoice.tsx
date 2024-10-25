@@ -3,6 +3,7 @@ import {
   createMemo,
   createSignal,
   For,
+  onCleanup,
   onMount,
   Show,
 } from "solid-js"
@@ -30,6 +31,24 @@ export default function MultipleChoice() {
 
   onMount(() => {
     setIsTouchDevice("ontouchstart" in window || navigator.maxTouchPoints > 0)
+
+    // Add keyboard listener
+    const handleKeyPress = (e: KeyboardEvent) => {
+      if (context.store.hasUserAnswered) return
+
+      // Check if the pressed key is a number between 1-4
+      const num = parseInt(e.key)
+      if (num >= 1 && num <= choices().options.length) {
+        handleSelection(num - 1) // subtract 1 because array is 0-based
+      }
+    }
+
+    window.addEventListener("keydown", handleKeyPress)
+
+    // Cleanup function to remove event listener
+    onCleanup(() => {
+      window.removeEventListener("keydown", handleKeyPress)
+    })
   })
 
   const choices = createMemo(() =>
