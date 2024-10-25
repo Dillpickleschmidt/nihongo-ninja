@@ -38,6 +38,52 @@ export default function WriteComponent() {
     }
   })
 
+  function checkParticleAnswers() {
+    const particles = correctEntry().particles || []
+
+    // Group correct particles by label, using "default" for undefined labels
+    const particlesByLabel = particles.reduce<Record<string, string[]>>(
+      (acc, particle) => {
+        const label = particle.label || "default"
+        if (!acc[label]) {
+          acc[label] = []
+        }
+        acc[label].push(particle.particle.toLowerCase())
+        return acc
+      },
+      {},
+    )
+
+    // Create a copy of available particles for each label
+    const availableParticles = { ...particlesByLabel }
+
+    // Check each answer
+    const correctness = particleAnswers().map((answer, index) => {
+      const currentParticle = particles[index]
+      const label = currentParticle.label || "default"
+      const normalizedAnswer = answer.trim().toLowerCase()
+
+      // If this label has no more available particles, return false
+      if (
+        !availableParticles[label] ||
+        availableParticles[label].length === 0
+      ) {
+        return false
+      }
+
+      // Check if the answer matches any available particle for this label
+      const particleIndex = availableParticles[label].indexOf(normalizedAnswer)
+      if (particleIndex !== -1) {
+        // Remove the used particle from available particles
+        availableParticles[label].splice(particleIndex, 1)
+        return true
+      }
+      return false
+    })
+
+    return correctness
+  }
+
   function handleSubmit() {
     if (context.store.hasUserAnswered) return
 
@@ -50,14 +96,7 @@ export default function WriteComponent() {
     )
     setIsMainAnswerCorrect(mainAnswerCorrect)
 
-    const particleResults =
-      correctEntry().particles?.map((particle, index) => {
-        const userParticleAnswer = particleAnswers()[index]?.trim() || ""
-        return (
-          userParticleAnswer.toLowerCase() === particle.particle.toLowerCase()
-        )
-      }) ?? []
-
+    const particleResults = checkParticleAnswers()
     setParticleCorrectness(particleResults)
 
     // If any part is incorrect, the whole answer is incorrect
@@ -83,7 +122,7 @@ export default function WriteComponent() {
   }
 
   return (
-    <div class="mx-40">
+    <div class="mx-4 lg:mx-40">
       <div class="flex h-24 w-full items-end justify-center text-center">
         <Show when={context.store.hasUserAnswered}>
           <For
