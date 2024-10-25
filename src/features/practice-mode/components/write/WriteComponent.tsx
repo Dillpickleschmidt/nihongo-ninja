@@ -83,67 +83,92 @@ export default function WriteComponent() {
   }
 
   return (
-    <div class="mx-40 mt-28">
-      <TextFieldRoot class="w-full max-w-xs">
-        <TextField
-          type="text"
-          ref={inputRef}
-          value={userAnswer()}
-          onInput={(e) => setUserAnswer(e.currentTarget.value)}
-          onKeyDown={handleKeyDown}
-          autofocus
-          disabled={context.store.hasUserAnswered}
-          class={`${
-            context.store.hasUserAnswered
-              ? isMainAnswerCorrect()
-                ? "text-green-500"
-                : "text-red-500"
-              : ""
-          } font-bold opacity-100 xl:!text-lg`}
-        />
-        {!context.store.hasUserAnswered && (
-          <TextFieldDescription>Type your answer.</TextFieldDescription>
-        )}
-      </TextFieldRoot>
-      <Show when={!!correctEntry().particles}>
-        <ul class="pb-4 text-xl">
-          <For each={correctEntry().particles}>
-            {(object, index) => (
-              <li class="flex items-center gap-2 font-bold">
-                {object.label ? `${object.label} -` : "Particle:"}
-                <TextFieldRoot class="w-full max-w-xs">
-                  <TextField
-                    type="text"
-                    ref={(el: HTMLInputElement | undefined) => {
-                      particleRefs[index()] = el
-                    }}
-                    value={particleAnswers()[index()] || ""}
-                    onInput={(e) =>
-                      handleParticleInput(index(), e.currentTarget.value)
-                    }
-                    onKeyDown={handleKeyDown}
-                    disabled={context.store.hasUserAnswered}
-                    class={`w-20 ${
-                      context.store.hasUserAnswered
-                        ? particleCorrectness()[index()]
-                          ? "text-green-500"
-                          : "text-red-500"
-                        : ""
-                    }`}
-                  />
-                </TextFieldRoot>
-              </li>
+    <div class="mx-40">
+      <div class="flex h-24 w-full items-center justify-center text-center">
+        <Show when={context.store.hasUserAnswered}>
+          <For
+            each={correctEntry().answerCategories.filter((category) =>
+              context.store.enabledAnswerCategories.includes(category.category),
+            )}
+          >
+            {(category) => (
+              <p class="text-xl font-bold text-primary">
+                {category.category === "Kana" ? (
+                  <span class="font-japanese">
+                    {category.answers.join(", ")}
+                  </span>
+                ) : (
+                  category.answers.join(", ")
+                )}
+              </p>
             )}
           </For>
-        </ul>
-      </Show>
-      <Button
-        onClick={handleSubmit}
-        disabled={context.store.hasUserAnswered}
-        class="my-2 disabled:opacity-90"
-      >
-        Submit
-      </Button>
+        </Show>
+      </div>
+      <div class="space-y-2">
+        <TextFieldRoot class="w-full max-w-xs">
+          <div class="h-6">
+            {!context.store.hasUserAnswered && (
+              <TextFieldDescription>Type your answer.</TextFieldDescription>
+            )}
+          </div>
+          <TextField
+            type="text"
+            ref={inputRef}
+            value={userAnswer()}
+            onInput={(e) => setUserAnswer(e.currentTarget.value)}
+            onKeyDown={handleKeyDown}
+            autofocus
+            disabled={context.store.hasUserAnswered}
+            class={`${
+              context.store.hasUserAnswered
+                ? isMainAnswerCorrect()
+                  ? "text-green-500"
+                  : "text-red-500"
+                : ""
+            } font-bold opacity-100 xl:!text-lg`}
+          />
+        </TextFieldRoot>
+        <Show when={!!correctEntry().particles}>
+          <ul class="space-y-2 pb-4 text-xl">
+            <For each={correctEntry().particles}>
+              {(object, index) => (
+                <li class="flex items-center gap-2 font-bold">
+                  {object.label ? `${object.label} -` : "Particle:"}
+                  <TextFieldRoot class="w-full max-w-xs">
+                    <TextField
+                      type="text"
+                      ref={(el: HTMLInputElement | undefined) => {
+                        particleRefs[index()] = el
+                      }}
+                      value={particleAnswers()[index()] || ""}
+                      onInput={(e) =>
+                        handleParticleInput(index(), e.currentTarget.value)
+                      }
+                      onKeyDown={handleKeyDown}
+                      disabled={context.store.hasUserAnswered}
+                      class={`w-20 ${
+                        context.store.hasUserAnswered
+                          ? particleCorrectness()[index()]
+                            ? "text-green-500"
+                            : "text-red-500"
+                          : ""
+                      }`}
+                    />
+                  </TextFieldRoot>
+                </li>
+              )}
+            </For>
+          </ul>
+        </Show>
+        <Button
+          onClick={handleSubmit}
+          disabled={context.store.hasUserAnswered}
+          class="my-2 disabled:opacity-90"
+        >
+          Submit
+        </Button>
+      </div>
     </div>
   )
 }
