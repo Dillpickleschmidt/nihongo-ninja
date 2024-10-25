@@ -1,6 +1,9 @@
-import { createEffect, createMemo, JSX, Match, Switch } from "solid-js"
+import { createEffect, createMemo, JSX, Match, Switch, onMount } from "solid-js"
 import { Card } from "@/types/vocab"
-import { usePracticeModeContext } from "./context/PracticeModeContext"
+import {
+  usePracticeModeContext,
+  initialState,
+} from "./context/PracticeModeContext"
 import StartPage from "./components/pages/StartPage"
 import ReviewPage from "./components/pages/ReviewPage"
 import FinishPage from "./components/pages/FinishPage"
@@ -16,11 +19,15 @@ export default function PracticeModeComponent(props: PracticeModeProps) {
   const activeDeckSize = Math.min(props.data.length, 10)
 
   const shuffledData = createMemo(() =>
-    // Shuffle if shuffleInput is true (default is true)
     context.store.shuffleInput
       ? [...props.data].sort(() => Math.random() - 0.5)
       : props.data,
   )
+
+  onMount(() => {
+    // Reset to initial state
+    context.setStore({ ...initialState })
+  })
 
   createEffect(() => {
     // console.log("Effect running")
@@ -30,11 +37,13 @@ export default function PracticeModeComponent(props: PracticeModeProps) {
     context.setStore("cardsTakenFromDataCount", activeDeckSize)
   })
 
-  context.setStore(
-    "enabledAnswerCategories",
-    extractUniqueCategories(props.data),
-  )
-  context.setStore("activeDeckSize", activeDeckSize)
+  createEffect(() => {
+    context.setStore(
+      "enabledAnswerCategories",
+      extractUniqueCategories(props.data),
+    )
+    context.setStore("activeDeckSize", activeDeckSize)
+  })
 
   return (
     <Switch fallback={<div>Invalid state</div>}>

@@ -4,7 +4,7 @@ import { createStore } from "solid-js/store"
 
 export type CurrentPage = "start" | "practice" | "review" | "finish"
 
-const [practiceModeStore, setPracticeModeStore] = createStore({
+export const initialState = {
   data: [] as Card[],
   activeDeck: [] as Card[],
   activeDeckSize: 0,
@@ -16,6 +16,10 @@ const [practiceModeStore, setPracticeModeStore] = createStore({
   enabledAnswerCategories: [] as string[],
   hasUserAnswered: false,
   isAnswerCorrect: false,
+}
+
+const [practiceModeStore, setPracticeModeStore] = createStore({
+  ...initialState,
 })
 
 export type PracticeModeContextType = {
