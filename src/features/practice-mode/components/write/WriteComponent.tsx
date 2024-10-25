@@ -84,7 +84,7 @@ export default function WriteComponent() {
 
   return (
     <div class="mx-40">
-      <div class="flex h-24 w-full items-center justify-center text-center">
+      <div class="flex h-24 w-full items-end justify-center text-center">
         <Show when={context.store.hasUserAnswered}>
           <For
             each={correctEntry().answerCategories.filter((category) =>
@@ -135,7 +135,7 @@ export default function WriteComponent() {
               {(object, index) => (
                 <li class="flex items-center gap-2 font-bold">
                   {object.label ? `${object.label} -` : "Particle:"}
-                  <TextFieldRoot class="w-full max-w-xs">
+                  <TextFieldRoot class="max-w-xs">
                     <TextField
                       type="text"
                       ref={(el: HTMLInputElement | undefined) => {
@@ -147,7 +147,7 @@ export default function WriteComponent() {
                       }
                       onKeyDown={handleKeyDown}
                       disabled={context.store.hasUserAnswered}
-                      class={`w-20 ${
+                      class={`w-20 font-japanese ${
                         context.store.hasUserAnswered
                           ? particleCorrectness()[index()]
                             ? "text-green-500"
@@ -156,6 +156,9 @@ export default function WriteComponent() {
                       }`}
                     />
                   </TextFieldRoot>
+                  <Show when={context.store.hasUserAnswered}>
+                    <span class="font-japanese">{object.particle}</span>
+                  </Show>
                 </li>
               )}
             </For>
