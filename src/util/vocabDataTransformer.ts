@@ -155,6 +155,7 @@ function convertVocabItemToFlashcard(
     info: entry.info,
     category: entry.category,
     videos: entry.videos,
+    particles: entry.particles,
   }
 }
 

@@ -1,4 +1,4 @@
-import { For } from "solid-js"
+import { For, Show } from "solid-js"
 import { Button } from "@/components/ui/button"
 import { usePracticeModeContext } from "../../context/PracticeModeContext"
 import { A } from "@solidjs/router"
@@ -24,9 +24,30 @@ export default function FinishPage() {
       <div class="pb-28 lg:mx-48 2xl:mx-96">
         <For each={context.store.data}>
           {(entry) => (
-            <div class="my-2 rounded-xl bg-card p-6 shadow-md">
+            <div class="bg-entry my-2 rounded-xl p-6 shadow-md">
               <p class="text-2xl font-bold !text-orange-500 text-primary">
-                {entry.key}
+                <span class="mr-2">{entry.key}</span>
+                <Show when={entry.particles}>
+                  <For each={entry.particles}>
+                    {(object, index) => (
+                      <span class="text-base font-light">
+                        {object.label ? (
+                          <span>
+                            {object.label} -{" "}
+                            <span class="font-japanese">{object.particle}</span>
+                            {index() < entry.particles!.length - 1 && ", "}
+                          </span>
+                        ) : (
+                          <span>
+                            particle:{" "}
+                            <span class="font-japanese">{object.particle}</span>
+                            {index() < entry.particles!.length - 1 && ", "}
+                          </span>
+                        )}
+                      </span>
+                    )}
+                  </For>
+                </Show>
               </p>
               <For
                 each={entry.answerCategories.filter(

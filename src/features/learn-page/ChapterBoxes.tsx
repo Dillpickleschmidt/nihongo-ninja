@@ -751,7 +751,7 @@ export default function ChapterBoxes() {
 
       <ChapterBox
         text="Chapter 4"
-        class="bg-teal-600 saturate-[65%]"
+        class="bg-indigo-500 saturate-[50%]"
         content={[
           {
             title: "Chapter 4 Vocab List",
@@ -835,7 +835,7 @@ export default function ChapterBoxes() {
 
       <ChapterBox
         text="Chapter 5"
-        class="bg-amber-500 saturate-[50%]"
+        class="bg-green-500 saturate-[65%]"
         content={[
           {
             title: "Chapter 5 Vocab List",
@@ -919,7 +919,7 @@ export default function ChapterBoxes() {
 
       <ChapterBox
         text="Chapter 6"
-        class="bg-red-500 saturate-50"
+        class="bg-amber-500 saturate-[65%]"
         content={[
           {
             title: "Chapter 6 Vocab List",

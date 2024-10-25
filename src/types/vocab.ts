@@ -13,8 +13,6 @@ export type Particle = {
   particle: string
 }
 
-export type ParticleUsage = Particle
-
 export type VocabItem = {
   id: number
   created_at: string
@@ -28,7 +26,7 @@ export type VocabItem = {
   mnemonics: string[]
   category: string | null
   videos: Video[] | null
-  particles?: ParticleUsage[]
+  particles?: Particle[]
 }
 
 export type RichVocabItem = VocabItem & {
@@ -50,6 +48,7 @@ export type Card = {
   info: string[]
   category: string | null
   videos: Video[] | null
+  particles?: Particle[]
 }
 
 export type AnswerCategory = {

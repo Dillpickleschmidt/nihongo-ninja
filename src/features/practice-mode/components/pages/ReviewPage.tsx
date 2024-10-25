@@ -1,4 +1,4 @@
-import { For, createMemo } from "solid-js"
+import { For, Show, createMemo } from "solid-js"
 import { Button } from "@/components/ui/button"
 import { usePracticeModeContext } from "../../context/PracticeModeContext"
 import { AnswerCategory } from "@/types/vocab"
@@ -44,7 +44,32 @@ export default function ReviewPage() {
                 <p
                   class={`${card.wrongAnswerCount > 0 ? "text-[#ff5757]" : ""} text-xl font-bold`}
                 >
-                  {card.key}
+                  <span class="mr-2">{card.key}</span>
+                  <Show when={card.particles}>
+                    <For each={card.particles}>
+                      {(object, index) => (
+                        <span class="text-base font-light">
+                          {object.label ? (
+                            <span>
+                              {object.label} -{" "}
+                              <span class="font-japanese">
+                                {object.particle}
+                              </span>
+                              {index() < card.particles!.length - 1 && ", "}
+                            </span>
+                          ) : (
+                            <span>
+                              particle:{" "}
+                              <span class="font-japanese">
+                                {object.particle}
+                              </span>
+                              {index() < card.particles!.length - 1 && ", "}
+                            </span>
+                          )}
+                        </span>
+                      )}
+                    </For>
+                  </Show>
                 </p>
                 <For
                   each={card.answerCategories.filter(

@@ -2,7 +2,7 @@
 This file contains the logic for handling the user's input for the write mode.
 */
 
-import { Card } from "@/types/vocab"
+import { Card, Particle } from "@/types/vocab"
 
 /**
  * Check if the user's written answer is correct based on enabled categories.
@@ -26,4 +26,16 @@ export function handleWrittenAnswer(
   return enabledAnswers
     .map((answer) => answer.trim().toLowerCase())
     .includes(normalizedUserAnswer)
+}
+
+// Add this new function to handle particle validation
+export function validateParticles(
+  particleAnswers: { [key: string]: string },
+  correctParticles: Particle[],
+): boolean {
+  return correctParticles.every((particle) => {
+    const key = particle.label || "unlabeled"
+    const userAnswer = particleAnswers[key]?.trim().toLowerCase() || ""
+    return userAnswer === particle.particle.toLowerCase()
+  })
 }

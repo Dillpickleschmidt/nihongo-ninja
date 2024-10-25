@@ -1,12 +1,10 @@
+// cardHandlers.ts
 import { Card } from "@/types/vocab"
-import {
-  usePracticeModeContext,
-  type PracticeModeContextType,
-  type CurrentPage,
-} from "./context/PracticeModeContext"
+import { type PracticeModeContextType } from "./context/PracticeModeContext"
 
 export function handleNextQuestion(context: PracticeModeContextType) {
   const currentCard = context.store.activeDeck[context.store.currentCardIndex]
+  let cardToAdd = currentCard
 
   // Update wrong answer count if answer is incorrect
   if (!context.store.isAnswerCorrect) {
@@ -21,12 +19,19 @@ export function handleNextQuestion(context: PracticeModeContextType) {
     context.setStore("data", [cardIndex], {
       wrongAnswerCount: wrongAnswerCount + 1,
     })
+
+    // Create new card with updated wrong answer count
+    cardToAdd = {
+      ...currentCard,
+      wrongAnswerCount: wrongAnswerCount + 1,
+    }
   }
+
+  // Add the potentially updated card to recently seen cards
   context.setStore(
-    // append current card to recently seen cards
     "recentlySeenCards",
     context.store.recentlySeenCards.length,
-    currentCard,
+    cardToAdd,
   )
 
   handleMainPhase(context)

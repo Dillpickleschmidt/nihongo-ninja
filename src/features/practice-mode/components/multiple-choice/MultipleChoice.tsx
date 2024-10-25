@@ -1,4 +1,11 @@
-import { createEffect, createMemo, createSignal, For, onMount } from "solid-js"
+import {
+  createEffect,
+  createMemo,
+  createSignal,
+  For,
+  onMount,
+  Show,
+} from "solid-js"
 import { presentMultipleChoiceOptions } from "../multiple-choice/multiple-choice"
 import { Button } from "@/components/ui/button"
 import { usePracticeModeContext } from "../../context/PracticeModeContext"
@@ -88,10 +95,29 @@ export default function MultipleChoice() {
                       buttonStore[index()].isSelected,
                       buttonStore[index()].isCorrect,
                     ),
-                  "min-h-20 w-full justify-start rounded-xl py-4 text-start font-japanese text-xl shadow-md duration-75 ease-in-out hover:scale-[98.5%]",
+                  "min-h-20 w-full flex-col items-start justify-start rounded-xl py-4 text-start font-japanese text-xl shadow-md duration-75 ease-in-out hover:scale-[98.5%]",
                 )}
               >
                 {enabledAnswers().join(", ")}
+                <Show when={option.particles}>
+                  <For each={option.particles}>
+                    {(object) => (
+                      <div class="text-base font-light">
+                        {object.label ? (
+                          <span>
+                            {object.label} -{" "}
+                            <span class="font-japanese">{object.particle}</span>
+                          </span>
+                        ) : (
+                          <span>
+                            particle:{" "}
+                            <span class="font-japanese">{object.particle}</span>
+                          </span>
+                        )}
+                      </div>
+                    )}
+                  </For>
+                </Show>
               </Button>
             )
           }}
