@@ -16,11 +16,6 @@
     "english": ["to catch a cold"],
     "mnemonics": [],
     "info": [],
-    "particles": [
-      {
-        "particle": "を"
-      }
-    ],
     "example_sentences": [],
     "chapter": 12,
     "videos": []
@@ -31,11 +26,6 @@
     "english": ["to have a fever"],
     "mnemonics": [],
     "info": [],
-    "particles": [
-      {
-        "particle": "が"
-      }
-    ],
     "example_sentences": [],
     "chapter": 12,
     "videos": []
@@ -46,11 +36,6 @@
     "english": ["to become thirsty"],
     "mnemonics": [],
     "info": [],
-    "particles": [
-      {
-        "particle": "が"
-      }
-    ],
     "example_sentences": [],
     "chapter": 12,
     "videos": []
@@ -93,10 +78,8 @@
     "info": [],
     "particles": [
       {
+        "label": "topic",
         "particle": "に"
-      },
-      {
-        "particle": "が"
       }
     ],
     "example_sentences": [],
@@ -126,6 +109,7 @@
     "info": [],
     "particles": [
       {
+        "label": "person",
         "particle": "と"
       }
     ],

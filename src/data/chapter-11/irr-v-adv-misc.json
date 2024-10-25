@@ -22,7 +22,7 @@
         "particle": "に"
       },
       {
-        "label": "thing",
+        "label": "person",
         "particle": "を"
       }
     ],
@@ -36,7 +36,6 @@
     "english": ["to go on a diet"],
     "mnemonics": [],
     "info": [],
-    "particles": [],
     "example_sentences": [],
     "chapter": 11,
     "videos": []
@@ -64,6 +63,7 @@
     "info": [],
     "particles": [
       {
+        "label": "place",
         "particle": "に"
       }
     ],
@@ -77,7 +77,12 @@
     "english": ["coming from"],
     "mnemonics": [],
     "info": [],
-    "particles": [],
+    "particles": [
+      {
+        "label": "place",
+        "particle": "の"
+      }
+    ],
     "example_sentences": [],
     "chapter": 11,
     "videos": []
@@ -88,7 +93,6 @@
     "english": ["it has been a long time"],
     "mnemonics": [],
     "info": [],
-    "particles": [],
     "example_sentences": [],
     "chapter": 11,
     "videos": []
@@ -99,7 +103,6 @@
     "english": ["okay", "so-so"],
     "mnemonics": [],
     "info": [],
-    "particles": [],
     "example_sentences": [],
     "chapter": 11,
     "videos": []
@@ -110,7 +113,6 @@
     "english": ["more"],
     "mnemonics": [],
     "info": [],
-    "particles": [],
     "example_sentences": [],
     "chapter": 11,
     "videos": []
@@ -121,7 +123,12 @@
     "english": ["after (an event)"],
     "mnemonics": [],
     "info": [],
-    "particles": [],
+    "particles": [
+      {
+        "label": "event",
+        "particle": "の"
+      }
+    ],
     "example_sentences": [],
     "chapter": 11,
     "videos": []
@@ -132,7 +139,6 @@
     "english": ["and then"],
     "mnemonics": [],
     "info": [],
-    "particles": [],
     "example_sentences": [],
     "chapter": 11,
     "videos": []
@@ -142,8 +148,7 @@
     "furigana": [],
     "english": ["just...", "only..."],
     "mnemonics": [],
-    "info": ["Particle"],
-    "particles": [],
+    "info": [],
     "example_sentences": [],
     "chapter": 11,
     "videos": []
@@ -154,7 +159,6 @@
     "english": ["...points"],
     "mnemonics": [],
     "info": ["Counter for points"],
-    "particles": [],
     "example_sentences": [],
     "chapter": 11,
     "videos": []
@@ -164,8 +168,7 @@
     "furigana": ["どちらでもいい"],
     "english": ["Both are fine."],
     "mnemonics": [],
-    "info": ["Counter for points"],
-    "particles": [],
+    "info": [],
     "example_sentences": [],
     "chapter": 11,
     "videos": []

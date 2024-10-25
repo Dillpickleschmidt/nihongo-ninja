@@ -48,9 +48,7 @@
     "word": "知る",
     "furigana": ["知[し]る"],
     "english": ["to get to know"],
-    "mnemonics": [
-      "Sounds like 'sheer.' Picture getting to know something as clearly as seeing through sheer fabric."
-    ],
+    "mnemonics": [],
     "particles": [
       {
         "particle": "を"
@@ -63,9 +61,7 @@
     "word": "知っています",
     "furigana": ["知[し]って います"],
     "english": ["I know"],
-    "mnemonics": [
-      "Sounds like 'sheet-tea-mass.' Imagine confidently saying 'I know' as you sip a cup of tea."
-    ],
+    "mnemonics": [],
     "info": [],
     "chapter": 7
   },
@@ -73,9 +69,7 @@
     "word": "知りません",
     "furigana": ["知[し]りません"],
     "english": ["I do not know"],
-    "mnemonics": [
-      "Sounds like 'sheer-ma-sen.' Picture saying 'I don't know' with a sheer look of confusion."
-    ],
+    "mnemonics": [],
     "info": [],
     "chapter": 7
   },
@@ -124,9 +118,7 @@
     "word": "眼鏡を掛ける",
     "furigana": ["眼鏡[めがね]を 掛[か]ける"],
     "english": ["to put on glasses"],
-    "mnemonics": [
-      "Sounds like 'may-gah-neh-wo-kakeru.' Imagine putting on glasses to see the month of May clearly."
-    ],
+    "mnemonics": [],
     "info": [],
     "chapter": 7
   },
@@ -134,9 +126,7 @@
     "word": "着る",
     "furigana": ["着[き]る"],
     "english": ["to put on clothes above your waist"],
-    "mnemonics": [
-      "Sounds like 'keer.' Picture 'keering' a shirt over your head."
-    ],
+    "mnemonics": [],
     "particles": [
       {
         "particle": "を"
@@ -169,23 +159,11 @@
     "word": "結婚する",
     "furigana": ["結婚[けっこん]する"],
     "english": ["to get married"],
-    "mnemonics": [
-      "Sounds like 'kett-kon-suru.' Picture getting married and setting a 'ket' (contract) to connect lives."
-    ],
+    "mnemonics": [],
     "particles": [
       {
-        "particle": "を"
+        "particle": "と"
       }
-    ],
-    "info": [],
-    "chapter": 7
-  },
-  {
-    "word": "はく",
-    "furigana": ["はく"],
-    "english": ["to put on items below your waist"],
-    "mnemonics": [
-      "Sounds like 'huck.' Think of 'hucking' on your pants or shoes."
     ],
     "info": [],
     "chapter": 7

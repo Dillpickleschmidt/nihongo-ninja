@@ -20,11 +20,6 @@
     "english": ["to say"],
     "mnemonics": [],
     "info": [],
-    "particles": [
-      {
-        "particle": "と"
-      }
-    ],
     "example_sentences": [],
     "chapter": 8,
     "videos": []
@@ -61,11 +56,6 @@
     "english": ["to take a bath"],
     "mnemonics": [],
     "info": [],
-    "particles": [
-      {
-        "particle": "に"
-      }
-    ],
     "example_sentences": [],
     "chapter": 8,
     "videos": []
@@ -76,11 +66,6 @@
     "english": ["to think"],
     "mnemonics": [],
     "info": [],
-    "particles": [
-      {
-        "particle": "と"
-      }
-    ],
     "example_sentences": [],
     "chapter": 8,
     "videos": []
@@ -121,9 +106,19 @@
     "english": ["(rain/snow) falls"],
     "mnemonics": [],
     "info": [],
+    "example_sentences": [],
+    "chapter": 8,
+    "videos": []
+  },
+  {
+    "word": "持っていく",
+    "furigana": ["持[も]っていく"],
+    "english": ["to take (a thing)"],
+    "mnemonics": [],
+    "info": [],
     "particles": [
       {
-        "particle": "が"
+        "particle": "を"
       }
     ],
     "example_sentences": [],

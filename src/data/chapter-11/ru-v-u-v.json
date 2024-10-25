@@ -5,11 +5,6 @@
     "english": ["to tell a lie"],
     "mnemonics": [],
     "info": [],
-    "particles": [
-      {
-        "particle": "を"
-      }
-    ],
     "example_sentences": [],
     "chapter": 11,
     "videos": []
@@ -20,11 +15,6 @@
     "english": ["to become hungry"],
     "mnemonics": [],
     "info": [],
-    "particles": [
-      {
-        "particle": "が"
-      }
-    ],
     "example_sentences": [],
     "chapter": 11,
     "videos": []
@@ -97,6 +87,7 @@
     "info": [],
     "particles": [
       {
+        "label": "place",
         "particle": "に"
       }
     ],
@@ -110,7 +101,6 @@
     "english": ["to run"],
     "mnemonics": [],
     "info": [],
-    "particles": [],
     "example_sentences": [],
     "chapter": 11,
     "videos": []
@@ -121,7 +111,6 @@
     "english": ["to get tired"],
     "mnemonics": [],
     "info": [],
-    "particles": [],
     "example_sentences": [],
     "chapter": 11,
     "videos": []

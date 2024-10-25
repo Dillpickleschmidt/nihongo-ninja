@@ -5,7 +5,6 @@
     "english": ["to dance"],
     "mnemonics": [],
     "info": [],
-    "particles": [],
     "example_sentences": [],
     "chapter": 9,
     "videos": []
@@ -31,11 +30,6 @@
     "english": ["to take medicine"],
     "mnemonics": [],
     "info": [],
-    "particles": [
-      {
-        "particle": "を"
-      }
-    ],
     "example_sentences": [],
     "chapter": 9,
     "videos": []
@@ -46,11 +40,6 @@
     "english": ["to be popular"],
     "mnemonics": [],
     "info": [],
-    "particles": [
-      {
-        "particle": "が"
-      }
-    ],
     "example_sentences": [],
     "chapter": 9,
     "videos": []
@@ -128,9 +117,11 @@
     "info": [],
     "particles": [
       {
+        "label": "event",
         "particle": "に"
       },
       {
+        "label": "place",
         "particle": "を"
       }
     ],
@@ -144,7 +135,6 @@
     "english": ["to do physical exercises"],
     "mnemonics": [],
     "info": [],
-    "particles": [],
     "example_sentences": [],
     "chapter": 9,
     "videos": []
@@ -155,7 +145,6 @@
     "english": ["to take a walk"],
     "mnemonics": [],
     "info": [],
-    "particles": [],
     "example_sentences": [],
     "chapter": 9,
     "videos": []

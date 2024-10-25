@@ -5,7 +5,6 @@
     "english": ["warm"],
     "mnemonics": [],
     "info": [],
-    "particles": [],
     "example_sentences": [],
     "chapter": 10,
     "videos": []
@@ -16,7 +15,6 @@
     "english": ["cool (weather - not used for things)"],
     "mnemonics": [],
     "info": [],
-    "particles": [],
     "example_sentences": [],
     "chapter": 10,
     "videos": []
@@ -27,7 +25,6 @@
     "english": ["cold (things/people)"],
     "mnemonics": [],
     "info": [],
-    "particles": [],
     "example_sentences": [],
     "chapter": 10,
     "videos": []
@@ -38,7 +35,6 @@
     "english": ["slow", "late"],
     "mnemonics": [],
     "info": [],
-    "particles": [],
     "example_sentences": [],
     "chapter": 10,
     "videos": []
@@ -49,7 +45,6 @@
     "english": ["sleepy"],
     "mnemonics": [],
     "info": [],
-    "particles": [],
     "example_sentences": [],
     "chapter": 10,
     "videos": []
@@ -60,7 +55,6 @@
     "english": ["easy", "simple"],
     "mnemonics": [],
     "info": ["な-adjective"],
-    "particles": [],
     "example_sentences": [],
     "chapter": 10,
     "videos": []
@@ -70,12 +64,7 @@
     "furigana": [],
     "english": ["to take (amount of time/money)"],
     "mnemonics": [],
-    "info": [],
-    "particles": [
-      {
-        "particle": "が"
-      }
-    ],
+    "info": ["Doesn't need a particle."],
     "example_sentences": [],
     "chapter": 10,
     "videos": []
@@ -131,7 +120,6 @@
     "english": ["to chill out at home", "to stay home and do nothing"],
     "mnemonics": [],
     "info": [],
-    "particles": [],
     "example_sentences": [],
     "chapter": 10,
     "videos": []
@@ -142,7 +130,6 @@
     "english": ["to travel"],
     "mnemonics": [],
     "info": [],
-    "particles": [],
     "example_sentences": [],
     "chapter": 10,
     "videos": []

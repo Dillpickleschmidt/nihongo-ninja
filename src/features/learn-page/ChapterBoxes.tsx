@@ -1327,84 +1327,100 @@ export default function ChapterBoxes() {
         ]}
       />
 
-      {/* <ChapterBox
+      <ChapterBox
         text="Chapter 11"
         class="bg-indigo-500 saturate-[33%]"
         content={[
           {
-            title: "Chapter 9 Vocab List",
-            link: "/learn/chapter-9/vocab-list",
+            title: "Chapter 11 Vocab List",
+            link: "/learn/chapter-11/vocab-list",
             types: ["vocab-list"],
+            disabled: true,
           },
           {
-            title: "Chapter 9 Grammar Notes",
+            title: "Chapter 11 Grammar Notes",
             link: "/learn/grammar-notes",
             types: ["grammar-notes"],
             disabled: true,
           },
           {
             title: "Nouns 1",
-            link: "/learn/chapter-9/nouns-1",
+            link: "/learn/chapter-11/nouns-1",
             types: ["vocab"],
           },
           {
             title: "Practice Nouns 1 - Readings",
-            link: "/learn/chapter-9/practice/nouns-1-readings",
+            link: "/learn/chapter-11/practice/nouns-1-readings",
             types: ["practice"],
           },
           {
             title: "Practice Nouns 1 - Kana",
-            link: "/learn/chapter-9/practice/nouns-1-kana",
+            link: "/learn/chapter-11/practice/nouns-1-kana",
             types: ["practice"],
           },
           {
-            title: "Small Item Counters",
-            link: "/learn/chapter-9/small-item-counters",
+            title: "Nouns 2",
+            link: "/learn/chapter-11/nouns-2",
             types: ["vocab"],
           },
           {
-            title: "Practice Small Item Counters - Readings",
-            link: "/learn/chapter-9/practice/small-item-counters-readings",
+            title: "Practice Nouns 2 - Readings",
+            link: "/learn/chapter-11/practice/nouns-2-readings",
             types: ["practice"],
           },
           {
-            title: "Practice Small Item Counters - Kana",
-            link: "/learn/chapter-9/practice/small-item-counters-kana",
+            title: "Practice Nouns 2 - Kana",
+            link: "/learn/chapter-11/practice/nouns-2-kana",
             types: ["practice"],
           },
           {
-            title: "Verbs",
-            link: "/learn/chapter-9/verbs",
+            title: "Ru and U-Verbs",
+            link: "/learn/chapter-11/ru-v-u-v",
             types: ["vocab"],
           },
           {
-            title: "Practice Verbs - Readings",
-            link: "/learn/chapter-9/practice/verbs-readings",
+            title: "Practice Ru and U-Verbs - Readings",
+            link: "/learn/chapter-11/practice/ru-v-u-v-readings",
             types: ["practice"],
           },
           {
-            title: "Practice Verbs - Kana",
-            link: "/learn/chapter-9/practice/verbs-kana",
+            title: "Practice Ru and U-Verbs - Kana",
+            link: "/learn/chapter-11/practice/ru-v-u-v-kana",
             types: ["practice"],
           },
           {
-            title: "Adj, Adv, & Misc.",
-            link: "/learn/chapter-9/adj-adv-misc",
+            title: "Irr. Verbs, Adv, & Misc.",
+            link: "/learn/chapter-11/irr-v-adv-misc",
             types: ["vocab"],
           },
           {
-            title: "Practice Adj, Adv, & Misc. - Readings",
-            link: "/learn/chapter-9/practice/adj-adv-misc-readings",
+            title: "Practice Irr. V, Adv, & Misc. - Readings",
+            link: "/learn/chapter-11/practice/irr-v-adv-misc-readings",
             types: ["practice"],
           },
           {
-            title: "Practice Adj, Adv, & Misc. - Kana",
-            link: "/learn/chapter-9/practice/adj-adv-misc-kana",
+            title: "Practice Irr. V, Adv, & Misc. - Kana",
+            link: "/learn/chapter-11/practice/irr-v-adv-misc-kana",
+            types: ["practice"],
+          },
+          {
+            title: "Occupations",
+            link: "/learn/chapter-11/occupations",
+            types: ["vocab"],
+          },
+          {
+            title: "Practice Occupations - Readings",
+            link: "/learn/chapter-11/practice/occupations-readings",
+            types: ["practice"],
+          },
+          {
+            title: "Practice Occupations - Kana",
+            link: "/learn/chapter-11/practice/occupations-kana",
             types: ["practice"],
           },
           {
             title: "All Vocab - Test",
-            link: "/learn/chapter-9/all-vocab-test",
+            link: "/learn/chapter-11/all-vocab-test",
             types: ["vocab-test"],
           },
         ]}
@@ -1415,83 +1431,84 @@ export default function ChapterBoxes() {
         class="bg-orange-500 saturate-[65%]"
         content={[
           {
-            title: "Chapter 9 Vocab List",
-            link: "/learn/chapter-9/vocab-list",
+            title: "Chapter 12 Vocab List",
+            link: "/learn/chapter-12/vocab-list",
             types: ["vocab-list"],
+            disabled: true,
           },
           {
-            title: "Chapter 9 Grammar Notes",
+            title: "Chapter 12 Grammar Notes",
             link: "/learn/grammar-notes",
             types: ["grammar-notes"],
             disabled: true,
           },
           {
             title: "Nouns 1",
-            link: "/learn/chapter-9/nouns-1",
+            link: "/learn/chapter-12/nouns-1",
             types: ["vocab"],
           },
           {
             title: "Practice Nouns 1 - Readings",
-            link: "/learn/chapter-9/practice/nouns-1-readings",
+            link: "/learn/chapter-12/practice/nouns-1-readings",
             types: ["practice"],
           },
           {
             title: "Practice Nouns 1 - Kana",
-            link: "/learn/chapter-9/practice/nouns-1-kana",
+            link: "/learn/chapter-12/practice/nouns-1-kana",
             types: ["practice"],
           },
           {
-            title: "Small Item Counters",
-            link: "/learn/chapter-9/small-item-counters",
+            title: "Nouns 2",
+            link: "/learn/chapter-12/nouns-2",
             types: ["vocab"],
           },
           {
-            title: "Practice Small Item Counters - Readings",
-            link: "/learn/chapter-9/practice/small-item-counters-readings",
+            title: "Practice Nouns 2 - Readings",
+            link: "/learn/chapter-12/practice/nouns-2-readings",
             types: ["practice"],
           },
           {
-            title: "Practice Small Item Counters - Kana",
-            link: "/learn/chapter-9/practice/small-item-counters-kana",
+            title: "Practice Nouns 2 - Kana",
+            link: "/learn/chapter-12/practice/nouns-2-kana",
             types: ["practice"],
           },
           {
             title: "Verbs",
-            link: "/learn/chapter-9/verbs",
+            link: "/learn/chapter-12/verbs",
             types: ["vocab"],
           },
           {
             title: "Practice Verbs - Readings",
-            link: "/learn/chapter-9/practice/verbs-readings",
+            link: "/learn/chapter-12/practice/verbs-readings",
             types: ["practice"],
           },
           {
             title: "Practice Verbs - Kana",
-            link: "/learn/chapter-9/practice/verbs-kana",
+            link: "/learn/chapter-12/practice/verbs-kana",
             types: ["practice"],
           },
           {
             title: "Adj, Adv, & Misc.",
-            link: "/learn/chapter-9/adj-adv-misc",
+            link: "/learn/chapter-12/adj-adv-misc",
             types: ["vocab"],
           },
           {
             title: "Practice Adj, Adv, & Misc. - Readings",
-            link: "/learn/chapter-9/practice/adj-adv-misc-readings",
+            link: "/learn/chapter-12/practice/adj-adv-misc-readings",
             types: ["practice"],
           },
           {
             title: "Practice Adj, Adv, & Misc. - Kana",
-            link: "/learn/chapter-9/practice/adj-adv-misc-kana",
+            link: "/learn/chapter-12/practice/adj-adv-misc-kana",
             types: ["practice"],
           },
           {
             title: "All Vocab - Test",
-            link: "/learn/chapter-9/all-vocab-test",
+            link: "/learn/chapter-12/all-vocab-test",
             types: ["vocab-test"],
           },
         ]}
-      /> */}
+      />
 
       <ChapterBox
         text="Chapter 13"
