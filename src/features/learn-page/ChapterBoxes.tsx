@@ -469,9 +469,9 @@ export default function ChapterBoxes() {
             types: ["audio"],
           },
           {
-            title: "Vocab Practice: All Vocab",
-            link: "/learn/chapter-2/practice/all-vocab",
-            types: ["practice"],
+            title: "All Vocab - Test",
+            link: "/learn/chapter-2/all-vocab-test",
+            types: ["vocab-test"],
           },
           {
             title: "Numbers Game 1",
@@ -708,6 +708,11 @@ export default function ChapterBoxes() {
             title: "Practice Adv. & Expres. - Kana",
             link: "/learn/chapter-3/practice/adverbs-expressions-kana",
             types: ["practice"],
+          },
+          {
+            title: "All Vocab - Test",
+            link: "/learn/chapter-3/all-vocab-test",
+            types: ["vocab-test"],
           },
           {
             title: "MyKikitori - Campus Interview #1",

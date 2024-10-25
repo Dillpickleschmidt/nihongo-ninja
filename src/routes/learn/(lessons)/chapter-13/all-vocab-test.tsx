@@ -6,12 +6,10 @@ import { Show } from "solid-js"
 
 const cacheKey = "chapter-13/all"
 const getData = cache(async () => {
-  const nouns = await getVocabularyByPath("chapter-13/nouns")
-  const adj_and_verbs = await getVocabularyByPath("chapter-13/adj-and-verbs")
-  const day_count_and_misc = await getVocabularyByPath(
-    "chapter-13/day-count-and-misc",
-  )
-  return [...nouns, ...adj_and_verbs, ...day_count_and_misc]
+  const group_1 = await getVocabularyByPath("chapter-13/nouns")
+  const group_2 = await getVocabularyByPath("chapter-13/adj-and-verbs")
+  const group_3 = await getVocabularyByPath("chapter-13/day-count-and-misc")
+  return [...group_1, ...group_2, ...group_3]
 }, cacheKey)
 export const route = {
   preload: () => getData(),

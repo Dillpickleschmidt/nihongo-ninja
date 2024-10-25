@@ -114,7 +114,7 @@ export default function MultipleChoice() {
                       buttonStore[index()].isSelected,
                       buttonStore[index()].isCorrect,
                     ),
-                  "min-h-20 w-full flex-col items-start justify-start rounded-xl py-4 text-start font-japanese text-xl shadow-md duration-75 ease-in-out hover:scale-[98.5%]",
+                  "min-h-20 w-full flex-col items-start justify-center rounded-xl py-4 text-start font-japanese text-xl shadow-md duration-75 ease-in-out hover:scale-[98.5%]",
                 )}
               >
                 {enabledAnswers().join(", ")}
