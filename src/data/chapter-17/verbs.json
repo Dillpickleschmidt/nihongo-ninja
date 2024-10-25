@@ -6,7 +6,7 @@
     "mnemonics": [],
     "info": ["Related word: 選挙(せんきょ) meaning election"],
     "example_sentences": [],
-    "chapter": null,
+    "chapter": 17,
     "category": "godan-v",
     "particles": [
       {
@@ -17,12 +17,12 @@
   },
   {
     "word": "お湯を沸かす",
-    "furigana": ["お湯[ゆ]を沸[わ]かす"],
+    "furigana": ["お 湯[ゆ]を 沸[わ]かす"],
     "english": ["to boil water"],
     "mnemonics": [],
     "info": [],
     "example_sentences": [],
-    "chapter": null,
+    "chapter": 17,
     "category": "godan-v",
     "particles": [
       {
@@ -38,7 +38,7 @@
     "mnemonics": [],
     "info": [],
     "example_sentences": [],
-    "chapter": null,
+    "chapter": 17,
     "category": "godan-v",
     "particles": [
       {
@@ -54,7 +54,7 @@
     "mnemonics": [],
     "info": [],
     "example_sentences": [],
-    "chapter": null,
+    "chapter": 17,
     "category": "godan-v",
     "particles": [
       {
@@ -74,7 +74,7 @@
       "ブーツをはく、ブーツを脱ぐ (for boots)"
     ],
     "example_sentences": [],
-    "chapter": null,
+    "chapter": 17,
     "category": "godan-v",
     "particles": [
       {
@@ -95,7 +95,7 @@
         "english": "There is traffic"
       }
     ],
-    "chapter": null,
+    "chapter": 17,
     "category": "godan-v",
     "particles": [
       {
@@ -106,12 +106,12 @@
   },
   {
     "word": "宝くじに当たる",
-    "furigana": ["宝[たから]くじに当[あ]たる"],
+    "furigana": ["宝[たから]くじに 当[あ]たる"],
     "english": ["to win a lottery"],
     "mnemonics": [],
     "info": [],
     "example_sentences": [],
-    "chapter": null,
+    "chapter": 17,
     "category": "godan-v"
   },
   {
@@ -121,7 +121,7 @@
     "mnemonics": [],
     "info": [],
     "example_sentences": [],
-    "chapter": null,
+    "chapter": 17,
     "category": "ichidan-v",
     "particles": [
       {
@@ -140,7 +140,7 @@
       "Related: 生む (v.t., transitive version)"
     ],
     "example_sentences": [],
-    "chapter": null,
+    "chapter": 17,
     "category": "ichidan-v",
     "particles": [
       {
@@ -156,7 +156,7 @@
     "mnemonics": [],
     "info": [],
     "example_sentences": [],
-    "chapter": null,
+    "chapter": 17,
     "category": "ichidan-v",
     "particles": [
       {
@@ -177,7 +177,7 @@
         "english": "There isn't enough time"
       }
     ],
-    "chapter": null,
+    "chapter": 17,
     "category": "ichidan-v",
     "particles": [
       {
@@ -193,7 +193,7 @@
     "mnemonics": [],
     "info": [],
     "example_sentences": [],
-    "chapter": null,
+    "chapter": 17,
     "category": "ichidan-v",
     "particles": [
       {
@@ -214,7 +214,7 @@
       "お参りする - involves physically going to a religious location and performing specific rituals"
     ],
     "example_sentences": [],
-    "chapter": null,
+    "chapter": 17,
     "category": "suru-v",
     "particles": [
       {
@@ -234,7 +234,7 @@
       "〜に務める (to work for/serve at)"
     ],
     "example_sentences": [],
-    "chapter": null,
+    "chapter": 17,
     "category": "suru-v",
     "particles": [
       {
@@ -250,7 +250,7 @@
     "mnemonics": ["The 婚 character is the same as in 結婚 (marriage)"],
     "info": [],
     "example_sentences": [],
-    "chapter": null,
+    "chapter": 17,
     "category": "suru-v",
     "particles": [
       {

@@ -5,13 +5,18 @@
     "english": ["baby"],
     "mnemonics": [],
     "info": [],
-    "example_sentences": [],
-    "chapter": null,
+    "example_sentences": [
+      {
+        "japanese": "赤ちゃんができる",
+        "english": "to conceive a baby"
+      }
+    ],
+    "chapter": 17,
     "category": "noun"
   },
   {
     "word": "お客さん",
-    "furigana": ["お客[きゃく]さん"],
+    "furigana": ["お 客[きゃく]さん"],
     "english": ["guest", "visitor", "client", "customer"],
     "mnemonics": [],
     "info": [
@@ -19,7 +24,7 @@
       "お客様 (おきゃくさま) is the polite version"
     ],
     "example_sentences": [],
-    "chapter": null,
+    "chapter": 17,
     "category": "noun"
   },
   {
@@ -29,7 +34,7 @@
     "mnemonics": [],
     "info": ["Also known as 総理大臣（そうりだいじん）"],
     "example_sentences": [],
-    "chapter": null,
+    "chapter": 17,
     "category": "noun"
   },
   {
@@ -39,7 +44,7 @@
     "mnemonics": [],
     "info": [],
     "example_sentences": [],
-    "chapter": null,
+    "chapter": 17,
     "category": "noun"
   },
   {
@@ -51,7 +56,7 @@
       "The 料 in 給料 is also used in 授業料（じゅぎょうりょう）-> tuition"
     ],
     "example_sentences": [],
-    "chapter": null,
+    "chapter": 17,
     "category": "noun"
   },
   {
@@ -61,7 +66,7 @@
     "mnemonics": [],
     "info": ["Literally means \"work that remains\""],
     "example_sentences": [],
-    "chapter": null,
+    "chapter": 17,
     "category": "noun"
   },
   {
@@ -71,7 +76,7 @@
     "mnemonics": [],
     "info": [],
     "example_sentences": [],
-    "chapter": null,
+    "chapter": 17,
     "category": "noun"
   },
   {
@@ -81,7 +86,7 @@
     "mnemonics": [],
     "info": ["Often specified as コンタクトレンズ"],
     "example_sentences": [],
-    "chapter": null,
+    "chapter": 17,
     "category": "noun"
   },
   {
@@ -91,7 +96,7 @@
     "mnemonics": [],
     "info": [],
     "example_sentences": [],
-    "chapter": null,
+    "chapter": 17,
     "category": "noun"
   },
   {
@@ -101,7 +106,7 @@
     "mnemonics": [],
     "info": [],
     "example_sentences": [],
-    "chapter": null,
+    "chapter": 17,
     "category": "noun"
   },
   {
@@ -111,7 +116,7 @@
     "mnemonics": [],
     "info": [],
     "example_sentences": [],
-    "chapter": null,
+    "chapter": 17,
     "category": "noun"
   },
   {
@@ -121,7 +126,7 @@
     "mnemonics": [],
     "info": ["宝 means treasure"],
     "example_sentences": [],
-    "chapter": null,
+    "chapter": 17,
     "category": "noun"
   },
   {
@@ -134,7 +139,7 @@
       "折る means to fold or to break sticks into pieces"
     ],
     "example_sentences": [],
-    "chapter": null,
+    "chapter": 17,
     "category": "noun"
   },
   {
@@ -144,7 +149,7 @@
     "mnemonics": [],
     "info": [],
     "example_sentences": [],
-    "chapter": null,
+    "chapter": 17,
     "category": "noun"
   }
 ]

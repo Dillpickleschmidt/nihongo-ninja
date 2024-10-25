@@ -999,6 +999,7 @@ export default function ChapterBoxes() {
             title: "Chapter 7 Vocab List",
             link: "/learn/chapter-7/vocab-list",
             types: ["vocab-list"],
+            disabled: true,
           },
           {
             title: "Chapter 7 Grammar Notes",
@@ -1082,6 +1083,7 @@ export default function ChapterBoxes() {
             title: "Chapter 8 Vocab List",
             link: "/learn/chapter-8/vocab-list",
             types: ["vocab-list"],
+            disabled: true,
           },
           {
             title: "Chapter 8 Grammar Notes",
@@ -1165,6 +1167,7 @@ export default function ChapterBoxes() {
             title: "Chapter 9 Vocab List",
             link: "/learn/chapter-9/vocab-list",
             types: ["vocab-list"],
+            disabled: true,
           },
           {
             title: "Chapter 9 Grammar Notes",
@@ -1173,18 +1176,18 @@ export default function ChapterBoxes() {
             disabled: true,
           },
           {
-            title: "Nouns 1",
-            link: "/learn/chapter-9/nouns-1",
+            title: "Nouns",
+            link: "/learn/chapter-9/nouns",
             types: ["vocab"],
           },
           {
-            title: "Practice Nouns 1 - Readings",
-            link: "/learn/chapter-9/practice/nouns-1-readings",
+            title: "Practice Nouns - Readings",
+            link: "/learn/chapter-9/practice/nouns-readings",
             types: ["practice"],
           },
           {
-            title: "Practice Nouns 1 - Kana",
-            link: "/learn/chapter-9/practice/nouns-1-kana",
+            title: "Practice Nouns - Kana",
+            link: "/learn/chapter-9/practice/nouns-kana",
             types: ["practice"],
           },
           {
@@ -1248,6 +1251,7 @@ export default function ChapterBoxes() {
             title: "Chapter 10 Vocab List",
             link: "/learn/chapter-8/vocab-list",
             types: ["vocab-list"],
+            disabled: true,
           },
           {
             title: "Chapter 10 Grammar Notes",

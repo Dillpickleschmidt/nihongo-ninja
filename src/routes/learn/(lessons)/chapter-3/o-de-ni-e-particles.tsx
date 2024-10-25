@@ -146,14 +146,14 @@ export default function page() {
             - I study Japanese.
           </li>
         </ul>
-        <p class="text-sm italic text-muted-foreground">
-          Note: While written as を, this particle is pronounced as "o" in
-          modern Japanese.
+        <p class="text-center font-bold">
+          While written as を, this particle is pronounced as "o" in modern
+          Japanese.
         </p>
-        <p class="!mt-0 text-sm italic text-muted-foreground">
-          Also, for some ungodly reason, the particle{" "}
-          <span class="font-japanese">を</span> is written as "wo" in romaji.
-          Don't ask me why.
+        <p class="!mt-2 text-sm italic text-muted-foreground">
+          Also, the particle <span class="font-japanese">を</span> is written as
+          "wo" in romaji even though it's pronounced "o". Kind of confusing, but
+          you hopefully won't be reading romaji anyway.
         </p>
         <YouTubeVideo
           videoId="k2lJ87F10Co"
@@ -179,7 +179,7 @@ export default function page() {
           >
             this article by 80/20 Japanese on the を particle
           </a>
-          .
+          . We'll cover this in more detail in later lessons, though.
         </p>
 
         <p>
@@ -209,10 +209,10 @@ export default function page() {
         </p>
         <p class="text-center font-japanese text-xl">
           <Furigana furigana={<span class="text-xs">すし</span>}>寿司</Furigana>
-          を
+          を<Furigana furigana={<span class="text-xs">た</span>}>食</Furigana>
+          べます、
           <Furigana furigana={<span class="text-xs">わたし</span>}>私</Furigana>
-          は<Furigana furigana={<span class="text-xs">た</span>}>食</Furigana>
-          べます。
+          は。
         </p>
         <ul class="list-inside list-disc">
           <li>
@@ -227,8 +227,8 @@ export default function page() {
           </li>
         </ul>
         <p class="text-sm italic text-muted-foreground">
-          Note: While both are gramatically accurate, the first one sounds more
-          natural for reasons described in the next lesson.
+          Note: While both are gramatically accurate, the first one is more
+          common for reasons described in the next lesson.
         </p>
 
         <h3 class="font-bold italic">A Note on Particle Placement:</h3>
@@ -440,7 +440,10 @@ export default function page() {
             whereas times relavent to the present don't use{" "}
             <span class="font-japanese text-xl">に</span>. Take this example:
           </p>
-          <div class="flex w-full items-center">
+          <p class="text-base italic text-muted-foreground">
+            <span class="font-japanese not-italic">明日</span> {"->"} tomorrow
+          </p>
+          <div class="!mt-2 flex w-full items-center">
             <p class="w-1/4 font-bold text-red-500">Incorrect</p>
             <p class="w-3/4">
               <span class="font-japanese text-xl line-through">

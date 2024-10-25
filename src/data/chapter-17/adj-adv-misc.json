@@ -6,7 +6,7 @@
     "mnemonics": [],
     "info": [],
     "example_sentences": [],
-    "chapter": null,
+    "chapter": 17,
     "category": "i-adj"
   },
   {
@@ -16,7 +16,7 @@
     "mnemonics": [],
     "info": [],
     "example_sentences": [],
-    "chapter": null,
+    "chapter": 17,
     "category": "i-adj"
   },
   {
@@ -32,17 +32,17 @@
       "❌少ない人 ⭕️人が少ない"
     ],
     "example_sentences": [],
-    "chapter": null,
+    "chapter": 17,
     "category": "i-adj"
   },
   {
     "word": "都合が悪い",
-    "furigana": ["都合[つごう]が悪[わる]い"],
+    "furigana": ["都合[つごう]が 悪[わる]い"],
     "english": ["inconvenient", "to have a scheduling conflict"],
     "mnemonics": [],
     "info": [],
     "example_sentences": [],
-    "chapter": null,
+    "chapter": 17,
     "category": "expression"
   },
   {
@@ -55,7 +55,7 @@
       "Related: 勉強 - makes you strong and powerful!"
     ],
     "example_sentences": [],
-    "chapter": null,
+    "chapter": 17,
     "category": "i-adj"
   },
   {
@@ -70,7 +70,7 @@
         "english": "Worst pattern/scenario"
       }
     ],
-    "chapter": null,
+    "chapter": 17,
     "category": "na-adj"
   },
   {
@@ -95,7 +95,7 @@
         "english": "It's gotten considerably colder lately. (noting a significant change)"
       }
     ],
-    "chapter": null,
+    "chapter": 17,
     "category": "adverb"
   },
   {
@@ -105,17 +105,17 @@
     "mnemonics": [],
     "info": [],
     "example_sentences": [],
-    "chapter": null,
+    "chapter": 17,
     "category": "expression"
   },
   {
     "word": "～に比べて",
-    "furigana": ["に比[くら]べて"],
+    "furigana": ["に 比[くら]べて"],
     "english": ["compared with..."],
     "mnemonics": [],
     "info": [],
     "example_sentences": [],
-    "chapter": null,
+    "chapter": 17,
     "category": "expression"
   },
   {
@@ -125,7 +125,7 @@
     "mnemonics": [],
     "info": [],
     "example_sentences": [],
-    "chapter": null,
+    "chapter": 17,
     "category": "expression"
   },
   {
@@ -135,7 +135,7 @@
     "mnemonics": [],
     "info": [],
     "example_sentences": [],
-    "chapter": null,
+    "chapter": 17,
     "category": "expression"
   },
   {
@@ -145,7 +145,7 @@
     "mnemonics": [],
     "info": ["Formal version: やはり"],
     "example_sentences": [],
-    "chapter": null,
+    "chapter": 17,
     "category": "adverb"
   },
   {
@@ -155,7 +155,7 @@
     "mnemonics": [],
     "info": ["Casual expression used for wondering or uncertainty"],
     "example_sentences": [],
-    "chapter": null,
+    "chapter": 17,
     "category": "expression"
   },
   {
@@ -165,7 +165,7 @@
     "mnemonics": [],
     "info": ["Casual expression of understanding"],
     "example_sentences": [],
-    "chapter": null,
+    "chapter": 17,
     "category": "expression"
   },
   {
@@ -175,7 +175,7 @@
     "mnemonics": [],
     "info": ["Polite congratulatory expression"],
     "example_sentences": [],
-    "chapter": null,
+    "chapter": 17,
     "category": "expression"
   }
 ]

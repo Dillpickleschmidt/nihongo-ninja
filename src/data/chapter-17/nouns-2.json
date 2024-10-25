@@ -1,12 +1,12 @@
 [
   {
     "word": "お湯",
-    "furigana": ["お湯[ゆ]"],
+    "furigana": ["お 湯[ゆ]"],
     "english": ["hot water"],
     "mnemonics": [],
     "info": ["Do not say 熱い水 for hot water"],
     "example_sentences": [],
-    "chapter": null,
+    "chapter": 17,
     "category": "noun"
   },
   {
@@ -16,7 +16,7 @@
     "mnemonics": [],
     "info": [],
     "example_sentences": [],
-    "chapter": null,
+    "chapter": 17,
     "category": "noun"
   },
   {
@@ -26,7 +26,7 @@
     "mnemonics": [],
     "info": [],
     "example_sentences": [],
-    "chapter": null,
+    "chapter": 17,
     "category": "noun"
   },
   {
@@ -36,7 +36,7 @@
     "mnemonics": [],
     "info": ["Correct spelling is ニュース, not ニューズ"],
     "example_sentences": [],
-    "chapter": null,
+    "chapter": 17,
     "category": "noun"
   },
   {
@@ -46,7 +46,7 @@
     "mnemonics": [],
     "info": [],
     "example_sentences": [],
-    "chapter": null,
+    "chapter": 17,
     "category": "noun"
   },
   {
@@ -56,7 +56,7 @@
     "mnemonics": [],
     "info": [],
     "example_sentences": [],
-    "chapter": null,
+    "chapter": 17,
     "category": "noun"
   },
   {
@@ -66,7 +66,7 @@
     "mnemonics": [],
     "info": [],
     "example_sentences": [],
-    "chapter": null,
+    "chapter": 17,
     "category": "noun"
   },
   {
@@ -76,7 +76,7 @@
     "mnemonics": [],
     "info": [],
     "example_sentences": [],
-    "chapter": null,
+    "chapter": 17,
     "category": "noun"
   },
   {
@@ -95,7 +95,7 @@
         "english": "What differences do you think there are?"
       }
     ],
-    "chapter": null,
+    "chapter": 17,
     "category": "noun"
   },
   {
@@ -105,7 +105,7 @@
     "mnemonics": [],
     "info": ["Common phrase: 秘密を守る (keep the secret)"],
     "example_sentences": [],
-    "chapter": null,
+    "chapter": 17,
     "category": "noun"
   },
   {
@@ -115,7 +115,7 @@
     "mnemonics": [],
     "info": [],
     "example_sentences": [],
-    "chapter": null,
+    "chapter": 17,
     "category": "noun"
   },
   {
@@ -125,7 +125,7 @@
     "mnemonics": [],
     "info": [],
     "example_sentences": [],
-    "chapter": null,
+    "chapter": 17,
     "category": "noun"
   }
 ]
