@@ -62,7 +62,10 @@
     "word": "着物",
     "furigana": ["着物[きもの]"],
     "english": ["kimono", "Japanese traditional dress"],
-    "mnemonics": ["Wear (着) + thing (物) = kimono"],
+    "mnemonics": [
+      "Wear (着) + thing (物) = kimono",
+      "Similar pattern to: 飲み物、食べ物、乗り物"
+    ],
     "info": [
       "Evolved from the Chinese hanfu during the Heian period (794-1185)",
       "Became the main form of dress for all classes in Japan during the Edo period (1603-1867)"
@@ -84,8 +87,16 @@
     "furigana": ["楽器[がっき]"],
     "english": ["musical instrument"],
     "mnemonics": [],
-    "info": [],
-    "example_sentences": [],
+    "info": [
+      "音楽に使うもの - Things used for music",
+      "Uses the same 楽 kanji as in 音楽"
+    ],
+    "example_sentences": [
+      {
+        "japanese": "子どものころ、楽器を３つ練習しました。",
+        "english": "When I was a child, I practiced three musical instruments."
+      }
+    ],
     "chapter": 13
   },
   {
@@ -155,7 +166,7 @@
     "word": "言葉",
     "furigana": ["言葉[ことば]"],
     "english": ["language", "word", "speech"],
-    "mnemonics": [],
+    "mnemonics": ["Contains 言 from 言う (to say)"],
     "info": [
       "Can refer to a single word, a phrase, or an entire language",
       "Often used to discuss manner of speaking or choice of words"
@@ -210,7 +221,7 @@
     "word": "空港",
     "furigana": ["空港[くうこう]"],
     "english": ["airport"],
-    "mnemonics": [],
+    "mnemonics": ["空 sky + 港 port = skyport/airport"],
     "info": [],
     "example_sentences": [],
     "chapter": 13
@@ -232,7 +243,7 @@
     "furigana": ["物価[ぶっか]"],
     "english": ["consumer prices", "cost of living"],
     "mnemonics": [],
-    "info": [],
+    "info": ["prices of commodities, prices in general, cost-of-living"],
     "example_sentences": [],
     "chapter": 13
   },
@@ -270,7 +281,10 @@
     "mnemonics": [],
     "info": [],
     "example_sentences": [
-      "結婚のご経験はありますか？ - Have you ever been married before?"
+      {
+        "japanese": "結婚のご経験はありますか？",
+        "english": "Have you ever been married before?"
+      }
     ],
     "chapter": 13
   }

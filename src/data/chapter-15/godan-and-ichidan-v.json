@@ -7,22 +7,34 @@
     "info": [],
     "example_sentences": [],
     "chapter": 15,
-    "category": "ichidan-v"
+    "category": "ichidan-v",
+    "particles": [
+      {
+        "label": "item",
+        "particle": "を"
+      }
+    ]
   },
   {
     "word": "下す",
     "furigana": ["下[おろ]す"],
-    "english": ["to withdraw (money)"],
+    "english": ["to withdraw (money)", "to unload"],
     "mnemonics": [],
-    "info": [],
+    "info": ["Can also be used with 荷物を下ろす (to unload luggage)"],
     "example_sentences": [
       {
         "japanese": "お金を下ろす",
-        "english": "To withdraw money (literally, unloading money)."
+        "english": "To withdraw money (literally, unloading money)"
       }
     ],
     "chapter": 15,
-    "category": "ichidan-v"
+    "category": "ichidan-v",
+    "particles": [
+      {
+        "label": "item",
+        "particle": "を"
+      }
+    ]
   },
   {
     "word": "描く",
@@ -30,9 +42,20 @@
     "english": ["to draw", "to paint"],
     "mnemonics": [],
     "info": [],
-    "example_sentences": [],
+    "example_sentences": [
+      {
+        "japanese": "彼女は絵を描くのが上手です。",
+        "english": "She is good at drawing pictures."
+      }
+    ],
     "chapter": 15,
-    "category": "ichidan-v"
+    "category": "ichidan-v",
+    "particles": [
+      {
+        "label": "item",
+        "particle": "を"
+      }
+    ]
   },
   {
     "word": "探す",
@@ -43,27 +66,43 @@
       "Action focused",
       "Refers to the act of searching for something. It implies that the object or information you are looking for has not yet been found.",
       "見つける -> to find X item (item focused)",
-      "見つける focuses on the result of the search, indicating that the object is known",
-      "いなくなった猫を見つけるのは大変だった"
+      "見つける focuses on the result of the search, indicating that the object is known"
     ],
-    "example_sentences": [],
+    "example_sentences": [
+      {
+        "japanese": "新しい仕事を探している",
+        "english": "I'm looking for a new job"
+      }
+    ],
     "chapter": 15,
-    "category": "ichidan-v"
+    "category": "ichidan-v",
+    "particles": [
+      {
+        "label": "item",
+        "particle": "を"
+      }
+    ]
   },
   {
     "word": "誘う",
     "furigana": ["誘[さそ]う"],
     "english": ["to invite"],
     "mnemonics": [],
-    "info": ["人をopportunityに誘う"],
+    "info": ["Structure: 人をopportunityに誘う"],
     "example_sentences": [
       {
-        "japanese": "大学で知り合った友達を家に誘う。",
-        "english": "Invite a friend you met at university over to your house."
+        "japanese": "大学で知り合った友達を家に誘う",
+        "english": "Invite a friend you met at university over to your house"
       }
     ],
     "chapter": 15,
-    "category": "ichidan-v"
+    "category": "ichidan-v",
+    "particles": [
+      {
+        "label": "person",
+        "particle": "を"
+      }
+    ]
   },
   {
     "word": "しゃべる",
@@ -71,8 +110,8 @@
     "english": ["to chat"],
     "mnemonics": [],
     "info": [
-      "This is actually an う verb (deceptively).",
-      "It conjuagets しゃべります, しゃべって   Xしゃべます"
+      "Another deceptive う verb that ends in eru! It's one of those few exception う verbs.",
+      "It conjugates as しゃべります, しゃべって (NOT しゃべます)"
     ],
     "example_sentences": [],
     "chapter": 15,
@@ -84,12 +123,22 @@
     "english": ["to date (someone)", "to keep company"],
     "mnemonics": [],
     "info": [
-      "Aさんは/がBさんと付き合っている -> Aさん and Bさん are dating (a committed relationship)",
+      "Structure: Aさんは/がBさんと付き合っている -> Aさん and Bさん are dating (refers to a committed relationship)",
       "デートする is used for individual dating events, whether or not the people involved are in a serious relationship"
     ],
     "example_sentences": [],
     "chapter": 15,
-    "category": "ichidan-v"
+    "category": "ichidan-v",
+    "particles": [
+      {
+        "label": "person",
+        "particle": "と"
+      },
+      {
+        "label": "purpose",
+        "particle": "に"
+      }
+    ]
   },
   {
     "word": "着く",
@@ -99,14 +148,20 @@
     "info": [],
     "example_sentences": [],
     "chapter": 15,
-    "category": "ichidan-v"
+    "category": "ichidan-v",
+    "particles": [
+      {
+        "label": "place",
+        "particle": "に"
+      }
+    ]
   },
   {
     "word": "保険に入る",
     "furigana": ["保険[ほけん]に 入[はい]る"],
-    "english": ["to buy insurance"],
-    "mnemonics": [],
-    "info": [],
+    "english": ["to buy insurance", "to get insurance"],
+    "mnemonics": ["保 (ほ) means 'to protect' and 険 (けん) means 'danger'"],
+    "info": ["Used for getting insurance against thefts, accidents, etc."],
     "example_sentences": [],
     "chapter": 15,
     "category": "ichidan-v"
@@ -116,10 +171,15 @@
     "furigana": ["気[き]をつける"],
     "english": ["to be cautious", "to be careful"],
     "mnemonics": [],
-    "info": [],
+    "info": ["Equivalent to 〜に注意する"],
     "example_sentences": [],
     "chapter": 15,
-    "category": "godan-v"
+    "category": "godan-v",
+    "particles": [
+      {
+        "particle": "に"
+      }
+    ]
   },
   {
     "word": "調べる",
@@ -127,9 +187,20 @@
     "english": ["to look into (a matter)"],
     "mnemonics": [],
     "info": [],
-    "example_sentences": [],
+    "example_sentences": [
+      {
+        "japanese": "分からない言葉は辞書で調べます。",
+        "english": "I look up words I don't understand in the dictionary."
+      }
+    ],
     "chapter": 15,
-    "category": "godan-v"
+    "category": "godan-v",
+    "particles": [
+      {
+        "label": "matter",
+        "particle": "を"
+      }
+    ]
   },
   {
     "word": "見える",
@@ -139,6 +210,11 @@
     "info": [],
     "example_sentences": [],
     "chapter": 15,
-    "category": "godan-v"
+    "category": "godan-v",
+    "particles": [
+      {
+        "particle": "を"
+      }
+    ]
   }
 ]

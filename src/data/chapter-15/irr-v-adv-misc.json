@@ -4,22 +4,34 @@
     "furigana": ["する"],
     "english": ["to decide on (an item)"],
     "mnemonics": [],
-    "info": ["Structure: 〜にする", "This is the easiest way to order food."],
+    "info": [
+      "Structure: 〜にする",
+      "This is the easiest way to order food or make a choice"
+    ],
     "example_sentences": [
-      { "japanese": "私はおすしにします。", "english": "I'll have sushi." },
+      {
+        "japanese": "私はおすしにします。",
+        "english": "I'll have sushi."
+      },
       {
         "japanese": "今日はトンカツにします。",
         "english": "I'll have tonkatsu today."
       }
     ],
     "chapter": 15,
-    "category": "irr-v"
+    "category": "irr-v",
+    "particles": [
+      {
+        "label": "item",
+        "particle": "に"
+      }
+    ]
   },
   {
     "word": "観光する",
     "furigana": ["観光[かんこう]する"],
     "english": ["to do sightseeing"],
-    "mnemonics": ["Contains 見 - to see"],
+    "mnemonics": ["Contains 見 - meaning 'to see'"],
     "info": [],
     "example_sentences": [],
     "chapter": 15,
@@ -28,34 +40,57 @@
   {
     "word": "予約する",
     "furigana": ["予約[よやく]する"],
-    "english": ["to reserve"],
-    "mnemonics": [],
+    "english": ["to reserve", "to make a reservation"],
+    "mnemonics": [
+      "予 (よ) means 'beforehand,' 約 (やく) means 'promise' (same as in 約束)"
+    ],
     "info": [],
     "example_sentences": [],
     "chapter": 15,
-    "category": "irr-v"
+    "category": "irr-v",
+    "particles": [
+      {
+        "particle": "を"
+      }
+    ]
   },
   {
     "word": "参加する",
     "furigana": ["参加[さんか]する"],
     "english": ["to participate"],
-    "mnemonics": [],
+    "mnemonics": [
+      "参: Consists of the radicals 人 (person) + 大 (big) + 小 (small). Think of 'all kinds of people, big and small, participating together.'",
+      "加: The hiragana か and katakana カ were derived from this kanji",
+      "To see how other hiragana were derived, check out https://www.reddit.com/r/LearnJapanese/comments/9vwxhn/hiragana_chart_showing_the_kanji_they_came_from/"
+    ],
     "info": [],
     "example_sentences": [],
     "chapter": 15,
-    "category": "irr-v"
+    "category": "irr-v",
+    "particles": [
+      {
+        "particle": "に"
+      }
+    ]
   },
   {
     "word": "卒業する",
     "furigana": ["卒業[そつぎょう]する"],
     "english": ["to graduate (from...)"],
-    "mnemonics": [],
+    "mnemonics": ["業 is the same kanji as in 授業 (じゅぎょう; class)"],
     "info": [
-      "You must use ～を instead of ～から when describing where you're graduating from."
+      "You must use ～を instead of ～から when describing where you're graduating from",
+      "Can be used with 式 (しき) to form 卒業式 (graduation ceremony)"
     ],
     "example_sentences": [],
     "chapter": 15,
-    "category": "irr-v"
+    "category": "irr-v",
+    "particles": [
+      {
+        "label": "school",
+        "particle": "を"
+      }
+    ]
   },
   {
     "word": "発表する",
@@ -80,13 +115,13 @@
   {
     "word": "～目",
     "furigana": ["～ 目[め]"],
-    "english": ["-th"],
+    "english": ["-th (counter suffix)"],
     "mnemonics": [],
-    "info": [],
+    "info": ["Used to indicate ordinal numbers"],
     "example_sentences": [
       {
-        "japanes": "二番目の信号を右に曲がってください。",
-        "english": "Turn right on the 2nd traffic light."
+        "japanese": "二番目の信号を右に曲がってください。",
+        "english": "Turn right at the second traffic light."
       }
     ],
     "chapter": 15,
@@ -97,7 +132,7 @@
     "furigana": ["一日中[いちにちじゅう]"],
     "english": ["all day long"],
     "mnemonics": [],
-    "info": ["一年中 - All year long"],
+    "info": ["Similar pattern: 一年中 (いちねんじゅう) - all year long"],
     "example_sentences": [],
     "chapter": 15,
     "category": "adverbs-and-other-expressions"
@@ -107,7 +142,7 @@
     "furigana": ["最近[さいきん]"],
     "english": ["recently"],
     "mnemonics": [
-      "最 means 'most' as seen in 最初（さいしょ）The first time  and  最高（さいこう）The top, best"
+      "最 means 'most' as seen in 最初 (さいしょ; the first time) and 最高 (さいこう; the best)"
     ],
     "info": [],
     "example_sentences": [],
@@ -120,7 +155,7 @@
     "english": ["one more time"],
     "mnemonics": [],
     "info": [
-      "In fast speech, もう might be shortened to もいちど, but it should be written もう一度 or もう１回"
+      "In fast speech, もう sounds like もいちど, but it should be written もう一度 or もう１回"
     ],
     "example_sentences": [],
     "chapter": 15,
