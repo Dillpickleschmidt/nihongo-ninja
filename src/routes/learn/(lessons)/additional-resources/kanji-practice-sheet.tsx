@@ -203,7 +203,14 @@ export default function Page() {
                   </tr>
                 </thead>
                 <tbody>
-                  <For each={Array(20).fill(0)}>
+                  <For each={Array(13).fill(0)}>
+                    {(_, index) => <TableRow isFirstRow={index() === 0} />}
+                  </For>
+                </tbody>
+              </table>
+              <table class="mt-16 w-full border-collapse border-2 border-neutral-500 p-16 print:border-black">
+                <tbody>
+                  <For each={Array(7).fill(0)}>
                     {(_, index) => <TableRow isFirstRow={index() === 0} />}
                   </For>
                 </tbody>

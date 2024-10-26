@@ -53,7 +53,9 @@
     "word": "図書館",
     "furigana": ["図書館[としょかん]"],
     "english": ["library"],
-    "mnemonics": [],
+    "mnemonics": [
+      "Every library has a bucket/bin that you can \"toss yo (としょ)\" books into to be returned."
+    ],
     "info": [
       "Libraries in Japan are typically very quiet, with strict rules about noise to maintain an environment conducive to reading and studying.",
       "Japan also has specialized libraries, such as manga libraries, which house extensive collections of manga (Japanese comics) for enthusiasts and researchers."
@@ -67,7 +69,9 @@
     "word": "郵便局",
     "furigana": ["郵便局[ゆうびんきょく]"],
     "english": ["post office"],
-    "mnemonics": ["You been (yuubin) to the post office yet?"],
+    "mnemonics": [
+      "You been (yuubin) to the post office yet? I heard they remodeled."
+    ],
     "info": [],
     "example_sentences": [
       {
