@@ -1,123 +1,61 @@
 import type { APIEvent } from "@solidjs/start/server"
 
-// Cache to store HEAD request results
-const headCache = new Map<string, { fileSize: string; contentType: string }>()
-
 export async function GET({ params, request }: APIEvent) {
-  const fileId = params.fileId
-  const url = `https://drive.google.com/uc?export=download&id=${fileId}`
-  const startTime = Date.now()
-  console.log(`Starting to fetch video from Google Drive: ${startTime}`)
+  try {
+    const fileId = params.fileId
+    const range = request.headers.get("range")
+    const videoUrl = `https://drive.google.com/uc?export=download&id=${fileId}`
 
-  let fileSize: string
-  let contentType: string
-
-  // Check if we have cached HEAD request results
-  if (!headCache.has(fileId)) {
-    // If not cached, perform HEAD request
-    const headResponse = await fetch(url, { method: "HEAD" })
-
-    if (!headResponse.ok) {
-      console.error(`HEAD request failed: ${headResponse.status}`)
-      return new Response(
-        `Failed to fetch video metadata: ${headResponse.status}`,
-        {
-          status: headResponse.status,
-        },
-      )
+    // Get video metadata
+    const head = await fetch(videoUrl, { method: "HEAD" })
+    if (!head.ok) {
+      return new Response("Failed to fetch video", { status: head.status })
     }
-    console.log(`HEAD request completed: ${headResponse.status}`)
 
-    fileSize = headResponse.headers.get("content-length") || "0"
-    contentType = headResponse.headers.get("content-type") || "video/mp4"
+    const size = head.headers.get("content-length")
+    if (!size) {
+      return new Response("Could not determine video size", { status: 400 })
+    }
 
-    // Cache the results
-    headCache.set(fileId, { fileSize, contentType })
+    // Handle range request
+    if (range) {
+      const [start] = range.replace(/bytes=/, "").split("-")
+      const end = Math.min(parseInt(start) + 1024 * 1024, parseInt(size) - 1) // Stream in 1MB chunks
 
-    console.log(`HEAD request completed. File size: ${fileSize} bytes`)
-  } else {
-    // Use cached results
-    const cachedData = headCache.get(fileId)!
-    fileSize = cachedData.fileSize
-    contentType = cachedData.contentType
-    console.log(`Using cached HEAD data. File size: ${fileSize} bytes`)
-  }
+      const response = await fetch(videoUrl, {
+        headers: { Range: `bytes=${start}-${end}` },
+      })
 
-  // Handle range request
-  const range = request.headers.get("range")
-  let start = 0
-  let end = parseInt(fileSize) - 1
+      if (!response.ok) {
+        return new Response("Failed to fetch video chunk", {
+          status: response.status,
+        })
+      }
 
-  if (range) {
-    const parts = range.replace(/bytes=/, "").split("-")
-    start = parseInt(parts[0], 10)
-    end = parts[1] ? parseInt(parts[1], 10) : parseInt(fileSize) - 1
-  }
+      const headers = new Headers({
+        "Content-Range": `bytes ${start}-${end}/${size}`,
+        "Accept-Ranges": "bytes",
+        "Content-Length": (end - parseInt(start) + 1).toString(),
+        "Content-Type": "video/mp4",
+      })
 
-  const contentLength = end - start + 1
+      return new Response(response.body, { status: 206, headers })
+    }
 
-  // Fetch the requested range
-  const mainResponse = await fetch(url, {
-    headers: range ? { Range: `bytes=${start}-${end}` } : {},
-  })
-
-  if (!mainResponse.ok || !mainResponse.body) {
-    console.error(`Main request failed: ${mainResponse.status}`)
+    // Non-range request - return whole file
+    const response = await fetch(videoUrl)
+    return new Response(response.body, {
+      headers: {
+        "Content-Length": size,
+        "Content-Type": "video/mp4",
+      },
+    })
+  } catch (error) {
     return new Response(
-      `Failed to fetch video content: ${mainResponse.status}`,
+      error instanceof Error ? error.message : "Server error",
       {
-        status: mainResponse.status,
+        status: 500,
       },
     )
   }
-
-  const responseBody = mainResponse.body
-
-  // Create a new ReadableStream
-  const stream = new ReadableStream({
-    async start(controller) {
-      const reader = responseBody.getReader()
-      let bytesRead = 0
-
-      try {
-        while (true) {
-          const { done, value } = await reader.read()
-          if (done) break
-
-          bytesRead += value.length
-          controller.enqueue(value)
-
-          // Log progress every 1MB
-          // if (bytesRead % (1 * 1024 * 1024) < value.length) {
-          //   console.log(`Streamed ${bytesRead / 1024 / 1024}MB`)
-          // }
-        }
-      } catch (error) {
-        console.error("Error while reading the stream:", error)
-        controller.error(error)
-      } finally {
-        console.log(`Finished streaming ${bytesRead} bytes`)
-        controller.close()
-      }
-    },
-  })
-
-  // Create headers object
-  const headers: HeadersInit = {
-    "Content-Type": contentType,
-    "Content-Length": contentLength.toString(),
-    "Accept-Ranges": "bytes",
-    "Cache-Control": "no-cache",
-  }
-
-  // Add Content-Range header only if range is specified
-  if (range) {
-    headers["Content-Range"] = `bytes ${start}-${end}/${fileSize}`
-  }
-
-  // Return a streaming response
-  return new Response(stream, {
-    status: range ? 206 : 200,
-    headers: headers,
-  })
 }
