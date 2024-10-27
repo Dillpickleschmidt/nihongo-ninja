@@ -8,6 +8,16 @@
       "行く is often used with the particles に or へ to indicate a destination.",
       "It's a very commonly used verb in Japanese."
     ],
+    "particles": [
+      {
+        "label": "destination",
+        "particle": "に"
+      },
+      {
+        "label": "destination",
+        "particle": "へ"
+      }
+    ],
     "example_sentences": [
       { "japanese": "学校に行く", "english": "I go to school" },
       { "japanese": "東京へ行く", "english": "I go to Tokyo" }
@@ -23,6 +33,16 @@
       "Is used when someone or something is moving towards the speaker's location or a place associated with the speaker.",
       "来る implies movement towards the speaker, while 帰る means 'to return' or 'go back' to a point of origin.",
       "来る is often used from the receiver's perspective, 帰る from the returner's perspective (or from someone else recounting it)."
+    ],
+    "particles": [
+      {
+        "label": "destination",
+        "particle": "に"
+      },
+      {
+        "label": "destination",
+        "particle": "へ"
+      }
     ],
     "example_sentences": [
       {
@@ -42,6 +62,16 @@
       "Cannot be used for inanimate objects or animals.",
       "Most commonly used for returning home, but can also be used for returning to school, work, or other regular places.",
       "Is used with に・へ to indicate the destination."
+    ],
+    "particles": [
+      {
+        "label": "destination",
+        "particle": "に"
+      },
+      {
+        "label": "destination",
+        "particle": "へ"
+      }
     ],
     "example_sentences": [
       {
@@ -63,6 +93,11 @@
       "(Not covered in Nihongo Ninja) - 'To understand' or 'to follow,' often in its potential form 聞こえる (kikoeru) - よく聞こえない (I can't hear/understand well). This is a bit advanced so just focus on the other 2 meanings for now.",
       "Context and particle usage help determine the intended meaning."
     ],
+    "particles": [
+      {
+        "particle": "を"
+      }
+    ],
     "example_sentences": [],
     "chapter": 3
   },
@@ -75,6 +110,16 @@
       "Is used for the act of speaking or talking. When referring to speaking a language, it can be used with either を or で, with a slight difference in nuance:",
       "1. [Language]を話す: Emphasizes the ability to speak a language. E.g., 日本語を話す (Nihongo wo hanasu) - to be able to speak Japanese.",
       "2. [Language]で話す: Focuses on the act of speaking using a particular language. E.g., 英語で話す (Eigo de hanasu) - to speak in English."
+    ],
+    "particles": [
+      {
+        "label": "language",
+        "particle": "を"
+      },
+      {
+        "label": "language",
+        "particle": "で"
+      }
     ],
     "example_sentences": [],
     "chapter": 3
@@ -92,6 +137,11 @@
       "4. To examine/check: 成績を見る (seiseki wo miru) - to check grades",
       "The specific meaning is often clear from context and the object being viewed."
     ],
+    "particles": [
+      {
+        "particle": "を"
+      }
+    ],
     "example_sentences": [],
     "chapter": 3
   },
@@ -102,6 +152,11 @@
     "mnemonics": [],
     "info": [
       "Typically used with the を particle to indicate what is being read."
+    ],
+    "particles": [
+      {
+        "particle": "を"
+      }
     ],
     "example_sentences": [
       { "japanese": "本を読む。", "english": "I read books." },
@@ -144,6 +199,11 @@
     "info": [
       "Typically used with the を particle to indicate what is being eaten."
     ],
+    "particles": [
+      {
+        "particle": "を"
+      }
+    ],
     "example_sentences": [],
     "chapter": 3
   },
@@ -153,6 +213,11 @@
     "english": ["to drink"],
     "mnemonics": [],
     "info": [],
+    "particles": [
+      {
+        "particle": "を"
+      }
+    ],
     "example_sentences": [],
     "chapter": 3
   },
@@ -163,9 +228,14 @@
     "mnemonics": [],
     "info": [
       "する is one of the most frequently used and versatile verbs in Japanese. Its importance stems from two main factors:",
-      "1. Basic meaning: It translates to 'do' or 'make', covering a wide range of actions.",
+      "1. Basic meaning: It translates to \"do\", covering a wide range of actions.",
       "2. Forming compound verbs: It combines with nouns to create verb phrases, e.g., 勉強する (benkyō suru) - to study, 電話する (denwa suru) - to make a phone call.",
       "These two functions make する essential for constructing a wide variety of Japanese sentences."
+    ],
+    "particles": [
+      {
+        "particle": "を"
+      }
     ],
     "example_sentences": [],
     "chapter": 3
@@ -176,6 +246,11 @@
     "english": ["to study"],
     "mnemonics": [],
     "info": ["Combines 勉強 (study) with する (to do) to mean 'to study.'"],
+    "particles": [
+      {
+        "particle": "を"
+      }
+    ],
     "example_sentences": [],
     "chapter": 3
   },

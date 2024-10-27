@@ -132,7 +132,9 @@ export default function VocabTest({ data, chapter }: VocabTestProps) {
             {(entry, wordIndex) => (
               <li>
                 <TextFieldRoot class="w-full">
-                  <div class="grid w-full grid-cols-[180px_200px_200px_120px] gap-2">
+                  <div
+                    class={`grid w-full ${randomizedData().find((item) => item.particles) ? "grid-cols-[180px_200px_200px_120px]" : "grid-cols-3"} gap-2`}
+                  >
                     <TextFieldLabel class="flex h-full justify-center pt-1 text-center text-[1.33rem]">
                       {entry.word}
                     </TextFieldLabel>
