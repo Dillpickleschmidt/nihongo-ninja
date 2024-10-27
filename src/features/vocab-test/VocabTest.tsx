@@ -4,7 +4,7 @@ import type { VocabItem } from "@/types/vocab"
 import { extractHiragana } from "@/util/vocabDataTransformer"
 import ContentBox from "@/components/ContentBox"
 import WanakanaWrapper from "../wanakana/WanaKana"
-import { isHiragana, isKatakana } from "wanakana"
+import { isKana } from "wanakana"
 import {
   TextField,
   TextFieldLabel,
@@ -71,10 +71,7 @@ export default function VocabTest({ data, chapter }: VocabTestProps) {
                     </TextFieldLabel>
 
                     {/* Only show kana input if the word is not Hiragana/Katakana */}
-                    <Show
-                      when={!isHiragana(entry.word) && !isKatakana(entry.word)}
-                      fallback={<div />}
-                    >
+                    <Show when={!isKana(entry.word)} fallback={<div />}>
                       <div>
                         <WanakanaWrapper>
                           <TextField
