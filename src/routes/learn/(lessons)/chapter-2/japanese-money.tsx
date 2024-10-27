@@ -8,10 +8,10 @@ export default function page() {
       nextButtonText="Next Lesson ->"
       nextButtonLink="/learn/chapter-2/practice-money"
     >
-      <h1 class="px-28 pb-6 pt-28 text-center text-5xl font-semibold">
+      <h1 class="px-12 pb-6 pt-28 text-center text-5xl font-semibold lg:px-28">
         Japanese Money
       </h1>
-      <div class="space-y-9 px-12 pb-32 sm:px-16 md:px-24">
+      <div class="space-y-9 px-8 pb-32 sm:px-16 md:px-24">
         <h2 class="!mt-6 text-center text-3xl font-bold">
           Introduction to Japanese Currency
         </h2>

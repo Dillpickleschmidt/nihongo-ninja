@@ -23,7 +23,7 @@ export default function page() {
       <h1 class="px-28 pb-6 pt-28 text-center text-4xl font-semibold">
         Kanji numbers 1-10
       </h1>
-      <div class="space-y-6 px-12 pb-32 sm:px-16 md:px-24">
+      <div class="space-y-6 px-8 pb-32 sm:px-16 md:px-24">
         <p>
           It's a bit early for kanji, and generally speaking, we don't expect
           you to memorize the kanji for words until <strong>Chapter 3</strong>,

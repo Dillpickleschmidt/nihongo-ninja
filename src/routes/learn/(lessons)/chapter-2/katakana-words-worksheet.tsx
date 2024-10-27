@@ -9,7 +9,7 @@ export default function page() {
       nextButtonText="Next Lesson ->"
       nextButtonLink="/learn/chapter-2/things"
     >
-      <h1 class="px-20 pb-12 pt-28 text-center text-[2rem] font-medium leading-[2.875rem]">
+      <h1 class="px-8 pb-12 pt-28 text-center text-[2rem] font-medium leading-[2.875rem] lg:px-20">
         <span class="text-[2.65rem] font-medium">Get ready</span> to see your{" "}
         <span class="text-4xl font-bold">name</span>,{" "}
         <span class="text-4xl font-bold">hometown</span>, and{" "}

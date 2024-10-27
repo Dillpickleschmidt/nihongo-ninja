@@ -318,10 +318,12 @@ export default function page() {
               </A>{" "}
               posted at the beginning of the chapter as a reference!
             </p>
-            <CustomTextArea
-              spacing={14}
-              class="min-h-96 font-japanese text-xl"
-            />
+            <div>
+              <CustomTextArea
+                spacing={14}
+                class="min-h-96 font-japanese text-xl"
+              />
+            </div>
           </div>
         </div>
       </div>

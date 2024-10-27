@@ -12,7 +12,7 @@ export default function page() {
       <h1 class="px-28 pb-6 pt-28 text-center text-4xl font-semibold">
         <span class="text-5xl italic">BIG</span> Numbers
       </h1>
-      <div class="space-y-9 px-12 pb-32 sm:px-16 md:px-24">
+      <div class="space-y-9 px-8 pb-32 sm:px-16 md:px-24">
         <p>
           Understanding big numbers in Japanese is essential for navigating
           everyday situations, such as reading prices, dealing with currency, or

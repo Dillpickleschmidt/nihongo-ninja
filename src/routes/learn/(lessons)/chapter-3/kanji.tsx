@@ -21,7 +21,7 @@ export default function page() {
         A whole new world—
         <span class="text-6xl text-indigo-400">Kanji</span>
       </h1>
-      <div class="space-y-9 px-12 pb-32 sm:px-16 md:px-24">
+      <div class="space-y-9 px-8 pb-32 sm:px-16 md:px-24">
         <p class="mt-6 italic text-muted-foreground">
           *Note for <strong>Nihongo Ninja</strong> learners: If you've been
           following along step-by-step, you should have already started

@@ -8,10 +8,10 @@ export default function page() {
       nextButtonText="Next Lesson ->"
       nextButtonLink="/learn/chapter-3/chapter-1-kanji-part-1"
     >
-      <h1 class="px-28 pb-6 pt-28 text-center text-4xl font-semibold">
+      <h1 class="px-12 pb-6 pt-28 text-center text-4xl font-semibold lg:px-28">
         Breaking Down Kanji
       </h1>
-      <div class="space-y-6 px-12 pb-32 sm:px-16 md:px-24">
+      <div class="space-y-6 px-8 pb-32 sm:px-16 md:px-24">
         <p>
           2,136 kanji is a <strong>lot</strong> better than 50,000 kanji. But
           what if I told you we can do better? How about:

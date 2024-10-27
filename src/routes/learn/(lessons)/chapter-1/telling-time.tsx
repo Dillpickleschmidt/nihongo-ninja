@@ -35,7 +35,7 @@ export default function page() {
           </div>
         </div>
         <div>
-          <div class="space-y-12 px-16 pt-12 md:px-28 lg:pl-6 xl:pr-24">
+          <div class="space-y-12 px-8 pt-12 md:px-28 lg:pl-6 xl:pr-24">
             <h2 class="text-2xl font-bold">
               To say the time in Japanese, simply use the number hour followed
               by じ.

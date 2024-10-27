@@ -14,7 +14,7 @@ export default function page() {
         <span class="text-emerald-400">Y</span>
         <span class="font-japanese">です</span> Practice Sentences
       </h1>
-      <div class="space-y-9 px-16 md:px-24">
+      <div class="space-y-9 px-8 md:px-24">
         <h3 class="pt-6 text-2xl font-semibold">
           Complete the sentences below by filling in the <u>topic</u> of the
           sentence
@@ -37,12 +37,12 @@ export default function page() {
         <div class="w-full font-japanese">
           <div class="flex w-full justify-center">
             <div class="w-full max-w-[450px]">
-              <div class="relative w-full overflow-hidden rounded-md pb-[68.42%]">
+              <div class="relative w-full overflow-hidden rounded-md">
                 <img src="/img/chapter-1/doctor.jpg" alt="doctor" />
               </div>
             </div>
           </div>
-          <div class="mt-6 flex items-center justify-end text-3xl">
+          <div class="mt-6 items-center justify-end text-3xl md:flex">
             <TextFieldRoot>
               <TextField
                 type="text"
@@ -61,7 +61,7 @@ export default function page() {
         <div class="w-full font-japanese">
           <div class="flex w-full justify-center">
             <div class="w-full max-w-[450px]">
-              <div class="relative w-full overflow-hidden rounded-md pb-[68.42%]">
+              <div class="relative w-full overflow-hidden rounded-md">
                 <img
                   src="/img/chapter-1/office-worker.jpg"
                   alt="office-worker"
@@ -69,7 +69,7 @@ export default function page() {
               </div>
             </div>
           </div>
-          <div class="mt-6 flex items-center justify-end text-3xl">
+          <div class="mt-6 items-center justify-end text-3xl md:flex">
             <TextFieldRoot>
               <TextField
                 type="text"
@@ -100,12 +100,12 @@ export default function page() {
             </span>{" "}
             is a lawyer.
           </p>
-          <div class="mt-3 flex items-end text-3xl">
-            <TextFieldRoot>
+          <div class="mt-3 flex w-full items-end justify-center text-3xl">
+            <TextFieldRoot class="w-full max-w-[26rem]">
               <TextField
                 type="text"
                 placeholder=""
-                class="mr-1 w-[26rem] bg-card font-japanese text-3xl"
+                class="mr-1 w-full max-w-[26rem] bg-card font-japanese text-3xl"
               />
             </TextFieldRoot>
             。
@@ -116,12 +116,12 @@ export default function page() {
             </Furigana>{" "}
             is a graduate student.
           </p>
-          <div class="mt-3 flex items-end text-3xl">
-            <TextFieldRoot>
+          <div class="mt-3 flex w-full items-end justify-center text-3xl">
+            <TextFieldRoot class="w-full max-w-[31.5rem]">
               <TextField
                 type="text"
                 placeholder=""
-                class="mr-1 w-[31.5rem] bg-card font-japanese text-3xl"
+                class="mr-1 w-full max-w-[31.5rem] bg-card font-japanese text-3xl"
               />
             </TextFieldRoot>
             。
@@ -130,23 +130,23 @@ export default function page() {
             <span class="text-lg text-muted-foreground">(My)</span> major is
             economics.
           </p>
-          <div class="mt-3 flex items-end text-3xl">
-            <TextFieldRoot>
+          <div class="mt-3 flex w-full items-end justify-center text-3xl">
+            <TextFieldRoot class="w-full max-w-[22.25rem]">
               <TextField
                 type="text"
                 placeholder=""
-                class="mr-1 w-[22.25rem] bg-card font-japanese text-3xl"
+                class="mr-1 w-full max-w-[22.25rem] bg-card font-japanese text-3xl"
               />
             </TextFieldRoot>
             。
           </div>
           <p class="mt-12 text-xl">Grandpa is 60 years old.</p>
-          <div class="mt-3 flex items-end text-3xl">
-            <TextFieldRoot>
+          <div class="mt-3 flex w-full items-end justify-center text-3xl">
+            <TextFieldRoot class="w-full max-w-[29.5rem]">
               <TextField
                 type="text"
                 placeholder=""
-                class="mr-1 w-[29.5rem] bg-card font-japanese text-3xl"
+                class="mr-1 w-full max-w-[29.5rem] bg-card font-japanese text-3xl"
               />
             </TextFieldRoot>
             。
@@ -159,7 +159,7 @@ export default function page() {
           </span>{" "}
           🫵
         </h3>
-        <div class="flex items-end pb-24 font-japanese text-3xl">
+        <div class="flex items-end pb-32 font-japanese text-3xl">
           <div>
             <Furigana furigana={<span>わたし</span>}>私</Furigana>は
           </div>

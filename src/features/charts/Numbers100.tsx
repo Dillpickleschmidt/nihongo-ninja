@@ -8,9 +8,9 @@ export default function Numbers100() {
         class="absolute inset-0 h-full w-full opacity-[7%]"
         alt=""
       />
-      <div class="relative z-10 flex justify-between">
+      <div class="relative z-10 grid grid-cols-2 text-nowrap lg:grid-cols-3">
         {/* Col 1 */}
-        <div class="w-1/3 p-4">
+        <div class="p-4">
           <div class="flex flex-row">
             <div class="pt-16 text-right text-2xl tracking-[-0.5rem] [&>*]:py-4">
               <p>０</p>
@@ -75,7 +75,7 @@ export default function Numbers100() {
           </div>
         </div>
         {/* Col 2 */}
-        <div class="w-1/3 p-4 pt-12">
+        <div class="p-4 pt-12">
           {/* Numbers Title */}
           <h1 class="mx-auto text-5xl font-semibold tracking-wide underline underline-offset-8">
             <em>Numbers</em>
@@ -148,7 +148,7 @@ export default function Numbers100() {
           </div>
         </div>
         {/* Col 3 */}
-        <div class="w-1/3 p-4 pt-36">
+        <div class="p-4 lg:pt-36">
           <div class="flex flex-row">
             <div class="text-right text-2xl tracking-[-0.5rem] [&>*]:py-4">
               <p>２１</p>
