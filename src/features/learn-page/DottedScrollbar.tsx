@@ -9,39 +9,61 @@ import {
 export default function DottedScrollbar() {
   const context = useLearnPageContext()
   const [activeSection, setActiveSection] = createSignal("")
+  const [isAutoScrolling, setIsAutoScrolling] = createSignal(false)
+  let scrollTimeout: number
 
-  const isLargeButton = (id: string) => {
-    return id === "chapter_0" || id === "chapter_13" || id === "chapter_23"
+  const isLargeButton = (id: string) =>
+    ["chapter_0", "chapter_13", "chapter_23"].includes(id)
+
+  const formatTitle = (id: string) =>
+    id.replace(/_/g, " ").replace(/\b\w/g, (char) => char.toUpperCase()) // chapter_0 => Chapter 0
+
+  const getButtonStyles = (id: string) => {
+    const isLarge = isLargeButton(id)
+    const isActive = activeSection() === id
+    const baseSize = isLarge ? "h-4 w-4" : "h-[0.55rem] w-[0.55rem]"
+    const scaleAmount = isLarge ? "scale-125" : "scale-150"
+
+    return `origin-center rounded-full ${baseSize} ${
+      isActive ? `${scaleAmount} bg-white/50` : "bg-white/15"
+    } group-hover:bg-white/50 group-hover:${scaleAmount} ${
+      !isAutoScrolling() ? "transition-all duration-200" : ""
+    } group-hover:transition-all group-hover:duration-200`
   }
 
   onMount(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        // Filter for sections that are intersecting
-        const visibleSections = entries
-          .filter((entry) => entry.isIntersecting)
-          .map((entry) => entry.target)
-
-        if (visibleSections.length > 0) {
-          // Get the first visible section's ID
-          const firstVisible = visibleSections[0]
-          setActiveSection(firstVisible.id)
-        }
+        const firstVisible = entries.find(
+          (entry) => entry.isIntersecting,
+        )?.target
+        if (firstVisible) setActiveSection(firstVisible.id)
       },
       {
-        root: null, // relative to viewport
-        rootMargin: "-10% 0px -85% 0px", // Creates a narrow band near the top of the viewport
-        threshold: 0, // trigger as soon as any part of the element is visible
+        root: null,
+        rootMargin: "-10% 0px -85% 0px",
+        threshold: 0,
       },
     )
 
-    // Observe all sections
+    const handleScroll = () => {
+      if (isAutoScrolling()) {
+        clearTimeout(scrollTimeout)
+        scrollTimeout = window.setTimeout(() => setIsAutoScrolling(false), 150)
+      }
+    }
+
+    window.addEventListener("scroll", handleScroll)
     context.elementIds().forEach((id) => {
       const element = document.querySelector(`#${id}`)
       if (element) observer.observe(element)
     })
 
-    onCleanup(() => observer.disconnect())
+    onCleanup(() => {
+      observer.disconnect()
+      window.removeEventListener("scroll", handleScroll)
+      clearTimeout(scrollTimeout)
+    })
   })
 
   return (
@@ -52,29 +74,18 @@ export default function DottedScrollbar() {
             <TooltipTrigger>
               <button
                 onClick={() => {
+                  setIsAutoScrolling(true)
                   document
                     .querySelector(`#${id}`)
                     ?.scrollIntoView({ behavior: "smooth" })
                 }}
-                class="flex w-4 justify-center py-[0.35rem]"
+                class="group flex w-4 justify-center py-[0.35rem]"
               >
-                <div
-                  class={`origin-center rounded-full transition-transform duration-200 ${isLargeButton(id) ? "h-4 w-4" : "h-[0.55rem] w-[0.55rem]"} ${
-                    activeSection() === id
-                      ? `${isLargeButton(id) ? "scale-125" : "scale-150"} bg-white/50`
-                      : "bg-white/15"
-                  } ${isLargeButton(id) ? "hover:scale-125" : "hover:scale-150"} hover:bg-white/50`}
-                />
+                <div class={getButtonStyles(id)} />
               </button>
             </TooltipTrigger>
             <TooltipContent class="bg-card text-base font-medium text-white">
-              <p>
-                {
-                  id
-                    .replace(/_/g, " ")
-                    .replace(/\b\w/g, (char) => char.toUpperCase()) // chapter_0 => Chapter 0
-                }
-              </p>
+              <p>{formatTitle(id)}</p>
             </TooltipContent>
           </Tooltip>
         )}
