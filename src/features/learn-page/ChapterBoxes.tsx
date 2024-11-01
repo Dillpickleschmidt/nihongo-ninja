@@ -1909,6 +1909,13 @@ export default function ChapterBoxes() {
           },
         ]}
       />
+
+      <ChapterBox text="Chapter 18" class="bg-neutral-700" content={[]} />
+      <ChapterBox text="Chapter 19" class="bg-neutral-700" content={[]} />
+      <ChapterBox text="Chapter 20" class="bg-neutral-700" content={[]} />
+      <ChapterBox text="Chapter 21" class="bg-neutral-700" content={[]} />
+      <ChapterBox text="Chapter 22" class="bg-neutral-700" content={[]} />
+      <ChapterBox text="Chapter 23" class="bg-neutral-700" content={[]} />
     </>
   )
 }

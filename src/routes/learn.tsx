@@ -1,6 +1,7 @@
 import { A } from "@solidjs/router"
 import BackgroundImage from "@/components/BackgroundImage"
 import Sidebar from "@/features/sidebar/Sidebar"
+import { LearnPageProvider } from "@/features/learn-page/context/LearnPageContext"
 
 export default function learn(props: { children: any }) {
   return (
@@ -40,7 +41,7 @@ export default function learn(props: { children: any }) {
           backgroundImageSize="400px"
           backgroundImageOpacity={3}
         />
-        {props.children}
+        <LearnPageProvider>{props.children}</LearnPageProvider>
       </main>
     </>
   )

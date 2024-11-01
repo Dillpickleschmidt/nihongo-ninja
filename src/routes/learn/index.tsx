@@ -1,4 +1,6 @@
+import { Button } from "@/components/ui/button"
 import ChapterBoxes from "@/features/learn-page/ChapterBoxes"
+import DottedScrollbar from "@/features/learn-page/DottedScrollbar"
 import Sidebar from "@/features/sidebar/Sidebar"
 import { Title } from "@solidjs/meta"
 
@@ -32,10 +34,10 @@ export default function index() {
           </div>
         </div>
         {/* Right Slider (relative to offset others) */}
-        <div class="relative flex w-14 justify-center opacity-25 md:w-28 xl:w-36 2xl:w-48">
+        <div class="relative flex w-14 justify-center md:w-28 xl:w-36 2xl:w-48">
           {/* Fixed positioning */}
           <div class="fixed top-0 flex h-screen flex-col justify-center">
-            <div class="relative h-[450px]">
+            {/* <div class="relative h-[450px]">
               <div class="absolute h-full border-r-2 border-dashed border-neutral-500/25" />
               <div class="absolute -top-1 ml-[-.45rem] h-4 w-4 rounded-full bg-neutral-700" />
               {[...Array(11)].map((_, index) => (
@@ -52,7 +54,8 @@ export default function index() {
                 />
               ))}
               <div class="absolute bottom-0 ml-[-.45rem] h-4 w-4 rounded-full bg-neutral-700" />
-            </div>
+            </div> */}
+            <DottedScrollbar />
           </div>
         </div>
       </div>
