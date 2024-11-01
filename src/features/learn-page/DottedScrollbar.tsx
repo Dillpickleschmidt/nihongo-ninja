@@ -11,6 +11,7 @@ export default function DottedScrollbar() {
   const [activeSection, setActiveSection] = createSignal("")
   const [isAutoScrolling, setIsAutoScrolling] = createSignal(false)
   const [dragStart, setDragStart] = createSignal(0)
+  const [lastScrolledId, setLastScrolledId] = createSignal("")
   let scrollTimeout: number
   let containerRef: HTMLDivElement
 
@@ -33,6 +34,12 @@ export default function DottedScrollbar() {
     } group-hover:transition-all group-hover:duration-200`
   }
 
+  const vibrate = () => {
+    if ("vibrate" in navigator) {
+      navigator.vibrate(10) // Short 20ms vibration
+    }
+  }
+
   const scrollToNearest = (clientY: number, smooth = false) => {
     if (!containerRef) return
 
@@ -48,11 +55,15 @@ export default function DottedScrollbar() {
       .sort((a, b) => a!.distance - b!.distance)
 
     const closest = dots[0]
-    if (closest) {
+    if (closest && closest.id !== lastScrolledId()) {
       if (smooth) setIsAutoScrolling(true)
       document
         .querySelector(`#${closest.id}`)
         ?.scrollIntoView(smooth ? { behavior: "smooth" } : undefined)
+
+      // Vibrate when moving to a new section
+      vibrate()
+      setLastScrolledId(closest.id)
     }
   }
 
@@ -77,6 +88,7 @@ export default function DottedScrollbar() {
       scrollToNearest(clientY, true)
     }
     setDragStart(0)
+    setLastScrolledId("") // Reset last scrolled id when releasing
   }
 
   onMount(() => {
