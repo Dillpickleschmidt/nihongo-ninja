@@ -29,7 +29,7 @@ export default function DottedScrollbar() {
     } ${
       activeSection() === id ? `${scaleAmount} bg-white/50` : "bg-white/15"
     } group-hover:bg-white/50 group-hover:${scaleAmount} ${
-      !isAutoScrolling() ? "transition-all duration-200" : ""
+      !isAutoScrolling() && !dragStart() ? "transition-all duration-200" : ""
     } group-hover:transition-all group-hover:duration-200`
   }
 
@@ -56,6 +56,29 @@ export default function DottedScrollbar() {
     }
   }
 
+  const handleMove = (e: MouseEvent | TouchEvent) => {
+    if (!dragStart()) return
+
+    const clientY = "touches" in e ? e.touches[0].clientY : e.clientY
+    scrollToNearest(clientY)
+
+    if (
+      "touches" in e &&
+      e.target instanceof Node &&
+      containerRef.contains(e.target)
+    ) {
+      e.preventDefault()
+    }
+  }
+
+  const handleEnd = (clientY: number) => {
+    if (!dragStart()) return
+    if (Math.abs(clientY - dragStart()) < 5) {
+      scrollToNearest(clientY, true)
+    }
+    setDragStart(0)
+  }
+
   onMount(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -65,21 +88,15 @@ export default function DottedScrollbar() {
       { rootMargin: "-10% 0px -85% 0px" },
     )
 
-    const handleMouseMove = (e: MouseEvent) => {
-      if (dragStart()) scrollToNearest(e.clientY)
-    }
-
-    const handleMouseUp = (e: MouseEvent) => {
-      if (!dragStart()) return
-      // If it's a small movement, treat as click
-      if (Math.abs(e.clientY - dragStart()) < 5) {
-        scrollToNearest(e.clientY, true)
+    window.addEventListener("mousemove", handleMove)
+    window.addEventListener("mouseup", (e) => handleEnd(e.clientY))
+    window.addEventListener("touchmove", handleMove, { passive: false })
+    window.addEventListener("touchend", (e) => {
+      if (e.changedTouches?.[0]) {
+        handleEnd(e.changedTouches[0].clientY)
       }
-      setDragStart(0)
-    }
+    })
 
-    window.addEventListener("mousemove", handleMouseMove)
-    window.addEventListener("mouseup", handleMouseUp)
     window.addEventListener("scroll", () => {
       if (isAutoScrolling()) {
         clearTimeout(scrollTimeout)
@@ -95,8 +112,8 @@ export default function DottedScrollbar() {
     onCleanup(() => {
       observer.disconnect()
       clearTimeout(scrollTimeout)
-      window.removeEventListener("mousemove", handleMouseMove)
-      window.removeEventListener("mouseup", handleMouseUp)
+      window.removeEventListener("mousemove", handleMove)
+      window.removeEventListener("touchmove", handleMove)
     })
   })
 
@@ -112,6 +129,7 @@ export default function DottedScrollbar() {
               <button
                 data-id={id}
                 onMouseDown={(e) => setDragStart(e.clientY)}
+                onTouchStart={(e) => setDragStart(e.touches[0].clientY)}
                 class="group flex w-4 justify-center py-[0.35rem]"
               >
                 <div class={getButtonStyles(id)} />
