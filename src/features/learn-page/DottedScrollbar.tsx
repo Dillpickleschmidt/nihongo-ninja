@@ -109,6 +109,15 @@ export default function DottedScrollbar() {
       }
     })
 
+    window.addEventListener("mousemove", handleMove)
+    window.addEventListener("mouseup", (e) => handleEnd(e.clientY))
+    window.addEventListener("touchmove", handleMove, { passive: false })
+    window.addEventListener("touchend", (e) => {
+      if (e.changedTouches?.[0]) {
+        handleEnd(e.changedTouches[0].clientY)
+      }
+    })
+
     window.addEventListener("scroll", () => {
       if (isAutoScrolling()) {
         clearTimeout(scrollTimeout)
@@ -126,6 +135,8 @@ export default function DottedScrollbar() {
       clearTimeout(scrollTimeout)
       window.removeEventListener("mousemove", handleMove)
       window.removeEventListener("touchmove", handleMove)
+      window.removeEventListener("mousemove", handleMove)
+      window.removeEventListener("touchmove", handleMove)
     })
   })
 
@@ -141,6 +152,7 @@ export default function DottedScrollbar() {
               <button
                 data-id={id}
                 onMouseDown={(e) => setDragStart(e.clientY)}
+                onTouchStart={(e) => setDragStart(e.touches[0].clientY)}
                 onTouchStart={(e) => setDragStart(e.touches[0].clientY)}
                 class="group flex w-4 justify-center py-[0.35rem]"
                 tabIndex="-1"
