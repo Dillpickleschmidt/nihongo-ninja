@@ -10,50 +10,83 @@ export default function DottedScrollbar() {
   const context = useLearnPageContext()
   const [activeSection, setActiveSection] = createSignal("")
   const [isAutoScrolling, setIsAutoScrolling] = createSignal(false)
+  const [dragStart, setDragStart] = createSignal(0)
   let scrollTimeout: number
+  let containerRef: HTMLDivElement
 
   const isLargeButton = (id: string) =>
     ["chapter_0", "chapter_13", "chapter_23"].includes(id)
 
   const formatTitle = (id: string) =>
-    id.replace(/_/g, " ").replace(/\b\w/g, (char) => char.toUpperCase()) // chapter_0 => Chapter 0
+    id.replace(/_/g, " ").replace(/\b\w/g, (char) => char.toUpperCase())
 
   const getButtonStyles = (id: string) => {
     const isLarge = isLargeButton(id)
-    const isActive = activeSection() === id
-    const baseSize = isLarge ? "h-4 w-4" : "h-[0.55rem] w-[0.55rem]"
     const scaleAmount = isLarge ? "scale-125" : "scale-150"
 
-    return `origin-center rounded-full ${baseSize} ${
-      isActive ? `${scaleAmount} bg-white/50` : "bg-white/15"
+    return `origin-center rounded-full ${
+      isLarge ? "h-4 w-4" : "h-[0.55rem] w-[0.55rem]"
+    } ${
+      activeSection() === id ? `${scaleAmount} bg-white/50` : "bg-white/15"
     } group-hover:bg-white/50 group-hover:${scaleAmount} ${
       !isAutoScrolling() ? "transition-all duration-200" : ""
     } group-hover:transition-all group-hover:duration-200`
   }
 
+  const scrollToNearest = (clientY: number, smooth = false) => {
+    if (!containerRef) return
+
+    const dots = context
+      .elementIds()
+      .map((id) => {
+        const button = containerRef.querySelector(`button[data-id="${id}"]`)
+        if (!button) return null
+        const rect = button.getBoundingClientRect()
+        return { id, distance: Math.abs(rect.top + rect.height / 2 - clientY) }
+      })
+      .filter(Boolean)
+      .sort((a, b) => a!.distance - b!.distance)
+
+    const closest = dots[0]
+    if (closest) {
+      if (smooth) setIsAutoScrolling(true)
+      document
+        .querySelector(`#${closest.id}`)
+        ?.scrollIntoView(smooth ? { behavior: "smooth" } : undefined)
+    }
+  }
+
   onMount(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        const firstVisible = entries.find(
-          (entry) => entry.isIntersecting,
-        )?.target
-        if (firstVisible) setActiveSection(firstVisible.id)
+        const visible = entries.find((entry) => entry.isIntersecting)?.target
+        if (visible) setActiveSection(visible.id)
       },
-      {
-        root: null,
-        rootMargin: "-10% 0px -85% 0px",
-        threshold: 0,
-      },
+      { rootMargin: "-10% 0px -85% 0px" },
     )
 
-    const handleScroll = () => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (dragStart()) scrollToNearest(e.clientY)
+    }
+
+    const handleMouseUp = (e: MouseEvent) => {
+      if (!dragStart()) return
+      // If it's a small movement, treat as click
+      if (Math.abs(e.clientY - dragStart()) < 5) {
+        scrollToNearest(e.clientY, true)
+      }
+      setDragStart(0)
+    }
+
+    window.addEventListener("mousemove", handleMouseMove)
+    window.addEventListener("mouseup", handleMouseUp)
+    window.addEventListener("scroll", () => {
       if (isAutoScrolling()) {
         clearTimeout(scrollTimeout)
         scrollTimeout = window.setTimeout(() => setIsAutoScrolling(false), 150)
       }
-    }
+    })
 
-    window.addEventListener("scroll", handleScroll)
     context.elementIds().forEach((id) => {
       const element = document.querySelector(`#${id}`)
       if (element) observer.observe(element)
@@ -61,24 +94,24 @@ export default function DottedScrollbar() {
 
     onCleanup(() => {
       observer.disconnect()
-      window.removeEventListener("scroll", handleScroll)
       clearTimeout(scrollTimeout)
+      window.removeEventListener("mousemove", handleMouseMove)
+      window.removeEventListener("mouseup", handleMouseUp)
     })
   })
 
   return (
-    <div class="flex flex-col items-center">
+    <div
+      ref={containerRef!}
+      class="flex cursor-grab flex-col items-center active:cursor-grabbing"
+    >
       <For each={context.elementIds()}>
         {(id) => (
           <Tooltip placement="left">
             <TooltipTrigger>
               <button
-                onClick={() => {
-                  setIsAutoScrolling(true)
-                  document
-                    .querySelector(`#${id}`)
-                    ?.scrollIntoView({ behavior: "smooth" })
-                }}
+                data-id={id}
+                onMouseDown={(e) => setDragStart(e.clientY)}
                 class="group flex w-4 justify-center py-[0.35rem]"
               >
                 <div class={getButtonStyles(id)} />
