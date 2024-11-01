@@ -10,7 +10,7 @@ export default function page() {
       nextButtonText="To Greetings ->"
     >
       <div class="pb-32">
-        <div class="mx-16 border-b border-neutral-600 pb-16">
+        <div class="border-b border-neutral-600 pb-16 md:mx-16">
           <h1 class="mx-auto mb-12 mt-20 text-center text-5xl font-semibold tracking-wide">
             <em>Vocabulary</em>
           </h1>
