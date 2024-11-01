@@ -149,17 +149,24 @@ export default function DottedScrollbar() {
         {(id) => (
           <Tooltip placement="left">
             <TooltipTrigger>
-              <button
-                data-id={id}
-                onMouseDown={(e) => setDragStart(e.clientY)}
-                onTouchStart={(e) => setDragStart(e.touches[0].clientY)}
-                class="group flex w-4 justify-center py-[0.35rem]"
-                tabIndex="-1"
-              >
-                <div class={getButtonStyles(id)} tabIndex="-1" />
-              </button>
+              <div class="relative flex items-center">
+                {id === activeSection() && (
+                  <div class="absolute right-6 z-50 -mr-1 hidden text-nowrap rounded-md bg-card px-3 py-1.5 text-base font-medium text-primary xl:block">
+                    {formatTitle(id)}
+                  </div>
+                )}
+                <button
+                  data-id={id}
+                  onMouseDown={(e) => setDragStart(e.clientY)}
+                  onTouchStart={(e) => setDragStart(e.touches[0].clientY)}
+                  class="group flex w-4 justify-center py-[0.35rem]"
+                  tabIndex="-1"
+                >
+                  <div class={getButtonStyles(id)} tabIndex="-1" />
+                </button>
+              </div>
             </TooltipTrigger>
-            <TooltipContent class="bg-card text-base font-medium text-white">
+            <TooltipContent class="bg-card text-base font-medium text-primary">
               <p>{formatTitle(id)}</p>
             </TooltipContent>
           </Tooltip>
