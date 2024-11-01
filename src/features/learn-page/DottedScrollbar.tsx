@@ -153,7 +153,6 @@ export default function DottedScrollbar() {
                 data-id={id}
                 onMouseDown={(e) => setDragStart(e.clientY)}
                 onTouchStart={(e) => setDragStart(e.touches[0].clientY)}
-                onTouchStart={(e) => setDragStart(e.touches[0].clientY)}
                 class="group flex w-4 justify-center py-[0.35rem]"
                 tabIndex="-1"
               >
