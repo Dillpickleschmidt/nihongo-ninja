@@ -1,4 +1,4 @@
-import { For } from "solid-js"
+import { For, onMount, onCleanup } from "solid-js"
 import { twMerge } from "tailwind-merge"
 import UnitButton from "./UnitButton"
 import { UnitButtonType } from "./types"
@@ -18,15 +18,16 @@ type ChapterBoxProps = {
 export default function ChapterBox(props: ChapterBoxProps) {
   const context = useLearnPageContext()
   const id = props.text.replace(/\s/g, "_").toLowerCase()
-  // console.log(id)
 
-  // Add the ID to the list of element IDs
-  context.setElementIds([...context.elementIds(), id])
+  // Only add the ID if it's not already in the list
+  if (!context.elementIds().includes(id)) {
+    context.setElementIds([...context.elementIds(), id])
+  }
 
   return (
     <>
       <div
-        id={id} // For the DottedScrollbar to navigate to
+        id={id}
         class={twMerge(
           "my-6 flex h-28 w-full scroll-m-6 items-center justify-center rounded-md bg-opacity-50 font-medium text-neutral-100 shadow-lg dark:bg-opacity-100 dark:text-primary dark:shadow-none",
           props.class,
