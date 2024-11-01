@@ -147,11 +147,11 @@ export default function DottedScrollbar() {
     >
       <For each={context.elementIds()}>
         {(id) => (
-          <Tooltip placement="left">
+          <Tooltip>
             <TooltipTrigger>
               <div class="relative flex items-center">
                 {id === activeSection() && (
-                  <div class="absolute right-6 z-50 -mr-1 hidden text-nowrap rounded-md bg-card px-3 py-1.5 text-base font-medium text-primary xl:block">
+                  <div class="absolute right-6 z-50 -mr-1 hidden text-nowrap rounded-md bg-card px-3 py-1.5 text-sm text-primary xl:block">
                     {formatTitle(id)}
                   </div>
                 )}
@@ -166,7 +166,7 @@ export default function DottedScrollbar() {
                 </button>
               </div>
             </TooltipTrigger>
-            <TooltipContent class="bg-card text-base font-medium text-primary">
+            <TooltipContent>
               <p>{formatTitle(id)}</p>
             </TooltipContent>
           </Tooltip>
