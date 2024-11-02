@@ -214,7 +214,7 @@ export default function ChapterBoxes() {
           },
           {
             title: "Xは Y です Practice Sentences",
-            link: "/learn/chapter-1/x-wa-y-desu/practice-sentences",
+            link: "/learn/chapter-1/practice/x-wa-y-desu",
             types: ["writing"],
           },
           {
