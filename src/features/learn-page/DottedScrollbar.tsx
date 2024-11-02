@@ -165,7 +165,7 @@ export default function DottedScrollbar() {
                   <div class={getButtonStyles(id)} tabIndex="-1" />
                 </button>
               </TooltipTrigger>
-              <TooltipContent>
+              <TooltipContent class="bg-card text-sm text-primary">
                 <p>{formatTitle(id)}</p>
               </TooltipContent>
             </Tooltip>
