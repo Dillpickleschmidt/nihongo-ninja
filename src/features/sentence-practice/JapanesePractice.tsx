@@ -10,6 +10,7 @@ import { PracticeQuestion } from "./types"
 import { AlternativeAnswers } from "./components/AlternativeAnswers"
 import { removeFurigana } from "./utils/textExtractor"
 import { Button } from "@/components/ui/button"
+import { createAnswerVariations } from "./utils/answerVariations"
 
 const questionModules = import.meta.glob<{
   default: PracticeQuestion[]
@@ -31,14 +32,16 @@ export default function JapanesePractice(props: JapanesePracticeProps) {
   })
 
   createEffect(() => {
-    // Load questions
     if (props.path !== store.path) {
       setStore("path", props.path)
 
       try {
         const filePath = `./data/${props.path}.json`
         if (filePath in questionModules) {
-          setStore("questions", questionModules[filePath].default)
+          const originalQuestions = questionModules[filePath].default
+          const questionsWithVariations =
+            createAnswerVariations(originalQuestions)
+          setStore("questions", questionsWithVariations)
         } else {
           throw new Error(`File not found: ${filePath}`)
         }
@@ -89,26 +92,40 @@ export default function JapanesePractice(props: JapanesePracticeProps) {
             <div class="space-y-4">
               <div class="space-y-1">
                 <div class="font-bold">Your answer:</div>
-                <div class="rounded border p-2 text-xl">
-                  <HighlightedText
-                    text={store.currentInput}
-                    errors={result()!.userErrors}
-                    highlightClass="bg-red-400 dark:bg-red-500 text-black font-medium"
-                  />
+                <div class="flex w-full items-center">
+                  <div
+                    class={`w-full rounded border-2 p-2 text-xl ${result()!.isCorrect && "border-green-500/75 bg-green-500/15"}`}
+                  >
+                    <HighlightedText
+                      text={store.currentInput}
+                      errors={result()!.userErrors}
+                      highlightClass="bg-red-400 dark:bg-red-500 text-black font-medium"
+                    />
+                  </div>
+                  <Show when={!result()!.isCorrect}>
+                    <div class="w-12 text-center text-4xl font-bold text-red-500">
+                      &times;
+                    </div>
+                  </Show>
+                  <Show when={result()!.isCorrect}>
+                    <div class="w-12 text-center text-3xl font-bold text-green-500">
+                      &check;
+                    </div>
+                  </Show>
                 </div>
               </div>
 
               <Show when={result()!.isCorrect}>
-                <div class="rounded bg-green-50 p-3 dark:bg-green-50/10">
+                {/* <div class="rounded bg-green-50 p-3 dark:bg-green-50/10">
                   <div class="font-bold text-green-800 dark:text-green-600">
                     Correct! ✨
+                  </div> */}
+                {result()!.bestMatch.notes && (
+                  <div class="mt-1 text-sm text-green-700">
+                    Note: {result()!.bestMatch.notes}
                   </div>
-                  {result()!.bestMatch.notes && (
-                    <div class="mt-1 text-sm text-green-700">
-                      Note: {result()!.bestMatch.notes}
-                    </div>
-                  )}
-                </div>
+                )}
+                {/* </div> */}
               </Show>
 
               <Show when={!result()!.isCorrect}>

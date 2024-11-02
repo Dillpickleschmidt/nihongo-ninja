@@ -12,7 +12,11 @@ interface Props {
 export const AlternativeAnswers: Component<Props> = (props) => {
   const alternatives = () => {
     return props.matches
-      .filter((_, index) => index !== props.currentAnswerIndex)
+      .filter(
+        (match, index) =>
+          // Filter out current answer and variations
+          index !== props.currentAnswerIndex && !match.answer.isVariation,
+      )
       .slice(0, 5)
   }
 

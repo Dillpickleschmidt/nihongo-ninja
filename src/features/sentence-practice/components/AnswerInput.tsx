@@ -5,6 +5,7 @@ import {
   CheckboxLabel,
 } from "@/components/ui/checkbox"
 import { TextField, TextFieldRoot } from "@/components/ui/textfield"
+import WanakanaWrapper from "@/features/wanakana/WanaKana"
 
 type AnswerInputProps = {
   value: string
@@ -18,15 +19,17 @@ type AnswerInputProps = {
 export default function AnswerInput(props: AnswerInputProps) {
   return (
     <div class="space-y-2">
-      <TextFieldRoot>
-        <TextField
-          type="text"
-          value={props.value}
-          onInput={(e) => props.onInput(e.currentTarget.value)}
-          class="w-full py-5 text-xl"
-          placeholder="Type your answer in Japanese..."
-        />
-      </TextFieldRoot>
+      <WanakanaWrapper>
+        <TextFieldRoot>
+          <TextField
+            type="text"
+            value={props.value}
+            onInput={(e) => props.onInput(e.currentTarget.value)}
+            class="w-full py-5 text-xl"
+            placeholder="Type your answer in Japanese..."
+          />
+        </TextFieldRoot>
+      </WanakanaWrapper>
       <div class="flex justify-between">
         <div class="space-x-2">
           <Button
@@ -43,11 +46,12 @@ export default function AnswerInput(props: AnswerInputProps) {
           checked={props.furiganaEnabled()}
           onChange={props.onToggleFurigana}
           class="mr-2 flex items-center space-x-2 hover:cursor-pointer"
+          title={'Show furigana in the "Correct answer" field'}
         >
           <CheckboxLabel class="text-sm font-medium leading-none hover:cursor-pointer">
             Show furigana
           </CheckboxLabel>
-          <CheckboxControl />
+          <CheckboxControl class="dark:data-[checked]:border-neutral-200 dark:data-[checked]:bg-neutral-200" />
         </Checkbox>
       </div>
     </div>

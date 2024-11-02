@@ -5,7 +5,7 @@ export default function test() {
   return (
     <div>
       <SentencePracticeProvider>
-        <JapanesePractice path="chapter-1/x-wa-y-desu" />
+        <JapanesePractice path="chapter-1/test" />
       </SentencePracticeProvider>
     </div>
   )
