@@ -15,7 +15,7 @@ type StoreState = {
 const initialState: StoreState = {
   questions: [],
   currentQuestionIndex: 0,
-  isLoading: false,
+  isLoading: true,
   error: null,
   showResult: false,
   currentInput: "",

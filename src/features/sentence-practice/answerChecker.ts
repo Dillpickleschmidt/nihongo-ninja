@@ -1,6 +1,6 @@
 import { Answer, CheckResult, ErrorRange, PracticeQuestion } from "./types"
 import { findDifferences } from "./utils/textComparison"
-import { extractText } from "./utils/textExtractor"
+import { removeFurigana } from "./utils/textExtractor"
 
 export interface AnswerMatch {
   answer: Answer
@@ -18,7 +18,7 @@ export const checkAnswer = (
   const allMatches = question.answers
     .map((answer) => {
       // Extract just the text part from bracketed segments
-      const correctText = answer.segments.map(extractText).join("")
+      const correctText = answer.segments.map(removeFurigana).join("")
       const { similarity, userErrors, answerErrors } = findDifferences(
         userText,
         correctText,

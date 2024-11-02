@@ -1,14 +1,15 @@
-import { createMemo, Show, createEffect } from "solid-js"
-import { QuestionDisplay } from "./components/QuestionDisplay"
-import { AnswerInput } from "./components/AnswerInput"
-import { HighlightedText } from "./components/HighlightedText"
+import { createMemo, Show, createEffect, createSignal } from "solid-js"
+import PromptDisplay from "./components/PromptDisplay"
+import AnswerInput from "./components/AnswerInput"
+import HighlightedText from "./components/HighlightedText"
 import { FeedbackDisplay } from "./components/FeedbackDisplay"
-import { checkAnswer } from "./answerChecker"
 import { generateFeedback } from "./utils/feedback"
+import { checkAnswer } from "./answerChecker"
 import { useSentencePractice } from "./context/SentencePracticeContext"
 import { PracticeQuestion } from "./types"
 import { AlternativeAnswers } from "./components/AlternativeAnswers"
-import { extractText } from "./utils/textExtractor"
+import { removeFurigana } from "./utils/textExtractor"
+import { Button } from "@/components/ui/button"
 
 const questionModules = import.meta.glob<{
   default: PracticeQuestion[]
@@ -20,6 +21,7 @@ type JapanesePracticeProps = {
 
 export default function JapanesePractice(props: JapanesePracticeProps) {
   const { store, setStore } = useSentencePractice()
+  const [showFurigana, setShowFurigana] = createSignal(true)
 
   const result = createMemo(() => {
     const currentQuestion = store.questions[store.currentQuestionIndex]
@@ -29,9 +31,8 @@ export default function JapanesePractice(props: JapanesePracticeProps) {
   })
 
   createEffect(() => {
+    // Load questions
     if (props.path !== store.path) {
-      setStore("isLoading", true)
-      setStore("error", null)
       setStore("path", props.path)
 
       try {
@@ -51,6 +52,7 @@ export default function JapanesePractice(props: JapanesePracticeProps) {
   })
 
   const handleNext = () => {
+    // Go to next question
     if (store.currentQuestionIndex < store.questions.length - 1) {
       setStore("currentQuestionIndex", (i) => i + 1)
       setStore("showResult", false)
@@ -59,27 +61,29 @@ export default function JapanesePractice(props: JapanesePracticeProps) {
   }
 
   return (
-    <div class="mx-auto max-w-2xl space-y-4 p-4">
+    <div class="mx-auto max-w-2xl space-y-4 px-4 pb-32 pt-12">
       <Show when={!store.isLoading} fallback={<div>Loading questions...</div>}>
         <Show
-          when={store.questions[store.currentQuestionIndex]}
+          when={store.questions[store.currentQuestionIndex]} // Question is loaded
           fallback={<div>No questions available for {props.path}</div>}
         >
-          <div class="mb-4 text-base text-neutral-500">
+          <div class="-mb-2 text-base text-neutral-500">
             Question {store.currentQuestionIndex + 1} of{" "}
             {store.questions.length}
           </div>
-          <QuestionDisplay
+          <PromptDisplay
             question={store.questions[store.currentQuestionIndex]!}
           />
           <AnswerInput
             value={store.currentInput}
             onInput={(value) => setStore("currentInput", value)}
-            onCheck={() => setStore("showResult", true)}
+            onCheckAnswer={() => setStore("showResult", true)}
             onReset={() => {
               setStore("currentInput", "")
               setStore("showResult", false)
             }}
+            furiganaEnabled={showFurigana}
+            onToggleFurigana={() => setShowFurigana((prev) => !prev)}
           />
           <Show when={store.showResult && result()}>
             <div class="space-y-4">
@@ -110,13 +114,20 @@ export default function JapanesePractice(props: JapanesePracticeProps) {
               <Show when={!result()!.isCorrect}>
                 <div class="space-y-1">
                   <div class="font-bold">Correct answer:</div>
-                  <div class="rounded border p-2 text-xl">
+                  <div
+                    class={`rounded border text-xl ${showFurigana() ? "px-2 pb-1 pt-3" : "p-2"}`}
+                  >
                     <HighlightedText
-                      text={result()!
-                        .bestMatch.segments.map(extractText)
-                        .join("")}
+                      text={
+                        showFurigana()
+                          ? result()!.bestMatch.segments.join(" ")
+                          : result()!
+                              .bestMatch.segments.map(removeFurigana)
+                              .join("")
+                      }
                       errors={result()!.answerErrors}
                       highlightClass="bg-green-500 text-black font-medium"
+                      furiganaSize="1rem"
                     />
                   </div>
                 </div>
@@ -137,12 +148,13 @@ export default function JapanesePractice(props: JapanesePracticeProps) {
               <Show
                 when={store.currentQuestionIndex < store.questions.length - 1}
               >
-                <button
+                <Button
                   onClick={handleNext}
-                  class="rounded bg-green-400 px-4 py-2 text-white hover:bg-green-600 dark:bg-green-500"
+                  size="lg"
+                  class="bg-green-400 px-5 text-base font-normal text-black hover:bg-green-600 dark:bg-green-500"
                 >
                   Next Question
-                </button>
+                </Button>
               </Show>
             </div>
           </Show>

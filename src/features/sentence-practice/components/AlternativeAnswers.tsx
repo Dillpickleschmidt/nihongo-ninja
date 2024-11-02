@@ -1,7 +1,7 @@
 import { Component, For } from "solid-js"
-import { HighlightedText } from "./HighlightedText"
+import HighlightedText from "./HighlightedText"
 import { AnswerMatch } from "../answerChecker"
-import { extractText } from "../utils/textExtractor"
+import { removeFurigana } from "../utils/textExtractor"
 
 interface Props {
   matches: AnswerMatch[]
@@ -22,12 +22,12 @@ export const AlternativeAnswers: Component<Props> = (props) => {
       <div class="space-y-3">
         <For each={alternatives()}>
           {(match) => (
-            <div class="rounded border bg-card p-2">
+            <div class="rounded-md border bg-card p-2">
               <div class="mb-1 text-sm text-neutral-600">
                 Similarity: {(match.similarity * 100).toFixed(1)}%
               </div>
               <HighlightedText
-                text={match.answer.segments.map(extractText).join("")}
+                text={match.answer.segments.map(removeFurigana).join("")}
                 errors={match.answerErrors}
                 highlightClass="dark:bg-amber-500 bg-amber-400 text-black font-medium dark:saturate-[85%]"
               />
