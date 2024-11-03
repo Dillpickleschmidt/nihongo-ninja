@@ -4,7 +4,7 @@ import { PracticeQuestion } from "../types"
 /**
  * Extracts both kanji and hiragana versions from a segment
  * @param segment Text segment potentially containing furigana in brackets
- * @returns Both original and hiragana versions of the text
+ * @returns Both original (with furigana) and hiragana versions of the text
  */
 function extractVersions(segment: string): {
   original: string
@@ -16,7 +16,7 @@ function extractVersions(segment: string): {
   }
 
   return {
-    original: segment.replace(/\[.*?\]/g, ""),
+    original: segment, // Keep the original text with furigana brackets intact
     hiragana: extractHiragana(segment),
   }
 }

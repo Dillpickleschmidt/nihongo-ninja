@@ -24,6 +24,7 @@ export default function JapanesePractice(props: JapanesePracticeProps) {
   const { store, setStore } = useSentencePractice()
   const [showFurigana, setShowFurigana] = createSignal(true)
 
+  // Updates when input or current question changes
   const result = createMemo(() => {
     const currentQuestion = store.questions[store.currentQuestionIndex]
     return currentQuestion
@@ -41,6 +42,7 @@ export default function JapanesePractice(props: JapanesePracticeProps) {
           const originalQuestions = questionModules[filePath].default
           const questionsWithVariations =
             createAnswerVariations(originalQuestions)
+          console.log(questionsWithVariations[0])
           setStore("questions", questionsWithVariations)
         } else {
           throw new Error(`File not found: ${filePath}`)
