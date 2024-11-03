@@ -29,11 +29,11 @@ export default function UnitButtonContents(props: UnitButtonContentsProps) {
       case "lesson":
         return <BookOpen size={iconSize} class="text-green-500" />
       case "worksheet":
+        return <PencilLine size={iconSize} class="text-teal-400" />
+      case "practice-sentence":
         return (
           <PencilLine size={iconSize} class="text-yellow-500 saturate-[75%]" />
         )
-      case "practice-sentence":
-        return <PencilLine size={iconSize} class="text-green-500" />
       case "culture-note":
         return <Coffee size={iconSize} class="text-pink-400 saturate-[75%]" />
       case "vocab":
