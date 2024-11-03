@@ -409,6 +409,11 @@ export default function ChapterBoxes() {
             types: ["practice"],
           },
           {
+            title: "Practice Words That Point Sentences",
+            link: "/learn/chapter-2/sentence-practice/words-that-point",
+            types: ["writing"],
+          },
+          {
             title: "が - The Subject Marker",
             link: "/learn/chapter-2/ga-particle",
             types: ["lesson"],
