@@ -444,6 +444,11 @@ export default function ChapterBoxes() {
             types: ["lesson"],
           },
           {
+            title: "Practice じゃないです - Is not...",
+            link: "/learn/chapter-2/sentence-practice/janai",
+            types: ["practice-sentence"],
+          },
+          {
             title: "Kikusasaizu Video - L2-1",
             link: "/learn/chapter-2/kikusasaizu-2-1",
             types: ["video"],
