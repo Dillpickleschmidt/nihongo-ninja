@@ -459,6 +459,11 @@ export default function ChapterBoxes() {
             types: ["lesson"],
           },
           {
+            title: "Practice ね, よ",
+            link: "/learn/chapter-2/sentence-practice/ne-yo",
+            types: ["practice-sentence"],
+          },
+          {
             title: "Kikusasaizu Video - L2-2",
             link: "/learn/chapter-2/kikusasaizu-2-2",
             types: ["video"],

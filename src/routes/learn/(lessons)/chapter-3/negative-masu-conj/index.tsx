@@ -11,7 +11,7 @@ export default function page() {
       <h1 class="px-28 pb-6 pt-28 text-center text-4xl font-semibold">
         <strong>Negative</strong> <span class="font-japanese">ます</span> Form
       </h1>
-      <div class="space-y-6 px-12 pb-32 sm:px-16 md:px-24">
+      <div class="space-y-6 px-8 pb-32 sm:px-16 md:px-24">
         <p>
           Now that you know how to make{" "}
           <span class="font-japanese text-xl font-semibold text-emerald-500">
@@ -40,7 +40,7 @@ export default function page() {
         </p>
         <p class="!mt-4 text-center text-xl">
           <span class="font-japanese text-2xl">
-            <Romaji romaji="To drink">食べる</Romaji>
+            <Romaji romaji="To eat">食べる</Romaji>
           </span>
           <span class="mx-4">{"->"}</span>
           <span class="font-japanese text-2xl">食べ</span>
