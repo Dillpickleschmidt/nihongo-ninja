@@ -33,7 +33,9 @@ export default function SidebarContent({
             size="22px"
             class={`${inDialog ? "mx-3" : "lg:mr-3"} text-amber-400`}
           />
-          <span class={`opacity-75 ${!inDialog && "hidden lg:flex"}`}>
+          <span
+            class={`opacity-75 ${!inDialog && "hidden lg:flex lg:items-center"}`}
+          >
             Jpdb.io <span class="ml-1 text-sm">(Kanji)</span>
           </span>
         </Button>

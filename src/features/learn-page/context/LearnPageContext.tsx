@@ -4,27 +4,30 @@ type LearnPageContextProps = {
   children: any
 }
 
+export const sortOrderTypes = ["module-type", "chronological"] as const
+
+export type sortOrder = (typeof sortOrderTypes)[number]
+
 type LearnPageContextType = {
   elementIds: () => string[]
   setElementIds: (ids: string[]) => void
+  sortOrder: () => sortOrder
+  setSortOrder: (order: sortOrder) => void
 }
 
 const LearnPageContext = createContext<LearnPageContextType>()
 
 export function LearnPageProvider(props: LearnPageContextProps) {
   const [elementIds, setElementIds] = createSignal<string[]>([])
-
-  // // Callback function to receive IDs from child
-  // const handleIdsUpdate = (ids: string[]) => {
-  //   setElementIds(ids)
-  //   console.log("Updated IDs in parent:", ids)
-  // }
+  const [sortOrder, setSortOrder] = createSignal<sortOrder>("module-type")
 
   return (
     <LearnPageContext.Provider
       value={{
         elementIds,
         setElementIds,
+        sortOrder,
+        setSortOrder,
       }}
     >
       {props.children}

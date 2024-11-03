@@ -1,10 +1,32 @@
 import { Button } from "@/components/ui/button"
+import {
+  RadioGroup,
+  RadioGroupItem,
+  RadioGroupItemControl,
+  RadioGroupItemLabel,
+} from "@/components/ui/radio-group"
 import ChapterBoxes from "@/features/learn-page/ChapterBoxes"
+import {
+  sortOrder,
+  sortOrderTypes,
+  useLearnPageContext,
+} from "@/features/learn-page/context/LearnPageContext"
 import DottedScrollbar from "@/features/learn-page/DottedScrollbar"
 import Sidebar from "@/features/sidebar/Sidebar"
 import { Title } from "@solidjs/meta"
+import { For } from "solid-js"
 
 export default function index() {
+  const context = useLearnPageContext()
+
+  function toTitleCase(str: string): string {
+    return str
+      .toLowerCase()
+      .split(" ")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ")
+  }
+
   return (
     <>
       <Title>Nihongo Ninja - Learn Japanese</Title>
@@ -30,6 +52,34 @@ export default function index() {
               Japanese learning. We've scoured the internet to curate the best
               learning materials, bringing them together in one place for free.
             </div>
+            <div class="space-y-2">
+              <h4 class="text-base font-medium text-muted-foreground">
+                Sort by:
+              </h4>
+              <RadioGroup
+                value={context.sortOrder()}
+                onChange={(value) => context.setSortOrder(value as sortOrder)}
+                class="space-y-2 hover:cursor-pointer"
+              >
+                <For each={sortOrderTypes}>
+                  {(item) => (
+                    <RadioGroupItem
+                      value={item}
+                      class="flex items-center gap-2"
+                    >
+                      <RadioGroupItemControl />
+                      <RadioGroupItemLabel
+                        onClick={() => context.setSortOrder(item as sortOrder)}
+                        class="text-sm hover:cursor-pointer"
+                      >
+                        {toTitleCase(item.replace(/-/g, " "))}
+                      </RadioGroupItemLabel>
+                    </RadioGroupItem>
+                  )}
+                </For>
+              </RadioGroup>
+            </div>
+
             <ChapterBoxes />
           </div>
         </div>
@@ -37,24 +87,6 @@ export default function index() {
         <div class="relative flex w-14 justify-center md:w-28 xl:w-36 2xl:w-48">
           {/* Fixed positioning */}
           <div class="fixed top-0 flex h-screen flex-col justify-center">
-            {/* <div class="relative h-[450px]">
-              <div class="absolute h-full border-r-2 border-dashed border-neutral-500/25" />
-              <div class="absolute -top-1 ml-[-.45rem] h-4 w-4 rounded-full bg-neutral-700" />
-              {[...Array(11)].map((_, index) => (
-                <div
-                  class={`absolute ml-[-.175rem] h-2 w-2 rounded-full bg-neutral-700`}
-                  style={{ top: `${(index + 1) * 4.16}%` }}
-                />
-              ))}
-              <div class="absolute top-1/2 ml-[-.45rem] h-4 w-4 translate-y-[-0.15rem] rounded-full bg-neutral-700" />
-              {[...Array(11)].map((_, index) => (
-                <div
-                  class={`absolute ml-[-.175rem] h-2 w-2 rounded-full bg-neutral-700`}
-                  style={{ top: `${(index + 13) * 4.16 + 1.5}%` }}
-                />
-              ))}
-              <div class="absolute bottom-0 ml-[-.45rem] h-4 w-4 rounded-full bg-neutral-700" />
-            </div> */}
             <DottedScrollbar />
           </div>
         </div>

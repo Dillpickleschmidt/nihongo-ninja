@@ -28,15 +28,17 @@ export default function UnitButtonContents(props: UnitButtonContentsProps) {
     switch (type) {
       case "lesson":
         return <BookOpen size={iconSize} class="text-green-500" />
-      case "writing":
+      case "worksheet":
         return (
           <PencilLine size={iconSize} class="text-yellow-500 saturate-[75%]" />
         )
+      case "practice-sentence":
+        return <PencilLine size={iconSize} class="text-green-500" />
       case "culture-note":
         return <Coffee size={iconSize} class="text-pink-400 saturate-[75%]" />
       case "vocab":
         return <BookPlus size={iconSize} class="text-sky-400 saturate-[75%]" />
-      case "practice":
+      case "vocab-practice":
         return <GraduationCap size={iconSize} class="text-orange-500" />
       case "conjugation-practice":
         return <GraduationCap size={iconSize} class="text-teal-400" />

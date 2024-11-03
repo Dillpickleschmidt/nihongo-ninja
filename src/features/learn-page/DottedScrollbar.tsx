@@ -23,7 +23,7 @@ export default function DottedScrollbar() {
 
   const getButtonStyles = (id: string) => {
     const isLarge = isLargeButton(id)
-    const scaleAmount = isLarge ? "scale-125" : "scale-150"
+    const scaleAmount = isLarge ? "scale-[110%]" : "scale-150"
 
     return `origin-center rounded-full ${
       isLarge ? "h-4 w-4" : "h-[0.55rem] w-[0.55rem]"
