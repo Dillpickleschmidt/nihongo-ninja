@@ -88,7 +88,7 @@ export default function MultipleChoice() {
 
   return (
     <div>
-      <ul class="mx-16 mb-6 mt-32 grid grid-cols-1 gap-[.875rem] lg:grid-cols-2">
+      <ul class="mb-6 mt-16 grid grid-cols-1 gap-[.875rem] px-4 lg:mt-24 lg:grid-cols-2 lg:px-16">
         <For each={choices().options}>
           {(option, index) => {
             const enabledAnswers = createMemo(() =>

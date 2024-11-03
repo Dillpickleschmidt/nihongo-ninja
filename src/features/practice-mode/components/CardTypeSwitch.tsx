@@ -12,7 +12,7 @@ export default function CardTypeSwitch() {
 
   return (
     <div class="w-full">
-      <h2 class="mx-12 text-center font-japanese text-6xl">
+      <h2 class="mx-12 text-center font-japanese text-5xl lg:text-6xl">
         {currentCard().key}
       </h2>
       <Switch

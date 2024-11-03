@@ -22,27 +22,32 @@ export default function ReviewPage() {
 
   return (
     <>
-      <div class="fixed bottom-0 z-50 my-6 flex w-full justify-center">
+      {/* Continue Button */}
+      <div class="fixed bottom-0 z-50 flex w-full justify-center px-4 pb-4 lg:pb-6">
         <Button
           size="lg"
           onClick={handleContinue}
-          class="w-[480px] bg-orange-500"
+          class="w-full max-w-md bg-orange-500 font-medium text-black"
         >
           Continue
         </Button>
       </div>
-      <div class="w-full pb-10 pt-24">
-        <h1 class="text-center text-5xl font-semibold">
+
+      {/* Header */}
+      <div class="w-full px-4 pb-8 pt-20 lg:pb-12 lg:pt-24">
+        <h1 class="text-center text-3xl font-semibold lg:text-5xl">
           See the terms you practiced!
         </h1>
       </div>
-      <div class="pb-28 lg:mx-48 2xl:mx-96">
-        <For each={uniqueCards()}>
-          {(card) => (
-            <div class="relative mx-2 mb-4 flex min-w-[500px] overflow-hidden rounded-lg bg-card shadow-md xl:mx-8">
-              <div class="flex-1 py-4 pl-4 pr-6">
+
+      {/* Content */}
+      <div class="flex justify-center pb-32 lg:pb-36">
+        <div class="w-full max-w-screen-lg space-y-4 px-4">
+          <For each={uniqueCards()}>
+            {(card) => (
+              <div class="relative overflow-hidden rounded-xl bg-card p-5 shadow-md">
                 <p
-                  class={`${card.wrongAnswerCount > 0 ? "text-[#ff5757]" : ""} text-xl font-bold`}
+                  class={`${card.wrongAnswerCount > 0 ? "text-[#ff5757]" : ""} text-xl font-bold lg:text-2xl`}
                 >
                   <span class="mr-2">{card.key}</span>
                   <Show when={card.particles}>
@@ -86,7 +91,7 @@ export default function ReviewPage() {
                       </p>
                       <For each={object.answers}>
                         {(answer: string) => (
-                          <p class="ml-4 text-xl">
+                          <p class="ml-4 text-lg">
                             {object.category === "Kana" ? (
                               <span class="font-japanese text-2xl font-medium">
                                 {answer}
@@ -100,13 +105,13 @@ export default function ReviewPage() {
                     </div>
                   )}
                 </For>
+                <div
+                  class={`absolute right-0 top-0 h-full ${card.wrongAnswerCount > 0 ? "w-4 bg-red-500" : "w-2 bg-emerald-500/50"}`}
+                />
               </div>
-              <div
-                class={`absolute right-0 h-full ${card.wrongAnswerCount > 0 ? "w-4 bg-red-500" : "w-2 bg-emerald-500/50"}`}
-              />
-            </div>
-          )}
-        </For>
+            )}
+          </For>
+        </div>
       </div>
     </>
   )

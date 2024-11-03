@@ -18,21 +18,24 @@ export default function StartPage(props: StartPageProps) {
 
   return (
     <>
-      <div class="fixed bottom-0 z-50 my-6 flex w-full justify-center">
+      {/* Start Button */}
+      <div class="fixed bottom-0 z-50 flex w-full justify-center px-4 pb-4 lg:pb-6">
         <Button
           onClick={() => context.setStore("currentPage", "practice")}
           size="lg"
-          class="w-[480px] bg-orange-500"
+          class="w-full max-w-md bg-orange-500 font-medium text-black"
         >
           Start Learning!
         </Button>
       </div>
-      <div class="w-full pb-10 pt-24">
-        <div class="relative flex justify-center lg:mx-48 2xl:mx-96">
-          <h1 class="text-center text-5xl font-semibold sm:mx-14">
+
+      {/* Header */}
+      <div class="w-full px-4 pb-8 pt-20 lg:pb-12 lg:pt-24">
+        <div class="relative mx-auto flex w-full max-w-screen-lg flex-col items-center text-center">
+          <h1 class="text-3xl font-semibold lg:text-5xl">
             Practice {props.deckName}
           </h1>
-          <div class="absolute bottom-0 right-4">
+          <div class="absolute right-4 top-0">
             <DeckSettingsDialog>
               <Button variant="ghost">
                 <Settings class="h-7 w-7" />
@@ -41,12 +44,14 @@ export default function StartPage(props: StartPageProps) {
           </div>
         </div>
       </div>
-      <div class="pb-28 lg:mx-48 2xl:mx-96">
-        <div>
+
+      {/* Content */}
+      <div class="flex justify-center pb-32 lg:pb-36">
+        <div class="w-full max-w-screen-lg space-y-2 px-4">
           <For each={sortedData()}>
             {(entry, index) => (
-              <div class="m-2 min-w-[450px] rounded-xl bg-card p-6 shadow-md">
-                <p class="text-2xl font-bold text-orange-500 text-primary">
+              <div class="rounded-xl bg-card p-6 shadow-md">
+                <p class="text-xl font-bold text-orange-400 saturate-[125%] lg:text-2xl">
                   {entry.key}
                 </p>
                 <For
@@ -59,14 +64,14 @@ export default function StartPage(props: StartPageProps) {
                 >
                   {(categoryObj, i) => (
                     <div>
-                      <p class="my-2 italic text-muted-foreground">
+                      <p class="my-2 text-sm italic text-muted-foreground lg:text-base">
                         {categoryObj.category}:
                       </p>
                       <For each={categoryObj.answers}>
                         {(answer: string, j) => (
-                          <p class="text-xl font-bold text-primary">
+                          <p class="text-lg font-bold text-primary lg:text-xl">
                             {categoryObj.category === "Kana" ? (
-                              <span class="font-japanese text-2xl">
+                              <span class="font-japanese text-xl lg:text-2xl">
                                 {answer}
                               </span>
                             ) : (

@@ -22,8 +22,8 @@ export default function PracticePage() {
   })
 
   return (
-    <div class="mt-[-4.1rem] flex min-h-screen w-full justify-center sm:mt-0 sm:min-h-full sm:pb-12">
-      <div class="w-full max-w-[1000px] bg-card pt-60 sm:mx-2 sm:mt-28 sm:rounded-3xl sm:border-2 sm:border-dashed sm:border-card-foreground sm:pb-24 sm:pt-32 md:mx-12 lg:py-32">
+    <div class="mt-[-4.1rem] flex min-h-screen w-full justify-center sm:mt-0 sm:min-h-full sm:pb-24">
+      <div class="w-full max-w-[1000px] bg-card pt-40 sm:mx-2 sm:mt-28 sm:rounded-3xl sm:border-2 sm:border-dashed sm:border-card-foreground sm:pb-24 sm:pt-32 md:mx-12 lg:py-32">
         <CardTypeSwitch />
       </div>
       {context.store.hasUserAnswered && (
@@ -31,7 +31,7 @@ export default function PracticePage() {
           ref={buttonRef}
           size="lg"
           onClick={() => handleNextQuestion(context)}
-          class="absolute bottom-12 shadow-md"
+          class="fixed bottom-12 shadow-md lg:absolute lg:bottom-32"
         >
           <span>Next Question {"->"}</span>
         </Button>
