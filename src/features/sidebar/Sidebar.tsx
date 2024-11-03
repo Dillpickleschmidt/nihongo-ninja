@@ -1,19 +1,21 @@
 import { Button } from "@/components/ui/button"
 import Menu from "lucide-solid/icons/menu"
-
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import SidebarContent from "./SidebarContent"
 
 export default function Sidebar() {
   return (
     <>
-      <div class="left-4 top-20 z-40 flex sm:hidden">
+      {/* Mobile Menu Button */}
+      <div class="fixed left-4 top-20 z-40 block sm:hidden">
         <Sheet>
-          <SheetTrigger class="fixed left-4 top-20 flex h-24 items-center">
-            <Button size="icon" variant="ghost" class="">
+          <SheetTrigger>
+            <Button size="icon" variant="ghost">
               <Menu />
             </Button>
-            <div class="ml-1 text-muted-foreground">{"<-"}</div>
+            <span class="absolute top-1 ml-1 text-muted-foreground">
+              {"<-"}
+            </span>
           </SheetTrigger>
           <SheetContent side="left">
             <h2 class="mr-4 mt-16 pb-6 text-center text-[1.75rem] font-black">
@@ -25,8 +27,10 @@ export default function Sidebar() {
           </SheetContent>
         </Sheet>
       </div>
-      <div class="hidden justify-center pl-6 sm:flex lg:min-w-56 xl:min-w-[17rem] xl:pl-12 2xl:min-w-[430px]">
-        <div class="fixed top-16 ml-6 flex min-h-screen flex-col justify-center space-y-6">
+
+      {/* Desktop Sidebar */}
+      <div class="hidden w-0 sm:block sm:min-w-12 lg:min-w-56 xl:min-w-[17rem] xl:pl-12 2xl:min-w-[430px] 2xl:pl-20">
+        <div class="fixed top-16 ml-6 flex min-h-screen flex-col items-center justify-center space-y-6">
           <SidebarContent inDialog={false} />
         </div>
       </div>

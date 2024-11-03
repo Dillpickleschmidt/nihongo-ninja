@@ -1,4 +1,4 @@
-import { For, onMount, onCleanup } from "solid-js"
+import { For } from "solid-js"
 import { twMerge } from "tailwind-merge"
 import UnitButton from "./UnitButton"
 import { UnitButtonType } from "./types"
