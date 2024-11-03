@@ -1,11 +1,6 @@
 import { extractHiragana } from "@/util/vocabDataTransformer"
 import { PracticeQuestion } from "../types"
 
-/**
- * Extracts both kanji and hiragana versions from a segment
- * @param segment Text segment potentially containing furigana in brackets
- * @returns Both original (with furigana) and hiragana versions of the text
- */
 function extractVersions(segment: string): {
   original: string
   hiragana: string
@@ -16,7 +11,7 @@ function extractVersions(segment: string): {
   }
 
   return {
-    original: segment, // Keep the original text with furigana brackets intact
+    original: segment,
     hiragana: extractHiragana(segment),
   }
 }
@@ -24,21 +19,85 @@ function extractVersions(segment: string): {
 /**
  * Generates all possible combinations of kanji/kana versions
  * @param segments Array of text segments with furigana in brackets
- * @returns Array of all possible variations
+ * @returns Array of all possible variations with their variation status
  */
-function generateCombinations(segments: string[]): string[][] {
-  const versions = segments.map((segment) => {
+function generateCombinations(segments: string[]): Array<{
+  segments: string[]
+  isKanaVariation: boolean
+  isPeriodVariation: boolean
+}> {
+  // Handle the period in the last segment if it exists
+  const lastSegment = segments[segments.length - 1]
+  const hasPeriod = lastSegment.endsWith("。")
+
+  // Remove period for processing if it exists
+  const processSegments = hasPeriod
+    ? [...segments.slice(0, -1), lastSegment.slice(0, -1)]
+    : segments
+
+  // Generate base combinations
+  const versions = processSegments.map((segment) => {
     const { original, hiragana } = extractVersions(segment)
     return original !== hiragana ? [original, hiragana] : [original]
   })
 
-  // Helper function to generate combinations recursively
-  function combine(current: string[], index: number): string[][] {
+  function combine(
+    current: string[],
+    index: number,
+  ): Array<{
+    segments: string[]
+    isKanaVariation: boolean
+    isPeriodVariation: boolean
+  }> {
     if (index === versions.length) {
-      return [current]
+      // For each complete combination, create versions with and without period
+      const baseCombo = current
+      const isKanaVariation = baseCombo.some(
+        (segment, i) => segment !== versions[i][0], // Compare with original version
+      )
+
+      if (hasPeriod) {
+        // If original had period, that version comes first and is not a period variation
+        return [
+          {
+            segments: [
+              ...baseCombo.slice(0, -1),
+              baseCombo[baseCombo.length - 1] + "。",
+            ],
+            isKanaVariation,
+            isPeriodVariation: false,
+          },
+          {
+            segments: baseCombo,
+            isKanaVariation,
+            isPeriodVariation: true,
+          },
+        ]
+      } else {
+        // If original had no period, that version comes first and is not a period variation
+        return [
+          {
+            segments: baseCombo,
+            isKanaVariation,
+            isPeriodVariation: false,
+          },
+          {
+            segments: [
+              ...baseCombo.slice(0, -1),
+              baseCombo[baseCombo.length - 1] + "。",
+            ],
+            isKanaVariation,
+            isPeriodVariation: true,
+          },
+        ]
+      }
     }
 
-    const results: string[][] = []
+    const results: Array<{
+      segments: string[]
+      isKanaVariation: boolean
+      isPeriodVariation: boolean
+    }> = []
     for (const version of versions[index]) {
       results.push(...combine([...current, version], index + 1))
     }
@@ -50,6 +109,7 @@ function generateCombinations(segments: string[]): string[][] {
 
 /**
  * Creates variations of questions by substituting kanji with hiragana
+ * and handling optional periods
  * @param questions Array of original questions
  * @returns Array of questions with all possible variations
  */
@@ -60,11 +120,11 @@ export function createAnswerVariations(
     const variations = question.answers.flatMap((answer) => {
       const combinations = generateCombinations(answer.segments)
 
-      // First combination is the original, rest are variations
-      return combinations.map((combination, index) => ({
+      return combinations.map((combination) => ({
         ...answer,
-        segments: combination,
-        isVariation: index > 0, // Mark all but the first combination as variations
+        segments: combination.segments,
+        isVariation:
+          combination.isKanaVariation || combination.isPeriodVariation,
       }))
     })
 
