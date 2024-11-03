@@ -1,0 +1,447 @@
+[
+  {
+    "english": "Who is the Japanese teacher?",
+    "hint": "Several teachers are present in the teachers' room",
+    "answers": [
+      {
+        "segments": [
+          "だれ",
+          "が",
+          "日本語[にほんご]",
+          "の",
+          "先生[せんせい]",
+          "です",
+          "か"
+        ],
+        "notes": "Using が to identify which specific person among the teachers is the Japanese teacher"
+      },
+      {
+        "segments": [
+          "日本語[にほんご]",
+          "の",
+          "先生[せんせい]",
+          "は",
+          "だれ",
+          "です",
+          "か"
+        ],
+        "notes": "Using は to ask about the Japanese teacher's identity in general"
+      }
+    ]
+  },
+  {
+    "english": "In this class, who is the international student?",
+    "hint": "Looking around at classroom members",
+    "answers": [
+      {
+        "segments": [
+          "この",
+          "クラス",
+          "で",
+          "だれ",
+          "が",
+          "留学生[りゅうがくせい]",
+          "です",
+          "か"
+        ],
+        "notes": "Using で to specify the location first, then asking who within that space is the international student"
+      },
+      {
+        "segments": [
+          "だれ",
+          "が",
+          "この",
+          "クラス",
+          "の",
+          "留学生[りゅうがくせい]",
+          "です",
+          "か"
+        ],
+        "notes": "Using の to ask who holds the role of 'this class's international student'"
+      }
+    ]
+  },
+  {
+    "english": "Who among them is from Korea?",
+    "hint": "Looking at a group of people",
+    "answers": [
+      {
+        "segments": ["だれ", "が", "韓国人[かんこくじん]", "です", "か"],
+        "notes": "Using が to identify which specific person in the group is Korean"
+      },
+      {
+        "segments": ["韓国人[かんこくじん]", "は", "だれ", "です", "か"],
+        "notes": "Using は to ask about the Korean person's identity in general"
+      }
+    ]
+  },
+  {
+    "english": "Whose English textbook is this?",
+    "hint": "Looking at a textbook on a desk",
+    "answers": [
+      {
+        "segments": [
+          "これ",
+          "は",
+          "だれ",
+          "の",
+          "英語[えいご]",
+          "の",
+          "本[ほん]",
+          "です",
+          "か"
+        ],
+        "notes": "Full sentence emphasizing 'this' textbook specifically"
+      },
+      {
+        "segments": [
+          "だれ",
+          "の",
+          "英語[えいご]",
+          "の",
+          "本[ほん]",
+          "です",
+          "か"
+        ],
+        "notes": "More natural, casual version focusing just on asking about ownership"
+      }
+    ]
+  },
+  {
+    "english": "At this university, who is a doctor?",
+    "hint": "Discussing university staff members",
+    "answers": [
+      {
+        "segments": [
+          "この",
+          "大学[だいがく]",
+          "で",
+          "だれ",
+          "が",
+          "医者[いしゃ]",
+          "です",
+          "か"
+        ],
+        "notes": "Using で to first establish the location (university), then asking who within that space is a doctor"
+      },
+      {
+        "segments": [
+          "だれ",
+          "が",
+          "この",
+          "大学[だいがく]",
+          "の",
+          "医者[いしゃ]",
+          "です",
+          "か"
+        ],
+        "notes": "Using の to ask who holds the position of doctor at this university"
+      }
+    ]
+  },
+  {
+    "english": "Who is a first-year student here?",
+    "hint": "In a classroom with multiple students",
+    "answers": [
+      {
+        "segments": [
+          "ここ",
+          "で",
+          "だれ",
+          "が",
+          "一年生[いちねんせい]",
+          "です",
+          "か"
+        ],
+        "notes": "Using で to ask about who in this location is a first-year"
+      },
+      {
+        "segments": [
+          "だれ",
+          "が",
+          "ここ",
+          "の",
+          "一年生[いちねんせい]",
+          "です",
+          "か"
+        ],
+        "notes": "Using の to ask about who belongs to this place as a first-year"
+      }
+    ]
+  },
+  {
+    "english": "Who is the English teacher?",
+    "hint": "Trying to identify one teacher among several",
+    "answers": [
+      {
+        "segments": [
+          "だれ",
+          "が",
+          "英語[えいご]",
+          "の",
+          "先生[せんせい]",
+          "です",
+          "か"
+        ],
+        "notes": "Using が to identify which person is the English teacher from a group"
+      },
+      {
+        "segments": [
+          "英語[えいご]",
+          "の",
+          "先生[せんせい]",
+          "は",
+          "だれ",
+          "です",
+          "か"
+        ],
+        "notes": "Using は to ask about the English teacher's identity in general"
+      }
+    ]
+  },
+  {
+    "english": "At this high school, who is the nurse?",
+    "hint": "Asking about school staff",
+    "answers": [
+      {
+        "segments": [
+          "この",
+          "高校[こうこう]",
+          "で",
+          "だれ",
+          "が",
+          "看護師[かんごし]",
+          "です",
+          "か"
+        ],
+        "notes": "Using で to ask about who in this location is the nurse"
+      },
+      {
+        "segments": [
+          "だれ",
+          "が",
+          "この",
+          "高校[こうこう]",
+          "の",
+          "看護師[かんごし]",
+          "です",
+          "か"
+        ],
+        "notes": "Using の to ask about who serves as this school's nurse"
+      }
+    ]
+  },
+  {
+    "english": "Who among them is a university student?",
+    "hint": "Looking at a group of people",
+    "answers": [
+      {
+        "segments": ["だれ", "が", "大学生[だいがくせい]", "です", "か"],
+        "notes": "Using が to identify which specific person is a university student"
+      }
+    ]
+  },
+  {
+    "english": "In this office, who is Chinese?",
+    "hint": "Discussing office staff members",
+    "answers": [
+      {
+        "segments": [
+          "この",
+          "オフィス",
+          "で",
+          "だれ",
+          "が",
+          "中国人[ちゅうごくじん]",
+          "です",
+          "か"
+        ],
+        "notes": "Using で to ask about who in this location is Chinese"
+      }
+    ]
+  },
+  {
+    "english": "Who is the teacher for this class?",
+    "hint": "Asking about class information",
+    "answers": [
+      {
+        "segments": [
+          "だれ",
+          "が",
+          "この",
+          "クラス",
+          "の",
+          "先生[せんせい]",
+          "です",
+          "か"
+        ],
+        "notes": "Using が to ask who has the role of teacher for this class"
+      },
+      {
+        "segments": [
+          "この",
+          "クラス",
+          "の",
+          "先生[せんせい]",
+          "は",
+          "だれ",
+          "です",
+          "か"
+        ],
+        "notes": "Using は to ask about the teacher's identity in general"
+      }
+    ]
+  },
+  {
+    "english": "In Japan, who is your teacher?",
+    "hint": "Asking about someone's teacher in Japan",
+    "answers": [
+      {
+        "segments": [
+          "日本[にほん]",
+          "で",
+          "だれ",
+          "が",
+          "先生[せんせい]",
+          "です",
+          "か"
+        ],
+        "notes": "Using で to ask about who in Japan is their teacher"
+      }
+    ]
+  },
+  {
+    "english": "Who among these people is from America?",
+    "hint": "Looking at a group photo",
+    "answers": [
+      {
+        "segments": ["だれ", "が", "アメリカ人[じん]", "です", "か"],
+        "notes": "Using が to identify which specific person is American"
+      }
+    ]
+  },
+  {
+    "english": "Who in this university is an international student?",
+    "hint": "Discussing university students",
+    "answers": [
+      {
+        "segments": [
+          "この",
+          "大学[だいがく]",
+          "で",
+          "だれ",
+          "が",
+          "留学生[りゅうがくせい]",
+          "です",
+          "か"
+        ],
+        "notes": "Using で to ask about who in this location is an international student"
+      }
+    ]
+  },
+  {
+    "english": "Who is the office worker?",
+    "hint": "Looking at a group of people",
+    "answers": [
+      {
+        "segments": ["だれ", "が", "会社員[かいしゃいん]", "です", "か"],
+        "notes": "Using が to identify which person is the office worker"
+      },
+      {
+        "segments": ["会社員[かいしゃいん]", "は", "だれ", "です", "か"],
+        "notes": "Using は to ask about the office worker's identity in general"
+      }
+    ]
+  },
+  {
+    "english": "At this school, who is a high school student?",
+    "hint": "In a mixed group of students",
+    "answers": [
+      {
+        "segments": [
+          "この",
+          "学校[がっこう]",
+          "で",
+          "だれ",
+          "が",
+          "高校生[こうこうせい]",
+          "です",
+          "か"
+        ],
+        "notes": "Using で to ask about who in this location is a high school student"
+      }
+    ]
+  },
+  {
+    "english": "Who teaches Japanese?",
+    "hint": "Asking about teachers at a school",
+    "answers": [
+      {
+        "segments": [
+          "だれ",
+          "が",
+          "日本語[にほんご]",
+          "の",
+          "先生[せんせい]",
+          "です",
+          "か"
+        ],
+        "notes": "Using が to identify which person is the Japanese teacher"
+      }
+    ]
+  },
+  {
+    "english": "Who in this class is from China?",
+    "hint": "Looking around at classmates",
+    "answers": [
+      {
+        "segments": [
+          "この",
+          "クラス",
+          "で",
+          "だれ",
+          "が",
+          "中国人[ちゅうごくじん]",
+          "です",
+          "か"
+        ],
+        "notes": "Using で to ask about who in this class is Chinese"
+      }
+    ]
+  },
+  {
+    "english": "Who among them is a lawyer?",
+    "hint": "Discussing a group of professionals",
+    "answers": [
+      {
+        "segments": ["だれ", "が", "弁護士[べんごし]", "です", "か"],
+        "notes": "Using が to identify which person is the lawyer"
+      },
+      {
+        "segments": ["弁護士[べんごし]", "は", "だれ", "です", "か"],
+        "notes": "Using は to ask about the lawyer's identity in general"
+      }
+    ]
+  },
+  {
+    "english": "At this university, who teaches English?",
+    "hint": "Asking about university faculty",
+    "answers": [
+      {
+        "segments": [
+          "この",
+          "大学[だいがく]",
+          "で",
+          "だれ",
+          "が",
+          "英語[えいご]",
+          "の",
+          "先生[せんせい]",
+          "です",
+          "か"
+        ],
+        "notes": "Using で to ask about who in this location teaches English"
+      }
+    ]
+  }
+]

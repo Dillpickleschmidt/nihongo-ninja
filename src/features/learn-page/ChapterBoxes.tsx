@@ -424,9 +424,19 @@ export default function ChapterBoxes() {
             types: ["lesson"],
           },
           {
+            title: "Practice だれ",
+            link: "/learn/chapter-2/sentence-practice/dare",
+            types: ["practice-sentence"],
+          },
+          {
             title: "Saying also with も",
             link: "/learn/chapter-2/mo-particle",
             types: ["lesson"],
+          },
+          {
+            title: "Practice Saying also with も",
+            link: "/learn/chapter-2/sentence-practice/mo-particle",
+            types: ["practice-sentence"],
           },
           {
             title: "じゃないです - Is not...",
