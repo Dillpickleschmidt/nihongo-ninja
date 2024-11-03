@@ -214,7 +214,7 @@ export default function ChapterBoxes() {
           },
           {
             title: "Xは Y です Practice Sentences",
-            link: "/learn/chapter-1/practice/x-wa-y-desu",
+            link: "/learn/chapter-1/sentence-practice/x-wa-y-desu",
             types: ["writing"],
           },
           {
@@ -258,9 +258,19 @@ export default function ChapterBoxes() {
             types: ["lesson"],
           },
           {
+            title: "Practice Questions with か",
+            link: "/learn/chapter-1/sentence-practice/questions-with-ka",
+            types: ["writing"],
+          },
+          {
             title: "Modifying Nouns: の",
             link: "/learn/chapter-1/the-no-particle",
             types: ["lesson"],
+          },
+          {
+            title: "Practice Modifying Nouns: の",
+            link: "/learn/chapter-1/sentence-practice/the-no-particle",
+            types: ["writing"],
           },
           {
             title: "Worksheet 1",
