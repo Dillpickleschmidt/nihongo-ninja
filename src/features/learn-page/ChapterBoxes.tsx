@@ -683,6 +683,11 @@ export default function ChapterBoxes() {
             types: ["lesson"],
           },
           {
+            title: "Practice Particles - を, で, に, へ",
+            link: "/learn/chapter-3/sentence-practice/o-de-ni-e-particles",
+            types: ["practice-sentence"],
+          },
+          {
             title: "Word Order",
             link: "/learn/chapter-3/word-order",
             types: ["lesson"],
@@ -710,7 +715,7 @@ export default function ChapterBoxes() {
             disabled: true,
           },
           {
-            title: "Polite Invitations",
+            title: "Polite Invitations - ませんか",
             link: "/learn/chapter-3/polite-invitations",
             types: ["lesson"],
           },
