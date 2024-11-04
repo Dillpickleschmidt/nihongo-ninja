@@ -714,6 +714,11 @@ export default function ChapterBoxes() {
             types: ["lesson"],
           },
           {
+            title: "Practice ませんか",
+            link: "/learn/chapter-3/sentence-practice/polite-invitations",
+            types: ["practice-sentence"],
+          },
+          {
             title: "Kikusasaizu Video - L3-2",
             link: "/learn/chapter-3/kikusasaizu-3-2",
             types: ["video"],
