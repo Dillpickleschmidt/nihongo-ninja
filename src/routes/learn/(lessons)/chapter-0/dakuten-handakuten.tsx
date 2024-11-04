@@ -9,7 +9,7 @@ export default function JapanesePronunciation() {
       <h2 class="mt-40 px-20 text-center text-[2.625rem] font-medium leading-[3.25rem]">
         🌊
       </h2>
-      <h2 class="px-20 pb-12 text-center text-[2rem] font-medium leading-[2.875rem]">
+      <h2 class="px-12 pb-12 text-center text-[2rem] font-medium leading-[2.875rem] lg:px-20">
         So you've mastered the gentle curves and strokes of Hiragana, and you're
         feeling <em>*pretty* confident</em>, right? Well,{" "}
         <span class="text-[3.125rem]">
@@ -21,7 +21,7 @@ export default function JapanesePronunciation() {
         <span class="text-[2.675rem] font-bold">Handakuten!</span>
       </h2>
       <p class="mb-2 text-center text-2xl font-bold">( &quot; )</p>
-      <div class="mx-16 mb-32 space-y-6 sm:mx-[7.5rem]">
+      <div class="space-y-6 px-8 pb-32 sm:px-[7.5rem]">
         <div class="flex flex-row justify-center !pb-0">
           <div class="![&>*]:py-0 pl-2 pr-6 text-center text-xl font-bold">
             <em>

@@ -35,7 +35,7 @@ export default function page() {
       </div>
 
       <div class="flex w-full justify-center">
-        <div class="relative mt-24 h-64 w-64">
+        <div class="relative mt-12 h-32 w-32 lg:mt-24 lg:h-64 lg:w-64">
           <img
             src="/img/chapter-2/katakana/ア.png"
             alt="ア image"
@@ -43,7 +43,7 @@ export default function page() {
           />
         </div>
       </div>
-      <h1 class="mt-12 px-6 text-center text-6xl font-bold leading-[4.0rem] sm:px-12 lg:px-24">
+      <h1 class="mt-12 px-12 text-center text-5xl font-bold leading-[4.0rem] lg:px-24 lg:text-6xl">
         <span class="text-[#FF3333]">Katakana</span>: The <em>Energetic</em>{" "}
         Sibling of <span class="">Hiragana</span>
       </h1>

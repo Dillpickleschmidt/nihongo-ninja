@@ -53,7 +53,7 @@ export default function JapanesePronunciation() {
           class="aspect-square w-64"
         />
       </div>
-      <h1 class="mx-24 mt-12 text-center text-6xl font-bold leading-[3.5rem]">
+      <h1 class="mt-12 px-12 text-center text-5xl font-bold leading-[3.5rem] lg:px-24 lg:text-6xl">
         Hiragana: The <span class="text-sky-400">ABC</span>s of Japanese
       </h1>
       <h2 class="mb-4 mt-12 text-center text-3xl font-bold">

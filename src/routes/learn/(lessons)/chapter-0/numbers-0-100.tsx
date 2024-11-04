@@ -8,7 +8,7 @@ import { A } from "@solidjs/router"
 export default function JapanesePronunciation() {
   return (
     <>
-      <h1 class="mb-8 px-20 pt-20 text-center text-4xl font-medium leading-[3.25rem]">
+      <h1 class="mb-8 px-12 pt-20 text-center text-4xl font-medium leading-[3.25rem] lg:px-20">
         Let's learn the basic numbers.
       </h1>
       <div class="w-full justify-center lg:flex">

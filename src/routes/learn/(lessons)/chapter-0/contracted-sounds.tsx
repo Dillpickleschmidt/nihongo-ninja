@@ -6,7 +6,7 @@ export default function JapanesePronunciation() {
       nextButtonText="Next Lesson ->"
       nextButtonLink="/learn/chapter-0/practice/contracted-sounds"
     >
-      <h1 class="mt-40 px-20 pb-12 text-center text-[2rem] font-medium leading-[2.875rem]">
+      <h1 class="mt-40 px-12 pb-12 text-center text-[2rem] font-medium leading-[2.875rem] lg:px-20">
         <span class="text-[2.75rem] font-medium">
           Alright, language warriors!
         </span>{" "}
@@ -28,7 +28,7 @@ export default function JapanesePronunciation() {
         - the linguistic equivalent of a<em>*surprise*</em> party in the middle
         of a sentence!
       </h1>
-      <div class="mb-32 space-y-9 px-16 sm:px-24">
+      <div class="space-y-9 px-8 pb-32 sm:px-24">
         <h3 class="-mb-6 mt-6 text-center font-semibold">
           Contracted Sounds (拗音, Yōon): The Team-Up in Japanese:
         </h3>

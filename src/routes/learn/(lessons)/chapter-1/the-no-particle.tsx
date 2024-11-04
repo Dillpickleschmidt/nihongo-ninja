@@ -9,7 +9,7 @@ export default function page() {
       nextButtonText="Next Lesson ->"
       nextButtonLink="/learn/chapter-1/worksheet-1"
     >
-      <h1 class="px-28 pb-6 pt-28 text-center text-4xl font-semibold">
+      <h1 class="px-12 pb-6 pt-28 text-center text-4xl font-semibold lg:px-28">
         Mastering the <span class="font-japanese text-orange-500">の</span>{" "}
         Particle in Japanese
       </h1>

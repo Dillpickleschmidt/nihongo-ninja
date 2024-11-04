@@ -8,7 +8,7 @@ export default function JapanesePronunciation() {
       nextButtonText="Next Lesson ->"
       nextButtonLink="/learn/chapter-0/all-hiragana-quiz"
     >
-      <h1 class="px-20 pt-28 text-center text-[2rem] font-medium leading-[2.875rem]">
+      <h1 class="px-12 pt-28 text-center text-[2rem] font-medium leading-[2.875rem] lg:px-20">
         You thought you were finally in the clear?{" "}
         <span class="text-[2.75rem] font-bold">
           <em>No!</em>{" "}
@@ -30,7 +30,7 @@ export default function JapanesePronunciation() {
       </h1>
       <h2 class="px-20 text-center text-3xl font-medium leading-[3.25rem]"></h2>
 
-      <div class="mb-32 px-32 [&>*]:py-6">
+      <div class="space-y-6 px-16 pb-32 sm:px-24">
         <h3 class="!pb-4 font-semibold">
           Double Consonants (<span class="font-japanese">促音</span>, Sokuon):
           The Dramatic Pauses of Japanese:

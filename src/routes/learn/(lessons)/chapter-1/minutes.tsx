@@ -6,7 +6,7 @@ import MinutesChart2 from "@/features/charts/MinutesChart2"
 export default function page() {
   return (
     <>
-      <h1 class="mb-8 px-20 pt-20 text-center text-4xl font-medium">
+      <h1 class="mb-8 px-12 pt-20 text-center text-4xl font-medium lg:px-20">
         Counting Minutes - <span class="font-japanese">ぷん・ふん</span>
       </h1>
       <div class="w-full justify-center lg:flex lg:gap-3">

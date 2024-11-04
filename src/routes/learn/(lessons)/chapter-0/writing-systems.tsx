@@ -10,10 +10,10 @@ export default function JapanesePronunciation() {
       <div class="-mt-2 h-48 w-full border-b border-black">
         <img src="/img/chapter-0/brushes.jpg" alt="japanese brushstrokes" />
       </div>
-      <h2 class="mt-24 px-24 pb-14 text-5xl font-medium">
+      <h2 class="mt-24 px-12 pb-14 text-4xl font-medium lg:px-24 lg:text-5xl">
         Let's take a closer look at the Japanese writing systems.
       </h2>
-      <div class="mb-32 space-y-9 px-16 sm:px-24">
+      <div class="mb-32 space-y-9 px-12 sm:px-24">
         <div class="mr-24 rounded-2xl border-2 border-dashed border-muted bg-card p-4 shadow-md">
           <PortraitIcon src="/img/student.png" />
           <p>

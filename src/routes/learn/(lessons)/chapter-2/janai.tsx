@@ -29,7 +29,7 @@ export default function page() {
       nextButtonText="Next Lesson ->"
       nextButtonLink="/learn/chapter-2/kikusasaizu-2-1"
     >
-      <h1 class="px-28 pb-6 pt-28 text-center text-4xl font-semibold">
+      <h1 class="px-12 pb-6 pt-28 text-center text-4xl font-semibold lg:px-28">
         <span class="font-japanese text-orange-400">じゃない</span>—The Negative
         Form in Japanese
       </h1>

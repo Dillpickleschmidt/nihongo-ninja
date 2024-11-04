@@ -6,7 +6,7 @@ export default function Page() {
       nextButtonText="Next Lesson ->"
       nextButtonLink="/learn/chapter-1/the-no-particle"
     >
-      <h1 class="px-28 pb-6 pt-28 text-center text-4xl font-semibold">
+      <h1 class="px-12 pb-6 pt-28 text-center text-4xl font-semibold lg:px-28">
         Forming Questions With The{" "}
         <span class="font-japanese text-red-500">か</span> Particle
       </h1>

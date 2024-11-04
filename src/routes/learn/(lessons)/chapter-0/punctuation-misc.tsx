@@ -7,7 +7,7 @@ export default function JapanesePronunciation() {
       nextButtonText="See Vocab! ->"
       nextButtonLink="/learn/chapter-0/vocab-list"
     >
-      <h1 class="px-20 pt-28 text-center text-[2rem] font-medium leading-[2.875rem]">
+      <h1 class="px-12 pt-28 text-center text-[2rem] font-medium leading-[2.875rem] lg:px-20">
         Just When You Thought It Was Safe...{" "}
         <span class="text-[2.75rem] font-bold">Prepare Yourselves</span>,
         Intrepid Learners, for the World of{" "}

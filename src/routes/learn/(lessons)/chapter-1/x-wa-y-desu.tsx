@@ -10,7 +10,7 @@ export default function page() {
       nextButtonText="Next Lesson ->"
       nextButtonLink="/learn/chapter-1/occupations-majors"
     >
-      <h1 class="mt-32 px-20 pb-12 text-center text-4xl font-semibold leading-[2.875rem]">
+      <h1 class="mt-32 px-6 pb-12 text-center text-4xl font-semibold leading-[2.875rem] sm:px-10 lg:px-20">
         <span class="text-orange-400">X</span>
         <span class="font-japanese">は</span>
         <span class="text-emerald-400">Y</span>
@@ -21,7 +21,7 @@ export default function page() {
         </span>{" "}
         introduction to Japanese grammar
       </h1>
-      <div class="space-y-6 px-16 pb-32 md:px-24">
+      <div class="space-y-6 px-8 pb-32 md:px-24">
         <div class="flex w-full items-center">
           <div class="mx-4 flex flex-col items-center">
             <h3 class="text-center font-semibold">

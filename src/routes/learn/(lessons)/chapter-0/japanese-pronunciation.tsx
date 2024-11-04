@@ -30,10 +30,10 @@ export default function JapanesePronunciation() {
           />
         </div>
       </div>
-      <h2 class="mt-12 px-24 text-center text-5xl font-medium leading-[3.5rem]">
+      <h2 class="mt-12 px-12 text-center text-5xl font-medium leading-[3.5rem] lg:px-24">
         Getting started 🍵
       </h2>
-      <h2 class="mt-6 px-24 pb-2 text-3xl font-medium leading-[2.5rem]">
+      <h2 class="mt-6 px-12 pb-2 text-3xl font-medium leading-[2.5rem] lg:px-24">
         Feeling a bit <span class="font-extrabold">daunted</span> by the thought
         of tackling Japanese? Fear not! If you're coming from the world of
         English, you'll find Japanese pronunciation isn't the dragon you might

@@ -24,7 +24,7 @@ export default function page() {
 
   return (
     <>
-      <h1 class="mb-8 px-20 pt-20 text-center text-4xl font-medium">
+      <h1 class="mb-8 px-12 pt-20 text-center text-4xl font-medium lg:px-20">
         Telling Time
       </h1>
       <div class="w-full justify-center lg:flex">
