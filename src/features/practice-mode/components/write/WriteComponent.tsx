@@ -7,6 +7,7 @@ import {
   TextFieldDescription,
   TextFieldRoot,
 } from "@/components/ui/textfield"
+import WanakanaWrapper from "@/features/wanakana/WanaKana"
 
 export default function WriteComponent() {
   const [userAnswer, setUserAnswer] = createSignal("")
@@ -121,6 +122,32 @@ export default function WriteComponent() {
     }
   }
 
+  const mainTextField = (
+    <TextFieldRoot class="w-full max-w-xs">
+      <div class="h-6">
+        {!context.store.hasUserAnswered && (
+          <TextFieldDescription>Type your answer.</TextFieldDescription>
+        )}
+      </div>
+      <TextField
+        type="text"
+        ref={inputRef}
+        value={userAnswer()}
+        onInput={(e) => setUserAnswer(e.currentTarget.value)}
+        onKeyDown={handleKeyDown}
+        autofocus
+        disabled={context.store.hasUserAnswered}
+        class={`${
+          context.store.hasUserAnswered
+            ? isMainAnswerCorrect()
+              ? "text-green-500"
+              : "text-red-500"
+            : ""
+        } font-bold opacity-100 xl:!text-lg`}
+      />
+    </TextFieldRoot>
+  )
+
   return (
     <div class="mx-4 lg:mx-40">
       <div class="flex h-24 w-full items-end justify-center text-center">
@@ -146,29 +173,11 @@ export default function WriteComponent() {
       </div>
       <div class="space-y-2">
         <div class="flex items-end space-x-4">
-          <TextFieldRoot class="w-full max-w-xs">
-            <div class="h-6">
-              {!context.store.hasUserAnswered && (
-                <TextFieldDescription>Type your answer.</TextFieldDescription>
-              )}
-            </div>
-            <TextField
-              type="text"
-              ref={inputRef}
-              value={userAnswer()}
-              onInput={(e) => setUserAnswer(e.currentTarget.value)}
-              onKeyDown={handleKeyDown}
-              autofocus
-              disabled={context.store.hasUserAnswered}
-              class={`${
-                context.store.hasUserAnswered
-                  ? isMainAnswerCorrect()
-                    ? "text-green-500"
-                    : "text-red-500"
-                  : ""
-              } font-bold opacity-100 xl:!text-lg`}
-            />
-          </TextFieldRoot>
+          {context.store.practiceMode === "kana" ? (
+            <WanakanaWrapper>{mainTextField}</WanakanaWrapper>
+          ) : (
+            <>{mainTextField}</>
+          )}
           <Show
             when={
               context.store.hasUserAnswered && !context.store.isAnswerCorrect
@@ -200,27 +209,29 @@ export default function WriteComponent() {
               {(object, index) => (
                 <li class="flex items-center gap-2 font-bold">
                   {object.label ? `${object.label} -` : "Particle:"}
-                  <TextFieldRoot class="max-w-xs">
-                    <TextField
-                      type="text"
-                      ref={(el: HTMLInputElement | undefined) => {
-                        particleRefs[index()] = el
-                      }}
-                      value={particleAnswers()[index()] || ""}
-                      onInput={(e) =>
-                        handleParticleInput(index(), e.currentTarget.value)
-                      }
-                      onKeyDown={handleKeyDown}
-                      disabled={context.store.hasUserAnswered}
-                      class={`w-20 font-japanese ${
-                        context.store.hasUserAnswered
-                          ? particleCorrectness()[index()]
-                            ? "text-green-500"
-                            : "text-red-500"
-                          : ""
-                      }`}
-                    />
-                  </TextFieldRoot>
+                  <WanakanaWrapper>
+                    <TextFieldRoot class="max-w-xs">
+                      <TextField
+                        type="text"
+                        ref={(el: HTMLInputElement | undefined) => {
+                          particleRefs[index()] = el
+                        }}
+                        value={particleAnswers()[index()] || ""}
+                        onInput={(e) =>
+                          handleParticleInput(index(), e.currentTarget.value)
+                        }
+                        onKeyDown={handleKeyDown}
+                        disabled={context.store.hasUserAnswered}
+                        class={`w-20 font-japanese ${
+                          context.store.hasUserAnswered
+                            ? particleCorrectness()[index()]
+                              ? "text-green-500"
+                              : "text-red-500"
+                            : ""
+                        }`}
+                      />
+                    </TextFieldRoot>
+                  </WanakanaWrapper>
                   <Show when={context.store.hasUserAnswered}>
                     <span class="font-japanese">{object.particle}</span>
                   </Show>

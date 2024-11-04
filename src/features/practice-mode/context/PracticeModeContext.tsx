@@ -16,6 +16,7 @@ export const initialState = {
   enabledAnswerCategories: [] as string[],
   hasUserAnswered: false,
   isAnswerCorrect: false,
+  practiceMode: "readings" as "readings" | "kana",
 }
 
 const [practiceModeStore, setPracticeModeStore] = createStore({

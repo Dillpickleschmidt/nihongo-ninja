@@ -19,7 +19,11 @@ export default function PracticeMode(props: PracticeModeProps) {
 
   return (
     <PracticeModeContextProvider>
-      <PracticeModeComponent deckName={props.deckName} data={convertedData} />
+      <PracticeModeComponent
+        deckName={props.deckName}
+        data={convertedData}
+        mode={props.mode}
+      />
     </PracticeModeContextProvider>
   )
 }

@@ -12,6 +12,7 @@ import PracticePage from "./components/pages/PracticePage"
 type PracticeModeProps = {
   data: Card[]
   deckName: string | JSX.Element
+  mode: "readings" | "kana"
 }
 
 export default function PracticeModeComponent(props: PracticeModeProps) {
@@ -35,6 +36,7 @@ export default function PracticeModeComponent(props: PracticeModeProps) {
     context.setStore("data", shuffledData())
     context.setStore("activeDeck", newActiveDeck)
     context.setStore("cardsTakenFromDataCount", activeDeckSize)
+    context.setStore("practiceMode", props.mode)
   })
 
   createEffect(() => {
