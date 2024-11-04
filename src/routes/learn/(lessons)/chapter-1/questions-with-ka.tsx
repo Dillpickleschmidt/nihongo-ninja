@@ -10,7 +10,7 @@ export default function Page() {
         Forming Questions With The{" "}
         <span class="font-japanese text-red-500">か</span> Particle
       </h1>
-      <div class="space-y-6 px-16 pb-32 md:px-24">
+      <div class="space-y-6 px-8 pb-32 md:px-24">
         <h2 class="my-3 text-center text-2xl font-bold">Introduction</h2>
         <p>
           The <span class="font-japanese">か</span> particle is a crucial

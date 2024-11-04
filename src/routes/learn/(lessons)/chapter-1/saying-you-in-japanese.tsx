@@ -11,7 +11,7 @@ export default function page() {
       <h1 class="px-28 pb-6 pt-28 text-center text-4xl font-semibold">
         Saying "You" in Japanese
       </h1>
-      <div class="space-y-3 px-16 pb-32 md:px-24">
+      <div class="space-y-3 px-8 pb-32 md:px-24">
         <p>
           In Japanese, addressing someone as "you" is quite nuanced and{" "}
           <span class="font-bold">often avoided</span>. Unlike English, where

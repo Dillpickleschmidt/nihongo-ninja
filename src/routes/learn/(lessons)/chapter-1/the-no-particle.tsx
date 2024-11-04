@@ -13,7 +13,7 @@ export default function page() {
         Mastering the <span class="font-japanese text-orange-500">の</span>{" "}
         Particle in Japanese
       </h1>
-      <div class="space-y-3 px-16 pb-32 md:px-24">
+      <div class="space-y-3 px-8 pb-32 md:px-24">
         <p>
           Today, we're gonna make our first step towards making longer and more
           complex sentences. Say hello to{" "}

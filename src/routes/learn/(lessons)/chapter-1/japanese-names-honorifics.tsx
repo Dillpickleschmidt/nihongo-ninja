@@ -11,7 +11,7 @@ export default function page() {
       <h1 class="px-28 pb-6 pt-28 text-center text-4xl font-semibold">
         Japanese Names & Honorifics
       </h1>
-      <div class="space-y-3 px-16 pb-32 md:px-24">
+      <div class="space-y-3 px-8 pb-32 md:px-24">
         <h2 class="my-3 text-center text-2xl font-bold">
           Structure of Japanese Names
         </h2>

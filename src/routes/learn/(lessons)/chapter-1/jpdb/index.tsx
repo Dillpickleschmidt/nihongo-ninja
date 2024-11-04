@@ -8,7 +8,7 @@ export default function page() {
   return (
     <>
       <div class="flex w-full justify-center pb-32">
-        <div class="max-w-[750px] space-y-6">
+        <div class="max-w-[750px] space-y-6 px-6 lg:px-0">
           <h1 class="mb-3 pt-20 text-center text-4xl leading-[3.25rem]">
             <span class="text-[2.75rem] font-semibold">Welcome</span> to your{" "}
             <span class="text-[2.75rem] font-bold italic">most important</span>{" "}
