@@ -10,12 +10,12 @@ export default function page() {
       nextButtonText="Next Lesson ->"
       nextButtonLink="/learn/chapter-2/kikusasaizu-2-2"
     >
-      <h1 class="px-28 pb-6 pt-28 text-center text-4xl font-semibold">
+      <h1 class="px-6 pb-6 pt-28 text-center text-4xl font-semibold sm:px-12 lg:px-28">
         Understanding the Particles{" "}
         <span class="font-japanese text-yellow-400">ね</span> and{" "}
         <span class="font-japanese text-green-600">よ</span>
       </h1>
-      <div class="space-y-6 px-12 pb-32 sm:px-16 md:px-24">
+      <div class="space-y-6 px-8 pb-32 sm:px-16 md:px-24">
         <p>
           In Japanese, the particles{" "}
           <span class="font-japanese text-xl font-semibold text-yellow-400">

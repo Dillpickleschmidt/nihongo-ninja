@@ -33,7 +33,7 @@ export default function page() {
         <span class="font-japanese text-orange-400">じゃない</span>—The Negative
         Form in Japanese
       </h1>
-      <div class="space-y-6 px-12 sm:px-16 md:px-24">
+      <div class="space-y-6 px-8 sm:px-16 md:px-24">
         <p>
           The{" "}
           <span class="font-japanese text-xl font-semibold text-orange-400">

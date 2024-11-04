@@ -43,14 +43,14 @@ export default function page() {
           />
         </div>
       </div>
-      <h1 class="mx-24 mt-12 text-center text-6xl font-bold leading-[4.0rem]">
+      <h1 class="mt-12 px-6 text-center text-6xl font-bold leading-[4.0rem] sm:px-12 lg:px-24">
         <span class="text-[#FF3333]">Katakana</span>: The <em>Energetic</em>{" "}
         Sibling of <span class="">Hiragana</span>
       </h1>
       <h2 class="mb-4 mt-12 text-center text-3xl font-bold">
         What is Katakana?
       </h2>
-      <div class="space-y-9 px-12 pb-32 sm:px-16 md:px-24">
+      <div class="space-y-9 px-8 pb-32 sm:px-16 md:px-24">
         <p>
           Katakana is one of the three main scripts used in Japanese writing,
           along with Hiragana and Kanji. It is primarily used for{" "}

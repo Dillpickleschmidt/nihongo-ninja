@@ -7,10 +7,10 @@ export default function page() {
       nextButtonText="Next Lesson ->"
       nextButtonLink="/learn/chapter-2/practice/words-that-point"
     >
-      <h1 class="px-28 pb-6 pt-28 text-center text-4xl font-semibold">
+      <h1 class="px-6 pb-6 pt-28 text-center text-4xl font-semibold sm:px-12 lg:px-28">
         Words That Point
       </h1>
-      <div class="space-y-9 px-12 pb-32 sm:px-16 md:px-24">
+      <div class="space-y-9 px-8 pb-32 sm:px-16 md:px-24">
         <p>
           In Japanese, there are specific words used to point to objects. These
           words help to clarify what you are referring to and are essential for

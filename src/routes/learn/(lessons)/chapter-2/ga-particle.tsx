@@ -13,7 +13,7 @@ export default function page() {
         New Subjects With The{" "}
         <span class="font-japanese text-green-500">が</span> Particle
       </h1>
-      <div class="space-y-6 px-12 sm:px-16 md:px-24">
+      <div class="space-y-6 px-8 sm:px-16 md:px-24">
         <div>
           <p>
             In this lesson, we'll delve into the{" "}

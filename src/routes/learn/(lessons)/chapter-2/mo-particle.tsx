@@ -13,7 +13,7 @@ export default function page() {
         How to say <span class="text-[2.6rem] font-bold italic">also</span> with{" "}
         <span class="font-japanese text-purple-400">も</span>
       </h1>
-      <div class="space-y-6 px-12 sm:px-16 md:px-24">
+      <div class="space-y-6 px-8 sm:px-16 md:px-24">
         <p>
           The{" "}
           <span class="font-japanese text-xl font-semibold text-purple-400">

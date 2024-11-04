@@ -11,7 +11,7 @@ export default function page() {
       <h1 class="px-28 pb-6 pt-28 text-center text-4xl font-semibold">
         Asking Who with <span class="font-japanese text-red-500">だれ</span>
       </h1>
-      <div class="space-y-6 px-12 sm:px-16 md:px-24">
+      <div class="space-y-6 px-8 sm:px-16 md:px-24">
         <h3 class="!mt-12 text-2xl font-bold">
           <span class="font-japanese text-3xl">
             <Furigana furigana={<span class="text-lg">だれ</span>}>誰</Furigana>
