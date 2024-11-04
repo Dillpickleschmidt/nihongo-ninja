@@ -683,20 +683,14 @@ export default function ChapterBoxes() {
             types: ["lesson"],
           },
           {
-            title: "Practice Particles - を, で, に, へ",
-            link: "/learn/chapter-3/sentence-practice/o-de-ni-e-particles",
-            types: ["practice-sentence"],
-          },
-          {
             title: "Word Order",
             link: "/learn/chapter-3/word-order",
             types: ["lesson"],
           },
           {
-            title: "Practice Particles",
-            link: "",
-            types: ["worksheet"],
-            disabled: true,
+            title: "Practice Particles - を, で, に, へ",
+            link: "/learn/chapter-3/sentence-practice/o-de-ni-e-particles",
+            types: ["practice-sentence"],
           },
           {
             title: "する vs. やる",
@@ -753,6 +747,11 @@ export default function ChapterBoxes() {
             title: "All Vocab - Test",
             link: "/learn/chapter-3/all-vocab-test",
             types: ["vocab-test"],
+          },
+          {
+            title: "Practice Time Expressions",
+            link: "/learn/chapter-3/sentence-practice/time-expressions",
+            types: ["practice-sentence"],
           },
           {
             title: "MyKikitori - Campus Interview #1",
