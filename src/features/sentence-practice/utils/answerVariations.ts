@@ -16,100 +16,134 @@ function extractVersions(segment: string): {
   }
 }
 
-/**
- * Generates all possible combinations of kanji/kana versions
- * @param segments Array of text segments with furigana in brackets
- * @returns Array of all possible variations with their variation status
- */
-function generateCombinations(segments: string[]): Array<{
+type Variation = {
   segments: string[]
   isKanaVariation: boolean
   isPeriodVariation: boolean
-}> {
-  // Handle the period in the last segment if it exists
-  const lastSegment = segments[segments.length - 1]
-  const hasPeriod = lastSegment.endsWith("。")
+  isWatashiVariation?: boolean
+}
 
-  // Remove period for processing if it exists
-  const processSegments = hasPeriod
-    ? [...segments.slice(0, -1), lastSegment.slice(0, -1)]
-    : segments
+// All possible first-person pronouns with their brackets
+const PRONOUNS = ["私[わたし]", "僕[ぼく]", "俺[おれ]", "アタシ"] as const
 
-  // Generate base combinations
-  const versions = processSegments.map((segment) => {
-    const { original, hiragana } = extractVersions(segment)
-    return original !== hiragana ? [original, hiragana] : [original]
-  })
+/**
+ * Checks if segments contain any first-person pronoun
+ */
+function hasAnyPronoun(segments: string[]): boolean {
+  return segments.some((segment, index) =>
+    PRONOUNS.some(
+      (pronoun) =>
+        segment === pronoun &&
+        index + 1 < segments.length &&
+        segments[index + 1] === "は",
+    ),
+  )
+}
 
-  function combine(
-    current: string[],
-    index: number,
-  ): Array<{
-    segments: string[]
-    isKanaVariation: boolean
-    isPeriodVariation: boolean
-  }> {
-    if (index === versions.length) {
-      // For each complete combination, create versions with and without period
-      const baseCombo = current
-      const isKanaVariation = baseCombo.some(
-        (segment, i) => segment !== versions[i][0], // Compare with original version
-      )
+/**
+ * Generates all possible combinations of kanji/kana versions
+ * @param segments Array of text segments with furigana in brackets
+ * @param includeWatashiVariations Whether to include variations without/with pronouns
+ * @returns Array of all possible variations with their variation status
+ */
+function generateCombinations(
+  originalSegments: string[],
+  includeWatashiVariations: boolean,
+): Array<Variation> {
+  // Create base segments with the original and potentially with pronouns
+  let segmentSets: Array<{ segments: string[]; isWatashiVariation: boolean }> =
+    [{ segments: originalSegments, isWatashiVariation: false }]
 
-      if (hasPeriod) {
-        // If original had period, that version comes first and is not a period variation
-        return [
-          {
-            segments: [
-              ...baseCombo.slice(0, -1),
-              baseCombo[baseCombo.length - 1] + "。",
-            ],
-            isKanaVariation,
-            isPeriodVariation: false,
-          },
-          {
-            segments: baseCombo,
-            isKanaVariation,
-            isPeriodVariation: true,
-          },
-        ]
-      } else {
-        // If original had no period, that version comes first and is not a period variation
-        return [
-          {
-            segments: baseCombo,
-            isKanaVariation,
-            isPeriodVariation: false,
-          },
-          {
-            segments: [
-              ...baseCombo.slice(0, -1),
-              baseCombo[baseCombo.length - 1] + "。",
-            ],
-            isKanaVariation,
-            isPeriodVariation: true,
-          },
-        ]
-      }
+  if (includeWatashiVariations) {
+    const hasPronouns = hasAnyPronoun(originalSegments)
+    if (!hasPronouns) {
+      // Only add pronoun variations if there isn't already a pronoun in the answer
+      PRONOUNS.forEach((pronoun) => {
+        segmentSets.push({
+          segments: [pronoun, "は", ...originalSegments],
+          isWatashiVariation: true,
+        })
+      })
     }
-
-    const results: Array<{
-      segments: string[]
-      isKanaVariation: boolean
-      isPeriodVariation: boolean
-    }> = []
-    for (const version of versions[index]) {
-      results.push(...combine([...current, version], index + 1))
-    }
-    return results
   }
 
-  return combine([], 0)
+  // Process each set of base segments
+  return segmentSets.flatMap(({ segments, isWatashiVariation }) => {
+    // Handle the period in the last segment if it exists
+    const lastSegment = segments[segments.length - 1]
+    const hasPeriod = lastSegment.endsWith("。")
+
+    // Remove period for processing if it exists
+    const processSegments = hasPeriod
+      ? [...segments.slice(0, -1), lastSegment.slice(0, -1)]
+      : segments
+
+    // Generate base combinations
+    const versions = processSegments.map((segment) => {
+      const { original, hiragana } = extractVersions(segment)
+      return original !== hiragana ? [original, hiragana] : [original]
+    })
+
+    function combine(current: string[], index: number): Array<Variation> {
+      if (index === versions.length) {
+        const baseCombo = current
+        const isKanaVariation = baseCombo.some(
+          (segment, i) => segment !== versions[i][0],
+        )
+
+        if (hasPeriod) {
+          return [
+            {
+              segments: [
+                ...baseCombo.slice(0, -1),
+                baseCombo[baseCombo.length - 1] + "。",
+              ],
+              isKanaVariation,
+              isPeriodVariation: false,
+              isWatashiVariation,
+            },
+            {
+              segments: baseCombo,
+              isKanaVariation,
+              isPeriodVariation: true,
+              isWatashiVariation,
+            },
+          ]
+        } else {
+          return [
+            {
+              segments: baseCombo,
+              isKanaVariation,
+              isPeriodVariation: false,
+              isWatashiVariation,
+            },
+            {
+              segments: [
+                ...baseCombo.slice(0, -1),
+                baseCombo[baseCombo.length - 1] + "。",
+              ],
+              isKanaVariation,
+              isPeriodVariation: true,
+              isWatashiVariation,
+            },
+          ]
+        }
+      }
+
+      const results: Array<Variation> = []
+      for (const version of versions[index]) {
+        results.push(...combine([...current, version], index + 1))
+      }
+      return results
+    }
+
+    return combine([], 0)
+  })
 }
 
 /**
  * Creates variations of questions by substituting kanji with hiragana
- * and handling optional periods
+ * and handling optional periods and pronoun variations
  * @param questions Array of original questions
  * @returns Array of questions with all possible variations
  */
@@ -117,14 +151,21 @@ export function createAnswerVariations(
   questions: PracticeQuestion[],
 ): PracticeQuestion[] {
   return questions.flatMap((question) => {
+    const includeWatashiVariations = question.english.startsWith("I ")
+
     const variations = question.answers.flatMap((answer) => {
-      const combinations = generateCombinations(answer.segments)
+      const combinations = generateCombinations(
+        answer.segments,
+        includeWatashiVariations,
+      )
 
       return combinations.map((combination) => ({
         ...answer,
         segments: combination.segments,
         isVariation:
-          combination.isKanaVariation || combination.isPeriodVariation,
+          combination.isKanaVariation ||
+          combination.isPeriodVariation ||
+          combination.isWatashiVariation,
       }))
     })
 
