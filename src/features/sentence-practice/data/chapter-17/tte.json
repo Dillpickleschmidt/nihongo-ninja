@@ -1,0 +1,689 @@
+[
+  {
+    "english": "Mary says she's quitting her job next month",
+    "answers": [
+      {
+        "segments": [
+          "メアリー",
+          "さん",
+          "は",
+          "来月[らいげつ]",
+          "仕事[しごと]",
+          "を",
+          "辞[や]める",
+          "って"
+        ],
+        "notes": "Basic pattern with は"
+      },
+      {
+        "segments": [
+          "メアリー",
+          "さん",
+          "が",
+          "来月[らいげつ]",
+          "仕事[しごと]",
+          "を",
+          "辞[や]める",
+          "って"
+        ],
+        "notes": "Using が"
+      }
+    ]
+  },
+  {
+    "english": "Mary was telling me she's studying abroad next year",
+    "answers": [
+      {
+        "segments": [
+          "メアリー",
+          "さん",
+          "は",
+          "来年[らいねん]",
+          "留学[りゅうがく]する",
+          "って",
+          "言[い]ってた"
+        ],
+        "notes": "Basic pattern with は"
+      },
+      {
+        "segments": [
+          "メアリー",
+          "さん",
+          "が",
+          "来年[らいねん]",
+          "留学[りゅうがく]する",
+          "って",
+          "言[い]ってた"
+        ],
+        "notes": "Using が"
+      }
+    ]
+  },
+  {
+    "english": "My friend says the movie was boring",
+    "answers": [
+      {
+        "segments": [
+          "友[とも]達[だち]",
+          "は",
+          "映画[えいが]",
+          "は",
+          "つまらなかった",
+          "って"
+        ],
+        "notes": "Using は for both subject and topic"
+      },
+      {
+        "segments": [
+          "友[とも]達[だち]",
+          "は",
+          "映画[えいが]",
+          "が",
+          "つまらなかった",
+          "って"
+        ],
+        "notes": "Using は for subject and が for topic"
+      }
+    ]
+  },
+  {
+    "english": "The teacher says the test will be easy",
+    "answers": [
+      {
+        "segments": [
+          "先生[せんせい]",
+          "は",
+          "テスト",
+          "は",
+          "簡単[かんたん]",
+          "だ",
+          "って"
+        ],
+        "notes": "Using は for both subject and topic"
+      },
+      {
+        "segments": [
+          "先生[せんせい]",
+          "は",
+          "テスト",
+          "が",
+          "簡単[かんたん]",
+          "だ",
+          "って"
+        ],
+        "notes": "Using は for subject and が for topic"
+      }
+    ]
+  },
+  {
+    "english": "Ken was saying his homework is difficult",
+    "answers": [
+      {
+        "segments": [
+          "ケン",
+          "さん",
+          "は",
+          "宿題[しゅくだい]",
+          "が",
+          "難[むずか]しい",
+          "って",
+          "言[い]ってた"
+        ],
+        "notes": "Basic pattern with が"
+      },
+      {
+        "segments": [
+          "ケン",
+          "さん",
+          "の",
+          "宿題[しゅくだい]",
+          "が",
+          "難[むずか]しい",
+          "って",
+          "言[い]ってた"
+        ],
+        "notes": "Using の for possession"
+      }
+    ]
+  },
+  {
+    "english": "Yuki says she's getting married",
+    "answers": [
+      {
+        "segments": ["ユキ", "さん", "は", "結婚[けっこん]する", "って"],
+        "notes": "Basic pattern with は"
+      },
+      {
+        "segments": ["ユキ", "さん", "が", "結婚[けっこん]する", "って"],
+        "notes": "Using が"
+      }
+    ]
+  },
+  {
+    "english": "My sister was telling me the rent became expensive",
+    "answers": [
+      {
+        "segments": [
+          "姉[あね]",
+          "は",
+          "家賃[やちん]",
+          "が",
+          "高[たか]くなった",
+          "って",
+          "言[い]ってた"
+        ],
+        "notes": "Using は for subject and が for topic"
+      },
+      {
+        "segments": [
+          "姉[あね]",
+          "が",
+          "家賃[やちん]",
+          "が",
+          "高[たか]くなった",
+          "って",
+          "言[い]ってた"
+        ],
+        "notes": "Using が for both"
+      }
+    ]
+  },
+  {
+    "english": "Mike says he's used to life in Japan",
+    "answers": [
+      {
+        "segments": [
+          "マイク",
+          "さん",
+          "は",
+          "日本[にほん]",
+          "の",
+          "生活[せいかつ]",
+          "に",
+          "慣[な]れた",
+          "って"
+        ],
+        "notes": "Basic pattern with は"
+      },
+      {
+        "segments": [
+          "マイク",
+          "さん",
+          "が",
+          "日本[にほん]",
+          "の",
+          "生活[せいかつ]",
+          "に",
+          "慣[な]れた",
+          "って"
+        ],
+        "notes": "Using が"
+      }
+    ]
+  },
+  {
+    "english": "My classmate was telling me the final exam was cancelled",
+    "answers": [
+      {
+        "segments": [
+          "クラスメート",
+          "は",
+          "期末試験[きまつしけん]",
+          "が",
+          "なくなった",
+          "って",
+          "言[い]ってた"
+        ],
+        "notes": "Using は for subject and が for topic"
+      },
+      {
+        "segments": [
+          "クラスメート",
+          "が",
+          "期末試験[きまつしけん]",
+          "が",
+          "なくなった",
+          "って",
+          "言[い]ってた"
+        ],
+        "notes": "Using が for both"
+      }
+    ]
+  },
+  {
+    "english": "Tanaka says there's a big fire nearby",
+    "answers": [
+      {
+        "segments": [
+          "田中[たなか]",
+          "さん",
+          "は",
+          "近[ちか]くで",
+          "大[おお]きい",
+          "火事[かじ]",
+          "が",
+          "ある",
+          "って"
+        ],
+        "notes": "Using は with 大きい"
+      },
+      {
+        "segments": [
+          "田中[たなか]",
+          "さん",
+          "は",
+          "近[ちか]くで",
+          "大きな",
+          "火事[かじ]",
+          "が",
+          "ある",
+          "って"
+        ],
+        "notes": "Using は with 大きな"
+      }
+    ]
+  },
+  {
+    "english": "My friend was saying the restaurant is good",
+    "answers": [
+      {
+        "segments": [
+          "友[とも]達[だち]",
+          "は",
+          "レストラン",
+          "が",
+          "いい",
+          "って",
+          "言[い]ってた"
+        ],
+        "notes": "Using は for subject and が for topic"
+      },
+      {
+        "segments": [
+          "友[とも]達[だち]",
+          "は",
+          "あの",
+          "レストラン",
+          "は",
+          "いい",
+          "って",
+          "言[い]ってた"
+        ],
+        "notes": "Using は for both, with あの"
+      }
+    ]
+  },
+  {
+    "english": "Keiko says she got a new job",
+    "answers": [
+      {
+        "segments": [
+          "ケイコ",
+          "さん",
+          "は",
+          "新[あたら]しい",
+          "仕事[しごと]",
+          "が",
+          "決[き]まった",
+          "って"
+        ],
+        "notes": "Using は with passive form"
+      },
+      {
+        "segments": [
+          "ケイコ",
+          "さん",
+          "が",
+          "新[あたら]しい",
+          "仕事[しごと]",
+          "を",
+          "見[み]つけた",
+          "って"
+        ],
+        "notes": "Using が with active form"
+      }
+    ]
+  },
+  {
+    "english": "Sarah was telling me she got into Tokyo University",
+    "answers": [
+      {
+        "segments": [
+          "サラ",
+          "さん",
+          "は",
+          "東京[とうきょう]",
+          "大学[だいがく]",
+          "に",
+          "合格[ごうかく]した",
+          "って",
+          "言[い]ってた"
+        ],
+        "notes": "Using は and 合格"
+      },
+      {
+        "segments": [
+          "サラ",
+          "さん",
+          "は",
+          "東京[とうきょう]",
+          "大学[だいがく]",
+          "に",
+          "入[はい]った",
+          "って",
+          "言[い]ってた"
+        ],
+        "notes": "Using は"
+      },
+      {
+        "segments": [
+          "サラ",
+          "さん",
+          "が",
+          "東京[とうきょう]",
+          "大学[だいがく]",
+          "に",
+          "合格[ごうかく]した",
+          "って",
+          "言[い]ってた"
+        ],
+        "notes": "Using が and 合格"
+      },
+      {
+        "segments": [
+          "サラ",
+          "さん",
+          "が",
+          "東京[とうきょう]",
+          "大学[だいがく]",
+          "に",
+          "入[はい]った",
+          "って",
+          "言[い]ってた"
+        ],
+        "notes": "Using が"
+      }
+    ]
+  },
+  {
+    "english": "Naomi says the test was easy",
+    "answers": [
+      {
+        "segments": [
+          "ナオミ",
+          "さん",
+          "は",
+          "テスト",
+          "は",
+          "簡単[かんたん]",
+          "だった",
+          "って"
+        ],
+        "notes": "Using は for both"
+      },
+      {
+        "segments": [
+          "ナオミ",
+          "さん",
+          "は",
+          "テスト",
+          "が",
+          "簡単[かんたん]",
+          "だった",
+          "って"
+        ],
+        "notes": "Using は and が"
+      }
+    ]
+  },
+  {
+    "english": "My roommate was saying the shopping mall opened",
+    "answers": [
+      {
+        "segments": [
+          "ルームメイト",
+          "は",
+          "ショッピングモール",
+          "が",
+          "できた",
+          "って",
+          "言[い]ってた"
+        ],
+        "notes": "Using は and が with できた"
+      },
+      {
+        "segments": [
+          "ルームメイト",
+          "は",
+          "ショッピングモール",
+          "が",
+          "オープンした",
+          "って",
+          "言[い]ってた"
+        ],
+        "notes": "Using は and が with オープンした"
+      }
+    ]
+  },
+  {
+    "english": "Bob says he's studying Japanese",
+    "answers": [
+      {
+        "segments": [
+          "ボブ",
+          "さん",
+          "は",
+          "日本語[にほんご]",
+          "を",
+          "勉強[べんきょう]している",
+          "って"
+        ],
+        "notes": "Using は"
+      },
+      {
+        "segments": [
+          "ボブ",
+          "さん",
+          "が",
+          "日本語[にほんご]",
+          "を",
+          "勉強[べんきょう]している",
+          "って"
+        ],
+        "notes": "Using が"
+      }
+    ]
+  },
+  {
+    "english": "The teacher was telling me the homework is due tomorrow",
+    "answers": [
+      {
+        "segments": [
+          "先生[せんせい]",
+          "は",
+          "宿題[しゅくだい]",
+          "が",
+          "明日[あした]",
+          "まで",
+          "だ",
+          "って",
+          "言[い]ってた"
+        ],
+        "notes": "Using は and が"
+      },
+      {
+        "segments": [
+          "先生[せんせい]",
+          "は",
+          "宿題[しゅくだい]",
+          "は",
+          "明日[あした]",
+          "まで",
+          "だ",
+          "って",
+          "言[い]ってた"
+        ],
+        "notes": "Using は for both"
+      }
+    ]
+  },
+  {
+    "english": "John was saying the coffee shop is crowded",
+    "answers": [
+      {
+        "segments": [
+          "ジョン",
+          "さん",
+          "は",
+          "カフェ",
+          "が",
+          "込[こ]んでいる",
+          "って",
+          "言[い]ってた"
+        ],
+        "notes": "Using は and が"
+      },
+      {
+        "segments": [
+          "ジョン",
+          "さん",
+          "は",
+          "あの",
+          "カフェ",
+          "は",
+          "込[こ]んでいる",
+          "って",
+          "言[い]ってた"
+        ],
+        "notes": "Using は for both with あの"
+      }
+    ]
+  },
+  {
+    "english": "Yuki says she failed the exam",
+    "hint": "落ちた (おちた) -> failed (same kanji as in 落ち込む)",
+    "answers": [
+      {
+        "segments": [
+          "ユキ",
+          "さん",
+          "は",
+          "試験[しけん]",
+          "に",
+          "落[お]ちた",
+          "って"
+        ],
+        "notes": "Using は"
+      },
+      {
+        "segments": [
+          "ユキ",
+          "さん",
+          "が",
+          "試験[しけん]",
+          "に",
+          "落[お]ちた",
+          "って"
+        ],
+        "notes": "Using が"
+      }
+    ]
+  },
+  {
+    "english": "My sister was telling me that the movie theater had gotten crowded",
+    "answers": [
+      {
+        "segments": [
+          "姉[あね]",
+          "は",
+          "映画館[えいがかん]",
+          "が",
+          "混んで",
+          "きた",
+          "って",
+          "言[い]ってた"
+        ],
+        "notes": "Using は and が"
+      },
+      {
+        "segments": [
+          "姉[あね]",
+          "が",
+          "映画館[えいがかん]",
+          "は",
+          "混んで",
+          "きた",
+          "って",
+          "言[い]ってた"
+        ],
+        "notes": "Using が and は"
+      }
+    ]
+  },
+  {
+    "english": "Tanaka says the weather will be nice tomorrow",
+    "answers": [
+      {
+        "segments": [
+          "田中[たなか]",
+          "さん",
+          "は",
+          "明日[あした]",
+          "の",
+          "天気[てんき]",
+          "が",
+          "いい",
+          "って"
+        ],
+        "notes": "Using は and が"
+      },
+      {
+        "segments": [
+          "田中[たなか]",
+          "さん",
+          "は",
+          "明日[あした]",
+          "の",
+          "天気[てんき]",
+          "が",
+          "いい",
+          "って"
+        ],
+        "notes": "Using の for tomorrow's weather"
+      }
+    ]
+  },
+  {
+    "english": "Ken was telling me his new job is interesting",
+    "answers": [
+      {
+        "segments": [
+          "ケン",
+          "さん",
+          "は",
+          "新[あたら]しい",
+          "仕事[しごと]",
+          "が",
+          "面白[おもしろ]い",
+          "って",
+          "言[い]ってた"
+        ],
+        "notes": "Using は and が"
+      },
+      {
+        "segments": [
+          "ケン",
+          "さん",
+          "の",
+          "新[あたら]しい",
+          "仕事[しごと]",
+          "は",
+          "面白[おもしろ]い",
+          "って",
+          "言[い]ってた"
+        ],
+        "notes": "Using の and は"
+      }
+    ]
+  }
+]

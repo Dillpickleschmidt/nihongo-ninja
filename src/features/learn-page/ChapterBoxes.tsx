@@ -1951,6 +1951,16 @@ export default function ChapterBoxes() {
             link: "/learn/chapter-17/all-vocab-test",
             types: ["vocab-test"],
           },
+          {
+            title: "～そうです - Heresay Practice",
+            link: "/learn/chapter-17/sentence-practice/sou-desu-heresay",
+            types: ["practice-sentence"],
+          },
+          {
+            title: "～って Practice",
+            link: "/learn/chapter-17/sentence-practice/tte",
+            types: ["practice-sentence"],
+          },
         ]}
       />
 

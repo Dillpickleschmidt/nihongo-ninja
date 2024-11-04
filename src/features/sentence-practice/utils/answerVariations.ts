@@ -151,7 +151,9 @@ export function createAnswerVariations(
   questions: PracticeQuestion[],
 ): PracticeQuestion[] {
   return questions.flatMap((question) => {
-    const includeWatashiVariations = question.english.startsWith("I ")
+    const includeWatashiVariations =
+      question.english.startsWith("I ") &&
+      !question.english.startsWith("I heard")
 
     const variations = question.answers.flatMap((answer) => {
       const combinations = generateCombinations(
