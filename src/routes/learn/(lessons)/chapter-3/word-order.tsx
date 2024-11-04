@@ -24,10 +24,10 @@ export default function JapaneseWordOrderLesson() {
         </ul>
       </div>
 
-      <h1 class="px-28 pb-6 pt-28 text-center text-4xl font-semibold">
+      <h1 class="px-6 pb-6 pt-28 text-center text-4xl font-semibold sm:px-12 lg:px-28">
         The Flexibility of Japanese Word Order
       </h1>
-      <div class="space-y-6 px-12 pb-32 sm:px-16 md:px-24">
+      <div class="space-y-6 px-8 pb-32 sm:px-16 md:px-24">
         <p>
           One of the most fascinating aspects of Japanese is its flexible word
           order. Unlike English, where the order of words is crucial for

@@ -13,11 +13,11 @@ export default function page() {
       nextButtonText="Next Lesson ->"
       nextButtonLink="/learn/chapter-2/janai"
     >
-      <h1 class="px-28 pb-6 pt-28 text-center text-4xl font-semibold">
+      <h1 class="px-6 pb-6 pt-28 text-center text-4xl font-semibold sm:px-12 lg:px-28">
         Verb Conjugation -{" "}
         <span class="font-japanese text-emerald-500">ます</span> Form
       </h1>
-      <div class="space-y-6 px-12 pb-32 sm:px-16 md:px-24">
+      <div class="space-y-6 px-8 pb-32 sm:px-16 md:px-24">
         <p>
           Today, you will learn the differences between godan (
           <span class="font-japanese text-xl font-medium">る</span>) and ichidan

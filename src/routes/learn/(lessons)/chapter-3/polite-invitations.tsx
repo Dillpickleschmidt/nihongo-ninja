@@ -11,11 +11,11 @@ export default function page() {
       nextButtonText="Next Lesson ->"
       nextButtonLink="/learn/chapter-3/next-lesson"
     >
-      <h1 class="px-28 pb-6 pt-28 text-center text-4xl font-semibold">
+      <h1 class="px-6 pb-6 pt-28 text-center text-4xl font-semibold sm:px-12 lg:px-28">
         Polite Invitations with{" "}
         <span class="font-japanese text-teal-400">ませんか</span>
       </h1>
-      <div class="space-y-6 px-12 pb-32 sm:px-16 md:px-24">
+      <div class="space-y-6 px-8 pb-32 sm:px-16 md:px-24">
         <p>
           In Japanese, one common way to make polite invitations is by using the{" "}
           <span class="font-japanese text-xl">ませんか</span> form. This form is

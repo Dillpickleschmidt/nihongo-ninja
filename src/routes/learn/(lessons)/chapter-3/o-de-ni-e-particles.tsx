@@ -11,14 +11,14 @@ export default function page() {
       nextButtonText="Next Lesson ->"
       nextButtonLink="/learn/chapter-3/word-order"
     >
-      <h1 class="px-28 pb-6 pt-28 text-center text-4xl font-semibold">
+      <h1 class="px-6 pb-6 pt-28 text-center text-4xl font-semibold sm:px-12 lg:px-28">
         <span class="font-japanese text-red-500">を</span>,{" "}
         <span class="font-japanese text-orange-400">で</span>,{" "}
         <span class="font-japanese text-green-500">に</span>,{" "}
         <span class="font-japanese text-sky-400">へ</span> Particles -{" "}
         <span class="text-nowrap">A High-Level</span> Overview
       </h1>
-      <div class="space-y-6 px-12 sm:px-16 md:px-24">
+      <div class="space-y-6 px-8 sm:px-16 md:px-24">
         <p>
           Many language learners find Japanese sentence structure confusing and
           difficult to grasp. This is understandable, as:
