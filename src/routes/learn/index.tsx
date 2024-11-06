@@ -45,8 +45,8 @@ export default function index() {
       </div>
       <div class="flex">
         <Sidebar />
-        <div class="w-full pb-24 pl-6 sm:pl-12 xl:px-16">
-          <div class="max-w-[1085px]">
+        <div class="flex w-full justify-center pb-24 pl-6 sm:pl-12 xl:px-16">
+          <div class="max-w-[1300px]">
             <div class="my-6 flex min-h-28 w-full items-center justify-center rounded-md border bg-card px-8 py-4 text-muted-foreground">
               No fixed curriculum—Nihongo Ninja aims to be your go-to hub for
               Japanese learning. We've scoured the internet to curate the best
