@@ -176,11 +176,7 @@ export default function PracticePage({ onComplete }: PracticePageProps) {
                   <Button
                     onClick={isAnswered() ? handleNextQuestion : handleSubmit}
                     size="lg"
-<<<<<<< HEAD
                     class="w-full rounded-lg bg-white/10 py-3 text-xl font-bold text-primary backdrop-blur-sm hover:bg-white/20"
-=======
-                    class="w-full rounded-lg bg-white/10 py-3 text-xl font-bold text-white backdrop-blur-sm hover:bg-white/20"
->>>>>>> 9b1829f843df5aa6f43e92dc68a9402648e871fc
                     ref={nextQuestionButtonRef}
                   >
                     {isAnswered() ? "Next Question" : "Submit"}
