@@ -10,7 +10,7 @@ import { createEffect, createSignal, on } from "solid-js"
 
 export default function ModeToggle() {
   const [theme, setThemeState] = createSignal<"light" | "dark" | "system">(
-    "light",
+    "dark",
   )
 
   createEffect(
