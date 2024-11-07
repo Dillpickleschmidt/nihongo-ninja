@@ -172,7 +172,7 @@ export default function page() {
           </div>
         </li>
         <h3 class="pt-3 text-3xl font-bold">
-          <span class="font-japanese">くん</span> -{" "}
+          <Furigana furigana="くん">君</Furigana> -{" "}
           <span class="font-honk text-4xl">Kun</span>
         </h3>
         <li>

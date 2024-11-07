@@ -226,6 +226,44 @@ export default function page() {
           </div>
         </li>
         <h3 class="pt-12 font-japanese text-3xl font-bold">
+          うち - <span class="font-honk text-4xl">Uchi</span>
+        </h3>
+        <li>
+          <span class="font-bold">Usage: </span>Used primarily by young women in
+          casual settings. It's especially common in the Kansai region.
+        </li>
+        <li>
+          <span class="font-bold">Context: </span>It's particularly common in
+          Osaka and other parts of Kansai, though it has spread to other
+          regions. It is a more casual and feminine version of{" "}
+          <span class="font-japanese">わたし</span>. Can sound more modest and
+          indirect than <span class="font-japanese">あたし</span>.
+        </li>
+        <li class="flex items-start">
+          <span class="mr-3 mt-1 inline-block">•</span>
+          <div>
+            <h4 class="text-xl">
+              <span class="text-2xl font-black">
+                <em>Story:</em>{" "}
+              </span>
+              High school after-class chat
+            </h4>
+            <h4 class="text-xl">
+              <span class="mr-2 text-2xl font-black">
+                <em>Characters:</em>
+              </span>
+              You (a female student), classmates
+            </h4>
+            <p class="mt-3">
+              You're chatting with your classmates after school about weekend
+              plans. When someone suggests karaoke, you enthusiastically
+              respond, "I'd love to go! I've been practicing that new pop song."
+              <span class="font-japanese font-bold">うち</span> would be fine in
+              this context.
+            </p>
+          </div>
+        </li>
+        <h3 class="pt-12 font-japanese text-3xl font-bold">
           <Furigana furigana="わし">儂</Furigana> -{" "}
           <span class="font-honk text-4xl">Washi</span>
         </h3>
@@ -269,19 +307,19 @@ export default function page() {
         <ul class="space-y-4 pt-4 text-xl">
           <li>
             <span class="font-japanese text-3xl font-semibold">
-              <Furigana furigana="わたしたち">私たち</Furigana> -{" "}
+              <Furigana furigana="わたし">私</Furigana>たち -{" "}
             </span>
             Plural of <span class="font-japanese">わたし</span>.
           </li>
           <li>
             <span class="font-japanese text-3xl font-semibold">
-              <Furigana furigana="ぼくたち">僕たち</Furigana> -{" "}
+              <Furigana furigana="ぼく">僕</Furigana>たち -{" "}
             </span>
             Plural of <span class="font-japanese">ぼく</span>.
           </li>
           <li>
             <span class="font-japanese text-3xl font-semibold">
-              <Furigana furigana="おれたち">俺たち</Furigana> -{" "}
+              <Furigana furigana="おれ">俺</Furigana>たち -{" "}
             </span>
             Plural of <span class="font-japanese">おれ</span>.
           </li>
@@ -290,6 +328,12 @@ export default function page() {
               あたしたち -{" "}
             </span>
             Plural of <span class="font-japanese">あたし</span>.
+          </li>
+          <li>
+            <span class="font-japanese text-3xl font-semibold">
+              うちたち -{" "}
+            </span>
+            Plural of <span class="font-japanese">うち</span>.
           </li>
         </ul>
         <h3 class="pt-12 font-japanese text-3xl font-bold">
