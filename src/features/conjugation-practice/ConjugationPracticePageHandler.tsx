@@ -22,7 +22,7 @@ export default function ConjugationPracticePageHandler() {
   }
 
   return (
-    <div class="flex w-full flex-col items-center px-12 pb-36 sm:px-16 md:px-24">
+    <div class="flex w-full flex-col items-center">
       <Switch>
         <Match when={currentPage() === "settings"}>
           <SettingsPage onStartReview={navigateToReview} />
@@ -34,7 +34,7 @@ export default function ConjugationPracticePageHandler() {
               onClick={navigateToSettings}
               size="sm"
               variant="link"
-              class="mt-4"
+              class="mt-4 text-base"
             >
               {"<-"} Back to Settings
             </Button>
