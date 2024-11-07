@@ -9,12 +9,12 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
-import type { Settings } from "../types"
 import {
   TextField,
   TextFieldLabel,
   TextFieldRoot,
 } from "@/components/ui/textfield"
+import type { Settings } from "../types"
 
 type SettingsPageProps = {
   onStartReview: () => void
@@ -52,248 +52,227 @@ export default function SettingsPage({ onStartReview }: SettingsPageProps) {
     ["polite", "Polite"],
     ["plain", "Plain"],
   ] as const
-
   const tenses = [
     ["nonPast", "Non-Past"],
     ["past", "Past"],
   ] as const
-
   const polarities = [
     ["positive", "Positive"],
     ["negative", "Negative"],
   ] as const
 
   return (
-    <>
-      <div class="mt-12 flex w-full flex-col items-center">
-        <h1 class="rounded-xl border border-border bg-white/5 px-8 py-6 text-[1.75rem] font-black backdrop-blur-sm lg:mt-9">
-          Conjugation Practice
-        </h1>
-      </div>
-      <div class="w-full max-w-[625px]">
-        <div class="border-b border-card-foreground">
-          <h2 class="mt-12 text-[1.75rem] font-black text-orange-400">
+    <div class="relative mt-6 min-h-screen rounded-t-xl bg-background">
+      {/* Header */}
+      <header class="flex h-32 items-center justify-center rounded-xl border bg-orange-500 saturate-[75%] backdrop-blur-sm">
+        <h1 class="text-4xl font-bold tracking-tight">Conjugation Practice</h1>
+      </header>
+
+      <main class="relative max-w-5xl px-8 pb-24 pt-8">
+        {/* Form Types Section */}
+        <section class="space-y-6 rounded-xl border bg-card p-6">
+          <h2 class="text-center text-[1.6rem] font-black text-orange-400">
             Form Types
           </h2>
-          <div class="my-8 grid grid-cols-1 gap-4 md:grid-cols-2">
+          <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
             <For each={formTypes}>
               {([key, label]) => (
-                <div class="mx-6 flex justify-center">
-                  <div class="w-56">
-                    <ToggleOption
-                      id={key}
-                      checked={settings()[key]}
-                      onCheckedChange={(checked) =>
-                        handleSettingChange(key)(checked)
-                      }
-                      label={label}
-                    />
-                  </div>
-                </div>
+                <ToggleOption
+                  id={key}
+                  checked={() => settings()[key]}
+                  onCheckedChange={(checked) =>
+                    handleSettingChange(key)(checked)
+                  }
+                  label={label}
+                />
               )}
             </For>
           </div>
-        </div>
+        </section>
 
-        {/* Parts of Speech */}
-        <div class="border-b border-card-foreground">
-          <h2 class="mt-6 text-[1.6rem] font-black">Parts of Speech</h2>
-          <div class="my-8 grid grid-cols-1 gap-4 md:grid-cols-2">
+        {/* Parts of Speech Section */}
+        <section class="mt-8 space-y-6 rounded-xl border bg-card p-6">
+          <h2 class="text-center text-2xl font-bold">Parts of Speech</h2>
+          <div class="grid grid-cols-1 gap-4 sm:grid-cols-3">
             <For each={partsOfSpeech}>
               {([key, label]) => (
-                <div class="mx-6 flex justify-center">
-                  <div class="w-56">
-                    <ToggleOption
-                      id={key}
-                      checked={settings()[key]}
-                      onCheckedChange={(checked) =>
-                        handleSettingChange(key)(checked)
-                      }
-                      label={label}
-                    />
-                  </div>
-                </div>
+                <ToggleOption
+                  id={key}
+                  checked={() => settings()[key]}
+                  onCheckedChange={(checked) =>
+                    handleSettingChange(key)(checked)
+                  }
+                  label={label}
+                />
               )}
             </For>
           </div>
+        </section>
+
+        {/* Speech Level, Tense, and Polarity Section */}
+        <div class="mt-8 grid gap-8 sm:grid-cols-3">
+          <section class="space-y-6 rounded-xl border bg-card p-6">
+            <h2 class="text-center text-2xl font-bold">Speech Level</h2>
+            <div class="space-y-4">
+              <For each={speechLevels}>
+                {([key, label]) => (
+                  <ToggleOption
+                    id={key}
+                    checked={() => settings()[key]}
+                    onCheckedChange={(checked) =>
+                      handleSettingChange(key)(checked)
+                    }
+                    label={label}
+                  />
+                )}
+              </For>
+            </div>
+          </section>
+
+          <section class="space-y-6 rounded-xl border bg-card p-6">
+            <h2 class="text-center text-2xl font-bold">Tense</h2>
+            <div class="space-y-4">
+              <For each={tenses}>
+                {([key, label]) => (
+                  <ToggleOption
+                    id={key}
+                    checked={() => settings()[key]}
+                    onCheckedChange={(checked) =>
+                      handleSettingChange(key)(checked)
+                    }
+                    label={label}
+                  />
+                )}
+              </For>
+            </div>
+          </section>
+
+          <section class="space-y-6 rounded-xl border bg-card p-6">
+            <h2 class="text-center text-2xl font-bold">Polarity</h2>
+            <div class="space-y-4">
+              <For each={polarities}>
+                {([key, label]) => (
+                  <ToggleOption
+                    id={key}
+                    checked={() => settings()[key]}
+                    onCheckedChange={(checked) =>
+                      handleSettingChange(key)(checked)
+                    }
+                    label={label}
+                  />
+                )}
+              </For>
+            </div>
+          </section>
         </div>
 
-        {/* Speech Level */}
-        <div class="border-b border-card-foreground">
-          <h2 class="mt-6 text-[1.6rem] font-black">Speech Level</h2>
-          <div class="my-8 grid grid-cols-1 gap-4 md:grid-cols-2">
-            <For each={speechLevels}>
-              {([key, label]) => (
-                <div class="mx-6 flex justify-center">
-                  <div class="w-56">
-                    <ToggleOption
-                      id={key}
-                      checked={settings()[key]}
-                      onCheckedChange={(checked) =>
-                        handleSettingChange(key)(checked)
-                      }
-                      label={label}
-                    />
-                  </div>
-                </div>
-              )}
-            </For>
+        {/* Special Options Section */}
+        <section class="mt-8 space-y-6 rounded-xl border bg-card p-6">
+          <h2 class="text-center text-2xl font-bold italic">Special Options</h2>
+
+          <div class="grid gap-6 sm:grid-cols-2">
+            <div class="space-y-4">
+              <div class="space-y-2">
+                <label for="jlptLevel" class="text-sm font-medium">
+                  JLPT Level:
+                </label>
+                <Select
+                  options={["n5", "n4", "n3", "n2", "n1"]}
+                  value={settings().jlptLevel}
+                  placeholder="Select JLPT level"
+                  onChange={(value) =>
+                    handleSettingChange("jlptLevel")(
+                      value as Settings["jlptLevel"],
+                    )
+                  }
+                >
+                  <SelectTrigger id="jlptLevel">
+                    <SelectValue<string>>
+                      {(state) => state.selectedOption().toUpperCase()}
+                    </SelectValue>
+                  </SelectTrigger>
+                  <SelectContent />
+                </Select>
+              </div>
+
+              <TextFieldRoot class="space-y-2">
+                <TextFieldLabel>Number of questions:</TextFieldLabel>
+                <TextField
+                  type="number"
+                  value={settings().amount}
+                  onInput={(e) =>
+                    handleSettingChange("amount")(
+                      parseInt(e.currentTarget.value, 10),
+                    )
+                  }
+                  min="1"
+                  max="100"
+                />
+              </TextFieldRoot>
+            </div>
+
+            <div class="space-y-4">
+              <ToggleOption
+                id="leaveOutSuru"
+                checked={() => settings().leaveOutSuru}
+                onCheckedChange={(checked) =>
+                  handleSettingChange("leaveOutSuru")(checked)
+                }
+                label={
+                  <>
+                    Leave out <span class="font-japanese">する</span> verbs
+                  </>
+                }
+              />
+              <ToggleOption
+                id="reverse"
+                checked={() => settings().reverse}
+                onCheckedChange={(checked) =>
+                  handleSettingChange("reverse")(checked)
+                }
+                label="Reverse mode"
+              />
+              <ToggleOption
+                id="showMeaning"
+                checked={() => settings().showMeaning}
+                onCheckedChange={(checked) =>
+                  handleSettingChange("showMeaning")(checked)
+                }
+                label="Show meaning"
+              />
+              <ToggleOption
+                id="noFurigana"
+                checked={() => settings().noFurigana}
+                onCheckedChange={(checked) =>
+                  handleSettingChange("noFurigana")(checked)
+                }
+                label="No furigana"
+              />
+              <ToggleOption
+                id="emoji"
+                checked={() => settings().emoji}
+                onCheckedChange={(checked) =>
+                  handleSettingChange("emoji")(checked)
+                }
+                label="Show emojis above conjugation types [WIP]"
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* Start Button */}
+        <div class="fixed bottom-0 left-0 right-0 pb-6 pt-4">
+          <div class="mx-auto max-w-5xl px-4">
+            <Button
+              onClick={onStartReview}
+              size="lg"
+              class="w-full rounded-lg bg-white/10 py-3 text-xl font-bold text-white backdrop-blur-sm hover:bg-white/20"
+            >
+              Practice! <span class="ml-2 text-lg font-black">{"->"}</span>
+            </Button>
           </div>
         </div>
-
-        {/* Tense */}
-        <div class="border-b border-card-foreground">
-          <h2 class="mt-6 text-[1.6rem] font-black">Tense</h2>
-          <div class="my-8 grid grid-cols-1 gap-4 md:grid-cols-2">
-            <For each={tenses}>
-              {([key, label]) => (
-                <div class="mx-6 flex justify-center">
-                  <div class="w-56">
-                    <ToggleOption
-                      id={key}
-                      checked={settings()[key]}
-                      onCheckedChange={(checked) =>
-                        handleSettingChange(key)(checked)
-                      }
-                      label={label}
-                    />
-                  </div>
-                </div>
-              )}
-            </For>
-          </div>
-        </div>
-
-        {/* Positive/Negative */}
-        <div class="border-b border-card-foreground">
-          <h2 class="mt-6 text-[1.6rem] font-black">Positive/Negative</h2>
-          <div class="my-8 grid grid-cols-1 gap-4 md:grid-cols-2">
-            <For each={polarities}>
-              {([key, label]) => (
-                <div class="mx-6 flex justify-center">
-                  <div class="w-56">
-                    <ToggleOption
-                      id={key}
-                      checked={settings()[key]}
-                      onCheckedChange={(checked) =>
-                        handleSettingChange(key)(checked)
-                      }
-                      label={label}
-                    />
-                  </div>
-                </div>
-              )}
-            </For>
-          </div>
-        </div>
-
-        <h2 class="mt-12 text-center text-[1.4rem] font-medium italic">
-          Special Options
-        </h2>
-        <div class="mx-16 mt-4 space-y-2">
-          <label for="jlptLevel" class="text-base">
-            JLPT Level:
-          </label>
-          <Select
-            options={["n5", "n4", "n3", "n2", "n1"]}
-            value={settings().jlptLevel}
-            placeholder="Select JLPT level"
-            onChange={(value) =>
-              handleSettingChange("jlptLevel")(value as Settings["jlptLevel"])
-            }
-          >
-            <SelectTrigger id="jlptLevel" class="shadow-md">
-              <SelectValue<string>>
-                {(state) => state.selectedOption().toUpperCase()}
-              </SelectValue>
-            </SelectTrigger>
-            <SelectContent />
-          </Select>
-
-          <TextFieldRoot class="space-y-2">
-            <TextFieldLabel class="text-base">
-              Number of questions:
-            </TextFieldLabel>
-            <TextField
-              type="number"
-              value={settings().amount}
-              onInput={(e) =>
-                handleSettingChange("amount")(
-                  parseInt(e.currentTarget.value, 10),
-                )
-              }
-              min="1"
-              max="100"
-              class="shadow-md"
-            />
-          </TextFieldRoot>
-        </div>
-
-        <div class="mt-6 flex flex-col items-center">
-          <div class="space-y-4">
-            <ToggleOption
-              id="leaveOutSuru"
-              checked={settings().leaveOutSuru}
-              onCheckedChange={(checked) =>
-                handleSettingChange("leaveOutSuru")(checked)
-              }
-              label={
-                <>
-                  Leave out <span class="font-japanese">する</span> verbs
-                </>
-              }
-            />
-
-            <ToggleOption
-              id="reverse"
-              checked={settings().reverse}
-              onCheckedChange={(checked) =>
-                handleSettingChange("reverse")(checked)
-              }
-              label="Reverse mode"
-            />
-
-            <ToggleOption
-              id="showMeaning"
-              checked={settings().showMeaning}
-              onCheckedChange={(checked) =>
-                handleSettingChange("showMeaning")(checked)
-              }
-              label="Show meaning"
-            />
-
-            <ToggleOption
-              id="noFurigana"
-              checked={settings().noFurigana}
-              onCheckedChange={(checked) =>
-                handleSettingChange("noFurigana")(checked)
-              }
-              label="No furigana"
-            />
-
-            <ToggleOption
-              id="emoji"
-              checked={settings().emoji}
-              onCheckedChange={(checked) =>
-                handleSettingChange("emoji")(checked)
-              }
-              label="Show emojis above conjugation types [WIP]"
-            />
-          </div>
-        </div>
-
-        <div class="fixed bottom-0 left-0 mb-[4.5rem] flex w-full justify-center">
-          <Button
-            onClick={onStartReview}
-            size="lg"
-            class="rounded-lg py-3 text-lg font-bold"
-          >
-            Practice!{" "}
-            <span class="ml-2 font-black text-orange-400">{"->"}</span>
-          </Button>
-        </div>
-        <div class="fixed bottom-0 left-0 flex h-3 w-full justify-center backdrop-blur-sm"></div>
-      </div>
-    </>
+      </main>
+    </div>
   )
 }

@@ -96,39 +96,49 @@ export default function PracticePage({ onComplete }: PracticePageProps) {
   }
 
   return (
-    <div class="w-full max-w-[700px] space-y-6 px-6 sm:px-8 md:px-12">
+    <div class="mx-auto min-w-[600px] px-6">
       <Show when={currentQuestion()}>
         {(question) => (
-          <>
-            <h1 class="text-center font-japanese text-4xl font-medium">
-              <span class="font-bold">{question().term.reading}</span>
-              {question().term.word !== question().term.reading &&
-                ` (${question().term.word})`}
-            </h1>
-            <p class="ml-6">
-              <span class="text-xl font-bold italic">Type: </span>
-              <span class="ml-2 text-3xl font-medium">
-                {question().type[3] === "te-form" ? (
-                  <>
-                    <span class="font-japanese">て</span>-form
-                  </>
-                ) : (
-                  question().type.join(", ")
-                )}
-              </span>
-            </p>
-            <div class="h-28 w-full">
-              {isAnswered() && (
-                <div class="flex h-full flex-col justify-between">
-                  <div class="space-y-2">
+          <div class="space-y-8">
+            <section class="rounded-xl border bg-card p-8">
+              <div class="space-y-6">
+                <h1 class="text-center font-japanese text-4xl font-medium">
+                  <span class="font-bold">{question().term.reading}</span>
+                  {question().term.word !== question().term.reading &&
+                    ` (${question().term.word})`}
+                </h1>
+
+                <div class="rounded-lg border bg-background/50 p-4">
+                  <p class="text-center">
+                    <span class="text-xl font-bold italic">Type: </span>
+                    <span class="ml-2 text-2xl font-medium">
+                      {question().type[3] === "te-form" ? (
+                        <>
+                          <span class="font-japanese">て</span>-form
+                        </>
+                      ) : (
+                        question().type.join(", ")
+                      )}
+                    </span>
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <section class="rounded-xl border bg-card p-8">
+              <div class="mb-6 min-h-[7rem]">
+                {isAnswered() && (
+                  <div class="space-y-0">
                     <p
-                      class={`font-medium ${question().correct ? "text-green-500" : "text-red-500"}`}
+                      class={`font-medium ${
+                        question().correct ? "text-green-500" : "text-red-500"
+                      }`}
                     >
                       {question().correct ? "Correct!" : "Incorrect."}
                     </p>
                     {!question().correct && (
                       <>
-                        <p class="text-xl">Correct answer(s): </p>
+                        <p class="pb-3 text-xl">Correct answer(s):</p>
                         <p class="text-center font-japanese text-4xl">
                           <For each={question().answers}>
                             {(answer) => <span>{answer.reading}</span>}
@@ -137,44 +147,49 @@ export default function PracticePage({ onComplete }: PracticePageProps) {
                       </>
                     )}
                   </div>
+                )}
+              </div>
+
+              <div class="space-y-4">
+                <WanakanaWrapper>
+                  <TextFieldRoot>
+                    <TextField
+                      ref={inputRef}
+                      type="text"
+                      placeholder="Your answer"
+                      value={userAnswer()}
+                      onInput={(e: InputEvent) =>
+                        setUserAnswer((e.target as HTMLInputElement).value)
+                      }
+                      disabled={isAnswered()}
+                      onKeyDown={handleKeyDown}
+                      class={`h-12 py-4 text-center font-japanese text-3xl placeholder:font-inter focus-visible:ring-primary/25 disabled:opacity-100 ${
+                        question().correct
+                          ? "bg-green-500"
+                          : isAnswered() && "bg-red-500"
+                      }`}
+                    />
+                  </TextFieldRoot>
+                </WanakanaWrapper>
+
+                <div class="flex justify-center">
+                  <Button
+                    onClick={isAnswered() ? handleNextQuestion : handleSubmit}
+                    size="lg"
+                    class="w-full rounded-lg bg-white/10 py-3 text-xl font-bold text-white backdrop-blur-sm hover:bg-white/20"
+                    ref={nextQuestionButtonRef}
+                  >
+                    {isAnswered() ? "Next Question" : "Submit"}
+                  </Button>
                 </div>
-              )}
-            </div>
-            <WanakanaWrapper>
-              <TextFieldRoot>
-                <TextField
-                  ref={inputRef}
-                  type="text"
-                  placeholder="Your answer"
-                  value={userAnswer()}
-                  onInput={(e: InputEvent) =>
-                    setUserAnswer((e.target as HTMLInputElement).value)
-                  }
-                  disabled={isAnswered()}
-                  onKeyDown={handleKeyDown}
-                  class={`py-3 text-center font-japanese text-2xl placeholder:font-inter focus-visible:ring-primary/25 disabled:opacity-100 ${
-                    question().correct
-                      ? "bg-green-500"
-                      : isAnswered() && "bg-red-500"
-                  }`}
-                />
-              </TextFieldRoot>
-            </WanakanaWrapper>
-            <div class="mt-4 flex justify-center">
-              <Button
-                onClick={isAnswered() ? handleNextQuestion : handleSubmit}
-                size="lg"
-                class="text-base"
-                ref={nextQuestionButtonRef}
-              >
-                {isAnswered() ? "Next Question" : "Submit"}
-              </Button>
-            </div>
-            <p class="mr-4 text-right">
+              </div>
+            </section>
+
+            <p class="text-right text-base text-muted-foreground">
               Question {sessionState.currentIndex + 1} of{" "}
               {sessionState.questions.length}
             </p>
-          </>
+          </div>
         )}
       </Show>
     </div>
