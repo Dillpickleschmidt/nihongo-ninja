@@ -17,7 +17,7 @@ export default function ModeToggle() {
     on(
       () => document.documentElement.getAttribute("data-kb-theme") === "dark",
       (isDarkMode) => {
-        setThemeState(isDarkMode ? "dark" : "light")
+        theme() === "system" && setThemeState(isDarkMode ? "dark" : "light")
       },
     ),
   )
