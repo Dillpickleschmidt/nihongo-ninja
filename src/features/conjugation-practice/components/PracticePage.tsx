@@ -96,11 +96,11 @@ export default function PracticePage({ onComplete }: PracticePageProps) {
   }
 
   return (
-    <div class="mx-auto min-w-[600px] px-6">
+    <div class="mx-auto px-6 sm:min-w-[600px]">
       <Show when={currentQuestion()}>
         {(question) => (
           <div class="space-y-8">
-            <section class="rounded-xl border bg-card p-8">
+            <section class="rounded-xl border bg-card p-6 sm:p-8">
               <div class="space-y-6">
                 <h1 class="text-center font-japanese text-4xl font-medium">
                   <span class="font-bold">{question().term.reading}</span>
@@ -125,7 +125,7 @@ export default function PracticePage({ onComplete }: PracticePageProps) {
               </div>
             </section>
 
-            <section class="rounded-xl border bg-card p-8">
+            <section class="rounded-xl border bg-card p-6 sm:p-8">
               <div class="mb-6 min-h-[7rem]">
                 {isAnswered() && (
                   <div class="space-y-0">
