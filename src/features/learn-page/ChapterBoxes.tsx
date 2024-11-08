@@ -1961,6 +1961,11 @@ export default function ChapterBoxes() {
             link: "/learn/chapter-17/sentence-practice/tte",
             types: ["practice-sentence"],
           },
+          {
+            title: "～たら Practice",
+            link: "/learn/chapter-17/sentence-practice/tara",
+            types: ["practice-sentence"],
+          },
         ]}
       />
 
