@@ -10,7 +10,12 @@
           "来月[らいげつ]",
           "仕事[しごと]",
           "を",
-          "辞[や]める",
+          {
+            "word": "辞[や]める",
+            "pos": "Ichidan verb",
+            "polarity": "positive",
+            "tense": "non-past"
+          },
           "って"
         ],
         "notes": "Basic pattern with は"
@@ -23,7 +28,12 @@
           "来月[らいげつ]",
           "仕事[しごと]",
           "を",
-          "辞[や]める",
+          {
+            "word": "辞[や]める",
+            "pos": "Ichidan verb",
+            "polarity": "positive",
+            "tense": "non-past"
+          },
           "って"
         ],
         "notes": "Using が"
@@ -38,10 +48,21 @@
           "メアリー",
           "さん",
           "は",
-          "来年[らいねん]",
-          "留学[りゅうがく]する",
+          "来年[らいげつ]",
+          {
+            "word": "留学[りゅうがく]する",
+            "pos": "Suru verb - compound word",
+            "polarity": "positive",
+            "tense": "non-past"
+          },
           "って",
-          "言[い]ってた"
+          {
+            "word": "言[い]う",
+            "pos": "Godan verb with 'u' ending",
+            "polarity": "positive",
+            "tense": "past"
+          },
+          "た"
         ],
         "notes": "Basic pattern with は"
       },
@@ -50,10 +71,21 @@
           "メアリー",
           "さん",
           "が",
-          "来年[らいねん]",
-          "留学[りゅうがく]する",
+          "来年[らいげつ]",
+          {
+            "word": "留学[りゅうがく]する",
+            "pos": "Suru verb - compound word",
+            "polarity": "positive",
+            "tense": "non-past"
+          },
           "って",
-          "言[い]ってた"
+          {
+            "word": "言[い]う",
+            "pos": "Godan verb with 'u' ending",
+            "polarity": "positive",
+            "tense": "past"
+          },
+          "た"
         ],
         "notes": "Using が"
       }
@@ -68,7 +100,13 @@
           "は",
           "映画[えいが]",
           "は",
-          "つまらなかった",
+          {
+            "word": "つまらない",
+            "pos": "I-adjective",
+            "polarity": "negative",
+            "tense": "past"
+          },
+          "た",
           "って"
         ],
         "notes": "Using は for both subject and topic"
@@ -79,7 +117,13 @@
           "は",
           "映画[えいが]",
           "が",
-          "つまらなかった",
+          {
+            "word": "つまらない",
+            "pos": "I-adjective",
+            "polarity": "negative",
+            "tense": "past"
+          },
+          "た",
           "って"
         ],
         "notes": "Using は for subject and が for topic"
@@ -95,7 +139,12 @@
           "は",
           "テスト",
           "は",
-          "簡単[かんたん]",
+          {
+            "word": "簡単[かんたん]",
+            "pos": "Na-adjective",
+            "polarity": "positive",
+            "tense": "non-past"
+          },
           "だ",
           "って"
         ],
@@ -107,7 +156,12 @@
           "は",
           "テスト",
           "が",
-          "簡単[かんたん]",
+          {
+            "word": "簡単[かんたん]",
+            "pos": "Na-adjective",
+            "polarity": "positive",
+            "tense": "non-past"
+          },
           "だ",
           "って"
         ],
@@ -125,9 +179,20 @@
           "は",
           "宿題[しゅくだい]",
           "が",
-          "難[むずか]しい",
+          {
+            "word": "難[むずか]しい",
+            "pos": "I-adjective",
+            "polarity": "positive",
+            "tense": "non-past"
+          },
           "って",
-          "言[い]ってた"
+          {
+            "word": "言[い]う",
+            "pos": "Godan verb with 'u' ending",
+            "polarity": "positive",
+            "tense": "past"
+          },
+          "た"
         ],
         "notes": "Basic pattern with が"
       },
@@ -138,9 +203,20 @@
           "の",
           "宿題[しゅくだい]",
           "が",
-          "難[むずか]しい",
+          {
+            "word": "難[むずか]しい",
+            "pos": "I-adjective",
+            "polarity": "positive",
+            "tense": "non-past"
+          },
           "って",
-          "言[い]ってた"
+          {
+            "word": "言[い]う",
+            "pos": "Godan verb with 'u' ending",
+            "polarity": "positive",
+            "tense": "past"
+          },
+          "た"
         ],
         "notes": "Using の for possession"
       }
@@ -150,11 +226,33 @@
     "english": "Yuki says she's getting married",
     "answers": [
       {
-        "segments": ["ユキ", "さん", "は", "結婚[けっこん]する", "って"],
+        "segments": [
+          "ユキ",
+          "さん",
+          "は",
+          {
+            "word": "結婚[けっこん]する",
+            "pos": "Suru verb - compound word",
+            "polarity": "positive",
+            "tense": "non-past"
+          },
+          "って"
+        ],
         "notes": "Basic pattern with は"
       },
       {
-        "segments": ["ユキ", "さん", "が", "結婚[けっこん]する", "って"],
+        "segments": [
+          "ユキ",
+          "さん",
+          "が",
+          {
+            "word": "結婚[けっこん]する",
+            "pos": "Suru verb - compound word",
+            "polarity": "positive",
+            "tense": "non-past"
+          },
+          "って"
+        ],
         "notes": "Using が"
       }
     ]
@@ -168,9 +266,21 @@
           "は",
           "家賃[やちん]",
           "が",
-          "高[たか]くなった",
+          {
+            "word": "高[たか]い",
+            "pos": "I-adjective",
+            "polarity": "positive",
+            "tense": "past"
+          },
+          "た",
           "って",
-          "言[い]ってた"
+          {
+            "word": "言[い]う",
+            "pos": "Godan verb with 'u' ending",
+            "polarity": "positive",
+            "tense": "past"
+          },
+          "た"
         ],
         "notes": "Using は for subject and が for topic"
       },
@@ -180,9 +290,21 @@
           "が",
           "家賃[やちん]",
           "が",
-          "高[たか]くなった",
+          {
+            "word": "高[たか]い",
+            "pos": "I-adjective",
+            "polarity": "positive",
+            "tense": "past"
+          },
+          "た",
           "って",
-          "言[い]ってた"
+          {
+            "word": "言[い]う",
+            "pos": "Godan verb with 'u' ending",
+            "polarity": "positive",
+            "tense": "past"
+          },
+          "た"
         ],
         "notes": "Using が for both"
       }
@@ -200,7 +322,13 @@
           "の",
           "生活[せいかつ]",
           "に",
-          "慣[な]れた",
+          {
+            "word": "慣[な]れる",
+            "pos": "Ichidan verb",
+            "polarity": "positive",
+            "tense": "past"
+          },
+          "た",
           "って"
         ],
         "notes": "Basic pattern with は"
@@ -214,7 +342,13 @@
           "の",
           "生活[せいかつ]",
           "に",
-          "慣[な]れた",
+          {
+            "word": "慣[な]れる",
+            "pos": "Ichidan verb",
+            "polarity": "positive",
+            "tense": "past"
+          },
+          "た",
           "って"
         ],
         "notes": "Using が"
@@ -230,9 +364,21 @@
           "は",
           "期末試験[きまつしけん]",
           "が",
-          "なくなった",
+          {
+            "word": "なくなる",
+            "pos": "Godan verb with 'ru' ending",
+            "polarity": "positive",
+            "tense": "past"
+          },
+          "た",
           "って",
-          "言[い]ってた"
+          {
+            "word": "言[い]う",
+            "pos": "Godan verb with 'u' ending",
+            "polarity": "positive",
+            "tense": "past"
+          },
+          "た"
         ],
         "notes": "Using は for subject and が for topic"
       },
@@ -242,9 +388,21 @@
           "が",
           "期末試験[きまつしけん]",
           "が",
-          "なくなった",
+          {
+            "word": "なくなる",
+            "pos": "Godan verb with 'ru' ending",
+            "polarity": "positive",
+            "tense": "past"
+          },
+          "た",
           "って",
-          "言[い]ってた"
+          {
+            "word": "言[い]う",
+            "pos": "Godan verb with 'u' ending",
+            "polarity": "positive",
+            "tense": "past"
+          },
+          "た"
         ],
         "notes": "Using が for both"
       }
@@ -259,10 +417,20 @@
           "さん",
           "は",
           "近[ちか]くで",
-          "大[おお]きい",
+          {
+            "word": "大[おお]きい",
+            "pos": "I-adjective",
+            "polarity": "positive",
+            "tense": "non-past"
+          },
           "火事[かじ]",
           "が",
-          "ある",
+          {
+            "word": "ある",
+            "pos": "Godan verb with 'ru' ending (irregular verb)",
+            "polarity": "positive",
+            "tense": "non-past"
+          },
           "って"
         ],
         "notes": "Using は with 大きい"
@@ -276,7 +444,12 @@
           "大きな",
           "火事[かじ]",
           "が",
-          "ある",
+          {
+            "word": "ある",
+            "pos": "Godan verb with 'ru' ending (irregular verb)",
+            "polarity": "positive",
+            "tense": "non-past"
+          },
           "って"
         ],
         "notes": "Using は with 大きな"
@@ -292,9 +465,20 @@
           "は",
           "レストラン",
           "が",
-          "いい",
+          {
+            "word": "いい",
+            "pos": "I-adjective",
+            "polarity": "positive",
+            "tense": "non-past"
+          },
           "って",
-          "言[い]ってた"
+          {
+            "word": "言[い]う",
+            "pos": "Godan verb with 'u' ending",
+            "polarity": "positive",
+            "tense": "past"
+          },
+          "た"
         ],
         "notes": "Using は for subject and が for topic"
       },
@@ -305,9 +489,20 @@
           "あの",
           "レストラン",
           "は",
-          "いい",
+          {
+            "word": "いい",
+            "pos": "I-adjective",
+            "polarity": "positive",
+            "tense": "non-past"
+          },
           "って",
-          "言[い]ってた"
+          {
+            "word": "言[い]う",
+            "pos": "Godan verb with 'u' ending",
+            "polarity": "positive",
+            "tense": "past"
+          },
+          "た"
         ],
         "notes": "Using は for both, with あの"
       }
@@ -324,7 +519,13 @@
           "新[あたら]しい",
           "仕事[しごと]",
           "が",
-          "決[き]まった",
+          {
+            "word": "決[き]まる",
+            "pos": "Godan verb with 'ru' ending",
+            "polarity": "positive",
+            "tense": "past"
+          },
+          "た",
           "って"
         ],
         "notes": "Using は with passive form"
@@ -337,7 +538,13 @@
           "新[あたら]しい",
           "仕事[しごと]",
           "を",
-          "見[み]つけた",
+          {
+            "word": "見[み]つける",
+            "pos": "Ichidan verb",
+            "polarity": "positive",
+            "tense": "past"
+          },
+          "た",
           "って"
         ],
         "notes": "Using が with active form"
@@ -355,9 +562,21 @@
           "東京[とうきょう]",
           "大学[だいがく]",
           "に",
-          "合格[ごうかく]した",
+          {
+            "word": "合格[ごうかく]する",
+            "pos": "Suru verb - compound word",
+            "polarity": "positive",
+            "tense": "past"
+          },
+          "た",
           "って",
-          "言[い]ってた"
+          {
+            "word": "言[い]う",
+            "pos": "Godan verb with 'u' ending",
+            "polarity": "positive",
+            "tense": "past"
+          },
+          "た"
         ],
         "notes": "Using は and 合格"
       },
@@ -369,9 +588,21 @@
           "東京[とうきょう]",
           "大学[だいがく]",
           "に",
-          "入[はい]った",
+          {
+            "word": "入[はい]る",
+            "pos": "Godan verb with 'ru' ending",
+            "polarity": "positive",
+            "tense": "past"
+          },
+          "た",
           "って",
-          "言[い]ってた"
+          {
+            "word": "言[い]う",
+            "pos": "Godan verb with 'u' ending",
+            "polarity": "positive",
+            "tense": "past"
+          },
+          "た"
         ],
         "notes": "Using は"
       },
@@ -383,9 +614,21 @@
           "東京[とうきょう]",
           "大学[だいがく]",
           "に",
-          "合格[ごうかく]した",
+          {
+            "word": "合格[ごうかく]する",
+            "pos": "Suru verb - compound word",
+            "polarity": "positive",
+            "tense": "past"
+          },
+          "た",
           "って",
-          "言[い]ってた"
+          {
+            "word": "言[い]う",
+            "pos": "Godan verb with 'u' ending",
+            "polarity": "positive",
+            "tense": "past"
+          },
+          "た"
         ],
         "notes": "Using が and 合格"
       },
@@ -397,9 +640,21 @@
           "東京[とうきょう]",
           "大学[だいがく]",
           "に",
-          "入[はい]った",
+          {
+            "word": "入[はい]る",
+            "pos": "Godan verb with 'ru' ending",
+            "polarity": "positive",
+            "tense": "past"
+          },
+          "た",
           "って",
-          "言[い]ってた"
+          {
+            "word": "言[い]う",
+            "pos": "Godan verb with 'u' ending",
+            "polarity": "positive",
+            "tense": "past"
+          },
+          "た"
         ],
         "notes": "Using が"
       }
@@ -415,7 +670,12 @@
           "は",
           "テスト",
           "は",
-          "簡単[かんたん]",
+          {
+            "word": "簡単[かんたん]",
+            "pos": "Na-adjective",
+            "polarity": "positive",
+            "tense": "past"
+          },
           "だった",
           "って"
         ],
@@ -428,7 +688,12 @@
           "は",
           "テスト",
           "が",
-          "簡単[かんたん]",
+          {
+            "word": "簡単[かんたん]",
+            "pos": "Na-adjective",
+            "polarity": "positive",
+            "tense": "past"
+          },
           "だった",
           "って"
         ],
@@ -437,7 +702,7 @@
     ]
   },
   {
-    "english": "My roommate was saying the shopping mall opened",
+    "english": "My roommate was telling me the shopping mall opened",
     "answers": [
       {
         "segments": [
@@ -445,9 +710,21 @@
           "は",
           "ショッピングモール",
           "が",
-          "できた",
+          {
+            "word": "できる",
+            "pos": "Ichidan verb",
+            "polarity": "positive",
+            "tense": "past"
+          },
+          "た",
           "って",
-          "言[い]ってた"
+          {
+            "word": "言[い]う",
+            "pos": "Godan verb with 'u' ending",
+            "polarity": "positive",
+            "tense": "past"
+          },
+          "た"
         ],
         "notes": "Using は and が with できた"
       },
@@ -457,9 +734,21 @@
           "は",
           "ショッピングモール",
           "が",
-          "オープンした",
+          {
+            "word": "オープンする",
+            "pos": "Suru verb - compound word",
+            "polarity": "positive",
+            "tense": "past"
+          },
+          "た",
           "って",
-          "言[い]ってた"
+          {
+            "word": "言[い]う",
+            "pos": "Godan verb with 'u' ending",
+            "polarity": "positive",
+            "tense": "past"
+          },
+          "た"
         ],
         "notes": "Using は and が with オープンした"
       }
@@ -475,7 +764,12 @@
           "は",
           "日本語[にほんご]",
           "を",
-          "勉強[べんきょう]している",
+          {
+            "word": "勉強[べんきょう]する",
+            "pos": "Suru verb - compound word",
+            "polarity": "positive",
+            "tense": "non-past"
+          },
           "って"
         ],
         "notes": "Using は"
@@ -487,7 +781,12 @@
           "が",
           "日本語[にほんご]",
           "を",
-          "勉強[べんきょう]している",
+          {
+            "word": "勉強[べんきょう]する",
+            "pos": "Suru verb - compound word",
+            "polarity": "positive",
+            "tense": "non-past"
+          },
           "って"
         ],
         "notes": "Using が"
@@ -507,7 +806,13 @@
           "まで",
           "だ",
           "って",
-          "言[い]ってた"
+          {
+            "word": "言[い]う",
+            "pos": "Godan verb with 'u' ending",
+            "polarity": "positive",
+            "tense": "past"
+          },
+          "た"
         ],
         "notes": "Using は and が"
       },
@@ -521,7 +826,13 @@
           "まで",
           "だ",
           "って",
-          "言[い]ってた"
+          {
+            "word": "言[い]う",
+            "pos": "Godan verb with 'u' ending",
+            "polarity": "positive",
+            "tense": "past"
+          },
+          "た"
         ],
         "notes": "Using は for both"
       }
@@ -537,9 +848,20 @@
           "は",
           "カフェ",
           "が",
-          "込[こ]んでいる",
+          {
+            "word": "込[こ]む",
+            "pos": "Godan verb with 'mu' ending",
+            "polarity": "positive",
+            "tense": "non-past"
+          },
           "って",
-          "言[い]ってた"
+          {
+            "word": "言[い]う",
+            "pos": "Godan verb with 'u' ending",
+            "polarity": "positive",
+            "tense": "past"
+          },
+          "た"
         ],
         "notes": "Using は and が"
       },
@@ -551,9 +873,20 @@
           "あの",
           "カフェ",
           "は",
-          "込[こ]んでいる",
+          {
+            "word": "込[こ]む",
+            "pos": "Godan verb with 'mu' ending",
+            "polarity": "positive",
+            "tense": "non-past"
+          },
           "って",
-          "言[い]ってた"
+          {
+            "word": "言[い]う",
+            "pos": "Godan verb with 'u' ending",
+            "polarity": "positive",
+            "tense": "past"
+          },
+          "た"
         ],
         "notes": "Using は for both with あの"
       }
@@ -570,7 +903,13 @@
           "は",
           "試験[しけん]",
           "に",
-          "落[お]ちた",
+          {
+            "word": "落[お]ちる",
+            "pos": "Ichidan verb",
+            "polarity": "positive",
+            "tense": "past"
+          },
+          "た",
           "って"
         ],
         "notes": "Using は"
@@ -582,7 +921,13 @@
           "が",
           "試験[しけん]",
           "に",
-          "落[お]ちた",
+          {
+            "word": "落[お]ちる",
+            "pos": "Ichidan verb",
+            "polarity": "positive",
+            "tense": "past"
+          },
+          "た",
           "って"
         ],
         "notes": "Using が"
@@ -598,10 +943,28 @@
           "は",
           "映画館[えいがかん]",
           "が",
-          "混んで",
-          "きた",
+          {
+            "word": "混[ま]ざる",
+            "pos": "Godan verb with 'ru' ending",
+            "polarity": "positive",
+            "tense": "non-past"
+          },
           "って",
-          "言[い]ってた"
+          {
+            "word": "来[く]る",
+            "pos": "Kuru verb - special class",
+            "polarity": "positive",
+            "tense": "past"
+          },
+          "た",
+          "って",
+          {
+            "word": "言[い]う",
+            "pos": "Godan verb with 'u' ending",
+            "polarity": "positive",
+            "tense": "past"
+          },
+          "た"
         ],
         "notes": "Using は and が"
       },
@@ -611,10 +974,28 @@
           "が",
           "映画館[えいがかん]",
           "は",
-          "混んで",
-          "きた",
+          {
+            "word": "混[ま]ざる",
+            "pos": "Godan verb with 'ru' ending",
+            "polarity": "positive",
+            "tense": "non-past"
+          },
           "って",
-          "言[い]ってた"
+          {
+            "word": "来[く]る",
+            "pos": "Kuru verb - special class",
+            "polarity": "positive",
+            "tense": "past"
+          },
+          "た",
+          "って",
+          {
+            "word": "言[い]う",
+            "pos": "Godan verb with 'u' ending",
+            "polarity": "positive",
+            "tense": "past"
+          },
+          "た"
         ],
         "notes": "Using が and は"
       }
@@ -632,7 +1013,12 @@
           "の",
           "天気[てんき]",
           "が",
-          "いい",
+          {
+            "word": "いい",
+            "pos": "I-adjective",
+            "polarity": "positive",
+            "tense": "non-past"
+          },
           "って"
         ],
         "notes": "Using は and が"
@@ -646,7 +1032,12 @@
           "の",
           "天気[てんき]",
           "が",
-          "いい",
+          {
+            "word": "いい",
+            "pos": "I-adjective",
+            "polarity": "positive",
+            "tense": "non-past"
+          },
           "って"
         ],
         "notes": "Using の for tomorrow's weather"
@@ -664,9 +1055,20 @@
           "新[あたら]しい",
           "仕事[しごと]",
           "が",
-          "面白[おもしろ]い",
+          {
+            "word": "面白[おもしろ]い",
+            "pos": "I-adjective",
+            "polarity": "positive",
+            "tense": "non-past"
+          },
           "って",
-          "言[い]ってた"
+          {
+            "word": "言[い]う",
+            "pos": "Godan verb with 'u' ending",
+            "polarity": "positive",
+            "tense": "past"
+          },
+          "た"
         ],
         "notes": "Using は and が"
       },
@@ -678,9 +1080,20 @@
           "新[あたら]しい",
           "仕事[しごと]",
           "は",
-          "面白[おもしろ]い",
+          {
+            "word": "面白[おもしろ]い",
+            "pos": "I-adjective",
+            "polarity": "positive",
+            "tense": "non-past"
+          },
           "って",
-          "言[い]ってた"
+          {
+            "word": "言[い]う",
+            "pos": "Godan verb with 'u' ending",
+            "polarity": "positive",
+            "tense": "past"
+          },
+          "た"
         ],
         "notes": "Using の and は"
       }

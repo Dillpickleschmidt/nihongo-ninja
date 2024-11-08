@@ -1,3 +1,4 @@
+// HighlightedText.tsx
 import { For, Show, createMemo } from "solid-js"
 import type { ErrorRange } from "../types"
 import { convertFuriganaToRubyHtml } from "@/util/vocabDataTransformer"

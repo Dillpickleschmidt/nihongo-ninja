@@ -1,3 +1,4 @@
+// AlternativeAnswers.tsx
 import { Component, For } from "solid-js"
 import HighlightedText from "./HighlightedText"
 import { AnswerMatch } from "../answerChecker"

@@ -1,3 +1,4 @@
+// JapanesePractice.tsx
 import { createMemo, Show, createEffect, createSignal } from "solid-js"
 import PromptDisplay from "./components/PromptDisplay"
 import AnswerInput from "./components/AnswerInput"
@@ -10,7 +11,7 @@ import { PracticeQuestion } from "./types"
 import { AlternativeAnswers } from "./components/AlternativeAnswers"
 import { removeFurigana } from "./utils/textExtractor"
 import { Button } from "@/components/ui/button"
-import { createAnswerVariations } from "./utils/answerVariations"
+import { createAnswerVariations } from "./createAnswerVariations"
 
 const questionModules = import.meta.glob<{
   default: PracticeQuestion[]
@@ -18,6 +19,8 @@ const questionModules = import.meta.glob<{
 
 type JapanesePracticeProps = {
   path: string
+  politeOnly?: boolean
+  shortOnly?: boolean
 }
 
 export default function JapanesePractice(props: JapanesePracticeProps) {
@@ -33,7 +36,6 @@ export default function JapanesePractice(props: JapanesePracticeProps) {
 
   createEffect(() => {
     if (props.path !== store.path) {
-      // Reset all relevant store values when path changes
       setStore("path", props.path)
       setStore("currentQuestionIndex", 0)
       setStore("currentInput", "")
@@ -45,8 +47,13 @@ export default function JapanesePractice(props: JapanesePracticeProps) {
         const filePath = `./data/${props.path}.json`
         if (filePath in questionModules) {
           const originalQuestions = questionModules[filePath].default
-          const questionsWithVariations =
-            createAnswerVariations(originalQuestions)
+          const questionsWithVariations = createAnswerVariations(
+            originalQuestions,
+            {
+              politeOnly: props.politeOnly,
+              shortOnly: props.shortOnly,
+            },
+          )
           setStore("questions", questionsWithVariations)
         } else {
           throw new Error(`File not found: ${filePath}`)

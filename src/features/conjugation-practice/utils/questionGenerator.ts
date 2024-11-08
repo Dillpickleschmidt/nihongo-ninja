@@ -133,11 +133,11 @@ function filterWords(settings: Settings): Word[] {
         jlptLevels.includes(`n${word.jlpt_level}`) &&
         // Include the verb if "Suru verbs" are not to be excluded, or if it is not a "Suru verb"
         (!settings.leaveOutSuru ||
-          !word.senses[0].parts_of_speech.includes(
-            "Suru verb - special class" ||
-              "Suru verb - included" ||
-              "Suru verb - compound word",
-          )) &&
+          ![
+            "Suru verb - special class",
+            "Suru verb - included",
+            "Suru verb - compound word",
+          ].some((pos) => word.senses[0].parts_of_speech.includes(pos))) &&
         isUsable(word.senses[0].parts_of_speech[0]),
     )
     filteredWords.push(...verbs)
