@@ -62,9 +62,9 @@ export default function SettingsPage({ onStartReview }: SettingsPageProps) {
   ] as const
 
   return (
-    <div class="relative mt-6 min-h-screen rounded-t-xl bg-background">
+    <div class="relative min-h-screen bg-background sm:mt-6 sm:rounded-t-xl">
       {/* Header */}
-      <header class="flex h-32 items-center justify-center rounded-xl border bg-orange-500 saturate-[75%] backdrop-blur-sm">
+      <header class="flex h-32 items-center justify-center rounded-b-xl border bg-orange-500 saturate-[75%] backdrop-blur-sm sm:rounded-xl">
         <h1 class="text-4xl font-bold tracking-tight text-white">
           Conjugation Practice
         </h1>

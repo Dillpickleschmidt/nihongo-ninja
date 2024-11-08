@@ -1,5 +1,6 @@
 import { createSignal, JSX, Show } from "solid-js"
 import { Button } from "@/components/ui/button"
+import { ChevronDown } from "lucide-solid"
 
 type DropdownProps = JSX.HTMLAttributes<HTMLDivElement> & {
   children: JSX.Element
@@ -7,25 +8,27 @@ type DropdownProps = JSX.HTMLAttributes<HTMLDivElement> & {
 }
 
 export default function Dropdown(props: DropdownProps) {
-  const [showSpoiler, setShowSpoiler] = createSignal(true)
+  const [isOpen, setIsOpen] = createSignal(true)
 
   return (
-    <div class="w-full max-w-[850px]">
-      <div class="flex items-center justify-between border-b border-white border-opacity-15 py-3 pr-3">
+    <div class="w-full max-w-[850px] rounded-lg border border-border/40 bg-card/50 backdrop-blur-sm">
+      <div class="flex items-center justify-between px-4 py-3">
         <Button
-          onClick={() => setShowSpoiler(!showSpoiler())}
-          variant="outline"
-          class="rounded-md bg-neutral-800 px-4 py-2 text-lg text-sky-400"
+          onClick={() => setIsOpen(!isOpen())}
+          variant="ghost"
+          class="flex w-full items-center justify-between text-lg font-semibold text-orange-400 hover:text-orange-400"
         >
-          {props.text}
+          <span>{props.text}</span>
+          <ChevronDown
+            class={`h-5 w-5 transform transition-transform duration-200 ${
+              isOpen() ? "rotate-180" : ""
+            }`}
+          />
         </Button>
-        <div class="ease flex space-x-6">
-          <div class="text-base">Cards</div>
-          <div class="text-base">Actions</div>
-        </div>
       </div>
-      <Show when={showSpoiler()}>
-        <div class="flex w-full flex-col [&>*]:ml-4 [&>*]:border-b [&>*]:border-white [&>*]:border-opacity-15 [&>*]:px-2 [&>*]:py-3">
+
+      <Show when={isOpen()}>
+        <div class="flex w-full flex-col divide-y divide-border/60">
           {props.children}
         </div>
       </Show>
