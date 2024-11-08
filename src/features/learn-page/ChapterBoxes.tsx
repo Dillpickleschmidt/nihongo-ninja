@@ -674,7 +674,7 @@ export default function ChapterBoxes() {
           },
           {
             title: "Practice Pos/Neg ます Conjugation",
-            link: "/learn/chapter-3/practice/masu-conjugation",
+            link: "/learn/conjugation?normal=true&teForm=false&volitional=false&taiForm=false&tariForm=false&potential=false&imperative=false&conditional=false&passive=false&causative=false&causativePassive=false&verb=true&iAdjective=false&naAdjective=false&polite=true&plain=false&nonPast=true&past=false&positive=true&negative=true",
             types: ["conjugation-practice"],
           },
           {

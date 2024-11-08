@@ -38,7 +38,7 @@ export default function PracticePage({ onComplete }: PracticePageProps) {
   // Focus the "Next Question" button after submission
   createEffect(() => {
     if (isAnswered() && nextQuestionButtonRef) {
-      console.log("Focusing next question button")
+      // console.log("Focusing next question button")
       nextQuestionButtonRef.focus()
     }
   })

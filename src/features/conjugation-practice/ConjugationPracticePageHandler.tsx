@@ -28,7 +28,7 @@ export default function ConjugationPracticePageHandler() {
           <SettingsPage onStartReview={navigateToReview} />
         </Match>
         <Match when={currentPage() === "practice"}>
-          <div class="pt-16 xl:pt-32">
+          <div class="pt-8 xl:pt-32">
             <PracticePage onComplete={navigateToSummary} />
             <Button
               onClick={navigateToSettings}
