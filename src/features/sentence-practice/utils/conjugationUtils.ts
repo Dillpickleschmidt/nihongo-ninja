@@ -21,18 +21,25 @@ export function conjugateWord(
   }
 }
 
+const SPECIAL_WORDS = ["です"]
+
 export function conjugateSegments(
   segments: (string | ConjugatedWord)[],
   politeForm: boolean,
 ): string[] {
   return segments.map((segment) => {
-    if (typeof segment === "string") return segment
+    if (typeof segment === "string") {
+      if (!SPECIAL_WORDS.includes(segment)) return segment
+      if (segment === "です" && !politeForm) return "だ"
+    } else {
+      const isBeforeQuote = segments[segments.indexOf(segment) + 1] === "って"
+      return conjugateWord(segment, {
+        polite: isBeforeQuote ? false : politeForm,
+        negative: segment.polarity === "negative",
+        past: segment.tense === "past",
+      })
+    }
 
-    const isBeforeQuote = segments[segments.indexOf(segment) + 1] === "って"
-    return conjugateWord(segment, {
-      polite: isBeforeQuote ? false : politeForm,
-      negative: segment.polarity === "negative",
-      past: segment.tense === "past",
-    })
+    return segment
   })
 }

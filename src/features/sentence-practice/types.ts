@@ -1,3 +1,4 @@
+// types.ts
 export type Answer = {
   segments: string[] // Now just array of strings with readings in brackets
   notes?: string

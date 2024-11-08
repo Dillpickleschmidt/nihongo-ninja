@@ -1,3 +1,4 @@
+// answerChecker.ts
 import { Answer, CheckResult, ErrorRange, PracticeQuestion } from "./types"
 import { findDifferences } from "./utils/textComparison"
 import { removeFurigana } from "./utils/textExtractor"
