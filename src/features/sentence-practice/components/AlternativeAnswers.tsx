@@ -9,6 +9,7 @@ interface Props {
   matches: AnswerMatch[]
   userInput: string
   currentAnswerIndex: number
+  showFurigana?: boolean
 }
 
 export default function AlternativeAnswers(props: Props) {
@@ -42,7 +43,11 @@ export default function AlternativeAnswers(props: Props) {
                 Similarity: {(match.similarity * 100).toFixed(1)}%
               </div>
               <HighlightedText
-                text={match.answer.segments.map(removeFurigana).join("")}
+                text={match.answer.segments
+                  .map(
+                    props.showFurigana ? (segment) => segment : removeFurigana,
+                  )
+                  .join("")}
                 errors={match.answerErrors}
                 highlightClass="dark:bg-amber-500 bg-amber-400 text-black font-medium dark:saturate-[85%]"
               />
