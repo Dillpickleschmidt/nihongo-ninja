@@ -24,7 +24,13 @@ type Variation = {
 }
 
 // All possible first-person pronouns with their brackets
-const PRONOUNS = ["私[わたし]", "僕[ぼく]", "俺[おれ]", "アタシ"] as const
+const PRONOUNS = [
+  "私[わたし]",
+  "僕[ぼく]",
+  "俺[おれ]",
+  "あたし",
+  "うち",
+] as const
 
 /**
  * Checks if segments contain any first-person pronoun
@@ -32,6 +38,7 @@ const PRONOUNS = ["私[わたし]", "僕[ぼく]", "俺[おれ]", "アタシ"] a
 function hasAnyPronoun(segments: string[]): boolean {
   return segments.some((segment, index) =>
     PRONOUNS.some(
+      // ex: 私は
       (pronoun) =>
         segment === pronoun &&
         index + 1 < segments.length &&
