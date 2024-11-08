@@ -31,10 +31,10 @@ export default function SettingsPage({ onStartReview }: SettingsPageProps) {
   const formTypes = [
     ["normal", "Normal"],
     ["teForm", "Te-form"],
-    ["volitional", "Volitional"],
-    ["taiForm", "Tai-form"],
     ["tariForm", "Tari-form"],
+    ["taiForm", "Tai-form"],
     ["potential", "Potential"],
+    ["volitional", "Volitional"],
     ["imperative", "Imperative"],
     ["conditional", "Conditional"],
     ["passive", "Passive"],
@@ -61,6 +61,20 @@ export default function SettingsPage({ onStartReview }: SettingsPageProps) {
     ["negative", "Negative"],
   ] as const
 
+  const examples = [
+    { normal: "食べる・食べます" },
+    { teForm: "食べって" },
+    { tariForm: "食べたり" },
+    { taiForm: "食べたい" },
+    { potential: "食べられる" },
+    { volitional: "食べよう" },
+    { imperative: "食べろ" },
+    { conditional: "食べれば" },
+    { passive: "食べられる" },
+    { causative: "食べさせる" },
+    { causativePassive: "食べさせられる" },
+  ]
+
   return (
     <div class="relative min-h-screen bg-background sm:mt-6 sm:rounded-t-xl">
       {/* Header */}
@@ -78,15 +92,20 @@ export default function SettingsPage({ onStartReview }: SettingsPageProps) {
           </h2>
           <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
             <For each={formTypes}>
-              {([key, label]) => (
-                <ToggleOption
-                  id={key}
-                  checked={() => settings()[key]}
-                  onCheckedChange={(checked) =>
-                    handleSettingChange(key)(checked)
-                  }
-                  label={label}
-                />
+              {([key, label], index) => (
+                <div>
+                  <ToggleOption
+                    id={key}
+                    checked={() => settings()[key]}
+                    onCheckedChange={(checked) =>
+                      handleSettingChange(key)(checked)
+                    }
+                    label={label}
+                  />
+                  <span class="text-muted-foreground">
+                    {examples[index()][key]}
+                  </span>
+                </div>
               )}
             </For>
           </div>
