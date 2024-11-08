@@ -1,3 +1,6 @@
+import { For } from "solid-js"
+import ChapterDropdown from "./components/ChapterDropdown"
+import CategoryDropdown from "./components/CategoryDropdown"
 import Greetings from "./components/chapter-0/Greetings"
 import CommonExpressions from "./components/chapter-0/CommonExpressions"
 import Numbers from "./components/chapter-0/Numbers"
@@ -32,353 +35,109 @@ import C16AdjAndUV from "./components/chapter-16/C16AdjAndUV"
 import C16RuAndIrrV from "./components/chapter-16/C16RuAndIrrV"
 import C16AdvAndMisc from "./components/chapter-16/C16AdvAndMisc"
 
+const chapters = [
+  {
+    number: "0",
+    categories: [
+      { title: "Greetings", component: Greetings },
+      { title: "Common Expressions", component: CommonExpressions },
+      { title: "Numbers", component: Numbers },
+    ],
+  },
+  {
+    number: "1",
+    categories: [
+      {
+        title: "People, Descriptors, & Misc.",
+        component: PeopleDescriptorsMisc,
+      },
+      { title: "Family & School", component: FamilySchool },
+      { title: "Occupations & Majors", component: OccupationsMajors },
+      { title: "Countries", component: Countries },
+      { title: "Time", component: Time },
+      { title: "Minutes", component: Minutes },
+      { title: "Useful Expressions", component: UsefulExpressions },
+    ],
+  },
+  {
+    number: "2",
+    categories: [
+      { title: "Things", component: Things },
+      { title: "Words That Point", component: WordsThatPoint },
+      { title: "Places, Money, & Food", component: PlacesMoneyFood },
+    ],
+  },
+  {
+    number: "3",
+    categories: [
+      { title: "Nouns", component: Nouns },
+      { title: "Days of The Week & Time", component: DaysAndTime },
+      { title: "Verbs & Adjectives", component: VerbsAndAdjectives },
+      { title: "Adverbs & Expressions", component: AdverbsExpressions },
+      { title: "And, So, and But", component: AndSoBut },
+    ],
+  },
+  {
+    number: "13",
+    categories: [
+      { title: "Nouns", component: C13Nouns },
+      { title: "Adjectives & Verbs", component: C13AdjAndVerbs },
+      { title: "Day Count & Misc.", component: C13DayCountAndMisc },
+    ],
+  },
+  {
+    number: "14",
+    categories: [
+      { title: "Nouns 1", component: C14Nouns1 },
+      { title: "Nouns 2", component: C14Nouns2 },
+      { title: "Adjectives & Verbs", component: C14AdjAndVerbs },
+      { title: "Counters, Adv. & Misc.", component: C14CountersAdvMisc },
+    ],
+  },
+  {
+    number: "15",
+    categories: [
+      { title: "Nouns 1", component: C15Nouns1 },
+      { title: "Nouns 2", component: C15Nouns2 },
+      { title: "Ichidan & Godan Verbs", component: C15GodanAndIchidanV },
+      {
+        title: "Irregular Verbs, Adv., & Misc.",
+        component: C15IrrVAdvMisc,
+      },
+    ],
+  },
+  {
+    number: "16",
+    categories: [
+      { title: "Nouns", component: C16Nouns },
+      { title: "Adjectives & U-Verbs", component: C16AdjAndUV },
+      { title: "Ru-Verbs & Irregular Verbs", component: C16RuAndIrrV },
+      { title: "Adverbs & Misc.", component: C16AdvAndMisc },
+    ],
+  },
+]
+
 export default function VocabList() {
   return (
-    <>
-      <h1 class="mx-auto pb-6 pt-28 text-center text-5xl font-semibold tracking-wide">
-        <em>Chapter 0</em>
-      </h1>
-      <div class="grid w-full grid-cols-1 gap-8 lg:grid-cols-2">
-        <div class="hidden lg:block">
-          <h3 class="mb-3 mt-6 text-center text-2xl font-medium text-orange-400">
-            Greetings
-          </h3>
-          <Greetings />
-          <h3 class="mb-3 mt-6 text-center text-2xl font-medium text-orange-400">
-            Numbers
-          </h3>
-          <Numbers />
-          <p class="mt-4 text-center">...up to 99 (it's easy).</p>
-        </div>
-        <div class="hidden lg:block">
-          <h3 class="mb-3 mt-6 text-center text-2xl font-medium text-orange-400">
-            Common Expressions
-          </h3>
-          <CommonExpressions />
-        </div>
-
-        <div class="lg:hidden">
-          <div>
-            <h3 class="mb-3 mt-6 text-center text-2xl font-medium text-orange-400">
-              Greetings
-            </h3>
-            <Greetings />
-          </div>
-          <div>
-            <h3 class="mb-3 mt-6 text-center text-2xl font-medium text-orange-400">
-              Common Expressions
-            </h3>
-            <CommonExpressions />
-          </div>
-          <div>
-            <h3 class="mb-3 mt-6 text-center text-2xl font-medium text-orange-400">
-              Numbers
-            </h3>
-            <Numbers />
-            <p class="mt-4 text-center">...up to 99 (it's easy).</p>
-          </div>
-        </div>
-      </div>
-
-      <h1 class="mx-auto mb-6 mt-20 text-center text-5xl font-semibold tracking-wide">
-        <em>Chapter 1</em>
-      </h1>
-      <div class="grid w-full grid-cols-1 gap-8 lg:grid-cols-2">
-        <div class="hidden lg:block">
-          <h3 class="mb-3 mt-6 text-center text-2xl font-medium text-orange-400">
-            People, Descriptors, Misc.
-          </h3>
-          <PeopleDescriptorsMisc />
-          <h3 class="mb-3 mt-6 text-center text-2xl font-medium text-orange-400">
-            Occupations & Majors
-          </h3>
-          <OccupationsMajors />
-          <h3 class="mb-3 mt-6 text-center text-2xl font-medium text-orange-400">
-            Countries
-          </h3>
-          <Countries />
-          <h3 class="mb-3 mt-6 text-center text-2xl font-medium text-orange-400">
-            Minutes
-          </h3>
-          <Minutes />
-        </div>
-
-        <div class="hidden lg:block">
-          <h3 class="mb-3 mt-6 text-center text-2xl font-medium text-orange-400">
-            Family & School
-          </h3>
-          <FamilySchool />
-          <h3 class="mb-3 mt-6 text-center text-2xl font-medium text-orange-400">
-            Useful Expressions
-          </h3>
-          <UsefulExpressions />
-          <h3 class="mb-3 mt-6 text-center text-2xl font-medium text-orange-400">
-            Time
-          </h3>
-          <Time />
-        </div>
-
-        <div class="lg:hidden">
-          <h3 class="mb-3 mt-6 text-center text-2xl font-medium text-orange-400">
-            People, Descriptors, Misc.
-          </h3>
-          <PeopleDescriptorsMisc />
-        </div>
-        <div class="lg:hidden">
-          <h3 class="mb-3 mt-6 text-center text-2xl font-medium text-orange-400">
-            Family & School
-          </h3>
-          <FamilySchool />
-        </div>
-        <div class="lg:hidden">
-          <h3 class="mb-3 mt-6 text-center text-2xl font-medium text-orange-400">
-            Occupations & Majors
-          </h3>
-          <OccupationsMajors />
-        </div>
-        <div class="lg:hidden">
-          <h3 class="mb-3 mt-6 text-center text-2xl font-medium text-orange-400">
-            Useful Expressions
-          </h3>
-          <UsefulExpressions />
-        </div>
-        <div class="lg:hidden">
-          <h3 class="mb-3 mt-6 text-center text-2xl font-medium text-orange-400">
-            Countries
-          </h3>
-          <Countries />
-        </div>
-        <div class="lg:hidden">
-          <h3 class="mb-3 mt-6 text-center text-2xl font-medium text-orange-400">
-            Time
-          </h3>
-          <Time />
-        </div>
-        <div class="lg:hidden">
-          <h3 class="mb-3 mt-6 text-center text-2xl font-medium text-orange-400">
-            Minutes
-          </h3>
-          <Minutes />
-        </div>
-      </div>
-
-      <h1 class="mx-auto mb-6 mt-20 text-center text-5xl font-semibold tracking-wide">
-        <em>Chapter 2</em>
-      </h1>
-      <div class="grid w-full grid-cols-1 gap-8 lg:grid-cols-2">
-        <div class="hidden lg:block">
-          <h3 class="mb-3 mt-6 text-center text-2xl font-medium text-orange-400">
-            Things
-          </h3>
-          <Things />
-
-          <h3 class="mb-3 mt-6 text-center text-2xl font-medium text-orange-400">
-            Places, Money, Food
-          </h3>
-          <PlacesMoneyFood />
-        </div>
-
-        <div class="hidden lg:block">
-          <h3 class="mb-3 mt-6 text-center text-2xl font-medium text-orange-400">
-            Words That Point
-          </h3>
-          <WordsThatPoint />
-        </div>
-
-        <div class="lg:hidden">
-          <h3 class="mb-3 mt-6 text-center text-2xl font-medium text-orange-400">
-            Things
-          </h3>
-          <Things />
-        </div>
-        <div class="lg:hidden">
-          <h3 class="mb-3 mt-6 text-center text-2xl font-medium text-orange-400">
-            Words That Point
-          </h3>
-          <WordsThatPoint />
-        </div>
-        <div class="lg:hidden">
-          <h3 class="mb-3 mt-6 text-center text-2xl font-medium text-orange-400">
-            Places, Money, Food
-          </h3>
-          <PlacesMoneyFood />
-        </div>
-      </div>
-
-      <h1 class="mx-auto mb-6 mt-20 text-center text-5xl font-semibold tracking-wide">
-        <em>Chapter 3</em>
-      </h1>
-      <div class="grid w-full grid-cols-1 gap-8 lg:grid-cols-2">
-        <div class="hidden lg:block">
-          <h3 class="mb-3 mt-6 text-center text-2xl font-medium text-orange-400">
-            Nouns
-          </h3>
-          <Nouns />
-          <h3 class="mb-3 mt-6 text-center text-2xl font-medium text-orange-400">
-            Verbs & Adjectives
-          </h3>
-          <VerbsAndAdjectives />
-        </div>
-
-        <div class="hidden lg:block">
-          <h3 class="mb-3 mt-6 text-center text-2xl font-medium text-orange-400">
-            Days of The Week & Time
-          </h3>
-          <DaysAndTime />
-          <h3 class="mb-3 mt-6 text-center text-2xl font-medium text-orange-400">
-            Adverbs & Expressions
-          </h3>
-          <AdverbsExpressions />
-          <h3 class="mb-3 mt-6 text-center text-2xl font-medium text-orange-400">
-            And, So, and But
-          </h3>
-          <AndSoBut />
-        </div>
-
-        <div class="lg:hidden">
-          <h3 class="mb-3 mt-6 text-center text-2xl font-medium text-orange-400">
-            Nouns
-          </h3>
-          <Nouns />
-        </div>
-        <div class="lg:hidden">
-          <h3 class="mb-3 mt-6 text-center text-2xl font-medium text-orange-400">
-            Days of The Week & Time
-          </h3>
-          <DaysAndTime />
-        </div>
-        <div class="lg:hidden">
-          <h3 class="mb-3 mt-6 text-center text-2xl font-medium text-orange-400">
-            Verbs & Adjectives
-          </h3>
-          <VerbsAndAdjectives />
-        </div>
-        <div class="lg:hidden">
-          <h3 class="mb-3 mt-6 text-center text-2xl font-medium text-orange-400">
-            Adverbs & Expressions
-          </h3>
-          <AdverbsExpressions />
-        </div>
-        <div class="lg:hidden">
-          <h3 class="mb-3 mt-6 text-center text-2xl font-medium text-orange-400">
-            And, So, and But
-          </h3>
-          <AndSoBut />
-        </div>
-      </div>
-      <h1 class="mx-auto mb-6 mt-20 text-center text-5xl font-semibold tracking-wide">
-        <em>Chapter 13</em>
-      </h1>
-      <div class="grid w-full grid-cols-1 gap-8 lg:grid-cols-2">
-        <div>
-          <h3 class="mb-3 mt-6 text-center text-2xl font-medium text-orange-400">
-            Nouns
-          </h3>
-          <C13Nouns />
-        </div>
-        <div>
-          <h3 class="mb-3 mt-6 text-center text-2xl font-medium text-orange-400">
-            Adjectives & Verbs
-          </h3>
-          <C13AdjAndVerbs />
-        </div>
-        <div>
-          <h3 class="mb-3 mt-6 text-center text-2xl font-medium text-orange-400">
-            Day Count & Misc.
-          </h3>
-          <C13DayCountAndMisc />
-        </div>
-      </div>
-
-      <h1 class="mx-auto mb-6 mt-20 text-center text-5xl font-semibold tracking-wide">
-        <em>Chapter 14</em>
-      </h1>
-      <div class="grid w-full grid-cols-1 gap-8 lg:grid-cols-2">
-        <div>
-          <h3 class="mb-3 mt-6 text-center text-2xl font-medium text-orange-400">
-            Nouns 1
-          </h3>
-          <C14Nouns1 />
-        </div>
-        <div>
-          <h3 class="mb-3 mt-6 text-center text-2xl font-medium text-orange-400">
-            Nouns 2
-          </h3>
-          <C14Nouns2 />
-        </div>
-        <div>
-          <h3 class="mb-3 mt-6 text-center text-2xl font-medium text-orange-400">
-            Adjectives & Verbs
-          </h3>
-          <C14AdjAndVerbs />
-        </div>
-        <div>
-          <h3 class="mb-3 mt-6 text-center text-2xl font-medium text-orange-400">
-            Counters, Adv. & Misc.
-          </h3>
-          <C14CountersAdvMisc />
-        </div>
-      </div>
-
-      <h1 class="mx-auto mb-6 mt-20 text-center text-5xl font-semibold tracking-wide">
-        <em>Chapter 15</em>
-      </h1>
-      <div class="grid w-full grid-cols-1 gap-8 lg:grid-cols-2">
-        <div>
-          <h3 class="mb-3 mt-6 text-center text-2xl font-medium text-orange-400">
-            Nouns 1
-          </h3>
-          <C15Nouns1 />
-        </div>
-        <div>
-          <h3 class="mb-3 mt-6 text-center text-2xl font-medium text-orange-400">
-            Nouns 2
-          </h3>
-          <C15Nouns2 />
-        </div>
-        <div>
-          <h3 class="mb-3 mt-6 text-center text-2xl font-medium text-orange-400">
-            Ichidan & Godan Verbs
-          </h3>
-          <C15GodanAndIchidanV />
-        </div>
-        <div>
-          <h3 class="mb-3 mt-6 text-center text-2xl font-medium text-orange-400">
-            Irreg Verbs, Adv., & Misc.
-          </h3>
-          <C15IrrVAdvMisc />
-        </div>
-      </div>
-
-      <h1 class="mx-auto mb-6 mt-20 text-center text-5xl font-semibold tracking-wide">
-        <em>Chapter 16</em>
-      </h1>
-      <div class="grid w-full grid-cols-1 gap-8 lg:grid-cols-2">
-        <div>
-          <h3 class="mb-3 mt-6 text-center text-2xl font-medium text-orange-400">
-            Nouns
-          </h3>
-          <C16Nouns />
-        </div>
-        <div>
-          <h3 class="mb-3 mt-6 text-center text-2xl font-medium text-orange-400">
-            Adjectives & U-Verbs
-          </h3>
-          <C16AdjAndUV />
-        </div>
-        <div>
-          <h3 class="mb-3 mt-6 text-center text-2xl font-medium text-orange-400">
-            Ru-Verbs & Irregular Verbs
-          </h3>
-          <C16RuAndIrrV />
-        </div>
-        <div>
-          <h3 class="mb-3 mt-6 text-center text-2xl font-medium text-orange-400">
-            Adverbs & Misc.
-          </h3>
-          <C16AdvAndMisc />
-        </div>
-      </div>
-    </>
+    <div class="mx-auto space-y-4 sm:container">
+      <For each={chapters}>
+        {(chapter) => (
+          <ChapterDropdown chapter={chapter.number}>
+            <div class="space-y-2">
+              <For each={chapter.categories}>
+                {(category) => (
+                  <CategoryDropdown
+                    title={category.title}
+                    expandedByDefault={true}
+                  >
+                    <category.component />
+                  </CategoryDropdown>
+                )}
+              </For>
+            </div>
+          </ChapterDropdown>
+        )}
+      </For>
+    </div>
   )
 }

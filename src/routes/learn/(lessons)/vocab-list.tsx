@@ -5,7 +5,7 @@ export default function page() {
   return (
     <>
       <Title>Nihongo Ninja - Vocab List</Title>
-      <div class="px-12 pb-28 sm:px-16 md:px-24">
+      <div class="container mx-auto px-4 py-32">
         <VocabList />
       </div>
     </>
