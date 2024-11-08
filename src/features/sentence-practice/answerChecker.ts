@@ -34,6 +34,7 @@ export const checkAnswer = (
     .sort((a, b) => b.similarity - a.similarity)
 
   const bestMatch = allMatches[0]
+  // console.log("best match: ", bestMatch.answer.segments)
 
   return {
     isCorrect: bestMatch.similarity === 1,

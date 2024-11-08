@@ -1,7 +1,7 @@
 // utils/formAnalyzer.ts
+
 import type { ConjugatedWord } from "../types"
 
-// Helper to check if a segment is a conjugatable word
 export function isConjugatedWord(segment: unknown): segment is ConjugatedWord {
   return typeof segment === "object" && segment !== null && "pos" in segment
 }
@@ -25,7 +25,17 @@ function determineSegmentForm(segment: string): boolean | null {
     segment.endsWith("だ") ||
     segment.endsWith("た") ||
     segment.endsWith("ない") ||
-    segment.endsWith("なかった")
+    segment.endsWith("なかった") ||
+    // Add verb dictionary form endings
+    segment.endsWith("う") ||
+    segment.endsWith("つ") ||
+    segment.endsWith("る") ||
+    segment.endsWith("く") ||
+    segment.endsWith("ぐ") ||
+    segment.endsWith("ぶ") ||
+    segment.endsWith("む") ||
+    segment.endsWith("ぬ") ||
+    segment.endsWith("す")
   ) {
     return false
   }
@@ -34,44 +44,24 @@ function determineSegmentForm(segment: string): boolean | null {
   return null
 }
 
-export function determinePreferredForm(
-  bestMatchSegments: (string | ConjugatedWord)[],
-): boolean {
+export function determinePreferredForm(bestMatchSegments: string[]): boolean {
   let politeCount = 0
   let casualCount = 0
 
   bestMatchSegments.forEach((segment) => {
-    // If it's a conjugated word, use its word property
-    if (isConjugatedWord(segment)) {
-      const form = determineSegmentForm(segment.word)
-      if (form !== null) {
-        if (form) politeCount++
-        else casualCount++
-      }
-      return
-    }
+    const form = determineSegmentForm(segment)
 
-    // For string segments
-    if (typeof segment === "string") {
-      // Skip particles, pronouns, etc.
-      if (segment.length <= 1) return
-
-      const form = determineSegmentForm(segment)
-      if (form !== null) {
-        if (form) politeCount++
-        else casualCount++
-      }
+    if (form === true) {
+      politeCount++
+      // console.log("Polite form found:", segment)
+    } else if (form == null) {
+      // console.log("Unknown form found:", segment)
+    } else {
+      casualCount++
+      // console.log("Casual form found:", segment)
     }
   })
 
-  // console.log("Form analysis:", {
-  //   politeCount,
-  //   casualCount,
-  //   segments: bestMatchSegments.map((seg) =>
-  //     isConjugatedWord(seg) ? seg.word : seg,
-  //   ),
-  // })
-
-  // Default to polite if equal or no clear preference
+  // console.log("Final counts - Polite:", politeCount, "Casual:", casualCount)
   return politeCount >= casualCount
 }

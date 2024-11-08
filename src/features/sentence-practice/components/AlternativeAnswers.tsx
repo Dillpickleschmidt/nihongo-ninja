@@ -12,7 +12,6 @@ interface Props {
 }
 
 export default function AlternativeAnswers(props: Props) {
-  // Create memo to recompute preferred form whenever the best match changes
   const preferPolite = createMemo(() =>
     determinePreferredForm(
       props.matches[props.currentAnswerIndex].answer.segments,
@@ -22,18 +21,12 @@ export default function AlternativeAnswers(props: Props) {
   const alternatives = createMemo(() => {
     const currentPreferPolite = preferPolite()
 
-    return props.matches.filter((match, index) => {
-      // Filter out current answer and variations
-      if (index === props.currentAnswerIndex || match.answer.isVariation) {
-        return false
-      }
-
-      // Analyze this answer's form using its segments
-      const answerIsPolite = determinePreferredForm(match.answer.segments)
-
-      // Only show alternatives matching user's preferred form
-      return answerIsPolite === currentPreferPolite
-    })
+    return props.matches.filter(
+      (match, index) =>
+        index !== props.currentAnswerIndex &&
+        !match.answer.isVariation &&
+        determinePreferredForm(match.answer.segments) === currentPreferPolite,
+    )
   })
 
   return (
@@ -41,7 +34,7 @@ export default function AlternativeAnswers(props: Props) {
       <h3 class="font-bold text-neutral-500">
         Alternative Answers ({preferPolite() ? "Polite Form" : "Casual Form"}):
       </h3>
-      <div class="space-y-3">
+      <div class="max-h-96 space-y-3 overflow-y-auto">
         <For each={alternatives()}>
           {(match) => (
             <div class="rounded-md border bg-card p-2">

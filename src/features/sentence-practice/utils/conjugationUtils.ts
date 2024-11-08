@@ -21,25 +21,51 @@ export function conjugateWord(
   }
 }
 
-const SPECIAL_WORDS = ["です"]
+export const SPECIAL_WORDS: Record<string, (politeForm: boolean) => string> = {
+  です: (politeForm) => (politeForm ? "です" : "だ"),
+}
+
+export const FOLLOWING_WORD_RULES: Record<string, ConjugationOptions> = {
+  って: {
+    polite: false,
+  },
+  たら: {
+    polite: false,
+    negative: false,
+    past: true,
+  },
+}
 
 export function conjugateSegments(
   segments: (string | ConjugatedWord)[],
   politeForm: boolean,
 ): string[] {
-  return segments.map((segment) => {
+  return segments.map((segment, index) => {
+    // Handle special standalone words
     if (typeof segment === "string") {
-      if (!SPECIAL_WORDS.includes(segment)) return segment
-      if (segment === "です" && !politeForm) return "だ"
-    } else {
-      const isBeforeQuote = segments[segments.indexOf(segment) + 1] === "って"
-      return conjugateWord(segment, {
-        polite: isBeforeQuote ? false : politeForm,
-        negative: segment.polarity === "negative",
-        past: segment.tense === "past",
-      })
+      const replacement = SPECIAL_WORDS[segment]
+      if (!replacement) return segment
+      return replacement(politeForm)
     }
 
-    return segment
+    // Handle conjugated words
+    const nextSegment = segments[index + 1]
+    const rule =
+      nextSegment && typeof nextSegment === "string"
+        ? FOLLOWING_WORD_RULES[nextSegment]
+        : null
+
+    let conjugated = conjugateWord(segment, {
+      polite: rule?.polite ?? politeForm,
+      negative: rule?.negative ?? segment.polarity === "negative",
+      past: rule?.past ?? segment.tense === "past",
+    })
+
+    // Handle たら case directly
+    if (nextSegment === "たら") {
+      conjugated = conjugated.slice(0, -1)
+    }
+
+    return conjugated
   })
 }
