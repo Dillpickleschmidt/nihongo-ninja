@@ -3,8 +3,8 @@ import LinkPreview from "./components/LinkPreview"
 export default function ListeningMaterial() {
   return (
     <>
-      <h1 class="mx-auto mb-8 mt-28 text-center text-5xl font-semibold tracking-wide">
-        <em>Chapter 1</em>
+      <h1 class="mx-auto pb-8 pt-28 text-center text-5xl font-semibold tracking-wide">
+        <span>Chapter 1</span>
       </h1>
       <div class="relative grid w-full grid-cols-1 gap-6 lg:grid-cols-2 2xl:grid-cols-4 [&>*]:flex [&>*]:flex-col [&>*]:justify-end">
         <LinkPreview
@@ -42,8 +42,8 @@ export default function ListeningMaterial() {
         />
       </div>
 
-      <h1 class="mx-auto mb-8 mt-20 text-center text-5xl font-semibold tracking-wide">
-        <em>Chapter 2</em>
+      <h1 class="mx-auto pb-8 pt-20 text-center text-5xl font-semibold tracking-wide">
+        <span>Chapter 2</span>
       </h1>
       <div class="grid w-full grid-cols-1 gap-6 lg:grid-cols-2 2xl:grid-cols-4 [&>*]:flex [&>*]:flex-col [&>*]:justify-end">
         <LinkPreview
@@ -74,8 +74,8 @@ export default function ListeningMaterial() {
         />
       </div>
 
-      <h1 class="mx-auto mb-8 mt-20 text-center text-5xl font-semibold tracking-wide">
-        <em>Chapter 3</em>
+      <h1 class="mx-auto pb-8 pt-20 text-center text-5xl font-semibold tracking-wide">
+        <span>Chapter 3</span>
       </h1>
       <div class="grid w-full grid-cols-1 gap-6 lg:grid-cols-2 2xl:grid-cols-4 [&>*]:flex [&>*]:flex-col [&>*]:justify-end">
         <LinkPreview
