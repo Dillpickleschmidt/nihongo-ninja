@@ -21,15 +21,27 @@ export const FOLLOWING_WORD_RULES: Record<string, Rule> = {
   //   polite: false,
   //   form: word.tense === "past" ? "normal" : "te-form",
   // }),
+  // って related
   って: { polite: false },
+
+  // Conditional forms
   たら: {
     polite: false,
-    negative: false,
     past: true,
   },
-  こと: { polite: false },
-  方: { polite: false },
-  と: { polite: false },
+  // ば: { polite: false }, // ば conditional
+
+  // Casual conjunctions/particles
+  のに: { polite: false }, // Despite/although (casual)
+  けど: { polite: false }, // But (casual)
+  し: { polite: false }, // And/besides (casual)
+
+  // Nominalizers in casual constructions
+  こと: { polite: false }, // When used in constructions like ことができる
+  もの: { polite: false }, // When used in casual explanatory tone
+
+  // Others requiring casual form
+  ながら: { polite: false }, // While doing
 } as const
 
 // Helper functions
