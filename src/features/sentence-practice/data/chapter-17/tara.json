@@ -18,6 +18,7 @@
           {
             "word": "行[い]く",
             "pos": "Godan verb - Iku/Yuku special class",
+            "form": "volitional",
             "polarity": "positive",
             "tense": "non-past"
           }
@@ -44,10 +45,10 @@
           {
             "word": "帰[かえ]る",
             "pos": "Godan verb with 'ru' ending",
+            "form": "tai-form",
             "polarity": "positive",
             "tense": "non-past"
           },
-          "たく",
           {
             "word": "なる",
             "pos": "Godan verb with 'ru' ending",
@@ -78,6 +79,7 @@
           {
             "word": "連絡[れんらく]する",
             "pos": "Suru verb - compound word",
+            "form": "volitional",
             "polarity": "positive",
             "tense": "non-past"
           }
@@ -111,7 +113,7 @@
             "tense": "non-past"
           }
         ],
-        "notes": "Using できる for potential form"
+        "notes": "Using できる for potential form (SHOULD BE なくなります)"
       }
     ]
   },
@@ -125,9 +127,11 @@
           {
             "word": "結婚[けっこん]する",
             "pos": "Suru verb - compound word",
+            "form": "te-form",
             "polarity": "positive",
             "tense": "non-past"
           },
+          "いる",
           "の",
           "を",
           {
@@ -165,9 +169,11 @@
           {
             "word": "教[おし]える",
             "pos": "Ichidan verb",
+            "form": "te-form",
             "polarity": "positive",
             "tense": "non-past"
-          }
+          },
+          "ください"
         ],
         "notes": "Using 終わる for completion"
       }
@@ -176,6 +182,83 @@
   {
     "english": "If I become a salaryman, I wonder if I'll get used to wearing a suit every day",
     "answers": [
+      {
+        "segments": [
+          "サラリーマン",
+          "に",
+          {
+            "word": "なる",
+            "pos": "Godan verb with 'ru' ending",
+            "polarity": "positive",
+            "tense": "non-past"
+          },
+          "たら",
+          "毎日[まいにち]",
+          "スーツ",
+          "を",
+          {
+            "word": "着[き]る",
+            "pos": "Ichidan verb",
+            "polarity": "positive",
+            "tense": "non-past"
+          },
+          "こと",
+          "に",
+          {
+            "word": "慣[な]れる",
+            "pos": "Ichidan verb",
+            "polarity": "positive",
+            "tense": "non-past"
+          },
+          "かな",
+          "と",
+          {
+            "word": "思[おも]う",
+            "pos": "Godan verb with 'u' ending",
+            "polarity": "positive",
+            "tense": "non-past"
+          }
+        ],
+        "notes": "Using こと to nominalize the action"
+      },
+      {
+        "segments": [
+          "サラリーマン",
+          "に",
+          {
+            "word": "なる",
+            "pos": "Godan verb with 'ru' ending",
+            "polarity": "positive",
+            "tense": "non-past"
+          },
+          "たら",
+          "毎日[まいにち]",
+          "スーツ",
+          "を",
+          {
+            "word": "着[き]る",
+            "pos": "Ichidan verb",
+            "polarity": "positive",
+            "tense": "non-past"
+          },
+          "こと",
+          "に",
+          {
+            "word": "慣[な]れる",
+            "pos": "Ichidan verb",
+            "polarity": "positive",
+            "tense": "non-past"
+          },
+          "と",
+          {
+            "word": "思[おも]う",
+            "pos": "Godan verb with 'u' ending",
+            "polarity": "positive",
+            "tense": "non-past"
+          }
+        ],
+        "notes": "Using こと to nominalize the action"
+      },
       {
         "segments": [
           "サラリーマン",
@@ -227,9 +310,43 @@
             "pos": "Na-adjective",
             "polarity": "positive",
             "tense": "non-past"
+          },
+          "に",
+          {
+            "word": "なる",
+            "pos": "Godan verb with 'ru' ending",
+            "polarity": "positive",
+            "tense": "non-past"
           }
         ],
         "notes": "Using もっと for emphasis"
+      },
+      {
+        "segments": [
+          {
+            "word": "離婚[りこん]する",
+            "pos": "Suru verb - compound word",
+            "polarity": "positive",
+            "tense": "non-past"
+          },
+          "たら",
+          "もっと",
+          {
+            "word": "自由[じゆう]",
+            "pos": "Na-adjective",
+            "polarity": "positive",
+            "tense": "non-past"
+          },
+          "に",
+          {
+            "word": "なる",
+            "pos": "Godan verb with 'ru' ending",
+            "polarity": "positive",
+            "tense": "non-past"
+          },
+          "よ"
+        ],
+        "notes": "Using もっと + よ for emphasis"
       }
     ]
   },
@@ -252,6 +369,12 @@
           {
             "word": "寂[さび]しい",
             "pos": "I-adjective",
+            "polarity": "positive",
+            "tense": "non-past"
+          },
+          {
+            "word": "なる",
+            "pos": "Godan verb with 'ru' ending",
             "polarity": "positive",
             "tense": "non-past"
           }
@@ -281,7 +404,11 @@
             "pos": "Godan verb with 'u' ending",
             "polarity": "positive",
             "tense": "non-past"
-          }
+          },
+          "方[ほう]",
+          "が",
+          "いい",
+          "です"
         ],
         "notes": "Using 話し合う for mutual discussion"
       }
@@ -304,6 +431,13 @@
           {
             "word": "心配[しんぱい]",
             "pos": "Na-adjective",
+            "polarity": "positive",
+            "tense": "non-past"
+          },
+          "に",
+          {
+            "word": "なる",
+            "pos": "Godan verb with 'ru' ending",
             "polarity": "positive",
             "tense": "non-past"
           }
@@ -331,6 +465,7 @@
           {
             "word": "やめる",
             "pos": "Ichidan verb",
+            "form": "potential",
             "polarity": "negative",
             "tense": "non-past"
           }
@@ -341,6 +476,7 @@
   },
   {
     "english": "If the hot water isn't enough, just boil some more",
+    "hint": "Don't literally translate word-for-word",
     "answers": [
       {
         "segments": [
@@ -357,9 +493,11 @@
           {
             "word": "沸[わ]かす",
             "pos": "Godan verb with 'su' ending",
+            "form": "te-form",
             "polarity": "positive",
             "tense": "non-past"
-          }
+          },
+          "ください"
         ],
         "notes": "Using もっと for 'more'"
       }
@@ -383,6 +521,7 @@
           {
             "word": "する",
             "pos": "Suru verb - special class",
+            "form": "volitional",
             "polarity": "positive",
             "tense": "non-past"
           }
@@ -409,6 +548,13 @@
           {
             "word": "なる",
             "pos": "Godan verb with 'ru' ending",
+            "polarity": "positive",
+            "tense": "non-past"
+          },
+          "と",
+          {
+            "word": "思[おも]う",
+            "pos": "Godan verb with 'u' ending",
             "polarity": "positive",
             "tense": "non-past"
           }
@@ -438,6 +584,12 @@
             "pos": "I-adjective",
             "polarity": "positive",
             "tense": "non-past"
+          },
+          {
+            "word": "なる",
+            "pos": "Godan verb with 'ru' ending",
+            "polarity": "positive",
+            "tense": "non-past"
           }
         ],
         "notes": "Using に with 慣れる"
@@ -463,14 +615,17 @@
             "pos": "Godan verb - Iku/Yuku special class",
             "polarity": "negative",
             "tense": "non-past"
-          }
+          },
+          "ても",
+          "いい",
+          "です"
         ],
         "notes": "Using 無理して for 'force yourself'"
       }
     ]
   },
   {
-    "english": "When the scheduling doesn't work out, I tend to get depressed",
+    "english": "When the scheduling doesn't work out, I get depressed",
     "answers": [
       {
         "segments": [
@@ -517,7 +672,8 @@
             "pos": "Godan verb with 'u' ending",
             "polarity": "positive",
             "tense": "non-past"
-          }
+          },
+          "か"
         ],
         "notes": "Using に with 最初"
       }
@@ -541,6 +697,14 @@
           {
             "word": "できる",
             "pos": "Ichidan verb",
+            "polarity": "positive",
+            "tense": "non-past"
+          },
+          "よう",
+          "に",
+          {
+            "word": "なる",
+            "pos": "Godan verb with 'ru' ending",
             "polarity": "positive",
             "tense": "non-past"
           }

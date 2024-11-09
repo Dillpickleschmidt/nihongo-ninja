@@ -23,14 +23,29 @@ export type CheckResult = {
   bestMatch: Answer
 }
 
+type WordForms =
+  | "normal"
+  | "te-form"
+  | "tari-form"
+  | "tai-form"
+  | "potential"
+  | "volitional"
+  | "imperative"
+  | "conditional"
+  | "passive"
+  | "causative"
+  | "causativePassive"
+
 export type ConjugatedWord = {
   word: string
   pos: string
+  form: WordForms
   polarity: "positive" | "negative"
   tense: "past" | "non-past"
 }
 
 export type ConjugationOptions = {
+  form?: WordForms
   polite?: boolean
   negative?: boolean
   past?: boolean

@@ -67,7 +67,7 @@ export default function SettingsPage({ onStartReview }: SettingsPageProps) {
     { tariForm: "食べたり" },
     { taiForm: "食べたい" },
     { potential: "食べられる" },
-    { volitional: "食べよう" },
+    { volitional: "食べよう・食べましょう" },
     { imperative: "食べろ" },
     { conditional: "食べれば" },
     { passive: "食べられる" },
