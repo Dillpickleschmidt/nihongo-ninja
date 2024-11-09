@@ -1,4 +1,3 @@
-// createAnswerVariations.ts
 import type { PracticeQuestion, Answer } from "./types"
 import { conjugateSegments } from "./utils/conjugationUtils"
 import { generateCombinations } from "./utils/variationUtils"
@@ -16,11 +15,11 @@ export function createAnswerVariations(
   return questions.flatMap((question) => {
     // First create all conjugated forms
     const conjugatedAnswers = question.answers.flatMap((answer) =>
-      politenessVariations.map((isPolite, index) => ({
+      politenessVariations.map((isPolite) => ({
         ...answer,
         segments: conjugateSegments(answer.segments, isPolite),
         originalPoliteForm: isPolite,
-        isVariation: index > 0, // First form is primary, others are variations
+        isVariation: false, // Both polite and casual forms are primary answers
       })),
     )
 
@@ -39,8 +38,8 @@ export function createAnswerVariations(
         ...answer,
         segments: combination.segments,
         originalPoliteForm: answer.originalPoliteForm,
+        // Only mark the following as variations:
         isVariation:
-          answer.isVariation ||
           combination.isKanaVariation ||
           combination.isPeriodVariation ||
           combination.isWatashiVariation,
