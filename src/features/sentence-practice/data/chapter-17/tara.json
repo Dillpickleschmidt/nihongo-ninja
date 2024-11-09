@@ -45,7 +45,7 @@
           {
             "word": "帰[かえ]る",
             "pos": "Godan verb with 'ru' ending",
-            "form": "tai-form",
+            "form": "tai-adv-form",
             "polarity": "positive",
             "tense": "non-past"
           },
@@ -56,7 +56,29 @@
             "tense": "non-past"
           }
         ],
-        "notes": "Using たく to express desire"
+        "notes": "Using たい + なる to express a desire"
+      },
+      {
+        "segments": [
+          "仕事[しごと]",
+          "で",
+          {
+            "word": "疲[つか]れる",
+            "pos": "Ichidan verb",
+            "polarity": "positive",
+            "tense": "non-past"
+          },
+          "たら",
+          "まっすぐ",
+          {
+            "word": "帰[かえ]る",
+            "pos": "Godan verb with 'ru' ending",
+            "form": "tai-form",
+            "polarity": "positive",
+            "tense": "non-past"
+          }
+        ],
+        "notes": "Using たい to express desire"
       }
     ]
   },

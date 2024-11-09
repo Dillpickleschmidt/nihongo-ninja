@@ -1,19 +1,19 @@
 // conjugationUtils.ts
-import type { ConjugatedWord, ConjugationOptions } from "../types"
+import type { ConjugatedWord, ConjugationOverrides } from "../types"
 import { extractHiragana } from "@/util/vocabDataTransformer"
 import * as conjugationUtils from "@/features/conjugation-practice/utils/conjugationUtils"
 import { restoreKanji } from "./kanjiUtils"
 
-export function conjugateWord(
+function conjugateWord(
   wordObj: ConjugatedWord,
-  options: ConjugationOptions,
+  options: ConjugationOverrides,
 ): string {
   try {
     const dictionaryHiragana = extractHiragana(wordObj.word)
     const conjugatedHiragana = conjugationUtils.conjugate(
       dictionaryHiragana,
       wordObj.pos,
-      wordObj.form,
+      options.form ?? wordObj.form,
       {
         polite: options.polite,
         negative: options.negative ?? wordObj.polarity === "negative",
@@ -33,7 +33,7 @@ export const SPECIAL_WORDS: Record<string, (politeForm: boolean) => string> = {
 }
 
 // We can extend the rules to include form overrides as well
-export const FOLLOWING_WORD_RULES: Record<string, ConjugationOptions> = {
+export const FOLLOWING_WORD_RULES: Record<string, ConjugationOverrides> = {
   って: {
     polite: false,
     form: "te-form", // Override to force te-form before って
@@ -74,16 +74,43 @@ export function conjugateSegments(
         ? FOLLOWING_WORD_RULES[nextSegment]
         : null
 
-    // console.log("segment", segment)
-    // console.log("rule", rule)
+    let conjugated: string
+    const form = rule?.form ?? segment.form
+    console.log("form", form)
 
-    let conjugated = conjugateWord(segment, {
-      form: rule?.form ?? segment.form,
-      polite: rule?.polite ?? politeForm,
-      negative: rule?.negative ?? segment.polarity === "negative",
-      past: rule?.past ?? segment.tense === "past",
-    })
-    // console.log("conjugated", conjugated)
+    switch (form) {
+      case "tai-adv-form": {
+        conjugated = conjugateWord(segment, {
+          form: "tai-form",
+          polite: false,
+          negative: rule?.negative ?? segment.polarity === "negative",
+          past: rule?.past ?? segment.tense === "past",
+        })
+        conjugated = conjugated.slice(0, -1).concat("く")
+        break
+      }
+      case "potential-adv-form": {
+        conjugated = conjugateWord(segment, {
+          form: "potential",
+          polite: false,
+          negative: rule?.negative ?? segment.polarity === "negative",
+          past: rule?.past ?? segment.tense === "past",
+        })
+        conjugated = conjugated.slice(0, -1).concat("く")
+        break
+      }
+      default: {
+        conjugated = conjugateWord(segment, {
+          form: form,
+          polite: rule?.polite ?? politeForm,
+          negative: rule?.negative ?? segment.polarity === "negative",
+          past: rule?.past ?? segment.tense === "past",
+        })
+        break
+      }
+    }
+
+    console.log("conjugated", conjugated)
 
     // Handle たら case directly
     if (nextSegment === "たら") {

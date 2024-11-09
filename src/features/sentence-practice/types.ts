@@ -47,7 +47,7 @@ export type ConjugatedWord = {
   tense: "past" | "non-past"
 }
 
-export type ConjugationOptions = {
+export type ConjugationOverrides = {
   form?: WordForms
   polite?: boolean
   negative?: boolean
