@@ -17,11 +17,11 @@ export const SPECIAL_WORDS: Record<string, SpecialWordFunction> = {
 
 // Constants - Grammar rules for following words
 export const FOLLOWING_WORD_RULES: Record<string, Rule> = {
-  って: (word) => ({
-    polite: false,
-    form: word.tense === "past" ? "normal" : "te-form",
-    past: word.tense === "past",
-  }),
+  // って: (word) => ({
+  //   polite: false,
+  //   form: word.tense === "past" ? "normal" : "te-form",
+  // }),
+  って: { polite: false },
   たら: {
     polite: false,
     negative: false,
