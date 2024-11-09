@@ -29,15 +29,14 @@ type WordForms =
   | "te-form"
   | "tari-form"
   | "tai-form"
-  | "tai-adv-form"
   | "potential"
-  | "potential-adv-form"
   | "volitional"
   | "imperative"
   | "conditional"
   | "passive"
   | "causative"
   | "causativePassive"
+  | "adverb"
 
 export type ConjugatedWord = {
   word: string
@@ -52,4 +51,5 @@ export type ConjugationOverrides = {
   polite?: boolean
   negative?: boolean
   past?: boolean
+  adverb?: boolean
 }

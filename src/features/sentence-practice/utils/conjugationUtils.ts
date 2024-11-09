@@ -1,8 +1,25 @@
-// conjugationUtils.ts
 import type { ConjugatedWord, ConjugationOverrides } from "../types"
 import { extractHiragana } from "@/util/vocabDataTransformer"
 import * as conjugationUtils from "@/features/conjugation-practice/utils/conjugationUtils"
 import { restoreKanji } from "./kanjiUtils"
+
+function shouldUseAdverbialForm(form: string, pos: string): boolean {
+  if (pos === "I-adjective" || pos === "Na-adjective") {
+    return form === "adverb"
+  }
+  return form === "tai-adv-form" || form === "potential-adv-form"
+}
+
+function normalizeForm(form: string): string {
+  switch (form) {
+    case "tai-adv-form":
+      return "tai-form"
+    case "potential-adv-form":
+      return "potential"
+    default:
+      return form
+  }
+}
 
 function conjugateWord(
   wordObj: ConjugatedWord,
@@ -10,16 +27,27 @@ function conjugateWord(
 ): string {
   try {
     const dictionaryHiragana = extractHiragana(wordObj.word)
+    const form = options.form ?? wordObj.form
+
+    // Determine if we should use adverbial form
+    const useAdverb =
+      options.adverb ?? shouldUseAdverbialForm(form, wordObj.pos)
+
+    // Normalize the form name for the conjugation utility
+    const normalizedForm = normalizeForm(form)
+
     const conjugatedHiragana = conjugationUtils.conjugate(
       dictionaryHiragana,
       wordObj.pos,
-      options.form ?? wordObj.form,
+      normalizedForm,
       {
         polite: options.polite,
         negative: options.negative ?? wordObj.polarity === "negative",
         past: options.past ?? wordObj.tense === "past",
+        adverb: useAdverb,
       },
     )[0]
+
     return restoreKanji(wordObj.word, conjugatedHiragana)
   } catch (error) {
     console.error("Error conjugating word:", { wordObj, options, error })
@@ -32,7 +60,6 @@ export const SPECIAL_WORDS: Record<string, (politeForm: boolean) => string> = {
   か: (politeForm) => (politeForm ? "か" : "？"),
 }
 
-// We can extend the rules to include form overrides as well
 export const FOLLOWING_WORD_RULES: Record<string, ConjugationOverrides> = {
   って: {
     polite: false,
@@ -74,47 +101,16 @@ export function conjugateSegments(
         ? FOLLOWING_WORD_RULES[nextSegment]
         : null
 
-    let conjugated: string
-    const form = rule?.form ?? segment.form
-    console.log("form", form)
-
-    switch (form) {
-      case "tai-adv-form": {
-        conjugated = conjugateWord(segment, {
-          form: "tai-form",
-          polite: false,
-          negative: rule?.negative ?? segment.polarity === "negative",
-          past: rule?.past ?? segment.tense === "past",
-        })
-        conjugated = conjugated.slice(0, -1).concat("く")
-        break
-      }
-      case "potential-adv-form": {
-        conjugated = conjugateWord(segment, {
-          form: "potential",
-          polite: false,
-          negative: rule?.negative ?? segment.polarity === "negative",
-          past: rule?.past ?? segment.tense === "past",
-        })
-        conjugated = conjugated.slice(0, -1).concat("く")
-        break
-      }
-      default: {
-        conjugated = conjugateWord(segment, {
-          form: form,
-          polite: rule?.polite ?? politeForm,
-          negative: rule?.negative ?? segment.polarity === "negative",
-          past: rule?.past ?? segment.tense === "past",
-        })
-        break
-      }
-    }
-
-    console.log("conjugated", conjugated)
+    const conjugated = conjugateWord(segment, {
+      form: rule?.form ?? segment.form,
+      polite: rule?.polite ?? politeForm,
+      negative: rule?.negative ?? segment.polarity === "negative",
+      past: rule?.past ?? segment.tense === "past",
+    })
 
     // Handle たら case directly
     if (nextSegment === "たら") {
-      conjugated = conjugated.slice(0, -1)
+      return conjugated.slice(0, -1)
     }
 
     return conjugated
