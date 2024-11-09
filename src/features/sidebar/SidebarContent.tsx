@@ -8,6 +8,7 @@ import {
   Library,
   BookPlus,
   TicketPlus,
+  Pencil,
 } from "lucide-solid"
 
 type SidebarContentProps = {
@@ -31,7 +32,7 @@ export default function SidebarContent({
         >
           <BookPlus
             size="22px"
-            class={`${inDialog ? "mx-3" : "lg:mr-3"} text-amber-400`}
+            class={`${inDialog ? "mx-3" : "lg:mr-3"} text-indigo-400`}
           />
           <span
             class={`opacity-75 ${!inDialog && "hidden lg:flex lg:items-center"}`}
@@ -56,6 +57,44 @@ export default function SidebarContent({
           />
           <span class={`opacity-75 ${!inDialog && "hidden lg:flex"}`}>
             Grammar Notes
+          </span>
+        </Button>
+      </A>
+      <A href="/learn/sentence-practice">
+        <Button
+          size="lg"
+          variant="outline"
+          class={`w-full min-w-11 text-nowrap p-0 py-3 text-sm font-normal ${
+            inDialog
+              ? "justify-start"
+              : "hidden sm:inline-flex xl:w-56 xl:text-base 2xl:w-72"
+          } lg:px-6`}
+        >
+          <Pencil
+            size="22px"
+            class={`${inDialog ? "mx-3" : "lg:mr-3"} text-yellow-500`}
+          />
+          <span class={`opacity-75 ${!inDialog && "hidden lg:flex"}`}>
+            Sentence Practice
+          </span>
+        </Button>
+      </A>
+      <A href="/learn/conjugation">
+        <Button
+          size="lg"
+          variant="outline"
+          class={`w-full min-w-11 text-nowrap p-0 py-3 text-sm font-normal ${
+            inDialog
+              ? "justify-start"
+              : "hidden sm:inline-flex xl:w-56 xl:text-base 2xl:w-72"
+          } lg:px-6`}
+        >
+          <GraduationCap
+            size="22px"
+            class={`${inDialog ? "mx-3" : "lg:mr-3"} text-teal-400`}
+          />
+          <span class={`opacity-75 ${!inDialog && "hidden lg:flex"}`}>
+            Conjugation
           </span>
         </Button>
       </A>
@@ -94,25 +133,6 @@ export default function SidebarContent({
           />
           <span class={`opacity-75 ${!inDialog && "hidden lg:flex"}`}>
             Vocab Practice
-          </span>
-        </Button>
-      </A>
-      <A href="/learn/conjugation">
-        <Button
-          size="lg"
-          variant="outline"
-          class={`w-full min-w-11 text-nowrap p-0 py-3 text-sm font-normal ${
-            inDialog
-              ? "justify-start"
-              : "hidden sm:inline-flex xl:w-56 xl:text-base 2xl:w-72"
-          } lg:px-6`}
-        >
-          <GraduationCap
-            size="22px"
-            class={`${inDialog ? "mx-3" : "lg:mr-3"} text-teal-400`}
-          />
-          <span class={`opacity-75 ${!inDialog && "hidden lg:flex"}`}>
-            Conjugation
           </span>
         </Button>
       </A>

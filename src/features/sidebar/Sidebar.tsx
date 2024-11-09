@@ -21,7 +21,7 @@ export default function Sidebar() {
             <h2 class="mr-4 mt-16 pb-6 text-center text-[1.75rem] font-black">
               Modules
             </h2>
-            <div class="flex w-full flex-col space-y-6 pl-2 pr-4">
+            <div class="flex w-full flex-col space-y-4 pl-2 pr-4">
               <SidebarContent inDialog={true} />
             </div>
           </SheetContent>
