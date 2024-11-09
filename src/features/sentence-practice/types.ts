@@ -3,6 +3,7 @@ export type Answer = {
   segments: string[] // Now just array of strings with readings in brackets
   notes?: string
   isVariation?: boolean // For filtering kana variations (not hardcoded variations in json data)
+  originalPoliteForm?: boolean
 }
 
 export type PracticeQuestion = {
@@ -28,7 +29,9 @@ type WordForms =
   | "te-form"
   | "tari-form"
   | "tai-form"
+  | "tai-adv-form"
   | "potential"
+  | "potential-adv-form"
   | "volitional"
   | "imperative"
   | "conditional"
