@@ -1,3 +1,4 @@
+// variationUtils.ts
 import { extractHiragana } from "@/util/vocabDataTransformer"
 
 const PRONOUNS = [

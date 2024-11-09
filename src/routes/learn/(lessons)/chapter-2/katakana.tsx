@@ -222,8 +222,7 @@ export default function page() {
             </li>
             <li>
               <span class="font-japanese text-xl">ン</span> (n) and{" "}
-              <span class="font-japanese text-xl">ソ</span> (so),{" "}
-              <span class="font-japanese text-xl">ン</span> (n) are similar.{" "}
+              <span class="font-japanese text-xl">ソ</span> (so) are similar.{" "}
               <span class="font-japanese text-xl">ン</span> (n) is also flatter
               while <span class="font-japanese text-xl">ソ</span> (so) is more
               vertical.

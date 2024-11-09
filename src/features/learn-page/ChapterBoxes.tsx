@@ -914,32 +914,32 @@ export default function ChapterBoxes() {
             types: ["vocab-practice"],
           },
           {
-            title: "Nouns 2",
+            title: "い Adjectives",
             link: "/learn/chapter-5/i-adjectives",
             types: ["vocab"],
           },
           {
-            title: "Practice Nouns 2 - Readings",
+            title: "Practice い Adjectives - Readings",
             link: "/learn/chapter-5/practice/i-adjectives-readings",
             types: ["vocab-practice"],
           },
           {
-            title: "Practice Nouns 2 - Kana",
+            title: "Practice い Adjectives - Kana",
             link: "/learn/chapter-5/practice/i-adjectives-kana",
             types: ["vocab-practice"],
           },
           {
-            title: "Na-Adjectives",
+            title: "な Adjectives",
             link: "/learn/chapter-5/na-adjectives",
             types: ["vocab"],
           },
           {
-            title: "Practice Na-Adjectives - Readings",
+            title: "Practice な Adjectives - Readings",
             link: "/learn/chapter-5/practice/na-adjectives-readings",
             types: ["vocab-practice"],
           },
           {
-            title: "Practice Na-Adjectives - Kana",
+            title: "Practice な Adjectives - Kana",
             link: "/learn/chapter-5/practice/na-adjectives-kana",
             types: ["vocab-practice"],
           },

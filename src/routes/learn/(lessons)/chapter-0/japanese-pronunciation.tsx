@@ -34,10 +34,8 @@ export default function JapanesePronunciation() {
         Getting started 🍵
       </h2>
       <h2 class="mt-6 px-12 pb-2 text-3xl font-medium leading-[2.5rem] lg:px-24">
-        Feeling a bit <span class="font-extrabold">daunted</span> by the thought
-        of tackling Japanese? Fear not! If you're coming from the world of
-        English, you'll find Japanese pronunciation isn't the dragon you might
-        expect.
+        If you know English, you'll find Japanese pronunciation isn't as hard as
+        you might expect.
       </h2>
       <div class="mb-32 px-16 sm:px-24 [&>*]:my-6">
         <p>
@@ -57,9 +55,9 @@ export default function JapanesePronunciation() {
         </p>
         <p class="text-base italic text-muted-foreground">
           *Nihongo Ninja slashes through the basics from N5-N4 levels. We follow
-          the school textbook trail but with epic explanations and practice
-          tools that actually don't bore you to tears. Each topic? Handpicked
-          from the internet's vast dojo for maximum enlightenment.
+          a typical college textbook order but with epic explanations and
+          practice tools that actually don't bore you to tears. Each topic?
+          Handpicked from the internet's vast dojo for maximum enlightenment.
         </p>
         <div class="pb-4 pt-2 [&>*]:my-6">
           <div class="mr-[5.75rem] rounded-2xl border-2 border-dashed border-muted bg-card p-4 shadow-md">
