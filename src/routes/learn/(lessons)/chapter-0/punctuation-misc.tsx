@@ -1,7 +1,7 @@
 import ContentBox from "@/components/ContentBox"
 import PortraitIcon from "@/components/PortraitIcon"
 
-export default function JapanesePronunciation() {
+export default function JapanesePunctuation() {
   return (
     <ContentBox
       nextButtonText="See Vocab! ->"
@@ -24,10 +24,12 @@ export default function JapanesePronunciation() {
         </span>{" "}
         Strap in, because you're about to get wildly... precise!
       </h1>
+
       <h2 class="mb-4 mt-12 text-center text-3xl font-bold">
         No Uppercase or Lowercase!
       </h2>
-      <div class="space-y-9 px-16 pb-32 sm:px-24">
+
+      <div class="space-y-9 px-8 pb-32 sm:px-24 lg:px-16">
         <div class="mr-[5.75rem] mt-9 rounded-2xl border-2 border-dashed border-muted bg-card p-4 shadow-md">
           <PortraitIcon src="/img/student.png" />
           <p>
@@ -36,20 +38,27 @@ export default function JapanesePronunciation() {
             uppercase and lowercase letters in Japanese?
           </p>
         </div>
+
         <div class="ml-24 rounded-2xl border-2 border-dashed border-muted bg-card p-4 shadow-md">
           <PortraitIcon src="/img/guru.png" class="float-end" />
           <p>
-            Ah, inquisitive mind, Japanese is a language of simplicity in some
-            aspects. Unlike English, Japanese does not distinguish between
-            uppercase and lowercase letters. Each character stands proudly on
-            its own, without needing to change form.
+            <span class="font-extralight italic">
+              *without looking up from his precise brushwork*
+            </span>{" "}
+            Japanese is a language of elegant simplicity in some aspects. Unlike
+            English, Japanese does not distinguish between uppercase and
+            lowercase letters. Each character stands proudly on its own, without
+            needing to change form.
           </p>
         </div>
+
         <h2 class="mb-4 mt-12 text-center text-3xl font-bold">Punctuation</h2>
+
         <div class="mr-[5.75rem] mt-9 rounded-2xl border-2 border-dashed border-muted bg-card p-4 shadow-md">
           <PortraitIcon src="/img/student.png" />
           <p>What about punctuation, like question marks and periods?</p>
         </div>
+
         <div class="ml-24 rounded-2xl border-2 border-dashed border-muted bg-card p-4 shadow-md">
           <PortraitIcon src="/img/guru.png" class="float-end" />
           <p>
@@ -62,6 +71,7 @@ export default function JapanesePronunciation() {
             <span class="font-japanese text-xl">か</span> (ka).
           </p>
         </div>
+
         <h3 class="text-2xl font-medium">
           Japanese speakers use <span class="font-japanese">か</span> to
           indicate questions in polite and formal contexts. In casual settings,
@@ -69,40 +79,68 @@ export default function JapanesePronunciation() {
           intonation at the end of their sentence, which is written with a
           question mark (？).
         </h3>
+
         <p>
           <span class="font-extrabold">Student:</span> Oh, that's weird. I'll
           have to get used to that.
         </p>
+
         <div class="mr-[5.75rem] mt-9 rounded-2xl border-2 border-dashed border-muted bg-card p-4 shadow-md">
           <PortraitIcon src="/img/student.png" />
           <p>So, what about periods? Surely, they use those... right Sensei?</p>
         </div>
+
         <div class="ml-24 rounded-2xl border-2 border-dashed border-muted bg-card p-4 shadow-md">
           <PortraitIcon src="/img/guru.png" class="float-end" />
           <p>
-            Indeed, young grasshopper. The humble period (。) in Japanese is
-            called “句点” (kuten). It's used at the end of a sentence, just like
-            in English. But instead of a solid dot, it's a hollow circle—imagine
-            it as a tiny halo, giving your sentence a celestial send-off.
+            Indeed. The humble period (。) in Japanese is called "句点" (kuten).
+            It's used at the end of a sentence, just like in English. But
+            instead of a solid dot, it's a hollow circle—imagine it as a tiny
+            moon marking the end of your sentence's journey.
           </p>
         </div>
+
         <h2 class="mb-4 mt-12 text-center text-3xl font-bold">No Spaces!</h2>
+
         <div class="mr-[5.75rem] mt-9 rounded-2xl border-2 border-dashed border-muted bg-card p-4 shadow-md">
           <PortraitIcon src="/img/student.png" />
           <p>
             Do Japanese sentences have spaces between words like in English?
           </p>
         </div>
+
         <div class="ml-24 rounded-2xl border-2 border-dashed border-muted bg-card p-4 shadow-md">
           <PortraitIcon src="/img/guru.png" class="float-end" />
           <p>
-            Ah, spaces, or rather the absence of them, is a unique feature of
-            Japanese. In traditional Japanese writing, spaces are not used
-            between words. The text flows continuously, like a river. However,
-            modern Japanese sometimes uses spaces in children's books or
-            language learning materials to help with readability.
+            <span class="font-extralight italic">*eye twitching slightly*</span>{" "}
+            Oh, spaces... <em>*nervous laughter*</em> Let me tell you about
+            spaces. Or rather, the complete and total ABSENCE of spaces! That's
+            right - Japanese doesn't use ANY spaces between words! Do you have
+            ANY idea how many hours I spent trying to get this website to
+            understand where one word ends and another begins?! The computer
+            just sits there, staring at an endless stream of characters like
+            some kind of confused tourist!
           </p>
+          <p class="mt-4">
+            <em>*takes deep breath*</em>
+          </p>
+          <p class="mt-4">
+            Traditional Japanese writing flows continuously, like a river. A
+            river that occasionally makes web developers question their life
+            choices.
+            <em>*adjusts collar*</em> But I digress...
+          </p>
+          <p class="mt-4">
+            Modern Japanese sometimes uses spaces in children's books or
+            language learning materials to help with readability. Which would
+            have made my life SO much easier!
+          </p>
+          <p class="mt-4">
+            <em>*composes self*</em>
+          </p>
+          <p class="mt-4">Not that I'm bitter about it or anything.</p>
         </div>
+
         <h3 class="text-2xl font-medium">
           Japanese doesn't use spaces between words. However, when typing,
           you'll notice that characters like 。 and 、 have built-in spaces to
@@ -110,19 +148,17 @@ export default function JapanesePronunciation() {
           double-width, which means punctuation marks like ? and ! take up more
           space, appearing as ？ and ！.
         </h3>
+
         <p>
-          <span class="font-extrabold">Student:</span> <em>No spaces?</em> That
-          must make reading a bit challenging!
+          <span class="font-extrabold">Student:</span> <em>*nervously*</em> That
+          sounds... challenging.
         </p>
+
         <p>
           <span class="font-extrabold">Sensei:</span> It can be at first, but
           with practice, your mind will begin to recognize the patterns and
           break down sentences naturally. It's like learning to read music—once
           you understand the rhythm, you'll be able to play any tune.
-        </p>
-        <p>
-          <span class="font-extrabold">Student:</span> Thanks, Sensei. This is
-          starting to make more sense.
         </p>
       </div>
     </ContentBox>

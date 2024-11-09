@@ -59,7 +59,7 @@ export default function JapanesePronunciation() {
       <h2 class="mb-4 mt-12 text-center text-3xl font-bold">
         What is Hiragana?
       </h2>
-      <div class="mb-32 space-y-9 px-16 sm:px-24">
+      <div class="mb-32 space-y-9 px-8 sm:px-24 lg:px-16">
         <p>
           Hiragana is one of the three main scripts used in Japanese writing,
           along with Katakana and Kanji, often referred to as the foundational
@@ -234,13 +234,14 @@ export default function JapanesePronunciation() {
         <div class="!-mb-6">
           <p class="text-base">
             <span class="font-bold">A note from sensei: </span>
-            <em>
-              Diving into Hiragana is like planting a seed for your language
-              tree. It needs watering (practice) and time to grow, but from this
-              seed, all your Japanese knowledge will branch out. Sow patiently,
-              tend to it regularly, and maybe, just maybe, enjoy watching it
-              grow, young grasshopper.
-            </em>
+            Think of Hiragana like my collection of vintage tea cups -{" "}
+            <span class="font-thin italic">
+              pulls out absolutely massive tea cup collection from nowhere -{" "}
+            </span>
+            start with one, add another, and before you know it, you'll have a
+            collection worth showing off.{" "}
+            <span class="font-thin italic">arranges cups precisely</span>{" "}
+            Practice daily, and you'll be surprised how quickly they add up.
           </p>
           <div class="mt-4 flex w-full justify-center">
             <PortraitIcon src="/img/guru.png" class="border-none" />
