@@ -1,4 +1,4 @@
-// conjugationUtils.ts
+// conjugation-practice/utils/conjugationUtils.ts
 
 import { changeHiraganaVowel } from "./hiraganaColumnHelper"
 
@@ -6,14 +6,15 @@ type ConjugationOptions = {
   polite?: boolean
   negative?: boolean
   past?: boolean
+  adverb?: boolean
 }
 
 /**
- * Determines the type of word (verb, i-adjective, or na-adjective).
+ * Determines the form of word (verb, i-adjective, or na-adjective).
  * @param partOfSpeech - The part of speech of the word.
- * @returns The type of the word as a string.
+ * @returns The form of the word as a string.
  */
-export function getType(partOfSpeech: string): string {
+export function getForm(partOfSpeech: string): string {
   if (partOfSpeech === "I-adjective") return "i-adjective"
   if (partOfSpeech === "Na-adjective") return "na-adjective"
   return "verb"
@@ -300,10 +301,10 @@ export function volitional(
 }
 
 /**
- * Conjugates a verb to its tai-form (desire form).
+ * Conjugates a verb in tai-form to include adverbial form if requested.
  * @param reading - The reading of the verb in hiragana.
  * @param partOfSpeech - The part of speech of the verb.
- * @param options - Conjugation options (polite, negative, past).
+ * @param options - Conjugation options (polite, negative, past, adverb).
  * @returns An array of possible tai-forms.
  */
 export function taiForm(
@@ -311,12 +312,24 @@ export function taiForm(
   partOfSpeech: string,
   options: ConjugationOptions = {},
 ): string[] {
-  const { negative = false, past = false, polite = false } = options
-  const type = getType(partOfSpeech)
+  const {
+    negative = false,
+    past = false,
+    polite = false,
+    adverb = false,
+  } = options
+  const form = getForm(partOfSpeech)
 
-  if (type !== "verb") return []
+  if (form !== "verb") return []
 
   let conjugation = getMasuStem(reading, partOfSpeech) + "たい"
+
+  if (adverb) {
+    if (negative) {
+      return [conjugation.slice(0, -1) + "くなく"]
+    }
+    return [conjugation.slice(0, -1) + "く"]
+  }
 
   if (negative) {
     conjugation = conjugation.slice(0, -1) + "くない"
@@ -351,10 +364,10 @@ export function tariForm(
 }
 
 /**
- * Conjugates a verb to its potential form.
+ * Conjugates a verb to its potential form, including adverbial form if requested.
  * @param reading - The reading of the verb in hiragana.
  * @param partOfSpeech - The part of speech of the verb.
- * @param options - Conjugation options (polite, negative, past).
+ * @param options - Conjugation options (polite, negative, past, adverb).
  * @returns An array of possible potential forms.
  */
 export function potential(
@@ -362,7 +375,12 @@ export function potential(
   partOfSpeech: string,
   options: ConjugationOptions = {},
 ): string[] {
-  const { polite = false, negative = false, past = false } = options
+  const {
+    polite = false,
+    negative = false,
+    past = false,
+    adverb = false,
+  } = options
   const group = getGroup(partOfSpeech)
   let stem = ""
 
@@ -380,7 +398,13 @@ export function potential(
         stem = "こられ"
       } else if (partOfSpeech.startsWith("Suru verb")) {
         const baseStem = reading.slice(0, -2)
-        return [baseStem + "でき", baseStem + "出来", baseStem + "出き"].map(
+        const forms = [baseStem + "でき", baseStem + "出来", baseStem + "出き"]
+
+        if (adverb) {
+          return forms.map((s) => (negative ? s + "なく" : s + "る" + "ように"))
+        }
+
+        return forms.map(
           (s) =>
             normalForm(s + "る", "Ichidan verb", {
               polite,
@@ -392,9 +416,14 @@ export function potential(
       break
   }
 
-  return stem
-    ? normalForm(stem + "る", "Ichidan verb", { polite, negative, past })
-    : []
+  if (!stem) return []
+
+  if (adverb) {
+    const baseForm = stem + "る"
+    return negative ? [baseForm.slice(0, -1) + "なく"] : [baseForm + "ように"]
+  }
+
+  return normalForm(stem + "る", "Ichidan verb", { polite, negative, past })
 }
 
 /**
@@ -451,10 +480,10 @@ export function conditional(
   partOfSpeech: string,
   negative: boolean = false,
 ): string[] {
-  const type = getType(partOfSpeech)
+  const form = getForm(partOfSpeech)
 
   if (!negative) {
-    switch (type) {
+    switch (form) {
       case "verb":
         return [
           reading.slice(0, -1) +
@@ -467,7 +496,7 @@ export function conditional(
         return [reading + "なら"]
     }
   } else {
-    switch (type) {
+    switch (form) {
       case "verb":
         return [getNaiStem(reading, partOfSpeech) + "なければ"]
       case "i-adjective":
@@ -598,13 +627,13 @@ export function normalForm(
 ): string[] {
   // Default these options to false if not provided
   const { polite = false, negative = false, past = false } = options
-  const type = getType(partOfSpeech)
+  const form = getForm(partOfSpeech)
 
-  if (type === "i-adjective") {
+  if (form === "i-adjective") {
     return iAdjectiveNormalForm(reading, { polite, negative, past })
   }
 
-  if (type === "na-adjective") {
+  if (form === "na-adjective") {
     return naAdjectiveNormalForm(reading, { polite, negative, past })
   }
 
@@ -631,18 +660,30 @@ export function normalForm(
 }
 
 /**
- * Conjugates an i-adjective to its normal form.
+ * Conjugates an i-adjective to its normal form or adverbial form.
  * @param reading - The reading of the adjective in hiragana.
- * @param options - Conjugation options (polite, negative, past).
- * @returns An array of possible normal forms for the i-adjective.
+ * @param options - Conjugation options (polite, negative, past, adverb).
+ * @returns An array of possible forms for the i-adjective.
  */
 function iAdjectiveNormalForm(
   reading: string,
   options: ConjugationOptions = {},
 ): string[] {
-  const { polite = false, negative = false, past = false } = options
-  let ending: string
+  const {
+    polite = false,
+    negative = false,
+    past = false,
+    adverb = false,
+  } = options
 
+  if (adverb) {
+    if (negative) {
+      return [reading.slice(0, -1) + "くなく"]
+    }
+    return [reading.slice(0, -1) + "く"]
+  }
+
+  let ending: string
   if (!past) {
     ending = !negative ? "い" : "くない"
   } else {
@@ -658,11 +699,30 @@ function iAdjectiveNormalForm(
   return forms
 }
 
+/**
+ * Conjugates a na-adjective to its normal form or adverbial form.
+ * @param reading - The reading of the adjective in hiragana.
+ * @param options - Conjugation options (polite, negative, past, adverb).
+ * @returns An array of possible forms for the na-adjective.
+ */
 function naAdjectiveNormalForm(
   reading: string,
   options: ConjugationOptions = {},
 ): string[] {
-  const { polite = false, negative = false, past = false } = options
+  const {
+    polite = false,
+    negative = false,
+    past = false,
+    adverb = false,
+  } = options
+
+  if (adverb) {
+    if (negative) {
+      return [reading + "ではなく", reading + "じゃなく"]
+    }
+    return [reading + "に"]
+  }
+
   const endings = deAruNormalForm({ polite, negative, past })
 
   return endings.map((ending) => reading + ending)
@@ -749,24 +809,26 @@ function plainPast(reading: string, partOfSpeech: string): string {
 }
 
 /**
- * Main conjugation function that delegates to specific conjugation functions based on the type.
+ * Main conjugation function that delegates to specific conjugation functions based on the form.
  * @param reading - The reading of the word in hiragana.
  * @param partOfSpeech - The part of speech of the word.
- * @param type - The type of conjugation to perform.
- * @param options - Conjugation options (polite, negative, past).
+ * @param form - The form of conjugation to perform.
+ * @param options - Conjugation options (polite, negative, past, adverb).
  * @returns An array of possible conjugated forms.
  *
  * @example
  * conjugate('食べる', 'Ichidan verb', 'te-form') // returns ['食べて']
  * conjugate('行く', 'Godan verb - Iku/Yuku special class', 'potential', { polite: true, negative: true, past: true }) // Returns: ['行けませんでした']'
+ * conjugate('静か', 'Na-adjective', 'normal', { adverb: true }) // returns ['静かに']
+ * conjugate('食べる', 'Ichidan verb', 'potential', { adverb: true }) // returns ['食べられるように']
  */
 export function conjugate(
   reading: string,
   partOfSpeech: string,
-  type: string,
+  form: string,
   options: ConjugationOptions = {},
 ): string[] {
-  switch (type) {
+  switch (form) {
     case "te-form":
       return teForm(reading, partOfSpeech, options)
     case "volitional":
