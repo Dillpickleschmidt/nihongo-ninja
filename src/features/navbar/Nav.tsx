@@ -7,6 +7,8 @@ import {
   NavigationMenuLink,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu"
+import { Button } from "@/components/ui/button"
+import { GraduationCap, Pencil } from "lucide-solid"
 
 export default function Nav() {
   const location = useLocation()
@@ -17,7 +19,7 @@ export default function Nav() {
 
   return (
     <nav class="relative z-50 bg-background">
-      <ul class="container flex items-center p-3 saturate-[50%] dark:text-orange-200">
+      <ul class="container flex items-center justify-between p-3 dark:text-orange-200">
         <NavigationMenu>
           <NavigationMenuItem>
             <A href="/">
@@ -25,7 +27,9 @@ export default function Nav() {
                 class="text-base font-normal"
                 withArrow={false}
               >
-                <span class={`border-b-2 ${active("/")}`}>Home</span>
+                <span class={`border-b-2 ${active("/")} saturate-[50%]`}>
+                  Home
+                </span>
               </NavigationMenuTrigger>
             </A>
             <NavigationMenuContent>
@@ -38,7 +42,9 @@ export default function Nav() {
           <NavigationMenuItem>
             <A href="/learn">
               <NavigationMenuTrigger class="pl-3 pr-2 text-base font-normal">
-                <span class={`border-b-2 ${active("/learn")}`}>Learn</span>
+                <span class={`border-b-2 ${active("/learn")} saturate-[50%]`}>
+                  Learn
+                </span>
               </NavigationMenuTrigger>
             </A>
             <NavigationMenuContent>
@@ -54,11 +60,37 @@ export default function Nav() {
             class="text-base font-normal"
             withArrow={false}
           >
-            <span class={`border-b-2 ${active("/about")}`}>About</span>
+            <span class={`border-b-2 ${active("/about")} saturate-[50%]`}>
+              About
+            </span>
           </NavigationMenuTrigger>
         </NavigationMenu>
         <li>
-          <ModeToggle />
+          <Button
+            as="a"
+            href="/learn/sentence-practice"
+            class="px-3 text-base font-normal lg:px-4"
+            variant="ghost"
+          >
+            <span class={`border-b-2 ${active("/about")} saturate-[50%]`}>
+              文
+            </span>
+            <Pencil size="16px" class="text-yellow-400 lg:ml-3" />
+          </Button>
+          <Button
+            as="a"
+            href="/learn/conjugation"
+            class="px-3 text-base font-normal lg:px-4"
+            variant="ghost"
+          >
+            <span class={`border-b-2 ${active("/about")} saturate-[50%]`}>
+              活用
+            </span>
+            <GraduationCap size="20px" class="text-teal-400 lg:ml-3" />
+          </Button>
+          <div class="inline-flex saturate-[50%]">
+            <ModeToggle />
+          </div>
         </li>
       </ul>
     </nav>
