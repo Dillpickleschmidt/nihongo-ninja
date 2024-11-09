@@ -3,14 +3,42 @@ import { extractHiragana } from "@/util/vocabDataTransformer"
 import * as conjugationUtils from "@/features/conjugation-practice/utils/conjugationUtils"
 import { restoreKanji } from "./kanjiUtils"
 
-function shouldUseAdverbialForm(form: string, pos: string): boolean {
-  if (pos === "I-adjective" || pos === "Na-adjective") {
-    return form === "adverb"
-  }
-  return form === "tai-adv-form" || form === "potential-adv-form"
-}
+// Types
+type SpecialWordFunction = (polite: boolean) => string
+type Rule =
+  | ConjugationOverrides
+  | ((word: ConjugatedWord) => ConjugationOverrides)
 
-function normalizeForm(form: string): string {
+// Constants - Special word handling
+export const SPECIAL_WORDS: Record<string, SpecialWordFunction> = {
+  です: (polite) => (polite ? "です" : "だ"),
+  か: (polite) => (polite ? "か" : "？"),
+} as const
+
+// Constants - Grammar rules for following words
+export const FOLLOWING_WORD_RULES: Record<string, Rule> = {
+  って: (word) => ({
+    polite: false,
+    form: word.tense === "past" ? "normal" : "te-form",
+    past: word.tense === "past",
+  }),
+  たら: {
+    polite: false,
+    negative: false,
+    past: true,
+  },
+  こと: { polite: false },
+  方: { polite: false },
+  と: { polite: false },
+} as const
+
+// Helper functions
+const isAdverbialForm = (form: string, pos: string): boolean =>
+  ((pos === "I-adjective" || pos === "Na-adjective") && form === "adverb") ||
+  form === "tai-adv-form" ||
+  form === "potential-adv-form"
+
+const normalizeForm = (form: string): string => {
   switch (form) {
     case "tai-adv-form":
       return "tai-form"
@@ -21,30 +49,24 @@ function normalizeForm(form: string): string {
   }
 }
 
-function conjugateWord(
+// Core conjugation logic
+const conjugateWithKanji = (
   wordObj: ConjugatedWord,
   options: ConjugationOverrides,
-): string {
+): string => {
   try {
     const dictionaryHiragana = extractHiragana(wordObj.word)
     const form = options.form ?? wordObj.form
 
-    // Determine if we should use adverbial form
-    const useAdverb =
-      options.adverb ?? shouldUseAdverbialForm(form, wordObj.pos)
-
-    // Normalize the form name for the conjugation utility
-    const normalizedForm = normalizeForm(form)
-
     const conjugatedHiragana = conjugationUtils.conjugate(
       dictionaryHiragana,
       wordObj.pos,
-      normalizedForm,
+      normalizeForm(form),
       {
         polite: options.polite,
         negative: options.negative ?? wordObj.polarity === "negative",
         past: options.past ?? wordObj.tense === "past",
-        adverb: useAdverb,
+        adverb: options.adverb ?? isAdverbialForm(form, wordObj.pos),
       },
     )[0]
 
@@ -55,64 +77,39 @@ function conjugateWord(
   }
 }
 
-export const SPECIAL_WORDS: Record<string, (politeForm: boolean) => string> = {
-  です: (politeForm) => (politeForm ? "です" : "だ"),
-  か: (politeForm) => (politeForm ? "か" : "？"),
+const getConjugationOptions = (
+  word: ConjugatedWord,
+  nextWord: string | undefined,
+  politeForm: boolean,
+): ConjugationOverrides => {
+  const rule = nextWord ? FOLLOWING_WORD_RULES[nextWord] : null
+  const overrides = typeof rule === "function" ? rule(word) : (rule ?? {})
+
+  return {
+    form: overrides.form ?? word.form,
+    polite: overrides.polite ?? politeForm,
+    negative: overrides.negative ?? word.polarity === "negative",
+    past: overrides.past ?? word.tense === "past",
+  }
 }
 
-export const FOLLOWING_WORD_RULES: Record<string, ConjugationOverrides> = {
-  って: {
-    polite: false,
-    form: "te-form", // Override to force te-form before って
-  },
-  たら: {
-    polite: false,
-    negative: false,
-    past: true,
-    // form: "conditional", // Could use conditional form if needed
-  },
-  こと: {
-    polite: false,
-  },
-  方: {
-    polite: false,
-  },
-  と: {
-    polite: false,
-  },
-}
-
-export function conjugateSegments(
+// Main export function
+export const conjugateSegments = (
   segments: (string | ConjugatedWord)[],
   politeForm: boolean,
-): string[] {
-  return segments.map((segment, index) => {
-    // Handle special standalone words
+): string[] =>
+  segments.map((segment, index) => {
+    // Handle special standalone words (particles, etc.)
     if (typeof segment === "string") {
-      const replacement = SPECIAL_WORDS[segment]
-      if (!replacement) return segment
-      return replacement(politeForm)
+      const specialWord = SPECIAL_WORDS[segment]
+      return specialWord ? specialWord(politeForm) : segment
     }
 
-    // Handle conjugated words
-    const nextSegment = segments[index + 1]
-    const rule =
-      nextSegment && typeof nextSegment === "string"
-        ? FOLLOWING_WORD_RULES[nextSegment]
-        : null
+    // Handle conjugatable words
+    const nextWord = segments[index + 1] as string | undefined
+    const options = getConjugationOptions(segment, nextWord, politeForm)
+    const conjugated = conjugateWithKanji(segment, options)
 
-    const conjugated = conjugateWord(segment, {
-      form: rule?.form ?? segment.form,
-      polite: rule?.polite ?? politeForm,
-      negative: rule?.negative ?? segment.polarity === "negative",
-      past: rule?.past ?? segment.tense === "past",
-    })
-
-    // Handle たら case directly
-    if (nextSegment === "たら") {
-      return conjugated.slice(0, -1)
-    }
-
-    return conjugated
+    // Special post-processing
+    return nextWord === "たら" ? conjugated.slice(0, -1) : conjugated
   })
-}
