@@ -1979,7 +1979,88 @@ export default function ChapterBoxes() {
         ]}
       />
 
-      <ChapterBox text="Chapter 18" class="bg-neutral-700" content={[]} />
+      <ChapterBox
+        text="Chapter 18"
+        class="bg-neutral-700"
+        content={[
+          {
+            title: "Chapter 18 Vocab List",
+            link: "/learn/chapter-18/vocab-list",
+            types: ["vocab-list"],
+          },
+          {
+            title: "Chapter 18 Grammar Notes",
+            link: "/learn/grammar-notes",
+            types: ["grammar-notes"],
+            disabled: true,
+          },
+          {
+            title: "Nouns 1",
+            link: "/learn/chapter-18/nouns-1",
+            types: ["vocab"],
+          },
+          {
+            title: "Practice Nouns 1 - Readings",
+            link: "/learn/chapter-18/practice/nouns-1-readings",
+            types: ["vocab-practice"],
+          },
+          {
+            title: "Practice Nouns 1 - Kana",
+            link: "/learn/chapter-18/practice/nouns-1-kana",
+            types: ["vocab-practice"],
+          },
+          {
+            title: "Nouns 2 & Adjectives",
+            link: "/learn/chapter-18/nouns-2-and-adjectives",
+            types: ["vocab"],
+          },
+          {
+            title: "Practice Nouns 2 & Adj - Readings",
+            link: "/learn/chapter-18/practice/nouns-2-and-adjectives-readings",
+            types: ["vocab-practice"],
+          },
+          {
+            title: "Practice Nouns 2 & Adj - Kana",
+            link: "/learn/chapter-18/practice/nouns-2-and-adjectives-kana",
+            types: ["vocab-practice"],
+          },
+          {
+            title: "U & Irr Verbs",
+            link: "/learn/chapter-18/u-and-irr-verbs",
+            types: ["vocab"],
+          },
+          {
+            title: "Practice U & Irr Verbs - Readings",
+            link: "/learn/chapter-18/practice/u-and-irr-verbs-readings",
+            types: ["vocab-practice"],
+          },
+          {
+            title: "Practice U & Irr Verbs - Kana",
+            link: "/learn/chapter-18/practice/u-and-irr-verbs-kana",
+            types: ["vocab-practice"],
+          },
+          {
+            title: "Ru Verbs & Misc.",
+            link: "/learn/chapter-18/ru-verbs-and-misc",
+            types: ["vocab"],
+          },
+          {
+            title: "Practice Ru Verbs & Misc. - Readings",
+            link: "/learn/chapter-18/practice/ru-verbs-and-misc-readings",
+            types: ["vocab-practice"],
+          },
+          {
+            title: "Practice Ru Verbs & Misc. - Kana",
+            link: "/learn/chapter-18/practice/ru-verbs-and-misc-kana",
+            types: ["vocab-practice"],
+          },
+          {
+            title: "All Vocab - Test",
+            link: "/learn/chapter-18/all-vocab-test",
+            types: ["vocab-test"],
+          },
+        ]}
+      />
       <ChapterBox text="Chapter 19" class="bg-neutral-700" content={[]} />
       <ChapterBox text="Chapter 20" class="bg-neutral-700" content={[]} />
       <ChapterBox text="Chapter 21" class="bg-neutral-700" content={[]} />

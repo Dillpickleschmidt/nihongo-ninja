@@ -1,0 +1,214 @@
+[
+  {
+    "word": "開く",
+    "furigana": ["開[あ]く"],
+    "english": ["(something) opens"],
+    "mnemonics": [],
+    "info": [
+      "Intransitive verb (v.i.)",
+      "Transitive pair: 開ける(あける)",
+      "Used with が particle"
+    ],
+    "example_sentences": [],
+    "chapter": 18,
+    "category": "godan-v",
+    "particles": [
+      {
+        "particle": "が"
+      }
+    ]
+  },
+  {
+    "word": "閉まる",
+    "furigana": ["閉[し]まる"],
+    "english": ["(something) closes"],
+    "mnemonics": ["Both 開 and 閉 characters contain 門 (gate)"],
+    "info": ["Intransitive verb (v.i.)", "Transitive pair: 閉める(しめる)"],
+    "example_sentences": [],
+    "chapter": 18,
+    "category": "godan-v",
+    "particles": [
+      {
+        "particle": "が"
+      }
+    ]
+  },
+  {
+    "word": "謝る",
+    "furigana": ["謝[あやま]る"],
+    "english": ["to apologize"],
+    "mnemonics": ["Contains the radical 言 (word)"],
+    "info": [],
+    "example_sentences": [],
+    "chapter": 18,
+    "category": "godan-v",
+    "particles": [
+      {
+        "label": "person",
+        "particle": "に"
+      }
+    ]
+  },
+  {
+    "word": "押す",
+    "furigana": ["押[お]す"],
+    "english": ["to press", "to push"],
+    "mnemonics": ["Contains the radical 手 (hand)"],
+    "info": [],
+    "example_sentences": [],
+    "chapter": 18,
+    "category": "godan-v",
+    "particles": [
+      {
+        "particle": "を"
+      }
+    ]
+  },
+  {
+    "word": "落とす",
+    "furigana": ["落[お]とす"],
+    "english": ["to drop (something)"],
+    "mnemonics": [],
+    "info": ["Transitive pair of 落ちる"],
+    "example_sentences": [],
+    "chapter": 18,
+    "category": "godan-v",
+    "particles": [
+      {
+        "particle": "を"
+      }
+    ]
+  },
+  {
+    "word": "お湯が沸く",
+    "furigana": ["お湯[ゆ]が沸[わ]く"],
+    "english": ["water boils"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": 18,
+    "category": "godan-v",
+    "particles": [
+      {
+        "particle": "が"
+      }
+    ]
+  },
+  {
+    "word": "転ぶ",
+    "furigana": ["転[ころ]ぶ"],
+    "english": ["to fall down"],
+    "mnemonics": ["Same 転 as in 自転車 meaning 'to roll'"],
+    "info": [],
+    "example_sentences": [],
+    "chapter": 18,
+    "category": "godan-v"
+  },
+  {
+    "word": "壊す",
+    "furigana": ["壊[こわ]す"],
+    "english": ["to break (something)"],
+    "mnemonics": [],
+    "info": ["Transitive pair of 壊れる"],
+    "example_sentences": [],
+    "chapter": 18,
+    "category": "godan-v",
+    "particles": [
+      {
+        "particle": "を"
+      }
+    ]
+  },
+  {
+    "word": "咲く",
+    "furigana": ["咲[さ]く"],
+    "english": ["to bloom"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": 18,
+    "category": "godan-v",
+    "particles": [
+      {
+        "particle": "が"
+      }
+    ]
+  },
+  {
+    "word": "助かる",
+    "furigana": ["助[たす]かる"],
+    "english": ["to be saved", "to be helped"],
+    "mnemonics": [],
+    "info": [
+      "Common phrase: (〜さんのおかげで)助かりました",
+      "Note: Used for thanking outsiders, not family/superiors",
+      "Transitive pair: 助ける"
+    ],
+    "example_sentences": [],
+    "chapter": 18,
+    "category": "godan-v"
+  },
+  {
+    "word": "頼む",
+    "furigana": ["頼[たの]む"],
+    "english": ["to ask (a favor)"],
+    "mnemonics": [],
+    "info": ["Related noun: 頼み (request, favor)"],
+    "example_sentences": [],
+    "chapter": 18,
+    "category": "godan-v",
+    "particles": [
+      {
+        "particle": "に"
+      },
+      {
+        "particle": "を"
+      }
+    ]
+  },
+  {
+    "word": "つく",
+    "furigana": ["つく"],
+    "english": ["(something) turns on"],
+    "mnemonics": [],
+    "info": ["Used for lights, gas, etc."],
+    "example_sentences": [],
+    "chapter": 18,
+    "category": "godan-v",
+    "particles": [
+      {
+        "particle": "が"
+      }
+    ]
+  },
+  {
+    "word": "汚す",
+    "furigana": ["汚[よご]す"],
+    "english": ["to make dirty"],
+    "mnemonics": [],
+    "info": ["Transitive pair of 汚れる", "Related: 汚い(きたない)"],
+    "example_sentences": [],
+    "chapter": 18,
+    "category": "godan-v",
+    "particles": [
+      {
+        "particle": "を"
+      }
+    ]
+  },
+  {
+    "word": "注文する",
+    "furigana": ["注文[ちゅうもん]する"],
+    "english": ["to place an order"],
+    "mnemonics": ["Uses same 注 as in 注意する"],
+    "info": ["Can be used both for online shopping and in-store orders"],
+    "example_sentences": [],
+    "chapter": 18,
+    "category": "suru-v",
+    "particles": [
+      {
+        "particle": "を"
+      }
+    ]
+  }
+]
