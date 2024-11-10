@@ -879,6 +879,11 @@ export default function ChapterBoxes() {
             link: "/learn/chapter-4/all-vocab-test",
             types: ["vocab-test"],
           },
+          {
+            title: "いる・ある - Existence",
+            link: "/learn/chapter-4/iru-aru",
+            types: ["lesson"],
+          },
         ]}
       />
 
