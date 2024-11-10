@@ -15,8 +15,8 @@ export default function LocationWords() {
       <div class="space-y-6 px-8 sm:px-16 md:px-24">
         <p>
           So you want to explain where things are in Japanese? It's a lot easier
-          than saying "Over there! No, not there, THERE!" Let's learn how to
-          actually describe locations!
+          than saying「あそこ。いや、あそこじゃない、あそこ！」"Over there! No,
+          not there, THERE!" Let's learn how to actually describe locations!
         </p>
 
         <div class="w-full space-y-4 rounded-lg border-2 border-border px-3 py-5 text-center">
