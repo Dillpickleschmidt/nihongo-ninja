@@ -19,12 +19,12 @@ export default function Nav() {
 
   return (
     <nav class="relative z-50 bg-background">
-      <ul class="container flex items-center justify-between p-3 dark:text-orange-200">
+      <ul class="container flex items-center justify-between px-2 py-3 dark:text-orange-200 sm:px-3">
         <NavigationMenu>
           <NavigationMenuItem>
             <A href="/">
               <NavigationMenuTrigger
-                class="text-base font-normal"
+                class="px-3 text-base font-normal sm:px-4"
                 withArrow={false}
               >
                 <span class={`border-b-2 ${active("/")} saturate-[50%]`}>
@@ -41,7 +41,7 @@ export default function Nav() {
 
           <NavigationMenuItem>
             <A href="/learn">
-              <NavigationMenuTrigger class="pl-3 pr-2 text-base font-normal">
+              <NavigationMenuTrigger class="pl-2 pr-1 text-base font-normal sm:pl-3 sm:pr-2">
                 <span class={`border-b-2 ${active("/learn")} saturate-[50%]`}>
                   Learn
                 </span>
@@ -57,7 +57,7 @@ export default function Nav() {
           <NavigationMenuTrigger
             as="a"
             href="/about"
-            class="text-base font-normal"
+            class="px-3 text-base font-normal sm:px-4"
             withArrow={false}
           >
             <span class={`border-b-2 ${active("/about")} saturate-[50%]`}>
@@ -69,7 +69,7 @@ export default function Nav() {
           <Button
             as="a"
             href="/learn/sentence-practice"
-            class="px-3 text-base font-normal lg:px-4"
+            class="px-3 text-base font-normal sm:px-4"
             variant="ghost"
           >
             <span class={`border-b-2 ${active("/about")} saturate-[50%]`}>
@@ -80,7 +80,7 @@ export default function Nav() {
           <Button
             as="a"
             href="/learn/conjugation"
-            class="px-3 text-base font-normal lg:px-4"
+            class="px-3 text-base font-normal sm:px-4"
             variant="ghost"
           >
             <span class={`border-b-2 ${active("/about")} saturate-[50%]`}>
