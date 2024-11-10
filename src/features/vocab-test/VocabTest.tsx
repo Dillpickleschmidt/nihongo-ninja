@@ -110,15 +110,26 @@ export default function VocabTest({ data, chapter }: VocabTestProps) {
   }
 
   const isCorrect = (index: number, field: "kana" | "english") => {
-    const userAnswer = (userAnswers()[`${index}-${field}`] || "").toLowerCase()
+    const userAnswer = (userAnswers()[`${index}-${field}`] || "")
+      .toLowerCase()
+      .trim()
+      .replace("...", "")
+      .replace(".", "")
+      .replace("。", "")
     const entry = randomizedData()[index]
     if (field === "kana") {
       return (
-        userAnswer === extractHiragana(entry.furigana?.[0] ?? "").toLowerCase()
+        userAnswer ===
+        extractHiragana(entry.furigana?.[0] ?? "")
+          .toLowerCase()
+          .trim()
+          .replace("。", "")
       )
     } else {
       return entry.english?.some(
-        (eng) => eng.toLowerCase() === userAnswer.trim(),
+        (eng) =>
+          eng.toLowerCase().trim().replace("...", "").replace(".", "") ===
+          userAnswer,
       )
     }
   }

@@ -22,9 +22,9 @@ export function handleWrittenAnswer(
     .flatMap((category) => category.answers)
 
   // Check if the user's answer matches any of the enabled answers
-  const normalizedUserAnswer = userAnswer.trim().toLowerCase()
+  const normalizedUserAnswer = userAnswer.trim().toLowerCase().replace(".", "")
   return enabledAnswers
-    .map((answer) => answer.trim().toLowerCase())
+    .map((answer) => answer.trim().toLowerCase().replace(".", ""))
     .includes(normalizedUserAnswer)
 }
 

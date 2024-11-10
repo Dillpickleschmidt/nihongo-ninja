@@ -24,7 +24,7 @@ export default function Nav() {
           <NavigationMenuItem>
             <A href="/">
               <NavigationMenuTrigger
-                class="px-3 text-base font-normal sm:px-4"
+                class="px-2 text-base font-normal sm:px-4"
                 withArrow={false}
               >
                 <span class={`border-b-2 ${active("/")} saturate-[50%]`}>
@@ -57,7 +57,7 @@ export default function Nav() {
           <NavigationMenuTrigger
             as="a"
             href="/about"
-            class="px-3 text-base font-normal sm:px-4"
+            class="px-2 text-base font-normal sm:px-4"
             withArrow={false}
           >
             <span class={`border-b-2 ${active("/about")} saturate-[50%]`}>
@@ -69,7 +69,7 @@ export default function Nav() {
           <Button
             as="a"
             href="/learn/sentence-practice"
-            class="px-3 text-base font-normal sm:px-4"
+            class="px-2 text-base font-normal sm:px-4"
             variant="ghost"
           >
             <span class={`border-b-2 ${active("/about")} saturate-[50%]`}>
@@ -80,7 +80,7 @@ export default function Nav() {
           <Button
             as="a"
             href="/learn/conjugation"
-            class="px-3 text-base font-normal sm:px-4"
+            class="px-2 text-base font-normal sm:px-4"
             variant="ghost"
           >
             <span class={`border-b-2 ${active("/about")} saturate-[50%]`}>
