@@ -884,6 +884,11 @@ export default function ChapterBoxes() {
             link: "/learn/chapter-4/iru-aru",
             types: ["lesson"],
           },
+          {
+            title: "Where Things Are",
+            link: "/learn/chapter-4/where-things-are",
+            types: ["lesson"],
+          },
         ]}
       />
 

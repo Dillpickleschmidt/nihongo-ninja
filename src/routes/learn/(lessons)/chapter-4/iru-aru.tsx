@@ -291,7 +291,9 @@ export default function ExistencePossession() {
         <SelectText
           answer="明日テストがあります。"
           a="明日テストがいます。"
-          b="明日テストがあります。"
+          b="明日にテストがいます。"
+          c="明日テストがあります。"
+          d="明日にテストがあります。"
           class="text-xl"
         />
 

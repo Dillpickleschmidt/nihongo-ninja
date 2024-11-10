@@ -1,6 +1,7 @@
 import ContentBox from "@/components/ContentBox"
 import Furigana from "@/components/text/Furigana"
 import CheckboxQuestion from "@/features/checkbox-question/CheckboxQuestion"
+import YouTubeVideo from "@/features/youtube/YouTube"
 
 export default function page() {
   const questions = [
@@ -33,7 +34,7 @@ export default function page() {
         <span class="font-japanese text-orange-400">じゃない</span>—The Negative
         Form in Japanese
       </h1>
-      <div class="space-y-6 px-8 sm:px-16 md:px-24">
+      <div class="space-y-6 px-8 pb-32 sm:px-16 md:px-24">
         <p>
           The{" "}
           <span class="font-japanese text-xl font-semibold text-orange-400">
@@ -302,23 +303,36 @@ export default function page() {
           For now, focus on creating negative statements using nouns + the
           negative variations discussed here.
         </p>
-      </div>
-      <div class="space-y-4 px-12 pb-32 leading-8 sm:px-16 md:px-24 [&>*]:space-y-4">
-        <h3 class="pt-12 text-center text-3xl font-bold">Practice</h3>
-        <p class="text-center font-semibold">
-          Check the words that{" "}
-          <span class="font-bold underline underline-offset-2">can</span> be
-          negated with{" "}
-          <span class="font-japanese text-xl font-bold text-orange-400">
-            じゃないです。
-          </span>
-        </p>
-        <div class="flex flex-col items-center">
-          <CheckboxQuestion
-            questions={questions}
-            correctQuestions={correctQuestions}
-            horizontal
-            furiganaSize="0.75rem"
+
+        <div class="space-y-4 leading-8 [&>*]:space-y-4">
+          <h3 class="pt-12 text-center text-3xl font-bold">Practice</h3>
+          <p class="text-center font-semibold">
+            Check the words that{" "}
+            <span class="font-bold underline underline-offset-2">can</span> be
+            negated with{" "}
+            <span class="font-japanese text-xl font-bold text-orange-400">
+              じゃないです。
+            </span>
+          </p>
+          <div class="flex flex-col items-center">
+            <CheckboxQuestion
+              questions={questions}
+              correctQuestions={correctQuestions}
+              horizontal
+              furiganaSize="0.75rem"
+            />
+          </div>
+        </div>
+        <div class="space-y-4 pt-9">
+          <p>
+            Though a bit advanced, this video will give you a general idea of
+            the other ways you'll hear じゃない in real conversations. Besides,
+            Kaname's examples are always hilarious!
+          </p>
+          <YouTubeVideo
+            videoId="mapbKTJ9aBs"
+            title="How to Use じゃない"
+            credit="Kaname Naito"
           />
         </div>
       </div>
