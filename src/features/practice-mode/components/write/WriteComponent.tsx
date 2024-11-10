@@ -136,6 +136,7 @@ export default function WriteComponent() {
         onInput={(e) => setUserAnswer(e.currentTarget.value)}
         onKeyDown={handleKeyDown}
         autofocus
+        autocomplete="off"
         autocapitalize="none"
         autocorrect={context.store.practiceMode === "kana" ? "off" : "on"}
         disabled={context.store.hasUserAnswered}

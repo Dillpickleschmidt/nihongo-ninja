@@ -117,7 +117,9 @@ export default function VocabTest({ data, chapter }: VocabTestProps) {
         userAnswer === extractHiragana(entry.furigana?.[0] ?? "").toLowerCase()
       )
     } else {
-      return entry.english?.some((eng) => eng.toLowerCase() === userAnswer)
+      return entry.english?.some(
+        (eng) => eng.toLowerCase() === userAnswer.trim(),
+      )
     }
   }
 
@@ -139,7 +141,17 @@ export default function VocabTest({ data, chapter }: VocabTestProps) {
                       {entry.word}
                     </TextFieldLabel>
 
-                    <Show when={!isKana(entry.word)} fallback={<div />}>
+                    <Show
+                      when={
+                        !isKana(
+                          entry.word
+                            .replace("～", "")
+                            .replace("（", "")
+                            .replace("）", ""),
+                        )
+                      }
+                      fallback={<div />}
+                    >
                       <div>
                         <WanakanaWrapper>
                           <TextField
@@ -154,6 +166,7 @@ export default function VocabTest({ data, chapter }: VocabTestProps) {
                               )
                             }
                             autocomplete="false"
+                            autocapitalize="none"
                             class="w-full rounded-sm bg-card !py-[1.125rem] font-japanese text-xl placeholder:!text-base placeholder:opacity-75"
                           />
                         </WanakanaWrapper>
@@ -184,6 +197,7 @@ export default function VocabTest({ data, chapter }: VocabTestProps) {
                           )
                         }
                         autocomplete="false"
+                        autocapitalize="none"
                         class="w-full rounded-sm bg-card !py-[1.125rem] text-xl placeholder:!text-base placeholder:opacity-75"
                       />
                       <Show when={showAnswers()}>
