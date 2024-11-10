@@ -63,7 +63,7 @@ export default function SettingsPage({ onStartReview }: SettingsPageProps) {
 
   const examples = [
     { normal: "食べる・食べます" },
-    { teForm: "食べって" },
+    { teForm: "食べて" },
     { tariForm: "食べたり" },
     { taiForm: "食べたい" },
     { potential: "食べられる" },
