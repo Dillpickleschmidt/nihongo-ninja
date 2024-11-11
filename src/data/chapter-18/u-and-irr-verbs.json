@@ -52,10 +52,21 @@
   {
     "word": "押す",
     "furigana": ["押[お]す"],
-    "english": ["to press", "to push"],
+    "english": ["to push", "to press"],
     "mnemonics": ["Contains the radical 手 (hand)"],
-    "info": [],
-    "example_sentences": [],
+    "info": [
+      "Basic physical action of pushing/pressing",
+      "Used for buttons, doorbells, keypads",
+      "Can be combined with various particles:",
+      "- を押す: direct pushing of an object",
+      "- に押す: pushing against something"
+    ],
+    "example_sentences": [
+      {
+        "japanese": "エレベーターのボタンを押してください。",
+        "english": "Please press the elevator button."
+      }
+    ],
     "chapter": 18,
     "category": "godan-v",
     "particles": [
@@ -81,18 +92,13 @@
   },
   {
     "word": "お湯が沸く",
-    "furigana": ["お湯[ゆ]が沸[わ]く"],
+    "furigana": ["お 湯[ゆ]が 沸[わ]く"],
     "english": ["water boils"],
     "mnemonics": [],
     "info": [],
     "example_sentences": [],
     "chapter": 18,
-    "category": "godan-v",
-    "particles": [
-      {
-        "particle": "が"
-      }
-    ]
+    "category": "godan-v"
   },
   {
     "word": "転ぶ",
@@ -159,6 +165,7 @@
     "category": "godan-v",
     "particles": [
       {
+        "label": "person",
         "particle": "に"
       },
       {

@@ -1981,7 +1981,7 @@ export default function ChapterBoxes() {
 
       <ChapterBox
         text="Chapter 18"
-        class="bg-neutral-700"
+        class="bg-green-600 saturate-[65%]"
         content={[
           {
             title: "Chapter 18 Vocab List",
