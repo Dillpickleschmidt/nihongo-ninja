@@ -889,6 +889,11 @@ export default function ChapterBoxes() {
             link: "/learn/chapter-4/where-things-are",
             types: ["lesson"],
           },
+          {
+            title: "Polite Past Tense",
+            link: "/learn/chapter-4/polite-past-tense",
+            types: ["lesson"],
+          },
         ]}
       />
 
