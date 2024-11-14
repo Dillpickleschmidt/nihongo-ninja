@@ -894,6 +894,11 @@ export default function ChapterBoxes() {
             link: "/learn/chapter-4/polite-past-tense",
             types: ["lesson"],
           },
+          {
+            title: "Time Duration - 時間",
+            link: "/learn/chapter-4/jikan",
+            types: ["lesson"],
+          },
         ]}
       />
 

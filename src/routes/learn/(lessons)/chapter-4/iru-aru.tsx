@@ -186,7 +186,7 @@ export default function ExistencePossession() {
               <p class="w-1/4 font-bold text-red-500">Incorrect</p>
               <p class="w-3/4">
                 <span class="font-japanese text-xl text-muted-foreground">
-                  あそこにマクドナルドです。
+                  あそこにモスバーガーです。
                 </span>
               </p>
             </div>
@@ -200,7 +200,7 @@ export default function ExistencePossession() {
               <p class="w-1/4 font-bold text-red-500">Incorrect</p>
               <p class="w-3/4">
                 <span class="font-japanese text-xl text-muted-foreground">
-                  マクドナルドはあそこにです。
+                  モスバーガーはあそこにです。
                 </span>
               </p>
             </div>
@@ -214,7 +214,9 @@ export default function ExistencePossession() {
               <p class="w-1/4 font-bold">Correct</p>
               <p class="w-3/4">
                 <span class="font-japanese text-xl">
-                  マクドナルドはあそこです
+                  モスバーガー
+                  <span class="underline underline-offset-2">はあそこです</span>
+                  。
                 </span>
               </p>
             </div>
@@ -225,7 +227,11 @@ export default function ExistencePossession() {
               <p class="w-1/4 font-bold">Correct</p>
               <p class="w-3/4">
                 <span class="font-japanese text-xl">
-                  マクドナルドはあそこにあります。
+                  モスバーガーは
+                  <span class="underline underline-offset-2">
+                    あそこにあります
+                  </span>
+                  。
                 </span>
               </p>
             </div>
@@ -235,7 +241,9 @@ export default function ExistencePossession() {
               <p class="w-1/4 font-bold">Correct</p>
               <p class="w-3/4">
                 <span class="font-japanese text-xl">
-                  あそこにマクドナルドがあります。
+                  <span class="underline underline-offset-2">あそこに</span>
+                  モスバーガーが
+                  <span class="underline underline-offset-2">あります</span>。
                 </span>
               </p>
             </div>
