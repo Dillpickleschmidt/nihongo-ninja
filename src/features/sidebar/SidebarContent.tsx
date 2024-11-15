@@ -20,7 +20,7 @@ export default function SidebarContent({
 }: SidebarContentProps) {
   return (
     <>
-      <a href="https://jpdb.io">
+      <a href="https://jpdb.io" target="_blank">
         <Button
           size="lg"
           variant="outline"
