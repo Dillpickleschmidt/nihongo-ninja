@@ -731,11 +731,11 @@ export default function page() {
 
         <p>I drink coffee every day.</p>
         <SelectText
-          answer="私は毎日コーヒーを飲みます。"
-          a="私は毎日コーヒーを飲みます。"
-          b="私は毎日コーヒーで飲みます。"
-          c="私は毎日コーヒーに飲みます。"
-          d="私は毎日コーヒーへ飲みます。"
+          answer="毎日コーヒーを飲みます。"
+          a="毎日コーヒーを飲みます。"
+          b="毎日コーヒーで飲みます。"
+          c="毎日コーヒーに飲みます。"
+          d="毎日コーヒーへ飲みます。"
           class="text-xl"
         />
 

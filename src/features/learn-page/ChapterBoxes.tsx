@@ -899,6 +899,11 @@ export default function ChapterBoxes() {
             link: "/learn/chapter-4/jikan",
             types: ["lesson"],
           },
+          {
+            title: "Many - たくさん",
+            link: "/learn/chapter-4/takusan",
+            types: ["lesson"],
+          },
         ]}
       />
 

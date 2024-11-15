@@ -1,13 +1,13 @@
-import React from "react"
+import { JSX } from "solid-js"
 
 type FuriganaProps = {
-  children: React.ReactNode
+  children: JSX.Element
   furigana: any
 }
 
 export default function Furigana({ children, furigana }: FuriganaProps) {
   return (
-    <ruby className="font-japanese">
+    <ruby class="font-japanese">
       {children}
       <rp>(</rp>
       <rt>{furigana}</rt>
