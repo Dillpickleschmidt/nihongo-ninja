@@ -1,8 +1,5 @@
 import ContentBox from "@/components/ContentBox"
-import C15GodanAndIchidanV from "@/features/vocab-list/components/chapter-15/C15GodanAndIchidanV"
-import C15IrrVAdvMisc from "@/features/vocab-list/components/chapter-15/C15IrrVAdvMisc"
-import C15Nouns1 from "@/features/vocab-list/components/chapter-15/C15Nouns1"
-import C15Nouns2 from "@/features/vocab-list/components/chapter-15/C15Nouns2"
+import VocabGroup from "@/features/vocab-list/components/VocabGroup.tsx"
 
 export default function page() {
   return (
@@ -18,19 +15,19 @@ export default function page() {
           <h3 class="mb-3 mt-8 text-center text-2xl font-medium text-orange-400">
             Nouns 1
           </h3>
-          <C15Nouns1 />
+          <VocabGroup path="chapter-15/nouns-1" />
           <h3 class="mb-3 mt-8 text-center text-2xl font-medium text-orange-400">
             Nouns 2
           </h3>
-          <C15Nouns2 />
+          <VocabGroup path="chapter-15/nouns-2" />
           <h3 class="mb-3 mt-8 text-center text-2xl font-medium text-orange-400">
             Ichidan & Godan Verbs
           </h3>
-          <C15GodanAndIchidanV />
+          <VocabGroup path="chapter-15/godan-and-ichidan-v" />
           <h3 class="mb-3 mt-8 text-center text-2xl font-medium text-orange-400">
             Irreg Verbs, Adv., & Misc.
           </h3>
-          <C15IrrVAdvMisc />
+          <VocabGroup path="chapter-15/irr-v-adv-misc" />
         </div>
       </div>
       <div class="pb-32" />

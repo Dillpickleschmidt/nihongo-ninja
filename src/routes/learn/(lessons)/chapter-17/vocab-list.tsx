@@ -1,8 +1,5 @@
 import ContentBox from "@/components/ContentBox"
-import C17AdjAdvMisc from "@/features/vocab-list/components/chapter-17/C17AdjAdvMisc"
-import C17Nouns1 from "@/features/vocab-list/components/chapter-17/C17Nouns-1"
-import C17Nouns2 from "@/features/vocab-list/components/chapter-17/C17Nouns-2"
-import C17Verbs from "@/features/vocab-list/components/chapter-17/C17Verbs"
+import VocabGroup from "@/features/vocab-list/components/VocabGroup.tsx"
 
 export default function page() {
   return (
@@ -18,19 +15,19 @@ export default function page() {
           <h3 class="mb-3 mt-8 text-center text-2xl font-medium text-orange-400">
             Nouns 1
           </h3>
-          <C17Nouns1 />
+          <VocabGroup path="chapter-17/nouns-1" />
           <h3 class="mb-3 mt-8 text-center text-2xl font-medium text-orange-400">
             Nouns 2
           </h3>
-          <C17Nouns2 />
+          <VocabGroup path="chapter-17/nouns-2" />
           <h3 class="mb-3 mt-8 text-center text-2xl font-medium text-orange-400">
             Verbs
           </h3>
-          <C17Verbs />
+          <VocabGroup path="chapter-17/verbs" />
           <h3 class="mb-3 mt-8 text-center text-2xl font-medium text-orange-400">
             Adjectives, Adv. & Misc.
           </h3>
-          <C17AdjAdvMisc />
+          <VocabGroup path="chapter-17/adj-adv-misc" />
         </div>
       </div>
       <div class="pb-32" />

@@ -1,8 +1,5 @@
 import ContentBox from "@/components/ContentBox"
-import C14AdjAndVerbs from "@/features/vocab-list/components/chapter-14/C14AdjAndVerbs"
-import C14CountersAdvMisc from "@/features/vocab-list/components/chapter-14/C14CountersAdvMisc"
-import C14Nouns1 from "@/features/vocab-list/components/chapter-14/C14Nouns1"
-import C14Nouns2 from "@/features/vocab-list/components/chapter-14/C14Nouns2"
+import VocabGroup from "@/features/vocab-list/components/VocabGroup.tsx"
 
 export default function page() {
   return (
@@ -18,19 +15,19 @@ export default function page() {
           <h3 class="mb-3 mt-8 text-center text-2xl font-medium text-orange-400">
             Nouns 1
           </h3>
-          <C14Nouns1 />
+          <VocabGroup path="chapter-14/nouns-1" />
           <h3 class="mb-3 mt-8 text-center text-2xl font-medium text-orange-400">
             Nouns 2
           </h3>
-          <C14Nouns2 />
+          <VocabGroup path="chapter-14/nouns-2" />
           <h3 class="mb-3 mt-8 text-center text-2xl font-medium text-orange-400">
             Adjectives & Verbs
           </h3>
-          <C14AdjAndVerbs />
+          <VocabGroup path="chapter-14/adj-and-verbs" />
           <h3 class="mb-3 mt-8 text-center text-2xl font-medium text-orange-400">
             Counters, Adv., & Misc.
           </h3>
-          <C14CountersAdvMisc />
+          <VocabGroup path="chapter-14/counters-adv-misc" />
         </div>
       </div>
       <div class="pb-32" />

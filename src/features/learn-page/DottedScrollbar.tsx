@@ -153,7 +153,7 @@ export default function DottedScrollbar() {
                 {formatTitle(id)}
               </div>
             )}
-            <Tooltip>
+            <Tooltip placement="left">
               <TooltipTrigger>
                 <button
                   data-id={id}

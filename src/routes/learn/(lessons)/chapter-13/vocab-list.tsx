@@ -1,7 +1,5 @@
 import ContentBox from "@/components/ContentBox"
-import C13Nouns from "@/features/vocab-list/components/chapter-13/C13Nouns"
-import C13DayCountAndMisc from "@/features/vocab-list/components/chapter-13/C13DayCountAndMisc"
-import C13AdjAndVerbs from "@/features/vocab-list/components/chapter-13/C13AdjAndVerbs"
+import VocabGroup from "@/features/vocab-list/components/VocabGroup.tsx"
 
 export default function page() {
   return (
@@ -17,15 +15,15 @@ export default function page() {
           <h3 class="mb-3 mt-8 text-center text-2xl font-medium text-orange-400">
             Nouns
           </h3>
-          <C13Nouns />
-          <h3 class="mb-3 mt-8 text-center text-2xl font-medium text-orange-400">
-            Day Count & Misc.
-          </h3>
-          <C13DayCountAndMisc />
+          <VocabGroup path="chapter-13/nouns" />
           <h3 class="mb-3 mt-8 text-center text-2xl font-medium text-orange-400">
             Adjectives & Verbs
           </h3>
-          <C13AdjAndVerbs />
+          <VocabGroup path="chapter-13/adj-and-verbs" />
+          <h3 class="mb-3 mt-8 text-center text-2xl font-medium text-orange-400">
+            Day Count & Misc.
+          </h3>
+          <VocabGroup path="chapter-13/day-count-and-misc" />
         </div>
       </div>
       <div class="pb-32" />
