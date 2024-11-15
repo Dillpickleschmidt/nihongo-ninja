@@ -17,10 +17,7 @@ export default function ToParticle() {
           In Japanese, the <span class="font-japanese text-xl">と</span>{" "}
           particle has several uses, but today we'll focus on two essential
           functions: connecting nouns (like "<strong>and</strong>") and
-          indicating who you do something <strong>with</strong>. While there are
-          other uses of <span class="font-japanese text-xl">と</span> that we'll
-          cover later, these two are foundational and you'll use them constantly
-          in everyday Japanese.
+          indicating who you do something <strong>with</strong>.
         </p>
 
         <h3 class="!mt-9 text-xl font-bold">

@@ -993,6 +993,11 @@ export default function ChapterBoxes() {
             link: "/learn/chapter-5/all-vocab-test",
             types: ["vocab-test"],
           },
+          {
+            title: "い/な-Adjective Conjugation",
+            link: "/learn/chapter-5/adjective-conjugation",
+            types: ["lesson"],
+          },
         ]}
       />
 

@@ -228,8 +228,8 @@ export default function TakusanLesson() {
         </div>
 
         <p>
-          <span class="font-bold">Confusing?</span> - As a rule, you can just
-          use <span class="font-japanese font-medium">たくさん</span> without a{" "}
+          <span class="font-bold">TLDR</span> - As a rule, you can just use{" "}
+          <span class="font-japanese font-medium">たくさん</span> without a{" "}
           <span class="font-medium text-orange-400">の</span> (with verbs and
           nouns) unless you're stringing together multiple{" "}
           <span class="font-medium text-orange-400">の</span>s to modify a noun.
