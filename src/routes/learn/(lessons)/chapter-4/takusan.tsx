@@ -34,15 +34,20 @@ export default function TakusanLesson() {
             </div>
             <div>
               <div>
-                <p>
-                  <span class="font-japanese text-xl">たくさん + Noun</span>
+                <p class="font-japanese text-xl">
+                  たくさん +{" "}
+                  <span class="font-medium text-black dark:text-amber-300">
+                    Noun
+                  </span>
                 </p>
                 <p class="-mb-1 -mt-1 text-base italic text-muted-foreground">
                   or
                 </p>
                 <p class="font-japanese text-xl">
-                  たくさん<span class="font-medium text-orange-400">の</span> +
-                  Noun
+                  たくさん<span class="font-medium text-orange-400">の</span> +{" "}
+                  <span class="font-medium text-black dark:text-amber-300">
+                    Noun
+                  </span>
                 </p>
                 <p class="text-base">When describing "many" of something</p>
               </div>
