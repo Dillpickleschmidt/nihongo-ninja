@@ -17,7 +17,7 @@ export default function BackgroundImage({
 
   return (
     <div
-      class={`absolute inset-0 bg-repeat print:hidden ${className}`}
+      class={`pointer-events-none absolute inset-0 bg-repeat print:hidden ${className}`}
       style={{
         "background-image": `url(${backgroundImage})`,
         "background-size": backgroundImageSize,

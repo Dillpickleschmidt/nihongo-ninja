@@ -7,7 +7,7 @@ export default function Sidebar() {
   return (
     <>
       {/* Mobile Menu Button */}
-      <div class="fixed left-4 top-20 z-40 block sm:hidden">
+      <div class="fixed left-4 top-20 z-[50] block sm:hidden">
         <Sheet>
           <SheetTrigger>
             <Button size="icon" variant="ghost">
