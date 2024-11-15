@@ -28,8 +28,8 @@ export default function DottedScrollbar() {
     return `origin-center rounded-full ${
       isLarge ? "h-4 w-4" : "h-[0.55rem] w-[0.55rem]"
     } ${
-      activeSection() === id ? `${scaleAmount} bg-white/50` : "bg-white/15"
-    } group-hover:bg-white/50 group-hover:${scaleAmount} ${
+      activeSection() === id ? `${scaleAmount} bg-primary/50` : "bg-primary/15"
+    } group-hover:bg-primary/50 group-hover:${scaleAmount} ${
       !isAutoScrolling() && !dragStart() ? "transition-all duration-200" : ""
     } group-hover:transition-all group-hover:duration-200`
   }
