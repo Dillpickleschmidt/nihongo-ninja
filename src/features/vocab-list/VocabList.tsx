@@ -19,21 +19,7 @@ import DaysAndTime from "./components/chapter-3/DaysAndTime"
 import VerbsAndAdjectives from "./components/chapter-3/VerbsAndAdjectives"
 import AdverbsExpressions from "./components/chapter-3/AdverbsExpressions"
 import AndSoBut from "./components/chapter-3/AndSoBut"
-import C13Nouns from "./components/chapter-13/C13Nouns"
-import C13AdjAndVerbs from "./components/chapter-13/C13AdjAndVerbs"
-import C13DayCountAndMisc from "./components/chapter-13/C13DayCountAndMisc"
-import C14Nouns1 from "./components/chapter-14/C14Nouns1"
-import C14Nouns2 from "./components/chapter-14/C14Nouns2"
-import C14AdjAndVerbs from "./components/chapter-14/C14AdjAndVerbs"
-import C14CountersAdvMisc from "./components/chapter-14/C14CountersAdvMisc"
-import C15Nouns1 from "./components/chapter-15/C15Nouns1"
-import C15Nouns2 from "./components/chapter-15/C15Nouns2"
-import C15GodanAndIchidanV from "./components/chapter-15/C15GodanAndIchidanV"
-import C15IrrVAdvMisc from "./components/chapter-15/C15IrrVAdvMisc"
-import C16Nouns from "./components/chapter-16/C16Nouns"
-import C16AdjAndUV from "./components/chapter-16/C16AdjAndUV"
-import C16RuAndIrrV from "./components/chapter-16/C16RuAndIrrV"
-import C16AdvAndMisc from "./components/chapter-16/C16AdvAndMisc"
+import VocabGroup from "./components/VocabGroup.tsx"
 
 const chapters = [
   {
@@ -80,39 +66,99 @@ const chapters = [
   {
     number: "13",
     categories: [
-      { title: "Nouns", component: C13Nouns },
-      { title: "Adjectives & Verbs", component: C13AdjAndVerbs },
-      { title: "Day Count & Misc.", component: C13DayCountAndMisc },
+      { title: "Nouns", component: <VocabGroup path="chapter-13/nouns" /> },
+      {
+        title: "Adjectives & Verbs",
+        component: <VocabGroup path="chapter-13/adj-and-verbs" />,
+      },
+      {
+        title: "Day Count & Misc.",
+        component: <VocabGroup path="chapter-13/day-count-and-misc" />,
+      },
     ],
   },
   {
     number: "14",
     categories: [
-      { title: "Nouns 1", component: C14Nouns1 },
-      { title: "Nouns 2", component: C14Nouns2 },
-      { title: "Adjectives & Verbs", component: C14AdjAndVerbs },
-      { title: "Counters, Adv. & Misc.", component: C14CountersAdvMisc },
+      { title: "Nouns 1", component: <VocabGroup path="chapter-14/nouns-1" /> },
+      { title: "Nouns 2", component: <VocabGroup path="chapter-14/nouns-2" /> },
+      {
+        title: "Adjectives & Verbs",
+        component: <VocabGroup path="chapter-14/adj-and-verbs" />,
+      },
+      {
+        title: "Counters, Adv. & Misc.",
+        component: <VocabGroup path="chapter-14/counters-adv-misc" />,
+      },
     ],
   },
   {
     number: "15",
     categories: [
-      { title: "Nouns 1", component: C15Nouns1 },
-      { title: "Nouns 2", component: C15Nouns2 },
-      { title: "Ichidan & Godan Verbs", component: C15GodanAndIchidanV },
+      { title: "Nouns 1", component: <VocabGroup path="chapter-15/nouns-1" /> },
+      { title: "Nouns 2", component: <VocabGroup path="chapter-15/nouns-2" /> },
+      {
+        title: "Ichidan & Godan Verbs",
+        component: <VocabGroup path="chapter-15/godan-and-ichidan-v" />,
+      },
       {
         title: "Irregular Verbs, Adv., & Misc.",
-        component: C15IrrVAdvMisc,
+        component: <VocabGroup path="chapter-15/irr-v-adv-misc" />,
       },
     ],
   },
   {
     number: "16",
     categories: [
-      { title: "Nouns", component: C16Nouns },
-      { title: "Adjectives & U-Verbs", component: C16AdjAndUV },
-      { title: "Ru-Verbs & Irregular Verbs", component: C16RuAndIrrV },
-      { title: "Adverbs & Misc.", component: C16AdvAndMisc },
+      { title: "Nouns", component: <VocabGroup path="chapter-16/nouns-1" /> },
+      {
+        title: "Adjectives & U-Verbs",
+        component: <VocabGroup path="chapter-16/adj-and-u-v" />,
+      },
+      {
+        title: "Ru-Verbs & Irregular Verbs",
+        component: <VocabGroup path="chapter-16/ru-and-irr-v" />,
+      },
+      {
+        title: "Adverbs & Misc.",
+        component: <VocabGroup path="chapter-16/adv-and-misc" />,
+      },
+    ],
+  },
+  {
+    number: "17",
+    categories: [
+      { title: "Nouns 1", component: <VocabGroup path="chapter-17/nouns-1" /> },
+      {
+        title: "Nouns 2",
+        component: <VocabGroup path="chapter-17/nouns-2" />,
+      },
+      {
+        title: "Verbs",
+        component: <VocabGroup path="chapter-17/verbs" />,
+      },
+      {
+        title: "Adjectives, Adv. & Misc.",
+        component: <VocabGroup path="chapter-17/adj-adv-misc" />,
+      },
+    ],
+  },
+  {
+    number: "18",
+    categories: [
+      { title: "Nouns 1", component: <VocabGroup path="chapter-18/nouns-1" /> },
+      {
+        title: "Nouns 2 & Adjectives",
+        component: <VocabGroup path="chapter-18/nouns-2-and-adjectives" />,
+      },
+      {
+        title: "U & Irregular Verbs",
+        component: <VocabGroup path="chapter-18/u-and-irr-verbs" />,
+      },
+      {
+        title: "Ru-Verbs & Misc.",
+        component: <VocabGroup path="chapter-18/ru-verbs-and-misc" />,
+      },
     ],
   },
 ]
@@ -130,7 +176,9 @@ export default function VocabList() {
                     title={category.title}
                     expandedByDefault={true}
                   >
-                    <category.component />
+                    {typeof category.component === "function"
+                      ? category.component()
+                      : category.component}
                   </CategoryDropdown>
                 )}
               </For>
