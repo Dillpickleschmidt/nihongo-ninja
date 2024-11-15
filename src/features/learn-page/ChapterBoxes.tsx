@@ -890,18 +890,23 @@ export default function ChapterBoxes() {
             types: ["lesson"],
           },
           {
-            title: "Polite Past Tense",
+            title: "でした・ました - Polite Past Tense",
             link: "/learn/chapter-4/polite-past-tense",
             types: ["lesson"],
           },
           {
-            title: "Time Duration - 時間",
+            title: "時間 - Time Duration",
             link: "/learn/chapter-4/jikan",
             types: ["lesson"],
           },
           {
-            title: "Many - たくさん",
+            title: "たくさん - Many",
             link: "/learn/chapter-4/takusan",
+            types: ["lesson"],
+          },
+          {
+            title: "と - And/With",
+            link: "/learn/chapter-4/to",
             types: ["lesson"],
           },
         ]}

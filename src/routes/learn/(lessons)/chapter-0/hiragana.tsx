@@ -1,5 +1,6 @@
 import ContentBox from "@/components/ContentBox"
 import PortraitIcon from "@/components/PortraitIcon"
+import YouTubeVideo from "@/features/youtube/YouTube"
 
 export default function JapanesePronunciation() {
   return (
@@ -245,6 +246,14 @@ export default function JapanesePronunciation() {
           </p>
           <div class="mt-4 flex w-full justify-center">
             <PortraitIcon src="/img/guru.png" class="border-none" />
+          </div>
+          <div class="flex w-full justify-center pt-6">
+            <div class="w-full max-w-96">
+              <YouTubeVideo
+                videoId="GuDyQYkdyio"
+                title="35 years mug collection destroyed"
+              />
+            </div>
           </div>
         </div>
       </div>
