@@ -806,7 +806,6 @@ export default function ChapterBoxes() {
             title: "Chapter 4 Vocab List",
             link: "/learn/chapter-4/vocab-list",
             types: ["vocab-list"],
-            disabled: true,
           },
           {
             title: "Chapter 4 Grammar Notes",
@@ -920,7 +919,6 @@ export default function ChapterBoxes() {
             title: "Chapter 5 Vocab List",
             link: "/learn/chapter-5/vocab-list",
             types: ["vocab-list"],
-            disabled: true,
           },
           {
             title: "Chapter 5 Grammar Notes",
@@ -996,6 +994,11 @@ export default function ChapterBoxes() {
           {
             title: "い/な-Adjective Conjugation",
             link: "/learn/chapter-5/adjective-conjugation",
+            types: ["lesson"],
+          },
+          {
+            title: "Adjectives Modifying Nouns",
+            link: "/learn/chapter-5/adj-modifying-nouns",
             types: ["lesson"],
           },
         ]}

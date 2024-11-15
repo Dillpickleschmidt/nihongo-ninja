@@ -13,21 +13,21 @@ export default function page() {
         </h1>
         <div class="mx-8">
           <h3 class="mb-3 mt-8 text-center text-2xl font-medium text-orange-400">
-            Nouns 1
+            Nouns
           </h3>
-          <VocabGroup path="chapter-18/nouns-1" />
+          <VocabGroup path="chapter-5/nouns" />
           <h3 class="mb-3 mt-8 text-center text-2xl font-medium text-orange-400">
-            Nouns 2 & Adjectives
+            I-Adjectives
           </h3>
-          <VocabGroup path="chapter-18/nouns-2-and-adjectives" />
+          <VocabGroup path="chapter-5/i-adjectives" />
           <h3 class="mb-3 mt-8 text-center text-2xl font-medium text-orange-400">
-            U & Irregular Verbs
+            Na-Adjectives
           </h3>
-          <VocabGroup path="chapter-18/u-and-irr-verbs" />
+          <VocabGroup path="chapter-5/na-adjectives" />
           <h3 class="mb-3 mt-8 text-center text-2xl font-medium text-orange-400">
-            Ru-Verbs & Misc.
+            Verbs, Adverbs, & Misc.
           </h3>
-          <VocabGroup path="chapter-18/ru-verbs-and-misc" />
+          <VocabGroup path="chapter-5/verbs-adv-misc" />
         </div>
       </div>
       <div class="pb-32" />

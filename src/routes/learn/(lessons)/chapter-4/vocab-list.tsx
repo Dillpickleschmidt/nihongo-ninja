@@ -15,19 +15,19 @@ export default function page() {
           <h3 class="mb-3 mt-8 text-center text-2xl font-medium text-orange-400">
             Nouns 1
           </h3>
-          <VocabGroup path="chapter-18/nouns-1" />
+          <VocabGroup path="chapter-4/nouns-1" />
           <h3 class="mb-3 mt-8 text-center text-2xl font-medium text-orange-400">
-            Nouns 2 & Adjectives
+            Nouns 2
           </h3>
-          <VocabGroup path="chapter-18/nouns-2-and-adjectives" />
+          <VocabGroup path="chapter-4/nouns-2" />
           <h3 class="mb-3 mt-8 text-center text-2xl font-medium text-orange-400">
-            U & Irregular Verbs
+            Location Words
           </h3>
-          <VocabGroup path="chapter-18/u-and-irr-verbs" />
+          <VocabGroup path="chapter-4/location-words" />
           <h3 class="mb-3 mt-8 text-center text-2xl font-medium text-orange-400">
-            Ru-Verbs & Misc.
+            Verbs, Adverbs, & Misc.
           </h3>
-          <VocabGroup path="chapter-18/ru-verbs-and-misc" />
+          <VocabGroup path="chapter-4/verbs-adv-misc" />
         </div>
       </div>
       <div class="pb-32" />
