@@ -1,4 +1,5 @@
 import ContentBox from "@/components/ContentBox"
+import PortraitIcon from "@/components/PortraitIcon"
 import Furigana from "@/components/text/Furigana"
 import SelectText from "@/components/text/MultipleChoiceText"
 
@@ -73,22 +74,52 @@ export default function TakusanLesson() {
             <p class="font-japanese text-xl">
               図書館にたくさんの本があります。
             </p>
-            <p class="text-base">There are many books in the library.</p>
+            <p class="text-base">
+              There are many books in the library{" "}
+              <span class="italic">(focusing on the books)</span>.
+            </p>
           </div>
         </div>
 
         <h3 class="!mt-9 text-xl font-bold">Pattern 3: たくさん + Noun</h3>
-        <p>
-          You can also drop the の, making it slightly less explicit and more
-          conversational:
-        </p>
+        <p>You can also drop the の, making it slightly less explicit:</p>
         <div class="flex w-full justify-center">
           <div class="space-y-4">
             <p class="font-japanese text-xl">図書館にたくさん本があります。</p>
-            <p class="text-base">There are many books in the library.</p>
+            <p class="text-base">
+              There are many books in the library{" "}
+              <span class="italic">(focusing on the library)</span>.
+            </p>
           </div>
         </div>
-        <p>So when would you want to keep the の?</p>
+        <div class="rounded-lg bg-card/50 p-4">
+          <p class="text-base italic">
+            "<span class="font-japanese font-medium not-italic">たくさん</span>{" "}
+            may be used before a noun without also using{" "}
+            <span class="font-japanese font-medium not-italic">の</span>.
+            However, in this case, it will feel more like{" "}
+            <span class="font-japanese font-medium not-italic">たくさん</span>{" "}
+            is describing the whole phrase, rather than just the noun it is in
+            front of. If you strongly want to highlight the noun, using{" "}
+            <span class="font-japanese font-medium not-italic">の</span> would
+            be best" -{" "}
+            <a
+              href="https://bunpro.jp/grammar_points/%E3%81%9F%E3%81%8F%E3%81%95%E3%82%93"
+              target="_blank"
+              class="text-sky-400 underline"
+            >
+              Bunpro
+            </a>
+          </p>
+        </div>
+
+        <h3 class="pt-12 text-center text-3xl font-bold">
+          Bonus <span class="text-2xl text-red-500">[Advanced]</span>
+        </h3>
+        <div class="mr-[5.75rem] rounded-2xl border-2 border-dashed border-muted bg-card p-4 shadow-md">
+          <PortraitIcon src="/img/student.png" />
+          <p>Are there any other instances where you want to keep the の?</p>
+        </div>
         <p>
           Whenever you're already using の in the same sentence for the same
           noun, mixing and matching decisions of when to use の would quickly
