@@ -8,28 +8,33 @@ import "./app.css"
 import "@fontsource-variable/inter"
 import "@fontsource-variable/noto-sans-jp"
 import { MetaProvider } from "@solidjs/meta"
+import { PostHogProvider } from "./features/posthog/PostHogContext"
 
 export default function App() {
   return (
     <Router
       root={(props) => (
         <>
-          <MetaProvider>
-            <Suspense>
-              <ColorModeScript />
-              <ColorModeProvider>
-                <Nav />
-                <div class="relative font-inter text-lg">{props.children}</div>
-                <Toaster
-                  theme="dark"
-                  position="bottom-right"
-                  expand={true}
-                  richColors
-                  // closeButton
-                />
-              </ColorModeProvider>
-            </Suspense>
-          </MetaProvider>
+          <PostHogProvider>
+            <MetaProvider>
+              <Suspense>
+                <ColorModeScript />
+                <ColorModeProvider>
+                  <Nav />
+                  <div class="relative font-inter text-lg">
+                    {props.children}
+                  </div>
+                  <Toaster
+                    theme="dark"
+                    position="bottom-right"
+                    expand={true}
+                    richColors
+                    // closeButton
+                  />
+                </ColorModeProvider>
+              </Suspense>
+            </MetaProvider>
+          </PostHogProvider>
         </>
       )}
     >

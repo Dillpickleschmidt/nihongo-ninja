@@ -24,6 +24,7 @@
     "jspdf": "^2.5.2",
     "lucide-solid": "^0.447.0",
     "postcss": "^8.4.38",
+    "posthog-js": "^1.186.1",
     "solid-js": "^1.9.1",
     "solid-sonner": "^0.2.8",
     "tailwind-merge": "^2.5.3",
