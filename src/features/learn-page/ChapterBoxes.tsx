@@ -1001,6 +1001,11 @@ export default function ChapterBoxes() {
             link: "/learn/chapter-5/adj-modifying-nouns",
             types: ["lesson"],
           },
+          {
+            title: "好き・嫌い",
+            link: "/learn/chapter-5/suki-kirai",
+            types: ["lesson"],
+          },
         ]}
       />
 
