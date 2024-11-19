@@ -300,7 +300,9 @@
     "example_sentences": [
       { "japanese": "肉を食べます。", "english": "I eat meat." }
     ],
-    "chapter": 2
+    "chapter": 2,
+    "videos": [],
+    "extra": "https://www.youtube.com/shorts/Pf7hKJHh4oQ?feature=share"
   },
   {
     "word": "メニュー",

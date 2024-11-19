@@ -27,6 +27,7 @@ export type VocabItem = {
   category: string | null
   videos: Video[] | null
   particles?: Particle[]
+  extra: any
 }
 
 export type RichVocabItem = VocabItem & {

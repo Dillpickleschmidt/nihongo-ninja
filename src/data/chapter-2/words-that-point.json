@@ -177,7 +177,9 @@
         "english": "Where is your office?"
       }
     ],
-    "chapter": 2
+    "chapter": 2,
+    "videos": [],
+    "extra": "https://www.youtube.com/shorts/xyC8k7WeXHs?feature=share"
   },
   {
     "word": "こちら",
@@ -253,6 +255,8 @@
         "english": "Who is that student (over there)?"
       }
     ],
-    "chapter": 2
+    "chapter": 2,
+    "videos": [],
+    "extra": "https://www.youtube.com/shorts/MqgSCiOzOO0?feature=share"
   }
 ]

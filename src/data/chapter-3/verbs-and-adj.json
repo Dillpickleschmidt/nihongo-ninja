@@ -22,7 +22,9 @@
       { "japanese": "学校に行く", "english": "I go to school" },
       { "japanese": "東京へ行く", "english": "I go to Tokyo" }
     ],
-    "chapter": 3
+    "chapter": 3,
+    "videos": [],
+    "extra": "https://www.youtube.com/shorts/od8EavrowKI?feature=share"
   },
   {
     "word": "来る",

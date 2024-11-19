@@ -47,7 +47,9 @@
         "label": "person",
         "particle": "に"
       }
-    ]
+    ],
+    "videos": [],
+    "extra": "https://www.youtube.com/shorts/SiJ0-zBDiYc?feature=share"
   },
   {
     "word": "押す",
@@ -88,7 +90,9 @@
       {
         "particle": "を"
       }
-    ]
+    ],
+    "videos": [],
+    "extra": "https://www.youtube.com/shorts/haH1t2v5_BM?feature=share"
   },
   {
     "word": "お湯が沸く",
