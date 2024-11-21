@@ -1006,6 +1006,11 @@ export default function ChapterBoxes() {
             link: "/learn/chapter-5/suki-kirai",
             types: ["lesson"],
           },
+          {
+            title: "は For Comparisons",
+            link: "/learn/chapter-5/wa-comparisons",
+            types: ["lesson"],
+          },
         ]}
       />
 

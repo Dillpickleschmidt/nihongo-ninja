@@ -1,0 +1,200 @@
+import ContentBox from "@/components/ContentBox"
+import Furigana from "@/components/text/Furigana"
+import SelectText from "@/components/text/MultipleChoiceText"
+
+export default function WaContrast() {
+  return (
+    <ContentBox
+      nextButtonText="Next Lesson ->"
+      nextButtonLink="/learn/chapter-2/next-lesson"
+    >
+      <h1 class="px-12 pb-6 pt-28 text-center text-4xl font-semibold lg:px-28">
+        The Hidden Meaning of <span class="font-japanese text-sky-400">は</span>
+      </h1>
+
+      <div class="space-y-6 px-8 sm:px-16 md:px-24">
+        <p>
+          First, let's remember the purpose of は: it's for marking a new topic
+          being brought up. But if you recall, Japanese speakers will most often
+          omit the topic if it's obvious. So what happens if you choose to
+          include it anyway?
+        </p>
+
+        <h3 class="!mt-9 text-2xl font-bold">
+          Understanding Through Literal Translation
+        </h3>
+        <p>
+          Here, it's actually useful to recall the way は is literally
+          translated. Take this statement directed towards a woman:
+        </p>
+        <div class="space-y-2">
+          <p class="font-japanese text-xl">
+            今日<span class="font-medium text-sky-400">は</span>きれいです
+          </p>
+          <p class="text-lg">→ "As for today, you're beautiful"</p>
+          <p class="">
+            "As for today..." <span class="font-black">Today?</span> What about{" "}
+            <span class="font-black">yesterday</span>? Saying "as for today"
+            sounds rather rude in English, and the woman wouldn't likely take it
+            too kindly in Japanese either.
+          </p>
+        </div>
+
+        <h3 class="!mt-9 text-2xl font-bold">
+          Understanding Through Particles
+        </h3>
+        <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
+          <div class="rounded-lg border p-4">
+            <p class="font-japanese text-xl">今日きれいです</p>
+            <p class="text-base">→ "You're beautiful today"</p>
+            <p class="text-sm text-muted-foreground">neutral statement</p>
+          </div>
+          <div class="rounded-lg border p-4">
+            <p class="font-japanese text-xl">
+              今日<span class="font-medium text-sky-400">は</span>きれいです
+            </p>
+            <p class="text-base">→ "As for TODAY, you're beautiful"</p>
+            <p class="text-sm text-muted-foreground">
+              implying contrast with other days
+            </p>
+          </div>
+          <div class="rounded-lg border p-4">
+            <p class="font-japanese text-xl">
+              今日<span class="text-rose-400">が</span>きれいです
+            </p>
+            <p class="text-base">→ ✗ not grammatical</p>
+            <p class="text-sm text-muted-foreground">
+              the day isn't what's beautiful in this instance
+            </p>
+          </div>
+        </div>
+        <p class="!mt-2 text-base text-muted-foreground">
+          *Remember, が only marks the subject of a sentence. In this instance,
+          きれい is describing the person, not the day.
+        </p>
+
+        <p>Compare this with describing weather:</p>
+        <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
+          <div class="rounded-lg border p-4">
+            <p class="font-japanese text-xl">今日寒いです</p>
+            <p class="text-base">→ "It's cold today"</p>
+            <p class="text-sm text-muted-foreground">neutral statement</p>
+          </div>
+          <div class="rounded-lg border p-4">
+            <p class="font-japanese text-xl">
+              今日<span class="font-medium text-sky-400">は</span>寒いです
+            </p>
+            <p class="text-base">→ "As for today, it's cold"</p>
+            <p class="text-sm text-muted-foreground">
+              implying contrast with other days
+            </p>
+          </div>
+          <div class="rounded-lg border p-4">
+            <p class="font-japanese text-xl">
+              今日<span class="text-rose-400">が</span>寒いです
+            </p>
+            <p class="text-base">→ "TODAY is the cold one"</p>
+            <p class="text-sm text-muted-foreground">
+              technically grammatical but weird*
+            </p>
+          </div>
+        </div>
+
+        <p class="!mt-2 text-base text-muted-foreground">
+          *While 今日が寒いです is not grammatically incorrect, you'll likely
+          never hear hear it. However, if someone specifically asked "which day
+          is cold?", it might make sense to say 今日が寒いです. However, that's
+          so contrived that most Japanese speakers would just tell you that
+          今日が寒いです is wrong.
+        </p>
+
+        <p>This helps us understand why:</p>
+        <div class="space-y-2">
+          <p class="font-japanese text-xl">
+            私<span class="font-medium text-sky-400">は</span>猫が好きです
+          </p>
+          <p class="text-lg">→ "As for me, I like cats"</p>
+          <p class="text-base text-muted-foreground">
+            Implication: "...but I'm not saying anything about anyone else"
+          </p>
+        </div>
+
+        <h3 class="!mt-9 text-2xl font-bold">
+          Multiple は Creates Multiple Contrasts
+        </h3>
+        <div class="space-y-2">
+          <p class="font-japanese text-xl">
+            私<span class="font-medium text-sky-400">は</span>今日
+            <span class="font-medium text-sky-400">は</span>東京へ行きます
+          </p>
+          <p class="text-lg">→ "As for me, as for today, I'm going to Tokyo"</p>
+          <p class="text-base text-muted-foreground">
+            Creating contrasts with both other people and other days
+          </p>
+        </div>
+
+        <h3 class="!mt-9 text-2xl font-bold">
+          Using は For Explicit Comparisons
+        </h3>
+        <div class="space-y-2">
+          <p class="font-japanese text-xl">
+            スポーツ
+            <span class="font-medium text-sky-400">は</span>好きですが、 勉強
+            <span class="font-medium text-sky-400">は</span>嫌いです
+          </p>
+          <p class="text-lg">
+            → "As for sports I like them, but as for studying I hate it"
+          </p>
+        </div>
+      </div>
+
+      <div class="space-y-4 px-12 pb-32 leading-8 sm:px-16 md:px-24 [&>*]:space-y-4">
+        <h3 class="pt-12 text-center text-3xl font-bold">Practice</h3>
+
+        <p>
+          Your friend looks nice today. How would you compliment them WITHOUT
+          implying they usually don't?
+        </p>
+        <SelectText
+          answer="今日きれいですね。"
+          a="今日はきれいですね。"
+          b="今日きれいですね。"
+          c="今日がきれいですね。"
+          class="text-xl"
+        />
+        {/* <p class="text-base text-muted-foreground">
+          *Using は would create a contrast with other days. Just 今日 makes it
+          a simple statement about today.
+        </p> */}
+
+        {/* <p>What does this sentence imply? 「私は魚は食べません。」</p>
+        <SelectText
+          answer="I don't eat fish (but I might eat other things)"
+          a="I don't eat fish (simple statement)"
+          b="I don't eat fish (but I might eat other things)"
+          c="I don't eat fish (but other people do)"
+          class="text-xl"
+        />
+        <p class="text-base text-muted-foreground">
+          *The は after 魚 creates a contrast with other foods, while the first
+          は contrasts "me" with others
+        </p> */}
+
+        <p>Which sentence is grammatically correct to say "Today is cold"?</p>
+        <SelectText
+          answer={["今日は寒いです。", "今日が寒いです。"]}
+          a="今日は寒いです。"
+          b="今日が寒いです。"
+          c="今日を寒いです。"
+          class="text-xl"
+        />
+        <p class="text-base text-muted-foreground">
+          *Both は and が are grammatical here, but they carry different
+          nuances. 99% of the time, 今日は寒いです is the better choice. But
+          someone might also ask you "which day is cold?" In that case,
+          今日が寒いです might make more sense.
+        </p>
+      </div>
+    </ContentBox>
+  )
+}
