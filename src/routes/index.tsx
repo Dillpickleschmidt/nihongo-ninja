@@ -1,8 +1,7 @@
 import { A } from "@solidjs/router"
-import BackgroundImage from "@/components/BackgroundImage"
-import Sidebar from "@/features/sidebar/Sidebar"
 import { Button } from "@/components/ui/button"
 import { Title } from "@solidjs/meta"
+import HomePageCarousel from "@/features/home-page/Carousel"
 
 export default function Home() {
   return (
@@ -31,12 +30,26 @@ export default function Home() {
             class="custom-gradient-mask opacity-[0.05]"
           />
         </div>
+
+        <div class="absolute top-20 hidden w-full justify-center px-10 md:top-36 md:flex md:px-0">
+          <HomePageCarousel />
+        </div>
+
         {/* Headers */}
-        <div class="px-10 pt-14 md:px-16 md:pt-16 lg:px-24 2xl:px-32 2xl:pt-24">
+        <div class="px-10 pb-24 pt-8 md:px-16 md:pt-10 lg:px-24 2xl:px-32 2xl:pt-16">
           <h3 class="ml-2 font-medium md:text-3xl md:text-[#BBBBBB]">
             Nihongo Ninja
           </h3>
-          <h1 class="mt-16 max-w-[800px] pr-4 text-[2.25rem] font-medium leading-[3rem] text-[#BBBBBB] md:mt-48 md:pr-0 md:text-[3.25rem] md:leading-[3.5rem]">
+
+          {/* small screen */}
+          <div class="flex w-full justify-center pt-4 md:hidden">
+            <HomePageCarousel />
+          </div>
+          <h1 class="mt-6 max-w-[800px] pr-4 text-[2.25rem] font-medium leading-[3rem] text-[#BBBBBB] md:mt-48 md:hidden md:pr-0">
+            Curated Japanese Tools and Learning Resources
+          </h1>
+          {/* medium+ screen */}
+          <h1 class="mt-64 hidden max-w-[800px] pr-0 text-[3.25rem] font-medium leading-[3.5rem] text-[#BBBBBB] md:mt-[450px] md:block">
             Curated Japanese Tools and Learning Resources
           </h1>
           <h2 class="mt-8 max-w-[950px] text-[1.15rem] leading-8 tracking-tight md:mt-5 md:text-[1.55rem] md:leading-[2.6rem]">
@@ -56,7 +69,7 @@ export default function Home() {
           </div>
         </div>
         {/* Box content */}
-        <div class="mt-12 w-full px-6 pb-24 md:mt-24">
+        {/* <div class="mt-12 w-full px-6 pb-24 md:mt-24">
           <div class="grid w-[750px] grid-cols-9 gap-[0.275rem] md:ml-[17rem] md:w-[1475px] md:gap-2 [&>*]:h-20 [&>*]:rounded-2xl [&>*]:bg-neutral-700 [&>*]:text-neutral-700 [&>*]:md:h-40">
             <div />
             <div />
@@ -74,7 +87,7 @@ export default function Home() {
             <div />
             <div />
           </div>
-        </div>
+        </div> */}
       </main>
     </>
   )

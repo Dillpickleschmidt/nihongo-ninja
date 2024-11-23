@@ -30,7 +30,7 @@ export default function index() {
   return (
     <>
       <Title>Nihongo Ninja - Learn Japanese</Title>
-      <div class="px-10 pb-2 pt-10 text-center font-inter text-6xl font-medium text-primary opacity-50 dark:text-muted-foreground dark:opacity-100 lg:pb-[4.5rem] lg:pt-24">
+      {/* <div class="px-10 pb-2 pt-10 text-center font-inter text-6xl font-medium text-primary opacity-50 dark:text-muted-foreground dark:opacity-100 lg:pb-[4.5rem] lg:pt-24">
         <h1 class="hidden md:inline-flex">
           日本語<span class="ml-6 italic">Nｉｎｊａ</span>
         </h1>
@@ -42,16 +42,19 @@ export default function index() {
             </span>
           </h1>
         </span>
+      </div> */}
+      <div class="px-10 pt-10 text-center font-inter text-6xl font-medium text-primary opacity-50 dark:text-muted-foreground dark:opacity-100 lg:pb-[2rem] lg:pt-24">
+        Nihongo Ninja
       </div>
       <div class="flex">
         <Sidebar />
         <div class="flex w-full justify-center pb-24 pl-6 sm:pl-12 xl:px-16">
           <div class="max-w-[1300px]">
-            <div class="my-6 flex max-h-28 w-full justify-center overflow-y-auto rounded-md border bg-card px-4 py-3 text-base text-muted-foreground sm:px-8 sm:py-4 sm:text-lg lg:min-h-28 lg:items-center">
+            {/* <div class="my-6 flex max-h-28 w-full justify-center overflow-y-auto rounded-md border bg-card px-4 py-3 text-base text-muted-foreground sm:px-8 sm:py-4 sm:text-lg lg:min-h-28 lg:items-center">
               No fixed curriculum—Nihongo Ninja aims to be your go-to hub for
               Japanese learning. We've scoured the internet to curate the best
               learning materials, bringing them together in one place for free.
-            </div>
+            </div> */}
             <div class="space-y-2">
               <h4 class="text-base font-medium text-muted-foreground">
                 Sort by:

@@ -53,7 +53,7 @@ export default function WaContrast() {
             <p class="font-japanese text-xl">
               今日<span class="font-medium text-sky-400">は</span>きれいです
             </p>
-            <p class="text-base">→ "As for TODAY, you're beautiful"</p>
+            <p class="text-base">→ "As for today, you're beautiful"</p>
             <p class="text-sm text-muted-foreground">
               implying contrast with other days
             </p>

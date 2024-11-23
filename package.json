@@ -20,6 +20,8 @@
     "autoprefixer": "^10.4.19",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "embla-carousel-autoplay": "^8.5.1",
+    "embla-carousel-solid": "^8.5.1",
     "html2canvas": "^1.4.1",
     "jspdf": "^2.5.2",
     "lucide-solid": "^0.447.0",
