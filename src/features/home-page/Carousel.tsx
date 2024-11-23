@@ -14,9 +14,9 @@ const images = [
   { src: "/img/homepage/ConjugationPractice.jpg", alt: "Preview 2" },
   { src: "/img/homepage/VocabPracticeMC.jpg", alt: "Preview 3" },
   { src: "/img/homepage/GrammarNotes.jpg", alt: "Preview 4" },
-  { src: "/img/homepage/SentencePractice.jpg", alt: "Preview 5" },
-  { src: "/img/homepage/VocabPracticeW.jpg", alt: "Preview 6" },
-  { src: "/img/homepage/VocabList.jpg", alt: "Preview 7" },
+  { src: "/img/homepage/VocabPracticeW.jpg", alt: "Preview 5" },
+  { src: "/img/homepage/VocabList.jpg", alt: "Preview 6" },
+  { src: "/img/homepage/SentencePractice.jpg", alt: "Preview 7" },
 ]
 
 export default function CoverflowCarousel() {
