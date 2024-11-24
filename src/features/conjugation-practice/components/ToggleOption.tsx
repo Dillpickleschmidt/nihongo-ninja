@@ -3,6 +3,7 @@ import {
   CheckboxControl,
   CheckboxLabel,
 } from "@/components/ui/checkbox"
+import { cn } from "@/libs/cn"
 import { JSX } from "solid-js"
 
 type ToggleOptionProps = {
@@ -28,9 +29,9 @@ export default function ToggleOption({
       class="flex items-center space-x-3"
     >
       <div class="flex items-center gap-3">
-        <CheckboxControl />
+        <CheckboxControl class="hover:cursor-pointer" />
         <CheckboxLabel
-          class={`hover:cursor-pointer ${className || "text-lg lg:text-[1.2rem]"}`}
+          class={`origin-left duration-100 hover:scale-[102%] hover:cursor-pointer ${cn("text-lg lg:text-[1.2rem]", className)}`}
         >
           {label}
         </CheckboxLabel>

@@ -1,3 +1,4 @@
+// conjugationUtils.test.ts
 import * as conjugationUtils from "./conjugationUtils"
 
 describe("Conjugation Utils", () => {

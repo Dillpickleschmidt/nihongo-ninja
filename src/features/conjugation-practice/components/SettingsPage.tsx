@@ -76,7 +76,7 @@ export default function SettingsPage({ onStartReview }: SettingsPageProps) {
   ]
 
   return (
-    <div class="relative min-h-screen bg-background sm:mt-6 sm:rounded-t-xl">
+    <div class="relative min-h-screen w-full max-w-5xl bg-background sm:mt-6 sm:rounded-t-xl">
       {/* Header */}
       <header class="flex h-32 items-center justify-center rounded-b-xl border bg-orange-500 saturate-[75%] backdrop-blur-sm sm:rounded-xl">
         <h1 class="text-4xl font-bold tracking-tight text-white">
@@ -84,7 +84,7 @@ export default function SettingsPage({ onStartReview }: SettingsPageProps) {
         </h1>
       </header>
 
-      <main class="max-w-5xl px-8 pb-24 pt-8">
+      <main class="px-8 pb-24 pt-8">
         {/* Form Types Section */}
         <section class="space-y-6 rounded-xl border bg-card p-6">
           <h2 class="text-center text-[1.6rem] font-black text-orange-400">
