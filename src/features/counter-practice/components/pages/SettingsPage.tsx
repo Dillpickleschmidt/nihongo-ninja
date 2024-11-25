@@ -5,6 +5,7 @@ import {
   RadioGroup,
   RadioGroupItem,
   RadioGroupItemControl,
+  RadioGroupItemInput,
   RadioGroupItemLabel,
 } from "@/components/ui/radio-group"
 import {
@@ -56,6 +57,12 @@ export default function SettingsPage(props: SettingsPageProps) {
     return groupedPatterns
   }
 
+  // When changing selected chapter, close any open dropdown
+  const handleChapterSelect = (value: string) => {
+    setSelectedChapter(parseInt(value))
+    setOpenChapter(null)
+  }
+
   return (
     <div class="relative min-h-screen w-full max-w-5xl bg-background sm:mt-6 sm:rounded-t-xl">
       <header class="container flex h-32 flex-col items-center justify-center rounded-b-xl border bg-orange-500 saturate-[75%] backdrop-blur-sm sm:rounded-xl">
@@ -81,7 +88,7 @@ export default function SettingsPage(props: SettingsPageProps) {
             <div class="column-fill-auto max-h-[300px] columns-2 space-y-4 overflow-y-auto">
               <RadioGroup
                 value={selectedChapter().toString()}
-                onChange={(value) => setSelectedChapter(parseInt(value))}
+                onChange={handleChapterSelect}
               >
                 <For each={availableChapters()}>
                   {(chapter) => (
@@ -89,7 +96,8 @@ export default function SettingsPage(props: SettingsPageProps) {
                       value={chapter.toString()}
                       class="mb-2 flex break-inside-avoid items-center space-x-2"
                     >
-                      <RadioGroupItemControl class="hover:cursor-pointer" />
+                      <RadioGroupItemInput />
+                      <RadioGroupItemControl />
                       <RadioGroupItemLabel class="origin-left text-lg duration-100 hover:scale-[102%] hover:cursor-pointer lg:text-[1.2rem]">
                         Chapter {chapter}
                       </RadioGroupItemLabel>
@@ -109,44 +117,40 @@ export default function SettingsPage(props: SettingsPageProps) {
           <div class="space-y-4">
             <For each={availableChapters()}>
               {(chapter) => (
-                <div
-                  onClick={() =>
-                    setOpenChapter(openChapter() === chapter ? null : chapter)
-                  }
+                <CollapsibleSection
+                  title={`Chapter ${chapter}`}
+                  containerClass="mb-4"
+                  open={openChapter() === chapter}
+                  onOpenChange={(isOpen) => {
+                    setOpenChapter(isOpen ? chapter : null)
+                  }}
                 >
-                  <CollapsibleSection
-                    title={`Chapter ${chapter}`}
-                    containerClass="mb-4"
-                  >
-                    {openChapter() === chapter && (
-                      <div class="space-y-6">
-                        <For each={getPatternsGroupedByChapter(chapter)}>
-                          {(group) => (
-                            <div class="space-y-2">
-                              <h3 class="font-medium text-muted-foreground">
-                                Chapter {group.chapter}
-                              </h3>
-                              <ul class="list-disc pl-6">
-                                <For each={group.patterns}>
-                                  {(pattern) => (
-                                    <li>
-                                      {pattern.id}: {pattern.baseReading}
-                                      {pattern.soundChangeType && (
-                                        <span class="ml-2 text-sm text-muted-foreground">
-                                          ({pattern.soundChangeType})
-                                        </span>
-                                      )}
-                                    </li>
+                  <div class="space-y-6">
+                    <For each={getPatternsGroupedByChapter(chapter)}>
+                      {(group) => (
+                        <div class="space-y-2">
+                          <h3 class="font-medium text-muted-foreground">
+                            Chapter {group.chapter}
+                          </h3>
+                          <ul class="list-disc pl-6">
+                            <For each={group.patterns}>
+                              {(pattern) => (
+                                <li>
+                                  {pattern.id}: {pattern.baseReading}
+                                  {pattern.soundChangeType && (
+                                    <span class="ml-2 text-sm text-muted-foreground">
+                                      ({pattern.soundChangeType})
+                                    </span>
                                   )}
-                                </For>
-                              </ul>
-                            </div>
-                          )}
-                        </For>
-                      </div>
-                    )}
-                  </CollapsibleSection>
-                </div>
+                                </li>
+                              )}
+                            </For>
+                          </ul>
+                        </div>
+                      )}
+                    </For>
+                  </div>
+                </CollapsibleSection>
               )}
             </For>
           </div>

@@ -43,10 +43,7 @@ export type GeneratedQuestion = {
 }
 
 export interface Question {
-  term: {
-    reading: string
-    word: string
-  }
+  word: string
   type: string[]
   givenAnswer: string
   answers: { reading: string }[]

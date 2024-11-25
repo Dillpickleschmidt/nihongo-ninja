@@ -1,34 +1,29 @@
 import { For } from "solid-js"
 import { Button } from "@/components/ui/button"
-import { Question } from "../utils/questionUtils"
+import { PracticeState } from "../../types"
 
-type SummaryPageProps = {
-  finalState: {
-    questions: Question[]
-    score: number
-  }
-  onRestartSession: () => void
-  onReturnToSettings: () => void
+interface SummaryPageProps {
+  state: PracticeState
+  onRestart: () => void
+  onReturn: () => void
 }
 
-export default function SummaryPage({
-  finalState,
-  onRestartSession,
-  onReturnToSettings,
-}: SummaryPageProps) {
+export default function SummaryPage(props: SummaryPageProps) {
+  const percentage = Math.round(
+    (props.state.correct / props.state.attempted) * 100,
+  )
+
   return (
-    <div class="w-screen max-w-[900px] space-y-6 px-6 sm:px-8 md:px-12">
-      <div class="w-full pt-24">
-        <h1 class="text-center text-5xl font-semibold">
-          Practice Session Complete!
-        </h1>
-        <div class="mt-2 text-center text-4xl">🎉</div>
-      </div>
-      <p class="text-center text-2xl">
-        Your score: {finalState.score} / {finalState.questions.length}
-      </p>
+    <div class="w-full max-w-md space-y-6 p-4">
+      <h2 class="text-center text-2xl font-bold">Practice Complete!</h2>
       <div class="space-y-4">
-        <For each={finalState.questions}>
+        <p class="text-center text-xl">
+          You got {props.state.correct} out of {props.state.attempted} correct (
+          {percentage}%)
+        </p>
+      </div>
+      <div class="space-y-4">
+        <For each={props.state.questions}>
           {(question, index) => (
             <div class="relative mx-2 mb-4 flex min-w-[500px] overflow-hidden rounded-lg bg-card shadow-md xl:mx-8">
               <div class="flex-1 py-4 pl-4 pr-6">
@@ -36,11 +31,7 @@ export default function SummaryPage({
                   class={`${!question.correct ? "text-[#ff5757]" : ""} text-xl font-bold`}
                 >
                   Question {index() + 1}:{" "}
-                  <span class="font-japanese">
-                    {question.term.reading}
-                    {question.term.word !== question.term.reading &&
-                      ` (${question.term.word})`}
-                  </span>
+                  <span class="font-japanese">{question.word}</span>
                 </p>
                 <p class="text-sm italic text-card-foreground">
                   Type: {question.type.join(", ")}
@@ -68,11 +59,11 @@ export default function SummaryPage({
           )}
         </For>
       </div>
-      <div class="flex justify-center space-x-4">
-        <Button onClick={onRestartSession} size="lg" class="bg-orange-500">
-          Start New Session
+      <div class="space-y-2">
+        <Button onClick={props.onRestart} class="w-full">
+          Practice Again
         </Button>
-        <Button onClick={onReturnToSettings} size="lg">
+        <Button onClick={props.onReturn} variant="outline" class="w-full">
           Return to Settings
         </Button>
       </div>

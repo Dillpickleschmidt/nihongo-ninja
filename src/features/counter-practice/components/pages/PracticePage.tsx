@@ -13,13 +13,6 @@ import QuestionDisplay from "../QuestionDisplay"
 import AnswerInput from "../AnswerInput"
 import ProgressDisplay from "../ProgressDisplay"
 
-// Helper function to derive reading from word
-const deriveReading = (word: string): string => {
-  // Implement your logic to derive reading from word
-  // For example, you might use a dictionary or some other method
-  return word // Placeholder: replace with actual logic
-}
-
 type PracticePageProps = {
   selectedChapters: number[]
   onComplete: (state: PracticeState) => void
@@ -80,10 +73,7 @@ export default function PracticePage(props: PracticePageProps) {
     const currentResult = result()
 
     const newQuestion: Question = {
-      term: {
-        reading: deriveReading(currentQuestion()!.vocab.word),
-        word: currentQuestion()!.vocab.word,
-      },
+      word: currentQuestion()!.vocab.word,
       type: [currentQuestion()!.pattern.id],
       givenAnswer: answer(),
       answers: [{ reading: currentQuestion()!.correctReading }],

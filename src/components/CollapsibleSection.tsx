@@ -11,15 +11,26 @@ type CollapsibleSectionProps = {
   containerClass?: string
   iconClass?: string
   buttonVariant?: "ghost" | "default" | "outline"
+  // New optional controlled state props
+  open?: boolean
+  onOpenChange?: (isOpen: boolean) => void
 }
 
 export default function CollapsibleSection(props: CollapsibleSectionProps) {
-  const [isOpen, setIsOpen] = createSignal(false)
+  const [internalOpen, setInternalOpen] = createSignal(false)
+
+  // Use internal state if not controlled, otherwise use props.open
+  const isOpen = () => props.open ?? internalOpen()
 
   const handleToggle = () => {
     const newState = !isOpen()
-    setIsOpen(newState)
-    props.onToggle?.(newState)
+    // If controlled, use onOpenChange, otherwise use internal state
+    if (props.onOpenChange) {
+      props.onOpenChange(newState)
+    } else {
+      setInternalOpen(newState)
+      props.onToggle?.(newState)
+    }
   }
 
   return (

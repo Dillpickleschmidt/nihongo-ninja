@@ -1,6 +1,5 @@
 import { TextField, TextFieldRoot } from "@/components/ui/textfield"
 import WanakanaWrapper from "@/features/wanakana/WanaKana"
-import { createEffect } from "solid-js"
 
 type AnswerInputProps = {
   value: string
