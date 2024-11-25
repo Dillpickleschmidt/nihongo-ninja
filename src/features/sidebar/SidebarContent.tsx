@@ -98,6 +98,25 @@ export default function SidebarContent({
           </span>
         </Button>
       </A>
+      <A href="/learn/counter-practice">
+        <Button
+          size="lg"
+          variant="outline"
+          class={`w-full min-w-11 text-nowrap p-0 py-3 text-sm font-normal ${
+            inDialog
+              ? "justify-start"
+              : "hidden sm:inline-flex xl:w-56 xl:text-base 2xl:w-72"
+          } lg:px-6`}
+        >
+          <GraduationCap
+            size="22px"
+            class={`${inDialog ? "mx-3" : "lg:mr-3"} text-green-500`}
+          />
+          <span class={`opacity-75 ${!inDialog && "hidden lg:flex"}`}>
+            Counters
+          </span>
+        </Button>
+      </A>
       <A href="/learn/vocab-list">
         <Button
           size="lg"
@@ -155,7 +174,7 @@ export default function SidebarContent({
           </span>
         </Button>
       </A>
-      <A href="">
+      {/* <A href="">
         <Button
           size="lg"
           variant="outline"
@@ -174,7 +193,7 @@ export default function SidebarContent({
             Games
           </span>
         </Button>
-      </A>
+      </A> */}
       <A href="/learn/additional-resources">
         <Button
           size="lg"
