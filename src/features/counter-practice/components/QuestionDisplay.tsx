@@ -9,12 +9,12 @@ type QuestionDisplayProps = {
 export default function QuestionDisplay(props: QuestionDisplayProps) {
   return (
     <div class="space-y-2 text-center">
-      <div class="text-4xl font-bold">
-        {props.number}{" "}
-        <span class="text-muted-foreground">
-          {props.number === 1 ? props.vocab.word : props.vocab.pluralWord}
+      <h1 class="text-4xl">
+        <span class="font-bold text-orange-400">{props.number}</span>{" "}
+        <span class="text-3xl font-semibold text-primary">
+          ({props.number === 1 ? props.vocab.word : props.vocab.pluralWord})
         </span>
-      </div>
+      </h1>
     </div>
   )
 }
