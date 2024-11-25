@@ -1011,6 +1011,11 @@ export default function ChapterBoxes() {
             link: "/learn/chapter-5/wa-comparisons",
             types: ["lesson"],
           },
+          {
+            title: "Counters Practice",
+            link: "/learn/counter-practice",
+            types: ["counter-practice"],
+          },
         ]}
       />
 

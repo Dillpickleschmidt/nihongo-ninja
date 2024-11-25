@@ -42,6 +42,8 @@ export default function UnitButtonContents(props: UnitButtonContentsProps) {
         return <GraduationCap size={iconSize} class="text-orange-500" />
       case "conjugation-practice":
         return <GraduationCap size={iconSize} class="text-teal-400" />
+      case "counter-practice":
+        return <GraduationCap size={iconSize} class="text-pink-400" />
       case "game":
         return <Gamepad size={iconSize} class="text-red-500" />
       case "video":

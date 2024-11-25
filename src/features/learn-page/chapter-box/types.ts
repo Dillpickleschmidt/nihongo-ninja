@@ -4,6 +4,7 @@ export const UnitButtonTypes = [
   "vocab-list",
   "lesson",
   "conjugation-practice",
+  "counter-practice",
   "practice-sentence",
   "vocab",
   "vocab-practice",
