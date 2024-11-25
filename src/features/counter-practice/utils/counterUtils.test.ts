@@ -6,9 +6,9 @@ describe("Counter Utils", () => {
   describe("Number Generation", () => {
     it("should generate numbers within range", () => {
       for (let i = 0; i < 100; i++) {
-        const num = counterUtils.generateRandomNumber(1, 10)
+        const num = counterUtils.generateRandomNumber(1, 50)
         expect(num).toBeGreaterThanOrEqual(1)
-        expect(num).toBeLessThanOrEqual(10)
+        expect(num).toBeLessThanOrEqual(50)
       }
     })
   })
@@ -34,8 +34,8 @@ describe("Counter Utils", () => {
     })
 
     it("should handle numbers outside 1-10 range", () => {
-      expect(counterUtils.getNumberReading(0)).toBe("0")
-      expect(counterUtils.getNumberReading(11)).toBe("11")
+      expect(counterUtils.getNumberReading(0)).toBe("れい")
+      expect(counterUtils.getNumberReading(11)).toBe("じゅういち")
     })
   })
 
@@ -76,7 +76,7 @@ describe("Counter Utils", () => {
     it("should generate valid questions", () => {
       const question = counterUtils.generateQuestion(patterns, vocab)
       expect(question.number).toBeGreaterThanOrEqual(1)
-      expect(question.number).toBeLessThanOrEqual(10)
+      expect(question.number).toBeLessThanOrEqual(50)
       expect(question.vocab).toBe(vocab[0])
       expect(question.pattern).toBe(patterns[0])
       expect(question.correctReading).toBeTruthy()

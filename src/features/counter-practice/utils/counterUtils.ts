@@ -36,8 +36,16 @@ export const getNumberReading = (num: number): string => {
     "きゅうじゅう",
   ]
 
-  if (num <= 10) {
+  if (num === 0) {
+    return "れい"
+  }
+
+  if (num < 10) {
     return units[num]
+  }
+
+  if (num === 10) {
+    return "じゅう"
   }
 
   const unit = num % 10

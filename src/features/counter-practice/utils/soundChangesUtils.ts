@@ -52,19 +52,19 @@ export const getFullCounterReading = (
         ? numberReading.slice(0, -1) + "っ"
         : numberReading
 
-      // Use ぴ after small っ, regular ひ otherwise
-      return needsSmallTsu
+      // Convert h-sounds to p-sounds for さん and よん, regular h-sounds otherwise
+      return needsSmallTsu || ["さん", "よん"].includes(numberReading)
         ? firstPart +
-            pattern.baseReading.replace(/^は|^ひ|^へ|^ほ|^ふ/, (match) =>
+            pattern.baseReading.replace(/^は|^ひ|^ふ|^へ|^ほ/, (match) =>
               match === "は"
                 ? "ぱ"
                 : match === "ひ"
                   ? "ぴ"
-                  : match === "へ"
-                    ? "ぺ"
-                    : match === "ほ"
-                      ? "ぽ"
-                      : "ぷ",
+                  : match === "ふ"
+                    ? "ぷ"
+                    : match === "へ"
+                      ? "ぺ"
+                      : "ぽ",
             )
         : numberReading + pattern.baseReading
     }
@@ -77,7 +77,7 @@ export const getFullCounterReading = (
         ? numberReading.slice(0, -1) + "っ"
         : numberReading
 
-      // Use び after さん
+      // Use b-sounds after さん
       if (numberReading === "さん") {
         return (
           numberReading +
@@ -86,16 +86,16 @@ export const getFullCounterReading = (
               ? "ば"
               : match === "ひ"
                 ? "び"
-                : match === "へ"
-                  ? "べ"
-                  : match === "ほ"
-                    ? "ぼ"
-                    : "ぶ",
+                : match === "ふ"
+                  ? "ぶ"
+                  : match === "へ"
+                    ? "べ"
+                    : "ぼ",
           )
         )
       }
 
-      // Use ぴ after small っ, regular ひ otherwise
+      // Convert h-sounds to p-sounds after small っ, regular h-sounds otherwise
       return needsSmallTsu
         ? firstPart +
             pattern.baseReading.replace(/^は|^ひ|^ふ|^へ|^ほ/, (match) =>
@@ -103,11 +103,11 @@ export const getFullCounterReading = (
                 ? "ぱ"
                 : match === "ひ"
                   ? "ぴ"
-                  : match === "へ"
-                    ? "ぺ"
-                    : match === "ほ"
-                      ? "ぽ"
-                      : "ぷ",
+                  : match === "ふ"
+                    ? "ぷ"
+                    : match === "へ"
+                      ? "ぺ"
+                      : "ぽ",
             )
         : numberReading + pattern.baseReading
     }
@@ -163,11 +163,11 @@ export const getFullCounterReading = (
                 ? "ぱ"
                 : match === "ひ"
                   ? "ぴ"
-                  : match === "へ"
-                    ? "ぺ"
-                    : match === "ほ"
-                      ? "ぽ"
-                      : "ぷ",
+                  : match === "ふ"
+                    ? "ぷ"
+                    : match === "へ"
+                      ? "ぺ"
+                      : "ぽ",
             )
         : numberReading + pattern.baseReading
     }

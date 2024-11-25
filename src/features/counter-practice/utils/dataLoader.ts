@@ -1,26 +1,18 @@
 // dataLoader.ts
-import { CounterPattern, VocabItem } from "../types"
+import { CounterPattern, VocabItem, ChapterPattern } from "../types"
 
 // Import the consolidated JSON files
 import counterPatternsData from "../data/counter-patterns.json"
 import vocabData from "../data/vocab.json"
 
 // Define the structure of the consolidated JSON files
-type CounterPatternsFile = {
-  chapter: number
-  content: CounterPattern[]
-}[]
+type CounterPatternsFile = ChapterPattern[]
 
 type VocabFile = VocabItem[]
 
 // Cast the imported data to the defined types
 const counterPatterns = counterPatternsData as CounterPatternsFile
 const vocabItems = vocabData as VocabFile
-
-export const getChapterNumber = (filePath: string): number => {
-  const match = filePath.match(/chapter-(\d+)\.json$/)
-  return match ? parseInt(match[1]) : 0
-}
 
 export const loadCounterData = async (
   selectedChapters: number[],
@@ -58,21 +50,9 @@ export const getAvailableChapters = (): number[] => {
     .sort((a, b) => a - b)
 }
 
-// Helper function to validate that vocabulary references valid patterns
-export const validateData = (
-  patterns: CounterPattern[],
-  vocab: VocabItem[],
-): boolean => {
-  const patternIds = new Set(patterns.map((p) => p.id))
-
-  const invalidVocab = vocab.filter((v) => !patternIds.has(v.patternId))
-  if (invalidVocab.length > 0) {
-    console.error(
-      "Found vocabulary items with invalid pattern IDs:",
-      invalidVocab,
-    )
-    return false
-  }
-
-  return true
+export const getPatternsByChapter = (patternId: string): number | undefined => {
+  const chapter = counterPatterns.find((chapter) =>
+    chapter.content.some((pattern) => pattern.id === patternId),
+  )
+  return chapter?.chapter
 }

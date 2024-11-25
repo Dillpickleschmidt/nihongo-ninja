@@ -20,7 +20,7 @@ export default function AnswerInput(props: AnswerInputProps) {
           value={props.value}
           onInput={(e) => props.onInput(e.currentTarget.value)}
           onKeyPress={props.onKeyPress}
-          class={`w-full py-5 text-xl ${
+          class={`w-full py-5 text-xl disabled:opacity-100 ${
             props.isCorrect === null
               ? ""
               : props.isCorrect

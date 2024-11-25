@@ -6,10 +6,9 @@ import {
   GeneratedQuestion,
   PracticeState,
   VocabItem,
-  ChapterPattern,
-  SoundChangeType,
   Question,
 } from "../../types"
+import { loadCounterData } from "../../utils/dataLoader"
 import QuestionDisplay from "../QuestionDisplay"
 import AnswerInput from "../AnswerInput"
 import ProgressDisplay from "../ProgressDisplay"
@@ -47,48 +46,9 @@ export default function PracticePage(props: PracticePageProps) {
   let inputRef: HTMLInputElement | null = null
 
   onMount(async () => {
-    // Load counter patterns from the selected chapters
-    const allPatternsData = await import("../../data/counter-patterns.json")
-
-    // Clean up soundChangeType values during mapping
-    const mappedData: ChapterPattern[] = allPatternsData.default.map(
-      (chapter) => ({
-        chapter: chapter.chapter,
-        content: chapter.content.map((pattern) => ({
-          ...pattern,
-          soundChangeType: [
-            "generic",
-            "dates",
-            "hToP",
-            "hToP/B",
-            "p",
-            "k",
-            "s",
-            "t",
-            "kToG",
-            "sToZ",
-          ].includes(pattern.soundChangeType as string)
-            ? (pattern.soundChangeType as SoundChangeType) // Valid value
-            : undefined, // Invalid values are coerced to undefined
-        })),
-      }),
-    )
-
-    const selectedPatterns = mappedData
-      .filter((chapter) => props.selectedChapters.includes(chapter.chapter))
-      .flatMap((chapter) => chapter.content)
-
-    // Load all vocab
-    const vocabData = await import("../../data/vocab.json")
-
-    // Only keep vocab that matches the selected patterns
-    const patternIds = new Set(selectedPatterns.map((p) => p.id))
-    const filteredVocab = vocabData.default.filter((v) =>
-      patternIds.has(v.patternId),
-    )
-
-    setPatterns(selectedPatterns)
-    setVocab(filteredVocab)
+    const { patterns, vocab } = await loadCounterData(props.selectedChapters)
+    setPatterns(patterns)
+    setVocab(vocab)
     generateNewQuestion()
   })
 

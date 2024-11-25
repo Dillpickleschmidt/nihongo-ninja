@@ -1,4 +1,5 @@
-import { createSignal, onMount } from "solid-js"
+// SettingsPage.tsx
+import { createSignal, onMount, For } from "solid-js"
 import { Button } from "@/components/ui/button"
 import {
   RadioGroup,
@@ -6,7 +7,13 @@ import {
   RadioGroupItemControl,
   RadioGroupItemLabel,
 } from "@/components/ui/radio-group"
-import { getAvailableChapters } from "../../utils/dataLoader"
+import {
+  getAvailableChapters,
+  loadCounterData,
+  getPatternsByChapter,
+} from "../../utils/dataLoader"
+import CollapsibleSection from "@/components/CollapsibleSection"
+import { CounterPattern } from "../../types"
 
 type SettingsPageProps = {
   onStartPractice: (chapters: number[]) => void
@@ -14,27 +21,43 @@ type SettingsPageProps = {
 
 export default function SettingsPage(props: SettingsPageProps) {
   const [availableChapters, setAvailableChapters] = createSignal<number[]>([])
-  // Initialize selectedChapter with 1
   const [selectedChapter, setSelectedChapter] = createSignal<number>(1)
+  const [patterns, setPatterns] = createSignal<CounterPattern[]>([])
+  const [openChapter, setOpenChapter] = createSignal<number | null>(null)
 
-  onMount(() => {
-    setAvailableChapters(getAvailableChapters())
+  onMount(async () => {
+    const chapters = getAvailableChapters()
+    setAvailableChapters(chapters)
+    const { patterns: p } = await loadCounterData(chapters)
+    setPatterns(p)
   })
 
   function accumulateChapters(selectedChapter: number) {
-    const data = availableChapters().reduce((acc, chapter) => {
-      if (chapter <= selectedChapter) {
-        acc.push(chapter)
+    return availableChapters().filter((chapter) => chapter <= selectedChapter)
+  }
+
+  // Group patterns by their original chapter
+  function getPatternsGroupedByChapter(upToChapter: number) {
+    const groupedPatterns: { chapter: number; patterns: CounterPattern[] }[] =
+      []
+
+    for (let chapter = 1; chapter <= upToChapter; chapter++) {
+      const chaptersPatterns = patterns().filter(
+        (p) => getPatternsByChapter(p.id) === chapter,
+      )
+      if (chaptersPatterns.length > 0) {
+        groupedPatterns.push({
+          chapter,
+          patterns: chaptersPatterns,
+        })
       }
-      return acc
-    }, [] as number[])
-    console.log(data)
-    return data
+    }
+
+    return groupedPatterns
   }
 
   return (
     <div class="relative min-h-screen w-full max-w-5xl bg-background sm:mt-6 sm:rounded-t-xl">
-      {/* Header */}
       <header class="container flex h-32 flex-col items-center justify-center rounded-b-xl border bg-orange-500 saturate-[75%] backdrop-blur-sm sm:rounded-xl">
         <h1 class="text-4xl font-bold tracking-tight text-white">
           Counter Practice
@@ -60,19 +83,72 @@ export default function SettingsPage(props: SettingsPageProps) {
                 value={selectedChapter().toString()}
                 onChange={(value) => setSelectedChapter(parseInt(value))}
               >
-                {availableChapters().map((chapter) => (
-                  <RadioGroupItem
-                    value={chapter.toString()}
-                    class="mb-2 flex break-inside-avoid items-center space-x-2"
-                  >
-                    <RadioGroupItemControl class="hover:cursor-pointer" />
-                    <RadioGroupItemLabel class="origin-left text-lg duration-100 hover:scale-[102%] hover:cursor-pointer lg:text-[1.2rem]">
-                      Chapter {chapter}
-                    </RadioGroupItemLabel>
-                  </RadioGroupItem>
-                ))}
+                <For each={availableChapters()}>
+                  {(chapter) => (
+                    <RadioGroupItem
+                      value={chapter.toString()}
+                      class="mb-2 flex break-inside-avoid items-center space-x-2"
+                    >
+                      <RadioGroupItemControl class="hover:cursor-pointer" />
+                      <RadioGroupItemLabel class="origin-left text-lg duration-100 hover:scale-[102%] hover:cursor-pointer lg:text-[1.2rem]">
+                        Chapter {chapter}
+                      </RadioGroupItemLabel>
+                    </RadioGroupItem>
+                  )}
+                </For>
               </RadioGroup>
             </div>
+          </div>
+        </section>
+
+        {/* Counter Patterns Preview */}
+        <section class="space-y-6 rounded-xl border bg-card p-6">
+          <h2 class="text-center text-2xl font-bold text-orange-400">
+            Counter Patterns Preview
+          </h2>
+          <div class="space-y-4">
+            <For each={availableChapters()}>
+              {(chapter) => (
+                <div
+                  onClick={() =>
+                    setOpenChapter(openChapter() === chapter ? null : chapter)
+                  }
+                >
+                  <CollapsibleSection
+                    title={`Chapter ${chapter}`}
+                    containerClass="mb-4"
+                  >
+                    {openChapter() === chapter && (
+                      <div class="space-y-6">
+                        <For each={getPatternsGroupedByChapter(chapter)}>
+                          {(group) => (
+                            <div class="space-y-2">
+                              <h3 class="font-medium text-muted-foreground">
+                                Chapter {group.chapter}
+                              </h3>
+                              <ul class="list-disc pl-6">
+                                <For each={group.patterns}>
+                                  {(pattern) => (
+                                    <li>
+                                      {pattern.id}: {pattern.baseReading}
+                                      {pattern.soundChangeType && (
+                                        <span class="ml-2 text-sm text-muted-foreground">
+                                          ({pattern.soundChangeType})
+                                        </span>
+                                      )}
+                                    </li>
+                                  )}
+                                </For>
+                              </ul>
+                            </div>
+                          )}
+                        </For>
+                      </div>
+                    )}
+                  </CollapsibleSection>
+                </div>
+              )}
+            </For>
           </div>
         </section>
 

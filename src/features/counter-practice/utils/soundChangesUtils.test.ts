@@ -175,21 +175,21 @@ describe("Sound Changes", () => {
   describe("s pattern", () => {
     const pattern: CounterPattern = {
       id: "test",
-      baseReading: "す",
+      baseReading: "さい",
       soundChangeType: "s",
     }
 
     const testCases = [
-      { reading: "いち", expected: "いっす" }, // いっ in chart
-      { reading: "に", expected: "にす" }, // empty in chart
-      { reading: "さん", expected: "さんす" }, // empty in chart
-      { reading: "よん", expected: "よんす" }, // empty in chart
-      { reading: "ご", expected: "ごす" }, // empty in chart
-      { reading: "ろく", expected: "ろくす" }, // empty in chart
-      { reading: "なな", expected: "ななす" }, // empty in chart
-      { reading: "はち", expected: "はっす" }, // はっ in chart
-      { reading: "きゅう", expected: "きゅうす" }, // empty in chart
-      { reading: "じゅう", expected: "じゅっす" }, // じゅっ/じっ in chart
+      { reading: "いち", expected: "いっさい" }, // いっ in chart
+      { reading: "に", expected: "にさい" }, // empty in chart
+      { reading: "さん", expected: "さんさい" }, // empty in chart
+      { reading: "よん", expected: "よんさい" }, // empty in chart
+      { reading: "ご", expected: "ごさい" }, // empty in chart
+      { reading: "ろく", expected: "ろくさい" }, // empty in chart
+      { reading: "なな", expected: "ななさい" }, // empty in chart
+      { reading: "はち", expected: "はっさい" }, // はっ in chart
+      { reading: "きゅう", expected: "きゅうさい" }, // empty in chart
+      { reading: "じゅう", expected: "じゅっさい" }, // じゅっ/じっ in chart
     ]
 
     testCases.forEach(({ reading, expected }) => {
