@@ -193,14 +193,15 @@ export default function JapaneseLearningInterface() {
   ]
 
   return (
-    <div class="min-h-screen bg-background">
+    <>
       <div class="mx-auto max-w-5xl space-y-6 px-6 pb-32 pt-6">
-        <div class="flex justify-end gap-2">
+        {/* <div class="flex justify-end gap-2">
           <Button variant="outline" class="gap-2">
             Options
             <ChevronDown class="h-4 w-4" />
           </Button>
-        </div>
+        </div> */}
+        <div class="h-8" />
 
         <div class="space-y-8">
           <For each={chapters}>
@@ -229,6 +230,6 @@ export default function JapaneseLearningInterface() {
           </For>
         </div>
       </div>
-    </div>
+    </>
   )
 }

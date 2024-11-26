@@ -83,7 +83,7 @@ export default function ChapterBox(props: ChapterBoxProps) {
       <div
         id={id}
         class={twMerge(
-          "my-6 flex h-28 w-full scroll-m-20 items-center justify-center rounded-md bg-opacity-50 font-medium text-neutral-100 shadow-lg dark:bg-opacity-100 dark:text-primary dark:shadow-none",
+          "my-6 flex h-28 w-full scroll-m-20 items-center justify-center rounded-md border-2 border-primary bg-opacity-85 font-medium text-neutral-100 shadow-lg dark:border-none dark:bg-opacity-100 dark:text-primary dark:shadow-none",
           props.class,
         )}
       >

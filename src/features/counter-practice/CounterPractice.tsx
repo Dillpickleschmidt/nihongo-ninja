@@ -33,13 +33,11 @@ export default function CounterPractice() {
           <SettingsPage onStartPractice={navigateToPractice} />
         </Match>
         <Match when={currentPage() === "practice"}>
-          <div class="pt-8 xl:pt-32">
-            <PracticePage
-              selectedChapters={selectedChapters()}
-              onComplete={navigateToSummary}
-              onReturn={navigateToSettings}
-            />
-          </div>
+          <PracticePage
+            selectedChapters={selectedChapters()}
+            onComplete={navigateToSummary}
+            onReturn={navigateToSettings}
+          />
         </Match>
         <Match when={currentPage() === "summary"}>
           <SummaryPage

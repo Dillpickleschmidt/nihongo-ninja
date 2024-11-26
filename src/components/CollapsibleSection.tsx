@@ -10,8 +10,6 @@ type CollapsibleSectionProps = {
   contentClass?: string
   containerClass?: string
   iconClass?: string
-  buttonVariant?: "ghost" | "default" | "outline"
-  // New optional controlled state props
   open?: boolean
   onOpenChange?: (isOpen: boolean) => void
 }
@@ -34,14 +32,14 @@ export default function CollapsibleSection(props: CollapsibleSectionProps) {
   }
 
   return (
-    <div
-      class={`w-full rounded-lg border border-border/40 bg-card/50 backdrop-blur-sm ${props.containerClass || ""}`}
-    >
-      <div class="flex items-center justify-between px-4 py-3">
+    <>
+      <div
+        class={`flex items-center justify-between ${props.containerClass || ""}`}
+      >
         <Button
           onClick={handleToggle}
-          variant={props.buttonVariant || "ghost"}
-          class={`flex w-full items-center justify-between text-xl font-bold ${props.titleClass || ""}`}
+          variant="outline"
+          class={`flex w-full items-center justify-between border-border/40 text-lg ${props.titleClass || ""}`}
         >
           <span>{props.title}</span>
           <ChevronDown
@@ -57,6 +55,6 @@ export default function CollapsibleSection(props: CollapsibleSectionProps) {
           {props.children}
         </div>
       </Show>
-    </div>
+    </>
   )
 }

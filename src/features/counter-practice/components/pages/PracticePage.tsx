@@ -122,7 +122,7 @@ export default function PracticePage(props: PracticePageProps) {
   }
 
   return (
-    <div class="w-full max-w-md space-y-6 p-4">
+    <div class="w-full max-w-lg space-y-6 p-4 pt-8 lg:pt-32">
       {currentQuestion() && (
         <>
           <QuestionDisplay
@@ -131,22 +131,27 @@ export default function PracticePage(props: PracticePageProps) {
             vocab={currentQuestion()!.vocab}
           />
           <div class="space-y-4">
-            <AnswerInput
-              value={answer()}
-              onInput={setAnswer}
-              onKeyPress={(e) => {
-                if (e.key === "Enter") {
-                  if (isInputDisabled()) {
-                    handleNextQuestion()
-                  } else {
-                    checkAnswer()
+            <div>
+              <p class="mb-2 text-base font-light italic text-muted-foreground">
+                *use caps for katakana
+              </p>
+              <AnswerInput
+                value={answer()}
+                onInput={setAnswer}
+                onKeyPress={(e) => {
+                  if (e.key === "Enter") {
+                    if (isInputDisabled()) {
+                      handleNextQuestion()
+                    } else {
+                      checkAnswer()
+                    }
                   }
-                }
-              }}
-              isCorrect={result()?.isCorrect ?? null}
-              isDisabled={isInputDisabled()}
-              inputRef={(el) => (inputRef = el)}
-            />
+                }}
+                isCorrect={result()?.isCorrect ?? null}
+                isDisabled={isInputDisabled()}
+                inputRef={(el) => (inputRef = el)}
+              />
+            </div>
             {result()?.showHint && !result()?.showCorrectReading && (
               <div class="text-center text-sm text-neutral-500">
                 Counter ID: {currentQuestion()!.pattern.id}
@@ -165,7 +170,7 @@ export default function PracticePage(props: PracticePageProps) {
                   checkAnswer()
                 }
               }}
-              class="w-full"
+              class="w-full py-4 text-sm lg:text-base"
             >
               {result()?.isCorrect ? "Next Question" : "Check Answer"}
             </Button>
@@ -173,12 +178,7 @@ export default function PracticePage(props: PracticePageProps) {
           <ProgressDisplay attempted={attempted()} correct={correct()} />
         </>
       )}
-      <Button
-        onClick={props.onReturn}
-        variant="outline"
-        size="sm"
-        class="w-full"
-      >
+      <Button onClick={props.onReturn} variant="outline" class="w-full text-xs">
         Return to Settings
       </Button>
     </div>
