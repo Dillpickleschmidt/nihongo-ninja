@@ -1,3 +1,4 @@
 node_modules/
 .next/
 src/features/conjugation-practice/data/hiraganaRows.ts
+src/features/counter-practice/utils/soundChangesUtils.ts

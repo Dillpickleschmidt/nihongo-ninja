@@ -1,9 +1,19 @@
-// soundChangesUtils.test.ts
 import { getFullCounterReading } from "./soundChangesUtils"
 import { CounterPattern } from "../types"
 
 describe("Sound Changes", () => {
-  // Regular column
+  // Helper function to run test cases
+  const runTestCases = (
+    pattern: CounterPattern,
+    testCases: Array<{ reading: string; expected: string }>,
+  ) => {
+    testCases.forEach(({ reading, expected }) => {
+      it(`should convert ${reading} to ${expected}`, () => {
+        expect(getFullCounterReading(reading, pattern)).toBe(expected)
+      })
+    })
+  }
+
   describe("Regular patterns (no sound changes)", () => {
     const pattern: CounterPattern = {
       id: "regular",
@@ -12,6 +22,7 @@ describe("Sound Changes", () => {
     }
 
     const testCases = [
+      // Basic numbers 1-10
       { reading: "いち", expected: "いちにん" },
       { reading: "に", expected: "ににん" },
       { reading: "さん", expected: "さんにん" },
@@ -22,129 +33,155 @@ describe("Sound Changes", () => {
       { reading: "はち", expected: "はちにん" },
       { reading: "きゅう", expected: "きゅうにん" },
       { reading: "じゅう", expected: "じゅうにん" },
+      // Compound numbers
+      { reading: "じゅういち", expected: "じゅういちにん" },
+      { reading: "じゅうに", expected: "じゅうににん" },
+      { reading: "にじゅう", expected: "にじゅうにん" },
+      { reading: "さんじゅう", expected: "さんじゅうにん" },
+      { reading: "にじゅうご", expected: "にじゅうごにん" },
+      // Large numbers
+      { reading: "ひゃく", expected: "ひゃくにん" },
+      { reading: "せん", expected: "せんにん" },
+      { reading: "まん", expected: "まんにん" },
     ]
 
-    testCases.forEach(({ reading, expected }) => {
-      it(`should keep ${reading} unchanged`, () => {
-        expect(getFullCounterReading(reading, pattern)).toBe(expected)
-      })
-    })
+    runTestCases(pattern, testCases)
   })
 
-  // h→p column
-  describe("hToP pattern", () => {
+  describe("p column", () => {
     const pattern: CounterPattern = {
       id: "test",
-      baseReading: "はい",
+      baseReading: "ぱい",
+      soundChangeType: "p",
+    }
+
+    const testCases = [
+      // Numbers requiring っ transformation
+      { reading: "いち", expected: "いっぱい" },
+      { reading: "ろく", expected: "ろっぱい" },
+      { reading: "はち", expected: "はっぱい" },
+      { reading: "じゅう", expected: "じゅっぱい" },
+      // Numbers without transformation
+      { reading: "に", expected: "にぱい" },
+      { reading: "さん", expected: "さんぱい" },
+      { reading: "よん", expected: "よんぱい" },
+      { reading: "ご", expected: "ごぱい" },
+      { reading: "なな", expected: "ななぱい" },
+      { reading: "きゅう", expected: "きゅうぱい" },
+      // Compound numbers
+      { reading: "じゅういち", expected: "じゅういっぱい" },
+      { reading: "じゅうろく", expected: "じゅうろっぱい" },
+      { reading: "じゅうはち", expected: "じゅうはっぱい" },
+      { reading: "にじゅう", expected: "にじゅっぱい" },
+      // More compound numbers with transformations
+      { reading: "にじゅういち", expected: "にじゅういっぱい" },
+      { reading: "さんじゅうはち", expected: "さんじゅうはっぱい" },
+    ]
+
+    runTestCases(pattern, testCases)
+  })
+
+  describe("k column", () => {
+    const pattern: CounterPattern = {
+      id: "test",
+      baseReading: "かい",
+      soundChangeType: "k",
+    }
+
+    const testCases = [
+      // Numbers requiring っ transformation
+      { reading: "いち", expected: "いっかい" },
+      { reading: "ろく", expected: "ろっかい" },
+      { reading: "はち", expected: "はっかい" },
+      { reading: "じゅう", expected: "じゅっかい" },
+      // Numbers without transformation
+      { reading: "に", expected: "にかい" },
+      { reading: "さん", expected: "さんかい" },
+      { reading: "よん", expected: "よんかい" },
+      { reading: "ご", expected: "ごかい" },
+      { reading: "なな", expected: "ななかい" },
+      { reading: "きゅう", expected: "きゅうかい" },
+      // Compound numbers
+      { reading: "じゅういち", expected: "じゅういっかい" },
+      { reading: "じゅうろく", expected: "じゅうろっかい" },
+      { reading: "じゅうはち", expected: "じゅうはっかい" },
+      { reading: "にじゅう", expected: "にじゅっかい" },
+      // More compound numbers with transformations
+      { reading: "にじゅういち", expected: "にじゅういっかい" },
+      { reading: "さんじゅうはち", expected: "さんじゅうはっかい" },
+    ]
+
+    runTestCases(pattern, testCases)
+  })
+
+  describe("h→p transformation pattern", () => {
+    const pattern: CounterPattern = {
+      id: "minutes",
+      baseReading: "ふん",
       soundChangeType: "hToP",
     }
 
     const testCases = [
-      { reading: "いち", expected: "いっぱい" }, // いっp in chart
-      { reading: "に", expected: "にはい" }, // empty in chart
-      { reading: "さん", expected: "さんぱい" }, // p in chart
-      { reading: "よん", expected: "よんぱい" }, // p in chart
-      { reading: "ご", expected: "ごはい" }, // empty in chart
-      { reading: "ろく", expected: "ろっぱい" }, // ろっp in chart
-      { reading: "なな", expected: "ななはい" }, // empty in chart
-      { reading: "はち", expected: "はっぱい" }, // (はっp) in chart
-      { reading: "きゅう", expected: "きゅうはい" }, // empty in chart
-      { reading: "じゅう", expected: "じゅっぱい" }, // じゅっp/じっp in chart
+      // Basic numbers with っ transformation
+      { reading: "いち", expected: "いっぷん" },
+      { reading: "ろく", expected: "ろっぷん" },
+      { reading: "はち", expected: "はっぷん" },
+      { reading: "じゅう", expected: "じゅっぷん" },
+      // Numbers with ん transformation
+      { reading: "さん", expected: "さんぷん" },
+      { reading: "よん", expected: "よんぷん" },
+      // Numbers without transformation
+      { reading: "に", expected: "にふん" },
+      { reading: "ご", expected: "ごふん" },
+      { reading: "なな", expected: "ななふん" },
+      { reading: "きゅう", expected: "きゅうふん" },
+      // Compound numbers
+      { reading: "じゅういち", expected: "じゅういっぷん" },
+      { reading: "じゅうよん", expected: "じゅうよんぷん" },
+      { reading: "にじゅう", expected: "にじゅっぷん" },
+      { reading: "さんじゅう", expected: "さんじゅっぷん" },
+      // Edge cases
+      { reading: "にじゅうはち", expected: "にじゅうはっぷん" },
+      { reading: "さんじゅうろく", expected: "さんじゅうろっぷん" },
     ]
 
-    testCases.forEach(({ reading, expected }) => {
-      it(`should convert ${reading} according to h→p pattern`, () => {
-        expect(getFullCounterReading(reading, pattern)).toBe(expected)
-      })
-    })
+    runTestCases(pattern, testCases)
   })
 
-  // h→p/b column (匹 counter)
-  describe("hToP/B pattern", () => {
+  describe("h→p/b transformation pattern", () => {
     const pattern: CounterPattern = {
-      id: "匹",
+      id: "animals",
       baseReading: "ひき",
       soundChangeType: "hToP/B",
     }
 
     const testCases = [
-      { reading: "いち", expected: "いっぴき" }, // いっp in chart
-      { reading: "に", expected: "にひき" }, // empty in chart
-      { reading: "さん", expected: "さんびき" }, // b in chart
-      { reading: "よん", expected: "よんひき" }, // empty in chart
-      { reading: "ご", expected: "ごひき" }, // empty in chart
-      { reading: "ろく", expected: "ろっぴき" }, // ろっp in chart
-      { reading: "なな", expected: "ななひき" }, // empty in chart
-      { reading: "はち", expected: "はっぴき" }, // はっp in chart
-      { reading: "きゅう", expected: "きゅうひき" }, // empty in chart
-      { reading: "じゅう", expected: "じゅっぴき" }, // じゅっp/じっp in chart
+      // Basic numbers with っ+p transformation
+      { reading: "いち", expected: "いっぴき" },
+      { reading: "ろく", expected: "ろっぴき" },
+      { reading: "はち", expected: "はっぴき" },
+      { reading: "じゅう", expected: "じゅっぴき" },
+      // Numbers with b transformation
+      { reading: "さん", expected: "さんびき" },
+      // Numbers without transformation
+      { reading: "に", expected: "にひき" },
+      { reading: "よん", expected: "よんひき" },
+      { reading: "ご", expected: "ごひき" },
+      { reading: "なな", expected: "ななひき" },
+      { reading: "きゅう", expected: "きゅうひき" },
+      // Compound numbers
+      { reading: "じゅういち", expected: "じゅういっぴき" },
+      { reading: "じゅうさん", expected: "じゅうさんびき" },
+      { reading: "にじゅう", expected: "にじゅっぴき" },
+      // Edge cases with mixed transformations
+      { reading: "さんじゅういち", expected: "さんじゅういっぴき" },
+      { reading: "にじゅうさん", expected: "にじゅうさんびき" },
     ]
 
-    testCases.forEach(({ reading, expected }) => {
-      it(`should convert ${reading} according to h→p/b pattern`, () => {
-        expect(getFullCounterReading(reading, pattern)).toBe(expected)
-      })
-    })
+    runTestCases(pattern, testCases)
   })
 
-  // p column
-  describe("p pattern", () => {
-    const pattern: CounterPattern = {
-      id: "test",
-      baseReading: "ぴ",
-      soundChangeType: "p",
-    }
-
-    const testCases = [
-      { reading: "いち", expected: "いっぴ" }, // (いっ) in chart
-      { reading: "に", expected: "にぴ" }, // empty in chart
-      { reading: "さん", expected: "さんぴ" }, // empty in chart
-      { reading: "よん", expected: "よんぴ" }, // empty in chart
-      { reading: "ご", expected: "ごぴ" }, // empty in chart
-      { reading: "ろく", expected: "ろっぴ" }, // (ろっ) in chart
-      { reading: "なな", expected: "ななぴ" }, // empty in chart
-      { reading: "はち", expected: "はっぴ" }, // (はっ) in chart
-      { reading: "きゅう", expected: "きゅうぴ" }, // empty in chart
-      { reading: "じゅう", expected: "じゅっぴ" }, // (じゅっ/じっ) in chart
-    ]
-
-    testCases.forEach(({ reading, expected }) => {
-      it(`should convert ${reading} according to p pattern`, () => {
-        expect(getFullCounterReading(reading, pattern)).toBe(expected)
-      })
-    })
-  })
-
-  // k column
-  describe("k pattern", () => {
-    const pattern: CounterPattern = {
-      id: "test",
-      baseReading: "か",
-      soundChangeType: "k",
-    }
-
-    const testCases = [
-      { reading: "いち", expected: "いっか" }, // いっ in chart
-      { reading: "に", expected: "にか" }, // empty in chart
-      { reading: "さん", expected: "さんか" }, // empty in chart
-      { reading: "よん", expected: "よんか" }, // empty in chart
-      { reading: "ご", expected: "ごか" }, // empty in chart
-      { reading: "ろく", expected: "ろっか" }, // ろっ in chart
-      { reading: "なな", expected: "ななか" }, // empty in chart
-      { reading: "はち", expected: "はっか" }, // はっ in chart
-      { reading: "きゅう", expected: "きゅうか" }, // empty in chart
-      { reading: "じゅう", expected: "じゅっか" }, // じゅっ/じっ in chart
-    ]
-
-    testCases.forEach(({ reading, expected }) => {
-      it(`should convert ${reading} according to k pattern`, () => {
-        expect(getFullCounterReading(reading, pattern)).toBe(expected)
-      })
-    })
-  })
-
-  // k→g column
-  describe("kToG pattern", () => {
+  describe("k→g transformation pattern", () => {
     const pattern: CounterPattern = {
       id: "test",
       baseReading: "かい",
@@ -152,55 +189,51 @@ describe("Sound Changes", () => {
     }
 
     const testCases = [
-      { reading: "いち", expected: "いちがい" }, // いっ in chart
-      { reading: "に", expected: "にがい" }, // empty in chart
-      { reading: "さん", expected: "さんがい" }, // g in chart
-      { reading: "よん", expected: "よんがい" }, // empty in chart
-      { reading: "ご", expected: "ごがい" }, // empty in chart
-      { reading: "ろく", expected: "ろくがい" }, // ろっ in chart
-      { reading: "なな", expected: "なながい" }, // empty in chart
-      { reading: "はち", expected: "はちがい" }, // はっ in chart
-      { reading: "きゅう", expected: "きゅうがい" }, // empty in chart
-      { reading: "じゅう", expected: "じゅうがい" }, // じゅっ/じっ in chart
+      // Regular numbers without transformation
+      { reading: "いち", expected: "いちかい" },
+      { reading: "に", expected: "にかい" },
+      { reading: "よん", expected: "よんかい" },
+      { reading: "ご", expected: "ごかい" },
+      { reading: "ろく", expected: "ろくかい" },
+      { reading: "なな", expected: "ななかい" },
+      { reading: "はち", expected: "はちかい" },
+      { reading: "きゅう", expected: "きゅうかい" },
+      { reading: "じゅう", expected: "じゅうかい" },
+      // さん triggers が transformation
+      { reading: "さん", expected: "さんがい" },
+      // Compound numbers
+      { reading: "じゅうさん", expected: "じゅうさんがい" },
+      { reading: "にじゅうさん", expected: "にじゅうさんがい" },
+      { reading: "さんじゅう", expected: "さんじゅうかい" },
+      { reading: "さんじゅうさん", expected: "さんじゅうさんがい" },
     ]
 
-    testCases.forEach(({ reading, expected }) => {
-      it(`should convert ${reading} according to k→g pattern`, () => {
-        expect(getFullCounterReading(reading, pattern)).toBe(expected)
-      })
-    })
+    runTestCases(pattern, testCases)
   })
 
-  // s column
-  describe("s pattern", () => {
+  describe("k→g transformation pattern with き", () => {
     const pattern: CounterPattern = {
       id: "test",
-      baseReading: "さい",
-      soundChangeType: "s",
+      baseReading: "き",
+      soundChangeType: "kToG",
     }
 
     const testCases = [
-      { reading: "いち", expected: "いっさい" }, // いっ in chart
-      { reading: "に", expected: "にさい" }, // empty in chart
-      { reading: "さん", expected: "さんさい" }, // empty in chart
-      { reading: "よん", expected: "よんさい" }, // empty in chart
-      { reading: "ご", expected: "ごさい" }, // empty in chart
-      { reading: "ろく", expected: "ろくさい" }, // empty in chart
-      { reading: "なな", expected: "ななさい" }, // empty in chart
-      { reading: "はち", expected: "はっさい" }, // はっ in chart
-      { reading: "きゅう", expected: "きゅうさい" }, // empty in chart
-      { reading: "じゅう", expected: "じゅっさい" }, // じゅっ/じっ in chart
+      // Regular numbers
+      { reading: "いち", expected: "いちき" },
+      { reading: "に", expected: "にき" },
+      { reading: "よん", expected: "よんき" },
+      // さん triggers ぎ transformation
+      { reading: "さん", expected: "さんぎ" },
+      // Compound numbers
+      { reading: "じゅうさん", expected: "じゅうさんぎ" },
+      { reading: "にじゅうさん", expected: "にじゅうさんぎ" },
     ]
 
-    testCases.forEach(({ reading, expected }) => {
-      it(`should convert ${reading} according to s pattern`, () => {
-        expect(getFullCounterReading(reading, pattern)).toBe(expected)
-      })
-    })
+    runTestCases(pattern, testCases)
   })
 
-  // s→z column
-  describe("sToZ pattern", () => {
+  describe("s→z transformation pattern", () => {
     const pattern: CounterPattern = {
       id: "test",
       baseReading: "さい",
@@ -208,62 +241,117 @@ describe("Sound Changes", () => {
     }
 
     const testCases = [
-      { reading: "いち", expected: "いちざい" }, // いっ in chart
-      { reading: "に", expected: "にざい" }, // empty in chart
-      { reading: "さん", expected: "さんざい" }, // z in chart
-      { reading: "よん", expected: "よんざい" }, // empty in chart
-      { reading: "ご", expected: "ござい" }, // empty in chart
-      { reading: "ろく", expected: "ろくざい" }, // empty in chart
-      { reading: "なな", expected: "ななざい" }, // empty in chart
-      { reading: "はち", expected: "はちざい" }, // はっ in chart
-      { reading: "きゅう", expected: "きゅうざい" }, // empty in chart
-      { reading: "じゅう", expected: "じゅうざい" }, // じゅっ/じっ in chart
+      // Regular numbers without transformation
+      { reading: "いち", expected: "いちさい" },
+      { reading: "に", expected: "にさい" },
+      { reading: "よん", expected: "よんさい" },
+      { reading: "ご", expected: "ごさい" },
+      { reading: "ろく", expected: "ろくさい" },
+      { reading: "なな", expected: "ななさい" },
+      { reading: "はち", expected: "はちさい" },
+      { reading: "きゅう", expected: "きゅうさい" },
+      { reading: "じゅう", expected: "じゅうさい" },
+      // さん triggers ざ transformation
+      { reading: "さん", expected: "さんざい" },
+      // Compound numbers
+      { reading: "じゅうさん", expected: "じゅうさんざい" },
+      { reading: "にじゅうさん", expected: "にじゅうさんざい" },
+      { reading: "さんじゅう", expected: "さんじゅうさい" },
+      { reading: "さんじゅうさん", expected: "さんじゅうさんざい" },
     ]
 
-    testCases.forEach(({ reading, expected }) => {
-      it(`should convert ${reading} according to s→z pattern`, () => {
-        expect(getFullCounterReading(reading, pattern)).toBe(expected)
-      })
-    })
+    runTestCases(pattern, testCases)
   })
 
-  // t column
-  describe("t pattern", () => {
+  describe("s column", () => {
     const pattern: CounterPattern = {
       id: "test",
-      baseReading: "て",
+      baseReading: "せん",
+      soundChangeType: "s",
+    }
+
+    const testCases = [
+      // Numbers requiring っ transformation
+      { reading: "いち", expected: "いっせん" },
+      { reading: "はち", expected: "はっせん" },
+      { reading: "じゅう", expected: "じゅっせん" },
+      // Numbers without transformation
+      { reading: "に", expected: "にせん" },
+      { reading: "さん", expected: "さんせん" },
+      { reading: "よん", expected: "よんせん" },
+      { reading: "ご", expected: "ごせん" },
+      { reading: "ろく", expected: "ろくせん" },
+      { reading: "なな", expected: "ななせん" },
+      { reading: "きゅう", expected: "きゅうせん" },
+      // Compound numbers
+      { reading: "じゅういち", expected: "じゅういっせん" },
+      { reading: "じゅうはち", expected: "じゅうはっせん" },
+      { reading: "にじゅう", expected: "にじゅっせん" },
+    ]
+
+    runTestCases(pattern, testCases)
+  })
+
+  describe("s→z transformation pattern with し", () => {
+    const pattern: CounterPattern = {
+      id: "test",
+      baseReading: "し",
+      soundChangeType: "sToZ",
+    }
+
+    const testCases = [
+      // Regular numbers
+      { reading: "いち", expected: "いちし" },
+      { reading: "に", expected: "にし" },
+      { reading: "よん", expected: "よんし" },
+      // さん triggers じ transformation
+      { reading: "さん", expected: "さんじ" },
+      // Compound numbers
+      { reading: "じゅうさん", expected: "じゅうさんじ" },
+      { reading: "にじゅうさん", expected: "にじゅうさんじ" },
+    ]
+
+    runTestCases(pattern, testCases)
+  })
+
+  describe("t column", () => {
+    const pattern: CounterPattern = {
+      id: "test",
+      baseReading: "てん",
       soundChangeType: "t",
     }
 
     const testCases = [
-      { reading: "いち", expected: "いって" }, // いっ in chart
-      { reading: "に", expected: "にて" }, // empty in chart
-      { reading: "さん", expected: "さんて" }, // empty in chart
-      { reading: "よん", expected: "よんて" }, // empty in chart
-      { reading: "ご", expected: "ごて" }, // empty in chart
-      { reading: "ろく", expected: "ろくて" }, // empty in chart
-      { reading: "なな", expected: "ななて" }, // empty in chart
-      { reading: "はち", expected: "はって" }, // はっ in chart
-      { reading: "きゅう", expected: "きゅうて" }, // empty in chart
-      { reading: "じゅう", expected: "じゅって" }, // じゅっ in chart (note: only じゅっ, not じっ)
+      // Numbers requiring っ transformation
+      { reading: "いち", expected: "いってん" },
+      { reading: "はち", expected: "はってん" },
+      { reading: "じゅう", expected: "じゅってん" },
+      // Numbers without transformation
+      { reading: "に", expected: "にてん" },
+      { reading: "さん", expected: "さんてん" },
+      { reading: "よん", expected: "よんてん" },
+      { reading: "ご", expected: "ごてん" },
+      { reading: "ろく", expected: "ろくてん" },
+      { reading: "なな", expected: "ななてん" },
+      { reading: "きゅう", expected: "きゅうてん" },
+      // Compound numbers
+      { reading: "じゅういち", expected: "じゅういってん" },
+      { reading: "じゅうはち", expected: "じゅうはってん" },
+      { reading: "にじゅう", expected: "にじゅってん" },
     ]
 
-    testCases.forEach(({ reading, expected }) => {
-      it(`should convert ${reading} according to t pattern`, () => {
-        expect(getFullCounterReading(reading, pattern)).toBe(expected)
-      })
-    })
+    runTestCases(pattern, testCases)
   })
 
-  // Special vocabulary categories
   describe("Generic counter (つ)", () => {
     const pattern: CounterPattern = {
-      id: "つ",
+      id: "generic",
       baseReading: "つ",
       soundChangeType: "generic",
     }
 
     const testCases = [
+      // Special readings for 1-10
       { reading: "いち", expected: "ひとつ" },
       { reading: "に", expected: "ふたつ" },
       { reading: "さん", expected: "みっつ" },
@@ -274,24 +362,27 @@ describe("Sound Changes", () => {
       { reading: "はち", expected: "やっつ" },
       { reading: "きゅう", expected: "ここのつ" },
       { reading: "じゅう", expected: "とお" },
+      // Numbers above 10
+      { reading: "じゅういち", expected: "じゅういちつ" },
+      { reading: "にじゅう", expected: "にじゅうつ" },
+      { reading: "さんじゅう", expected: "さんじゅうつ" },
+      // Edge cases
+      { reading: "ひゃく", expected: "ひゃくつ" },
+      { reading: "せん", expected: "せんつ" },
     ]
 
-    testCases.forEach(({ reading, expected }) => {
-      it(`should convert ${reading} to special つ counter form`, () => {
-        expect(getFullCounterReading(reading, pattern)).toBe(expected)
-      })
-    })
+    runTestCases(pattern, testCases)
   })
 
-  // Date counter
   describe("Date counter", () => {
     const pattern: CounterPattern = {
-      id: "日",
-      baseReading: "か",
+      id: "dates",
+      baseReading: "にち",
       soundChangeType: "dates",
     }
 
     const testCases = [
+      // Special readings for dates 1-10
       { reading: "いち", expected: "ついたち" },
       { reading: "に", expected: "ふつか" },
       { reading: "さん", expected: "みっか" },
@@ -302,14 +393,26 @@ describe("Sound Changes", () => {
       { reading: "はち", expected: "ようか" },
       { reading: "きゅう", expected: "ここのか" },
       { reading: "じゅう", expected: "とおか" },
+      // Special readings for teens and 20th
+      { reading: "じゅういち", expected: "じゅういちにち" },
+      { reading: "じゅうよん", expected: "じゅうよっか" },
       { reading: "にじゅう", expected: "はつか" },
+      // Regular patterns for other dates
+      { reading: "にじゅういち", expected: "にじゅういちにち" },
       { reading: "にじゅうよん", expected: "にじゅうよっか" },
+      { reading: "さんじゅういち", expected: "さんじゅういちにち" },
     ]
 
-    testCases.forEach(({ reading, expected }) => {
-      it(`should convert ${reading} to correct date reading`, () => {
-        expect(getFullCounterReading(reading, pattern)).toBe(expected)
-      })
+    runTestCases(pattern, testCases)
+  })
+
+  describe("Edge cases and error handling", () => {
+    it("should handle empty input", () => {
+      const pattern: CounterPattern = {
+        id: "test",
+        baseReading: "か",
+      }
+      expect(getFullCounterReading("", pattern)).toBe("か")
     })
   })
 })
