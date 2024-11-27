@@ -10,13 +10,15 @@ import Autoplay from "embla-carousel-autoplay"
 import { createEffect, createSignal, onMount, Show } from "solid-js"
 
 const images = [
-  { src: "/img/homepage/Vocab.jpg", alt: "Preview 1" },
-  { src: "/img/homepage/ConjugationPractice.jpg", alt: "Preview 2" },
-  { src: "/img/homepage/VocabPracticeMC.jpg", alt: "Preview 3" },
-  { src: "/img/homepage/GrammarNotes.jpg", alt: "Preview 4" },
-  { src: "/img/homepage/VocabPracticeW.jpg", alt: "Preview 5" },
-  { src: "/img/homepage/VocabList.jpg", alt: "Preview 6" },
-  { src: "/img/homepage/SentencePractice.jpg", alt: "Preview 7" },
+  { src: "/img/homepage/SentencePractice.jpg", alt: "Preview 1" },
+  { src: "/img/homepage/CounterPractice.jpg", alt: "Preview 2" },
+  { src: "/img/homepage/CounterPractice2.jpg", alt: "Preview 3" },
+  { src: "/img/homepage/Vocab.jpg", alt: "Preview 4" },
+  { src: "/img/homepage/VocabPracticeMC.jpg", alt: "Preview 5" },
+  { src: "/img/homepage/VocabPracticeW.jpg", alt: "Preview 6" },
+  { src: "/img/homepage/GrammarNotes.jpg", alt: "Preview 7" },
+  { src: "/img/homepage/VocabList.jpg", alt: "Preview 8" },
+  { src: "/img/homepage/ConjugationPractice.jpg", alt: "Preview 9" },
 ]
 
 export default function CoverflowCarousel() {

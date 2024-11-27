@@ -1,12 +1,5 @@
 import { A, useLocation } from "@solidjs/router"
 import ModeToggle from "./ModeToggle"
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu"
 import { Button } from "@/components/ui/button"
 import { GraduationCap, Pencil } from "lucide-solid"
 
@@ -15,7 +8,7 @@ export default function Nav() {
   const active = (path: string) =>
     path == location.pathname
       ? "border-orange-200 saturate-[50%]"
-      : "border-transparent hover:border-orange-200 saturate-[50%]"
+      : "border-transparent"
 
   return (
     <>
@@ -23,51 +16,28 @@ export default function Nav() {
         class={`${location.pathname === "/learn" ? "fixed w-full" : "relative"} z-50 bg-background`}
       >
         <ul class="container flex items-center justify-between px-2 py-3 dark:text-orange-200 sm:px-3">
-          <NavigationMenu>
-            <NavigationMenuItem>
-              <A href="/">
-                <NavigationMenuTrigger
-                  class="px-2 text-base font-normal sm:px-4"
-                  withArrow={false}
-                >
-                  <span class={`border-b-2 ${active("/")} saturate-[50%]`}>
-                    Home
-                  </span>
-                </NavigationMenuTrigger>
-              </A>
-              <NavigationMenuContent>
-                <div class="flex h-48 w-64 items-center justify-center">
-                  Home Preview
-                </div>
-              </NavigationMenuContent>
-            </NavigationMenuItem>
-
-            <NavigationMenuItem>
-              <A href="/learn">
-                <NavigationMenuTrigger class="pl-2 pr-1 text-base font-normal sm:pl-3 sm:pr-2">
-                  <span class={`border-b-2 ${active("/learn")} saturate-[50%]`}>
-                    Learn
-                  </span>
-                </NavigationMenuTrigger>
-              </A>
-              <NavigationMenuContent>
-                <NavigationMenuLink class="flex h-96 w-72 items-center justify-center">
-                  <div>Learn Options</div>
-                </NavigationMenuLink>
-              </NavigationMenuContent>
-            </NavigationMenuItem>
-
-            <NavigationMenuTrigger
+          <li>
+            <Button
               as="a"
-              href="/about"
+              href="/"
               class="px-2 text-base font-normal sm:px-4"
-              withArrow={false}
+              variant="ghost"
             >
-              <span class={`border-b-2 ${active("/about")} saturate-[50%]`}>
-                About
+              <span class={`border-b-2 ${active("/")} saturate-[50%]`}>
+                Home
               </span>
-            </NavigationMenuTrigger>
-          </NavigationMenu>
+            </Button>
+            <Button
+              as="a"
+              href="/learn"
+              class="px-2 text-base font-normal sm:px-4"
+              variant="ghost"
+            >
+              <span class={`border-b-2 ${active("/learn")} saturate-[50%]`}>
+                Learn
+              </span>
+            </Button>
+          </li>
           <li>
             <Button
               as="a"

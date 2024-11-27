@@ -27,7 +27,7 @@ export default function Home() {
         <div class="fixed z-[-1] -mt-16 w-full min-w-[800px]">
           <img
             src="/img/japanese-gate.png"
-            class="custom-gradient-mask opacity-[0.05]"
+            class="custom-gradient-mask pointer-events-none opacity-[0.05]"
           />
         </div>
 
