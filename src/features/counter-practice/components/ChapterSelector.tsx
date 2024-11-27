@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button"
 import {
   RadioGroup,
   RadioGroupItem,
@@ -7,6 +8,7 @@ import {
 } from "@/components/ui/radio-group"
 import { Loader2 } from "lucide-solid"
 import { For, Show } from "solid-js"
+import { getChapterPatterns } from "../utils/dataLoader"
 
 export default function ChapterSelector(props: {
   availableChapters: number[]
@@ -26,7 +28,7 @@ export default function ChapterSelector(props: {
           </div>
         }
       >
-        <div class="column-fill-auto max-h-[300px] columns-2 space-y-4 overflow-y-auto">
+        <div class="column-fill-auto space-y-4 overflow-y-auto lg:columns-2">
           <RadioGroup
             value={props.selectedChapter.toString()}
             onChange={props.onSelect}
@@ -37,11 +39,30 @@ export default function ChapterSelector(props: {
                   value={chapter.toString()}
                   class="mb-2 flex break-inside-avoid items-center space-x-2"
                 >
-                  <RadioGroupItemInput />
-                  <RadioGroupItemControl />
-                  <RadioGroupItemLabel class="origin-left text-lg duration-100 hover:scale-[102%] hover:cursor-pointer lg:text-[1.2rem]">
-                    Chapter {chapter}
-                  </RadioGroupItemLabel>
+                  <div class="flex min-w-fit items-center space-x-2">
+                    <RadioGroupItemInput />
+                    <RadioGroupItemControl />
+                    <RadioGroupItemLabel class="origin-left text-lg duration-100 hover:scale-[102%] hover:cursor-pointer lg:text-[1.2rem]">
+                      Chapter {chapter}
+                    </RadioGroupItemLabel>
+                  </div>
+                  <Button
+                    variant="ghost"
+                    class="max-h-16 w-full justify-start overflow-y-auto !px-2 font-japanese font-normal text-muted-foreground"
+                  >
+                    <For each={getChapterPatterns(chapter, false)}>
+                      {(chapterData) => (
+                        <For each={chapterData.patterns}>
+                          {(pattern, index) => (
+                            <span class="pr-1">
+                              {pattern.id}
+                              {index() < chapterData.patterns.length - 1 && ","}
+                            </span>
+                          )}
+                        </For>
+                      )}
+                    </For>
+                  </Button>
                 </RadioGroupItem>
               )}
             </For>

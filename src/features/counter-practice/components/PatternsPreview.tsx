@@ -1,51 +1,14 @@
 // PatternsPreview.tsx
 import { For, Show } from "solid-js"
-import { Loader2 } from "lucide-solid"
 import CollapsibleSection from "@/components/CollapsibleSection"
-import { CounterPattern } from "../types"
+import { getChapterPatterns } from "../utils/dataLoader"
+import { Loader2 } from "lucide-solid"
 
 type PatternsPreviewProps = {
   availableChapters: number[]
-  patterns: CounterPattern[]
   openChapter: number | null
   onOpenChange: (chapter: number | null) => void
-  getPatternsByChapter: (id: string) => number
   isCumulative: boolean
-}
-
-function getPatternsGroupedByChapter(
-  patterns: CounterPattern[],
-  currentlyOpenChapter: number,
-  getPatternsByChapter: (id: string) => number,
-  isCumulative: boolean,
-) {
-  if (isCumulative) {
-    // For cumulative mode, return grouped patterns up to current chapter
-    const groupedPatterns: { chapter: number; patterns: CounterPattern[] }[] =
-      []
-
-    for (let chapter = 1; chapter <= currentlyOpenChapter; chapter++) {
-      const chaptersPatterns = patterns.filter(
-        (p) => getPatternsByChapter(p.id) === chapter,
-      )
-      if (chaptersPatterns.length > 0) {
-        groupedPatterns.push({
-          chapter,
-          patterns: chaptersPatterns,
-        })
-      }
-    }
-
-    return groupedPatterns
-  } else {
-    // For single chapter mode, just get patterns from this chapter
-    const chaptersPatterns = patterns.filter(
-      (p) => getPatternsByChapter(p.id) === currentlyOpenChapter,
-    )
-    return chaptersPatterns.length > 0
-      ? [{ chapter: currentlyOpenChapter, patterns: chaptersPatterns }]
-      : []
-  }
 }
 
 export default function PatternsPreview(props: PatternsPreviewProps) {
@@ -67,30 +30,28 @@ export default function PatternsPreview(props: PatternsPreviewProps) {
             {(chapter) => (
               <CollapsibleSection
                 title={`Chapter ${chapter}`}
-                containerClass="mb-4"
                 open={props.openChapter === chapter}
-                onOpenChange={(isOpen) => {
+                onOpenChange={(isOpen) =>
                   props.onOpenChange(isOpen ? chapter : null)
-                }}
+                }
               >
-                <div class="space-y-6">
+                <div class="space-y-4">
                   <For
-                    each={getPatternsGroupedByChapter(
-                      props.patterns,
-                      chapter,
-                      props.getPatternsByChapter,
-                      props.isCumulative,
-                    )}
+                    each={
+                      props.openChapter === chapter
+                        ? getChapterPatterns(chapter, props.isCumulative)
+                        : []
+                    }
                   >
-                    {(group) => (
+                    {(chapterData) => (
                       <div class="space-y-2">
                         {props.isCumulative && (
                           <h3 class="font-medium text-muted-foreground">
-                            Chapter {group.chapter}
+                            Chapter {chapterData.chapter}
                           </h3>
                         )}
                         <ul class="list-disc pl-6">
-                          <For each={group.patterns}>
+                          <For each={chapterData.patterns}>
                             {(pattern) => (
                               <li>
                                 {pattern.id}: {pattern.baseReading}

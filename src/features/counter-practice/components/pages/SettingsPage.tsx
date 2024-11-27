@@ -1,5 +1,5 @@
 // SettingsPage.tsx
-import { createEffect, createSignal, onMount } from "solid-js"
+import { createSignal } from "solid-js"
 import { Button } from "@/components/ui/button"
 import {
   Combobox,
@@ -8,41 +8,27 @@ import {
   ComboboxContent,
   ComboboxInput,
 } from "@/components/ui/combobox"
-import {
-  getAvailableChapters,
-  loadCounterData,
-  getPatternsByChapter,
-} from "../../utils/dataLoader"
+import { getAvailableChapters } from "../../utils/dataLoader"
 import StandardBackground from "@/components/StandardBackground"
-import PatternsPreview from "./../PatternsPreview"
+import PatternsPreview from "../PatternsPreview"
 import ChapterSelector from "../ChapterSelector"
-import { CounterPattern } from "../../types"
 
 type SettingsPageProps = {
   onStartPractice: (chapters: number[]) => void
 }
 
 export default function SettingsPage(props: SettingsPageProps) {
-  const [availableChapters, setAvailableChapters] = createSignal<number[]>([])
-  const [selectedChapter, setSelectedChapter] = createSignal<number>(1)
-  const [patterns, setPatterns] = createSignal<CounterPattern[]>([])
+  const availableChapters = getAvailableChapters()
+  const [selectedChapter, setSelectedChapter] = createSignal(1)
   const [openChapter, setOpenChapter] = createSignal<number | null>(null)
   const [practiceMode, setPracticeMode] = createSignal<
     "Cumulative Chapters" | "Only Selected Chapter"
   >("Cumulative Chapters")
 
-  onMount(async () => {
-    const chapters = getAvailableChapters()
-    setAvailableChapters(chapters)
-    // Load ALL patterns once
-    const { patterns: p } = await loadCounterData(chapters)
-    setPatterns(p)
-  })
-
   const handleStartPractice = () => {
     const chapters =
       practiceMode() === "Cumulative Chapters"
-        ? availableChapters().filter((chapter) => chapter <= selectedChapter())
+        ? availableChapters.filter((chapter) => chapter <= selectedChapter())
         : [selectedChapter()]
     props.onStartPractice(chapters)
   }
@@ -70,13 +56,13 @@ export default function SettingsPage(props: SettingsPageProps) {
                 onChange={setPracticeMode}
                 options={["Cumulative Chapters", "Only Selected Chapter"]}
                 itemComponent={(props) => (
-                  <ComboboxItem item={props.item}>
+                  <ComboboxItem item={props.item} class="hover:cursor-pointer">
                     <div>{props.item.textValue}</div>
                   </ComboboxItem>
                 )}
               >
                 <ComboboxTrigger>
-                  <ComboboxInput />
+                  <ComboboxInput class="hover:cursor-pointer" />
                 </ComboboxTrigger>
                 <ComboboxContent />
               </Combobox>
@@ -87,7 +73,7 @@ export default function SettingsPage(props: SettingsPageProps) {
                 Select Chapters
               </h2>
               <ChapterSelector
-                availableChapters={availableChapters()}
+                availableChapters={availableChapters}
                 selectedChapter={selectedChapter()}
                 onSelect={(value) => {
                   setSelectedChapter(parseInt(value))
@@ -98,11 +84,9 @@ export default function SettingsPage(props: SettingsPageProps) {
           </section>
 
           <PatternsPreview
-            availableChapters={availableChapters()}
-            patterns={patterns()}
+            availableChapters={availableChapters}
             openChapter={openChapter()}
             onOpenChange={setOpenChapter}
-            getPatternsByChapter={(id) => getPatternsByChapter(id) || 1}
             isCumulative={practiceMode() === "Cumulative Chapters"}
           />
 

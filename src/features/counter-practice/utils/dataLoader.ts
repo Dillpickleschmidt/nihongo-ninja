@@ -1,58 +1,48 @@
 // dataLoader.ts
-import { CounterPattern, VocabItem, ChapterPattern } from "../types"
-
-// Import the consolidated JSON files
+import { CounterPattern, ChapterPattern } from "../types"
 import counterPatternsData from "../data/counter-patterns.json"
 import vocabData from "../data/vocab.json"
 
-// Define the structure of the consolidated JSON files
-type CounterPatternsFile = ChapterPattern[]
-
-type VocabFile = VocabItem[]
-
-// Cast the imported data to the defined types
-const counterPatterns = counterPatternsData as CounterPatternsFile
-const vocabItems = vocabData as VocabFile
-
-export const loadCounterData = async (
-  selectedChapters: number[],
-): Promise<{ patterns: CounterPattern[]; vocab: VocabItem[] }> => {
-  const patterns: CounterPattern[] = []
-  const vocab: VocabItem[] = []
-
-  // Load counter patterns
-  for (const chapter of counterPatterns) {
-    if (selectedChapters.includes(chapter.chapter)) {
-      patterns.push(...chapter.content)
-    }
-  }
-
-  // Load vocabulary
-  for (const item of vocabItems) {
-    const patternChapter = counterPatterns.find((chapter) =>
-      chapter.content.some((pattern) => pattern.id === item.patternId),
-    )?.chapter
-
-    if (patternChapter && selectedChapters.includes(patternChapter)) {
-      vocab.push(item)
-    }
-  }
-
-  return { patterns, vocab }
+// Patterns are organized by chapter
+type ChapterPatterns = {
+  chapter: number
+  patterns: CounterPattern[]
 }
 
-export const getAvailableChapters = (): number[] => {
-  // Get unique chapter numbers from counter patterns
-  const chapters = new Set(counterPatterns.map((chapter) => chapter.chapter))
+const counterPatterns = counterPatternsData as ChapterPattern[]
 
-  return Array.from(chapters)
-    .filter((num) => num > 0)
-    .sort((a, b) => a - b)
+// Central data store: Map of chapter numbers to their patterns
+const patternsMap = new Map<number, ChapterPatterns>(
+  counterPatterns.map((chapter) => [
+    chapter.chapter,
+    { chapter: chapter.chapter, patterns: chapter.content },
+  ]),
+)
+
+// Get available chapters from the map
+export const getAvailableChapters = () =>
+  Array.from(patternsMap.keys()).sort((a, b) => a - b)
+
+// Get patterns by chapter (single or cumulative)
+export const getChapterPatterns = (
+  upToChapter: number,
+  isCumulative: boolean,
+): ChapterPatterns[] => {
+  const chapters = Array.from(patternsMap.values())
+    .filter(({ chapter }) =>
+      isCumulative ? chapter <= upToChapter : chapter === upToChapter,
+    )
+    .sort((a, b) => a.chapter - b.chapter)
+
+  return chapters
 }
 
-export const getPatternsByChapter = (patternId: string): number | undefined => {
-  const chapter = counterPatterns.find((chapter) =>
-    chapter.content.some((pattern) => pattern.id === patternId),
+// Load data for practice session
+export const loadCounterData = async (selectedChapters: number[]) => {
+  const patterns = selectedChapters.flatMap(
+    (chapter) => patternsMap.get(chapter)?.patterns || [],
   )
-  return chapter?.chapter
+  const patternIds = new Set(patterns.map((p) => p.id))
+  const vocab = vocabData.filter((item) => patternIds.has(item.patternId))
+  return { patterns, vocab }
 }
