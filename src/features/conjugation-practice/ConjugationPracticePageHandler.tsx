@@ -29,15 +29,10 @@ export default function ConjugationPracticePageHandler() {
         </Match>
         <Match when={currentPage() === "practice"}>
           <div class="pt-8 xl:pt-32">
-            <PracticePage onComplete={navigateToSummary} />
-            <Button
-              onClick={navigateToSettings}
-              size="sm"
-              variant="link"
-              class="mt-4 text-base"
-            >
-              {"<-"} Back to Settings
-            </Button>
+            <PracticePage
+              onComplete={navigateToSummary}
+              navigateToSettings={navigateToSettings}
+            />
           </div>
         </Match>
         <Match when={currentPage() === "summary"}>

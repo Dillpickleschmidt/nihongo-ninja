@@ -6,9 +6,11 @@ import { TextField, TextFieldRoot } from "@/components/ui/textfield"
 import { checkAnswer, Question } from "../utils/questionUtils"
 import { generateQuestions } from "../utils/questionGenerator"
 import { useSettingsContext } from "../context/SettingsContext"
+import ProgressDisplay from "./ProgressDisplay"
 
 type PracticePageProps = {
   onComplete: (finalState: ReviewSessionState) => void
+  navigateToSettings: () => void
 }
 
 type ReviewSessionState = {
@@ -18,7 +20,10 @@ type ReviewSessionState = {
   isComplete: boolean
 }
 
-export default function PracticePage({ onComplete }: PracticePageProps) {
+export default function PracticePage({
+  onComplete,
+  navigateToSettings,
+}: PracticePageProps) {
   const { settings } = useSettingsContext()
   const [sessionState, setSessionState] = createStore<ReviewSessionState>({
     questions: [],
@@ -100,7 +105,7 @@ export default function PracticePage({ onComplete }: PracticePageProps) {
       <Show when={currentQuestion()}>
         {(question) => (
           <div class="space-y-8">
-            <section class="rounded-xl border bg-card p-6 sm:p-8">
+            <section class="rounded-xl">
               <div class="space-y-6">
                 <h1 class="text-center font-japanese text-4xl font-medium">
                   <span class="font-bold">{question().term.reading}</span>
@@ -125,7 +130,7 @@ export default function PracticePage({ onComplete }: PracticePageProps) {
               </div>
             </section>
 
-            <section class="rounded-xl border bg-card p-6 sm:p-8">
+            <section class="rounded-xl">
               <div class="mb-6 min-h-[7rem]">
                 {isAnswered() && (
                   <div class="space-y-0">
@@ -165,7 +170,7 @@ export default function PracticePage({ onComplete }: PracticePageProps) {
                       onKeyDown={handleKeyDown}
                       class={`h-12 py-4 text-center font-japanese text-3xl placeholder:font-inter focus-visible:ring-primary/25 disabled:opacity-100 ${
                         question().correct
-                          ? "bg-green-500"
+                          ? "bg-green-400 dark:bg-green-500"
                           : isAnswered() && "bg-red-500"
                       }`}
                     />
@@ -176,7 +181,7 @@ export default function PracticePage({ onComplete }: PracticePageProps) {
                   <Button
                     onClick={isAnswered() ? handleNextQuestion : handleSubmit}
                     size="lg"
-                    class="w-full rounded-lg bg-white/10 py-3 text-xl font-bold text-primary backdrop-blur-sm hover:bg-white/20"
+                    class="w-full rounded-lg bg-card-foreground/65 py-3 text-sm text-primary backdrop-blur-sm hover:bg-card-foreground lg:text-base"
                     ref={nextQuestionButtonRef}
                   >
                     {isAnswered() ? "Next Question" : "Submit"}
@@ -184,11 +189,17 @@ export default function PracticePage({ onComplete }: PracticePageProps) {
                 </div>
               </div>
             </section>
-
-            <p class="text-right text-base text-muted-foreground">
-              Question {sessionState.currentIndex + 1} of{" "}
-              {sessionState.questions.length}
-            </p>
+            <ProgressDisplay
+              attempted={sessionState.currentIndex}
+              correct={sessionState.score}
+            />
+            <Button
+              onClick={navigateToSettings}
+              variant="outline"
+              class="!mt-4 w-full text-xs"
+            >
+              Return to Settings
+            </Button>
           </div>
         )}
       </Show>
