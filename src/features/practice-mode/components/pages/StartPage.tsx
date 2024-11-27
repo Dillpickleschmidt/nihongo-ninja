@@ -23,7 +23,7 @@ export default function StartPage(props: StartPageProps) {
         <Button
           onClick={() => context.setStore("currentPage", "practice")}
           size="lg"
-          class="w-full max-w-md bg-orange-500 font-medium text-black"
+          class="w-full max-w-md bg-orange-500 font-medium text-black hover:bg-orange-600"
         >
           Start Learning!
         </Button>

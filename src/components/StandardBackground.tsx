@@ -19,14 +19,14 @@ export default function StandardBackground() {
         }
         `}
       </style>
-      <div class="fixed z-[-2] -mt-16 w-full min-w-[800px]">
+      <div class="fixed z-[-2] -mt-16 min-h-screen w-full min-w-[800px]">
         <img
           src="/img/japanese-gate.png"
           class="custom-gradient-mask pointer-events-none opacity-[0.05]"
         />
       </div>
       <BackgroundImage
-        class="z-[-1] !-mt-16"
+        class="z-[-1] !-mt-[4.1rem] min-h-screen"
         backgroundImage="/img/dust-splatter-1.png"
         backgroundImageSize="1215px"
         backgroundImageOpacity={5}
