@@ -14,7 +14,7 @@ export const checkAnswer = (
   input: string,
   question: PracticeQuestion,
 ): CheckResult & { allMatches: AnswerMatch[] } => {
-  const userText = input.trim().normalize("NFKC")
+  const userText = input.trim().normalize("NFKC").replace(/、/g, "")
 
   const allMatches = question.answers
     .map((answer) => {
