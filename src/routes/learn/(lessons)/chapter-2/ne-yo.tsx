@@ -15,7 +15,7 @@ export default function page() {
         <span class="font-japanese text-yellow-400">ね</span> and{" "}
         <span class="font-japanese text-green-600">よ</span>
       </h1>
-      <div class="space-y-6 px-8 pb-32 sm:px-16 md:px-24">
+      <div class="space-y-6 px-8 sm:px-16 md:px-24">
         <p>
           In Japanese, the particles{" "}
           <span class="font-japanese text-xl font-semibold text-yellow-400">
@@ -283,7 +283,7 @@ export default function page() {
         </ol>
       </div>
 
-      <div class="space-y-4 px-12 leading-8 sm:px-16 md:px-24 [&>*]:space-y-4">
+      <div class="space-y-4 px-12 pb-32 leading-8 sm:px-16 md:px-24 [&>*]:space-y-4">
         <h3 class="pt-12 text-center text-3xl font-bold">Practice</h3>
         <p class="text-center text-base italic text-muted-foreground">
           *There may be more than 1 correct answer*

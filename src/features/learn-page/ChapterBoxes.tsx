@@ -774,6 +774,16 @@ export default function ChapterBoxes() {
             types: ["lesson"],
           },
           {
+            title: "Adverbs",
+            link: "/learn/chapter-3/adverbs",
+            types: ["lesson"],
+          },
+          {
+            title: "Practice Frequency Adverbs",
+            link: "/learn/chapter-3/sentence-practice/frequency-adverbs",
+            types: ["practice-sentence"],
+          },
+          {
             title: "Kikusasaizu Video - L3-1",
             link: "/learn/chapter-3/kikusasaizu-3-1",
             types: ["video"],
