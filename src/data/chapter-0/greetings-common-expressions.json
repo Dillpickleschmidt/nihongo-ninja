@@ -112,7 +112,7 @@
   {
     "word": "さようなら",
     "furigana": ["さようなら"],
-    "english": ["Goodbye"],
+    "english": ["Goodbye (for a long time)"],
     "mnemonics": [],
     "info": [
       "This is a formal and somewhat solemn way of saying goodbye, often used when you won't see someone for a while.",
@@ -185,7 +185,7 @@
   {
     "word": "おやすみなさい",
     "furigana": ["おやすみなさい"],
-    "english": ["Goodnight"],
+    "english": ["Goodnight (polite)"],
     "mnemonics": [],
     "info": ["The extra polite version of おやすみ"],
     "chapter": 0,
@@ -267,7 +267,7 @@
   {
     "word": "おかえりなさい",
     "furigana": ["おかえりなさい"],
-    "english": ["Welcome home"],
+    "english": ["Welcome home (polite)"],
     "mnemonics": [],
     "info": ["The extra polite version of おかえり"],
     "chapter": 0,
