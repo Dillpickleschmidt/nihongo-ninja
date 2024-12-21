@@ -163,6 +163,16 @@ export default function JapaneseLearningInterface() {
             },
           ],
         },
+        {
+          title: "Adverbs",
+          items: [
+            {
+              character: "あまり, 時々, etc.",
+              meaning: "Frequency Adverbs",
+              link: "/learn/chapter-3/sentence-practice/frequency-adverbs",
+            },
+          ],
+        },
       ],
     },
     {
