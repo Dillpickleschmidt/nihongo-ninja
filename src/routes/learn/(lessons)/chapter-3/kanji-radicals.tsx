@@ -96,11 +96,15 @@ export default function page() {
           kanji, making the learning process more efficient.
         </p>
 
-        <div>
+        <div class="space-y-3">
           <h3 class="text-xl font-bold">Types of Kanji Radicals</h3>
-          <p class="mt-3">
+          <p>
             Kanji radicals are categorized based on their position within a
             kanji:
+          </p>
+          <p class="text-base italic text-muted-foreground">
+            *There's no need to memorize the positions, they're just nice to
+            know for general reference purposes.
           </p>
         </div>
 
@@ -312,11 +316,6 @@ export default function page() {
           </li>
         </ol>
 
-        <p class="text-base italic text-muted-foreground">
-          *There's no need to memorize the positions, they're just nice to know
-          for general reference purposes.
-        </p>
-
         <p>
           There are 214 <strong>official</strong> radicals, and James Heisig{" "}
           <span class="text-base text-muted-foreground">
@@ -336,7 +335,9 @@ export default function page() {
         <p>
           So yeah, technically, there's still over 2,000 kanji to learn if you
           want to match Japanese adults. But after learning these 443 radicals,
-          the remaining kanji will come <strong>much</strong> more easily.
+          all you have to do is mash together what you already know to create
+          new kanji. That way, the remaining kanji will come{" "}
+          <strong>much</strong> more quickly.
         </p>
       </div>
     </ContentBox>
