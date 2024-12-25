@@ -914,6 +914,11 @@ export default function ChapterBoxes() {
             types: ["lesson"],
           },
           {
+            title: "Practice でした + Past-Tense Verbs",
+            link: "/learn/chapter-4/sentence-practice/deshita-past-tense-verbs",
+            types: ["practice-sentence"],
+          },
+          {
             title: "時間 - Time Duration",
             link: "/learn/chapter-4/jikan",
             types: ["lesson"],

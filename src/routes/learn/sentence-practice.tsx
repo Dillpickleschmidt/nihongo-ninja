@@ -193,6 +193,21 @@ export default function JapaneseLearningInterface() {
             },
           ],
         },
+        {
+          title: "Past Tense",
+          items: [
+            {
+              character: "でした",
+              meaning: "です in the past tense",
+              link: "/learn/chapter-4/sentence-practice/deshita-past-tense-verbs",
+            },
+            {
+              character: "ました, ませんでした",
+              meaning: "Verbs in the past tense",
+              link: "/learn/chapter-4/sentence-practice/deshita-past-tense-verbs",
+            },
+          ],
+        },
       ],
     },
     {
