@@ -894,9 +894,19 @@ export default function ChapterBoxes() {
             types: ["lesson"],
           },
           {
+            title: "Practice いる・ある",
+            link: "/learn/chapter-4/sentence-practice/iru-aru",
+            types: ["practice-sentence"],
+          },
+          {
             title: "Where Things Are",
             link: "/learn/chapter-4/where-things-are",
             types: ["lesson"],
+          },
+          {
+            title: "Practice Where Things Are",
+            link: "/learn/chapter-4/sentence-practice/where-things-are",
+            types: ["practice-sentence"],
           },
           {
             title: "でした・ました - Polite Past Tense",

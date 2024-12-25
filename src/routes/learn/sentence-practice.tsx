@@ -176,6 +176,26 @@ export default function JapaneseLearningInterface() {
       ],
     },
     {
+      title: "Chapter 4: Adjectives & Past Tense",
+      lessons: [
+        {
+          title: "Existence",
+          items: [
+            {
+              character: "Xがいます・あります",
+              meaning: "There exists...",
+              link: "/learn/chapter-4/sentence-practice/iru-aru",
+            },
+            {
+              character: "上, 中, 間, etc.",
+              meaning: "There is X at (specific location)",
+              link: "/learn/chapter-4/sentence-practice/where-things-are",
+            },
+          ],
+        },
+      ],
+    },
+    {
       title: "Chapter 17: Heresay and Quotations",
       lessons: [
         {
