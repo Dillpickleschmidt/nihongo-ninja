@@ -64,7 +64,7 @@ export default function WaContrast() {
             </p>
             <p class="text-base">→ ✗ not grammatical</p>
             <p class="text-sm text-muted-foreground">
-              the day isn't what's beautiful in this instance
+              the day itself isn't what's beautiful in this instance
             </p>
           </div>
         </div>
@@ -115,7 +115,7 @@ export default function WaContrast() {
           </p>
           <p class="text-lg">→ "As for me, I like cats"</p>
           <p class="text-base text-muted-foreground">
-            Implication: "...but I'm not saying anything about anyone else"
+            Implication: "...but I can't speak for anyone else"
           </p>
         </div>
 
@@ -130,6 +130,9 @@ export default function WaContrast() {
           <p class="text-lg">→ "As for me, as for today, I'm going to Tokyo"</p>
           <p class="text-base text-muted-foreground">
             Creating contrasts with both other people and other days
+          </p>
+          <p class="text-base italic text-muted-foreground">
+            *Kinda weird, but you might come across something similar.
           </p>
         </div>
 

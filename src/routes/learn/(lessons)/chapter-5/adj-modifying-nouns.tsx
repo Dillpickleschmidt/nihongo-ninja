@@ -92,6 +92,35 @@ export default function page() {
               </div>
             </li>
           </ul>
+          <p class="pt-4">
+            When the adjective is in its negative form (ex.{" "}
+            <span class="font-japanese">静かじゃない</span>), the な is no
+            longer required.
+          </p>
+          <ul class="ml-6 list-disc space-y-4">
+            <li class="space-y-2">
+              <span class="font-japanese text-xl">静かじゃない + 図書館</span>
+              <div class="space-y-2 rounded-lg border bg-card/50 p-4">
+                <div class="flex w-full items-center">
+                  <p class="w-1/4 font-bold text-red-500">Incorrect</p>
+                  <p class="w-3/4">
+                    <span class="font-japanese text-xl line-through">
+                      静かじゃないな図書館
+                    </span>
+                  </p>
+                </div>
+                <div class="flex w-full items-center">
+                  <p class="w-1/4 font-bold">Correct</p>
+                  <p class="w-3/4">
+                    <span class="font-japanese text-xl">
+                      静かじゃない図書館
+                    </span>{" "}
+                    {"->"} the not-quiet library
+                  </p>
+                </div>
+              </div>
+            </li>
+          </ul>
         </div>
 
         <p class="text-center">

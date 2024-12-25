@@ -66,10 +66,13 @@ export default function ExistencePossession() {
           </p>
           <p class="text-lg">There's a dog in the park.</p>
           <p class="pt-2 font-japanese text-2xl">
-            ここにコンビニが
+            <span class="text-muted-foreground">(ここに)</span>コンビニが
             <span class="font-bold text-orange-400">あります</span>。
           </p>
-          <p class="text-lg">There's a convenience store here.</p>
+          <p class="text-lg">
+            There's a convenience store{" "}
+            <span class="text-muted-foreground">(here)</span>.
+          </p>
         </div>
 
         <h3 class="!mt-9 text-2xl font-bold">Having Things in Japanese</h3>
