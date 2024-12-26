@@ -15,7 +15,7 @@ const PLURAL_PRONOUNS = [
   "俺たち[おれたち]",
 ] as const
 
-const HONORIFICS = ["さん", "くん", "ちゃん", "様[さま]"] as const
+const HONORIFICS = ["さん", "くん", "ちゃん"] as const
 
 type Variation = {
   segments: string[]

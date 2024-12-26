@@ -929,6 +929,11 @@ export default function ChapterBoxes() {
             types: ["lesson"],
           },
           {
+            title: "Practice と",
+            link: "/learn/chapter-4/sentence-practice/to",
+            types: ["practice-sentence"],
+          },
+          {
             title: "時間 - Time Duration",
             link: "/learn/chapter-4/jikan",
             types: ["lesson"],

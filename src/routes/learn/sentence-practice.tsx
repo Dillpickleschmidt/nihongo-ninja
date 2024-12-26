@@ -208,6 +208,21 @@ export default function JapaneseLearningInterface() {
             },
           ],
         },
+        {
+          title: "Other",
+          items: [
+            {
+              character: "と",
+              meaning: "And/With",
+              link: "/learn/chapter-4/sentence-practice/to",
+            },
+            {
+              character: "～時間",
+              meaning: "Time Duration",
+              link: "/learn/chapter-4/sentence-practice/duration",
+            },
+          ],
+        },
       ],
     },
     {
