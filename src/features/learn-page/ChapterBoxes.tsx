@@ -914,6 +914,11 @@ export default function ChapterBoxes() {
             types: ["lesson"],
           },
           {
+            title: "Practice Past-Tense Verbs",
+            link: "/learn/conjugation?normal=true&teForm=false&volitional=false&taiForm=false&tariForm=false&potential=false&imperative=false&conditional=false&passive=false&causative=false&causativePassive=false&verb=true&iAdjective=false&naAdjective=false&polite=true&plain=false&nonPast=false&past=true&positive=true&negative=true",
+            types: ["conjugation-practice"],
+          },
+          {
             title: "Practice でした + Past-Tense Verbs",
             link: "/learn/chapter-4/sentence-practice/deshita-past-tense-verbs",
             types: ["practice-sentence"],
