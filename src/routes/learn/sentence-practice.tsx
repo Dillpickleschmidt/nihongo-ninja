@@ -214,7 +214,7 @@ export default function JapaneseLearningInterface() {
             {
               character: "と",
               meaning: "And/With",
-              link: "/learn/chapter-4/sentence-practice/to",
+              link: "/learn/chapter-4/sentence-practice/to-particle",
             },
             {
               character: "～時間",

@@ -854,21 +854,6 @@ export default function ChapterBoxes() {
             types: ["vocab-practice"],
           },
           {
-            title: "Verbs, Adv, & Misc.",
-            link: "/learn/chapter-4/verbs-adv-misc",
-            types: ["vocab"],
-          },
-          {
-            title: "Practice V, Adv, & Misc. - Readings",
-            link: "/learn/chapter-4/practice/verbs-adv-misc-readings",
-            types: ["vocab-practice"],
-          },
-          {
-            title: "Practice V, Adv, & Misc. - Kana",
-            link: "/learn/chapter-4/practice/verbs-adv-misc-kana",
-            types: ["vocab-practice"],
-          },
-          {
             title: "Location Words",
             link: "/learn/chapter-4/location-words",
             types: ["vocab"],
@@ -882,11 +867,6 @@ export default function ChapterBoxes() {
             title: "Practice Location Words - Kana",
             link: "/learn/chapter-4/practice/location-words-kana",
             types: ["vocab-practice"],
-          },
-          {
-            title: "All Vocab - Test",
-            link: "/learn/chapter-4/all-vocab-test",
-            types: ["vocab-test"],
           },
           {
             title: "いる・ある - Existence",
@@ -909,6 +889,26 @@ export default function ChapterBoxes() {
             types: ["practice-sentence"],
           },
           {
+            title: "Verbs, Adv, & Misc.",
+            link: "/learn/chapter-4/verbs-adv-misc",
+            types: ["vocab"],
+          },
+          {
+            title: "Practice V, Adv, & Misc. - Readings",
+            link: "/learn/chapter-4/practice/verbs-adv-misc-readings",
+            types: ["vocab-practice"],
+          },
+          {
+            title: "Practice V, Adv, & Misc. - Kana",
+            link: "/learn/chapter-4/practice/verbs-adv-misc-kana",
+            types: ["vocab-practice"],
+          },
+          {
+            title: "All Vocab - Test",
+            link: "/learn/chapter-4/all-vocab-test",
+            types: ["vocab-test"],
+          },
+          {
             title: "でした・ました - Polite Past Tense",
             link: "/learn/chapter-4/polite-past-tense",
             types: ["lesson"],
@@ -925,13 +925,18 @@ export default function ChapterBoxes() {
           },
           {
             title: "と - And/With",
-            link: "/learn/chapter-4/to",
+            link: "/learn/chapter-4/to-particle",
             types: ["lesson"],
           },
           {
             title: "Practice と",
-            link: "/learn/chapter-4/sentence-practice/to",
+            link: "/learn/chapter-4/sentence-practice/to-particle",
             types: ["practice-sentence"],
+          },
+          {
+            title: "も - Also/Too",
+            link: "/learn/chapter-4/mo-particle",
+            types: ["lesson"],
           },
           {
             title: "時間 - Time Duration",
@@ -942,6 +947,11 @@ export default function ChapterBoxes() {
             title: "Practice Time Duration",
             link: "/learn/chapter-4/sentence-practice/duration",
             types: ["practice-sentence"],
+          },
+          {
+            title: "Counters Practice",
+            link: "/learn/counter-practice",
+            types: ["counter-practice"],
           },
           {
             title: "たくさん - Many",
