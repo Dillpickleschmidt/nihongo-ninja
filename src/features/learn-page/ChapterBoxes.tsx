@@ -924,18 +924,23 @@ export default function ChapterBoxes() {
             types: ["practice-sentence"],
           },
           {
+            title: "と - And/With",
+            link: "/learn/chapter-4/to",
+            types: ["lesson"],
+          },
+          {
             title: "時間 - Time Duration",
             link: "/learn/chapter-4/jikan",
             types: ["lesson"],
           },
           {
-            title: "たくさん - Many",
-            link: "/learn/chapter-4/takusan",
-            types: ["lesson"],
+            title: "Practice Time Duration",
+            link: "/learn/chapter-4/sentence-practice/duration",
+            types: ["practice-sentence"],
           },
           {
-            title: "と - And/With",
-            link: "/learn/chapter-4/to",
+            title: "たくさん - Many",
+            link: "/learn/chapter-4/takusan",
             types: ["lesson"],
           },
         ]}

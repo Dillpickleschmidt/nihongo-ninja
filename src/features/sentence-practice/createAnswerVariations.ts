@@ -1,3 +1,13 @@
+// createAnswerVariations.ts
+
+/*
+isKanaVariation: A variation that includes a kana form of a word that originally had kanji.
+isPeriodVariation: A variation that includes a period at the end of the sentence.
+isWatashiVariation: A variation that includes a pronoun + は at the beginning of the sentence
+  (if the english starts with I and not "I heard").
+isHonorificVariation: Variations of the さん honorific at the end of the sentence.
+*/
+
 import type { PracticeQuestion, Answer } from "./types"
 import { conjugateSegments } from "./utils/conjugationUtils"
 import { generateCombinations } from "./utils/variationUtils"
@@ -27,11 +37,14 @@ export function createAnswerVariations(
       question.english.startsWith("I ") &&
       !question.english.startsWith("I heard")
 
+    const includeHonorificVariations = true // Enable honorific variations
+
     // Create all possible variations
     const allVariations = conjugatedAnswers.flatMap((answer) => {
       const combinations = generateCombinations(
         answer.segments,
         includeWatashiVariations,
+        includeHonorificVariations,
       )
 
       return combinations.map((combination) => ({
@@ -42,7 +55,8 @@ export function createAnswerVariations(
         isVariation:
           combination.isKanaVariation ||
           combination.isPeriodVariation ||
-          combination.isWatashiVariation,
+          combination.isWatashiVariation ||
+          combination.isHonorificVariation,
       }))
     })
 

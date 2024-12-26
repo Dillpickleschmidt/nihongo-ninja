@@ -9,11 +9,14 @@ const PRONOUNS = [
   "うち",
 ] as const
 
+const HONORIFICS = ["さん", "くん", "ちゃん", "様[さま]"] as const
+
 type Variation = {
   segments: string[]
   isKanaVariation: boolean
   isPeriodVariation: boolean
   isWatashiVariation?: boolean
+  isHonorificVariation?: boolean
 }
 
 export function hasAnyPronoun(segments: string[]): boolean {
@@ -24,6 +27,12 @@ export function hasAnyPronoun(segments: string[]): boolean {
         index + 1 < segments.length &&
         segments[index + 1] === "は",
     ),
+  )
+}
+
+export function hasAnyHonorific(segments: string[]): boolean {
+  return segments.some((segment) =>
+    HONORIFICS.some((honorific) => segment.endsWith(honorific)),
   )
 }
 
@@ -39,10 +48,14 @@ function extractVersions(segment: string) {
 export function generateCombinations(
   originalSegments: string[],
   includeWatashiVariations: boolean,
+  includeHonorificVariations: boolean = false,
 ): Variation[] {
-  // Create base segments
   const segmentSets = [
-    { segments: originalSegments, isWatashiVariation: false },
+    {
+      segments: originalSegments,
+      isWatashiVariation: false,
+      isHonorificVariation: false,
+    },
   ]
 
   if (includeWatashiVariations && !hasAnyPronoun(originalSegments)) {
@@ -50,34 +63,55 @@ export function generateCombinations(
       segmentSets.push({
         segments: [pronoun, "は", ...originalSegments],
         isWatashiVariation: true,
+        isHonorificVariation: false,
       })
     })
   }
 
-  return segmentSets.flatMap(({ segments, isWatashiVariation }) => {
-    const lastSegment = segments[segments.length - 1]
-    const hasPeriod = lastSegment.endsWith("。")
-    const processSegments = hasPeriod
-      ? [...segments.slice(0, -1), lastSegment.slice(0, -1)]
-      : segments
-
-    const versions = processSegments.map((segment) => {
-      const { original, hiragana } = extractVersions(segment)
-      return original !== hiragana ? [original, hiragana] : [original]
+  if (includeHonorificVariations && originalSegments.includes("さん")) {
+    originalSegments.forEach((segment, index) => {
+      if (segment === "さん") {
+        HONORIFICS.forEach((honorific) => {
+          const newSegments = [...originalSegments]
+          newSegments[index] = honorific // Replace only the "さん" segment
+          segmentSets.push({
+            segments: newSegments,
+            isWatashiVariation: false,
+            isHonorificVariation: true,
+          })
+        })
+      }
     })
+  }
 
-    return generateVariationCombinations(
-      versions,
-      hasPeriod,
-      isWatashiVariation,
-    )
-  })
+  return segmentSets.flatMap(
+    ({ segments, isWatashiVariation, isHonorificVariation }) => {
+      const lastSegment = segments[segments.length - 1]
+      const hasPeriod = lastSegment.endsWith("。")
+      const processSegments = hasPeriod
+        ? [...segments.slice(0, -1), lastSegment.slice(0, -1)]
+        : segments
+
+      const versions = processSegments.map((segment) => {
+        const { original, hiragana } = extractVersions(segment)
+        return original !== hiragana ? [original, hiragana] : [original]
+      })
+
+      return generateVariationCombinations(
+        versions,
+        hasPeriod,
+        isWatashiVariation,
+        isHonorificVariation,
+      )
+    },
+  )
 }
 
 function generateVariationCombinations(
   versions: string[][],
   hasPeriod: boolean,
   isWatashiVariation: boolean,
+  isHonorificVariation: boolean,
 ): Variation[] {
   function combine(current: string[], index: number): Variation[] {
     if (index === versions.length) {
@@ -89,6 +123,7 @@ function generateVariationCombinations(
         isKanaVariation,
         hasPeriod,
         isWatashiVariation,
+        isHonorificVariation,
       )
     }
 
@@ -107,6 +142,7 @@ function createPeriodVariations(
   isKanaVariation: boolean,
   hasPeriod: boolean,
   isWatashiVariation: boolean,
+  isHonorificVariation: boolean,
 ): Variation[] {
   const withPeriod = [
     ...segments.slice(0, -1),
@@ -120,12 +156,14 @@ function createPeriodVariations(
       isKanaVariation,
       isPeriodVariation: false,
       isWatashiVariation,
+      isHonorificVariation,
     },
     {
       segments: hasPeriod ? withoutPeriod : withPeriod,
       isKanaVariation,
       isPeriodVariation: true,
       isWatashiVariation,
+      isHonorificVariation,
     },
   ]
 }

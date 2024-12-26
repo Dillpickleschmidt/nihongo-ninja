@@ -108,8 +108,8 @@ export default function LocationWords() {
 
         <div class="flex w-full justify-center">
           <div class="space-y-4">
-            <p class="font-japanese text-xl">私の後ろに誰がいますか。</p>
-            <p class="text-base">{"->"} Who's behind me?</p>
+            <p class="font-japanese text-xl">後ろに誰がいますか。</p>
+            <p class="text-base">{"->"} Who's behind (me)?</p>
             <p class="text-sm text-muted-foreground">
               (Perfect for those "I feel like someone's following me" moments)
             </p>
@@ -143,6 +143,12 @@ export default function LocationWords() {
             </p>
             <p class="text-base">{"->"} The cat is in the box.</p>
             <p class="text-sm text-muted-foreground">(As cats often are...)</p>
+            <p class="text-sm italic text-muted-foreground">
+              *You can also drop 中 as に can imply "inside":
+            </p>
+            <p class="!mt-2 font-japanese text-base font-medium text-muted-foreground">
+              猫は箱にいます
+            </p>
           </div>
         </div>
 
@@ -165,8 +171,7 @@ export default function LocationWords() {
               {"->"} older brother (a respectiful version of many variants)
             </p>
             <p class="font-japanese text-xl">
-              私は
-              <span class="ml-2">
+              <span>
                 <Furigana furigana={<span class="text-sm">あおやま</span>}>
                   青山
                 </Furigana>

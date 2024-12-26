@@ -80,7 +80,10 @@ export default function PastTense() {
         </div>
 
         <h3 class="!mt-9 text-2xl font-bold">2. ます → ました</h3>
-        <p>Now let's look at how to describe past actions:</p>
+        <p>
+          Now let's look at how to describe past actions{" "}
+          <span class="text-muted-foreground">(verbs)</span>:
+        </p>
 
         <div class="w-full space-y-4 rounded-lg border-2 border-border px-3 py-5 text-center">
           <div class="grid grid-cols-3 gap-4">
@@ -131,7 +134,7 @@ export default function PastTense() {
             <span class="text-orange-400">ました</span>。
           </p>
           <p class="text-base text-muted-foreground">
-            Yes, I studied at the library. Then, I drank coffee at a cafe.
+            Yes, I studied at the library. After that, I drank coffee at a cafe.
           </p>
         </div>
 
@@ -166,9 +169,11 @@ export default function PastTense() {
         <div class="rounded-lg bg-card/50 p-4">
           <p class="font-medium">Quick Note:</p>
           <p class="mt-2">
-            You might sometimes hear variations like 行かなかったです instead of
-            行きませんでした. Don't worry about these for now - we'll learn more
-            about short forms in later chapters!
+            You might sometimes hear variations like{" "}
+            <span class="font-japanese">行かなかった</span> instead of{" "}
+            <span class="font-japanese">行きませんでした</span>. Don't worry
+            about these for now - we'll learn more about short forms in later
+            chapters!
           </p>
         </div>
 

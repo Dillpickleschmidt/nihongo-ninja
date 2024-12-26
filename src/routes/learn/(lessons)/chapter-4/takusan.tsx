@@ -116,6 +116,10 @@ export default function TakusanLesson() {
         <h3 class="pt-12 text-center text-3xl font-bold">
           Bonus <span class="text-2xl text-red-500">[Advanced]</span>
         </h3>
+        <p>
+          This section is added for the sake of completeness. Skip it if you
+          just want to know the essentials.
+        </p>
         <div class="mr-[5.75rem] rounded-2xl border-2 border-dashed border-muted bg-card p-4 shadow-md">
           <PortraitIcon src="/img/student.png" />
           <p>Are there any other instances where you want to keep the の?</p>
@@ -242,7 +246,7 @@ export default function TakusanLesson() {
       <div class="space-y-4 px-12 pb-32 leading-8 sm:px-16 md:px-24 [&>*]:space-y-4">
         <h3 class="pt-12 text-center text-3xl font-bold">Practice</h3>
         <p class="text-center text-base italic text-muted-foreground">
-          *Choose the correct expression for each situation*
+          *Some questions have more than 1 correct answer*
         </p>
 
         <p>How would you say "There are many students in the classroom"?</p>
