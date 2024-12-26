@@ -33,9 +33,12 @@ export function createAnswerVariations(
       })),
     )
 
-    const includeWatashiVariations =
+    const includeFirstPersonVariations =
       question.english.startsWith("I ") &&
       !question.english.startsWith("I heard")
+
+    const includeFirstPersonPluralVariations =
+      question.english.startsWith("We ")
 
     const includeHonorificVariations = true // Enable honorific variations
 
@@ -43,7 +46,8 @@ export function createAnswerVariations(
     const allVariations = conjugatedAnswers.flatMap((answer) => {
       const combinations = generateCombinations(
         answer.segments,
-        includeWatashiVariations,
+        includeFirstPersonVariations,
+        includeFirstPersonPluralVariations,
         includeHonorificVariations,
       )
 
@@ -55,7 +59,8 @@ export function createAnswerVariations(
         isVariation:
           combination.isKanaVariation ||
           combination.isPeriodVariation ||
-          combination.isWatashiVariation ||
+          combination.isFirstPersonVariation ||
+          combination.isFirstPersonPluralVariation ||
           combination.isHonorificVariation,
       }))
     })

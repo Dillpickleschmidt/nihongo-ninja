@@ -9,13 +9,20 @@ const PRONOUNS = [
   "うち",
 ] as const
 
+const PLURAL_PRONOUNS = [
+  "私たち[わたしたち]",
+  "僕たち[ぼくたち]",
+  "俺たち[おれたち]",
+] as const
+
 const HONORIFICS = ["さん", "くん", "ちゃん", "様[さま]"] as const
 
 type Variation = {
   segments: string[]
   isKanaVariation: boolean
   isPeriodVariation: boolean
-  isWatashiVariation?: boolean
+  isFirstPersonVariation?: boolean
+  isFirstPersonPluralVariation?: boolean
   isHonorificVariation?: boolean
 }
 
@@ -47,22 +54,36 @@ function extractVersions(segment: string) {
 
 export function generateCombinations(
   originalSegments: string[],
-  includeWatashiVariations: boolean,
+  includeFirstPersonVariations: boolean,
+  includeFirstPersonPluralVariations: boolean,
   includeHonorificVariations: boolean = false,
 ): Variation[] {
   const segmentSets = [
     {
       segments: originalSegments,
-      isWatashiVariation: false,
+      isFirstPersonVariation: false,
+      isFirstPersonPluralVariation: false,
       isHonorificVariation: false,
     },
   ]
 
-  if (includeWatashiVariations && !hasAnyPronoun(originalSegments)) {
+  if (includeFirstPersonVariations && !hasAnyPronoun(originalSegments)) {
     PRONOUNS.forEach((pronoun) => {
       segmentSets.push({
         segments: [pronoun, "は", ...originalSegments],
-        isWatashiVariation: true,
+        isFirstPersonVariation: true,
+        isFirstPersonPluralVariation: false,
+        isHonorificVariation: false,
+      })
+    })
+  }
+
+  if (includeFirstPersonPluralVariations && !hasAnyPronoun(originalSegments)) {
+    PLURAL_PRONOUNS.forEach((pronoun) => {
+      segmentSets.push({
+        segments: [pronoun, "は", ...originalSegments],
+        isFirstPersonVariation: false,
+        isFirstPersonPluralVariation: true,
         isHonorificVariation: false,
       })
     })
@@ -76,7 +97,8 @@ export function generateCombinations(
           newSegments[index] = honorific // Replace only the "さん" segment
           segmentSets.push({
             segments: newSegments,
-            isWatashiVariation: false,
+            isFirstPersonVariation: false,
+            isFirstPersonPluralVariation: false,
             isHonorificVariation: true,
           })
         })
@@ -85,7 +107,12 @@ export function generateCombinations(
   }
 
   return segmentSets.flatMap(
-    ({ segments, isWatashiVariation, isHonorificVariation }) => {
+    ({
+      segments,
+      isFirstPersonVariation,
+      isFirstPersonPluralVariation,
+      isHonorificVariation,
+    }) => {
       const lastSegment = segments[segments.length - 1]
       const hasPeriod = lastSegment.endsWith("。")
       const processSegments = hasPeriod
@@ -100,7 +127,8 @@ export function generateCombinations(
       return generateVariationCombinations(
         versions,
         hasPeriod,
-        isWatashiVariation,
+        isFirstPersonVariation,
+        isFirstPersonPluralVariation,
         isHonorificVariation,
       )
     },
@@ -110,7 +138,8 @@ export function generateCombinations(
 function generateVariationCombinations(
   versions: string[][],
   hasPeriod: boolean,
-  isWatashiVariation: boolean,
+  isFirstPersonVariation: boolean,
+  isFirstPersonPluralVariation: boolean,
   isHonorificVariation: boolean,
 ): Variation[] {
   function combine(current: string[], index: number): Variation[] {
@@ -122,7 +151,8 @@ function generateVariationCombinations(
         current,
         isKanaVariation,
         hasPeriod,
-        isWatashiVariation,
+        isFirstPersonVariation,
+        isFirstPersonPluralVariation,
         isHonorificVariation,
       )
     }
@@ -141,7 +171,8 @@ function createPeriodVariations(
   segments: string[],
   isKanaVariation: boolean,
   hasPeriod: boolean,
-  isWatashiVariation: boolean,
+  isFirstPersonVariation: boolean,
+  isFirstPersonPluralVariation: boolean,
   isHonorificVariation: boolean,
 ): Variation[] {
   const withPeriod = [
@@ -155,14 +186,16 @@ function createPeriodVariations(
       segments: hasPeriod ? withPeriod : withoutPeriod,
       isKanaVariation,
       isPeriodVariation: false,
-      isWatashiVariation,
+      isFirstPersonVariation,
+      isFirstPersonPluralVariation,
       isHonorificVariation,
     },
     {
       segments: hasPeriod ? withoutPeriod : withPeriod,
       isKanaVariation,
       isPeriodVariation: true,
-      isWatashiVariation,
+      isFirstPersonVariation,
+      isFirstPersonPluralVariation,
       isHonorificVariation,
     },
   ]
