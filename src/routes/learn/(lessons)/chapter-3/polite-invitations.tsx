@@ -58,9 +58,9 @@ export default function page() {
           </li>
           <li>
             <span class="font-japanese text-xl">
-              コンビニに行き<span class="text-teal-400">ませんか</span>。
+              デートに行き<span class="text-teal-400">ませんか</span>。
             </span>
-            {"->"} Shall we go to the convenience store?
+            {"->"} Would you like to go on a date?
           </li>
         </ul>
 
@@ -129,7 +129,7 @@ export default function page() {
           <span class="font-japanese text-lg not-italic">よかった</span>), it{" "}
           <strong>always</strong> uses the{" "}
           <span class="font-japanese text-lg not-italic">よい</span> form as its
-          stem.
+          stem. More on this in Chapter 5.
         </p>
 
         <h2 class="!mt-9 text-2xl font-bold">Declining an Invitation</h2>
@@ -419,7 +419,7 @@ export default function page() {
           nuances just from listening.
         </p>
 
-        <h2 class="text-2xl font-bold">Additional Note</h2>
+        {/* <h2 class="text-2xl font-bold">Additional Note</h2>
         <p>
           While <span class="font-japanese text-xl">ませんか</span> is primarily
           used for invitations, it can occasionally be used to confirm a
@@ -449,7 +449,7 @@ export default function page() {
             </span>
             {"->"} Is that so? He doesn't study at all?
           </p>
-        </div>
+        </div> */}
 
         <h2 class="!mt-12 text-center text-3xl font-bold">Practice</h2>
         <ol class="list-inside list-decimal space-y-4">

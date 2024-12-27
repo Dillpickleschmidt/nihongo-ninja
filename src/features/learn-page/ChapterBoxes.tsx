@@ -1062,6 +1062,16 @@ export default function ChapterBoxes() {
             types: ["lesson"],
           },
           {
+            title: "Polite Volitional - ましょう・ましょうか",
+            link: "/learn/chapter-5/polite-volitional",
+            types: ["lesson"],
+          },
+          {
+            title: "Counters",
+            link: "/learn/chapter-5/counters",
+            types: ["lesson"],
+          },
+          {
             title: "Counters Practice",
             link: "/learn/counter-practice",
             types: ["counter-practice"],
