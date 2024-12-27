@@ -36,12 +36,31 @@ export function createAnswerVariations(
     const conjugatedAnswers = question.answers.flatMap((answer) => {
       const politenessVariations = getPolitenessVariations(answer.segments)
 
-      return politenessVariations.map((isPolite) => ({
-        ...answer,
-        segments: conjugateSegments(answer.segments, isPolite),
-        originalPoliteForm: isPolite,
-        isVariation: false, // Both polite and casual forms are primary answers
-      }))
+      return politenessVariations.flatMap((isPolite) => {
+        // Get all possible conjugations for each segment
+        const segmentConjugations = conjugateSegments(answer.segments, isPolite)
+
+        // Generate all possible combinations of conjugations
+        const allCombinations = segmentConjugations.reduce<string[][]>(
+          (acc, currentSegmentForms) => {
+            if (acc.length === 0) {
+              return currentSegmentForms.map((form) => [form])
+            }
+
+            return acc.flatMap((combination) =>
+              currentSegmentForms.map((form) => [...combination, form]),
+            )
+          },
+          [],
+        )
+
+        return allCombinations.map((segments) => ({
+          ...answer,
+          segments,
+          originalPoliteForm: isPolite,
+          isVariation: false,
+        }))
+      })
     })
 
     const includeFirstPersonVariations =
@@ -51,7 +70,7 @@ export function createAnswerVariations(
     const includeFirstPersonPluralVariations =
       question.english.startsWith("We ")
 
-    const includeHonorificVariations = true // Enable honorific variations
+    const includeHonorificVariations = true
 
     // Create all possible variations
     const allVariations = conjugatedAnswers.flatMap((answer) => {

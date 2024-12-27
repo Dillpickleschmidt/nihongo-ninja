@@ -66,12 +66,12 @@ const normalizeForm = (form: string): string => {
 const conjugateWithKanji = (
   wordObj: ConjugatedWord,
   options: ConjugationOverrides,
-): string => {
+): string[] => {
   try {
     const dictionaryHiragana = extractHiragana(wordObj.word)
     const form = options.form ?? wordObj.form
 
-    const conjugatedHiragana = conjugationUtils.conjugate(
+    const conjugatedHiraganaForms = conjugationUtils.conjugate(
       dictionaryHiragana,
       wordObj.pos,
       normalizeForm(form),
@@ -81,9 +81,12 @@ const conjugateWithKanji = (
         past: options.past ?? wordObj.tense === "past",
         adverb: options.adverb ?? isAdverbialForm(form, wordObj.pos),
       },
-    )[0]
+    )
 
-    return restoreKanji(wordObj.word, conjugatedHiragana)
+    // Restore kanji for each conjugated form
+    return conjugatedHiraganaForms.map((hiragana) =>
+      restoreKanji(wordObj.word, hiragana),
+    )
   } catch (error) {
     console.error("Error conjugating word:", { wordObj, options, error })
     throw error
@@ -118,12 +121,12 @@ const getConjugationOptions = (
 export const conjugateSegments = (
   segments: (string | ConjugatedWord)[],
   politeForm: boolean,
-): string[] =>
+): string[][] =>
   segments.map((segment, index) => {
     // Handle special standalone words (particles, etc.)
     if (typeof segment === "string") {
       const specialWord = SPECIAL_WORDS[segment]
-      return specialWord ? specialWord(politeForm) : segment
+      return [specialWord ? specialWord(politeForm) : segment]
     }
 
     // Handle conjugatable words
@@ -131,6 +134,10 @@ export const conjugateSegments = (
     const options = getConjugationOptions(segment, nextWord, politeForm)
     const conjugated = conjugateWithKanji(segment, options)
 
-    // Special post-processing
-    return nextWord === "たら" ? conjugated.slice(0, -1) : conjugated
+    // Special post-processing for たら
+    if (nextWord === "たら") {
+      return conjugated.map((form) => form.slice(0, -1))
+    }
+
+    return conjugated
   })
