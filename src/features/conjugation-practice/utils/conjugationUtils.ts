@@ -698,7 +698,6 @@ function iAdjectiveNormalForm(
   if (polite && past && negative) {
     forms.push(reading.slice(0, -1) + "くありませんでした")
   }
-  console.log(forms)
 
   return forms
 }

@@ -15,17 +15,22 @@ import { generateCombinations } from "./utils/variationUtils"
 function getPolitenessVariations(
   segments: (string | ConjugatedWord)[],
 ): boolean[] {
-  // Check if any word requires a specific politeness level
-  const hasPoliteOnly = segments.some(
-    (segment) => typeof segment !== "string" && segment.politeOnly,
-  )
-  const hasShortOnly = segments.some(
-    (segment) => typeof segment !== "string" && segment.shortOnly,
-  )
+  // Check for explicit polite or casual markers in the segments
+  const hasPoliteMarker =
+    segments.includes("です") ||
+    segments.includes("ます") ||
+    segments.includes("でした") ||
+    segments.includes("ました")
+  const hasCasualMarker =
+    segments.includes("だ") ||
+    segments.includes("か？") ||
+    segments.includes("？")
 
-  if (hasPoliteOnly) return [true]
-  if (hasShortOnly) return [false]
-  return [true, false] // Default to both forms if no constraints
+  if (hasPoliteMarker) return [true] // Treat as polite
+  if (hasCasualMarker) return [false] // Treat as casual
+
+  // Default to both forms if no explicit markers are found
+  return [true, false]
 }
 
 export function createAnswerVariations(

@@ -18,11 +18,6 @@ export const SPECIAL_WORDS: Record<string, SpecialWordFunction> = {
 
 // Constants - Grammar rules for following words
 export const FOLLOWING_WORD_RULES: Record<string, Rule> = {
-  // って: (word) => ({
-  //   polite: false,
-  //   form: word.tense === "past" ? "normal" : "te-form",
-  // }),
-  // って related
   って: { polite: false },
 
   // Conditional forms
@@ -43,6 +38,7 @@ export const FOLLOWING_WORD_RULES: Record<string, Rule> = {
 
   // Others requiring casual form
   ながら: { polite: false }, // While doing
+  な: { polite: false }, // Na-adjective noun-modification
 } as const
 
 // Helper functions
@@ -101,13 +97,8 @@ const getConjugationOptions = (
   const rule = nextWord ? FOLLOWING_WORD_RULES[nextWord] : null
   const overrides = typeof rule === "function" ? rule(word) : (rule ?? {})
 
-  // Respect word-level politeness constraints
-  let polite = overrides.polite ?? politeForm
-  if (word.politeOnly) {
-    polite = true
-  } else if (word.shortOnly) {
-    polite = false
-  }
+  // Determine politeness based on the overall sentence, ignoring word-level constraints
+  const polite = politeForm
 
   return {
     form: overrides.form ?? word.form,
@@ -129,14 +120,43 @@ export const conjugateSegments = (
       return [specialWord ? specialWord(politeForm) : segment]
     }
 
-    // Handle conjugatable words
     const nextWord = segments[index + 1] as string | undefined
-    const options = getConjugationOptions(segment, nextWord, politeForm)
-    const conjugated = conjugateWithKanji(segment, options)
+    let conjugated: string[] = []
+
+    // Respect shortOnly
+    if (segment.shortOnly) {
+      const options = {
+        polite: false, // Always casual for shortOnly
+        negative: segment.polarity === "negative",
+        past: segment.tense === "past",
+      }
+      conjugated = conjugateWithKanji(segment, options)
+    }
+
+    // Respect politeOnly
+    else if (segment.politeOnly) {
+      const options = {
+        polite: true,
+        negative: segment.polarity === "negative",
+        past: segment.tense === "past",
+      }
+      conjugated = conjugateWithKanji(segment, options)
+    }
+
+    // Regular conjugation logic
+    else {
+      const options = getConjugationOptions(segment, nextWord, politeForm)
+      conjugated = conjugateWithKanji(segment, options)
+    }
 
     // Special post-processing for たら
     if (nextWord === "たら") {
       return conjugated.map((form) => form.slice(0, -1))
+    }
+
+    // Handle na-adjectives directly followed by "な"
+    if (segment.pos === "na-adjective" && nextWord === "な") {
+      return [segment.word] // Use the base form without "です" or "だ"
     }
 
     return conjugated
