@@ -1022,6 +1022,16 @@ export default function ChapterBoxes() {
             types: ["vocab-practice"],
           },
           {
+            title: "Practice Adjective Conjugation",
+            link: "/learn/conjugation?normal=true&teForm=false&volitional=false&taiForm=false&tariForm=false&potential=false&imperative=false&conditional=false&passive=false&causative=false&causativePassive=false&verb=false&iAdjective=true&naAdjective=true&polite=true&plain=false&nonPast=true&past=true&positive=true&negative=true",
+            types: ["conjugation-practice"],
+          },
+          {
+            title: "Practice Adjectives",
+            link: "/learn/chapter-5/sentence-practice/adjectives",
+            types: ["practice-sentence"],
+          },
+          {
             title: "Verbs, Adv, & Misc.",
             link: "/learn/chapter-5/verbs-adv-misc",
             types: ["vocab"],

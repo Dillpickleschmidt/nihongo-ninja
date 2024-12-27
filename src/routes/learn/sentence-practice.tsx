@@ -176,7 +176,7 @@ export default function JapaneseLearningInterface() {
       ],
     },
     {
-      title: "Chapter 4: Adjectives & Past Tense",
+      title: "Chapter 4: Existence & Past Tense",
       lessons: [
         {
           title: "Existence",
@@ -220,6 +220,21 @@ export default function JapaneseLearningInterface() {
               character: "～時間",
               meaning: "Time Duration",
               link: "/learn/chapter-4/sentence-practice/duration",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      title: "Chapter 5: Adjectives",
+      lessons: [
+        {
+          title: "Adjectives",
+          items: [
+            {
+              character: "い/な-adjectives",
+              meaning: "Adjectives + Modifying Nouns",
+              link: "/learn/chapter-5/sentence-practice/adjectives",
             },
           ],
         },
