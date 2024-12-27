@@ -1,0 +1,206 @@
+[
+  {
+    "english": "The teacher is not scary.",
+    "answers": [
+      {
+        "segments": [
+          "先生[せんせい]",
+          "は",
+          {
+            "word": "怖[こわ]い",
+            "pos": "i-adjective",
+            "polarity": "negative",
+            "tense": "non-past",
+            "politeOnly": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "english": "This room is clean.",
+    "answers": [
+      {
+        "segments": [
+          "部屋[へや]",
+          "は",
+          {
+            "word": "きれい",
+            "pos": "na-adjective",
+            "polarity": "positive",
+            "tense": "non-past",
+            "politeOnly": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "english": "This watch is expensive.",
+    "answers": [
+      {
+        "segments": [
+          "この",
+          "時計[とけい]",
+          "は",
+          {
+            "word": "高[たか]い",
+            "pos": "i-adjective",
+            "polarity": "positive",
+            "tense": "non-past",
+            "politeOnly": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "english": "The homework was difficult.",
+    "answers": [
+      {
+        "segments": [
+          "宿題[しゅくだい]",
+          "は",
+          {
+            "word": "難[むずか]しい",
+            "pos": "i-adjective",
+            "polarity": "positive",
+            "tense": "past",
+            "politeOnly": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "english": "The fruit is not sweet.",
+    "answers": [
+      {
+        "segments": [
+          "果物[くだもの]",
+          "は",
+          {
+            "word": "甘[あま]い",
+            "pos": "i-adjective",
+            "polarity": "negative",
+            "tense": "non-past",
+            "politeOnly": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "english": "The sea is beautiful.",
+    "answers": [
+      {
+        "segments": [
+          "海[うみ]",
+          "は",
+          {
+            "word": "きれい",
+            "pos": "na-adjective",
+            "polarity": "positive",
+            "tense": "non-past",
+            "politeOnly": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "english": "The weather was not cold.",
+    "answers": [
+      {
+        "segments": [
+          "天気[てんき]",
+          "は",
+          {
+            "word": "寒[さむ]い",
+            "pos": "i-adjective",
+            "polarity": "negative",
+            "tense": "past",
+            "politeOnly": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "english": "This is a quiet library.",
+    "answers": [
+      {
+        "segments": [
+          "これは",
+          {
+            "word": "静[しず]か",
+            "pos": "na-adjective",
+            "polarity": "positive",
+            "tense": "non-past",
+            "politeOnly": true
+          },
+          "な",
+          "図書館[としょかん]"
+        ]
+      }
+    ]
+  },
+  {
+    "english": "The book is interesting.",
+    "answers": [
+      {
+        "segments": [
+          "その",
+          "本[ほん]",
+          "は",
+          {
+            "word": "おもしろい",
+            "pos": "i-adjective",
+            "polarity": "positive",
+            "tense": "non-past",
+            "politeOnly": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "english": "It was a not-so-clean restaurant.",
+    "answers": [
+      {
+        "segments": [
+          "あれ",
+          "は",
+          {
+            "word": "きれい",
+            "pos": "na-adjective",
+            "polarity": "negative",
+            "tense": "past",
+            "politeOnly": true
+          },
+          "レストラン",
+          "でした"
+        ]
+      }
+    ]
+  },
+  {
+    "english": "This trip is long.",
+    "answers": [
+      {
+        "segments": [
+          "この",
+          "旅行[りょこう]",
+          "は",
+          {
+            "word": "長[なが]い",
+            "pos": "i-adjective",
+            "polarity": "positive",
+            "tense": "non-past",
+            "politeOnly": true
+          }
+        ]
+      }
+    ]
+  }
+]
