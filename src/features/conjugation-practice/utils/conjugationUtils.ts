@@ -682,6 +682,10 @@ function iAdjectiveNormalForm(
     return [reading.slice(0, -1) + "く"]
   }
 
+  if (reading === "よい" && !negative && !past) {
+    reading = "いい"
+  }
+
   let ending: string
   if (!past) {
     ending = !negative ? "い" : "くない"

@@ -59,7 +59,7 @@ export default function AlternativeAnswers(props: Props) {
         </For>
       </div>
       <p class="text-right text-xs text-muted-foreground/50">
-        Not all variations are shown for brevity.*
+        Other forms are hidden for brevity.*
       </p>
     </div>
   )
