@@ -44,6 +44,8 @@ export type ConjugatedWord = {
   form: WordForms
   polarity: "positive" | "negative"
   tense: "past" | "non-past"
+  politeOnly?: boolean
+  shortOnly?: boolean
 }
 
 export type ConjugationOverrides = {

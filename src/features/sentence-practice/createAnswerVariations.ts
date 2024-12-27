@@ -8,30 +8,41 @@ isWatashiVariation: A variation that includes a pronoun + は at the beginning o
 isHonorificVariation: Variations of the さん honorific at the end of the sentence.
 */
 
-import type { PracticeQuestion, Answer } from "./types"
+import type { PracticeQuestion, Answer, ConjugatedWord } from "./types"
 import { conjugateSegments } from "./utils/conjugationUtils"
 import { generateCombinations } from "./utils/variationUtils"
 
+function getPolitenessVariations(
+  segments: (string | ConjugatedWord)[],
+): boolean[] {
+  // Check if any word requires a specific politeness level
+  const hasPoliteOnly = segments.some(
+    (segment) => typeof segment !== "string" && segment.politeOnly,
+  )
+  const hasShortOnly = segments.some(
+    (segment) => typeof segment !== "string" && segment.shortOnly,
+  )
+
+  if (hasPoliteOnly) return [true]
+  if (hasShortOnly) return [false]
+  return [true, false] // Default to both forms if no constraints
+}
+
 export function createAnswerVariations(
   questions: PracticeQuestion[],
-  options: { politeOnly?: boolean; shortOnly?: boolean } = {},
 ): PracticeQuestion[] {
-  const politenessVariations: boolean[] = options.politeOnly
-    ? [true]
-    : options.shortOnly
-      ? [false]
-      : [true, false]
-
   return questions.flatMap((question) => {
-    // First create all conjugated forms
-    const conjugatedAnswers = question.answers.flatMap((answer) =>
-      politenessVariations.map((isPolite) => ({
+    // Create conjugated forms based on word-level politeness constraints
+    const conjugatedAnswers = question.answers.flatMap((answer) => {
+      const politenessVariations = getPolitenessVariations(answer.segments)
+
+      return politenessVariations.map((isPolite) => ({
         ...answer,
         segments: conjugateSegments(answer.segments, isPolite),
         originalPoliteForm: isPolite,
         isVariation: false, // Both polite and casual forms are primary answers
-      })),
-    )
+      }))
+    })
 
     const includeFirstPersonVariations =
       question.english.startsWith("I ") &&
@@ -55,7 +66,6 @@ export function createAnswerVariations(
         ...answer,
         segments: combination.segments,
         originalPoliteForm: answer.originalPoliteForm,
-        // Only mark the following as variations:
         isVariation:
           combination.isKanaVariation ||
           combination.isPeriodVariation ||

@@ -16,8 +16,6 @@ const questionModules = import.meta.glob<{
 
 type JapanesePracticeProps = {
   path: string
-  politeOnly?: boolean
-  shortOnly?: boolean
 }
 
 export default function JapanesePractice(props: JapanesePracticeProps) {
@@ -36,13 +34,8 @@ export default function JapanesePractice(props: JapanesePracticeProps) {
         const filePath = `./data/${props.path}.json`
         if (filePath in questionModules) {
           const originalQuestions = questionModules[filePath].default
-          const questionsWithVariations = createAnswerVariations(
-            originalQuestions,
-            {
-              politeOnly: props.politeOnly,
-              shortOnly: props.shortOnly,
-            },
-          )
+          const questionsWithVariations =
+            createAnswerVariations(originalQuestions)
           setStore("questions", questionsWithVariations)
         } else {
           throw new Error(`File not found: ${filePath}`)

@@ -1,3 +1,4 @@
+// conjugationUtils.ts
 import type { ConjugatedWord, ConjugationOverrides } from "../types"
 import { extractHiragana } from "@/util/vocabDataTransformer"
 import * as conjugationUtils from "@/features/conjugation-practice/utils/conjugationUtils"
@@ -97,9 +98,17 @@ const getConjugationOptions = (
   const rule = nextWord ? FOLLOWING_WORD_RULES[nextWord] : null
   const overrides = typeof rule === "function" ? rule(word) : (rule ?? {})
 
+  // Respect word-level politeness constraints
+  let polite = overrides.polite ?? politeForm
+  if (word.politeOnly) {
+    polite = true
+  } else if (word.shortOnly) {
+    polite = false
+  }
+
   return {
     form: overrides.form ?? word.form,
-    polite: overrides.polite ?? politeForm,
+    polite,
     negative: overrides.negative ?? word.polarity === "negative",
     past: overrides.past ?? word.tense === "past",
   }
