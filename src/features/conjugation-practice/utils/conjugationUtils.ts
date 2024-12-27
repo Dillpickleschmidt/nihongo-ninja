@@ -15,8 +15,9 @@ type ConjugationOptions = {
  * @returns The form of the word as a string.
  */
 export function getForm(partOfSpeech: string): string {
-  if (partOfSpeech === "I-adjective") return "i-adjective"
-  if (partOfSpeech === "Na-adjective") return "na-adjective"
+  const pos = partOfSpeech.toLowerCase()
+  if (pos === "i-adjective") return "i-adjective"
+  if (pos === "na-adjective") return "na-adjective"
   return "verb"
 }
 
@@ -26,15 +27,13 @@ export function getForm(partOfSpeech: string): string {
  * @returns The group of the word as a string ('1', '2', '3', 'i-adjective', 'na-adjective', or 'unknown').
  */
 export function getGroup(partOfSpeech: string): string {
-  if (partOfSpeech.startsWith("Godan verb")) return "1"
-  if (partOfSpeech === "Ichidan verb") return "2"
-  if (
-    partOfSpeech.startsWith("Suru verb") ||
-    partOfSpeech === "Kuru verb - special class"
-  )
+  const pos = partOfSpeech.toLowerCase()
+  if (pos.startsWith("godan verb")) return "1"
+  if (pos === "ichidan verb") return "2"
+  if (pos.startsWith("suru verb") || pos === "kuru verb - special class")
     return "3"
-  if (partOfSpeech === "I-adjective") return "i-adjective"
-  if (partOfSpeech === "Na-adjective") return "na-adjective"
+  if (pos === "i-adjective") return "i-adjective"
+  if (pos === "na-adjective") return "na-adjective"
   console.error(`Unknown part of speech: ${partOfSpeech}`)
   return "unknown"
 }
@@ -692,9 +691,14 @@ function iAdjectiveNormalForm(
 
   const forms = [reading.slice(0, -1) + ending + (polite ? "です" : "")]
 
+  if (polite && !past && negative) {
+    forms.push(reading.slice(0, -1) + "くありません")
+  }
+
   if (polite && past && negative) {
     forms.push(reading.slice(0, -1) + "くありませんでした")
   }
+  console.log(forms)
 
   return forms
 }
