@@ -11,6 +11,13 @@ import MasuForm from "./components/chapter-3/MasuForm"
 import PoliteInvitations from "./components/chapter-3/PoliteInvitations"
 import WoDeNiEParticles from "./components/chapter-3/WoDeNiEParticles"
 import WordOrder from "./components/chapter-3/WordOrder"
+import IruAru from "./components/chapter-4/IruAru"
+import Jikan from "./components/chapter-4/Jikan"
+import MoActionParticle from "./components/chapter-4/MoActionParticle"
+import PolitePastTense from "./components/chapter-4/PolitePastTense"
+import Takusan from "./components/chapter-4/Takusan"
+import ToParticle from "./components/chapter-4/ToParticle"
+import WhereThingsAre from "./components/chapter-4/WhereThingsAre"
 
 export const chapter1 = [
   {
@@ -124,5 +131,43 @@ export const chapter3 = [
     title: <>Polite Invitations</>,
     content: <PoliteInvitations />,
     imgSrc: "/img/chapter-3/grammar-notes/polite-invitations.jpg",
+  },
+]
+
+export const chapter4 = [
+  {
+    title: <>Iru/Aru</>,
+    content: <IruAru />,
+    imgSrc: "/img/chapter-4/grammar-notes/iru-aru.jpg",
+  },
+  {
+    title: <>Where Things Are</>,
+    content: <WhereThingsAre />,
+    imgSrc: "/img/chapter-4/grammar-notes/where-things-are.jpg",
+  },
+  {
+    title: <>Polite Past Tense</>,
+    content: <PolitePastTense />,
+    imgSrc: "/img/chapter-4/grammar-notes/polite-past-tense.jpg",
+  },
+  {
+    title: <>と Particle</>,
+    content: <ToParticle />,
+    imgSrc: "/img/chapter-4/grammar-notes/to-particle.jpg",
+  },
+  {
+    title: <>も Particle</>,
+    content: <MoActionParticle />,
+    imgSrc: "/img/chapter-4/grammar-notes/mo-particle.jpg",
+  },
+  {
+    title: <>時間 - Time Duration</>,
+    content: <Jikan />,
+    imgSrc: "/img/chapter-4/grammar-notes/jikan.jpg",
+  },
+  {
+    title: <>たくさん</>,
+    content: <Takusan />,
+    imgSrc: "/img/chapter-4/grammar-notes/takusan.jpg",
   },
 ]

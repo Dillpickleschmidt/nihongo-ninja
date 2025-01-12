@@ -46,7 +46,7 @@ export default function GrammarNotes(props: GrammarNotesProps) {
                     <DialogContent class="max-h-screen max-w-[700px]">
                       <div
                         ref={setContentRef}
-                        class="overflow-hidden bg-background-secondary print:!bg-white"
+                        class="overflow-hidden bg-background-secondary print:bg-white"
                       >
                         <div class="fixed right-7 top-6 z-50">
                           <PrintButton

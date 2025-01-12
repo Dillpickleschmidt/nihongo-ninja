@@ -28,10 +28,9 @@ export default function JapanesePronunciation() {
         </span>
         , because things are about to get <em>wildly</em>... linguistic.
       </h1>
-      <h2 class="px-20 text-center text-3xl font-medium leading-[3.25rem]"></h2>
 
-      <div class="space-y-6 px-16 pb-32 sm:px-24">
-        <h3 class="!pb-4 font-semibold">
+      <div class="space-y-6 px-16 pb-32 pt-12 sm:px-24">
+        <h3 class="font-semibold">
           Double Consonants (<span class="font-japanese">促音</span>, Sokuon):
           The Dramatic Pauses of Japanese:
         </h3>
@@ -85,7 +84,7 @@ export default function JapanesePronunciation() {
           *Use a little っ before the consonant character to make it a double
           consonant.
         </p>
-        <h3 class="!pb-4 !pt-16 text-center font-semibold">
+        <h3 class="!pt-16 text-center font-semibold">
           Long Vowels (<span class="font-japanese">長音</span>, chōon): The
           Stretchy Elastic of Sounds:
         </h3>
@@ -193,24 +192,12 @@ export default function JapanesePronunciation() {
             of it like double letters in English, but even more important in
             Japanese—for example, "hello" versus "helo."
           </p>
-          <div class="mx-16 mt-6 rounded-lg border-[2.5px] border-dashed border-card-foreground bg-card/100 shadow-inner">
-            <div class="w-full border-collapse font-japanese text-4xl">
-              <div class="[&>*]:h-[4.5rem] [&>*]:border-l-2 [&>*]:border-r-2 [&>*]:border-card-foreground/75 [&>*]:pb-2 [&>*]:text-center">
-                <div class="!border-l-0">ko</div>
-                <div>n'</div>
-                <div>ni</div>
-                <div>chi</div>
-                <div class="!border-r-0">wa</div>
-              </div>
-            </div>
+          <div class="mx-16 mt-6 rounded-lg border-[2.5px] border-dashed border-card-foreground bg-card/100 py-6 text-center font-japanese text-4xl shadow-inner">
+            kon'nichiwa
           </div>
-          <ul class="mt-4 text-center">
-            <li>
-              <span class="text-sm">❌</span>{" "}
-              <span class="line-through">ko nichiwa</span>
-            </li>
-            <li>kon'nichiwa</li>
-          </ul>
+          <div class="mt-4 text-center">
+            <span class="text-sm">❌</span> <span class="">ko nichiwa</span>
+          </div>
         </div>
         <p>
           Double consonants and long vowels can be tricky for English speakers.

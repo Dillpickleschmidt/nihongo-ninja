@@ -130,7 +130,7 @@ export default function MasuForm() {
           Godan Verb Ending Examples
         </h2>
         <div class="flex w-full justify-center">
-          <div class="grid grid-cols-3 gap-x-6 gap-y-0 font-japanese text-lg">
+          <div class="grid grid-cols-3 gap-x-5 gap-y-0 font-japanese text-lg">
             <div>
               <Furigana furigana={<span class="text-xs">うた</span>}>
                 歌

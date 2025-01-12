@@ -149,6 +149,10 @@ export default function LocationWords() {
             <p class="!mt-2 font-japanese text-base font-medium text-muted-foreground">
               猫は箱にいます
             </p>
+            <p class="text-sm italic text-muted-foreground">
+              The difference is kind of like like "in" the box <br />
+              vs. "inside" the box in English.
+            </p>
           </div>
         </div>
 
@@ -194,8 +198,8 @@ export default function LocationWords() {
           </div>
         </div>
 
-        <h3 class="!mt-9 text-xl font-bold">Special Cases</h3>
-        <div class="space-y-4">
+        <h4 class="!mt-9 font-bold">Special Cases</h4>
+        <div class="!mt-0 space-y-4">
           <div class="rounded-lg bg-card/50 p-4">
             <p class="font-japanese text-xl">バスの中にいます。</p>
             <p class="text-base">{"->"} I'm IN the bus</p>

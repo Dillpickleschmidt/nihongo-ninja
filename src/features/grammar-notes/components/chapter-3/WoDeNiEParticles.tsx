@@ -55,11 +55,11 @@ export default function WoDeNiEParticles() {
       <div class="mt-2 text-center">
         <p>
           <span class="font-japanese">ペンで書きます。</span> - I write with a
-          pen.
+          pen <small>(utilize the pen for writing)</small>.
         </p>
         <p>
-          <span class="font-japanese">図書館で 勉強します。</span> - I study at
-          the library.
+          <span class="font-japanese">図書館で勉強します。</span> - I study at
+          the library <small>(utilize the library for studying)</small>.
         </p>
       </div>
 

@@ -1,5 +1,10 @@
 import GrammarNotes from "@/features/grammar-notes/GrammarNotes"
-import { chapter1, chapter2, chapter3 } from "@/features/grammar-notes/data"
+import {
+  chapter1,
+  chapter2,
+  chapter3,
+  chapter4,
+} from "@/features/grammar-notes/data"
 import { Title } from "@solidjs/meta"
 
 export default function page() {
@@ -20,6 +25,10 @@ export default function page() {
           Chapter 3
         </h2>
         <GrammarNotes gridCols={3} items={chapter3} />
+        <h2 class="mx-32 mb-4 mt-20 text-center text-4xl font-bold">
+          Chapter 4
+        </h2>
+        <GrammarNotes gridCols={3} items={chapter4} />
       </div>
     </>
   )
