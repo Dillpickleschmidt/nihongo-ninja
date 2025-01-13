@@ -20,6 +20,25 @@ export default function SidebarContent({
 }: SidebarContentProps) {
   return (
     <>
+      <A href="/learn/grammar-notes">
+        <Button
+          size="lg"
+          variant="outline"
+          class={`w-full min-w-11 text-nowrap p-0 py-3 text-sm font-normal ${
+            inDialog
+              ? "justify-start"
+              : "hidden sm:inline-flex xl:w-56 xl:text-base 2xl:w-72"
+          } lg:px-6`}
+        >
+          <ScrollText
+            size="22px"
+            class={`${inDialog ? "mx-3" : "lg:mr-3"} text-red-500`}
+          />
+          <span class={`opacity-75 ${!inDialog && "hidden lg:flex"}`}>
+            Grammar Notes
+          </span>
+        </Button>
+      </A>
       <a href="https://jpdb.io" target="_blank">
         <Button
           size="lg"
@@ -41,25 +60,6 @@ export default function SidebarContent({
           </span>
         </Button>
       </a>
-      <A href="/learn/grammar-notes">
-        <Button
-          size="lg"
-          variant="outline"
-          class={`w-full min-w-11 text-nowrap p-0 py-3 text-sm font-normal ${
-            inDialog
-              ? "justify-start"
-              : "hidden sm:inline-flex xl:w-56 xl:text-base 2xl:w-72"
-          } lg:px-6`}
-        >
-          <ScrollText
-            size="22px"
-            class={`${inDialog ? "mx-3" : "lg:mr-3"} text-red-500`}
-          />
-          <span class={`opacity-75 ${!inDialog && "hidden lg:flex"}`}>
-            Grammar Notes
-          </span>
-        </Button>
-      </A>
       <A href="/learn/sentence-practice">
         <Button
           size="lg"

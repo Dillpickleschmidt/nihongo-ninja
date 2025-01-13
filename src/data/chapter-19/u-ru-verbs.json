@@ -1,0 +1,250 @@
+[
+  {
+    "word": "いらっしゃる",
+    "furigana": ["いらっしゃる"],
+    "english": ["honorific expression for いく, くる, and いる"],
+    "mnemonics": [],
+    "info": ["Honorific verb", "Used to show respect to the subject"],
+    "example_sentences": [],
+    "chapter": 18,
+    "category": "godan-v",
+    "particles": []
+  },
+  {
+    "word": "召し上がる",
+    "furigana": ["召[め]し 上[あ]がる"],
+    "english": ["honorific expression for たべる and のむ"],
+    "mnemonics": [],
+    "info": ["Honorific verb", "Used to show respect to the subject"],
+    "example_sentences": [],
+    "chapter": 18,
+    "category": "godan-v",
+    "particles": []
+  },
+  {
+    "word": "下さる",
+    "furigana": ["下[くだ]さる"],
+    "english": ["honorific expression for くれる"],
+    "mnemonics": [],
+    "info": ["Honorific verb", "Used to show respect to the giver"],
+    "example_sentences": [],
+    "chapter": 18,
+    "category": "godan-v",
+    "particles": []
+  },
+  {
+    "word": "なさる",
+    "furigana": ["なさる"],
+    "english": ["honorific expression for する"],
+    "mnemonics": [],
+    "info": ["Honorific verb", "Used to show respect to the subject"],
+    "example_sentences": [],
+    "chapter": 18,
+    "category": "godan-v",
+    "particles": []
+  },
+  {
+    "word": "お休みになる",
+    "furigana": ["お 休[やす]みになる"],
+    "english": ["honorific expression for ねる"],
+    "mnemonics": [],
+    "info": ["Honorific verb", "Used to show respect to the subject"],
+    "example_sentences": [],
+    "chapter": 18,
+    "category": "godan-v",
+    "particles": []
+  },
+  {
+    "word": "ご覧になる",
+    "furigana": ["ご 覧[らん]になる"],
+    "english": ["honorific expression for みる"],
+    "mnemonics": [],
+    "info": ["Honorific verb", "Used to show respect to the subject"],
+    "example_sentences": [],
+    "chapter": 18,
+    "category": "godan-v",
+    "particles": []
+  },
+  {
+    "word": "おっしゃる",
+    "furigana": ["おっしゃる"],
+    "english": ["honorific expression for いう"],
+    "mnemonics": [],
+    "info": ["Honorific verb", "Used to show respect to the subject"],
+    "example_sentences": [],
+    "chapter": 18,
+    "category": "godan-v",
+    "particles": []
+  },
+  {
+    "word": "～ていらっしゃる",
+    "furigana": ["～ていらっしゃる"],
+    "english": ["honorific expression for ～ている"],
+    "mnemonics": [],
+    "info": ["Honorific verb", "Used to show respect to the subject"],
+    "example_sentences": [],
+    "chapter": 18,
+    "category": "godan-v",
+    "particles": []
+  },
+  {
+    "word": "送る",
+    "furigana": ["送[おく]る"],
+    "english": ["to walk/drive (someone) (person を place まで)"],
+    "mnemonics": [],
+    "info": ["Honorific usage depends on context"],
+    "example_sentences": [],
+    "chapter": 18,
+    "category": "godan-v",
+    "particles": [
+      {
+        "label": "person",
+        "particle": "を"
+      },
+      {
+        "particle": "まで"
+      }
+    ]
+  },
+  {
+    "word": "怒る",
+    "furigana": ["怒[おこ]る"],
+    "english": ["to get angry"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": 18,
+    "category": "godan-v",
+    "particles": []
+  },
+  {
+    "word": "決まる",
+    "furigana": ["決[き]まる"],
+    "english": ["to be decided (～が)"],
+    "mnemonics": [],
+    "info": ["Intransitive verb"],
+    "example_sentences": [],
+    "chapter": 18,
+    "category": "godan-v",
+    "particles": [
+      {
+        "particle": "が"
+      }
+    ]
+  },
+  {
+    "word": "知り合う",
+    "furigana": ["知[し]り 合[あ]う"],
+    "english": ["to get acquainted with (～と)"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": 18,
+    "category": "godan-v",
+    "particles": [
+      {
+        "particle": "と"
+      }
+    ]
+  },
+  {
+    "word": "呼ぶ",
+    "furigana": ["呼[よ]ぶ"],
+    "english": ["to call (one's name) (～を); to invite (person を event に)"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": 18,
+    "category": "godan-v",
+    "particles": [
+      {
+        "particle": "を"
+      },
+      {
+        "particle": "に"
+      }
+    ]
+  },
+  {
+    "word": "引っ越す",
+    "furigana": ["引[ひ]っ 越[こ]す"],
+    "english": ["to move (to another place to live) (～に)"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": 18,
+    "category": "godan-v",
+    "particles": [
+      {
+        "particle": "に"
+      }
+    ]
+  },
+  {
+    "word": "寄る",
+    "furigana": ["寄[よ]る"],
+    "english": ["to stop by (place に)"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": 18,
+    "category": "godan-v",
+    "particles": [
+      {
+        "particle": "に"
+      }
+    ]
+  },
+  {
+    "word": "遅れる",
+    "furigana": ["遅[おく]れる"],
+    "english": ["to become late (～に)"],
+    "mnemonics": [],
+    "info": ["Intransitive verb"],
+    "example_sentences": [],
+    "chapter": 18,
+    "category": "ichidan-v",
+    "particles": [
+      {
+        "particle": "に"
+      }
+    ]
+  },
+  {
+    "word": "かける",
+    "furigana": ["かける"],
+    "english": ["to sit down"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": 18,
+    "category": "ichidan-v",
+    "particles": []
+  },
+  {
+    "word": "もてる",
+    "furigana": ["もてる"],
+    "english": ["to be popular (in terms of romantic interest) (people に)"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": 18,
+    "category": "ichidan-v",
+    "particles": [
+      {
+        "particle": "に"
+      }
+    ]
+  },
+  {
+    "word": "晴れる",
+    "furigana": ["晴[は]れる"],
+    "english": ["to become sunny"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": 18,
+    "category": "ichidan-v",
+    "particles": []
+  }
+]

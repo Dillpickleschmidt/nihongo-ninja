@@ -1,0 +1,180 @@
+[
+  {
+    "word": "ごちそうする",
+    "furigana": ["ごちそうする"],
+    "english": ["to treat/invite (someone) to a meal (person に meal を)"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": 18,
+    "category": "irr-v",
+    "particles": [
+      {
+        "label": "person",
+        "particle": "に"
+      },
+      {
+        "label": "meal",
+        "particle": "を"
+      }
+    ]
+  },
+  {
+    "word": "遠慮する",
+    "furigana": ["遠慮[えんりょ]する"],
+    "english": ["to hold back for the time being; to refrain from"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": 18,
+    "category": "irr-v",
+    "particles": []
+  },
+  {
+    "word": "招待する",
+    "furigana": ["招待[しょうたい]する"],
+    "english": [
+      "to invite someone (to an event/a place) (person を event/place に)"
+    ],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": 18,
+    "category": "irr-v",
+    "particles": [
+      {
+        "label": "person",
+        "particle": "を"
+      },
+      {
+        "label": "event/place",
+        "particle": "に"
+      }
+    ]
+  },
+  {
+    "word": "話をする",
+    "furigana": ["話[はなし]をする"],
+    "english": ["to have a talk"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": 18,
+    "category": "irr-v",
+    "particles": []
+  },
+  {
+    "word": "おととい",
+    "furigana": ["おととい"],
+    "english": ["the day before yesterday"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": 18,
+    "category": "adv",
+    "particles": []
+  },
+  {
+    "word": "毎朝",
+    "furigana": ["毎朝[まいあさ]"],
+    "english": ["every morning"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": 18,
+    "category": "adv",
+    "particles": []
+  },
+  {
+    "word": "それで",
+    "furigana": ["それで"],
+    "english": ["then; therefore"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": 18,
+    "category": "adv",
+    "particles": []
+  },
+  {
+    "word": "なぜ",
+    "furigana": ["なぜ"],
+    "english": ["why (= どうして)"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": 18,
+    "category": "adv",
+    "particles": []
+  },
+  {
+    "word": "本当は",
+    "furigana": ["本当[ほんとう]は"],
+    "english": ["in fact; originally"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": 18,
+    "category": "adv",
+    "particles": []
+  },
+  {
+    "word": "まだ",
+    "furigana": ["まだ"],
+    "english": ["still"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": 18,
+    "category": "adv",
+    "particles": []
+  },
+  {
+    "word": "少々",
+    "furigana": ["少々[しょうしょう]"],
+    "english": ["a few seconds"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": 18,
+    "category": "adv",
+    "particles": []
+  },
+  {
+    "word": "～名様",
+    "furigana": ["～名様[めいさま]"],
+    "english": ["party of... people"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": 18,
+    "category": "adv",
+    "particles": []
+  },
+  {
+    "word": "ようこそ",
+    "furigana": ["ようこそ"],
+    "english": ["Welcome."],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": 18,
+    "category": "misc",
+    "particles": []
+  },
+  {
+    "word": "よろしくお伝えください",
+    "furigana": ["よろしくお 伝[つた]えください"],
+    "english": ["Please give my best regards (to...). (～に)"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": 18,
+    "category": "misc",
+    "particles": [
+      {
+        "particle": "に"
+      }
+    ]
+  }
+]

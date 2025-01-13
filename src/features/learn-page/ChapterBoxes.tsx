@@ -2172,7 +2172,68 @@ export default function ChapterBoxes() {
           },
         ]}
       />
-      <ChapterBox text="Chapter 19" class="bg-neutral-700" content={[]} />
+      <ChapterBox
+        text="Chapter 19"
+        class="bg-red-500 saturate-[65%]"
+        content={[
+          {
+            title: "Chapter 19 Vocab List",
+            link: "/learn/chapter-19/vocab-list",
+            types: ["vocab-list"],
+          },
+          {
+            title: "Chapter 19 Grammar Notes",
+            link: "/learn/grammar-notes",
+            types: ["grammar-notes"],
+            disabled: true,
+          },
+          {
+            title: "Nouns & Adj.",
+            link: "/learn/chapter-19/nouns-and-adj",
+            types: ["vocab"],
+          },
+          {
+            title: "Practice Nouns & Adj. - Readings",
+            link: "/learn/chapter-19/practice/nouns-and-adj-readings",
+            types: ["vocab-practice"],
+          },
+          {
+            title: "Practice Nouns & Adj. - Kana",
+            link: "/learn/chapter-19/practice/u-ru-verbs-kana",
+            types: ["vocab-practice"],
+          },
+          {
+            title: "U + Ru Verbs",
+            link: "/learn/chapter-19/u-ru-verbs",
+            types: ["vocab"],
+          },
+          {
+            title: "Practice U + Ru Verbs - Readings",
+            link: "/learn/chapter-19/practice/u-ru-verbs-readings",
+            types: ["vocab-practice"],
+          },
+          {
+            title: "Practice U + Ru Verbs - Kana",
+            link: "/learn/chapter-19/practice/u-ru-verbs-kana",
+            types: ["vocab-practice"],
+          },
+          {
+            title: "Irr. Verbs, Adv., & Misc.",
+            link: "/learn/chapter-19/irr-v-adv-misc",
+            types: ["vocab"],
+          },
+          {
+            title: "Practice Irr. Verbs, Adv., & Misc. - Readings",
+            link: "/learn/chapter-19/practice/irr-v-adv-misc-readings",
+            types: ["vocab-practice"],
+          },
+          {
+            title: "Practice Irr. Verbs, Adv., & Misc. - Kana",
+            link: "/learn/chapter-19/practice/irr-v-adv-misc-kana",
+            types: ["vocab-practice"],
+          },
+        ]}
+      />
       <ChapterBox text="Chapter 20" class="bg-neutral-700" content={[]} />
       <ChapterBox text="Chapter 21" class="bg-neutral-700" content={[]} />
       <ChapterBox text="Chapter 22" class="bg-neutral-700" content={[]} />

@@ -1,0 +1,182 @@
+[
+  {
+    "word": "奥様",
+    "furigana": ["奥様[おくさま]"],
+    "english": ["(your/someone's) wife (polite)"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": 18,
+    "category": "noun"
+  },
+  {
+    "word": "お子さん",
+    "furigana": ["お子さん[おこさん]"],
+    "english": ["(your/someone's) child (polite)"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": 18,
+    "category": "noun"
+  },
+  {
+    "word": "中学生",
+    "furigana": ["中学生[ちゅうがくせい]"],
+    "english": ["junior high school student"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": 18,
+    "category": "noun"
+  },
+  {
+    "word": "部長",
+    "furigana": ["部長[ぶちょう]"],
+    "english": ["department manager"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": 18,
+    "category": "noun"
+  },
+  {
+    "word": "出張",
+    "furigana": ["出張[しゅっちょう]"],
+    "english": ["business trip"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": 18,
+    "category": "noun"
+  },
+  {
+    "word": "敬語",
+    "furigana": ["敬語[けいご]"],
+    "english": ["honorific language"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": 18,
+    "category": "noun"
+  },
+  {
+    "word": "こちら",
+    "furigana": ["こちら"],
+    "english": ["this way (polite)"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": 18,
+    "category": "noun"
+  },
+  {
+    "word": "どちら",
+    "furigana": ["どちら"],
+    "english": ["where (polite)"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": 18,
+    "category": "noun"
+  },
+  {
+    "word": "お礼",
+    "furigana": ["お礼[おれい]"],
+    "english": ["expression of gratitude"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": 18,
+    "category": "noun"
+  },
+  {
+    "word": "種類",
+    "furigana": ["種類[しゅるい]"],
+    "english": ["a kind; a sort"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": 18,
+    "category": "noun"
+  },
+  {
+    "word": "話",
+    "furigana": ["話[はなし]"],
+    "english": ["talk; story"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": 18,
+    "category": "noun"
+  },
+  {
+    "word": "悩み",
+    "furigana": ["悩み[なやみ]"],
+    "english": ["worry"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": 18,
+    "category": "noun"
+  },
+  {
+    "word": "間違い",
+    "furigana": ["間違い[まちがい]"],
+    "english": ["mistake"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": 18,
+    "category": "noun"
+  },
+  {
+    "word": "性格",
+    "furigana": ["性格[せいかく]"],
+    "english": ["personality"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": 18,
+    "category": "noun"
+  },
+  {
+    "word": "怠け者",
+    "furigana": ["怠け者[なまけもの]"],
+    "english": ["lazy person"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": 18,
+    "category": "noun"
+  },
+  {
+    "word": "恥ずかしがり屋",
+    "furigana": ["恥ずかしがり屋[はずかしがりや]"],
+    "english": ["shy person"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": 18,
+    "category": "noun"
+  },
+  {
+    "word": "仲がいい",
+    "furigana": ["仲がいい[なかがいい]"],
+    "english": ["be on good/close terms; to get along well"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": 18,
+    "category": "i-adjective"
+  },
+  {
+    "word": "まじめ（な）",
+    "furigana": ["まじめ（な）"],
+    "english": ["serious; sober; diligent"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": 18,
+    "category": "na-adjective"
+  }
+]
