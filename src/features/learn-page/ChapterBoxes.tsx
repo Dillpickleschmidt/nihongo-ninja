@@ -821,7 +821,6 @@ export default function ChapterBoxes() {
             title: "Chapter 4 Grammar Notes",
             link: "/learn/grammar-notes",
             types: ["grammar-notes"],
-            disabled: true,
           },
           {
             title: "Nouns 1",
@@ -974,7 +973,6 @@ export default function ChapterBoxes() {
             title: "Chapter 5 Grammar Notes",
             link: "/learn/grammar-notes",
             types: ["grammar-notes"],
-            disabled: true,
           },
           {
             title: "Nouns 1",

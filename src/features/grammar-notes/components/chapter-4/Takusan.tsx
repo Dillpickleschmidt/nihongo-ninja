@@ -32,9 +32,7 @@ export default function Takusan() {
               図書館にたくさんの本があります。
             </p>
             <p class="text-sm">There are many books in the library</p>
-            <p class="text-xs text-muted-foreground">
-              (emphasizing the number of books)
-            </p>
+            <p class="text-xs">(emphasizing the number of books)</p>
           </div>
         </div>
 
@@ -48,7 +46,7 @@ export default function Takusan() {
           <div class="mt-2">
             <p class="font-japanese text-lg">図書館にたくさん本があります。</p>
             <p class="text-sm">There are many books in the library</p>
-            <p class="text-xs text-muted-foreground">
+            <p class="text-xs">
               (focusing on the overall scene rather than just the books)
             </p>
           </div>

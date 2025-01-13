@@ -18,6 +18,12 @@ import PolitePastTense from "./components/chapter-4/PolitePastTense"
 import Takusan from "./components/chapter-4/Takusan"
 import ToParticle from "./components/chapter-4/ToParticle"
 import WhereThingsAre from "./components/chapter-4/WhereThingsAre"
+import AdjectiveConjugation from "./components/chapter-5/AdjectiveConjugation"
+import AdjModifyingNouns from "./components/chapter-5/AdjModifyingNouns"
+import CountersCheatsheet from "./components/chapter-5/Counters"
+import PoliteVolitional from "./components/chapter-5/PoliteVolitional"
+import SukiKirai from "./components/chapter-5/SukiKirai"
+import WaContrast from "./components/chapter-5/WaContrast"
 
 export const chapter1 = [
   {
@@ -169,5 +175,38 @@ export const chapter4 = [
     title: <>たくさん</>,
     content: <Takusan />,
     imgSrc: "/img/chapter-4/grammar-notes/takusan.jpg",
+  },
+]
+
+export const chapter5 = [
+  {
+    title: <>Adjective Conjugation</>,
+    content: <AdjectiveConjugation />,
+    imgSrc: "/img/chapter-5/grammar-notes/adj-conjugation.jpg",
+  },
+  {
+    title: <>Adjective Modifying Nouns</>,
+    content: <AdjModifyingNouns />,
+    imgSrc: "/img/chapter-5/grammar-notes/adj-modifying-nouns.jpg",
+  },
+  {
+    title: <>好き・嫌い</>,
+    content: <SukiKirai />,
+    imgSrc: "/img/chapter-5/grammar-notes/suki-kirai.jpg",
+  },
+  {
+    title: <>Contrasting with は</>,
+    content: <WaContrast />,
+    imgSrc: "/img/chapter-5/grammar-notes/wa-contrast.jpg",
+  },
+  {
+    title: <>Polite Volitional</>,
+    content: <PoliteVolitional />,
+    imgSrc: "/img/chapter-5/grammar-notes/polite-volitional.jpg",
+  },
+  {
+    title: <>Counters</>,
+    content: <CountersCheatsheet />,
+    imgSrc: "/img/chapter-5/grammar-notes/counters.jpg",
   },
 ]
