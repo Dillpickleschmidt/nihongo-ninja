@@ -2199,7 +2199,7 @@ export default function ChapterBoxes() {
           },
           {
             title: "Practice Nouns & Adj. - Kana",
-            link: "/learn/chapter-19/practice/u-ru-verbs-kana",
+            link: "/learn/chapter-19/practice/nouns-and-adj-kana",
             types: ["vocab-practice"],
           },
           {

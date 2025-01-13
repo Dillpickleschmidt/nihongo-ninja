@@ -2,7 +2,7 @@
   {
     "word": "ごちそうする",
     "furigana": ["ごちそうする"],
-    "english": ["to treat/invite (someone) to a meal (person に meal を)"],
+    "english": ["to treat/invite (someone) to a meal"],
     "mnemonics": [],
     "info": [],
     "example_sentences": [],
@@ -22,7 +22,7 @@
   {
     "word": "遠慮する",
     "furigana": ["遠慮[えんりょ]する"],
-    "english": ["to hold back for the time being; to refrain from"],
+    "english": ["to hold back for the time being", "to refrain from"],
     "mnemonics": [],
     "info": [],
     "example_sentences": [],
@@ -33,9 +33,7 @@
   {
     "word": "招待する",
     "furigana": ["招待[しょうたい]する"],
-    "english": [
-      "to invite someone (to an event/a place) (person を event/place に)"
-    ],
+    "english": ["to invite someone (to an event/a place)"],
     "mnemonics": [],
     "info": [],
     "example_sentences": [],
@@ -88,7 +86,7 @@
   {
     "word": "それで",
     "furigana": ["それで"],
-    "english": ["then; therefore"],
+    "english": ["then", "therefore"],
     "mnemonics": [],
     "info": [],
     "example_sentences": [],
@@ -99,7 +97,7 @@
   {
     "word": "なぜ",
     "furigana": ["なぜ"],
-    "english": ["why (= どうして)"],
+    "english": ["why"],
     "mnemonics": [],
     "info": [],
     "example_sentences": [],
@@ -110,7 +108,7 @@
   {
     "word": "本当は",
     "furigana": ["本当[ほんとう]は"],
-    "english": ["in fact; originally"],
+    "english": ["in fact", "originally"],
     "mnemonics": [],
     "info": [],
     "example_sentences": [],
@@ -142,7 +140,7 @@
   },
   {
     "word": "～名様",
-    "furigana": ["～名様[めいさま]"],
+    "furigana": ["～ 名様[めいさま]"],
     "english": ["party of... people"],
     "mnemonics": [],
     "info": [],
@@ -165,7 +163,7 @@
   {
     "word": "よろしくお伝えください",
     "furigana": ["よろしくお 伝[つた]えください"],
-    "english": ["Please give my best regards (to...). (～に)"],
+    "english": ["Please give my best regards (to...)."],
     "mnemonics": [],
     "info": [],
     "example_sentences": [],

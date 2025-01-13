@@ -90,7 +90,7 @@
   {
     "word": "送る",
     "furigana": ["送[おく]る"],
-    "english": ["to walk/drive (someone) (person を place まで)"],
+    "english": ["to walk/drive (someone)"],
     "mnemonics": [],
     "info": ["Honorific usage depends on context"],
     "example_sentences": [],
@@ -102,6 +102,7 @@
         "particle": "を"
       },
       {
+        "label": "place",
         "particle": "まで"
       }
     ]
@@ -120,7 +121,7 @@
   {
     "word": "決まる",
     "furigana": ["決[き]まる"],
-    "english": ["to be decided (～が)"],
+    "english": ["to be decided"],
     "mnemonics": [],
     "info": ["Intransitive verb"],
     "example_sentences": [],
@@ -135,7 +136,7 @@
   {
     "word": "知り合う",
     "furigana": ["知[し]り 合[あ]う"],
-    "english": ["to get acquainted with (～と)"],
+    "english": ["to get acquainted with"],
     "mnemonics": [],
     "info": [],
     "example_sentences": [],
@@ -150,7 +151,7 @@
   {
     "word": "呼ぶ",
     "furigana": ["呼[よ]ぶ"],
-    "english": ["to call (one's name) (～を); to invite (person を event に)"],
+    "english": ["to call (one's name)", "to invite"],
     "mnemonics": [],
     "info": [],
     "example_sentences": [],
@@ -158,9 +159,11 @@
     "category": "godan-v",
     "particles": [
       {
+        "label": "person",
         "particle": "を"
       },
       {
+        "label": "event",
         "particle": "に"
       }
     ]
@@ -168,7 +171,7 @@
   {
     "word": "引っ越す",
     "furigana": ["引[ひ]っ 越[こ]す"],
-    "english": ["to move (to another place to live) (～に)"],
+    "english": ["to move (to another place to live)"],
     "mnemonics": [],
     "info": [],
     "example_sentences": [],
@@ -183,7 +186,7 @@
   {
     "word": "寄る",
     "furigana": ["寄[よ]る"],
-    "english": ["to stop by (place に)"],
+    "english": ["to stop by"],
     "mnemonics": [],
     "info": [],
     "example_sentences": [],
@@ -191,6 +194,7 @@
     "category": "godan-v",
     "particles": [
       {
+        "label": "place",
         "particle": "に"
       }
     ]
@@ -198,7 +202,7 @@
   {
     "word": "遅れる",
     "furigana": ["遅[おく]れる"],
-    "english": ["to become late (～に)"],
+    "english": ["to become late"],
     "mnemonics": [],
     "info": ["Intransitive verb"],
     "example_sentences": [],
@@ -224,7 +228,7 @@
   {
     "word": "もてる",
     "furigana": ["もてる"],
-    "english": ["to be popular (in terms of romantic interest) (people に)"],
+    "english": ["to be popular (in terms of romantic interest)"],
     "mnemonics": [],
     "info": [],
     "example_sentences": [],
@@ -232,6 +236,7 @@
     "category": "ichidan-v",
     "particles": [
       {
+        "label": "people",
         "particle": "に"
       }
     ]

@@ -11,7 +11,7 @@
   },
   {
     "word": "お子さん",
-    "furigana": ["お子さん[おこさん]"],
+    "furigana": ["お 子[こ]さん"],
     "english": ["(your/someone's) child (polite)"],
     "mnemonics": [],
     "info": [],
@@ -81,7 +81,7 @@
   },
   {
     "word": "お礼",
-    "furigana": ["お礼[おれい]"],
+    "furigana": ["お 礼[れい]"],
     "english": ["expression of gratitude"],
     "mnemonics": [],
     "info": [],
@@ -92,7 +92,7 @@
   {
     "word": "種類",
     "furigana": ["種類[しゅるい]"],
-    "english": ["a kind; a sort"],
+    "english": ["a kind", "a sort"],
     "mnemonics": [],
     "info": [],
     "example_sentences": [],
@@ -102,7 +102,7 @@
   {
     "word": "話",
     "furigana": ["話[はなし]"],
-    "english": ["talk; story"],
+    "english": ["talk", "story"],
     "mnemonics": [],
     "info": [],
     "example_sentences": [],
@@ -111,7 +111,7 @@
   },
   {
     "word": "悩み",
-    "furigana": ["悩み[なやみ]"],
+    "furigana": ["悩[なや]み"],
     "english": ["worry"],
     "mnemonics": [],
     "info": [],
@@ -121,7 +121,7 @@
   },
   {
     "word": "間違い",
-    "furigana": ["間違い[まちがい]"],
+    "furigana": ["間違[まちが]い"],
     "english": ["mistake"],
     "mnemonics": [],
     "info": [],
@@ -141,7 +141,7 @@
   },
   {
     "word": "怠け者",
-    "furigana": ["怠け者[なまけもの]"],
+    "furigana": ["怠[なま]け 者[もの]"],
     "english": ["lazy person"],
     "mnemonics": [],
     "info": [],
@@ -151,7 +151,7 @@
   },
   {
     "word": "恥ずかしがり屋",
-    "furigana": ["恥ずかしがり屋[はずかしがりや]"],
+    "furigana": ["恥[は]ずかしがり 屋[や]"],
     "english": ["shy person"],
     "mnemonics": [],
     "info": [],
@@ -161,8 +161,8 @@
   },
   {
     "word": "仲がいい",
-    "furigana": ["仲がいい[なかがいい]"],
-    "english": ["be on good/close terms; to get along well"],
+    "furigana": ["仲[なか]がいい"],
+    "english": ["be on good/close terms", "to get along well"],
     "mnemonics": [],
     "info": [],
     "example_sentences": [],
@@ -170,11 +170,11 @@
     "category": "i-adjective"
   },
   {
-    "word": "まじめ（な）",
-    "furigana": ["まじめ（な）"],
-    "english": ["serious; sober; diligent"],
+    "word": "まじめ",
+    "furigana": ["まじめ"],
+    "english": ["serious", "sober", "diligent"],
     "mnemonics": [],
-    "info": [],
+    "info": ["な-adjective"],
     "example_sentences": [],
     "chapter": 18,
     "category": "na-adjective"
