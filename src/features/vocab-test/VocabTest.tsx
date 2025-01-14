@@ -14,9 +14,10 @@ import {
 type VocabTestProps = {
   data: VocabItem[]
   chapter: number
+  title?: string
 }
 
-export default function VocabTest({ data, chapter }: VocabTestProps) {
+export default function VocabTest({ data, chapter, title }: VocabTestProps) {
   const [randomizedData, setRandomizedData] = createSignal<VocabItem[]>([])
   const [showAnswers, setShowAnswers] = createSignal(false)
   const [userAnswers, setUserAnswers] = createSignal<{ [key: string]: string }>(
@@ -137,7 +138,7 @@ export default function VocabTest({ data, chapter }: VocabTestProps) {
   return (
     <ContentBox nextButtonText="Next Lesson ->" nextButtonLink="/learn">
       <h1 class="mx-20 border-b-2 border-orange-400 px-8 pb-12 pt-24 text-center text-4xl font-semibold">
-        Chapter {chapter} Vocab Test
+        {title ? title : `Chapter ${chapter} Vocab Test`}
       </h1>
       <div class="px-4 pb-32 sm:px-8 md:px-12">
         <ul class="list-none space-y-1 pt-12">

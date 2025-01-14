@@ -2188,6 +2188,31 @@ export default function ChapterBoxes() {
             disabled: true,
           },
           {
+            title: "Ch. 13-18 Bonus Vocab",
+            link: "/learn/chapter-19/chapter-13-18-bonus-vocab",
+            types: ["vocab"],
+          },
+          {
+            title: "Ch. 13-18 Nouns - Test",
+            link: "/learn/chapter-19/chapter-13-18-nouns",
+            types: ["vocab-test"],
+          },
+          {
+            title: "Ch. 13-18 Adjectives - Test",
+            link: "/learn/chapter-19/chapter-13-18-adjectives",
+            types: ["vocab-test"],
+          },
+          {
+            title: "Ch. 13-18 Verbs - Test",
+            link: "/learn/chapter-19/chapter-13-18-verbs",
+            types: ["vocab-test"],
+          },
+          {
+            title: "Ch. 13-18 Adv., Misc. - Test",
+            link: "/learn/chapter-19/chapter-13-18-adv-misc",
+            types: ["vocab-test"],
+          },
+          {
             title: "Nouns & Adj.",
             link: "/learn/chapter-19/nouns-and-adj",
             types: ["vocab"],
