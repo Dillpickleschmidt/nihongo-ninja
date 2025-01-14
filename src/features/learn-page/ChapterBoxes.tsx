@@ -2257,6 +2257,11 @@ export default function ChapterBoxes() {
             link: "/learn/chapter-19/practice/irr-v-adv-misc-kana",
             types: ["vocab-practice"],
           },
+          {
+            title: "Ch. 19 All Vocab - Test",
+            link: "/learn/chapter-19/all-vocab-test",
+            types: ["vocab-test"],
+          },
         ]}
       />
       <ChapterBox text="Chapter 20" class="bg-neutral-700" content={[]} />

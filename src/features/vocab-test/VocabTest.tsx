@@ -42,6 +42,34 @@ export default function VocabTest({ data, chapter, title }: VocabTestProps) {
     }))
   }
 
+  const handleOverwrite = (index: number) => {
+    const entry = randomizedData()[index]
+
+    // Set correct kana if it exists
+    if (
+      !isKana(entry.word.replace("～", "").replace("（", "").replace("）", ""))
+    ) {
+      setUserAnswers((prev) => ({
+        ...prev,
+        [`${index}-kana`]: extractHiragana(entry.furigana?.[0] ?? ""),
+      }))
+    }
+
+    // Set correct English
+    setUserAnswers((prev) => ({
+      ...prev,
+      [`${index}-english`]: entry.english?.[0] ?? "",
+    }))
+
+    // Set empty array for particles if none exist yet
+    if (entry.particles && !particleAnswers()[index]) {
+      setParticleAnswers((prev) => ({
+        ...prev,
+        [index]: Array(entry.particles!.length).fill(""),
+      }))
+    }
+  }
+
   const handleParticleInputChange = (
     wordIndex: number,
     particleIndex: number,
@@ -110,29 +138,38 @@ export default function VocabTest({ data, chapter, title }: VocabTestProps) {
     setShowAnswers(true)
   }
 
-  const isCorrect = (index: number, field: "kana" | "english") => {
-    const userAnswer = (userAnswers()[`${index}-${field}`] || "")
+  const cleanWord = (word: string): string => {
+    return word
       .toLowerCase()
       .trim()
       .replace("...", "")
       .replace(".", "")
       .replace("。", "")
+  }
+
+  const isCorrect = (index: number, field: "kana" | "english") => {
+    const userAnswer = cleanWord(userAnswers()[`${index}-${field}`] || "")
     const entry = randomizedData()[index]
+
     if (field === "kana") {
       return (
-        userAnswer ===
-        extractHiragana(entry.furigana?.[0] ?? "")
-          .toLowerCase()
-          .trim()
-          .replace("。", "")
+        userAnswer === cleanWord(extractHiragana(entry.furigana?.[0] ?? ""))
       )
     } else {
-      return entry.english?.some(
-        (eng) =>
-          eng.toLowerCase().trim().replace("...", "").replace(".", "") ===
-          userAnswer,
-      )
+      return entry.english?.some((eng) => cleanWord(eng) === userAnswer)
     }
+  }
+
+  const hasIncorrectAnswer = (index: number) => {
+    const entry = randomizedData()[index]
+    const needsKana = !isKana(
+      entry.word.replace("～", "").replace("（", "").replace("）", ""),
+    )
+
+    if (needsKana && !isCorrect(index, "kana")) return true
+    if (!isCorrect(index, "english")) return true
+
+    return false
   }
 
   return (
@@ -144,7 +181,15 @@ export default function VocabTest({ data, chapter, title }: VocabTestProps) {
         <ul class="list-none space-y-1 pt-12">
           <For each={randomizedData()}>
             {(entry, wordIndex) => (
-              <li>
+              <li class="relative">
+                <Show when={showAnswers() && hasIncorrectAnswer(wordIndex())}>
+                  <Button
+                    onClick={() => handleOverwrite(wordIndex())}
+                    class="absolute left-[16px] bg-green-500 hover:bg-green-600 sm:left-[32px] md:left-[-48px]"
+                  >
+                    Overwrite?
+                  </Button>
+                </Show>
                 <TextFieldRoot class="w-full">
                   <div
                     class={`grid w-full ${randomizedData().find((item) => item.particles) ? "grid-cols-[180px_200px_200px_120px]" : "grid-cols-3"} gap-2`}
@@ -154,14 +199,7 @@ export default function VocabTest({ data, chapter, title }: VocabTestProps) {
                     </TextFieldLabel>
 
                     <Show
-                      when={
-                        !isKana(
-                          entry.word
-                            .replace("～", "")
-                            .replace("（", "")
-                            .replace("）", ""),
-                        )
-                      }
+                      when={!isKana(cleanWord(entry.word))}
                       fallback={<div />}
                     >
                       <div>
