@@ -37,6 +37,7 @@ export default function VocabTest({
   const [particleAnswers, setParticleAnswers] = createSignal<{
     [key: string]: string[]
   }>({})
+  const [markedCorrect, setMarkedCorrect] = createSignal<Set<number>>(new Set())
   const [isInitialized, setIsInitialized] = createSignal(false)
 
   // Initial data load
@@ -86,10 +87,12 @@ export default function VocabTest({
     return word
       .toLowerCase()
       .trim()
-      .replace(/\.{3}|[.。]/g, "") // Simplified regex for all period types
+      .replace(/\.{3}|[.。]/g, "") // All period types
   }
 
   const isCorrect = (index: number, field: "kana" | "english") => {
+    if (markedCorrect().has(index)) return true
+
     const userAnswer = cleanWord(userAnswers()[`${index}-${field}`] || "")
     const entry = randomizedData()[index]
 
@@ -102,6 +105,8 @@ export default function VocabTest({
   }
 
   const hasIncorrectAnswer = (index: number) => {
+    if (markedCorrect().has(index)) return false
+
     const entry = randomizedData()[index]
     const needsKana = !isKana(cleanWord(entry.word))
 
@@ -110,24 +115,20 @@ export default function VocabTest({
     )
   }
 
-  const handleOverwrite = (index: number) => {
-    const entry = randomizedData()[index]
+  const handleMarkCorrect = (index: number) => {
+    setMarkedCorrect((prev) => {
+      const newSet = new Set(prev)
+      newSet.add(index)
+      return newSet
+    })
+  }
 
-    const updates: { [key: string]: string } = {}
-
-    if (!isKana(cleanWord(entry.word))) {
-      updates[`${index}-kana`] = extractHiragana(entry.furigana?.[0] ?? "")
-    }
-    updates[`${index}-english`] = entry.english?.[0] ?? ""
-
-    setUserAnswers((prev) => ({ ...prev, ...updates }))
-
-    if (entry.particles && !particleAnswers()[index]) {
-      setParticleAnswers((prev) => ({
-        ...prev,
-        [index]: Array(entry.particles!.length).fill(""),
-      }))
-    }
+  const handleUndoMark = (index: number) => {
+    setMarkedCorrect((prev) => {
+      const newSet = new Set(prev)
+      newSet.delete(index)
+      return newSet
+    })
   }
 
   const handleParticleInputChange = (
@@ -146,6 +147,12 @@ export default function VocabTest({
   }
 
   const checkParticleAnswers = (wordIndex: number) => {
+    if (markedCorrect().has(wordIndex)) {
+      return Array(randomizedData()[wordIndex].particles?.length || 0).fill(
+        true,
+      )
+    }
+
     const entry = randomizedData()[wordIndex]
     const particles = entry.particles || []
     const userParticleAnswers = particleAnswers()[wordIndex] || []
@@ -229,10 +236,18 @@ export default function VocabTest({
               <li class="relative">
                 <Show when={showAnswers() && hasIncorrectAnswer(wordIndex())}>
                   <Button
-                    onClick={() => handleOverwrite(wordIndex())}
+                    onClick={() => handleMarkCorrect(wordIndex())}
                     class="absolute left-[16px] bg-green-500 hover:bg-green-600 sm:left-[32px] md:left-[-48px]"
                   >
                     Overwrite?
+                  </Button>
+                </Show>
+                <Show when={showAnswers() && markedCorrect().has(wordIndex())}>
+                  <Button
+                    onClick={() => handleUndoMark(wordIndex())}
+                    class="absolute left-[16px] bg-yellow-500 hover:bg-yellow-600 sm:left-[32px] md:left-[-48px]"
+                  >
+                    ↶ Undo?
                   </Button>
                 </Show>
                 <TextFieldRoot class="w-full">
