@@ -31,6 +31,7 @@ export default function VocabTest({
   const [enabledItems, setEnabledItems] = createSignal<Set<string>>(new Set())
   const [randomizedData, setRandomizedData] = createSignal<VocabItem[]>([])
   const [showAnswers, setShowAnswers] = createSignal(false)
+  const [showRetryPrompt, setShowRetryPrompt] = createSignal(false)
   const [userAnswers, setUserAnswers] = createSignal<{ [key: string]: string }>(
     {},
   )
@@ -42,10 +43,8 @@ export default function VocabTest({
 
   // Initial data load
   createEffect(() => {
-    // Show all data initially
     setRandomizedData([...data].sort(() => Math.random() - 0.5))
 
-    // Then load localStorage state on client
     if (isServer) return
     const storageKey = `vocab-enabled-${path}`
     const savedState = localStorage.getItem(storageKey)
@@ -68,6 +67,15 @@ export default function VocabTest({
     setRandomizedData([...filtered].sort(() => Math.random() - 0.5))
   })
 
+  const resetTest = () => {
+    setShowAnswers(false)
+    setShowRetryPrompt(false)
+    setUserAnswers({})
+    setParticleAnswers({})
+    setMarkedCorrect(new Set<number>())
+    setRandomizedData([...randomizedData()].sort(() => Math.random() - 0.5))
+  }
+
   const handleVocabListChange = (items: Set<string>) => {
     setEnabledItems(items)
   }
@@ -87,7 +95,7 @@ export default function VocabTest({
     return word
       .toLowerCase()
       .trim()
-      .replace(/\.{3}|[.。]/g, "") // All period types
+      .replace(/\.{3}|[.。]/g, "")
   }
 
   const isCorrect = (index: number, field: "kana" | "english") => {
@@ -144,6 +152,37 @@ export default function VocabTest({
       newAnswers[wordIndex][particleIndex] = value
       return newAnswers
     })
+  }
+
+  const handleRetryWithIncorrect = () => {
+    // Get indices of incorrect answers (excluding marked correct)
+    const incorrectIndices = randomizedData().reduce<number[]>(
+      (acc, _, index) => {
+        if (hasIncorrectAnswer(index) && !markedCorrect().has(index)) {
+          acc.push(index)
+        }
+        return acc
+      },
+      [],
+    )
+
+    // Get the words for incorrect answers
+    const incorrectWords = incorrectIndices.map(
+      (index) => randomizedData()[index].word,
+    )
+    const incorrectWordsSet = new Set(incorrectWords)
+
+    // Update enabled items to only include incorrect words
+    setEnabledItems(incorrectWordsSet)
+
+    // Save to localStorage
+    localStorage.setItem(
+      `vocab-enabled-${path}`,
+      JSON.stringify([...incorrectWordsSet]),
+    )
+
+    // Reset the test state
+    resetTest()
   }
 
   const checkParticleAnswers = (wordIndex: number) => {
@@ -203,6 +242,13 @@ export default function VocabTest({
 
   const handleCheckAnswers = () => {
     setShowAnswers(true)
+
+    // Only show retry prompt if there are incorrect answers
+    const hasAnyIncorrect = randomizedData().some(
+      (_, index) => hasIncorrectAnswer(index) && !markedCorrect().has(index),
+    )
+
+    setShowRetryPrompt(hasAnyIncorrect)
   }
 
   return (
@@ -379,10 +425,32 @@ export default function VocabTest({
             )}
           </For>
         </ul>
-        <div class="!mt-8 flex justify-center">
+        <div class="!mt-8 flex flex-col items-center gap-4">
           <Button onClick={handleCheckAnswers} class="bg-indigo-400">
             Check Answers
           </Button>
+
+          <Show when={showAnswers() && showRetryPrompt()}>
+            <div class="mt-8 flex flex-col items-center gap-4 rounded-lg border bg-card p-6">
+              <p class="text-lg font-medium">
+                Practice again with the answers you got wrong?
+              </p>
+              <div class="flex gap-4">
+                <Button
+                  onClick={handleRetryWithIncorrect}
+                  class="bg-green-500 hover:bg-green-600"
+                >
+                  Yes
+                </Button>
+                <Button
+                  onClick={() => setShowRetryPrompt(false)}
+                  variant="outline"
+                >
+                  No
+                </Button>
+              </div>
+            </div>
+          </Show>
         </div>
       </div>
     </ContentBox>
