@@ -40,7 +40,11 @@
   {
     "word": "予約する",
     "furigana": ["予約[よやく]する"],
-    "english": ["to reserve", "to make a reservation"],
+    "english": [
+      "to reserve",
+      "to make a reservation",
+      "to book an appointment"
+    ],
     "mnemonics": [
       "予 (よ) means 'beforehand,' 約 (やく) means 'promise' (same as in 約束)"
     ],

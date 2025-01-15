@@ -136,7 +136,12 @@
       }
     ],
     "chapter": 13,
-    "category": "ichidan-v"
+    "category": "ichidan-v",
+    "particles": [
+      {
+        "particle": "を"
+      }
+    ]
   },
   {
     "word": "編む",
@@ -156,7 +161,7 @@
   {
     "word": "頑張る",
     "furigana": ["頑張[がんば]る"],
-    "english": ["to do one's best", "to try hard"],
+    "english": ["to do one's best", "to try hard", "to try one's best"],
     "mnemonics": [],
     "info": [],
     "example_sentences": [],

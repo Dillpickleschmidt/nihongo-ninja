@@ -68,7 +68,11 @@
   {
     "word": "壊れる",
     "furigana": ["壊[こわ]れる"],
-    "english": ["(something) breaks", "(something) is broken"],
+    "english": [
+      "(something) breaks",
+      "(something) is broken",
+      "to become broken"
+    ],
     "mnemonics": [],
     "info": ["Intransitive pair of 壊す"],
     "example_sentences": [],
