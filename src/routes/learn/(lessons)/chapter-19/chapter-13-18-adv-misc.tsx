@@ -22,6 +22,7 @@ export default function page() {
         data={data()!}
         chapter={18}
         title="Chapter 13-18 Adv., Misc."
+        path={cacheKey}
       />
     </Show>
   )

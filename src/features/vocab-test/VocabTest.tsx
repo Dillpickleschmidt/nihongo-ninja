@@ -1,3 +1,4 @@
+// VocabTest.tsx
 import { createSignal, createEffect, For, Show } from "solid-js"
 import { Button } from "@/components/ui/button"
 import type { VocabItem } from "@/types/vocab"
@@ -10,14 +11,24 @@ import {
   TextFieldLabel,
   TextFieldRoot,
 } from "@/components/ui/textfield"
+import { isServer } from "solid-js/web"
+import VocabList from "./components/VocabList"
 
 type VocabTestProps = {
   data: VocabItem[]
   chapter: number
   title?: string
+  path: string
 }
 
-export default function VocabTest({ data, chapter, title }: VocabTestProps) {
+export default function VocabTest({
+  data,
+  chapter,
+  title,
+  path,
+}: VocabTestProps) {
+  const [showVocabList, setShowVocabList] = createSignal(false)
+  const [enabledItems, setEnabledItems] = createSignal<Set<string>>(new Set())
   const [randomizedData, setRandomizedData] = createSignal<VocabItem[]>([])
   const [showAnswers, setShowAnswers] = createSignal(false)
   const [userAnswers, setUserAnswers] = createSignal<{ [key: string]: string }>(
@@ -26,10 +37,39 @@ export default function VocabTest({ data, chapter, title }: VocabTestProps) {
   const [particleAnswers, setParticleAnswers] = createSignal<{
     [key: string]: string[]
   }>({})
+  const [isInitialized, setIsInitialized] = createSignal(false)
 
+  // Initial data load
   createEffect(() => {
+    // Show all data initially
     setRandomizedData([...data].sort(() => Math.random() - 0.5))
+
+    // Then load localStorage state on client
+    if (isServer) return
+    const storageKey = `vocab-enabled-${path}`
+    const savedState = localStorage.getItem(storageKey)
+
+    if (savedState) {
+      const parsedState = JSON.parse(savedState) as string[]
+      setEnabledItems(new Set(parsedState))
+    } else {
+      const initialWords = data.map((item) => item.word)
+      setEnabledItems(new Set(initialWords))
+      localStorage.setItem(storageKey, JSON.stringify(initialWords))
+    }
+    setIsInitialized(true)
   })
+
+  // Filter data after initialization
+  createEffect(() => {
+    if (!isInitialized()) return
+    const filtered = data.filter((item) => enabledItems().has(item.word))
+    setRandomizedData([...filtered].sort(() => Math.random() - 0.5))
+  })
+
+  const handleVocabListChange = (items: Set<string>) => {
+    setEnabledItems(items)
+  }
 
   const handleInputChange = (
     index: number,
@@ -42,26 +82,46 @@ export default function VocabTest({ data, chapter, title }: VocabTestProps) {
     }))
   }
 
+  const cleanWord = (word: string): string => {
+    return word
+      .toLowerCase()
+      .trim()
+      .replace(/\.{3}|[.。]/g, "") // Simplified regex for all period types
+  }
+
+  const isCorrect = (index: number, field: "kana" | "english") => {
+    const userAnswer = cleanWord(userAnswers()[`${index}-${field}`] || "")
+    const entry = randomizedData()[index]
+
+    if (field === "kana") {
+      return (
+        userAnswer === cleanWord(extractHiragana(entry.furigana?.[0] ?? ""))
+      )
+    }
+    return entry.english?.some((eng) => cleanWord(eng) === userAnswer)
+  }
+
+  const hasIncorrectAnswer = (index: number) => {
+    const entry = randomizedData()[index]
+    const needsKana = !isKana(cleanWord(entry.word))
+
+    return (
+      (needsKana && !isCorrect(index, "kana")) || !isCorrect(index, "english")
+    )
+  }
+
   const handleOverwrite = (index: number) => {
     const entry = randomizedData()[index]
 
-    // Set correct kana if it exists
-    if (
-      !isKana(entry.word.replace("～", "").replace("（", "").replace("）", ""))
-    ) {
-      setUserAnswers((prev) => ({
-        ...prev,
-        [`${index}-kana`]: extractHiragana(entry.furigana?.[0] ?? ""),
-      }))
+    const updates: { [key: string]: string } = {}
+
+    if (!isKana(cleanWord(entry.word))) {
+      updates[`${index}-kana`] = extractHiragana(entry.furigana?.[0] ?? "")
     }
+    updates[`${index}-english`] = entry.english?.[0] ?? ""
 
-    // Set correct English
-    setUserAnswers((prev) => ({
-      ...prev,
-      [`${index}-english`]: entry.english?.[0] ?? "",
-    }))
+    setUserAnswers((prev) => ({ ...prev, ...updates }))
 
-    // Set empty array for particles if none exist yet
     if (entry.particles && !particleAnswers()[index]) {
       setParticleAnswers((prev) => ({
         ...prev,
@@ -138,45 +198,30 @@ export default function VocabTest({ data, chapter, title }: VocabTestProps) {
     setShowAnswers(true)
   }
 
-  const cleanWord = (word: string): string => {
-    return word
-      .toLowerCase()
-      .trim()
-      .replace("...", "")
-      .replace(".", "")
-      .replace("。", "")
-  }
-
-  const isCorrect = (index: number, field: "kana" | "english") => {
-    const userAnswer = cleanWord(userAnswers()[`${index}-${field}`] || "")
-    const entry = randomizedData()[index]
-
-    if (field === "kana") {
-      return (
-        userAnswer === cleanWord(extractHiragana(entry.furigana?.[0] ?? ""))
-      )
-    } else {
-      return entry.english?.some((eng) => cleanWord(eng) === userAnswer)
-    }
-  }
-
-  const hasIncorrectAnswer = (index: number) => {
-    const entry = randomizedData()[index]
-    const needsKana = !isKana(
-      entry.word.replace("～", "").replace("（", "").replace("）", ""),
-    )
-
-    if (needsKana && !isCorrect(index, "kana")) return true
-    if (!isCorrect(index, "english")) return true
-
-    return false
-  }
-
   return (
     <ContentBox nextButtonText="Next Lesson ->" nextButtonLink="/learn">
+      <div class="absolute right-4 top-4">
+        <Button
+          onClick={() => setShowVocabList(!showVocabList())}
+          variant="outline"
+        >
+          {showVocabList() ? "Hide List" : "Show List"}
+        </Button>
+      </div>
       <h1 class="mx-20 border-b-2 border-orange-400 px-8 pb-12 pt-24 text-center text-4xl font-semibold">
         {title ? title : `Chapter ${chapter} Vocab Test`}
       </h1>
+      <Show when={showVocabList()}>
+        <div class="mx-auto mb-8 max-w-2xl rounded-lg border bg-card p-4">
+          <h2 class="mb-4 text-xl font-semibold">Vocabulary List</h2>
+          <VocabList
+            data={data}
+            path={path}
+            onCheckedChange={handleVocabListChange}
+          />
+        </div>
+      </Show>
+
       <div class="px-4 pb-32 sm:px-8 md:px-12">
         <ul class="list-none space-y-1 pt-12">
           <For each={randomizedData()}>

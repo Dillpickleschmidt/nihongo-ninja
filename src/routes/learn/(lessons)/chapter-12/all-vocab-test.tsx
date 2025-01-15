@@ -21,7 +21,7 @@ export default function page() {
 
   return (
     <Show when={data()}>
-      <VocabTest data={data()!} chapter={8} />
+      <VocabTest data={data()!} chapter={12} path={cacheKey} />
     </Show>
   )
 }
