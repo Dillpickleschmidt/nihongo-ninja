@@ -92,6 +92,8 @@ module.exports = {
         inter: ["Inter Variable", ...fontFamily.sans],
         japanese: ["NotoSansJP Variable", ...fontFamily.sans],
         honk: ["Honk", ...fontFamily.sans],
+        yuji_boku: ["Yuji Boku", ...fontFamily.sans],
+        kite_one: ["Kite One", ...fontFamily.sans],
       },
     },
   },

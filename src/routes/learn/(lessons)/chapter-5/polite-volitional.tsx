@@ -31,6 +31,9 @@ export default function page() {
           </span>
           , meaning <span class="font-black">shall we?</span>.
         </p>
+        <p class="text-base italic text-muted-foreground">
+          There are relevant rap passages at the end of the lesson!
+        </p>
 
         <hr class="my-6 border-t" />
 
@@ -121,7 +124,6 @@ export default function page() {
                 {"->"} Well then, shall we eat together?
               </p>
               <p class="text-base text-muted-foreground">
-                {/* Dinner's ready, and you're calling your family to the table. */}
                 Dinner's ready. Everyone usually eats separately, but you're
                 feeling a little festive today.
               </p>
@@ -134,7 +136,7 @@ export default function page() {
                   コンビニに行き
                   <span class="font-semibold text-teal-400">ませんか</span>。
                 </span>
-                {"->"} Would you like go the convenience store (with me)?
+                {"->"} Would you like to go to the convenience store (with me)?
               </p>
               <p class="text-base text-muted-foreground">
                 You heard that your colleague wanted to buy some snacks, and you
@@ -203,61 +205,104 @@ export default function page() {
           </li>
         </ul>
 
-        {/* <h2 class="!mt-12 text-center text-3xl font-bold">Practice</h2>
-        <ol class="list-inside list-decimal space-y-4">
-          <li>
-            <strong>Create an invitation:</strong>
-            <p class="mt-1">
-              Invite your classmate,{" "}
-              <span class="font-japanese">
-                <Furigana furigana={<span class="text-sm">さとう</span>}>
-                  佐藤
-                </Furigana>
-                さん
-              </span>
-              , to play tennis tonight.
-            </p>
-            <div class="mt-2">
-              <WanakanaWrapper>
-                <CustomTextArea
-                  spacing={14}
-                  class="h-28 w-full resize-none font-japanese text-xl"
-                />
-              </WanakanaWrapper>
-            </div>
-          </li>
-          <li>
-            <strong>Respond to an invitation:</strong>
-            <p class="mt-2">
-              Your classmate has just invited you for lunch tomorrow. How would
-              you respond?
-            </p>
-            <ol class="mt-2 list-inside list-[lower-alpha] space-y-3">
-              <li>
-                Accepting:
-                <div class="mt-2">
-                  <WanakanaWrapper>
-                    <CustomTextArea
-                      spacing={14}
-                      class="h-28 w-full resize-none font-japanese text-xl"
-                    />
-                  </WanakanaWrapper>
-                </div>
-              </li>
-              <li>
-                Declining politely and suggesting an alternative:
-                <div class="mt-2">
-                  <WanakanaWrapper>
-                    <CustomTextArea
-                      spacing={14}
-                      class="h-28 w-full resize-none font-japanese text-xl"
-                    />
-                  </WanakanaWrapper>
-                </div>
-              </li>
-            </ol>
-          </li>
-        </ol> */}
+        <h2 class="!mt-12 text-center text-2xl font-bold">Rap Passages</h2>
+        {/* <p class="!mt-3">Grammar doesn't have to be boring:</p> */}
+        <div class="space-y-2">
+          <h3 class="font-bold">Planning a Movie Night</h3>
+          <p class="leading-8">
+            <span class="font-kite_one text-base font-bold">
+              Yo, it's Friday night, what we gonna do?
+            </span>{" "}
+            <span class="font-japanese text-base text-indigo-200">
+              (今晩何をしましょうか？)
+            </span>
+            <br />
+            <span class="font-kite_one text-base font-bold">
+              Let's not just sit here, let's watch a movie too
+            </span>{" "}
+            <span class="font-japanese text-base text-violet-400">
+              (映画を見ましょう)
+            </span>
+            .
+            <br />
+            <span class="font-kite_one text-base font-bold">
+              Forget the usual, let's find something weird,
+            </span>
+            <br />
+            <span class="font-kite_one text-base font-bold">
+              Shall we watch a film about a samurai beard?
+            </span>{" "}
+            <span class="font-japanese text-base text-indigo-200">
+              (サムライの髭の映画を見ましょうか？)
+            </span>
+          </p>
+        </div>
+
+        <div class="space-y-2">
+          <h3 class="font-bold">Late Night Snack Run</h3>
+          <p class="leading-8">
+            <span class="font-kite_one text-base font-bold">
+              Midnight hunger, can't ignore the call,
+            </span>
+            <br />
+            <span class="font-kite_one text-base font-bold">
+              Let's hit the konbini, before we fall
+            </span>{" "}
+            <span class="font-japanese text-base text-violet-400">
+              (コンビニに行きましょう)
+            </span>
+            .
+            <br />
+            <span class="font-kite_one text-base font-bold">
+              Shall we find the craziest snack in Japan?
+            </span>
+            <span class="font-japanese text-base text-indigo-200">
+              (一番おかしなスナックを見つけましょうか？)
+            </span>
+            <br />
+            <span class="font-kite_one text-base font-bold">
+              Let's make our taste buds do a happy dance.
+            </span>
+          </p>
+        </div>
+
+        <div class="space-y-2">
+          <h3 class="font-bold">Organizing a Group Dinner</h3>
+          <p class="leading-8">
+            <span class="font-kite_one text-base font-bold">
+              Guys, we're all here, let's not eat alone,
+            </span>
+            <br />
+            <span class="font-kite_one text-base font-bold">
+              Shall we dine together, make it a zone?
+            </span>{" "}
+            <span class="font-japanese text-base text-indigo-200">
+              (一緒に食べましょうか？)
+            </span>
+            <br />
+            <span class="font-kite_one text-base font-bold">
+              Let's cook something wild, something we've never tried,
+            </span>
+            <br />
+            <span class="font-kite_one text-base font-bold">
+              Let's make tonight epic, let's not be shy
+            </span>{" "}
+            <span class="font-japanese text-base text-violet-400">
+              (今夜を盛大にしましょう)
+            </span>
+            .
+          </p>
+        </div>
+
+        <h2 class="font-bold italic">
+          Inspired by my unhealthy Chris Turner binge watching:
+        </h2>
+        <YouTubeVideo
+          title="British Rapper's Freestyle skills will SURPRISE you..."
+          videoId="l0G757AvCbE"
+          credit="Chris Turner
+"
+        />
       </div>
     </ContentBox>
   )

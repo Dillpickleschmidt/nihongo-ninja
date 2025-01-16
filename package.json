@@ -10,6 +10,8 @@
   "dependencies": {
     "@fontsource-variable/inter": "^5.1.0",
     "@fontsource-variable/noto-sans-jp": "^5.1.0",
+    "@fontsource/kite-one": "^5.1.1",
+    "@fontsource/yuji-boku": "^5.1.1",
     "@kobalte/core": "^0.13.7",
     "@modular-forms/solid": "^0.24.1",
     "@solidjs/meta": "^0.29.4",

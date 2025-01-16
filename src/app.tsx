@@ -7,6 +7,8 @@ import Nav from "@/features/navbar/Nav"
 import "./app.css"
 import "@fontsource-variable/inter"
 import "@fontsource-variable/noto-sans-jp"
+import "@fontsource/yuji-boku"
+import "@fontsource/kite-one"
 import { MetaProvider } from "@solidjs/meta"
 import { PostHogProvider } from "./features/posthog/PostHogContext"
 
