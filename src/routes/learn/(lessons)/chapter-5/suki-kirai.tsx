@@ -84,11 +84,36 @@ export default function SukiKirai() {
           な-adjective. And like always, don't forget to use な to connect them
           to nouns:
         </p>
-        <div class="space-y-2">
-          <p class="font-japanese text-xl">私の好きな音楽</p>
-          <p class="text-lg">The music I like</p>
-          <p class="pt-2 font-japanese text-xl">妹の嫌いな食べ物</p>
-          <p class="text-lg">The food my little sister dislikes</p>
+        <div>
+          <div class="flex w-full items-center justify-between">
+            <p class="w-1/2 font-japanese text-xl">A: 今何聴いてるの？</p>
+            <p class="w-1/2 text-right text-muted-foreground">
+              What are you listening to now?
+            </p>
+          </div>
+          <div class="flex w-full items-center justify-between">
+            <p class="w-1/2 font-japanese text-xl">
+              B: 私の好きな音楽、クラシック。
+            </p>
+            <p class="w-1/2 text-right text-muted-foreground">
+              My favorite music, classical.
+            </p>
+          </div>
+
+          <div class="mt-6 flex w-full items-center justify-between">
+            <p class="w-1/2 font-japanese text-xl">A: 妹さん、何が嫌い？</p>
+            <p class="w-1/2 text-right text-muted-foreground">
+              What does your sister dislike?
+            </p>
+          </div>
+          <div class="flex w-full items-center justify-between">
+            <p class="w-1/2 font-japanese text-xl">
+              B: 妹の嫌いな食べ物はトマト。
+            </p>
+            <p class="w-1/2 text-right text-muted-foreground">
+              My sister's least favorite food is tomato.
+            </p>
+          </div>
         </div>
 
         <h3 class="!mt-9 text-center text-xl font-bold">Adding Intensity</h3>
@@ -139,14 +164,18 @@ export default function SukiKirai() {
               B：いいえ、おすしは好きじゃありません。嫌いです。
             </p>
             <p class="text-base">No I don't like sushi, I hate sushi.</p>
+            <p class="text-base">A：... (Silence)</p>
+            <p class="font-japanese">B：あ、ごめんね。おすしはちょっと…</p>
+            <p class="text-base">Oh, sorry. Sushi is just not my thing...</p>
           </div>
           <p>
             Saying such a thing is pretty blunt/rude, and most people would
             think you don't want to talk anymore after that. It's so blunt that
             there's really nowhere left for the conversation to go. They might
-            also think you're weird. A more socially acceptable answer would be:
+            also think you're weird.{" "}
+            <span class="font-japanese">おすしはちょっと…</span> is a better,
+            more socially acceptable answer.
           </p>
-          <p>ああ、おすしはちょっと…</p>
           <p class="text-base text-muted-foreground">
             You might want to explain why though... I mean, who doesn't like
             sushi?

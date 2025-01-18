@@ -3,7 +3,9 @@
     "word": "いらっしゃる",
     "furigana": ["いらっしゃる"],
     "english": ["honorific expression for いく, くる, and いる"],
-    "mnemonics": [],
+    "mnemonics": [
+      "\"I'll-ash-you,\" because when someone important comes, you feel like you're about to get your ass handed to you with respect."
+    ],
     "info": ["Honorific verb", "Used to show respect to the subject"],
     "example_sentences": [],
     "chapter": 18,
@@ -14,7 +16,9 @@
     "word": "召し上がる",
     "furigana": ["召[め]し 上[あ]がる"],
     "english": ["honorific expression for たべる and のむ"],
-    "mnemonics": [],
+    "mnemonics": [
+      "\"Messy-agar,\" like you're elevating someone's meal to a whole new level of respect, where even the mess they made on the table is honored."
+    ],
     "info": ["Honorific verb", "Used to show respect to the subject"],
     "example_sentences": [],
     "chapter": 18,
@@ -47,7 +51,9 @@
     "word": "お休みになる",
     "furigana": ["お 休[やす]みになる"],
     "english": ["honorific expression for ねる"],
-    "mnemonics": [],
+    "mnemonics": [
+      "\"I become sleep\", because honorifics make everything sound more important."
+    ],
     "info": ["Honorific verb", "Used to show respect to the subject"],
     "example_sentences": [],
     "chapter": 18,
@@ -69,7 +75,9 @@
     "word": "おっしゃる",
     "furigana": ["おっしゃる"],
     "english": ["honorific expression for いう"],
-    "mnemonics": [],
+    "mnemonics": [
+      "\"Oh-shar-you,\" because when they speak, it's like they're sharing wisdom so profound, you feel like you should be taking notes."
+    ],
     "info": ["Honorific verb", "Used to show respect to the subject"],
     "example_sentences": [],
     "chapter": 18,
@@ -92,8 +100,17 @@
     "furigana": ["送[おく]る"],
     "english": ["to walk/drive (someone)", "to escort (a person somewhere)"],
     "mnemonics": [],
-    "info": ["Honorific usage depends on context"],
-    "example_sentences": [],
+    "info": ["Used when accompanying someone to their destination."],
+    "example_sentences": [
+      {
+        "japanese": "友達を駅まで送りました。",
+        "english": "I walked my friend to the station."
+      },
+      {
+        "japanese": "駅まで送って行くよ。",
+        "english": "I'll walk you to the station."
+      }
+    ],
     "chapter": 18,
     "category": "godan-v",
     "particles": [
@@ -111,8 +128,10 @@
     "word": "怒る",
     "furigana": ["怒[おこ]る"],
     "english": ["to get angry"],
-    "mnemonics": [],
-    "info": [],
+    "mnemonics": [
+      "\"Oh-corrupt,\" because when they get angry, it's like corruption spreading, but you're more worried about getting caught in the blast radius."
+    ],
+    "info": ["Don't say \"怒るになる\""],
     "example_sentences": [],
     "chapter": 18,
     "category": "godan-v",
@@ -122,9 +141,16 @@
     "word": "決まる",
     "furigana": ["決[き]まる"],
     "english": ["to be decided"],
-    "mnemonics": [],
+    "mnemonics": [
+      "You know 決める, right? Well, I've already determined that you can interpret this."
+    ],
     "info": ["Intransitive verb"],
-    "example_sentences": [],
+    "example_sentences": [
+      {
+        "japanese": "専攻はまだ決まっていません",
+        "english": "I haven't decided on my major yet."
+      }
+    ],
     "chapter": 18,
     "category": "godan-v",
     "particles": [
@@ -151,21 +177,31 @@
   {
     "word": "呼ぶ",
     "furigana": ["呼[よ]ぶ"],
-    "english": ["to call (one's name)", "to invite"],
+    "english": ["to call (someone's name)", "to invite"],
     "mnemonics": [],
-    "info": [],
-    "example_sentences": [],
+    "info": [
+      "Used when calling someone by name or inviting them to an event.",
+      "For more formal invitations, use 招待する (shōtai). Ex. ジョン・シナを誕生日パーティーに招待した (I invited John Cena to my birthday party)."
+    ],
+    "example_sentences": [
+      {
+        "japanese": "えっと、何と呼んだらいいですか。",
+        "english": "Um, what should I address you as?"
+      },
+      {
+        "japanese": "ジェイミーと呼んでください。",
+        "english": "Please call me Jamie."
+      },
+      {
+        "japanese": "パーティーに友達を呼んだ。",
+        "english": "I invited friends to the party."
+      }
+    ],
     "chapter": 18,
     "category": "godan-v",
     "particles": [
-      {
-        "label": "person",
-        "particle": "を"
-      },
-      {
-        "label": "event",
-        "particle": "に"
-      }
+      { "label": "person", "particle": "を" },
+      { "label": "event", "particle": "に" }
     ]
   },
   {
@@ -187,8 +223,13 @@
     "word": "寄る",
     "furigana": ["寄[よ]る"],
     "english": ["to stop by"],
-    "mnemonics": [],
-    "info": [],
+    "mnemonics": [
+      "Could be misinterpreted as \"night\" (with incorrect pitch accent), which is when you stop by the fridge for a midnight snack."
+    ],
+    "info": [
+      "The pitch accent is different than 夜:",
+      "寄る -> (よ↓る↑), 夜 -> (よ↑る↓)"
+    ],
     "example_sentences": [],
     "chapter": 18,
     "category": "godan-v",
@@ -202,9 +243,15 @@
   {
     "word": "遅れる",
     "furigana": ["遅[おく]れる"],
-    "english": ["to become late"],
+    "english": ["to be late", "to delay"],
     "mnemonics": [],
-    "info": ["Intransitive verb"],
+    "info": [
+      "Intransitive verb",
+      "遅れる indicates being late or delayed for something specific (e.g., an event, meeting, train).",
+      "Ex. 電車に遅れて、会議に間に合わなかった。 (I was late for the train and couldn't make it to the meeting on time.)",
+      "遅くなる describes a general state of lateness without necessarily specifying what.",
+      "Ex. 宿題が多すぎて、寝るのが遅くなった。 (I had too much homework, so I ended up going to bed late.) (me in Japanese class .·°՞(≧□≦)՞°·.)"
+    ],
     "example_sentences": [],
     "chapter": 18,
     "category": "ichidan-v",
@@ -219,7 +266,13 @@
     "furigana": ["かける"],
     "english": ["to sit down"],
     "mnemonics": [],
-    "info": [],
+    "info": [
+      "かける is typically used for sitting on chairs, benches, or edges in a casual manner, implying a lighter, more temporary action.",
+      "Ex. 椅子にかけてお待ちください。(Please sit on the chair and wait.)",
+      "座る is used for sitting on the floor, chairs, or traditional Japanese seating, often implying a more deliberate action of sitting down.",
+      "Ex. 畳の上に座ってください。(Please sit on the tatami mat.)",
+      "Essentially, your ass is often lower and more grounded with 座る than かける, which is why you'll use it for more traditional Japanese seating, as well as telling your dog to \"sit\" (followed by the obligatory \"good boy\")."
+    ],
     "example_sentences": [],
     "chapter": 18,
     "category": "ichidan-v",
@@ -246,7 +299,7 @@
     "furigana": ["晴[は]れる"],
     "english": ["to become sunny"],
     "mnemonics": [],
-    "info": [],
+    "info": ["Don't say \"晴れるになる\""],
     "example_sentences": [],
     "chapter": 18,
     "category": "ichidan-v",

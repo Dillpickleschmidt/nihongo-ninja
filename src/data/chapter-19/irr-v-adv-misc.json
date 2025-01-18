@@ -4,27 +4,31 @@
     "furigana": ["ごちそうする"],
     "english": ["to treat/invite (someone) to a meal"],
     "mnemonics": [],
-    "info": [],
+    "info": [
+      "A polite expression for treating someone to a meal.",
+      "Different from 'おごる', which is casual and often used among friends."
+    ],
     "example_sentences": [],
     "chapter": 18,
     "category": "irr-v",
     "particles": [
-      {
-        "label": "person",
-        "particle": "に"
-      },
-      {
-        "label": "meal",
-        "particle": "を"
-      }
+      { "label": "person", "particle": "に" },
+      { "label": "meal", "particle": "を" }
     ]
   },
   {
     "word": "遠慮する",
     "furigana": ["遠慮[えんりょ]する"],
-    "english": ["to hold back for the time being", "to refrain from"],
+    "english": [
+      "to hold back",
+      "to refrain from",
+      "to hold back for the time being"
+    ],
     "mnemonics": [],
-    "info": [],
+    "info": [
+      "To restrain oneself out of consideration for others.",
+      "Example: 'どうぞ遠慮しないでください' (Please don't hesitate)."
+    ],
     "example_sentences": [],
     "chapter": 18,
     "category": "irr-v",
@@ -56,7 +60,16 @@
     "english": ["to have a talk"],
     "mnemonics": [],
     "info": [],
-    "example_sentences": [],
+    "example_sentences": [
+      {
+        "japanese": "彼は夜遅くまで彼女とビールを飲みながら、人生の話をするのが大好きです。",
+        "english": "He loves to have talks about life with her while drinking beer late into the night."
+      },
+      {
+        "japanese": "友達と喧嘩してしまったので、明日落ち着いて話をするつもりです。",
+        "english": "I got into a fight with my friend, so I plan to have a talk calmly tomorrow."
+      }
+    ],
     "chapter": 18,
     "category": "irr-v",
     "particles": []
@@ -76,7 +89,7 @@
     "word": "毎朝",
     "furigana": ["毎朝[まいあさ]"],
     "english": ["every morning"],
-    "mnemonics": [],
+    "mnemonics": ["You know 毎, you know 朝. Use that big brain of yours."],
     "info": [],
     "example_sentences": [],
     "chapter": 18,
@@ -99,7 +112,12 @@
     "furigana": ["なぜ"],
     "english": ["why"],
     "mnemonics": [],
-    "info": [],
+    "info": [
+      "なぜ - Used to ask for logical or factual reasons, often in formal or intellectual contexts.",
+      "Ex. なぜ彼が選ばれたのか、説明してください。-> Please explain why he was chosen (選ばれた -> passive conjigation from Ch. 21).",
+      "どうして - Used in daily conversation to ask for reasons, often with a tone of curiosity or emotion.",
+      "Ex. どうしてそんなに悲しそうなの？ -> Why do you look so sad?"
+    ],
     "example_sentences": [],
     "chapter": 18,
     "category": "adv",
@@ -110,7 +128,12 @@
     "furigana": ["本当[ほんとう]は"],
     "english": ["in fact", "originally"],
     "mnemonics": [],
-    "info": [],
+    "info": [
+      "本当は - Used to convey what's genuinely true, often contrasting with outward appearances or expectations.",
+      "Ex. 本当は試験を受けたくなかった。-> To be honest, I didn’t want to take the exam. (受ける -> to take [an exam])",
+      "実は - Used to disclose a fact or detail that might be unexpected or previously unknown.",
+      "Ex. 実は、彼はプロのピアニストなんです。-> Actually, he's a professional pianist."
+    ],
     "example_sentences": [],
     "chapter": 18,
     "category": "adv",
@@ -120,7 +143,7 @@
     "word": "まだ",
     "furigana": ["まだ"],
     "english": ["still"],
-    "mnemonics": [],
+    "mnemonics": ["Haven't we learned this already?"],
     "info": [],
     "example_sentences": [],
     "chapter": 18,
@@ -131,8 +154,10 @@
     "word": "少々",
     "furigana": ["少々[しょうしょう]"],
     "english": ["a few seconds"],
-    "mnemonics": [],
-    "info": [],
+    "mnemonics": [
+      "\"Show-show,\" because even a few seconds feels like a mini-show of patience."
+    ],
+    "info": ["Fun fact: 々 is a kanji that repeats the previous kanji."],
     "example_sentences": [],
     "chapter": 18,
     "category": "adv",
@@ -142,7 +167,9 @@
     "word": "～名様",
     "furigana": ["～ 名様[めいさま]"],
     "english": ["party of... people"],
-    "mnemonics": [],
+    "mnemonics": [
+      "\"May-sam,\" like you're announcing how many people are in your party, \"May I present, Sam, and his friends.\""
+    ],
     "info": [],
     "example_sentences": [],
     "chapter": 18,
@@ -154,7 +181,9 @@
     "furigana": ["ようこそ"],
     "english": ["Welcome."],
     "mnemonics": [],
-    "info": [],
+    "info": [
+      "It's not \"よこそ.\" Try to be grand and say it with a flourish: \"Yoookoso!\""
+    ],
     "example_sentences": [],
     "chapter": 18,
     "category": "misc",

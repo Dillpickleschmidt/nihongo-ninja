@@ -123,9 +123,10 @@ export default function page() {
           . <span class="font-japanese text-lg not-italic">いい</span> is the
           colloquial form of{" "}
           <span class="font-japanese text-lg not-italic">良い</span>, and you'll
-          never see <span class="font-japanese text-lg not-italic">良い</span>{" "}
-          used by itself in everyday conversation or even writing. However,
-          whenever this adjective is conjugated (e.g.{" "}
+          almost never see{" "}
+          <span class="font-japanese text-lg not-italic">良い</span> used by
+          itself in everyday conversation or even writing. However, whenever
+          this adjective is conjugated (e.g.{" "}
           <span class="font-japanese text-lg not-italic">よかった</span>), it{" "}
           <strong>always</strong> uses the{" "}
           <span class="font-japanese text-lg not-italic">よい</span> form as its
