@@ -16,7 +16,7 @@ export default function TeForm() {
   return (
     <ContentBox
       nextButtonText="Next Lesson ->"
-      nextButtonLink="/learn/chapter-2/janai"
+      nextButtonLink="/learn/conjugation?normal=false&teForm=true&volitional=false&taiForm=false&tariForm=false&potential=false&imperative=false&conditional=false&passive=false&causative=false&causativePassive=false&verb=true&iAdjective=false&naAdjective=false&polite=true&plain=false&nonPast=true&past=false&positive=true&negative=false"
     >
       <div class="space-y-6 px-4 sm:px-12 md:px-20">
         <div class="mb-6 mt-28 w-full border-b py-6">
@@ -193,7 +193,7 @@ export default function TeForm() {
 
         <hr class="my-6 border-t" />
 
-        <div class="rounded-lg bg-gradient-to-br from-purple-500/10 to-blue-500/10 p-6">
+        <div class="rounded-lg bg-gradient-to-br from-purple-500/10 to-blue-500/10 px-2 py-6 md:p-6">
           <h2 class="pb-2 pt-4 text-center text-3xl font-bold">
             <span class="text-green-500">て</span>-Form Conjugation Chart
           </h2>
@@ -209,8 +209,10 @@ export default function TeForm() {
               <TableBody>
                 <TableRow>
                   <TableCell class="text-lg">Ichidan verbs</TableCell>
-                  <TableCell class="font-japanese text-xl">る → て</TableCell>
-                  <TableCell class="font-japanese text-xl">
+                  <TableCell class="font-japanese text-lg md:text-xl">
+                    る → て
+                  </TableCell>
+                  <TableCell class="font-japanese text-lg md:text-xl">
                     食べる → 食べ
                     <span class="underline decoration-green-500/75 underline-offset-4">
                       て
@@ -222,7 +224,7 @@ export default function TeForm() {
                   <TableCell rowSpan={5} class="text-lg">
                     Godan verbs
                   </TableCell>
-                  <TableCell class="font-japanese text-xl">
+                  <TableCell class="font-japanese text-lg md:text-xl">
                     <div class="flex items-center gap-4">
                       <div class="space-y-1">
                         <div>う</div>
@@ -233,7 +235,7 @@ export default function TeForm() {
                       <div>って</div>
                     </div>
                   </TableCell>
-                  <TableCell class="font-japanese text-xl">
+                  <TableCell class="font-japanese text-lg md:text-xl">
                     <div>
                       会う → 会
                       <span class="underline decoration-green-500/75 underline-offset-4">
@@ -256,7 +258,7 @@ export default function TeForm() {
                 </TableRow>
 
                 <TableRow>
-                  <TableCell class="font-japanese text-xl">
+                  <TableCell class="font-japanese text-lg md:text-xl">
                     <div class="flex items-center gap-4">
                       <div class="space-y-1">
                         <div>む</div>
@@ -267,7 +269,7 @@ export default function TeForm() {
                       <div>んで</div>
                     </div>
                   </TableCell>
-                  <TableCell class="font-japanese text-xl">
+                  <TableCell class="font-japanese text-lg md:text-xl">
                     <div>
                       読む → 読
                       <span class="underline decoration-green-500/75 underline-offset-4">
@@ -290,13 +292,13 @@ export default function TeForm() {
                 </TableRow>
 
                 <TableRow>
-                  <TableCell class="font-japanese text-xl">
+                  <TableCell class="font-japanese text-lg md:text-xl">
                     く → いて
                     <div class="mt-2 text-base italic text-muted-foreground">
                       Exception: 行く → 行って
                     </div>
                   </TableCell>
-                  <TableCell class="font-japanese text-xl">
+                  <TableCell class="font-japanese text-lg md:text-xl">
                     書く → 書
                     <span class="underline decoration-green-500/75 underline-offset-4">
                       いて
@@ -305,8 +307,10 @@ export default function TeForm() {
                 </TableRow>
 
                 <TableRow>
-                  <TableCell class="font-japanese text-xl">ぐ → いで</TableCell>
-                  <TableCell class="font-japanese text-xl">
+                  <TableCell class="font-japanese text-lg md:text-xl">
+                    ぐ → いで
+                  </TableCell>
+                  <TableCell class="font-japanese text-lg md:text-xl">
                     泳ぐ → 泳
                     <span class="underline decoration-green-500/75 underline-offset-4">
                       いで
@@ -315,8 +319,10 @@ export default function TeForm() {
                 </TableRow>
 
                 <TableRow>
-                  <TableCell class="font-japanese text-xl">す → して</TableCell>
-                  <TableCell class="font-japanese text-xl">
+                  <TableCell class="font-japanese text-lg md:text-xl">
+                    す → して
+                  </TableCell>
+                  <TableCell class="font-japanese text-lg md:text-xl">
                     話す → 話
                     <span class="underline decoration-green-500/75 underline-offset-4">
                       して
@@ -326,8 +332,8 @@ export default function TeForm() {
 
                 <TableRow>
                   <TableCell class="text-lg">Irregular verbs</TableCell>
-                  <TableCell class="font-japanese text-xl"></TableCell>
-                  <TableCell class="font-japanese text-xl">
+                  <TableCell class="font-japanese text-lg md:text-xl"></TableCell>
+                  <TableCell class="font-japanese text-lg md:text-xl">
                     <div>
                       する →{" "}
                       <span class="underline decoration-green-500/75 underline-offset-4">
@@ -373,6 +379,9 @@ export default function TeForm() {
               This simply means <strong>please sit</strong>. Like English, it
               doesn't have a tense, it's just a direct request.
             </p>
+            <p class="mt-2 text-base font-normal italic text-muted-foreground">
+              *you'll learn ください shortly
+            </p>
           </div>
 
           <div class="mt-6">
@@ -400,7 +409,7 @@ export default function TeForm() {
               </p>
             </div>
             <p class="mt-2 text-base italic text-muted-foreground">
-              *More on this in the "Connecting Two Activities" lesson.
+              *More on this in the next lesson.
             </p>
           </div>
         </div>

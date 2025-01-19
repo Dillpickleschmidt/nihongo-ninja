@@ -1169,6 +1169,21 @@ export default function ChapterBoxes() {
             types: ["lesson"],
           },
           {
+            title: "～てもいいです",
+            link: "/learn/chapter-6/te-mo-ii-desu",
+            types: ["lesson"],
+          },
+          {
+            title: "～てはいけません - Must Not Do",
+            link: "/learn/chapter-6/te-wa-ikemasen",
+            types: ["lesson"],
+          },
+          {
+            title: "だめ - No Good",
+            link: "/learn/chapter-6/dame",
+            types: ["lesson"],
+          },
+          {
             title: "て-Form (Adj. & Nouns)",
             link: "/learn/chapter-6/te-form-adj-nouns",
             types: ["lesson"],
