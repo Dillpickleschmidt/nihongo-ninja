@@ -153,7 +153,7 @@ export default function WriteComponent() {
 
   return (
     <div class="mx-4 lg:mx-40">
-      <div class="flex h-24 w-full items-end justify-center text-center">
+      <div class="flex max-h-20 w-full items-end justify-center text-center">
         <Show when={context.store.hasUserAnswered}>
           <For
             each={correctEntry().answerCategories.filter((category) =>
@@ -243,13 +243,15 @@ export default function WriteComponent() {
             </For>
           </ul>
         </Show>
-        <Button
-          onClick={handleSubmit}
-          disabled={context.store.hasUserAnswered}
-          class="my-2 disabled:opacity-90"
-        >
-          Submit
-        </Button>
+        <Show when={!context.store.hasUserAnswered}>
+          <Button
+            onClick={handleSubmit}
+            disabled={context.store.hasUserAnswered}
+            class="my-2 disabled:opacity-90"
+          >
+            Submit
+          </Button>
+        </Show>
       </div>
     </div>
   )
