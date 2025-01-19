@@ -2,7 +2,7 @@ import ContentBox from "@/components/ContentBox"
 import Furigana from "@/components/text/Furigana"
 import SelectText from "@/components/text/MultipleChoiceText"
 
-export default function SukiKirai() {
+export default function page() {
   return (
     <ContentBox
       nextButtonText="Next Lesson ->"
@@ -183,7 +183,7 @@ export default function SukiKirai() {
         </div>
       </div>
 
-      <div class="space-y-4 px-12 pb-32 leading-8 sm:px-16 md:px-24 [&>*]:space-y-4">
+      <div class="space-y-4 px-10 pb-32 leading-8 sm:px-16 md:px-24 [&>*]:space-y-4">
         <h3 class="pt-12 text-center text-3xl font-bold">Practice</h3>
         <p class="text-center text-base italic text-muted-foreground">
           *Choose the correct form for each situation*

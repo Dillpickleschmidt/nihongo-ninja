@@ -33,6 +33,7 @@ export default function CardTypeSwitch() {
               >
                 Mnemonic:{" "}
               </span>
+              {/* Might need to loop in the future */}
               {currentCard().mnemonics}
             </h3>
           </div>

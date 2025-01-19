@@ -7,169 +7,174 @@ export default function page() {
       nextButtonText="Next Lesson ->"
       nextButtonLink="/learn/chapter-3/next-lesson"
     >
-      <h1 class="px-12 pb-6 pt-28 text-center text-4xl font-semibold lg:px-28">
-        Modifying Nouns with Adjectives
-      </h1>
-      <div class="space-y-6 px-8 sm:px-16 md:px-24">
-        <p>
-          Instead of just saying{" "}
-          <span class="font-japanese">バスは新しいです</span> (The bus is new),
-          we'll now learn how to modify nouns with adjectives to say things like
-          "<strong>The new bus</strong>."
-        </p>
+      <div class="space-y-6 px-4 sm:px-12 md:px-20">
+        <div class="mb-6 mt-28 w-full border-b py-6">
+          <h1 class="text-center text-4xl font-semibold">
+            Modifying Nouns with Adjectives
+          </h1>
+        </div>
+        <div class="rounded-lg bg-gradient-to-br from-blue-500/10 to-purple-500/10 p-6">
+          <p>
+            Instead of just saying{" "}
+            <span class="font-japanese">バスは新しいです</span> (The bus is
+            new), we'll now learn how to modify nouns with adjectives to say
+            things like "<strong>The new bus</strong>."
+          </p>
+        </div>
 
-        <div class="space-y-4">
-          <h2 class="!mt-9 text-center text-2xl font-bold">
-            <span class="text-teal-400">い</span>-Adjectives
-          </h2>
-          <p>Simply place before the noun (keep the い)</p>
-          <ul class="ml-6 list-disc space-y-4">
-            <li class="space-y-2">
-              <span class="font-japanese text-xl">高い + 建物</span>
-              <div class="w-full space-y-4 rounded-lg border-2 border-border bg-card/50 px-3 py-5 text-center">
-                <div>
+        <div class="grid gap-6 md:grid-cols-2">
+          {/* い-Adjectives section */}
+          <div class="rounded-xl bg-gradient-to-br from-teal-500/10 to-blue-500/10 p-6">
+            <h2 class="text-center text-2xl font-bold">
+              <span class="text-teal-400">い</span>-Adjectives
+            </h2>
+            <p class="mt-2">Simply place before the noun (keep the い)</p>
+            <div class="mt-4 space-y-4">
+              <div class="rounded-lg bg-background/60 p-4">
+                <span class="font-japanese text-xl">高い + 建物</span>
+                <div class="mt-2 rounded-lg border px-3 py-2 text-center">
                   <span class="font-japanese text-xl">高い建物</span>
                   <p class="text-base">tall building</p>
                 </div>
               </div>
-            </li>
-            <li class="space-y-2">
-              <span class="font-japanese text-xl">おもしろい + 映画</span>
-              <div class="w-full space-y-4 rounded-lg border-2 border-border bg-card/50 px-3 py-5 text-center">
-                <div>
+              <div class="rounded-lg bg-background/60 p-4">
+                <span class="font-japanese text-xl">おもしろい + 映画</span>
+                <div class="mt-2 rounded-lg border px-3 py-2 text-center">
                   <span class="font-japanese text-xl">おもしろい映画</span>
                   <p class="text-base">interesting movie</p>
                 </div>
               </div>
-            </li>
-          </ul>
+            </div>
+          </div>
+
+          {/* な-Adjectives section */}
+          <div class="rounded-xl bg-gradient-to-br from-yellow-500/10 to-orange-500/10 p-6">
+            <h2 class="text-center text-2xl font-bold">
+              <span class="text-yellow-400">な</span>-Adjectives
+            </h2>
+            <p class="mt-2">Add な between the adjective and noun</p>
+            <div class="mt-4 space-y-4">
+              <div class="rounded-lg bg-background/60 p-4">
+                <span class="font-japanese text-xl">きれい + 写真</span>
+                <div class="mt-2 space-y-2">
+                  <div class="mt-2 rounded-lg border px-3 py-2 text-center">
+                    <span class="font-japanese text-xl">
+                      <span class="text-base">❌</span>{" "}
+                      <span class="line-through">きれい写真</span>
+                    </span>
+                  </div>
+                  <div class="w-full rounded-lg border px-3 py-2">
+                    <p class="text-center font-japanese text-xl">
+                      <span class="pr-1 text-xl font-black text-green-500">
+                        ✓
+                      </span>
+                      きれい
+                      <span class="underline decoration-yellow-400 underline-offset-4">
+                        な
+                      </span>
+                      写真
+                    </p>
+                    <p class="text-center text-base">pretty picture</p>
+                  </div>
+                </div>
+              </div>
+              <div class="rounded-lg bg-background/60 p-4">
+                <span class="font-japanese text-xl">静か + 部屋</span>
+                <div class="mt-2 space-y-2">
+                  <div class="mt-2 rounded-lg border px-3 py-2 text-center">
+                    <span class="font-japanese text-xl">
+                      <span class="text-base">❌</span>{" "}
+                      <span class="line-through">静か部屋</span>
+                    </span>
+                  </div>
+                  <div class="w-full rounded-lg border px-3 py-2">
+                    <p class="text-center font-japanese text-xl">
+                      <span class="pr-1 text-xl font-black text-green-500">
+                        ✓
+                      </span>
+                      静か
+                      <span class="underline decoration-yellow-400 underline-offset-4">
+                        な
+                      </span>
+                      部屋
+                    </p>
+                    <p class="text-center text-base">quiet room</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div class="space-y-4">
-          <h2 class="!mt-12 text-center text-2xl font-bold">
-            <span class="text-yellow-400">な</span>-Adjectives
-          </h2>
-          <p>Add な between the adjective and noun</p>
-          <ul class="ml-6 list-disc space-y-4">
-            <li class="space-y-2">
-              <span class="font-japanese text-xl">きれい + 写真</span>
-              <div class="space-y-2 rounded-lg border bg-card/50 p-4">
-                <div class="flex w-full items-center">
-                  <p class="w-1/4 font-bold text-red-500">Incorrect</p>
-                  <p class="w-3/4">
-                    <span class="font-japanese text-xl line-through">
-                      きれい写真
-                    </span>
-                  </p>
-                </div>
-                <div class="flex w-full items-center">
-                  <p class="w-1/4 font-bold">Correct</p>
-                  <p class="w-3/4">
-                    <span class="font-japanese text-xl">きれいな写真</span>{" "}
-                    {"->"} pretty picture
-                  </p>
-                </div>
-              </div>
-            </li>
-            <li class="space-y-2">
-              <span class="font-japanese text-xl">静か + 部屋</span>
-              <div class="space-y-2 rounded-lg border bg-card/50 p-4">
-                <div class="flex w-full items-center">
-                  <p class="w-1/4 font-bold text-red-500">Incorrect</p>
-                  <p class="w-3/4">
-                    <span class="font-japanese text-xl line-through">
-                      静か部屋
-                    </span>
-                  </p>
-                </div>
-                <div class="flex w-full items-center">
-                  <p class="w-1/4 font-bold">Correct</p>
-                  <p class="w-3/4">
-                    <span class="font-japanese text-xl">静かな部屋</span> {"->"}{" "}
-                    quiet room
-                  </p>
-                </div>
-              </div>
-            </li>
-          </ul>
-          <p class="pt-4">
+        <div class="rounded-lg bg-gradient-to-br from-yellow-500/10 to-red-500/10 p-6">
+          <p>
             When the adjective is in its negative form (ex.{" "}
             <span class="font-japanese">静かじゃない</span>), the な is no
             longer required.
           </p>
-          <ul class="ml-6 list-disc space-y-4">
-            <li class="space-y-2">
-              <span class="font-japanese text-xl">静かじゃない + 図書館</span>
-              <div class="space-y-2 rounded-lg border bg-card/50 p-4">
-                <div class="flex w-full items-center">
-                  <p class="w-1/4 font-bold text-red-500">Incorrect</p>
-                  <p class="w-3/4">
-                    <span class="font-japanese text-xl line-through">
-                      静かじゃないな図書館
-                    </span>
-                  </p>
-                </div>
-                <div class="flex w-full items-center">
-                  <p class="w-1/4 font-bold">Correct</p>
-                  <p class="w-3/4">
-                    <span class="font-japanese text-xl">
-                      静かじゃない図書館
-                    </span>{" "}
-                    {"->"} the not-quiet library
-                  </p>
-                </div>
+          <div class="mt-4 rounded-lg bg-background/60 p-4">
+            <span class="font-japanese text-xl">静かじゃない + 図書館</span>
+            <div class="mt-2 space-y-2">
+              <div class="w-full rounded-lg border px-3 py-2">
+                <p class="text-center font-japanese text-xl">
+                  <span class="text-base">❌</span> 静かじゃない
+                  <span class="underline decoration-red-500 underline-offset-4">
+                    な
+                  </span>
+                  図書館
+                </p>
               </div>
-            </li>
-          </ul>
+              <div class="w-full rounded-lg border px-3 py-2">
+                <p class="text-center">
+                  <span class="pr-1 text-xl font-black text-green-500">✓</span>
+                  <span class="font-japanese text-xl">
+                    静かじゃない図書館
+                  </span>{" "}
+                  {"->"} the not-quiet library
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <p class="text-center">
-          That's really it! The only hard part is remember which adjectives are
-          な-adjectives.
-        </p>
-
-        <h2 class="!mt-12 text-2xl font-bold">
-          Bonus: Making Adjectives Stronger or Weaker
-        </h2>
-        <p>Want to spice up your descriptions? Use these degree words:</p>
-        <ul class="ml-6 list-disc space-y-4">
-          <li class="space-y-2">
-            <span class="font-japanese text-xl font-bold">とても</span>
-            <div class="w-full space-y-4 rounded-lg border-2 border-border px-3 py-5 text-center">
-              <div>
+        <div class="rounded-lg bg-gradient-to-br from-purple-500/10 to-pink-500/10 p-6">
+          <h2 class="text-center text-2xl font-bold">
+            Bonus: Making Adjectives Stronger or Weaker
+          </h2>
+          <p class="mt-4">
+            Want to spice up your descriptions? Use these degree words:
+          </p>
+          <div class="mt-6 grid gap-4 md:grid-cols-2">
+            <div class="rounded-lg bg-background/60 p-4">
+              <span class="font-japanese text-xl font-bold">とても</span>
+              <div class="mt-2 rounded-lg border px-3 py-2 text-center">
                 <span class="font-japanese text-xl">
                   ここはとてもきれいな公園です。
                 </span>
                 <p class="text-base">This is a very beautiful park.</p>
               </div>
             </div>
-          </li>
-          <li class="space-y-2">
-            <span class="font-japanese text-xl font-bold">すごく</span>
-            <div class="w-full space-y-4 rounded-lg border-2 border-border px-3 py-5 text-center">
-              <div>
+            <div class="rounded-lg bg-background/60 p-4">
+              <span class="font-japanese text-xl font-bold">すごく</span>
+              <div class="mt-2 rounded-lg border px-3 py-2 text-center">
                 <span class="font-japanese text-xl">
                   すごくおいしいレストランを見つけました。
                 </span>
                 <p class="text-base">I found a very delicious restaurant.</p>
               </div>
             </div>
-          </li>
-          <li class="space-y-2">
-            <span class="font-japanese text-xl font-bold">ちょっと</span>
-            <div class="w-full space-y-4 rounded-lg border-2 border-border px-3 py-5 text-center">
-              <div>
+            <div class="rounded-lg bg-background/60 p-4">
+              <span class="font-japanese text-xl font-bold">ちょっと</span>
+              <div class="mt-2 rounded-lg border px-3 py-2 text-center">
                 <span class="font-japanese text-xl">
                   ちょっと高いケーキを買いました。
                 </span>
                 <p class="text-base">I bought a somewhat expensive cake.</p>
               </div>
             </div>
-          </li>
-          <li class="space-y-2">
-            <span class="font-japanese text-xl font-bold">全然</span>
-            <div class="w-full space-y-4 rounded-lg border-2 border-border px-3 py-5 text-center">
-              <div>
+            <div class="rounded-lg bg-background/60 p-4">
+              <span class="font-japanese text-xl font-bold">全然</span>
+              <div class="mt-2 rounded-lg border px-3 py-2 text-center">
                 <span class="font-japanese text-xl">
                   全然静かじゃない図書館でした。
                 </span>
@@ -178,11 +183,11 @@ export default function page() {
                 </p>
               </div>
             </div>
-          </li>
-        </ul>
+          </div>
+        </div>
       </div>
 
-      <div class="space-y-4 px-12 pb-32 leading-8 sm:px-16 md:px-24 [&>*]:space-y-4">
+      <div class="space-y-4 px-10 pb-32 leading-8 sm:px-16 md:px-24 [&>*]:space-y-4">
         <h3 class="pt-12 text-center text-3xl font-bold">Practice</h3>
         <p class="text-center text-base italic text-muted-foreground">
           *Choose the correct form when modifying nouns with adjectives*

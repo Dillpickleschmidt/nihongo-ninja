@@ -1149,7 +1149,7 @@ export default function ChapterBoxes() {
             types: ["vocab-practice"],
           },
           {
-            title: "て-Form",
+            title: "て-Form (Verbs)",
             link: "/learn/chapter-6/te-form",
             types: ["lesson"],
           },
@@ -1157,6 +1157,26 @@ export default function ChapterBoxes() {
             title: "Practice て-Form Conjugation",
             link: "/learn/conjugation?normal=false&teForm=true&volitional=false&taiForm=false&tariForm=false&potential=false&imperative=false&conditional=false&passive=false&causative=false&causativePassive=false&verb=true&iAdjective=false&naAdjective=false&polite=true&plain=false&nonPast=true&past=false&positive=true&negative=false",
             types: ["conjugation-practice"],
+          },
+          {
+            title: "Connecting Actions With て-Form",
+            link: "/learn/chapter-6/te-form-connection",
+            types: ["lesson"],
+          },
+          {
+            title: "～てください",
+            link: "/learn/chapter-6/te-kudasai",
+            types: ["lesson"],
+          },
+          {
+            title: "て-Form (Adj. & Nouns)",
+            link: "/learn/chapter-6/te-form-adj-nouns",
+            types: ["lesson"],
+          },
+          {
+            title: "から",
+            link: "/learn/chapter-6/kara",
+            types: ["lesson"],
           },
           {
             title: "All Vocab - Test",
