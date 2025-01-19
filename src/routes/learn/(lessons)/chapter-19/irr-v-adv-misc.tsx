@@ -23,11 +23,11 @@ export default function page() {
 
   return (
     <ContentBox
-      nextButtonLink="/learn/chapter-19/practice/nouns-and-adj-readings"
+      nextButtonLink="/learn/chapter-19/practice/irr-v-adv-misc-readings"
       nextButtonText="Next Lesson ->"
     >
       <h1 class="px-28 pb-6 pt-28 text-center text-4xl font-semibold">
-        Nouns 1
+        Irregular Verbs, Adv, & Misc.
       </h1>
       <Show when={data()}>
         <VocabCards data={data()!} />

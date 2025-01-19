@@ -8,7 +8,7 @@
     ],
     "info": ["Honorific verb", "Used to show respect to the subject"],
     "example_sentences": [],
-    "chapter": 18,
+    "chapter": 19,
     "category": "godan-v",
     "particles": []
   },
@@ -21,7 +21,7 @@
     ],
     "info": ["Honorific verb", "Used to show respect to the subject"],
     "example_sentences": [],
-    "chapter": 18,
+    "chapter": 19,
     "category": "godan-v",
     "particles": []
   },
@@ -32,7 +32,7 @@
     "mnemonics": [],
     "info": ["Honorific verb", "Used to show respect to the giver"],
     "example_sentences": [],
-    "chapter": 18,
+    "chapter": 19,
     "category": "godan-v",
     "particles": []
   },
@@ -43,7 +43,7 @@
     "mnemonics": [],
     "info": ["Honorific verb", "Used to show respect to the subject"],
     "example_sentences": [],
-    "chapter": 18,
+    "chapter": 19,
     "category": "godan-v",
     "particles": []
   },
@@ -56,7 +56,7 @@
     ],
     "info": ["Honorific verb", "Used to show respect to the subject"],
     "example_sentences": [],
-    "chapter": 18,
+    "chapter": 19,
     "category": "godan-v",
     "particles": []
   },
@@ -67,7 +67,7 @@
     "mnemonics": [],
     "info": ["Honorific verb", "Used to show respect to the subject"],
     "example_sentences": [],
-    "chapter": 18,
+    "chapter": 19,
     "category": "godan-v",
     "particles": []
   },
@@ -80,7 +80,7 @@
     ],
     "info": ["Honorific verb", "Used to show respect to the subject"],
     "example_sentences": [],
-    "chapter": 18,
+    "chapter": 19,
     "category": "godan-v",
     "particles": []
   },
@@ -91,7 +91,7 @@
     "mnemonics": [],
     "info": ["Honorific verb", "Used to show respect to the subject"],
     "example_sentences": [],
-    "chapter": 18,
+    "chapter": 19,
     "category": "godan-v",
     "particles": []
   },
@@ -111,7 +111,7 @@
         "english": "I'll walk you to the station."
       }
     ],
-    "chapter": 18,
+    "chapter": 19,
     "category": "godan-v",
     "particles": [
       {
@@ -133,7 +133,7 @@
     ],
     "info": ["Don't say \"怒るになる\""],
     "example_sentences": [],
-    "chapter": 18,
+    "chapter": 19,
     "category": "godan-v",
     "particles": []
   },
@@ -151,7 +151,7 @@
         "english": "I haven't decided on my major yet."
       }
     ],
-    "chapter": 18,
+    "chapter": 19,
     "category": "godan-v",
     "particles": [
       {
@@ -166,7 +166,7 @@
     "mnemonics": [],
     "info": [],
     "example_sentences": [],
-    "chapter": 18,
+    "chapter": 19,
     "category": "godan-v",
     "particles": [
       {
@@ -197,7 +197,7 @@
         "english": "I invited friends to the party."
       }
     ],
-    "chapter": 18,
+    "chapter": 19,
     "category": "godan-v",
     "particles": [
       { "label": "person", "particle": "を" },
@@ -211,7 +211,7 @@
     "mnemonics": [],
     "info": [],
     "example_sentences": [],
-    "chapter": 18,
+    "chapter": 19,
     "category": "godan-v",
     "particles": [
       {
@@ -231,7 +231,7 @@
       "寄る -> (よ↓る↑), 夜 -> (よ↑る↓)"
     ],
     "example_sentences": [],
-    "chapter": 18,
+    "chapter": 19,
     "category": "godan-v",
     "particles": [
       {
@@ -253,7 +253,7 @@
       "Ex. 宿題が多すぎて、寝るのが遅くなった。 (I had too much homework, so I ended up going to bed late.) (me in Japanese class .·°՞(≧□≦)՞°·.)"
     ],
     "example_sentences": [],
-    "chapter": 18,
+    "chapter": 19,
     "category": "ichidan-v",
     "particles": [
       {
@@ -274,7 +274,7 @@
       "Essentially, your ass is often lower and more grounded with 座る than かける, which is why you'll use it for more traditional Japanese seating, as well as telling your dog to \"sit\" (followed by the obligatory \"good boy\")."
     ],
     "example_sentences": [],
-    "chapter": 18,
+    "chapter": 19,
     "category": "ichidan-v",
     "particles": []
   },
@@ -285,7 +285,7 @@
     "mnemonics": [],
     "info": [],
     "example_sentences": [],
-    "chapter": 18,
+    "chapter": 19,
     "category": "ichidan-v",
     "particles": [
       {
@@ -301,7 +301,7 @@
     "mnemonics": [],
     "info": ["Don't say \"晴れるになる\""],
     "example_sentences": [],
-    "chapter": 18,
+    "chapter": 19,
     "category": "ichidan-v",
     "particles": []
   }

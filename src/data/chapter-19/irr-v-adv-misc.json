@@ -9,7 +9,7 @@
       "Different from 'おごる', which is casual and often used among friends."
     ],
     "example_sentences": [],
-    "chapter": 18,
+    "chapter": 19,
     "category": "irr-v",
     "particles": [
       { "label": "person", "particle": "に" },
@@ -25,12 +25,14 @@
       "to hold back for the time being"
     ],
     "mnemonics": [],
-    "info": [
-      "To restrain oneself out of consideration for others.",
-      "Example: 'どうぞ遠慮しないでください' (Please don't hesitate)."
+    "info": ["To restrain oneself out of consideration for others."],
+    "example_sentences": [
+      {
+        "japanese": "遠慮しないで、どうぞ食べてください。",
+        "english": "Please don't hold back, go ahead and eat."
+      }
     ],
-    "example_sentences": [],
-    "chapter": 18,
+    "chapter": 19,
     "category": "irr-v",
     "particles": []
   },
@@ -41,7 +43,7 @@
     "mnemonics": [],
     "info": [],
     "example_sentences": [],
-    "chapter": 18,
+    "chapter": 19,
     "category": "irr-v",
     "particles": [
       {
@@ -70,7 +72,7 @@
         "english": "I got into a fight with my friend, so I plan to have a talk calmly tomorrow."
       }
     ],
-    "chapter": 18,
+    "chapter": 19,
     "category": "irr-v",
     "particles": []
   },
@@ -81,7 +83,7 @@
     "mnemonics": [],
     "info": [],
     "example_sentences": [],
-    "chapter": 18,
+    "chapter": 19,
     "category": "adv",
     "particles": []
   },
@@ -92,7 +94,7 @@
     "mnemonics": ["You know 毎, you know 朝. Use that big brain of yours."],
     "info": [],
     "example_sentences": [],
-    "chapter": 18,
+    "chapter": 19,
     "category": "adv",
     "particles": []
   },
@@ -103,7 +105,7 @@
     "mnemonics": [],
     "info": [],
     "example_sentences": [],
-    "chapter": 18,
+    "chapter": 19,
     "category": "adv",
     "particles": []
   },
@@ -119,7 +121,7 @@
       "Ex. どうしてそんなに悲しそうなの？ -> Why do you look so sad?"
     ],
     "example_sentences": [],
-    "chapter": 18,
+    "chapter": 19,
     "category": "adv",
     "particles": []
   },
@@ -135,7 +137,7 @@
       "Ex. 実は、彼はプロのピアニストなんです。-> Actually, he's a professional pianist."
     ],
     "example_sentences": [],
-    "chapter": 18,
+    "chapter": 19,
     "category": "adv",
     "particles": []
   },
@@ -146,7 +148,7 @@
     "mnemonics": ["Haven't we learned this already?"],
     "info": [],
     "example_sentences": [],
-    "chapter": 18,
+    "chapter": 19,
     "category": "adv",
     "particles": []
   },
@@ -159,7 +161,7 @@
     ],
     "info": ["Fun fact: 々 is a kanji that repeats the previous kanji."],
     "example_sentences": [],
-    "chapter": 18,
+    "chapter": 19,
     "category": "adv",
     "particles": []
   },
@@ -172,7 +174,7 @@
     ],
     "info": [],
     "example_sentences": [],
-    "chapter": 18,
+    "chapter": 19,
     "category": "adv",
     "particles": []
   },
@@ -185,7 +187,7 @@
       "It's not \"よこそ.\" Try to be grand and say it with a flourish: \"Yoookoso!\""
     ],
     "example_sentences": [],
-    "chapter": 18,
+    "chapter": 19,
     "category": "misc",
     "particles": []
   },
@@ -196,7 +198,7 @@
     "mnemonics": [],
     "info": [],
     "example_sentences": [],
-    "chapter": 18,
+    "chapter": 19,
     "category": "misc",
     "particles": [
       {
