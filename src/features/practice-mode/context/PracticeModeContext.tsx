@@ -1,3 +1,4 @@
+// PracticeModeContext.tsx
 import { Card } from "@/types/vocab"
 import { createContext, JSX, useContext } from "solid-js"
 import { createStore } from "solid-js/store"
@@ -19,18 +20,11 @@ export const initialState = {
   practiceMode: "readings" as "readings" | "kana",
 }
 
-const [practiceModeStore, setPracticeModeStore] = createStore({
-  ...initialState,
-})
-
-export type PracticeModeContextType = {
-  store: typeof practiceModeStore
-  setStore: typeof setPracticeModeStore
-}
-
-const PracticeModeContext = createContext<PracticeModeContextType>()
-
 export function PracticeModeContextProvider(props: { children: JSX.Element }) {
+  const [practiceModeStore, setPracticeModeStore] = createStore({
+    ...initialState,
+  })
+
   const contextValue: PracticeModeContextType = {
     store: practiceModeStore,
     setStore: setPracticeModeStore,
@@ -42,6 +36,13 @@ export function PracticeModeContextProvider(props: { children: JSX.Element }) {
     </PracticeModeContext.Provider>
   )
 }
+
+export type PracticeModeContextType = {
+  store: typeof initialState
+  setStore: (path: string | Partial<typeof initialState>, value?: any) => void
+}
+
+const PracticeModeContext = createContext<PracticeModeContextType>()
 
 export function usePracticeModeContext() {
   const context = useContext(PracticeModeContext)
