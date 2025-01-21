@@ -37,9 +37,15 @@ export default function Home() {
 
         {/* Headers */}
         <div class="px-10 pb-24 pt-8 md:px-16 md:pt-10 lg:px-24 2xl:px-32 2xl:pt-16">
-          <h3 class="ml-2 font-medium md:text-3xl md:text-[#BBBBBB]">
-            Nihongo Ninja
-          </h3>
+          <div class="flex justify-between">
+            <h3 class="ml-2 font-medium md:text-3xl md:text-[#BBBBBB]">
+              Nihongo Ninja
+            </h3>
+            <div class="text-base italic text-primary/75">
+              Questions? contact @dillpickleschmidt
+              <img src="/icons/discord.png" alt="" class="ml-2 h-6 w-6" />
+            </div>
+          </div>
 
           {/* small screen */}
           <div class="flex w-full justify-center pt-4 md:hidden">
@@ -60,12 +66,14 @@ export default function Home() {
             conquer <span class="text-[#E8C1A9]">kanji</span>, reinforce your
             skills with <span class="text-[#E8C1A9]">games</span>, and more.
           </h2>
-          <div class="mt-8 flex w-full justify-center md:mt-10 md:justify-start">
-            <A href="/learn">
-              <Button class="rounded-lg bg-[#E8C1A9] px-4 py-[0.65rem] text-[1rem] md:px-6 md:py-3 md:text-lg">
-                Get Started! <span class="ml-2 font-semibold">{"->"}</span>
-              </Button>
-            </A>
+          <div class="mt-8 flex w-full justify-center md:mt-10">
+            <Button
+              class="transform rounded-lg bg-[#ffd4ba] px-4 py-[0.65rem] text-[1rem] duration-200 hover:scale-105 hover:bg-[#ffe2cf] md:rounded-xl md:px-10 md:py-5 md:text-2xl"
+              as="a"
+              href="/learn"
+            >
+              Get Started! <span class="ml-2 font-semibold">{"->"}</span>
+            </Button>
           </div>
         </div>
         {/* Box content */}

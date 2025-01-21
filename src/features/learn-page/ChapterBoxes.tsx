@@ -87,17 +87,17 @@ export default function ChapterBoxes() {
             link: "/learn/chapter-0/greetings",
             types: ["vocab"],
           },
-          {
-            title: "Culture Note: Japanese Greetings",
-            link: "/learn/chapter-0/culture-note-japanese-greetings",
-            types: ["culture-note"],
-            disabled: true,
-          },
-          {
-            title: "Greetings Quiz",
-            link: "/learn/chapter-0/greetings-quiz",
-            types: ["worksheet"],
-          },
+          // {
+          //   title: "Culture Note: Japanese Greetings",
+          //   link: "/learn/chapter-0/culture-note-japanese-greetings",
+          //   types: ["culture-note"],
+          //   disabled: true,
+          // },
+          // {
+          //   title: "Greetings Quiz",
+          //   link: "/learn/chapter-0/greetings-quiz",
+          //   types: ["worksheet"],
+          // },
           {
             title: "Common Expressions",
             link: "/learn/chapter-0/common-expressions",

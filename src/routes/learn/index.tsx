@@ -90,32 +90,40 @@ export default function index() {
               Japanese learning. We've scoured the internet to curate the best
               learning materials, bringing them together in one place for free.
             </div> */}
-            <div class="space-y-2">
-              <h4 class="text-base font-medium text-muted-foreground">
-                Sort by:
-              </h4>
-              <RadioGroup
-                value={context.sortOrder()}
-                onChange={(value) => context.setSortOrder(value as sortOrder)}
-                class="space-y-2 hover:cursor-pointer"
-              >
-                <For each={sortOrderTypes}>
-                  {(item) => (
-                    <RadioGroupItem
-                      value={item}
-                      class="flex items-center gap-2"
-                    >
-                      <RadioGroupItemControl />
-                      <RadioGroupItemLabel
-                        onClick={() => context.setSortOrder(item as sortOrder)}
-                        class="text-sm hover:cursor-pointer"
+            <div class="flex items-end justify-between">
+              <div class="space-y-2">
+                <h4 class="text-base font-medium text-muted-foreground">
+                  Sort by:
+                </h4>
+                <RadioGroup
+                  value={context.sortOrder()}
+                  onChange={(value) => context.setSortOrder(value as sortOrder)}
+                  class="space-y-2 hover:cursor-pointer"
+                >
+                  <For each={sortOrderTypes}>
+                    {(item) => (
+                      <RadioGroupItem
+                        value={item}
+                        class="flex items-center gap-2"
                       >
-                        {toTitleCase(item.replace(/-/g, " "))}
-                      </RadioGroupItemLabel>
-                    </RadioGroupItem>
-                  )}
-                </For>
-              </RadioGroup>
+                        <RadioGroupItemControl />
+                        <RadioGroupItemLabel
+                          onClick={() =>
+                            context.setSortOrder(item as sortOrder)
+                          }
+                          class="text-sm hover:cursor-pointer"
+                        >
+                          {toTitleCase(item.replace(/-/g, " "))}
+                        </RadioGroupItemLabel>
+                      </RadioGroupItem>
+                    )}
+                  </For>
+                </RadioGroup>
+              </div>
+              <div class="text-base italic text-primary/75">
+                Questions? contact @dillpickleschmidt
+                <img src="/icons/discord.png" alt="" class="ml-2 h-6 w-6" />
+              </div>
             </div>
 
             <ChapterBoxes />
