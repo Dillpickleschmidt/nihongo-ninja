@@ -21,7 +21,7 @@ const images = [
   { src: "/img/homepage/ConjugationPractice.jpg", alt: "Preview 9" },
 ]
 
-export default function CoverflowCarousel() {
+export default function CoverflowCarousel3() {
   const [api, setApi] = createSignal<ReturnType<CarouselApi>>()
   const [currentIndex, setCurrentIndex] = createSignal(0)
   const [isJsLoaded, setIsJsLoaded] = createSignal(false)
@@ -43,6 +43,7 @@ export default function CoverflowCarousel() {
       setCurrentIndex(api()!.selectedScrollSnap())
     })
 
+    // Stop autoplay on navigation button clicks
     const prevButton = document.querySelector("[data-carousel-prev]")
     const nextButton = document.querySelector("[data-carousel-next]")
 
@@ -55,6 +56,7 @@ export default function CoverflowCarousel() {
 
     api()!.scrollTo(0, false)
 
+    // Cleanup
     return () => {
       prevButton?.removeEventListener("click", stopAutoplay)
       nextButton?.removeEventListener("click", stopAutoplay)
@@ -66,14 +68,24 @@ export default function CoverflowCarousel() {
       <Show
         when={isJsLoaded()}
         fallback={
-          <div class="flex justify-center">
-            <div class="w-full max-w-2xl">
-              <img
-                src={images[0].src}
-                alt={images[0].alt}
-                class="h-full w-full rounded-lg object-cover shadow-xl"
-              />
-            </div>
+          <div class="flex justify-center gap-4">
+            {[images[images.length - 1], images[0], images[1]].map(
+              (image, index) => (
+                <div
+                  class="w-1/3 transition-all duration-500"
+                  style={{
+                    transform: index === 1 ? "scale(1)" : "scale(0.8)",
+                    filter: index === 1 ? "none" : "brightness(0.7)",
+                  }}
+                >
+                  <img
+                    src={image.src}
+                    alt={image.alt}
+                    class="h-full w-full rounded-lg object-cover shadow-xl"
+                  />
+                </div>
+              ),
+            )}
           </div>
         }
       >
@@ -86,18 +98,20 @@ export default function CoverflowCarousel() {
             startIndex: 0,
           }}
           plugins={[autoplay()]}
-          class="mx-auto max-w-2xl"
+          class="mx-auto"
         >
-          <CarouselContent>
+          <CarouselContent class="-ml-4">
             {images.map((image, index) => (
-              <CarouselItem>
+              <CarouselItem class="pl-4 md:basis-1/2 lg:basis-1/3">
                 <div
                   class="relative transform-gpu transition-all duration-500"
                   style={{
                     transform: `
                       scale(${currentIndex() === index ? "1" : "0.8"})
+                      translateZ(${currentIndex() === index ? "0px" : "-100px"})
                     `,
-                    opacity: currentIndex() === index ? "1" : "0.7",
+                    filter:
+                      currentIndex() === index ? "none" : "brightness(0.7)",
                     "transform-style": "preserve-3d",
                     perspective: "1000px",
                   }}
@@ -112,11 +126,11 @@ export default function CoverflowCarousel() {
             ))}
           </CarouselContent>
           <CarouselPrevious
-            class="absolute left-0 top-1/2 h-full w-10 -translate-y-1/2 rounded-none border-none bg-transparent duration-100 hover:bg-black/25 md:mx-4 md:h-10 md:rounded-full md:bg-background/75 md:hover:bg-background"
+            class="absolute left-0 top-1/2 h-full w-10 -translate-y-1/2 rounded-none border-none bg-transparent duration-100 hover:bg-black/25 md:mx-16 md:h-10 md:rounded-full md:bg-background/75 md:hover:bg-background"
             data-carousel-prev
           />
           <CarouselNext
-            class="absolute right-0 top-1/2 h-full w-10 -translate-y-1/2 rounded-none border-none bg-transparent duration-100 hover:bg-black/25 md:mx-4 md:h-10 md:rounded-full md:bg-background/75 md:hover:bg-background"
+            class="absolute right-0 top-1/2 h-full w-10 -translate-y-1/2 rounded-none border-none bg-transparent duration-100 hover:bg-black/25 md:mx-16 md:h-10 md:rounded-full md:bg-background/75 md:hover:bg-background"
             data-carousel-next
           />
         </Carousel>

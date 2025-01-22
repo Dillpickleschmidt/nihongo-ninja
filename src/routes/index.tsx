@@ -21,81 +21,143 @@ export default function Home() {
             rgba(0, 0, 0, 0) 73%
           );
         }
+        
+        .content-gradient {
+          background: linear-gradient(135deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.1) 100%);
+        }
         `}
       </style>
-      <main>
+      <main class="relative min-h-screen">
+        {/* Fixed background image */}
         <div class="fixed z-[-1] -mt-16 w-full min-w-[800px]">
           <img
             src="/img/japanese-gate.png"
             class="custom-gradient-mask pointer-events-none opacity-[0.05]"
+            alt="Decorative Japanese Gate"
           />
         </div>
 
-        <div class="absolute top-20 hidden w-full justify-center px-10 md:top-36 md:flex md:px-0">
-          <HomePageCarousel />
-        </div>
-
-        {/* Headers */}
-        <div class="px-10 pb-24 pt-8 md:px-16 md:pt-10 lg:px-24 2xl:px-32 2xl:pt-16">
-          <div class="flex justify-between">
-            <h3 class="ml-2 font-medium md:text-3xl md:text-[#BBBBBB]">
+        {/* Navigation Header */}
+        <header class="sticky top-0 z-50 backdrop-blur-sm">
+          <div class="flex justify-between px-8 py-6 md:px-16">
+            <h3 class="text-2xl font-medium dark:text-[#BBBBBB]">
               Nihongo Ninja
             </h3>
-            <div class="text-base italic text-primary/75">
+            <div class="flex items-center text-base italic text-primary/75">
               Questions? contact @dillpickleschmidt
-              <img src="/icons/discord.png" alt="" class="ml-2 h-6 w-6" />
+              <img
+                src="/icons/discord.png"
+                alt="Discord Icon"
+                class="ml-2 h-6 w-6"
+              />
             </div>
           </div>
+        </header>
 
-          {/* small screen */}
-          <div class="flex w-full justify-center pt-4 md:hidden">
-            <HomePageCarousel />
+        {/* Hero Section */}
+        <section class="px-6 py-16 md:px-16 md:py-24">
+          <div class="mx-auto px-24">
+            <div class="flex flex-col md:flex-row md:items-start md:justify-between md:gap-12">
+              <div class="md:w-1/2">
+                <h1 class="text-4xl font-medium leading-tight dark:text-[#BBBBBB] md:text-5xl">
+                  Wish You Could Watch Anime Without Subtitles?
+                </h1>
+                <p class="mt-6 text-lg leading-relaxed md:text-xl">
+                  You're watching your favorite show, and suddenly you recognize
+                  a Japanese word or phrase. That little moment feels amazing,
+                  right? Imagine experiencing that all the time.
+                </p>
+                <div class="flex items-end justify-between">
+                  <Button
+                    class="mt-8 transform rounded-lg bg-[#ffd4ba] px-6 py-3 text-lg text-black duration-200 hover:scale-105 hover:bg-[#ffe2cf]"
+                    as="a"
+                    href="/learn"
+                  >
+                    Get Started! <span class="ml-2 font-semibold">{"->"}</span>
+                  </Button>
+                  <h3 class="text-2xl font-semibold italic text-red-500">
+                    This website is currently in ALPHA!
+                  </h3>
+                </div>
+              </div>
+              <div class="mt-12 w-full md:mt-0 md:w-1/2">
+                <HomePageCarousel />
+              </div>
+            </div>
           </div>
-          <h1 class="mt-6 max-w-[800px] pr-4 text-[2.25rem] font-medium leading-[3rem] text-[#BBBBBB] md:mt-48 md:hidden md:pr-0">
-            Curated Japanese Tools and Learning Resources
-          </h1>
-          {/* medium+ screen */}
-          <h1 class="mt-64 hidden max-w-[800px] pr-0 text-[3.25rem] font-medium leading-[3.5rem] text-[#BBBBBB] md:mt-[450px] md:block">
-            Curated Japanese Tools and Learning Resources
-          </h1>
-          <h2 class="mt-8 max-w-[950px] text-[1.15rem] leading-8 tracking-tight md:mt-5 md:text-[1.55rem] md:leading-[2.6rem]">
-            Discover <span class="text-[#E8C1A9]">helpful videos</span>, tackle
-            challenging <span class="text-[#E8C1A9]">grammar</span> concepts,
-            learn <span class="text-[#E8C1A9]">vocabulary</span> through anime
-            examples, master <span class="text-[#E8C1A9]">conjugation</span>,
-            conquer <span class="text-[#E8C1A9]">kanji</span>, reinforce your
-            skills with <span class="text-[#E8C1A9]">games</span>, and more.
-          </h2>
-          <div class="mt-8 flex w-full justify-center md:mt-10">
+        </section>
+
+        {/* Features Section */}
+        <section class="content-gradient px-6 py-16 md:px-16 md:py-24">
+          <div class="mx-auto px-24">
+            <div class="grid gap-12 md:grid-cols-2">
+              <div class="rounded-2xl bg-gradient-to-br from-purple-900/20 to-indigo-900/30 p-8 backdrop-blur-sm">
+                <h2 class="text-3xl font-medium dark:text-[#BBBBBB]">
+                  Learning Japanese Should Be Fun
+                </h2>
+                <p class="mt-4 text-lg leading-relaxed">
+                  If you love anime, you already have the perfect gateway to
+                  Japanese. Discover helpful videos, tackle challenging grammar
+                  concepts, learn vocabulary through anime examples, and master
+                  the fundamentals—all explained in a way that actually makes
+                  sense.
+                </p>
+              </div>
+              <div class="rounded-2xl bg-card/10 p-8 backdrop-blur-sm">
+                <h2 class="text-3xl font-medium dark:text-[#BBBBBB]">
+                  Explained by Someone Who Gets It
+                </h2>
+                <p class="mt-4 text-lg leading-relaxed">
+                  No more dense textbook explanations or confusing jargon. As a
+                  student who survived Japanese learning the hard way, I explain
+                  everything in plain English with real examples and a touch of
+                  humor. Learn from someone who remembers what it's like to be a
+                  beginner.
+                </p>
+              </div>
+              <div class="rounded-2xl bg-card/10 p-8 backdrop-blur-sm">
+                <h2 class="text-3xl font-medium dark:text-[#BBBBBB]">
+                  Tools That Fast-Track Your Progress
+                </h2>
+                <p class="mt-4 text-lg leading-relaxed">
+                  Master conjugation and sentence structure through focused
+                  exercises that follow the Genki textbook order—perfect for
+                  self-study or complementing your college courses.
+                </p>
+              </div>
+              <div class="rounded-2xl bg-gradient-to-br from-purple-500/15 to-pink-500/15 p-8 backdrop-blur-sm">
+                <h2 class="text-3xl font-medium dark:text-[#BBBBBB]">
+                  Interactive Learning Modules
+                </h2>
+                <p class="mt-4 text-lg leading-relaxed">
+                  Build confidence with vocabulary and sentence practice that
+                  gives you instant feedback. No more wondering if you're on the
+                  right track as you progress through each lesson.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section class="px-6 py-16 md:px-16 md:py-24">
+          <div class="mx-auto max-w-4xl text-center">
+            <h2 class="text-3xl font-medium dark:text-[#BBBBBB] md:text-4xl">
+              Ready to Level Up Your Japanese?
+            </h2>
+            <p class="mt-6 text-lg md:text-xl">
+              Join our community of anime enthusiasts learning Japanese the fun
+              way.
+            </p>
             <Button
-              class="transform rounded-lg bg-[#ffd4ba] px-4 py-[0.65rem] text-[1rem] duration-200 hover:scale-105 hover:bg-[#ffe2cf] md:rounded-xl md:px-10 md:py-5 md:text-2xl"
+              class="mt-8 transform rounded-lg bg-[#ffd4ba] px-8 py-4 text-lg text-black duration-200 hover:scale-105 hover:bg-[#ffe2cf]"
               as="a"
               href="/learn"
             >
               Get Started! <span class="ml-2 font-semibold">{"->"}</span>
             </Button>
           </div>
-        </div>
-        {/* Box content */}
-        {/* <div class="mt-12 w-full px-6 pb-24 md:mt-24">
-          <div class="grid w-[750px] grid-cols-9 gap-[0.275rem] md:ml-[17rem] md:w-[1475px] md:gap-2 [&>*]:h-20 [&>*]:rounded-2xl [&>*]:bg-neutral-700 [&>*]:text-neutral-700 [&>*]:md:h-40">
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-          </div>
-          <div class="mt-12 grid grid-cols-2 gap-[0.275rem] sm:grid-cols-3 md:w-[1750px] md:grid-cols-5 md:gap-2 md:pt-24 [&>*]:h-48 [&>*]:rounded-2xl [&>*]:bg-neutral-700 [&>*]:text-neutral-700 [&>*]:md:h-96">
-            <div />
-            <div />
-            <div />
-            <div />
-          </div>
-        </div> */}
+        </section>
       </main>
     </>
   )
