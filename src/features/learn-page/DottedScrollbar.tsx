@@ -1,3 +1,4 @@
+// DottedScrollbar.tsx
 import { For, onMount, onCleanup, createSignal } from "solid-js"
 import { useLearnPageContext } from "./context/LearnPageContext"
 import {
