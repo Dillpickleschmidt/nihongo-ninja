@@ -7,22 +7,28 @@ export default function Sidebar() {
   return (
     <>
       {/* Mobile Menu Button */}
-      <div class="fixed left-4 top-20 z-[50] block sm:hidden">
+      <div class="fixed left-4 top-28 z-[100] block sm:hidden">
         <Sheet>
           <SheetTrigger>
-            <Button size="icon" variant="ghost">
+            <Button
+              size="icon"
+              variant="ghost"
+              class="relative touch-manipulation"
+            >
               <Menu />
+              <span class="absolute left-full top-1 ml-1 text-muted-foreground">
+                {"<-"}
+              </span>
             </Button>
-            <span class="absolute top-1 ml-1 text-muted-foreground">
-              {"<-"}
-            </span>
           </SheetTrigger>
-          <SheetContent side="left">
-            <h2 class="mr-4 mt-16 pb-6 text-center text-[1.75rem] font-black">
-              Modules
-            </h2>
-            <div class="flex w-full flex-col space-y-4 pl-2 pr-4">
-              <SidebarContent inDialog={true} />
+          <SheetContent side="left" class="w-[280px] sm:w-[340px]">
+            <div class="mt-16">
+              <h2 class="pb-6 text-center text-[1.75rem] font-black">
+                Modules
+              </h2>
+              <div class="flex w-full flex-col space-y-4 px-2">
+                <SidebarContent inDialog={true} />
+              </div>
             </div>
           </SheetContent>
         </Sheet>
