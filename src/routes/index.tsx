@@ -40,10 +40,10 @@ export default function Home() {
         {/* Navigation Header */}
         <header class="sticky top-0 z-50 backdrop-blur-sm">
           <div class="flex justify-between px-8 py-6 md:px-16">
-            <h3 class="text-2xl font-medium dark:text-[#BBBBBB]">
+            <h3 class="text-nowrap text-xl font-medium dark:text-[#BBBBBB] md:text-2xl">
               Nihongo Ninja
             </h3>
-            <div class="flex items-center text-base italic text-primary/75">
+            <div class="flex items-center text-right text-sm italic text-primary/75 md:text-base">
               Questions? contact @dillpickleschmidt
               <img
                 src="/icons/discord.png"
@@ -55,8 +55,8 @@ export default function Home() {
         </header>
 
         {/* Hero Section */}
-        <section class="px-6 py-16 md:px-16 md:py-24">
-          <div class="mx-auto px-24">
+        <section class="px-6 pb-16 pt-6 md:px-16 md:py-24">
+          <div class="mx-auto max-w-[1450px]">
             <div class="flex flex-col md:flex-row md:items-start md:justify-between md:gap-12">
               <div class="md:w-1/2">
                 <h1 class="text-4xl font-medium leading-tight dark:text-[#BBBBBB] md:text-5xl">
@@ -67,9 +67,9 @@ export default function Home() {
                   a Japanese word or phrase. That little moment feels amazing,
                   right? Imagine experiencing that all the time.
                 </p>
-                <div class="flex items-end justify-between">
+                <div class="flex items-end justify-between gap-4">
                   <Button
-                    class="mt-8 transform rounded-lg bg-[#ffd4ba] px-6 py-3 text-lg text-black duration-200 hover:scale-105 hover:bg-[#ffe2cf]"
+                    class="mt-8 transform text-nowrap rounded-lg bg-[#ffd4ba] px-6 py-3 text-lg text-black duration-200 hover:scale-105 hover:bg-[#ffe2cf]"
                     as="a"
                     href="/learn"
                   >
@@ -89,7 +89,7 @@ export default function Home() {
 
         {/* Features Section */}
         <section class="content-gradient px-6 py-16 md:px-16 md:py-24">
-          <div class="mx-auto px-24">
+          <div class="mx-auto max-w-[1450px]">
             <div class="grid gap-12 md:grid-cols-2">
               <div class="rounded-2xl bg-gradient-to-br from-purple-900/20 to-indigo-900/30 p-8 backdrop-blur-sm">
                 <h2 class="text-3xl font-medium dark:text-[#BBBBBB]">
