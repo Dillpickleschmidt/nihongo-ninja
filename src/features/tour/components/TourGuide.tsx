@@ -111,6 +111,22 @@ export default function TourGuide(props: {
     }
   }
 
+  // Handle preventing close when clicking target
+  const handlePointerDownOutside = (
+    event: CustomEvent<{ originalEvent: PointerEvent }>,
+  ) => {
+    const currentStep = props.steps[props.currentStep]
+    if (!currentStep?.target) return
+
+    const targetElement = document.querySelector(currentStep.target)
+    if (!targetElement) return
+
+    // Prevent close if the click was on the target element
+    if (targetElement.contains(event.target as Node)) {
+      event.preventDefault()
+    }
+  }
+
   return (
     <Show when={props.isOpen}>
       {/* Highlight */}
@@ -211,12 +227,14 @@ export default function TourGuide(props: {
             flip
             slide
             overflowPadding={props.steps[props.currentStep].overflowPadding}
+            modal={props.steps[props.currentStep].modal ?? false}
           >
             <PopoverContent
               class={cn(
-                "border-none bg-background",
+                "z-[1000] border-none bg-background",
                 props.steps[props.currentStep].class,
               )}
+              onPointerDownOutside={handlePointerDownOutside}
             >
               <PopoverPrimitive.Arrow size={55} />
               <Show when={props.steps[props.currentStep].title}>

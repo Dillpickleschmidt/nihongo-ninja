@@ -82,13 +82,11 @@ export default function ChapterBoxes() {
             title: "Chapter 0 Vocab List",
             link: "/learn/chapter-0/vocab-list",
             types: ["vocab-list"],
-            id: "vocab-list-tour-example", // For the learn page tour
           },
           {
             title: "Greetings",
             link: "/learn/chapter-0/greetings",
             types: ["vocab"],
-            id: "vocab-tour-example", // For the learn page tour
           },
           // {
           //   title: "Culture Note: Japanese Greetings",
@@ -110,7 +108,6 @@ export default function ChapterBoxes() {
             title: "Practice Greet. & Common Expr.",
             link: "/learn/chapter-0/practice/greetings-common-expressions",
             types: ["vocab-practice"],
-            id: "vocab-practice-tour-example", // For the learn page tour
           },
           {
             title: "Numbers Intro",
@@ -160,6 +157,7 @@ export default function ChapterBoxes() {
             title: "Chapter 1 Vocab List",
             link: "/learn/chapter-1/vocab-list",
             types: ["vocab-list"],
+            id: "vocab-list-tour-example", // For the learn page tour
           },
           {
             title: "Chapter 1 Grammar Notes",
@@ -175,11 +173,13 @@ export default function ChapterBoxes() {
             title: "Kanji Numbers",
             link: "/learn/chapter-1/kanji-numbers",
             types: ["vocab"],
+            id: "vocab-tour-example", // For the learn page tour
           },
           {
             title: "Practice Kanji Numbers",
             link: "/learn/chapter-1/practice/kanji-numbers",
             types: ["vocab-practice"],
+            id: "vocab-practice-tour-example", // For the learn page tour
           },
           {
             title: "People, Descriptors, Misc.",
