@@ -24,9 +24,30 @@ export default function createTourStore(steps: TourStep[]) {
     },
     next: () => {
       if (currentStep() < steps.length - 1) {
+        if (steps[currentStep()]?.onNextFunction) {
+          // Execute onNextFunction and check its return value
+          const shouldOverride = steps[currentStep()]?.onNextFunction!()
+
+          // Only override if the function returns true
+          if (shouldOverride !== false) {
+            console.log("onNextFunction override")
+            return // Stop here if we're overriding
+          }
+        }
+
+        // Default behavior
         handleNavigation()
         setCurrentStep((prev) => prev + 1)
       } else {
+        // End of tour
+        if (steps[currentStep()]?.onNextFunction) {
+          const shouldOverride = steps[currentStep()]?.onNextFunction!()
+          if (shouldOverride !== false) {
+            return
+          }
+        }
+
+        // Default end behavior
         handleNavigation()
         setIsOpen(false)
         setCurrentStep(0)

@@ -1,27 +1,32 @@
+// Sidebar.tsx
 import { Button } from "@/components/ui/button"
 import Menu from "lucide-solid/icons/menu"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import SidebarContent from "./SidebarContent"
+import SidebarTour from "./SidebarTour"
 
-export default function Sidebar() {
+export default function Sidebar(props: {
+  isOpen: boolean
+  setIsOpen: (isOpen: boolean) => void
+}) {
   return (
     <>
       {/* Mobile Menu Button */}
       <div class="fixed left-4 top-28 z-[100] block sm:hidden">
-        <Sheet>
-          <SheetTrigger>
-            <Button
-              size="icon"
-              variant="ghost"
-              class="relative touch-manipulation"
-            >
-              <Menu />
-              <span class="absolute left-full top-1 ml-1 text-muted-foreground">
-                {"<-"}
-              </span>
-            </Button>
-          </SheetTrigger>
+        <Sheet open={props.isOpen} onOpenChange={props.setIsOpen}>
+          <Button
+            size="icon"
+            variant="ghost"
+            class="relative"
+            onClick={() => props.setIsOpen(!props.isOpen)}
+          >
+            <Menu />
+            <span class="absolute left-full top-1 ml-1 text-muted-foreground">
+              {"<-"}
+            </span>
+          </Button>
           <SheetContent side="left" class="w-[280px] sm:w-[340px]">
+            <SidebarTour isOpen={props.isOpen} setIsOpen={props.setIsOpen} />
             <div class="mt-16">
               <h2 class="pb-6 text-center text-[1.75rem] font-black">
                 Modules

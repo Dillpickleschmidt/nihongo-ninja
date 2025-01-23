@@ -12,13 +12,14 @@ import {
   useLearnPageContext,
 } from "@/features/learn-page/context/LearnPageContext"
 import DottedScrollbar from "@/features/learn-page/DottedScrollbar"
-import Tour from "@/features/learn-page/tour/Tour"
+import LearnPageTour from "@/features/learn-page/tour/LearnPageTour"
 import Sidebar from "@/features/sidebar/Sidebar"
 import { Title } from "@solidjs/meta"
-import { For } from "solid-js"
+import { createSignal, For } from "solid-js"
 
 export default function index() {
   const context = useLearnPageContext()
+  const [isSidebarOpen, setIsSidebarOpen] = createSignal(false)
 
   function toTitleCase(str: string): string {
     return str
@@ -30,7 +31,7 @@ export default function index() {
 
   return (
     <>
-      <Tour />
+      <LearnPageTour isOpen={isSidebarOpen()} setIsOpen={setIsSidebarOpen} />
       <style>
         {`
         .custom-gradient-mask {
@@ -78,7 +79,7 @@ export default function index() {
       {/* Main content area */}
       <div class="flex min-h-screen justify-center">
         {/* Sidebar */}
-        <Sidebar />
+        <Sidebar isOpen={isSidebarOpen()} setIsOpen={setIsSidebarOpen} />
 
         {/* Centered content */}
         <div class="w-full max-w-[1300px] pl-4 sm:pl-6 lg:pl-8">

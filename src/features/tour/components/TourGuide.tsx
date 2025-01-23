@@ -227,7 +227,6 @@ export default function TourGuide(props: {
             flip
             slide
             overflowPadding={props.steps[props.currentStep].overflowPadding}
-            modal={props.steps[props.currentStep].modal ?? false}
           >
             <PopoverContent
               class={cn(

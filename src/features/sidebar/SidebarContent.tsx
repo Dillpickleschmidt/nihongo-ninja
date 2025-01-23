@@ -21,7 +21,11 @@ export default function SidebarContent({
   return (
     <>
       <Button
-        id="grammar-notes-link-sidebar"
+        id={
+          inDialog
+            ? "grammar-notes-link-sidebar-modal"
+            : "grammar-notes-link-sidebar"
+        }
         as="a"
         href="/learn/grammar-notes"
         size="lg"
@@ -62,7 +66,11 @@ export default function SidebarContent({
         </Button>
       </a>
       <Button
-        id="sentence-practice-link-sidebar"
+        id={
+          inDialog
+            ? "sentence-practice-link-sidebar-modal"
+            : "sentence-practice-link-sidebar"
+        }
         as="a"
         href="/learn/sentence-practice"
         size="lg"
@@ -82,7 +90,11 @@ export default function SidebarContent({
         </span>
       </Button>
       <Button
-        id="conjugation-link-sidebar"
+        id={
+          inDialog
+            ? "conjugation-link-sidebar-modal"
+            : "conjugation-link-sidebar"
+        }
         as="a"
         href="/learn/conjugation"
         size="lg"
