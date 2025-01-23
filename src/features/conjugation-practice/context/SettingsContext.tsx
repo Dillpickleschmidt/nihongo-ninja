@@ -1,8 +1,8 @@
 import { createContext, useContext, createEffect, createSignal } from "solid-js"
 import { useSearchParams } from "@solidjs/router"
 import type { Settings } from "../types"
+import { AppStorage, storageUtils } from "@/features/local-storage"
 
-// Types
 type SettingsContextProps = {
   children: any
 }
@@ -12,76 +12,34 @@ type SettingsContextValue = {
   updateSettings: (newSettings: Partial<Settings>) => void
 }
 
-// Default settings
-const DEFAULT_SETTINGS: Settings = {
-  // Form types
-  normal: true,
-  teForm: false,
-  volitional: false,
-  taiForm: false,
-  tariForm: false,
-  potential: false,
-  imperative: false,
-  conditional: false,
-  passive: false,
-  causative: false,
-  causativePassive: false,
-
-  // Parts of speech
-  verb: true,
-  iAdjective: false,
-  naAdjective: false,
-
-  // Speech levels and tenses
-  polite: true,
-  plain: true,
-  nonPast: true,
-  past: false,
-  positive: true,
-  negative: false,
-
-  // Special options
-  jlptLevel: "n5",
-  leaveOutSuru: false,
-  reverse: false,
-  amount: 20,
-  showMeaning: true,
-  noFurigana: false,
-  emoji: true,
-}
-
-// Storage utils
-const STORAGE_KEY = "japaneseConjugationSettings"
-
-const loadStoredSettings = (): Settings => {
-  const stored = localStorage.getItem(STORAGE_KEY)
-  return stored
-    ? { ...DEFAULT_SETTINGS, ...JSON.parse(stored) }
-    : DEFAULT_SETTINGS
-}
-
-const saveSettings = (settings: Settings): void => {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(settings))
-}
-
-// URL parameter utils
+/**
+ * Converts URL search parameters into settings object
+ * Only includes parameters that differ from defaults
+ */
 const parseUrlParams = (searchParams: URLSearchParams): Partial<Settings> => {
   const result: Partial<Settings> = {}
+  const defaultSettings = AppStorage.conjugationSettings.defaultValue
 
-  Object.entries(DEFAULT_SETTINGS).forEach(([key, defaultValue]) => {
+  Object.entries(defaultSettings).forEach(([key, defaultValue]) => {
     const value = searchParams.get(key)
     if (!value) return
 
     const settingKey = key as keyof Settings
 
+    // Handle different setting types
     if (typeof defaultValue === "boolean") {
-      ;(result[settingKey] as boolean) = value === "true"
-    } else if (
+      // Convert "true"/"false" strings to boolean
+      ;(result[settingKey] as boolean | undefined) = value === "true"
+    }
+    // Handle JLPT level selection
+    else if (
       key === "jlptLevel" &&
       ["n5", "n4", "n3", "n2", "n1"].includes(value)
     ) {
       result.jlptLevel = value as Settings["jlptLevel"]
-    } else if (key === "amount") {
+    }
+    // Handle numerical amount (1-100)
+    else if (key === "amount") {
       const amount = parseInt(value, 10)
       if (!isNaN(amount) && amount >= 1 && amount <= 100) {
         result.amount = amount
@@ -103,9 +61,10 @@ const updateUrlParams = (settings: Settings): void => {
   }
 
   const params = new URLSearchParams(initialUrlParams.toString())
+  const defaultSettings = AppStorage.conjugationSettings.defaultValue
 
   Object.entries(settings).forEach(([key, value]) => {
-    const defaultValue = DEFAULT_SETTINGS[key as keyof Settings]
+    const defaultValue = defaultSettings[key as keyof Settings]
     const initialValue = initialUrlParams!.get(key)
 
     if (value !== defaultValue) {
@@ -128,11 +87,16 @@ const SettingsContext = createContext<SettingsContextValue>()
 
 export function SettingsContextProvider(props: SettingsContextProps) {
   const [searchParams] = useSearchParams<Record<string, string>>()
-  const [settings, setSettings] = createSignal<Settings>(DEFAULT_SETTINGS)
+  const [settings, setSettings] = createSignal<Settings>(
+    AppStorage.conjugationSettings.defaultValue,
+  )
 
   // Load initial settings
   createEffect(() => {
-    const baseSettings = loadStoredSettings()
+    const baseSettings = storageUtils.get(
+      AppStorage.conjugationSettings.key,
+      AppStorage.conjugationSettings.defaultValue,
+    )
     const urlSettings = parseUrlParams(new URLSearchParams(location.search))
 
     setSettings({
@@ -157,7 +121,7 @@ export function SettingsContextProvider(props: SettingsContextProps) {
   const updateSettings = (newSettings: Partial<Settings>) => {
     const updatedSettings = { ...settings(), ...newSettings }
     setSettings(updatedSettings)
-    saveSettings(updatedSettings)
+    storageUtils.set(AppStorage.conjugationSettings.key, updatedSettings)
     updateUrlParams(updatedSettings)
   }
 

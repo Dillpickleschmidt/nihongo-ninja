@@ -2,7 +2,7 @@
 import { createSignal } from "solid-js"
 import { TourStep } from "../types"
 
-export default function createTourStore(steps: TourStep[]) {
+export default function createTourStore(steps: TourStep[], key: string) {
   const [currentStep, setCurrentStep] = createSignal(0)
   const [isOpen, setIsOpen] = createSignal(false)
 

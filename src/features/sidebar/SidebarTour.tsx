@@ -44,7 +44,7 @@ export default function SidebarTour(props: {
     },
   ]
 
-  const tour = createTourStore(learnTourSteps)
+  const tour = createTourStore(learnTourSteps, "learn-sidebar-tour")
   return (
     <>
       <button onClick={tour.start}>Start Tour</button>

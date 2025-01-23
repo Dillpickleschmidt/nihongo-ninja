@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/textfield"
 import { isServer } from "solid-js/web"
 import VocabList from "./components/VocabList"
+import { AppStorage, storageUtils } from "../local-storage"
 
 type VocabTestProps = {
   data: VocabItem[]
@@ -46,16 +47,14 @@ export default function VocabTest({
     setRandomizedData([...data].sort(() => Math.random() - 0.5))
 
     if (isServer) return
-    const storageKey = `vocab-enabled-${path}`
-    const savedState = localStorage.getItem(storageKey)
+    const savedState = storageUtils.get(AppStorage.vocabEnabled.key(path), [])
 
-    if (savedState) {
-      const parsedState = JSON.parse(savedState) as string[]
-      setEnabledItems(new Set(parsedState))
+    if (savedState.length > 0) {
+      setEnabledItems(new Set(savedState))
     } else {
       const initialWords = data.map((item) => item.word)
       setEnabledItems(new Set(initialWords))
-      localStorage.setItem(storageKey, JSON.stringify(initialWords))
+      storageUtils.set(AppStorage.vocabEnabled.key(path), initialWords)
     }
     setIsInitialized(true)
   })
@@ -175,11 +174,8 @@ export default function VocabTest({
     // Update enabled items to only include incorrect words
     setEnabledItems(incorrectWordsSet)
 
-    // Save to localStorage
-    localStorage.setItem(
-      `vocab-enabled-${path}`,
-      JSON.stringify([...incorrectWordsSet]),
-    )
+    // Save to localStorage - THIS LINE CHANGES
+    storageUtils.set(AppStorage.vocabEnabled.key(path), [...incorrectWordsSet])
 
     // Reset the test state
     resetTest()

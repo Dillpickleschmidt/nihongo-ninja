@@ -8,6 +8,7 @@ import {
 import type { RichVocabItem } from "@/types/vocab"
 import { isServer } from "solid-js/web"
 import { Button } from "@/components/ui/button"
+import { AppStorage, storageUtils } from "@/features/local-storage"
 
 type VocabListProps = {
   data: RichVocabItem[]
@@ -16,23 +17,26 @@ type VocabListProps = {
 }
 
 export default function VocabList(props: VocabListProps) {
-  const storageKey = `vocab-enabled-${props.path}`
   const [checkedItems, setCheckedItems] = createSignal<Set<string>>(new Set())
+  const storageKey = AppStorage.vocabEnabled.key(props.path)
 
   createEffect(() => {
     if (isServer) return
 
-    const savedState = localStorage.getItem(storageKey)
-    const initialWords = savedState
-      ? new Set(JSON.parse(savedState) as string[])
-      : new Set(props.data.map((item) => item.word))
+    // Load saved state or initialize with all words
+    const savedWords = storageUtils.get(
+      storageKey,
+      AppStorage.vocabEnabled.defaultValue,
+    )
+    const initialWords =
+      savedWords.length > 0
+        ? new Set(savedWords)
+        : new Set(props.data.map((item) => item.word))
 
+    // Save and update state
+    storageUtils.set(storageKey, Array.from(initialWords))
     setCheckedItems(initialWords)
     props.onCheckedChange(initialWords)
-
-    if (!savedState) {
-      localStorage.setItem(storageKey, JSON.stringify([...initialWords]))
-    }
   })
 
   const handleCheckboxChange = (word: string) => {
@@ -42,8 +46,10 @@ export default function VocabList(props: VocabListProps) {
       const newSet = new Set(prev)
       newSet.has(word) ? newSet.delete(word) : newSet.add(word)
 
-      localStorage.setItem(storageKey, JSON.stringify([...newSet]))
+      // Save and notify parent
+      storageUtils.set(storageKey, Array.from(newSet))
       props.onCheckedChange(newSet)
+
       return newSet
     })
   }
@@ -90,7 +96,7 @@ export default function VocabList(props: VocabListProps) {
                 class="flex cursor-pointer items-center space-x-2"
               >
                 <CheckboxControl class="mr-2" />
-                <CheckboxLabel class="flex w-full justify-between">
+                <CheckboxLabel class="flex w-full cursor-pointer justify-between">
                   <span class="font-japanese">{item.word}</span>
                   <span class="text-muted-foreground">
                     {item.english.join(", ")}

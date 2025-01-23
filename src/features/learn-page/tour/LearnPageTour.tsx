@@ -245,7 +245,7 @@ export default function LearnPageTour(props: {
         dialog: true,
       },
     ]
-    setTour(createTourStore(steps))
+    setTour(createTourStore(steps, "learn-page-tour"))
     setIsMounted(true)
   })
 
