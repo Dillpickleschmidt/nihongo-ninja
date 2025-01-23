@@ -12,6 +12,7 @@ import {
   useLearnPageContext,
 } from "@/features/learn-page/context/LearnPageContext"
 import DottedScrollbar from "@/features/learn-page/DottedScrollbar"
+import Tour from "@/features/learn-page/tour/Tour"
 import Sidebar from "@/features/sidebar/Sidebar"
 import { Title } from "@solidjs/meta"
 import { For } from "solid-js"
@@ -29,6 +30,7 @@ export default function index() {
 
   return (
     <>
+      <Tour />
       <style>
         {`
         .custom-gradient-mask {
@@ -83,7 +85,7 @@ export default function index() {
           <div class="mt-8">
             {/* Controls Header */}
             <div class="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
-              <div class="space-y-2">
+              <div id="sort-controls" class="space-y-2">
                 <h4 class="text-base font-medium text-muted-foreground">
                   Sort by:
                 </h4>
@@ -124,7 +126,7 @@ export default function index() {
             </div>
 
             {/* Main Content */}
-            <div class="mt-8 pb-24">
+            <div id="chapter-boxes" class="mt-8 pb-24">
               <ChapterBoxes />
             </div>
           </div>

@@ -13,24 +13,26 @@ export const Dialog = DialogPrimitive;
 export const DialogTrigger = DialogPrimitive.Trigger;
 
 type dialogContentProps<T extends ValidComponent = "div"> = ParentProps<
-	DialogContentProps<T> & {
-		class?: string;
-	}
->;
+  DialogContentProps<T> & {
+    class?: string
+    overlayClass?: string // New prop for overlay customization
+  }
+>
 
 export const DialogContent = <T extends ValidComponent = "div">(
 	props: PolymorphicProps<T, dialogContentProps<T>>,
 ) => {
 	const [local, rest] = splitProps(props as dialogContentProps, [
-		"class",
-		"children",
-	]);
+    "class",
+    "overlayClass",
+    "children",
+  ])
 
 	return (
 		<DialogPrimitive.Portal>
 			<DialogPrimitive.Overlay
 				class={cn(
-					"fixed inset-0 z-50 bg-background/80 data-[expanded]:animate-in data-[closed]:animate-out data-[closed]:fade-out-0 data-[expanded]:fade-in-0",
+					"fixed inset-0 z-50 bg-background/80 data-[expanded]:animate-in data-[closed]:animate-out data-[closed]:fade-out-0 data-[expanded]:fade-in-0", local.overlayClass
 				)}
 				{...rest}
 			/>

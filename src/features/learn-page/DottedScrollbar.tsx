@@ -143,6 +143,7 @@ export default function DottedScrollbar() {
 
   return (
     <div
+      id="dotted-scrollbar"
       ref={containerRef!}
       class="flex cursor-grab flex-col items-center active:cursor-grabbing"
     >

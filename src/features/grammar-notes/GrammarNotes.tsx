@@ -38,7 +38,14 @@ export default function GrammarNotes(props: GrammarNotesProps) {
                   <Dialog>
                     <DialogTrigger class="h-full w-full">
                       <div class="relative w-full overflow-hidden rounded-lg bg-background-secondary text-primary-foreground shadow-md duration-200 ease-in-out hover:scale-[0.995] hover:opacity-95 dark:shadow-none">
-                        {item.imgSrc && (
+                        {item.imgSrc && item.imgSrc === "x-wa-y-desu.jpg" ? (
+                          <img
+                            id="x-wa-y-desu"
+                            src={item.imgSrc}
+                            alt=""
+                            sizes="700px"
+                          />
+                        ) : (
                           <img src={item.imgSrc} alt="" sizes="700px" />
                         )}
                       </div>

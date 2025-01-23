@@ -12,16 +12,17 @@ type ChapterBoxProps = {
     link: string
     types: Array<UnitButtonType>
     disabled?: boolean
+    id?: string
   }>
 }
 
 export default function ChapterBox(props: ChapterBoxProps) {
   const context = useLearnPageContext()
-  const id = props.text.replace(/\s/g, "_").toLowerCase()
+  const chapterID = props.text.replace(/\s/g, "_").toLowerCase()
 
   // Only add the ID if it's not already in the list
-  if (!context.elementIds().includes(id)) {
-    context.setElementIds([...context.elementIds(), id])
+  if (!context.elementIds().includes(chapterID)) {
+    context.setElementIds([...context.elementIds(), chapterID])
   }
 
   // Group content by type when sort order is "module-type"
@@ -81,7 +82,7 @@ export default function ChapterBox(props: ChapterBoxProps) {
   return (
     <>
       <div
-        id={id}
+        id={chapterID}
         class={twMerge(
           "my-6 flex h-28 w-full scroll-m-20 items-center justify-center rounded-md border-2 border-primary bg-opacity-85 font-medium text-neutral-100 shadow-lg dark:border-none dark:bg-opacity-100 dark:text-primary dark:shadow-none",
           props.class,
@@ -102,7 +103,8 @@ export default function ChapterBox(props: ChapterBoxProps) {
                   <For each={group.items}>
                     {(item, index) => (
                       <UnitButton
-                        id={`${index() + 1}.`}
+                        id={item.id}
+                        number={`${index() + 1}.`}
                         types={item.types}
                         link={item.link}
                         disabled={item.disabled}
@@ -121,7 +123,7 @@ export default function ChapterBox(props: ChapterBoxProps) {
           <For each={props.content}>
             {(item, index) => (
               <UnitButton
-                id={`${index() + 1}.`}
+                number={`${index() + 1}.`}
                 types={item.types}
                 link={item.link}
                 disabled={item.disabled}

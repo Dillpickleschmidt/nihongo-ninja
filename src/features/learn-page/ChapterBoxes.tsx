@@ -11,6 +11,7 @@ export default function ChapterBoxes() {
             title: "Japanese Pronunciation",
             link: "/learn/chapter-0/japanese-pronunciation",
             types: ["lesson"],
+            id: "lesson-tour-example", // For the learn page tour
           },
           {
             title: "Writing Systems",
@@ -81,11 +82,13 @@ export default function ChapterBoxes() {
             title: "Chapter 0 Vocab List",
             link: "/learn/chapter-0/vocab-list",
             types: ["vocab-list"],
+            id: "vocab-list-tour-example", // For the learn page tour
           },
           {
             title: "Greetings",
             link: "/learn/chapter-0/greetings",
             types: ["vocab"],
+            id: "vocab-tour-example", // For the learn page tour
           },
           // {
           //   title: "Culture Note: Japanese Greetings",
@@ -107,6 +110,7 @@ export default function ChapterBoxes() {
             title: "Practice Greet. & Common Expr.",
             link: "/learn/chapter-0/practice/greetings-common-expressions",
             types: ["vocab-practice"],
+            id: "vocab-practice-tour-example", // For the learn page tour
           },
           {
             title: "Numbers Intro",
@@ -216,6 +220,7 @@ export default function ChapterBoxes() {
             title: "X は Y です Practice Sentences",
             link: "/learn/chapter-1/sentence-practice/x-wa-y-desu",
             types: ["practice-sentence"],
+            id: "sentence-practice-tour-example", // For the learn page tour
           },
           {
             title: "Everyday Expressions",
@@ -236,6 +241,7 @@ export default function ChapterBoxes() {
             title: 'Saying "You" in Japanese',
             link: "/learn/chapter-1/saying-you-in-japanese",
             types: ["lesson"],
+            id: "unique-lesson-tour-example", // For the learn page tour
           },
           {
             title: "Useful Expressions",
@@ -676,6 +682,7 @@ export default function ChapterBoxes() {
             title: "Practice Pos/Neg ます Conjugation",
             link: "/learn/conjugation?normal=true&teForm=false&volitional=false&taiForm=false&tariForm=false&potential=false&imperative=false&conditional=false&passive=false&causative=false&causativePassive=false&verb=true&iAdjective=false&naAdjective=false&polite=true&plain=false&nonPast=true&past=false&positive=true&negative=true",
             types: ["conjugation-practice"],
+            id: "conjugation-practice-tour-example", // For the learn page tour
           },
           {
             title: "Particles - を, で, に, へ",
