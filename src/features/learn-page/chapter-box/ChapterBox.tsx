@@ -23,14 +23,15 @@ export default function ChapterBox(props: ChapterBoxProps) {
 
   // Register IDs only once on mount
   onMount(() => {
-    if (!context.elementIds().includes(chapterID)) {
-      context.setElementIds([...context.elementIds(), chapterID])
+    // Register chapter ID
+    if (!context.chapterIds().includes(chapterID)) {
+      context.setChapterIds([...context.chapterIds(), chapterID])
     }
 
-    // Register any custom IDs from content
+    // Register unit IDs separately
     props.content.forEach((item) => {
-      if (item.id && !context.elementIds().includes(item.id)) {
-        context.setElementIds([...context.elementIds(), item.id!])
+      if (item.id && !context.unitIds().includes(item.id)) {
+        context.setUnitIds([...context.unitIds(), item.id!])
       }
     })
   })

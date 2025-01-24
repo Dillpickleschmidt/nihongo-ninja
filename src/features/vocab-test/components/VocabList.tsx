@@ -25,7 +25,7 @@ export default function VocabList(props: VocabListProps) {
     if (isServer) return
 
     // Get saved words or use all words if none saved
-    const saved = storageUtils.get(AppStorage.vocabEnabled.key(props.path))
+    const saved = storageUtils.get(AppStorage.vocabTestEnabled.key(props.path))
     const words =
       saved.length > 0
         ? new Set<string>(saved)
@@ -45,7 +45,7 @@ export default function VocabList(props: VocabListProps) {
 
     setCheckedWords(newWords)
     storageUtils.set(
-      AppStorage.vocabEnabled.key(props.path),
+      AppStorage.vocabTestEnabled.key(props.path),
       Array.from(newWords),
     )
     props.onCheckedChange(newWords)
@@ -58,7 +58,7 @@ export default function VocabList(props: VocabListProps) {
           onClick={() => {
             const words = new Set<string>()
             setCheckedWords(words)
-            storageUtils.set(AppStorage.vocabEnabled.key(props.path), [])
+            storageUtils.set(AppStorage.vocabTestEnabled.key(props.path), [])
             props.onCheckedChange(words)
           }}
           variant="outline"
@@ -71,7 +71,7 @@ export default function VocabList(props: VocabListProps) {
             const words = new Set(props.data.map((item) => item.word))
             setCheckedWords(words)
             storageUtils.set(
-              AppStorage.vocabEnabled.key(props.path),
+              AppStorage.vocabTestEnabled.key(props.path),
               Array.from(words),
             )
             props.onCheckedChange(words)

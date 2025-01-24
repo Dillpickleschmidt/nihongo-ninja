@@ -1,3 +1,4 @@
+// LearnPageContext.tsx
 import { createContext, useContext, createSignal } from "solid-js"
 
 type LearnPageContextProps = {
@@ -9,8 +10,10 @@ export const sortOrderTypes = ["module-type", "chronological"] as const
 export type sortOrder = (typeof sortOrderTypes)[number]
 
 type LearnPageContextType = {
-  elementIds: () => string[]
-  setElementIds: (ids: string[]) => void
+  chapterIds: () => string[]
+  setChapterIds: (ids: string[]) => void
+  unitIds: () => string[]
+  setUnitIds: (ids: string[]) => void
   sortOrder: () => sortOrder
   setSortOrder: (order: sortOrder) => void
   sortChangeCounter: () => number
@@ -20,7 +23,8 @@ type LearnPageContextType = {
 const LearnPageContext = createContext<LearnPageContextType>()
 
 export function LearnPageProvider(props: LearnPageContextProps) {
-  const [elementIds, setElementIds] = createSignal<string[]>([])
+  const [chapterIds, setChapterIds] = createSignal<string[]>([])
+  const [unitIds, setUnitIds] = createSignal<string[]>([])
   const [sortOrder, setSortOrder] = createSignal<sortOrder>("module-type")
   const [sortChangeCounter, setSortChangeCounter] = createSignal(0)
 
@@ -32,8 +36,10 @@ export function LearnPageProvider(props: LearnPageContextProps) {
   return (
     <LearnPageContext.Provider
       value={{
-        elementIds,
-        setElementIds,
+        chapterIds,
+        setChapterIds,
+        unitIds,
+        setUnitIds,
         sortOrder,
         setSortOrder,
         sortChangeCounter,

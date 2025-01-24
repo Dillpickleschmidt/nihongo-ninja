@@ -7,7 +7,6 @@ import type { Settings } from "@/features/conjugation-practice/types"
 export const AppStorage = {
   // Conjugation practice settings
   conjugation: {
-    // Changed from conjugationSettings
     key: (id: string = "settings") => `conjugation-${id}`,
     defaultValue: {
       // Form types
@@ -48,8 +47,8 @@ export const AppStorage = {
   },
 
   // Vocabulary test enabled settings
-  vocabEnabled: {
-    key: (path: string) => `vocabEnabled-${path}`,
+  vocabTestEnabled: {
+    key: (path: string) => `vocabTestEnabled-${path}`,
     defaultValue: [] as string[],
   },
 

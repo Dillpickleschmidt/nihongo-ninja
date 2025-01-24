@@ -45,7 +45,7 @@ export default function VocabTest({
   createEffect(() => {
     if (isServer) return
 
-    const saved = storageUtils.get(AppStorage.vocabEnabled.key(path))
+    const saved = storageUtils.get(AppStorage.vocabTestEnabled.key(path))
     const words =
       saved.length > 0
         ? new Set<string>(saved)
@@ -166,7 +166,9 @@ export default function VocabTest({
     setEnabledItems(incorrectWordsSet)
 
     // Save to localStorage - THIS LINE CHANGES
-    storageUtils.set(AppStorage.vocabEnabled.key(path), [...incorrectWordsSet])
+    storageUtils.set(AppStorage.vocabTestEnabled.key(path), [
+      ...incorrectWordsSet,
+    ])
 
     // Reset the test state
     resetTest()

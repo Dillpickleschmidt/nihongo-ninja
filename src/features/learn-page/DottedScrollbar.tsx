@@ -44,8 +44,9 @@ export default function DottedScrollbar() {
   const scrollToNearest = (clientY: number, smooth = false) => {
     if (!containerRef) return
 
+    // Use only chapter IDs for the dotted scrollbar
     const dots = context
-      .elementIds()
+      .chapterIds() // Only consider chapter IDs
       .map((id) => {
         const button = containerRef.querySelector(`button[data-id="${id}"]`)
         if (!button) return null
@@ -126,7 +127,7 @@ export default function DottedScrollbar() {
       }
     })
 
-    context.elementIds().forEach((id) => {
+    context.chapterIds().forEach((id) => {
       const element = document.querySelector(`#${id}`)
       if (element) observer.observe(element)
     })
@@ -147,7 +148,7 @@ export default function DottedScrollbar() {
       ref={containerRef!}
       class="flex cursor-grab flex-col items-center active:cursor-grabbing"
     >
-      <For each={context.elementIds()}>
+      <For each={context.chapterIds()}>
         {(id) => (
           <div class="relative flex items-center">
             {id === activeSection() && (
