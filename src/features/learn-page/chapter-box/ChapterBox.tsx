@@ -1,4 +1,5 @@
-import { For, createMemo } from "solid-js"
+// ChapterBox.tsx
+import { For, createMemo, onMount } from "solid-js"
 import { twMerge } from "tailwind-merge"
 import UnitButton from "./UnitButton"
 import { UnitButtonType, UnitButtonTypes } from "./types"
@@ -20,10 +21,19 @@ export default function ChapterBox(props: ChapterBoxProps) {
   const context = useLearnPageContext()
   const chapterID = props.text.replace(/\s/g, "_").toLowerCase()
 
-  // Only add the ID if it's not already in the list
-  if (!context.elementIds().includes(chapterID)) {
-    context.setElementIds([...context.elementIds(), chapterID])
-  }
+  // Register IDs only once on mount
+  onMount(() => {
+    if (!context.elementIds().includes(chapterID)) {
+      context.setElementIds([...context.elementIds(), chapterID])
+    }
+
+    // Register any custom IDs from content
+    props.content.forEach((item) => {
+      if (item.id && !context.elementIds().includes(item.id)) {
+        context.setElementIds([...context.elementIds(), item.id!])
+      }
+    })
+  })
 
   // Group content by type when sort order is "module-type"
   const groupedContent = createMemo(() => {
@@ -79,6 +89,11 @@ export default function ChapterBox(props: ChapterBoxProps) {
       .join(" ")
   }
 
+  // Create stable IDs for items that don't have them
+  const getStableId = (item: ChapterBoxProps["content"][0], index: number) => {
+    return item.id || `${chapterID}-item-${index}`
+  }
+
   return (
     <>
       <div
@@ -103,7 +118,7 @@ export default function ChapterBox(props: ChapterBoxProps) {
                   <For each={group.items}>
                     {(item, index) => (
                       <UnitButton
-                        id={item.id}
+                        id={getStableId(item, index())}
                         number={`${index() + 1}.`}
                         types={item.types}
                         link={item.link}
@@ -123,6 +138,7 @@ export default function ChapterBox(props: ChapterBoxProps) {
           <For each={props.content}>
             {(item, index) => (
               <UnitButton
+                id={getStableId(item, index())}
                 number={`${index() + 1}.`}
                 types={item.types}
                 link={item.link}

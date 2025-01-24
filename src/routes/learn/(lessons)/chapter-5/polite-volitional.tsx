@@ -207,6 +207,15 @@ export default function page() {
 
         <h2 class="!mt-12 text-center text-2xl font-bold">Rap Passages</h2>
         {/* <p class="!mt-3">Grammar doesn't have to be boring:</p> */}
+        <h2 class="font-bold italic">
+          Inspired by my unhealthy Chris Turner binge watching:
+        </h2>
+        <YouTubeVideo
+          title="British Rapper's Freestyle skills will SURPRISE you..."
+          videoId="l0G757AvCbE"
+          credit="Chris Turner
+"
+        />
         <div class="space-y-2">
           <h3 class="font-bold">Planning a Movie Night</h3>
           <p class="leading-8">
@@ -294,15 +303,11 @@ export default function page() {
           </p>
         </div>
 
-        <h2 class="font-bold italic">
-          Inspired by my unhealthy Chris Turner binge watching:
-        </h2>
-        <YouTubeVideo
-          title="British Rapper's Freestyle skills will SURPRISE you..."
-          videoId="l0G757AvCbE"
-          credit="Chris Turner
-"
-        />
+        <p>
+          Now, either that was midly amusing and you learned some contexts you
+          could use volitional form in, or you suddenly have an urge to jump off
+          a bridge after reading cringe. Sorry, not sorry.
+        </p>
       </div>
     </ContentBox>
   )

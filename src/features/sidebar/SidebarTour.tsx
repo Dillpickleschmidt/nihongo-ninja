@@ -2,23 +2,38 @@
 import { createSignal, onMount } from "solid-js"
 import type { TourStep } from "@/features/tour/types"
 import TourGuide from "@/features/tour/components/TourGuide"
-import createTourStore from "@/features/tour/utils/tour"
-import { AppStorage, storageUtils } from "@/features/local-storage"
+import { tourStore } from "@/features/tour/utils/tour"
 
 export default function SidebarTour(props: {
   setIsSidebarOpen: (isOpen: boolean) => void
 }) {
   const tourKey = "learn-sidebar"
   const learnTourKey = "learn-page"
-  const [tour, setTour] = createSignal<ReturnType<typeof createTourStore>>()
+  const [controller, setController] =
+    createSignal<ReturnType<typeof tourStore.createTourController>>()
 
-  const learnTourSteps: TourStep[] = [
+  const steps: TourStep[] = [
     {
       target: "#grammar-notes-link-sidebar-modal",
       title: "Grammar Notes",
       content:
         "Check out the Grammar Notes section for quick reference on grammar points.",
       placement: "bottom",
+      onPrevFunction: () => {
+        props.setIsSidebarOpen(false)
+
+        tourStore.setTourState("learn-page", {
+          currentStep: 9,
+          isOpen: true,
+        })
+
+        // Update the sidebar tour state
+        tourStore.setTourState("learn-sidebar", {
+          completed: false,
+          currentStep: 0,
+          isOpen: false,
+        })
+      },
     },
     {
       target: "#conjugation-link-sidebar-modal",
@@ -45,48 +60,44 @@ export default function SidebarTour(props: {
         props.setIsSidebarOpen(false)
 
         // Update the learn tour state
-        storageUtils.set(AppStorage.tour.key(learnTourKey), {
+        tourStore.setTourState(learnTourKey, {
           completed: false,
-          currentStep: 4,
+          currentStep: 13,
+          isOpen: true,
         })
 
-        // Mark the sidebar tour as completed
-        tour()?.stop()
+        controller()?.stop()
       },
     },
   ]
 
   onMount(() => {
-    // Initialize the tour
-    const tourStore = createTourStore(learnTourSteps, tourKey)
-    setTour(tourStore)
+    const tourController = tourStore.createTourController(steps, tourKey)
+    setController(tourController)
 
     // Check state and start the tour if needed
     setTimeout(() => {
-      const savedState = storageUtils.get(AppStorage.tour.key(tourKey))
-      const learnCurrentState = storageUtils.get(
-        AppStorage.tour.key(learnTourKey),
-      )
+      const sidebarState = tourStore.getTourState(tourKey)
+      const learnState = tourStore.getTourState(learnTourKey)
 
-      console.log("learnTourCurrentStep", learnCurrentState.currentStep)
-
-      if (!savedState.completed && learnCurrentState.currentStep === 1) {
-        tourStore.start()
+      if (!sidebarState.completed && learnState.currentStep === 10) {
+        tourController.start()
       }
     }, 400)
   })
 
   return (
     <>
-      <button onClick={() => tour()?.start()}>Start Tour</button>
+      {/* <button onClick={() => controller()?.start()}>Start Tour</button> */}
       <TourGuide
-        steps={tour()!.steps}
-        isOpen={tour()?.isOpen() || false}
-        currentStep={tour()?.currentStep() || 0}
-        onNext={() => tour()?.next()}
-        onPrev={() => tour()?.prev()}
-        onStop={() => tour()?.stop()}
-        onPause={() => tour()?.pause()}
+        steps={controller()!.steps}
+        isOpen={controller()?.isOpen() || false}
+        currentStep={controller()?.currentStep() || 0}
+        onNext={() => controller()?.next()}
+        onPrev={() => controller()?.prev()}
+        onStop={() => controller()?.stop()}
+        onPause={() => controller()?.pause()}
+        followsOtherTour={true}
       />
     </>
   )

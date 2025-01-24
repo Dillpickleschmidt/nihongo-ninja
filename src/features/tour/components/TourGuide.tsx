@@ -31,7 +31,7 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog"
-import { Button } from "@/components/ui/button"
+import { Button, buttonVariants } from "@/components/ui/button"
 import type { TourStep } from "../types"
 import { cn } from "@/libs/cn"
 
@@ -43,6 +43,7 @@ export default function TourGuide(props: {
   onPrev: () => void
   onStop: () => void
   onPause: () => void
+  followsOtherTour?: boolean
 }) {
   let highlightRef: HTMLDivElement | undefined
   const [showExitConfirm, setShowExitConfirm] = createSignal(false)
@@ -201,22 +202,39 @@ export default function TourGuide(props: {
           <AlertDialogHeader>
             <AlertDialogTitle>Exit Tour?</AlertDialogTitle>
             <AlertDialogDescription>
-              Are you sure you want to exit the tour? Your progress will be
-              saved and you can continue later.
+              Are you sure you want to exit the tour? You can either stop it or
+              pause it to save your progress so you can continue later.
             </AlertDialogDescription>
           </AlertDialogHeader>
-          <AlertDialogFooter>
+          <AlertDialogFooter class="sm:justify-between">
             <AlertDialogClose onClick={() => setShowExitConfirm(false)}>
               Cancel
             </AlertDialogClose>
-            <AlertDialogAction
-              onClick={() => {
-                setShowExitConfirm(false)
-                props.onStop()
-              }}
-            >
-              Exit Tour
-            </AlertDialogAction>
+            <div class="flex w-full space-x-2 sm:w-auto">
+              <AlertDialogAction
+                onClick={() => {
+                  setShowExitConfirm(false)
+                  props.onStop()
+                }}
+                class={cn(
+                  buttonVariants({
+                    variant: "outline",
+                  }),
+                  "w-1/2 text-nowrap text-white md:mt-0",
+                )}
+              >
+                Stop Tour
+              </AlertDialogAction>
+              <AlertDialogAction
+                onClick={() => {
+                  setShowExitConfirm(false)
+                  props.onPause()
+                }}
+                class="w-1/2 text-nowrap"
+              >
+                Pause Tour
+              </AlertDialogAction>
+            </div>
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
@@ -243,7 +261,10 @@ export default function TourGuide(props: {
                 </DialogDescription>
               </DialogHeader>
               <div class="flex justify-between">
-                <Show when={props.currentStep > 0} fallback={<div />}>
+                <Show
+                  when={props.followsOtherTour ? true : props.currentStep > 0}
+                  fallback={<div />}
+                >
                   <Button variant="secondary" onClick={props.onPrev}>
                     Previous
                   </Button>
@@ -290,7 +311,10 @@ export default function TourGuide(props: {
                 {props.steps[props.currentStep].content}
               </PopoverDescription>
               <div class="flex justify-between">
-                <Show when={props.currentStep > 0} fallback={<div />}>
+                <Show
+                  when={props.followsOtherTour ? true : props.currentStep > 0}
+                  fallback={<div />}
+                >
                   <Button variant="secondary" onClick={props.onPrev}>
                     Previous
                   </Button>

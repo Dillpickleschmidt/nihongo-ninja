@@ -3,111 +3,130 @@ import { createSignal } from "solid-js"
 import type { TourStep } from "../types"
 import { AppStorage, storageUtils } from "@/features/local-storage"
 
-export default function createTourStore(steps: TourStep[], tourKey: string) {
-  const storageKey = AppStorage.tour.key(tourKey)
+// Global cache of tour signals
+const tourSignals = new Map<
+  string,
+  {
+    currentStep: ReturnType<typeof createSignal<number>>
+    isOpen: ReturnType<typeof createSignal<boolean>>
+  }
+>()
 
-  // Initialize state with localStorage defaults
-  const savedState = storageUtils.get(storageKey)
-  console.log("Saved State: ", savedState)
-  const [currentStep, setCurrentStep] = createSignal(
-    savedState.currentStep || 0,
-  )
-  const [isOpen, setIsOpen] = createSignal(false)
-
-  // Save the current state to localStorage
-  const saveState = () => {
-    console.log("Current Step: ", currentStep())
-    storageUtils.set(storageKey, {
-      completed: false,
-      currentStep: currentStep() || 0,
+// Get or create signals for a tour
+function getSignalsForTour(tourKey: string) {
+  if (!tourSignals.has(tourKey)) {
+    const savedState = storageUtils.get(AppStorage.tour.key(tourKey))
+    tourSignals.set(tourKey, {
+      currentStep: createSignal(savedState.currentStep || 0),
+      isOpen: createSignal(false),
     })
   }
+  return tourSignals.get(tourKey)!
+}
 
-  // Sync state with storage
-  const syncState = () => {
-    const state = storageUtils.get(storageKey)
-    console.log("Sync State: ", state)
-    setCurrentStep(state.currentStep)
-  }
+export const tourStore = {
+  getTourState(tourKey: string) {
+    const signals = getSignalsForTour(tourKey)
+    const [currentStep] = signals.currentStep
+    const [isOpen] = signals.isOpen
+    const savedState = storageUtils.get(AppStorage.tour.key(tourKey))
 
-  const tourMethods = {
-    steps,
-    currentStep,
-    isOpen,
+    return {
+      completed: savedState.completed || false,
+      currentStep: currentStep(),
+      isOpen: isOpen(),
+    }
+  },
 
-    // Start the tour
-    start: () => {
-      // Prevent race condition with "if (currentStep())"
-      if (currentStep()) {
-        syncState() // Synchronize signals with storage
-      }
-      setIsOpen(true)
-      saveState()
-    },
+  setTourState(
+    tourKey: string,
+    state: { completed?: boolean; currentStep?: number; isOpen?: boolean },
+  ) {
+    const signals = getSignalsForTour(tourKey)
+    const [, setCurrentStep] = signals.currentStep
+    const [, setIsOpen] = signals.isOpen
 
-    // Pause the tour (close without resetting or completing)
-    pause: () => {
-      setIsOpen(false)
-      saveState()
-    },
+    if (state.currentStep !== undefined) {
+      setCurrentStep(state.currentStep)
+    }
+    if (state.isOpen !== undefined) {
+      setIsOpen(state.isOpen)
+    }
+    if (state.completed !== undefined || state.currentStep !== undefined) {
+      storageUtils.set(AppStorage.tour.key(tourKey), {
+        completed: state.completed ?? this.getTourState(tourKey).completed,
+        currentStep:
+          state.currentStep ?? this.getTourState(tourKey).currentStep,
+      })
+    }
+  },
 
-    // Stop the tour (reset current step and close)
-    stop: () => {
-      setIsOpen(false)
-      setCurrentStep(0)
-      saveState()
-      tourMethods.complete()
-    },
+  createTourController(steps: TourStep[], tourKey: string) {
+    const signals = getSignalsForTour(tourKey)
+    const [currentStep] = signals.currentStep
 
-    // Move to the next step
-    next: () => {
-      if (currentStep() < steps.length - 1) {
-        const step = steps[currentStep()]
+    return {
+      steps,
+      currentStep,
+      isOpen: signals.isOpen[0],
 
-        // Execute custom logic if defined in `onNextFunction`
-        if (step?.onNextFunction) {
-          step.onNextFunction()
+      start() {
+        tourStore.setTourState(tourKey, { isOpen: true })
+      },
+
+      pause() {
+        tourStore.setTourState(tourKey, { isOpen: false })
+      },
+
+      stop() {
+        tourStore.setTourState(tourKey, {
+          isOpen: false,
+          currentStep: 0,
+          completed: true,
+        })
+      },
+
+      next() {
+        if (currentStep() < steps.length - 1) {
+          const step = steps[currentStep()]
+          if (step?.onNextFunction) {
+            // Override the default next() logic
+            step.onNextFunction()
+          } else {
+            tourStore.setTourState(tourKey, { currentStep: currentStep() + 1 })
+          }
+        } else {
+          const step = steps[currentStep()]
+          if (step?.onNextFunction) {
+            step.onNextFunction()
+          } // Don't bother overriding the default next() logic
+          tourStore.setTourState(tourKey, {
+            isOpen: false,
+            currentStep: 0,
+            completed: true,
+          })
         }
+      },
 
-        setCurrentStep((prev) => prev + 1)
-        saveState()
-      } else {
+      prev() {
         const step = steps[currentStep()]
-        // Execute custom logic if defined in `onNextFunction`
-        if (step?.onNextFunction) {
-          step.onNextFunction()
-        }
-        tourMethods.complete() // Mark the tour as completed if on the last step
-      }
-    },
-
-    // Move to the previous step
-    prev: () => {
-      if (currentStep() > 0) {
-        const step = steps[currentStep()]
-        // Execute custom logic if defined in `onNextFunction`
         if (step?.onPrevFunction) {
+          // Override the default prev() logic
           step.onPrevFunction()
+        } else {
+          if (currentStep() > 0) {
+            tourStore.setTourState(tourKey, { currentStep: currentStep() - 1 })
+          }
         }
-        setCurrentStep((prev) => prev - 1)
-        saveState()
-      }
-    },
+      },
 
-    // Mark the tour as completed
-    complete: () => {
-      setCurrentStep(0)
-      setIsOpen(false)
-      storageUtils.set(storageKey, { completed: true, currentStep: 0 })
-    },
-
-    // Reset the tour to the beginning
-    reset: () => {
-      setCurrentStep(0)
-      setIsOpen(false)
-      storageUtils.set(storageKey, { completed: false, currentStep: 0 })
-    },
-  }
-
-  return tourMethods
+      reset() {
+        tourStore.setTourState(tourKey, {
+          currentStep: 0,
+          isOpen: false,
+          completed: false,
+        })
+      },
+    }
+  },
 }

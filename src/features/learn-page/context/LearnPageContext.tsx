@@ -13,6 +13,8 @@ type LearnPageContextType = {
   setElementIds: (ids: string[]) => void
   sortOrder: () => sortOrder
   setSortOrder: (order: sortOrder) => void
+  sortChangeCounter: () => number
+  setSortOrderAndNotify: (order: sortOrder) => void
 }
 
 const LearnPageContext = createContext<LearnPageContextType>()
@@ -20,6 +22,12 @@ const LearnPageContext = createContext<LearnPageContextType>()
 export function LearnPageProvider(props: LearnPageContextProps) {
   const [elementIds, setElementIds] = createSignal<string[]>([])
   const [sortOrder, setSortOrder] = createSignal<sortOrder>("module-type")
+  const [sortChangeCounter, setSortChangeCounter] = createSignal(0)
+
+  const setSortOrderAndNotify = (newOrder: sortOrder) => {
+    setSortOrder(newOrder)
+    setSortChangeCounter((c) => c + 1)
+  }
 
   return (
     <LearnPageContext.Provider
@@ -28,6 +36,8 @@ export function LearnPageProvider(props: LearnPageContextProps) {
         setElementIds,
         sortOrder,
         setSortOrder,
+        sortChangeCounter,
+        setSortOrderAndNotify,
       }}
     >
       {props.children}
