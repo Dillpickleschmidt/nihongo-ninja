@@ -18,7 +18,9 @@ type SettingsContextValue = {
  */
 const parseUrlParams = (searchParams: URLSearchParams): Partial<Settings> => {
   const result: Partial<Settings> = {}
-  const defaultSettings = AppStorage.conjugationSettings.defaultValue
+  const defaultSettings = storageUtils.get(
+    AppStorage.conjugation.key("settings"),
+  )
 
   Object.entries(defaultSettings).forEach(([key, defaultValue]) => {
     const value = searchParams.get(key)
@@ -61,7 +63,9 @@ const updateUrlParams = (settings: Settings): void => {
   }
 
   const params = new URLSearchParams(initialUrlParams.toString())
-  const defaultSettings = AppStorage.conjugationSettings.defaultValue
+  const defaultSettings = storageUtils.get(
+    AppStorage.conjugation.key("settings"),
+  )
 
   Object.entries(settings).forEach(([key, value]) => {
     const defaultValue = defaultSettings[key as keyof Settings]
@@ -88,14 +92,13 @@ const SettingsContext = createContext<SettingsContextValue>()
 export function SettingsContextProvider(props: SettingsContextProps) {
   const [searchParams] = useSearchParams<Record<string, string>>()
   const [settings, setSettings] = createSignal<Settings>(
-    AppStorage.conjugationSettings.defaultValue,
+    storageUtils.get(AppStorage.conjugation.key("settings")),
   )
 
   // Load initial settings
   createEffect(() => {
     const baseSettings = storageUtils.get(
-      AppStorage.conjugationSettings.key,
-      AppStorage.conjugationSettings.defaultValue,
+      AppStorage.conjugation.key("settings"),
     )
     const urlSettings = parseUrlParams(new URLSearchParams(location.search))
 
@@ -121,7 +124,7 @@ export function SettingsContextProvider(props: SettingsContextProps) {
   const updateSettings = (newSettings: Partial<Settings>) => {
     const updatedSettings = { ...settings(), ...newSettings }
     setSettings(updatedSettings)
-    storageUtils.set(AppStorage.conjugationSettings.key, updatedSettings)
+    storageUtils.set(AppStorage.conjugation.key("settings"), updatedSettings)
     updateUrlParams(updatedSettings)
   }
 

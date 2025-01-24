@@ -1,4 +1,3 @@
-// VocabList.tsx
 import { createSignal, createEffect, For } from "solid-js"
 import {
   Checkbox,
@@ -17,67 +16,66 @@ type VocabListProps = {
 }
 
 export default function VocabList(props: VocabListProps) {
-  const [checkedItems, setCheckedItems] = createSignal<Set<string>>(new Set())
-  const storageKey = AppStorage.vocabEnabled.key(props.path)
+  const [checkedWords, setCheckedWords] = createSignal<Set<string>>(
+    new Set<string>(),
+  )
 
+  // Load initial state
   createEffect(() => {
     if (isServer) return
 
-    // Load saved state or initialize with all words
-    const savedWords = storageUtils.get(
-      storageKey,
-      AppStorage.vocabEnabled.defaultValue,
-    )
-    const initialWords =
-      savedWords.length > 0
-        ? new Set(savedWords)
-        : new Set(props.data.map((item) => item.word))
+    // Get saved words or use all words if none saved
+    const saved = storageUtils.get(AppStorage.vocabEnabled.key(props.path))
+    const words =
+      saved.length > 0
+        ? new Set<string>(saved)
+        : new Set<string>(props.data.map((item) => item.word))
 
-    // Save and update state
-    storageUtils.set(storageKey, Array.from(initialWords))
-    setCheckedItems(initialWords)
-    props.onCheckedChange(initialWords)
+    setCheckedWords(words)
+    props.onCheckedChange(words)
   })
 
-  const handleCheckboxChange = (word: string) => {
-    if (isServer) return
+  const toggleWord = (word: string) => {
+    const newWords = new Set(checkedWords())
+    if (newWords.has(word)) {
+      newWords.delete(word)
+    } else {
+      newWords.add(word)
+    }
 
-    setCheckedItems((prev) => {
-      const newSet = new Set(prev)
-      newSet.has(word) ? newSet.delete(word) : newSet.add(word)
-
-      // Save and notify parent
-      storageUtils.set(storageKey, Array.from(newSet))
-      props.onCheckedChange(newSet)
-
-      return newSet
-    })
-  }
-
-  const handleSelectNone = () => {
-    if (isServer) return
-    const newSet = new Set<string>()
-    localStorage.setItem(storageKey, JSON.stringify([...newSet]))
-    setCheckedItems(newSet)
-    props.onCheckedChange(newSet)
-  }
-
-  const handleReset = () => {
-    if (isServer) return
-    const newSet = new Set(props.data.map((item) => item.word))
-    localStorage.setItem(storageKey, JSON.stringify([...newSet]))
-    setCheckedItems(newSet)
-    props.onCheckedChange(newSet)
+    setCheckedWords(newWords)
+    storageUtils.set(
+      AppStorage.vocabEnabled.key(props.path),
+      Array.from(newWords),
+    )
+    props.onCheckedChange(newWords)
   }
 
   return (
     <>
       <div class="mb-4 flex gap-2">
-        <Button onClick={handleSelectNone} variant="outline" size="sm">
+        <Button
+          onClick={() => {
+            const words = new Set<string>()
+            setCheckedWords(words)
+            storageUtils.set(AppStorage.vocabEnabled.key(props.path), [])
+            props.onCheckedChange(words)
+          }}
+          variant="outline"
+          size="sm"
+        >
           Select None
         </Button>
         <Button
-          onClick={handleReset}
+          onClick={() => {
+            const words = new Set(props.data.map((item) => item.word))
+            setCheckedWords(words)
+            storageUtils.set(
+              AppStorage.vocabEnabled.key(props.path),
+              Array.from(words),
+            )
+            props.onCheckedChange(words)
+          }}
           variant="outline"
           size="sm"
           title="Selects all"
@@ -85,14 +83,15 @@ export default function VocabList(props: VocabListProps) {
           Reset
         </Button>
       </div>
+
       <ul class="space-y-2 p-4">
         <For each={props.data}>
           {(item) => (
             <li>
               <Checkbox
                 id={`vocab-${item.word}`}
-                checked={checkedItems().has(item.word)}
-                onChange={() => handleCheckboxChange(item.word)}
+                checked={checkedWords().has(item.word)}
+                onChange={() => toggleWord(item.word)}
                 class="flex cursor-pointer items-center space-x-2"
               >
                 <CheckboxControl class="mr-2" />

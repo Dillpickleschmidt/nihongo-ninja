@@ -6,8 +6,9 @@ import type { Settings } from "@/features/conjugation-practice/types"
  */
 export const AppStorage = {
   // Conjugation practice settings
-  conjugationSettings: {
-    key: "japaneseConjugationSettings",
+  conjugation: {
+    // Changed from conjugationSettings
+    key: (id: string = "settings") => `conjugation-${id}`,
     defaultValue: {
       // Form types
       normal: true,
@@ -48,7 +49,7 @@ export const AppStorage = {
 
   // Vocabulary test enabled settings
   vocabEnabled: {
-    key: (path: string) => `vocab-enabled-${path}`,
+    key: (path: string) => `vocabEnabled-${path}`,
     defaultValue: [] as string[],
   },
 

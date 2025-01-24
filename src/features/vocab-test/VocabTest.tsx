@@ -31,52 +31,43 @@ export default function VocabTest({
   const [showVocabList, setShowVocabList] = createSignal(false)
   const [enabledItems, setEnabledItems] = createSignal<Set<string>>(new Set())
   const [randomizedData, setRandomizedData] = createSignal<VocabItem[]>([])
+  const [userAnswers, setUserAnswers] = createSignal<Record<string, string>>({})
+  const [particleAnswers, setParticleAnswers] = createSignal<
+    Record<number, string[]>
+  >({})
   const [showAnswers, setShowAnswers] = createSignal(false)
   const [showRetryPrompt, setShowRetryPrompt] = createSignal(false)
-  const [userAnswers, setUserAnswers] = createSignal<{ [key: string]: string }>(
-    {},
+  const [markedCorrect, setMarkedCorrect] = createSignal<Set<number>>(
+    new Set<number>(),
   )
-  const [particleAnswers, setParticleAnswers] = createSignal<{
-    [key: string]: string[]
-  }>({})
-  const [markedCorrect, setMarkedCorrect] = createSignal<Set<number>>(new Set())
-  const [isInitialized, setIsInitialized] = createSignal(false)
 
-  // Initial data load
+  // Load saved state and initialize
   createEffect(() => {
-    setRandomizedData([...data].sort(() => Math.random() - 0.5))
-
     if (isServer) return
-    const savedState = storageUtils.get(AppStorage.vocabEnabled.key(path), [])
 
-    if (savedState.length > 0) {
-      setEnabledItems(new Set(savedState))
-    } else {
-      const initialWords = data.map((item) => item.word)
-      setEnabledItems(new Set(initialWords))
-      storageUtils.set(AppStorage.vocabEnabled.key(path), initialWords)
-    }
-    setIsInitialized(true)
+    const saved = storageUtils.get(AppStorage.vocabEnabled.key(path))
+    const words =
+      saved.length > 0
+        ? new Set<string>(saved)
+        : new Set<string>(data.map((item) => item.word))
+
+    setEnabledItems(words)
+    resetTest(words)
   })
 
-  // Filter data after initialization
-  createEffect(() => {
-    if (!isInitialized()) return
-    const filtered = data.filter((item) => enabledItems().has(item.word))
+  const resetTest = (words = enabledItems()) => {
+    const filtered = data.filter((item) => words.has(item.word))
     setRandomizedData([...filtered].sort(() => Math.random() - 0.5))
-  })
-
-  const resetTest = () => {
-    setShowAnswers(false)
-    setShowRetryPrompt(false)
     setUserAnswers({})
     setParticleAnswers({})
     setMarkedCorrect(new Set<number>())
-    setRandomizedData([...randomizedData()].sort(() => Math.random() - 0.5))
+    setShowAnswers(false)
+    setShowRetryPrompt(false)
   }
 
   const handleVocabListChange = (items: Set<string>) => {
     setEnabledItems(items)
+    resetTest(items)
   }
 
   const handleInputChange = (
