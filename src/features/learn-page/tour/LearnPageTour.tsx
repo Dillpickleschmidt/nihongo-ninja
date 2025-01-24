@@ -57,6 +57,22 @@ export default function LearnPageTour(props: {
         scroll: true,
       },
       {
+        target: "#lesson-tour-example",
+        title: "Module Types",
+        content: (
+          <div class="space-y-3">
+            <p>These often have videos and links to external resources.</p>
+            <p>
+              These lessons are always free—there's a lot of great material out
+              there, and we aim to curate and provide them to you when they're
+              most helpful.
+            </p>
+          </div>
+        ),
+        placement: breakpoints.sm() ? "right-end" : "top",
+        scroll: true,
+      },
+      {
         target: "#unique-lesson-tour-example",
         title: "Module Types",
         content: (
@@ -72,6 +88,25 @@ export default function LearnPageTour(props: {
         scroll: true,
       },
       {
+        target: "#sentence-practice-tour-example",
+        title: "Module Types",
+        content: (
+          <div class="space-y-3">
+            <p>
+              Many lessons have an accompanying{" "}
+              <strong>Sentence Practice</strong> module. I find these to be the
+              most helpful for solidifying grammar points.
+            </p>
+            <p>
+              They're pretty flexible too, letting you write in multiple ways
+              and giving you feedback on your answers.
+            </p>
+          </div>
+        ),
+        placement: breakpoints.sm() ? "right-end" : "bottom",
+        scroll: true,
+      },
+      {
         target: "#vocab-tour-example",
         title: "Module Types",
         content: (
@@ -80,6 +115,10 @@ export default function LearnPageTour(props: {
             <p>
               They include detailed explanations and mnemonics to help you
               remember them.
+            </p>
+            <p>
+              You also typically get anime video examples of the words in use.
+              :)
             </p>
           </div>
         ),
@@ -110,36 +149,22 @@ export default function LearnPageTour(props: {
         content: (
           <div class="space-y-3">
             <p>
-              Once you've finished glancing through the vocab, you can practice
-              here using this intelligent tool to help you memorize it as
-              quickly as possible.
+              Once you've finished looking at the vocab, you can practice here
+              to memorize them as quickly as possible.
             </p>
             <p>
-              You only work with a handful of words at a time. First, you'll
-              select the correct word in multiple-choice mode, then you'll type
-              it to demonstrate you've mastered it.
+              These are highly efficient—first, you'll select the correct word
+              in multiple-choice mode, then you'll type it to demonstrate you've
+              mastered it.
+            </p>
+            <p>
+              You only work with a handful of words at a time for maximum reps.
             </p>
           </div>
         ),
         placement: breakpoints.sm() ? "right-end" : "top",
         scroll: true,
         class: "max-w-80",
-      },
-      {
-        target: "#sentence-practice-tour-example",
-        title: "Module Types",
-        content: (
-          <div class="space-y-3">
-            <p>
-              Many lessons have an accompanying{" "}
-              <strong>Sentence Practice</strong> module. If you can master the
-              sentences, you'll be able to use the grammar in real-life
-              situations.
-            </p>
-          </div>
-        ),
-        placement: breakpoints.sm() ? "right-end" : "bottom",
-        scroll: true,
       },
       // {
       //   target: "#conjugation-practice-tour-example",
@@ -183,15 +208,23 @@ export default function LearnPageTour(props: {
       {
         target: "#dotted-scrollbar",
         title: "Module Navigation",
-        content:
-          "You can quickly navigate to any chapter by clicking on its dot.",
+        content: (
+          <div class="space-y-3">
+            <p>
+              You can quickly navigate to any chapter by clicking on these dots.
+            </p>
+            <p class="text-sm text-muted-foreground">
+              Because I'm not expecting you all to have to doom scroll.
+            </p>
+          </div>
+        ),
         placement: breakpoints.sm() ? "left-start" : "left",
         onNextFunction: () => {
           if (!breakpoints.sm()) {
             props.setIsSidebarOpen(true)
 
             tourStore.setTourState("learn-page", {
-              currentStep: 10,
+              currentStep: 11,
               isOpen: false,
             })
 
@@ -201,7 +234,7 @@ export default function LearnPageTour(props: {
             })
           } else {
             tourStore.setTourState("learn-page", {
-              currentStep: 10,
+              currentStep: 11,
             })
           }
         },
@@ -209,15 +242,34 @@ export default function LearnPageTour(props: {
       {
         target: "#grammar-notes-link-sidebar",
         title: "Grammar Notes",
-        content:
-          "Check out the Grammar Notes section for quick reference on grammar points.",
+        content: (
+          <div class="space-y-3">
+            <p>Grammar notes—for quick references about grammar points.</p>
+            <p>
+              These are condensed summaries of the lessons and are super handy
+              to reference!
+            </p>
+            <p class="text-muted-foreground">
+              Sometimes I skip the lesson and just read these if I'm in a rush
+              :P
+            </p>
+          </div>
+        ),
         placement: "right-start",
       },
       {
         target: "#conjugation-link-sidebar",
         title: "Tools",
-        content:
-          "Check out this super nice Conjugation practice tool. You can configure it to practice whatever you're struggling with.",
+        content: (
+          <div class="space-y-3">
+            <p>
+              My pride and joy—this super nice Conjugation practice tool. You
+              can configure it to practice whatever conjugation that you're
+              struggling with.
+            </p>
+            <p class="text-muted-foreground">super underrated imo</p>
+          </div>
+        ),
         placement: "right",
       },
       {
@@ -259,7 +311,7 @@ export default function LearnPageTour(props: {
 
             tourStore.setTourState("learn-page", {
               completed: false,
-              currentStep: 9,
+              currentStep: 10,
               isOpen: false,
             })
 

@@ -23,7 +23,7 @@ export default function SidebarTour(props: {
         props.setIsSidebarOpen(false)
 
         tourStore.setTourState("learn-page", {
-          currentStep: 9,
+          currentStep: 10,
           isOpen: true,
         })
 
@@ -62,7 +62,7 @@ export default function SidebarTour(props: {
         // Update the learn tour state
         tourStore.setTourState(learnTourKey, {
           completed: false,
-          currentStep: 13,
+          currentStep: 14,
           isOpen: true,
         })
 

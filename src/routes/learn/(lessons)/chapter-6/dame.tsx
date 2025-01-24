@@ -26,7 +26,8 @@ export default function page() {
         <p>
           The word だめ is typically written in hiragana as だめ, or in katakana
           as <span class="text-nowrap">ダメ</span>, or occasionally in kanji as
-          駄目, though the hiragana form is more common. Its meanings include:
+          駄目, though the hiragana/katakana forms are both far more common. Its
+          meanings include:
         </p>
         <ul class="list-inside list-disc">
           <li>No good</li>
