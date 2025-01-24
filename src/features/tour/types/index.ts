@@ -23,5 +23,6 @@ export type TourStep = {
   class?: string // Custom class for the content of this step
   overflowPadding?: number // Padding from the edge of the screen
   scroll?: boolean // Scroll to target element when step changes
-  onNextFunction?: () => boolean // Callback for when the next button is clicked. Return true to override default behavior, false to continue
+  onNextFunction?: () => void // Callback for when the next button is clicked
+  onPrevFunction?: () => void // Callback for when the previous button is clicked
 }

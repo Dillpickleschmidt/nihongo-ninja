@@ -26,7 +26,7 @@ export default function Sidebar(props: {
             </span>
           </Button>
           <SheetContent side="left" class="w-[280px] sm:w-[340px]">
-            <SidebarTour isOpen={props.isOpen} setIsOpen={props.setIsOpen} />
+            <SidebarTour setIsSidebarOpen={props.setIsOpen} />
             <div class="mt-16">
               <h2 class="pb-6 text-center text-[1.75rem] font-black">
                 Modules

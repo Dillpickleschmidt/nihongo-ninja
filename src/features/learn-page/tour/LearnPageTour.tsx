@@ -1,13 +1,15 @@
+// LearnPageTour.tsx
 import type { TourStep } from "@/features/tour/types"
 import TourGuide from "@/features/tour/components/TourGuide"
 import createTourStore from "@/features/tour/utils/tour"
 import { Clock } from "lucide-solid"
-import { createSignal, onMount, Show, createMemo } from "solid-js"
+import { createSignal, onMount, Show, createMemo, createEffect } from "solid-js"
 import { useBreakpoints } from "@/hooks/useMediaQuery"
+import { AppStorage, storageUtils } from "@/features/local-storage"
 
 export default function LearnPageTour(props: {
-  isOpen: boolean
-  setIsOpen: (isOpen: boolean) => void
+  isSidebarOpen: boolean
+  setIsSidebarOpen: (isOpen: boolean) => void
 }) {
   const [isMounted, setIsMounted] = createSignal(false)
   const breakpoints = useBreakpoints()
@@ -180,18 +182,20 @@ export default function LearnPageTour(props: {
             </p>
           </div>
         ),
-        placement: "right-start",
+        placement: breakpoints.sm() ? "right-start" : "bottom",
         class: "max-w-96",
         scroll: true,
         onNextFunction: () => {
-          if (isMounted()) {
-            if (!breakpoints.sm()) {
-              props.setIsOpen(true)
-              return true
-            }
-            return false
+          if (!breakpoints.sm()) {
+            props.setIsSidebarOpen(true)
+
+            // Update the sidebar tour state
+            storageUtils.set(AppStorage.tour.key("learn-sidebar"), {
+              completed: false,
+            })
+            // Close the tour without resetting or completing it
+            tour()?.pause()
           }
-          return false
         },
       },
       {
@@ -200,7 +204,6 @@ export default function LearnPageTour(props: {
         content:
           "Check out the Grammar Notes section for quick reference on grammar points.",
         placement: "right-start",
-        // link: "/learn/grammar-notes",
       },
       {
         target: "#conjugation-link-sidebar",
@@ -208,7 +211,6 @@ export default function LearnPageTour(props: {
         content:
           "Check out this super nice Conjugation practice tool. You can configure it to practice whatever you're struggling with.",
         placement: "right",
-        // link: "/learn/conjugation",
       },
       {
         target: "#sentence-practice-link-sidebar",
@@ -223,7 +225,6 @@ export default function LearnPageTour(props: {
           </div>
         ),
         placement: "right-start",
-        // link: "/learn/conjugation",
       },
       {
         title: "おめでとう",
@@ -243,10 +244,50 @@ export default function LearnPageTour(props: {
           </div>
         ),
         dialog: true,
+        onPrevFunction: () => {
+          // Open the sidebar
+          props.setIsSidebarOpen(true)
+
+          // Update the sidebar tour state
+          storageUtils.set(AppStorage.tour.key("learn-sidebar"), {
+            completed: false,
+            currentStep: 2,
+          })
+
+          // Close the learn tour temporarily
+          tour()?.pause()
+        },
       },
     ]
-    setTour(createTourStore(steps, "learn-page-tour"))
+
+    const tourKey = "learn-page"
+    const tourStore = createTourStore(steps, tourKey)
+
+    // Automatically start the tour if not completed
+    const savedState = storageUtils.get(AppStorage.tour.key(tourKey))
+    if (!savedState.completed) {
+      // If starting on step 1, open sidebar
+      console.log("savedState.currentStep", savedState.currentStep)
+      if (savedState.currentStep === 1 && !breakpoints.sm()) {
+        console.log("Opening sidebar for step 1")
+        props.setIsSidebarOpen(true)
+      } else {
+        tourStore.start()
+      }
+    }
+
+    setTour(tourStore)
     setIsMounted(true)
+  })
+
+  // Watch for the sidebar closing
+  createEffect(() => {
+    if (!props.isSidebarOpen && tour()) {
+      setTimeout(() => {
+        console.log("Sidebar closed. Starting the tour...")
+        tour()?.start()
+      }, 100)
+    }
   })
 
   return (
@@ -258,7 +299,8 @@ export default function LearnPageTour(props: {
         currentStep={tour()!.currentStep()}
         onNext={tour()!.next}
         onPrev={tour()!.prev}
-        onClose={tour()!.stop}
+        onStop={tour()!.stop}
+        onPause={tour()!.pause}
       />
     </Show>
   )

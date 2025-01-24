@@ -66,12 +66,18 @@ export const AppStorage = {
  * Helper functions to interact with localStorage
  */
 export const storageUtils = {
-  get<T>(key: string, defaultValue: T): T {
+  get(key: string) {
     try {
       const item = localStorage.getItem(key)
-      return item ? JSON.parse(item) : defaultValue
+      if (!item) {
+        // Get the type from the key prefix
+        const type = key.split("-")[0] as keyof typeof AppStorage // e.g. "tour" from "tour-learn-page"
+        return AppStorage[type].defaultValue
+      }
+      return JSON.parse(item)
     } catch {
-      return defaultValue
+      const type = key.split("-")[0] as keyof typeof AppStorage
+      return AppStorage[type].defaultValue
     }
   },
 

@@ -21,6 +21,16 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog"
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogClose,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "@/components/ui/alert-dialog"
 import { Button } from "@/components/ui/button"
 import type { TourStep } from "../types"
 import { cn } from "@/libs/cn"
@@ -31,9 +41,11 @@ export default function TourGuide(props: {
   currentStep: number
   onNext: () => void
   onPrev: () => void
-  onClose: () => void
+  onStop: () => void
+  onPause: () => void
 }) {
   let highlightRef: HTMLDivElement | undefined
+  const [showExitConfirm, setShowExitConfirm] = createSignal(false)
   const [position, setPosition] = createSignal({
     x: 0,
     y: 0,
@@ -121,10 +133,15 @@ export default function TourGuide(props: {
     const targetElement = document.querySelector(currentStep.target)
     if (!targetElement) return
 
-    // Prevent close if the click was on the target element
+    // If click was on target element, prevent close
     if (targetElement.contains(event.target as Node)) {
       event.preventDefault()
+      return
     }
+
+    // For clicks outside, show confirmation dialog
+    event.preventDefault()
+    setShowExitConfirm(true)
   }
 
   return (
@@ -179,10 +196,38 @@ export default function TourGuide(props: {
         </div>
       </Show>
 
+      <AlertDialog open={showExitConfirm()} onOpenChange={setShowExitConfirm}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Exit Tour?</AlertDialogTitle>
+            <AlertDialogDescription>
+              Are you sure you want to exit the tour? Your progress will be
+              saved and you can continue later.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogClose onClick={() => setShowExitConfirm(false)}>
+              Cancel
+            </AlertDialogClose>
+            <AlertDialogAction
+              onClick={() => {
+                setShowExitConfirm(false)
+                props.onStop()
+              }}
+            >
+              Exit Tour
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
+
       <Switch>
         {/* Dialog */}
         <Match when={props.steps[props.currentStep].dialog}>
-          <Dialog open={props.isOpen} onOpenChange={props.onClose}>
+          <Dialog
+            open={props.isOpen}
+            onOpenChange={() => setShowExitConfirm(true)}
+          >
             <DialogContent
               overlayClass="bg-black/50"
               class="rounded-lg border-2 border-violet-400 bg-background"
@@ -218,7 +263,7 @@ export default function TourGuide(props: {
         <Match when={!props.steps[props.currentStep].dialog}>
           <Popover
             open={props.isOpen}
-            onOpenChange={props.onClose}
+            onOpenChange={() => setShowExitConfirm(true)}
             getAnchorRect={getAnchorRect}
             gutter={0}
             placement={props.steps[props.currentStep].placement}
@@ -230,7 +275,7 @@ export default function TourGuide(props: {
           >
             <PopoverContent
               class={cn(
-                "z-[1000] border-none bg-background",
+                "border-none bg-background",
                 props.steps[props.currentStep].class,
               )}
               onPointerDownOutside={handlePointerDownOutside}
@@ -250,7 +295,6 @@ export default function TourGuide(props: {
                     Previous
                   </Button>
                 </Show>
-
                 <Button onClick={props.onNext}>
                   {props.currentStep === props.steps.length - 1
                     ? "Finish"

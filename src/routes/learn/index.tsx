@@ -16,10 +16,15 @@ import LearnPageTour from "@/features/learn-page/tour/LearnPageTour"
 import Sidebar from "@/features/sidebar/Sidebar"
 import { Title } from "@solidjs/meta"
 import { createSignal, For } from "solid-js"
+import { createEffect } from "solid-js"
 
 export default function index() {
   const context = useLearnPageContext()
   const [isSidebarOpen, setIsSidebarOpen] = createSignal(false)
+
+  createEffect(() => {
+    console.log("Sidebar open state changed:", isSidebarOpen())
+  })
 
   function toTitleCase(str: string): string {
     return str
@@ -31,7 +36,10 @@ export default function index() {
 
   return (
     <>
-      <LearnPageTour isOpen={isSidebarOpen()} setIsOpen={setIsSidebarOpen} />
+      <LearnPageTour
+        isSidebarOpen={isSidebarOpen()}
+        setIsSidebarOpen={setIsSidebarOpen}
+      />
       <style>
         {`
         .custom-gradient-mask {
