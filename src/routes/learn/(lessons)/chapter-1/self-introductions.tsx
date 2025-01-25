@@ -32,40 +32,47 @@ export default function page() {
           <Furigana furigana="わたし">私</Furigana> -{" "}
           <span class="font-honk text-4xl">Watashi</span>
         </h3>
-        <li>
-          <span class="font-bold">Usage: </span>Gender-neutral, formal or
-          informal
-        </li>
-        <li>
-          <span class="font-bold">Context: </span>Suitable for both men and
-          women in most situations. It is commonly used in formal settings, such
-          as business meetings, public speaking, or when you want to be polite.
-        </li>
-        <li class="flex items-start">
-          <span class="mr-3 mt-1 inline-block">•</span>
-          <div>
-            <h4 class="text-xl">
-              <span class="text-2xl font-black">
-                <em>Story:</em>{" "}
-              </span>
-              Business meeting
-            </h4>
-            <h4 class="text-xl">
-              <span class="mr-2 text-2xl font-black">
-                <em>Characters:</em>
-              </span>
-              You (the learner), Mr. Tanaka (your boss), and clients
-            </h4>
-            <p class="mt-3">
-              You nervously enter the meeting room, aware that first impressions
-              are crucial. As you introduce yourself to the clients, you say,
-              "Hello, I am [your name]. It's nice to meet you all." You use{" "}
-              <span class="font-japanese font-bold">わたし</span> because it's a
-              formal setting and you want to appear professional. Mr. Tanaka
-              nods approvingly, knowing that you've made a good start.
-            </p>
-          </div>
-        </li>
+        <ul>
+          <li>
+            <span class="font-bold">Usage: </span>Gender-neutral, widely used in
+            formal and informal contexts.
+          </li>
+          <li>
+            <span class="font-bold">Context: </span>Generally considered the
+            "default" first-person pronoun in Japanese. Suitable for men and
+            women in most situations. While common in formal and polite
+            settings, it can also be used informally, especially by women.
+          </li>
+          <li>
+            <span class="font-bold">Nuance: </span>Its neutrality and
+            versatility make it an appropriate choice when you’re unsure which
+            pronoun to use. Men may opt for it in professional or formal
+            situations, but in casual settings, other pronouns (like 僕 or 俺)
+            might feel more natural.
+          </li>
+        </ul>
+        <div class="mt-6">
+          <h4 class="text-xl">
+            <span class="text-2xl font-black">
+              <em>Story:</em>
+            </span>{" "}
+            Introducing yourself
+          </h4>
+          <h4 class="text-xl">
+            <span class="mr-2 text-2xl font-black">
+              <em>Characters:</em>
+            </span>{" "}
+            You (the learner), Ms. Yamamoto (your coworker), and a new colleague
+          </h4>{" "}
+          <p class="mt-3">
+            As you greet a new colleague for the first time, you confidently
+            say, "<Furigana furigana="わたし">私</Furigana>は [your name] です.
+            よろしくお願いします." Using{" "}
+            <span class="font-japanese font-bold">わたし</span> shows respect
+            and professionalism in this formal scenario, while keeping things
+            neutral.
+          </p>
+        </div>
         <h3 class="pt-12 font-japanese text-3xl font-medium">
           <Furigana furigana="わたくし">私</Furigana> -{" "}
           <span class="font-honk text-4xl">Watakushi</span>
@@ -102,8 +109,7 @@ export default function page() {
               formality is key. You start your speech with, "My name is [your
               name], and I am deeply honored to receive this award." Using{" "}
               <span class="font-japanese font-bold">わたくし</span>, you convey
-              the respect and seriousness the occasion demands. The audience
-              claps enthusiastically, impressed by your elegance.
+              the respect and seriousness the occasion demands.
             </p>
           </div>
         </li>
@@ -113,7 +119,7 @@ export default function page() {
         </h3>
         <li>
           <span class="font-bold">Usage: </span>Informal, typically used by
-          males
+          males (or tomboys)
         </li>
         <li>
           <span class="font-bold">Context: </span>Commonly used by boys and men
@@ -139,9 +145,8 @@ export default function page() {
               You walk into the school's soccer club for the first time, feeling
               a bit anxious. To break the ice, you introduce yourself, "Hey, I'm
               [your name]. I love playing soccer." Using{" "}
-              <span class="font-japanese font-bold">ぼく</span>, you sound
-              friendly and approachable. The club members welcome you warmly,
-              and you quickly feel like part of the team.
+              <span class="font-japanese font-bold">ぼく</span>, you've got the
+              expected level of formality expected of boys playing sports.
             </p>
           </div>
         </li>
@@ -151,7 +156,7 @@ export default function page() {
         </h3>
         <li>
           <span class="font-bold">Usage: </span>Very informal, typically used by
-          males
+          males (or tomboys)
         </li>
         <li>
           <span class="font-bold">Context: </span>Used among close friends or in

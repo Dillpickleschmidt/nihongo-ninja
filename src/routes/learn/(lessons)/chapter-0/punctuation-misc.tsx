@@ -7,7 +7,7 @@ export default function JapanesePunctuation() {
       nextButtonText="See Vocab! ->"
       nextButtonLink="/learn/chapter-0/vocab-list"
     >
-      <h1 class="px-12 pt-24 text-center text-[2rem] font-medium leading-[2.875rem] lg:px-20">
+      <h1 class="px-12 pt-6 text-center text-[2rem] font-medium leading-[2.875rem] sm:pt-12 lg:px-20 lg:pt-24">
         Just When You Thought It Was Safe...{" "}
         <span class="text-[2.75rem] font-bold">Prepare Yourselves</span>,
         Intrepid Learners, for the World of{" "}
@@ -95,8 +95,7 @@ export default function JapanesePunctuation() {
           <p>
             Indeed. The humble period (。) in Japanese is called "句点" (kuten).
             It's used at the end of a sentence, just like in English. But
-            instead of a solid dot, it's a hollow circle—imagine it as a tiny
-            moon marking the end of your sentence's journey.
+            instead of a solid dot, it's a hollow circle.
           </p>
         </div>
 

@@ -6,7 +6,7 @@ export default function JapanesePronunciation() {
       nextButtonText="Next Lesson ->"
       nextButtonLink="/learn/chapter-0/practice/dakuten-handakuten"
     >
-      <h2 class="mt-40 px-20 text-center text-[2.625rem] font-medium leading-[3.25rem]">
+      <h2 class="px-20 pt-6 text-center text-[2.625rem] font-medium leading-[3.25rem] sm:pt-12 lg:pt-24">
         🌊
       </h2>
       <h2 class="px-12 pb-12 text-center text-[2rem] font-medium leading-[2.875rem] lg:px-20">
@@ -86,14 +86,14 @@ export default function JapanesePronunciation() {
           </div>
         </div>
         <div class="space-y-4">
-          <h2 class="mt-16 text-center text-[2rem] font-bold">
+          <h2 class="mt-16 text-center text-3xl font-bold">
             <em>
-              <span class="text-[2.675rem]">WHY</span>, THOUGH?
+              <span class="text-4xl">WHY</span>, THOUGH?
             </em>
           </h2>
           <p class="">
             You might be asking, &quot;
-            <span class="text-[1.375rem]">
+            <span class="text-xl">
               <em>Why all these changes?</em>
             </span>{" "}
             &quot; Well, because{" "}
@@ -123,10 +123,10 @@ export default function JapanesePronunciation() {
           {/* <TantanChart /> */}
         </div>
         <div class="!-mb-6 text-center">
-          <p class="!mt-16 text-5xl font-semibold">
+          <p class="!mt-16 text-4xl font-semibold">
             <span class="font-japanese">がんばって！</span>
           </p>
-          <p class="mt-4 text-2xl">Do your best! 😀</p>
+          <p class="mt-4 text-xl">Do your best! 😀</p>
         </div>
       </div>
     </ContentBox>

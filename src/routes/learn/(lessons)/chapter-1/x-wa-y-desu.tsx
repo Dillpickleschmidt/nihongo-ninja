@@ -111,6 +111,8 @@ export default function page() {
           </h3>
           {/* <p class="text-center text-sm">And it gets even better.</p> */}
         </div>
+
+        <hr class="my-6 border-t" />
         <div>
           <h2 class="text-2xl font-bold">
             です (desu)

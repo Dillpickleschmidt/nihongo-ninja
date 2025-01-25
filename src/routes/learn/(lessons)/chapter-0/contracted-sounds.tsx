@@ -104,10 +104,13 @@ export default function JapanesePronunciation() {
             </u>
           </span>{" "}
           these contracted sounds, give them a whirl, and you'll discover
-          they're the linguistic equivalent of finding a shortcut that actually
-          works. Each sound you master brings you closer to fluency, making your
-          Japanese smoother and more natural. To be honest, these are easier
-          than they look on paper.
+          they're the linguistic equivalent of finding{" "}
+          <strong>a shortcut that actually works</strong>. Each sound you master
+          brings you closer to fluency, making your Japanese smoother and more
+          natural.
+        </p>
+        <p class="text-base italic text-muted-foreground">
+          These are easier to master than they appear.
         </p>
       </div>
     </ContentBox>
