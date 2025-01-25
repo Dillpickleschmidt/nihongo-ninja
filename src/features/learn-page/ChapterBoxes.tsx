@@ -8,10 +8,15 @@ export default function ChapterBoxes() {
         class="bg-[#f83333] saturate-50"
         content={[
           {
+            title: "Welcome & Overview",
+            link: "/learn/chapter-0/welcome-overview",
+            types: ["lesson"],
+            id: "lesson-tour-example", // For the learn page tour
+          },
+          {
             title: "Japanese Pronunciation",
             link: "/learn/chapter-0/japanese-pronunciation",
             types: ["lesson"],
-            id: "lesson-tour-example", // For the learn page tour
           },
           {
             title: "Writing Systems",
