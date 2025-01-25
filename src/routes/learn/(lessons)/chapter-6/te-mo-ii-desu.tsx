@@ -9,7 +9,7 @@ export default function page() {
       nextButtonText="Next Lesson ->"
       nextButtonLink="/learn/chapter-6/te-wa-ikemasen"
     >
-      <h1 class="px-12 pb-6 pt-28 text-center text-4xl font-semibold lg:px-28">
+      <h1 class="px-12 pb-6 pt-6 text-center text-4xl font-semibold sm:pt-12 lg:px-28 lg:pt-24">
         Asking Permission with{" "}
         <span class="font-japanese text-teal-400">てもいいです</span>
       </h1>

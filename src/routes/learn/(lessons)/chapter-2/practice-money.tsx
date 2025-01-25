@@ -106,7 +106,7 @@ export default function page() {
 
   return (
     <>
-      <h1 class="px-28 pb-6 pt-28 text-center text-5xl font-semibold">
+      <h1 class="px-28 pb-6 pt-6 text-center text-5xl font-semibold sm:pt-12 lg:pt-24">
         Practice Money
       </h1>
       <div class="px-6 pb-32 sm:px-16 xl:px-48">

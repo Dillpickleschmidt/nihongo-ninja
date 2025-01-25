@@ -7,13 +7,13 @@ import { Button } from "@/components/ui/button"
 export default function page() {
   return (
     <>
-      {/* <h1 class="px-20 pb-12 pt-28 text-center text-3xl font-medium leading-[2.75rem]">
+      {/* <h1 class="px-20 pb-12 pt-24 text-center text-3xl font-medium leading-[2.75rem]">
         Exhausted from dancing with digits all day? Are you feeling like a ninja
         calculator from Japan, secretly number-crunching in the shadows? Fear
         not! We've got the perfect antidote—a single, magical word that's your
         golden ticket to broadcasting your vast knowledge to the world.
       </h1> */}
-      <h1 class="px-28 pb-6 pt-28 text-center text-4xl font-semibold">
+      <h1 class="px-28 pb-6 pt-6 text-center text-4xl font-semibold sm:pt-12 lg:pt-24">
         Everyday Expressions
       </h1>
       <div class="mt-12 flex flex-col items-center">

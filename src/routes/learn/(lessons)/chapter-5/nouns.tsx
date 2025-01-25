@@ -26,7 +26,9 @@ export default function page() {
       nextButtonLink="/learn/chapter-5/practice/nouns-readings"
       nextButtonText="Next Lesson ->"
     >
-      <h1 class="px-28 pb-6 pt-28 text-center text-4xl font-semibold">Nouns</h1>
+      <h1 class="px-28 pb-6 pt-6 text-center text-4xl font-semibold sm:pt-12 lg:pt-24">
+        Nouns
+      </h1>
       <Show when={data()}>
         <VocabCards data={data()!} />
       </Show>

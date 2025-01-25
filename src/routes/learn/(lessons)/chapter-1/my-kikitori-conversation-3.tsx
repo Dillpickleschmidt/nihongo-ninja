@@ -6,7 +6,7 @@ export default function page() {
     <>
       <div class="flex w-full justify-center pb-32">
         <div class="relative w-full max-w-[1300px]">
-          <h1 class="px-12 pb-6 pt-28 text-center text-4xl font-semibold md:px-28">
+          <h1 class="px-12 pb-6 pt-6 text-center text-4xl font-semibold sm:pt-12 md:px-28 md:pt-24">
             MyKikitori - Conversation 3
           </h1>
           <div class="space-y-6 px-6 md:px-24">

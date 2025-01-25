@@ -20,7 +20,7 @@ export default function page() {
       nextButtonText="Next Lesson ->"
       nextButtonLink="/learn/chapter-1/practice/kanji-numbers"
     >
-      <h1 class="px-28 pb-6 pt-28 text-center text-4xl font-semibold">
+      <h1 class="px-28 pb-6 pt-6 text-center text-4xl font-semibold sm:pt-12 lg:pt-24">
         Kanji numbers 1-10
       </h1>
       <div class="space-y-6 px-8 pb-32 sm:px-16 md:px-24">

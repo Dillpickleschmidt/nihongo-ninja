@@ -29,7 +29,7 @@ export default function page() {
     <>
       <div class="flex flex-col items-center">
         <div class="mx-4 max-w-[1300px] md:mx-8">
-          <h1 class="px-28 pb-6 pt-28 text-center text-4xl font-semibold">
+          <h1 class="px-28 pb-6 pt-6 text-center text-4xl font-semibold sm:pt-12 lg:pt-24">
             Things
           </h1>
           <p class="px-8 pb-6 pt-12 text-2xl">

@@ -8,7 +8,7 @@ export default function page() {
       nextButtonText="Next Lesson ->"
       nextButtonLink="/learn/chapter-3/your-japanese-voice"
     >
-      <h1 class="px-6 pb-6 pt-28 text-center text-5xl font-semibold sm:px-12 lg:px-28">
+      <h1 class="px-6 pb-6 pt-6 text-center text-5xl font-semibold sm:px-12 sm:pt-12 lg:px-28 lg:pt-24">
         <em>
           <span class="font-japanese not-italic">する</span> vs.{" "}
           <span class="font-japanese not-italic">やる</span>: The Two Ways to

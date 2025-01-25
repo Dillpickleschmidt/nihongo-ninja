@@ -10,7 +10,7 @@ export default function page() {
       nextButtonText="Filler words ->"
       nextButtonLink="/learn/chapter-1/anou-etto"
     >
-      <h1 class="px-28 pb-6 pt-28 text-center text-4xl font-semibold">
+      <h1 class="px-28 pb-6 pt-6 text-center text-4xl font-semibold sm:pt-12 lg:pt-24">
         Practice Creating Sentences With{" "}
         <span class="font-japanese font-bold">です</span>,{" "}
         <span class="font-japanese font-bold">は</span>,{" "}

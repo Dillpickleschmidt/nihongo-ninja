@@ -8,7 +8,7 @@ export default function page() {
       nextButtonText="Next Lesson ->"
       nextButtonLink="/learn/chapter-2/mo-particle"
     >
-      <h1 class="px-12 pb-6 pt-28 text-center text-4xl font-semibold lg:px-28">
+      <h1 class="px-12 pb-6 pt-6 text-center text-4xl font-semibold sm:pt-12 lg:px-28 lg:pt-24">
         Asking Who with <span class="font-japanese text-red-500">だれ</span>
       </h1>
       <div class="space-y-6 px-8 sm:px-16 md:px-24">

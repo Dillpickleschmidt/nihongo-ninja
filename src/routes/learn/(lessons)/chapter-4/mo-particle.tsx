@@ -6,7 +6,7 @@ import { TextField, TextFieldRoot } from "@/components/ui/textfield"
 export default function page() {
   return (
     <ContentBox nextButtonText="Next Lesson ->" nextButtonLink="/learn">
-      <h1 class="px-12 pb-6 pt-28 text-center text-4xl font-semibold lg:px-28">
+      <h1 class="px-12 pb-6 pt-6 text-center text-4xl font-semibold sm:pt-12 lg:px-28 lg:pt-24">
         Using <span class="font-japanese text-purple-400">も</span> with{" "}
         <span class="text-[2.6rem] font-bold italic">actions</span>
       </h1>

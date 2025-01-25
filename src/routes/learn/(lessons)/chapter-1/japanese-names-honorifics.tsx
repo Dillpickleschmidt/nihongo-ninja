@@ -8,7 +8,7 @@ export default function page() {
       nextButtonText="Saying You in Japanese ->"
       nextButtonLink="/learn/chapter-1/saying-you-in-japanese"
     >
-      <h1 class="px-12 pb-6 pt-28 text-center text-4xl font-semibold lg:px-28">
+      <h1 class="px-12 pb-6 pt-6 text-center text-4xl font-semibold sm:pt-12 lg:px-28 lg:pt-24">
         Japanese Names & Honorifics
       </h1>
       <div class="space-y-3 px-8 pb-32 md:px-24">

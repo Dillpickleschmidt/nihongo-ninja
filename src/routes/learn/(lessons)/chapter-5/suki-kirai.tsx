@@ -8,7 +8,7 @@ export default function page() {
       nextButtonText="Next Lesson ->"
       nextButtonLink="/learn/chapter-2/next-lesson"
     >
-      <h1 class="px-12 pb-6 pt-28 text-center text-4xl font-semibold lg:px-28">
+      <h1 class="px-12 pb-6 pt-6 text-center text-4xl font-semibold sm:pt-12 lg:px-28 lg:pt-24">
         <span class="font-japanese text-green-400">好き</span> and{" "}
         <span class="font-japanese text-red-400">嫌い</span> - Special Cases
       </h1>

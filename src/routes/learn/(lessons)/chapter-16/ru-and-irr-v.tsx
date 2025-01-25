@@ -26,7 +26,7 @@ export default function page() {
       nextButtonLink="/learn/chapter-16/practice/ru-and-irr-v-readings"
       nextButtonText="Next Lesson ->"
     >
-      <h1 class="px-28 pb-6 pt-28 text-center text-4xl font-semibold">
+      <h1 class="px-28 pb-6 pt-6 text-center text-4xl font-semibold sm:pt-12 lg:pt-24">
         Ru-Verbs & Irregular Verbs
       </h1>
       <Show when={data()}>

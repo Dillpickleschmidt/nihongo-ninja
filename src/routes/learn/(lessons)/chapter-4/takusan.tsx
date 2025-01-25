@@ -9,7 +9,7 @@ export default function TakusanLesson() {
       nextButtonText="Next Lesson ->"
       nextButtonLink="/learn/chapter-4/next-lesson"
     >
-      <h1 class="px-12 pb-6 pt-28 text-center text-4xl font-semibold lg:px-28">
+      <h1 class="px-12 pb-6 pt-6 text-center text-4xl font-semibold sm:pt-12 lg:px-28 lg:pt-24">
         Expressing <span class="font-bold text-pink-400">A Lot</span> with{" "}
         <span class="font-bold text-pink-400">たくさん</span>
       </h1>
