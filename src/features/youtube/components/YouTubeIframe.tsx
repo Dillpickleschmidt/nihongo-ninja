@@ -1,4 +1,4 @@
-import { createResource } from "solid-js"
+import { createEffect } from "solid-js"
 
 type YouTubeIframeProps = {
   videoId: string
@@ -7,34 +7,30 @@ type YouTubeIframeProps = {
   seekTime?: number | null
 }
 
-export default function YouTubeIframe({
-  videoId,
-  title,
-  startTime,
-  seekTime,
-}: YouTubeIframeProps) {
+export default function YouTubeIframe(props: YouTubeIframeProps) {
   let iframeRef!: HTMLIFrameElement
 
-  createResource(() => {
-    if (seekTime !== null && iframeRef) {
+  createEffect(() => {
+    console.log("YouTubeIframe: Seeking to:", props.seekTime ?? "null")
+    if (props.seekTime !== null && iframeRef) {
       iframeRef.contentWindow?.postMessage(
         JSON.stringify({
           event: "command",
           func: "seekTo",
-          args: [seekTime, true],
+          args: [props.seekTime, true],
         }),
         "*",
       )
     }
   })
 
-  const src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&enablejsapi=1${startTime ? `&start=${startTime}` : ""}`
+  const src = `https://www.youtube-nocookie.com/embed/${props.videoId}?autoplay=1&enablejsapi=1${props.startTime ? `&start=${props.startTime}` : ""}`
   // console.log("src: ", src)
 
   const srcDoc = `
     <style>
       body {
-        background-image: url(https://i3.ytimg.com/vi/${videoId}/hqdefault.jpg);
+        background-image: url(https://i3.ytimg.com/vi/${props.videoId}/hqdefault.jpg);
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center center;
@@ -76,7 +72,7 @@ export default function YouTubeIframe({
   return (
     <iframe
       ref={iframeRef}
-      title={title}
+      title={props.title}
       class="aspect-video w-full"
       src={src}
       allow="autoplay"

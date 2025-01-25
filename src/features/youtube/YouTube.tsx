@@ -1,4 +1,4 @@
-import { createSignal } from "solid-js"
+import { createSignal, Show } from "solid-js"
 import YouTubeIframe from "./components/YouTubeIframe"
 import { cn } from "@/libs/cn"
 import { For } from "solid-js"
@@ -24,7 +24,17 @@ export default function YouTubeVideo(props: YouTubeVideoProps) {
 
   return (
     <div>
-      {props.glow ? (
+      <Show
+        when={props.glow}
+        fallback={
+          <YouTubeIframe
+            videoId={props.videoId}
+            title={props.title}
+            startTime={props.startTime}
+            seekTime={seekTime()}
+          />
+        }
+      >
         <div class="glow">
           <YouTubeIframe
             videoId={props.videoId}
@@ -33,63 +43,40 @@ export default function YouTubeVideo(props: YouTubeVideoProps) {
             seekTime={seekTime()}
           />
         </div>
-      ) : (
-        <YouTubeIframe
-          videoId={props.videoId}
-          title={props.title}
-          startTime={props.startTime}
-          seekTime={seekTime()}
-        />
-      )}
+      </Show>
 
-      {props.credit && (
+      <Show when={props.credit}>
         <div class="mt-2">
           <small class="text-muted-foreground">
             Credit: <span class="font-semibold">{props.credit}</span>
           </small>
         </div>
-      )}
+      </Show>
 
-      {props.timestamps && (
-        <>
-          <div class="mt-4 flex justify-center">
-            <ul class="list-disc">
-              <For each={props.timestamps}>
-                {(timestamp) => (
-                  <li
-                    class="transform cursor-pointer duration-150 ease-in-out hover:scale-[99%]"
-                    onClick={() => setSeekTime(timestamp.time)}
+      <Show when={props.timestamps}>
+        <div class="mt-4 flex justify-center">
+          <ul class="list-disc">
+            <For each={props.timestamps!}>
+              {(timestamp) => (
+                <li
+                  class="transform cursor-pointer duration-150 ease-in-out hover:scale-[99%]"
+                  onClick={() => setSeekTime(timestamp.time)}
+                >
+                  <div
+                    class={cn(
+                      "inline-flex space-x-2 text-base font-light text-blue-400",
+                      props.class,
+                    )}
                   >
-                    <div
-                      class={cn(
-                        "inline-flex space-x-2 text-base font-light text-blue-400",
-                        props.class,
-                      )}
-                    >
-                      <div class="min-w-8">
-                        {formatDuration(timestamp.time)}
-                      </div>
-                      <span>{timestamp.label}</span>
-                    </div>
-                  </li>
-                )}
-              </For>
-            </ul>
-          </div>
-        </>
-      )}
+                    <div class="min-w-8">{formatDuration(timestamp.time)}</div>
+                    <span>{timestamp.label}</span>
+                  </div>
+                </li>
+              )}
+            </For>
+          </ul>
+        </div>
+      </Show>
     </div>
   )
-}
-
-function formatTime(seconds: number): string {
-  const h = Math.floor(seconds / 3600)
-  const m = Math.floor((seconds % 3600) / 60)
-  const s = seconds % 60
-
-  const hDisplay = h > 0 ? `${h}:` : ""
-  const mDisplay = `${m}:`
-  const sDisplay = s.toString().padStart(2, "0")
-
-  return `${hDisplay}${mDisplay}${sDisplay}`
 }
