@@ -214,7 +214,7 @@ export default function test2() {
           </div>
         </div>
         <div class="absolute bottom-16 right-16">
-          <A href="/learn/chapter-0/practice/greetings-common-expressions">
+          <A href="/learn/chapter-0/common-expressions-japanese-super-immersion">
             <Button>Next Lesson {"->"}</Button>
           </A>
         </div>

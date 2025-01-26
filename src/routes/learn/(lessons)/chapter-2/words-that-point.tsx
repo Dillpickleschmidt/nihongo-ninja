@@ -1,5 +1,6 @@
 import ContentBox from "@/components/ContentBox"
 import Furigana from "@/components/text/Furigana"
+import YouTubeVideo from "@/features/youtube/YouTube"
 
 export default function page() {
   return (
@@ -17,6 +18,12 @@ export default function page() {
           everyday conversations. Let's explore these demonstratives in detail
           with examples of everyday situations where each would be applicable.
         </p>
+
+        <YouTubeVideo
+          videoId="ETeWHyYOifk"
+          title="Comprehensible Japanese Beginner これ、それ、 あれ、どれ"
+          credit="Nihongo-Learning"
+        />
 
         <h2 class="text-center text-2xl font-black italic">
           Demonstratives for Objects

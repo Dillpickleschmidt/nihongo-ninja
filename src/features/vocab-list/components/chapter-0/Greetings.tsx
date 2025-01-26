@@ -53,6 +53,13 @@ export default function Greetings() {
           <TableCell class="text-right">See you later.</TableCell>
         </TableRow>
         <TableRow class="[&>*]:p-2">
+          <TableCell class="font-japanese text-xl">
+            ありがとうございます
+          </TableCell>
+          <TableCell class="text-muted-foreground">Arigatōgozaimasu</TableCell>
+          <TableCell class="text-right">Thank you</TableCell>
+        </TableRow>
+        <TableRow class="[&>*]:p-2">
           <TableCell class="font-japanese text-xl">さようなら。</TableCell>
           <TableCell class="text-muted-foreground">Sayōnara.</TableCell>
           <TableCell class="text-right">Goodbye.</TableCell>

@@ -1,12 +1,19 @@
-// YouTube.tsx
+// YouTubeVideo.tsx
 import { Show, For, createSignal } from "solid-js"
 import YouTubeIframe from "./components/YouTubeIframe"
 import { formatDuration } from "@/util/timeFormat"
 import { cn } from "@/libs/cn"
-import type { Accessor, Setter } from "solid-js"
+import type { Accessor, JSX, Setter } from "solid-js"
+import SlidingTimestamps from "./components/SlidingTimestamps"
 
 export type Timestamp = {
   label: string
+  time: number
+}
+
+export type VocabTimestamp = {
+  japanese: string | JSX.Element
+  english: string | JSX.Element
   time: number
 }
 
@@ -15,6 +22,7 @@ type YouTubeVideoProps = {
   title: string
   startTime?: number
   timestamps?: Timestamp[]
+  vocabTimestamps?: VocabTimestamp[]
   credit?: string
   glow?: boolean
   seekTime?: Accessor<number | null>
@@ -26,31 +34,41 @@ export default function YouTubeVideo(props: YouTubeVideoProps) {
   const [internalSeekTime, setInternalSeekTime] = createSignal<number | null>(
     null,
   )
+  const [currentTime, setCurrentTime] = createSignal(0)
 
   // Use provided signal and setter if available, otherwise use internal ones
   const seekTime = props.seekTime || internalSeekTime
   const setSeekTime = props.setSeekTime || setInternalSeekTime
 
+  const YouTubePlayer = () => (
+    <YouTubeIframe
+      videoId={props.videoId}
+      title={props.title}
+      startTime={props.startTime}
+      seekTime={seekTime()}
+      onTimeUpdate={setCurrentTime}
+    />
+  )
+
   return (
     <div>
-      <Show
-        when={props.glow}
-        fallback={
-          <YouTubeIframe
-            videoId={props.videoId}
-            title={props.title}
-            startTime={props.startTime}
-            seekTime={seekTime()}
-          />
-        }
-      >
+      <Show when={props.glow} fallback={<YouTubePlayer />}>
         <div class="glow">
-          <YouTubeIframe
-            videoId={props.videoId}
-            title={props.title}
-            startTime={props.startTime}
-            seekTime={seekTime()}
-          />
+          <YouTubePlayer />
+        </div>
+      </Show>
+
+      <Show when={props.vocabTimestamps}>
+        <div class="relative mx-auto max-w-2xl">
+          <div class="absolute bottom-0 h-48 w-full rounded-3xl border bg-background px-3 shadow-md">
+            <div class="absolute bottom-0 w-full">
+              <SlidingTimestamps
+                vocabTimestamps={props.vocabTimestamps!}
+                currentTime={currentTime()}
+              />
+            </div>
+          </div>
+          <div class="h-28" />
         </div>
       </Show>
 

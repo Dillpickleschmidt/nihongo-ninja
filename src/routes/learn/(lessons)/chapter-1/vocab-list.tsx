@@ -23,17 +23,13 @@ export default function page() {
           </h3>
           <PeopleDescriptorsMisc />
           <h3 class="mb-3 mt-8 text-center text-2xl font-medium text-orange-400">
-            Family & School
-          </h3>
-          <FamilySchool />
-          <h3 class="mb-3 mt-8 text-center text-2xl font-medium text-orange-400">
-            Occupations & Majors
-          </h3>
-          <OccupationsMajors />
-          <h3 class="mb-3 mt-8 text-center text-2xl font-medium text-orange-400">
             Useful Expressions
           </h3>
           <UsefulExpressions />
+          <h3 class="mb-3 mt-8 text-center text-2xl font-medium text-orange-400">
+            Family & School
+          </h3>
+          <FamilySchool />
           <h3 class="mb-3 mt-8 text-center text-2xl font-medium text-orange-400">
             Countries
           </h3>
@@ -46,6 +42,10 @@ export default function page() {
             Minutes
           </h3>
           <Minutes />
+          <h3 class="mb-3 mt-8 text-center text-2xl font-medium text-orange-400">
+            Occupations & Majors
+          </h3>
+          <OccupationsMajors />
         </div>
       </div>
       <div class="pb-32" />

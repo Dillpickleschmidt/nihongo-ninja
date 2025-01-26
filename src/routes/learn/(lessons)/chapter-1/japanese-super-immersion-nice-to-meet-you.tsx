@@ -1,17 +1,61 @@
 import ContentBox from "@/components/ContentBox"
+import Furigana from "@/components/text/Furigana"
 import YouTubeVideo from "@/features/youtube/YouTube"
 import { formatDuration } from "@/util/timeFormat"
 import { createSignal, For } from "solid-js"
 
 const chapters = [
-  { label: "Polite - Slow", time: 0 },
-  { label: "Polite - Normal", time: 60 },
-  { label: "Casual - Normal", time: 89 },
+  { label: "Polite - Slow Speed", time: 0 },
+  { label: "Polite - Normal Speed", time: 60 },
+  { label: "Casual - Normal Speed", time: 89 },
 ]
 
 const vocab = [
-  { japanese: "と申します", english: "my name is", time: 5 },
-  { japanese: "と言います", english: "my name is", time: 10 },
+  {
+    japanese: (
+      <>
+        と<Furigana furigana={<span class="text-xs">もう</span>}>申</Furigana>
+        します
+      </>
+    ),
+    english: "my name is",
+    time: 5,
+  },
+  {
+    japanese: (
+      <>
+        と<Furigana furigana={<span class="text-xs">い</span>}>言</Furigana>
+        います
+      </>
+    ),
+    english: "my name is",
+    time: 10,
+  },
+  {
+    japanese: <>どこ</>,
+    english: "where",
+    time: 17,
+  },
+  {
+    japanese: (
+      <>
+        <Furigana furigana={<span class="text-xs">す</span>}>住</Furigana>
+        んでいる
+      </>
+    ),
+    english: "currently living (location)",
+    time: 18,
+  },
+  {
+    japanese: <>いいところ</>,
+    english: "nice place",
+    time: 34,
+  },
+  {
+    japanese: <>そちらは</>,
+    english: "how about yourself",
+    time: 45,
+  },
 ]
 
 export default function page() {
@@ -20,7 +64,7 @@ export default function page() {
   return (
     <ContentBox
       nextButtonText="Next Lesson ->"
-      nextButtonLink="/learn/chapter-1/japanese-super-immersion-nice-to-meet-you"
+      nextButtonLink="/learn/chapter-1/my-kikitori-conversation-1"
       size="lg"
     >
       <YouTubeVideo
@@ -29,6 +73,7 @@ export default function page() {
         credit="Japanese super immersion"
         seekTime={seekTime}
         setSeekTime={setSeekTime}
+        vocabTimestamps={vocab}
       />
       <div class="mx-auto max-w-2xl space-y-3 px-4 pb-32">
         <div class="w-full border-b px-12 pb-6 pt-6 text-center text-4xl font-semibold lg:px-28 lg:pt-12">
@@ -69,8 +114,7 @@ export default function page() {
           <span class="text-base text-muted-foreground">
             (especially during the normal speed)
           </span>
-          . Observe when they pause, how they respond, and the subtle ways they
-          show they're listening.
+          .
         </p>
         <p>
           Japanese relies heavily on non-verbal communication, which you can
@@ -85,9 +129,8 @@ export default function page() {
         <h2 class="pt-6 text-2xl font-semibold">New words and phrases</h2>
         <p>
           This is a list of the important new words and phrases from the video
-          that haven't been shown to you yet. It's not meant to be
-          comprehensive, but are just here to help you understand what's going
-          on.
+          that you haven't encountered. It's not not all of them, but it's
+          enough to help you understand what's going on.
         </p>
 
         <ul class="space-y-1 pl-4">
@@ -97,7 +140,7 @@ export default function page() {
                 class="origin-left transform cursor-pointer duration-150 ease-in-out hover:scale-[99%]"
                 onClick={() => setSeekTime(word.time)}
               >
-                <div class="inline-flex items-center space-x-2">
+                <div class="inline-flex items-end space-x-2">
                   <div class="min-w-8 text-base font-light text-blue-400">
                     {formatDuration(word.time)}
                   </div>

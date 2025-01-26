@@ -144,7 +144,7 @@ export default function page() {
       </div>
 
       <div class="absolute bottom-16 right-16">
-        <A href="/learn/chapter-0/culture-note-japanese-greetings">
+        <A href="/learn/chapter-0/greetings-japanese-super-immersion">
           <Button>Next Lesson {"->"}</Button>
         </A>
       </div>

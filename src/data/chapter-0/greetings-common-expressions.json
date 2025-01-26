@@ -100,11 +100,11 @@
   {
     "word": "ありがとうございます",
     "furigana": ["ありがとうございます"],
-    "english": ["Thank You"],
+    "english": ["Thank you"],
     "mnemonics": [],
     "info": [
-      "A polite way to say thank you.",
-      "For a more casual form, just 'ありがとう (Arigatou)' is commonly used."
+      "Polite way to say thank you.",
+      "If you're going for casual, drop ございます and just say \"ありがとう\" (it's like \"thank you\" vs. \"thanks\")."
     ],
     "chapter": 0,
     "videos": []

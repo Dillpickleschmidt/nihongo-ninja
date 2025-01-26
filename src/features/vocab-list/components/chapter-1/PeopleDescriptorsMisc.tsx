@@ -31,14 +31,19 @@ export default function PeopleDescriptorsMisc() {
           <TableCell class="text-right">Friend</TableCell>
         </TableRow>
         <TableRow class="[&>*]:p-2">
+          <TableCell class="font-japanese text-xl">～さい</TableCell>
+          <TableCell class="text-muted-foreground">...sai</TableCell>
+          <TableCell class="text-right">...years old</TableCell>
+        </TableRow>
+        <TableRow class="[&>*]:p-2">
           <TableCell class="font-japanese text-xl">～じん</TableCell>
           <TableCell class="text-muted-foreground">...jin</TableCell>
-          <TableCell class="text-right">...people</TableCell>
+          <TableCell class="text-right">(country)...person</TableCell>
         </TableRow>
         <TableRow class="[&>*]:p-2">
           <TableCell class="font-japanese text-xl">にほんじん</TableCell>
           <TableCell class="text-muted-foreground">Nihonjin</TableCell>
-          <TableCell class="text-right">Japanese people</TableCell>
+          <TableCell class="text-right">Japanese person</TableCell>
         </TableRow>
         <TableRow class="[&>*]:p-2">
           <TableCell class="font-japanese text-xl">ばんごう</TableCell>

@@ -93,6 +93,11 @@ export default function ChapterBoxes() {
             link: "/learn/chapter-0/greetings",
             types: ["vocab"],
           },
+          {
+            title: "Listen to Greetings",
+            link: "/learn/chapter-0/greetings-japanese-super-immersion",
+            types: ["video"],
+          },
           // {
           //   title: "Culture Note: Japanese Greetings",
           //   link: "/learn/chapter-0/culture-note-japanese-greetings",
@@ -108,6 +113,11 @@ export default function ChapterBoxes() {
             title: "Common Expressions",
             link: "/learn/chapter-0/common-expressions",
             types: ["vocab"],
+          },
+          {
+            title: "Listen to Common Expressions",
+            link: "/learn/chapter-0/common-expressions-japanese-super-immersion",
+            types: ["video"],
           },
           {
             title: "Practice Greet. & Common Expr.",
@@ -299,7 +309,7 @@ export default function ChapterBoxes() {
             types: ["video"],
           },
           {
-            title: "Jap. Super Immersion - Nice to meet you",
+            title: "Nice to meet you - Listening Practice",
             link: "/learn/chapter-1/japanese-super-immersion-nice-to-meet-you",
             types: ["video"],
           },
@@ -811,6 +821,11 @@ export default function ChapterBoxes() {
             types: ["audio"],
           },
           {
+            title: "Long Form Conversation Immersion",
+            link: "/learn/chapter-3/long-form-conversation-immersion",
+            types: ["video"],
+          },
+          {
             title: "Contrast Worksheet",
             link: "",
             types: ["worksheet"],
@@ -943,6 +958,11 @@ export default function ChapterBoxes() {
             title: "と - And/With",
             link: "/learn/chapter-4/to-particle",
             types: ["lesson"],
+          },
+          {
+            title: "Immersion With Yuta - Listening Practice",
+            link: "/learn/chapter-4/immersion-with-yuta",
+            types: ["video"],
           },
           {
             title: "Practice と",
@@ -1090,6 +1110,11 @@ export default function ChapterBoxes() {
             title: "Polite Volitional - ましょう・ましょうか",
             link: "/learn/chapter-5/polite-volitional",
             types: ["lesson"],
+          },
+          {
+            title: "Sports - Listening Practice",
+            link: "/learn/chapter-5/sports",
+            types: ["video"],
           },
           {
             title: "Counters",

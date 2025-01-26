@@ -50,7 +50,7 @@ export default function YouTubeIframe(props: YouTubeIframeProps) {
   }`
 
   return (
-    <div class="relative">
+    <div class="relative z-10">
       <iframe
         ref={iframeRef}
         src={src}
@@ -59,7 +59,7 @@ export default function YouTubeIframe(props: YouTubeIframeProps) {
         allowfullscreen
       />
       {isLoading() && (
-        <div class="absolute inset-0 grid place-items-center bg-black/10">
+        <div class="absolute inset-0 grid place-items-center bg-background">
           <div class="flex min-h-48 items-center justify-center">
             <Loader2 class="h-20 w-20 animate-spin text-neutral-300" />
           </div>
