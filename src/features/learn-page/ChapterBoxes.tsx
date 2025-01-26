@@ -180,11 +180,6 @@ export default function ChapterBoxes() {
             types: ["grammar-notes"],
           },
           {
-            title: "jpdb.io Flashcards",
-            link: "/learn/chapter-1/jpdb",
-            types: ["lesson"],
-          },
-          {
             title: "Kanji Numbers",
             link: "/learn/chapter-1/kanji-numbers",
             types: ["vocab"],
@@ -642,6 +637,11 @@ export default function ChapterBoxes() {
             title: "Practice Chapter 2 Kanji",
             link: "/learn/chapter-3/practice/chapter-2-kanji",
             types: ["vocab-practice"],
+          },
+          {
+            title: "jpdb.io Flashcards",
+            link: "/learn/chapter-1/jpdb",
+            types: ["lesson"],
           },
           {
             title: "Chapter 3 Nouns",
