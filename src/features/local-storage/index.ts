@@ -1,5 +1,6 @@
 // src/features/local-storage/local-storage.ts
 import type { Settings } from "@/features/conjugation-practice/types"
+import type { sortOrder } from "@/features/learn-page/context/LearnPageContext"
 
 /**
  * Central data structure defining all stored data
@@ -46,6 +47,14 @@ export const AppStorage = {
     } as Settings,
   },
 
+  // Learn page settings
+  learnPage: {
+    key: (setting: string) => `learnPage-${setting}`,
+    defaultValue: {
+      sortOrder: "module-type" as sortOrder,
+    },
+  },
+
   // Vocabulary test enabled settings
   vocabTestEnabled: {
     key: (path: string) => `vocabTestEnabled-${path}`,
@@ -71,12 +80,12 @@ export const storageUtils = {
       const item = localStorage.getItem(key)
       if (!item) {
         // Get the type from the key prefix
-        const type = key.split("-")[0] as keyof typeof AppStorage // e.g. "tour" from "tour-learn-page"
+        const [type] = key.split("-") as [keyof typeof AppStorage] // e.g. "learnPage" from "learnPage-sortOrder"
         return AppStorage[type].defaultValue
       }
       return JSON.parse(item)
     } catch {
-      const type = key.split("-")[0] as keyof typeof AppStorage
+      const [type] = key.split("-") as [keyof typeof AppStorage]
       return AppStorage[type].defaultValue
     }
   },

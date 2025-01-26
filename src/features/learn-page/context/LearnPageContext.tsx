@@ -1,5 +1,7 @@
 // LearnPageContext.tsx
-import { createContext, useContext, createSignal } from "solid-js"
+import { createContext, useContext, createSignal, onMount } from "solid-js"
+import { isServer } from "solid-js/web"
+import { AppStorage, storageUtils } from "@/features/local-storage"
 
 type LearnPageContextProps = {
   children: any
@@ -17,19 +19,31 @@ type LearnPageContextType = {
   sortOrder: () => sortOrder
   setSortOrder: (order: sortOrder) => void
   sortChangeCounter: () => number
-  setSortOrderAndNotify: (order: sortOrder) => void
 }
 
 const LearnPageContext = createContext<LearnPageContextType>()
 
 export function LearnPageProvider(props: LearnPageContextProps) {
+  const storageKey = AppStorage.learnPage.key("sortOrder")
+  const defaultSortOrder = AppStorage.learnPage.defaultValue.sortOrder
+
   const [chapterIds, setChapterIds] = createSignal<string[]>([])
   const [unitIds, setUnitIds] = createSignal<string[]>([])
-  const [sortOrder, setSortOrder] = createSignal<sortOrder>("module-type")
+  const [sortOrder, internalSetSortOrder] =
+    createSignal<sortOrder>(defaultSortOrder)
   const [sortChangeCounter, setSortChangeCounter] = createSignal(0)
 
-  const setSortOrderAndNotify = (newOrder: sortOrder) => {
-    setSortOrder(newOrder)
+  // Load from storage only after mount
+  onMount(() => {
+    const storedValue = storageUtils.get(storageKey)
+    internalSetSortOrder(storedValue.sortOrder)
+  })
+
+  const setSortOrder = (newOrder: sortOrder) => {
+    internalSetSortOrder(newOrder)
+    if (!isServer) {
+      storageUtils.set(storageKey, { sortOrder: newOrder })
+    }
     setSortChangeCounter((c) => c + 1)
   }
 
@@ -43,7 +57,6 @@ export function LearnPageProvider(props: LearnPageContextProps) {
         sortOrder,
         setSortOrder,
         sortChangeCounter,
-        setSortOrderAndNotify,
       }}
     >
       {props.children}

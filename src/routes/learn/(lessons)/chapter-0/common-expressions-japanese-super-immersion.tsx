@@ -67,7 +67,7 @@ export default function page() {
           <span class="text-base">
             - It means you you must be tired, or thank you for your hard work,
             and is a way to say goodbye for the day, thus it is typically used
-            at the end of the day.
+            at the end of the work day.
           </span>
         </p>
         <p>
