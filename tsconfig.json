@@ -10,7 +10,7 @@
     "allowJs": true,
     "noEmit": true,
     "strict": true,
-    "types": ["vinxi/types/client", "jest"],
+    "types": ["vinxi/types/client", "jest", "youtube"],
     "isolatedModules": true,
     "baseUrl": "./",
     "paths": {

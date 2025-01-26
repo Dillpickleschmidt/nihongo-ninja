@@ -1,18 +1,33 @@
-import { Button } from "@/components/ui/button"
+import ContentBox from "@/components/ContentBox"
 import Kikusasaizu from "@/features/kikusasaizu/Kikusasaizu"
-import { A } from "@solidjs/router"
 
 export default function page() {
   return (
-    <div class="flex w-full items-center justify-center">
-      <div class="w-full px-4 pb-32 md:px-16 lg:px-32 xl:px-48">
-        <Kikusasaizu src="https://h5p.cee.sfu.ca/h5p/embed/2319" />
+    <ContentBox
+      nextButtonText="Next Lesson ->"
+      nextButtonLink="/learn/chapter-1/japanese-super-immersion-nice-to-meet-you"
+      size="lg"
+    >
+      <Kikusasaizu src="https://h5p.cee.sfu.ca/h5p/embed/2319" />
+      <div class="mx-auto max-w-2xl space-y-3 px-4 pb-32">
+        <div class="w-full border-b px-12 pb-6 pt-6 text-center text-4xl font-semibold lg:px-28 lg:pt-12">
+          <h1 class="text-center text-4xl font-semibold">Kikusasaizu 1.1</h1>
+        </div>
+        <p>
+          I know, I know, I said no boring textbook examples. But let's be
+          honest, the amount of Japanese that you currently know is still quite
+          small.
+        </p>
+        <p>
+          Bear with it for this one video. I just want to make sure you have
+          something easy enough to feel good about understanding.
+        </p>
+        <p>
+          We'll do another video right after this that's a bit more human
+          feeling, but will have some parts that will take some additional
+          explaining.
+        </p>
       </div>
-      <div class="absolute bottom-16 right-16">
-        <A href="/learn/chapter-1/my-kikitori-conversation-1">
-          <Button>Next Lesson {"->"}</Button>
-        </A>
-      </div>
-    </div>
+    </ContentBox>
   )
 }

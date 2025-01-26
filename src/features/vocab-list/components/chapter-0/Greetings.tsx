@@ -22,14 +22,14 @@ export default function Greetings() {
       <TableBody class="text-base">
         <TableRow class="[&>*]:p-2">
           <TableCell class="font-japanese text-xl">おはよう。</TableCell>
-          <TableCell class="text-muted-foreground">Ohayou.</TableCell>
+          <TableCell class="text-muted-foreground">Ohayō.</TableCell>
           <TableCell class="text-right">Good morning.</TableCell>
         </TableRow>
         <TableRow class="[&>*]:p-2">
           <TableCell class="font-japanese text-xl">
             おはようございます。
           </TableCell>
-          <TableCell class="text-muted-foreground">Ohayou gozaimasu.</TableCell>
+          <TableCell class="text-muted-foreground">Ohayō gozaimasu.</TableCell>
           <TableCell class="text-right">Good morning. (polite)</TableCell>
         </TableRow>
         <TableRow class="[&>*]:p-2">
@@ -54,12 +54,12 @@ export default function Greetings() {
         </TableRow>
         <TableRow class="[&>*]:p-2">
           <TableCell class="font-japanese text-xl">さようなら。</TableCell>
-          <TableCell class="text-muted-foreground">Sayounara.</TableCell>
+          <TableCell class="text-muted-foreground">Sayōnara.</TableCell>
           <TableCell class="text-right">Goodbye.</TableCell>
         </TableRow>
         <TableRow class="[&>*]:p-2">
           <TableCell class="font-japanese text-xl">ようこそ。</TableCell>
-          <TableCell class="text-muted-foreground">Youkoso.</TableCell>
+          <TableCell class="text-muted-foreground">Yōkoso.</TableCell>
           <TableCell class="text-right">Welcome.</TableCell>
         </TableRow>
       </TableBody>

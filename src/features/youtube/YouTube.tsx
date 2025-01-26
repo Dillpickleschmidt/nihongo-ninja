@@ -1,10 +1,11 @@
-import { createSignal, Show } from "solid-js"
+// YouTube.tsx
+import { Show, For, createSignal } from "solid-js"
 import YouTubeIframe from "./components/YouTubeIframe"
-import { cn } from "@/libs/cn"
-import { For } from "solid-js"
 import { formatDuration } from "@/util/timeFormat"
+import { cn } from "@/libs/cn"
+import type { Accessor, Setter } from "solid-js"
 
-type Timestamp = {
+export type Timestamp = {
   label: string
   time: number
 }
@@ -16,11 +17,19 @@ type YouTubeVideoProps = {
   timestamps?: Timestamp[]
   credit?: string
   glow?: boolean
+  seekTime?: Accessor<number | null>
+  setSeekTime?: Setter<number | null>
   class?: string
 }
 
 export default function YouTubeVideo(props: YouTubeVideoProps) {
-  const [seekTime, setSeekTime] = createSignal<number | null>(null)
+  const [internalSeekTime, setInternalSeekTime] = createSignal<number | null>(
+    null,
+  )
+
+  // Use provided signal and setter if available, otherwise use internal ones
+  const seekTime = props.seekTime || internalSeekTime
+  const setSeekTime = props.setSeekTime || setInternalSeekTime
 
   return (
     <div>

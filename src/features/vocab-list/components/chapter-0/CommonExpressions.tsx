@@ -71,7 +71,7 @@ export default function CommonExpressions() {
             ごちそうさま (でした)。
           </TableCell>
           <TableCell class="text-muted-foreground">
-            Gochisoo-sama (deshita).
+            Gochisō-sama (deshita).
           </TableCell>
           <TableCell class="text-right">That was delicious.</TableCell>
         </TableRow>

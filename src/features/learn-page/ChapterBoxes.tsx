@@ -299,6 +299,11 @@ export default function ChapterBoxes() {
             types: ["video"],
           },
           {
+            title: "Jap. Super Immersion - Nice to meet you",
+            link: "/learn/chapter-1/japanese-super-immersion-nice-to-meet-you",
+            types: ["video"],
+          },
+          {
             title: "MyKikitori - Conversation 1",
             link: "/learn/chapter-1/my-kikitori-conversation-1",
             types: ["audio"],
