@@ -994,6 +994,11 @@ export default function ChapterBoxes() {
             link: "/learn/chapter-4/takusan",
             types: ["lesson"],
           },
+          {
+            title: "Beginner Guide To コンビニ",
+            link: "/learn/chapter-4/beginner-guide-to-konbini",
+            types: ["video"],
+          },
         ]}
       />
 

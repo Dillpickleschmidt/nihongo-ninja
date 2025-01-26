@@ -1,4 +1,4 @@
-import { createSignal, onMount, createEffect } from "solid-js"
+import { createSignal, onMount, createEffect, onCleanup } from "solid-js"
 import { loadYouTubeApi } from "../util/youtubeAPI"
 import { Loader2 } from "lucide-solid"
 
@@ -11,7 +11,7 @@ type YouTubeIframeProps = {
 }
 
 export default function YouTubeIframe(props: YouTubeIframeProps) {
-  let iframeRef!: HTMLIFrameElement
+  let iframeRef!: HTMLDivElement
   const [isLoading, setIsLoading] = createSignal(true)
   const [player, setPlayer] = createSignal<YT.Player | null>(null)
   let timeUpdateInterval: number | undefined
@@ -19,12 +19,18 @@ export default function YouTubeIframe(props: YouTubeIframeProps) {
   onMount(async () => {
     await loadYouTubeApi()
 
-    new YT.Player(iframeRef, {
+    const newPlayer = new YT.Player(iframeRef, {
+      videoId: props.videoId,
+      playerVars: {
+        start: props.startTime || 0,
+        enablejsapi: 1,
+      },
+      height: "100%", // Add this
+      width: "100%", // Add this
       events: {
         onReady: (event) => {
           setIsLoading(false)
           setPlayer(event.target)
-          // Start time updates if needed
           if (props.onTimeUpdate) {
             timeUpdateInterval = window.setInterval(() => {
               const time = event.target.getCurrentTime()
@@ -36,28 +42,22 @@ export default function YouTubeIframe(props: YouTubeIframeProps) {
     })
   })
 
-  // Handle seek time changes
-  createEffect(() => {
-    const currentPlayer = player()
-    const seekTime = props.seekTime
-    if (currentPlayer && seekTime != null) {
-      currentPlayer.seekTo(seekTime, true)
+  onCleanup(() => {
+    if (timeUpdateInterval) {
+      clearInterval(timeUpdateInterval)
     }
+    // Clean up player if needed
+    player()?.destroy()
   })
-
-  const src = `https://www.youtube.com/embed/${props.videoId}?enablejsapi=1${
-    props.startTime ? `&start=${props.startTime}` : ""
-  }`
 
   return (
     <div class="relative z-10">
-      <iframe
-        ref={iframeRef}
-        src={src}
-        title={props.title}
-        class="aspect-video w-full"
-        allowfullscreen
-      />
+      {/* Add another container div for aspect ratio */}
+      <div class="relative w-full pt-[56.25%]">
+        {" "}
+        {/* 16:9 aspect ratio */}
+        <div ref={iframeRef} class="absolute inset-0" />
+      </div>
       {isLoading() && (
         <div class="absolute inset-0 grid place-items-center bg-background">
           <div class="flex min-h-48 items-center justify-center">

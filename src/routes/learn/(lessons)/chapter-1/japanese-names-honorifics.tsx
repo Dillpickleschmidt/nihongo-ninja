@@ -1,6 +1,7 @@
 import ContentBox from "@/components/ContentBox"
 import Furigana from "@/components/text/Furigana"
 import { Button } from "@/components/ui/button"
+import YouTubeVideo from "@/features/youtube/YouTube"
 
 export default function page() {
   return (
@@ -12,7 +13,13 @@ export default function page() {
         Japanese Names & Honorifics
       </h1>
       <div class="space-y-3 px-8 pb-32 md:px-24">
-        <h2 class="my-3 text-center text-2xl font-bold">
+        <p class="pt-3">
+          This one's really fun because by the end of this lesson, whenever you
+          watch something in Japanese, you'll be able to pick up important
+          information that simply won't be conveyed in English subs, enriching
+          your experience more than those who haven't learned Japanese.
+        </p>
+        <h2 class="my-3 pt-6 text-center text-2xl font-bold">
           Structure of Japanese Names
         </h2>
         <p class="pt-3">
@@ -98,6 +105,13 @@ export default function page() {
         <h2 class="pb-3 pt-6 text-center text-2xl font-bold">
           Honorifics: Politeness in Address
         </h2>
+
+        <YouTubeVideo
+          videoId="5rOHpkpYMIM"
+          title="Re:Zero's Japanese Honorifics (Sama, San, Kun, Chan, Tan, Dono) Explained"
+          credit="That Japanese Man Yuta"
+        />
+
         <p>
           Honorifics are suffixes added to names to convey respect, formality,
           and the relationship between the speaker and the person being
@@ -175,6 +189,11 @@ export default function page() {
           <Furigana furigana="くん">君</Furigana> -{" "}
           <span class="font-honk text-4xl">Kun</span>
         </h3>
+        <YouTubeVideo
+          videoId="beRayxTGDKY"
+          title="The Japanese honorific くん -kun: How, why, when it is used"
+          credit="Kyota Ko"
+        />
         <li>
           <span class="font-bold">Usage: </span>Informal, typically used for
           boys and young men.
@@ -310,6 +329,11 @@ export default function page() {
           <Furigana furigana="どの">殿</Furigana> -{" "}
           <span class="font-honk text-4xl">Dono</span>
         </h3>
+        <YouTubeVideo
+          videoId="F6uVxd8nTA8"
+          title="What is the Japanese honorific -dono all about?"
+          credit="Kyota Ko"
+        />
         <li>
           <span class="font-bold">Usage: </span>Very formal, archaic.
         </li>
