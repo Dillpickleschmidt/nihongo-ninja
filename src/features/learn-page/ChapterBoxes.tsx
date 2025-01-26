@@ -510,6 +510,11 @@ export default function ChapterBoxes() {
             types: ["lesson"],
           },
           {
+            title: "Unlearning Japanese - Real Real Japan #01",
+            link: "/learn/chapter-2/unlearning-japanese",
+            types: ["video"],
+          },
+          {
             title: "Japanese Money",
             link: "/learn/chapter-2/japanese-money",
             types: ["lesson"],
@@ -1577,6 +1582,16 @@ export default function ChapterBoxes() {
             types: ["vocab-practice"],
           },
           {
+            title: "Comparing Sizes",
+            link: "/learn/chapter-10/comparing-sizes",
+            types: ["video"],
+          },
+          {
+            title: "Emotions",
+            link: "/learn/chapter-10/emotions",
+            types: ["video"],
+          },
+          {
             title: "All Vocab - Test",
             link: "/learn/chapter-10/all-vocab-test",
             types: ["vocab-test"],
@@ -1992,6 +2007,11 @@ export default function ChapterBoxes() {
             title: "Irreg Verbs, Adv., & Misc. - Kana",
             link: "/learn/chapter-15/practice/irr-v-adv-misc-kana",
             types: ["vocab-practice"],
+          },
+          {
+            title: "Hobbies With Yuta",
+            link: "/learn/chapter-15/hobbies-with-yuta",
+            types: ["video"],
           },
           {
             title: "All Vocab - Test",

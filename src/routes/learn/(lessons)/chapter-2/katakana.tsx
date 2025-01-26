@@ -2,6 +2,7 @@ import ContentBox from "@/components/ContentBox"
 import PortraitIcon from "@/components/PortraitIcon"
 import Furigana from "@/components/text/Furigana"
 import Romaji from "@/components/text/Romaji"
+import YouTubeVideo from "@/features/youtube/YouTube"
 // import KatakanaChart from "@/features/charts/KatakanaChart"
 
 export default function page() {
@@ -448,6 +449,12 @@ export default function page() {
             class="h-14 w-14 border-none bg-inherit"
           />
         </div>
+
+        <YouTubeVideo
+          videoId="wtcMGycmDjc"
+          title="When to use hiragana, katakana, and kanji"
+          credit="Komei's Channel"
+        />
       </div>
     </ContentBox>
   )

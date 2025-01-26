@@ -22,6 +22,13 @@ export default function page() {
             credit="TheJapanChannelDcom"
           />
         </div>
+        <div>
+          <YouTubeVideo
+            videoId="IleeKRiuQ70"
+            title="Comprehensible Japanese (beginner) - Japanese Money 日本のお金　にほんのおかね"
+            credit="Nihongo-Learning"
+          />
+        </div>
         <p class="!mt-3">
           In Japan, the currency used is the Japanese <strong>Yen</strong>{" "}
           <span class="text-base text-muted-foreground">

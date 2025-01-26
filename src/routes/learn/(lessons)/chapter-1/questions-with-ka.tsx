@@ -1,4 +1,6 @@
 import ContentBox from "@/components/ContentBox"
+import Furigana from "@/components/text/Furigana"
+import YouTubeVideo from "@/features/youtube/YouTube"
 
 export default function Page() {
   return (
@@ -11,13 +13,19 @@ export default function Page() {
         <span class="font-japanese text-red-500">か</span> Particle
       </h1>
       <div class="space-y-6 px-8 pb-32 md:px-24">
+        <YouTubeVideo
+          videoId="_bG8RWRAaJM"
+          title="か (ka) #9 Ultimate Japanese Particle Guide"
+          credit="JapanesePod101.com"
+          startTime={7}
+        />
         <h2 class="my-3 text-center text-2xl font-bold">Introduction</h2>
         <p>
           The <span class="font-japanese">か</span> particle is a crucial
-          element in Japanese grammar, primarily used to form questions.
-          Understanding how to use <span class="font-japanese">か</span> will
-          help you ask and understand questions in Japanese, enhancing your
-          conversational skills.
+          element in Japanese grammar, primarily used to form questions, though
+          it has other uses as well. Understanding how to use{" "}
+          <span class="font-japanese">か</span> will help you ask and understand
+          questions in Japanese, enhancing your conversational skills.
         </p>
         <h2 class="my-3 text-center text-2xl font-bold">
           Forming Yes/No Questions
@@ -285,6 +293,29 @@ export default function Page() {
         </h2>
         <ul class="ml-6 list-disc">
           <li>
+            <h4 class="mb-1 mt-6 font-bold">Saying "or":</h4>
+            <ul class="ml-6 list-disc">
+              <li>
+                <span class="font-japanese text-xl">
+                  <Furigana furigana={<span class="text-sm">にほんじん</span>}>
+                    日本人
+                  </Furigana>
+                  か
+                  <Furigana
+                    furigana={<span class="text-sm">かんこくじん</span>}
+                  >
+                    韓国人
+                  </Furigana>
+                </span>{" "}
+                - Japanese or Korean
+              </li>
+              <li>
+                Here, <span class="font-japanese text-xl">か</span> serves the
+                exact same function as "or" in English.
+              </li>
+            </ul>
+          </li>
+          <li>
             <h4 class="mb-1 mt-6 font-bold">
               Expressing Uncertainty or Surprise:
             </h4>
@@ -465,14 +496,10 @@ export default function Page() {
         <h2 class="pt-6 text-center text-2xl font-bold">Conclusion</h2>
         <p>
           Mastering the use of the <span class="font-japanese">か</span>{" "}
-          particle is essential for forming questions in Japanese. By
-          understanding how to use it with both yes/no questions and questions
-          with specific question words, you'll be able to engage in more
-          meaningful and varied conversations in Japanese. Additionally,
-          understanding its use in statements and polite confirmations will
-          enhance your ability to interact naturally in Japanese. Practice
-          regularly, and soon using <span class="font-japanese">か</span> will
-          become second nature!
+          particle is essential for forming questions in Japanese. Understanding
+          its use in statements and polite confirmations will enhance your
+          ability to interact naturally in Japanese. It might seem a bit weird
+          at first, but it will soon become second nature.
         </p>
       </div>
     </ContentBox>

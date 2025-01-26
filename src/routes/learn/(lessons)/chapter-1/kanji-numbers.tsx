@@ -1,4 +1,5 @@
 import ContentBox from "@/components/ContentBox"
+import YouTubeVideo from "@/features/youtube/YouTube"
 
 export default function page() {
   const jpdbIds = [
@@ -26,19 +27,13 @@ export default function page() {
       <div class="space-y-6 px-8 pb-32 sm:px-16 md:px-24">
         <p>
           It's a bit early for kanji, and generally speaking, we don't expect
-          you to memorize the kanji for words until <strong>Chapter 3</strong>,
-          but you will be adding words to and practicing on{" "}
-          <strong>jpdb.io</strong> everyday from this point on. That way, you'll
-          hit the ground running when it's time to get serious with kanji.
+          you to memorize the kanji for words until <strong>Chapter 3</strong>.
+          However, these first 10 numbers are so frequently used that it's worth
+          mastering them right now. That way, you'll hit the ground running when
+          it's time to get serious with kanji.
         </p>
         <p>
-          These first 10 numbers are so frequently used that it's worth
-          mastering them right now on Nihongo Ninja, and we'll expect you to
-          know them going forward{" "}
-          <span class="text-base text-muted-foreground">
-            (you'll still review them on jpdb)
-          </span>
-          . The reason being that they're actually{" "}
+          And frankly, these are actually{" "}
           <span class="font-bold italic">much</span> easier to read than the
           hiragana{" "}
           <span class="text-base text-muted-foreground">
@@ -118,6 +113,13 @@ export default function page() {
             </span>
           </small>
         </div>
+
+        <YouTubeVideo
+          videoId="2icA1VaYg80"
+          title="WHY JAPANESE PEOPLE !! - Eng Sub"
+          credit="Nihongo Daikirai"
+          startTime={63}
+        />
 
         <div class="flex items-center justify-center text-3xl">
           <div class="mr-4 font-japanese text-5xl">五</div>

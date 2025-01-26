@@ -339,6 +339,37 @@ export default function page() {
           new kanji. That way, the remaining kanji will come{" "}
           <strong>much</strong> more quickly.
         </p>
+
+        <div>
+          <h3 class="pb-4 text-xl font-bold">How Japanese Kids Learn Kanji</h3>
+          <YouTubeVideo
+            videoId="EykWxB_sqOM"
+            title="How Japanese Kids Learn Kanji"
+            credit="That Japanese Man Yuta"
+          />
+          <p class="text-base text-muted-foreground">
+            This is just to demistify how kids actually learn kanji in Japan.
+            However, they have the advantage of already knowing the words, so I
+            wouldn't recommend learning in exactly the same way as they do if
+            you're going for efficiency.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="pb-4 text-xl font-bold">
+            Can Japanese People Actually Write Japanese Kanji?
+          </h3>
+          <YouTubeVideo
+            videoId="sJNxPRBvRQg"
+            title="Can Japanese Actually Write Japanese Kanji?"
+            credit="That Japanese Man Yuta"
+          />
+          <p class="text-base text-muted-foreground">
+            Fun fact: Remembering how to read kanji is much easier than
+            remembering how to write it. Even Japanese people sometimes
+            struggle!
+          </p>
+        </div>
       </div>
     </ContentBox>
   )

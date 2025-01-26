@@ -2,6 +2,7 @@ import ContentBox from "@/components/ContentBox"
 import Furigana from "@/components/text/Furigana"
 import Romaji from "@/components/text/Romaji"
 import { TextField, TextFieldRoot } from "@/components/ui/textfield"
+import YouTubeVideo from "@/features/youtube/YouTube"
 
 export default function page() {
   return (
@@ -21,6 +22,13 @@ export default function page() {
           <span class="text-muted-foreground">(no)</span>—the particle which
           connects nouns.
         </p>
+
+        <YouTubeVideo
+          videoId="MFPOPg34INI"
+          title="The Japanese の Particle in 2 minutes!"
+          credit="ToKini Andy"
+        />
+
         <h2 class="py-3 text-center text-2xl font-bold">
           The Basics: Possession with{" "}
           <span class="font-japanese text-[1.6rem] text-orange-500">の</span>

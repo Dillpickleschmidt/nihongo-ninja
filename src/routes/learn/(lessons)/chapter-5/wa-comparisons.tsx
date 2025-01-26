@@ -149,6 +149,41 @@ export default function WaContrast() {
             → "As for sports I like them, but as for studying I hate it"
           </p>
         </div>
+
+        <h3 class="!mt-9 text-2xl font-bold">A more difficult example:</h3>
+        <div class="space-y-2">
+          <p class="font-japanese text-xl">
+            静かな男の人はあまり好きじゃありません。
+          </p>
+          <p class="text-lg">I don't really like quiet guys.</p>
+          <p class="text-base text-muted-foreground">
+            In this case, the particle は is used because it sets "quiet men" as
+            the topic of the sentence. This use of は often indicates contrast,
+            even implicitly. The sentence implies that while the speaker may
+            like other types of men or people, they don't particularly like
+            "quiet men." This is similar to how は is used in the sentence
+            "スポーツは好きですが、勉強はきらいです。" to show a contrast
+            between likes and dislikes.
+          </p>
+          <p class="text-base text-muted-foreground">
+            If が were used instead, it would focus specifically on "quiet men"
+            as the grammatical subject and would not carry the same contrastive
+            or general tone. Thus, は is appropriate here to express a general
+            opinion with an implied contrast.
+          </p>
+          <p class="text-base text-muted-foreground">
+            An odd sounding English version that gets closer to the underlying
+            meaning of this Japanese sentence would be:
+          </p>
+          <p class="pl-6 text-base text-muted-foreground">
+            Quiet guys? Mmm, I don't really like...
+          </p>
+          <p class="text-base text-muted-foreground">As compared to:</p>
+          <p class="pl-6 text-base text-muted-foreground">
+            I don't really like <span class="italic underline">quiet guys</span>
+            .
+          </p>
+        </div>
       </div>
 
       <div class="space-y-4 px-12 pb-32 leading-8 sm:px-16 md:px-24 [&>*]:space-y-4">

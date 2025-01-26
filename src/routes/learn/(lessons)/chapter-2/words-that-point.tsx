@@ -139,9 +139,15 @@ export default function page() {
             <li>
               <span class="font-bold">Explanation: </span>Use{" "}
               <span class="font-japanese text-xl">どれ</span> to ask about which
-              object among several choices.
+              object among several choices (3 or more).
             </li>
           </ul>
+
+          <YouTubeVideo
+            videoId="pv9B20HEjVY"
+            title="This and That in Japanese in UNDER 2 Minutes"
+            credit="ToKini Andy"
+          />
         </div>
         <p class="text-base italic">
           *Question words like{" "}

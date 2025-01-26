@@ -1,12 +1,7 @@
 import ContentBox from "@/components/ContentBox"
-import Furigana from "@/components/text/Furigana"
 import YouTubeVideo from "@/features/youtube/YouTube"
-import { formatDuration } from "@/util/timeFormat"
-import { createSignal, For } from "solid-js"
 
 export default function page() {
-  const [seekTime, setSeekTime] = createSignal<number | null>(null)
-
   return (
     <ContentBox
       nextButtonText="Next Lesson ->"

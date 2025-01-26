@@ -109,9 +109,25 @@
     "furigana": ["暇[ひま]"],
     "english": ["not busy", "to have a lot of free time"],
     "mnemonics": [],
-    "info": ["な-adjective"],
+    "info": [
+      "While '暇' means 'not busy' or 'having free time,' it can carry a slightly negative connotation, as it implies someone might be unoccupied or idle.",
+      "☓ 先生、質問があります。今暇ですか。",
+      "→ This phrasing is inappropriate due to the implied negative tone of '暇.'",
+      "✓ Better alternatives: ",
+      "  - 質問がありますけど、今、いいですか。 (I have a question, but is now okay?)",
+      "  - 今時間がありますか。 (Do you have time now?)"
+    ],
     "particles": [],
-    "example_sentences": [],
+    "example_sentences": [
+      {
+        "japanese": "今日は暇です。",
+        "english": "I am free today."
+      },
+      {
+        "japanese": "暇な時に本を読みます。",
+        "english": "I read books when I have free time."
+      }
+    ],
     "chapter": 5,
     "videos": []
   }

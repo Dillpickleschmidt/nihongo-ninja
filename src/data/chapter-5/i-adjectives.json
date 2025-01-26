@@ -13,11 +13,25 @@
   {
     "word": "古い",
     "furigana": ["古[ふる]い"],
-    "english": ["old (object, cannot be used for a person or an animal)"],
+    "english": ["old (object)"],
     "mnemonics": [],
-    "info": [],
+    "info": [
+      "Used to describe objects that are old or outdated.",
+      "Cannot be used to describe people or animals. For such cases, use '年を取った' (としをとった) for an elderly person or '若くない' (わかくない) for not young.",
+      "☓ お父さんは古いです。→ お父さんは若(わか)くありません。(“わかい” = young)",
+      "Correct usage: 古い本 (old book)."
+    ],
     "particles": [],
-    "example_sentences": [],
+    "example_sentences": [
+      {
+        "japanese": "この本は古いです。",
+        "english": "This book is old."
+      },
+      {
+        "japanese": "古い家に住んでいます。",
+        "english": "I live in an old house."
+      }
+    ],
     "chapter": 5,
     "videos": []
   },
@@ -26,9 +40,22 @@
     "furigana": ["暑[あつ]い"],
     "english": ["hot (weather)"],
     "mnemonics": [],
-    "info": [],
+    "info": [
+      "Used to describe hot weather or atmospheric conditions.",
+      "Incorrect usage: 暑い飲み物 (hot drink) - '暑い' should be replaced with '熱い' (listed below).",
+      "Correct usage: 暑い天気 (hot weather)."
+    ],
     "particles": [],
-    "example_sentences": [],
+    "example_sentences": [
+      {
+        "japanese": "今日の天気はとても暑いです。",
+        "english": "Today's weather is very hot."
+      },
+      {
+        "japanese": "夏はいつも暑いですね。",
+        "english": "Summer is always hot, isn't it?"
+      }
+    ],
     "chapter": 5,
     "videos": []
   },
@@ -37,9 +64,22 @@
     "furigana": ["寒[さむ]い"],
     "english": ["cold (weather)"],
     "mnemonics": [],
-    "info": [],
+    "info": [
+      "Used to describe cold weather or atmospheric conditions.",
+      "Incorrect usage: 寒い水 (cold water) - '寒い' should be replaced with '冷たい' (listed below).",
+      "Correct usage: 寒い朝 (cold morning)."
+    ],
     "particles": [],
-    "example_sentences": [],
+    "example_sentences": [
+      {
+        "japanese": "冬の朝は寒いですね。",
+        "english": "Winter mornings are cold, aren't they?"
+      },
+      {
+        "japanese": "今日は寒いです。",
+        "english": "Today is cold."
+      }
+    ],
     "chapter": 5,
     "videos": []
   },
@@ -48,9 +88,46 @@
     "furigana": ["熱[あつ]い"],
     "english": ["hot (object)"],
     "mnemonics": [],
-    "info": [],
+    "info": [
+      "Used to describe objects or substances that are hot to the touch.",
+      "Incorrect usage: 熱い天気 (hot weather) - '熱い' should be replaced with '暑い'.",
+      "Correct usage: 熱い飲み物 (hot drink)."
+    ],
     "particles": [],
-    "example_sentences": [],
+    "example_sentences": [
+      {
+        "japanese": "熱いコーヒーをのみます。",
+        "english": "I drink hot coffee."
+      },
+      {
+        "japanese": "このお茶はとても熱いです。",
+        "english": "This tea is very hot."
+      }
+    ],
+    "chapter": 5,
+    "videos": []
+  },
+  {
+    "word": "冷たい",
+    "furigana": ["冷[つめ]たい"],
+    "english": ["cold (object)"],
+    "mnemonics": [],
+    "info": [
+      "Used to describe objects or substances that are cold to the touch.",
+      "Incorrect usage: 冷たい天気 (cold weather) - '冷たい' should be replaced with '寒い'.",
+      "Correct usage: 冷たい水 (cold water)."
+    ],
+    "particles": [],
+    "example_sentences": [
+      {
+        "japanese": "冷たい水をください。",
+        "english": "Please give me cold water."
+      },
+      {
+        "japanese": "このジュースは冷たいです。",
+        "english": "This juice is cold."
+      }
+    ],
     "chapter": 5,
     "videos": []
   },
