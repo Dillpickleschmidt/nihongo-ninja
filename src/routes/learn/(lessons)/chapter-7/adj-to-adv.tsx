@@ -1,6 +1,7 @@
 import ContentBox from "@/components/ContentBox"
 import Furigana from "@/components/text/Furigana"
 import SelectText from "@/components/text/MultipleChoiceText"
+import YouTubeVideo from "@/features/youtube/YouTube"
 
 export default function page() {
   return (
@@ -22,6 +23,22 @@ export default function page() {
             actions are performed. Each type of adjective has its own conversion
             rule.
           </p>
+        </div>
+        <div class="space-y-2">
+          <p>Part 1:</p>
+          <YouTubeVideo
+            videoId="VrDWfzfSkpQ"
+            title="How to change Adjectives into Adverbial usage of adjective in Japanese (Part1)"
+            credit="Miku Real Japanese"
+          />
+        </div>
+        <div class="space-y-2">
+          <p>Part 2:</p>
+          <YouTubeVideo
+            videoId="JLmJJgr-CiY"
+            title="How to change Adjectives into Adverbial usage of adjective in Japanese (Part2)"
+            credit="Miku Real Japanese"
+          />
         </div>
 
         <div class="grid gap-6 md:grid-cols-2">

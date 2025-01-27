@@ -500,6 +500,11 @@ export default function ChapterBoxes() {
             types: ["vocab-practice"],
           },
           {
+            title: "ください vs お願いします",
+            link: "/learn/chapter-2/kudasai-vs-onegaishimasu",
+            types: ["video"],
+          },
+          {
             title: "MyKikitori - At a Café",
             link: "/learn/chapter-2/my-kikitori-at-a-cafe",
             types: ["audio"],
@@ -1338,6 +1343,11 @@ export default function ChapterBoxes() {
             title: "Practice Adj, Adv, & Misc. - Kana",
             link: "/learn/chapter-7/practice/adj-adv-misc-kana",
             types: ["vocab-practice"],
+          },
+          {
+            title: "Convert Adjectives to Adverbs",
+            link: "/learn/chapter-7/adj-to-adv",
+            types: ["lesson"],
           },
           {
             title: "All Vocab - Test",

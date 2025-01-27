@@ -1,6 +1,7 @@
 import ContentBox from "@/components/ContentBox"
 import Furigana from "@/components/text/Furigana"
 import SelectText from "@/components/text/MultipleChoiceText"
+import YouTubeVideo from "@/features/youtube/YouTube"
 
 export default function UsingAdverbs() {
   return (
@@ -19,8 +20,16 @@ export default function UsingAdverbs() {
           degree of intensity, or the manner of an action.
         </p>
 
+        <div class="pt-4">
+          <YouTubeVideo
+            videoId="Cw1NqcHrVQA"
+            title="What's different about Japanese adverbs of frequency and infrequency?"
+            credit="ToKini Andy"
+          />
+        </div>
+
         {/* <h3 class="!mt-9 text-center text-2xl font-bold">Chapter 3 Adverbs</h3> */}
-        <div class="!mt-9 flex w-full justify-center">
+        <div class="flex w-full justify-center">
           <ul class="ml-6 space-y-2">
             <li>
               <span class="font-japanese text-2xl font-medium">たいてい</span>{" "}
@@ -33,6 +42,10 @@ export default function UsingAdverbs() {
             <li>
               <span class="font-japanese text-2xl font-medium">よく</span>{" "}
               {"->"} Often
+            </li>
+            <li>
+              <span class="font-japanese text-2xl font-medium">いつも</span>{" "}
+              {"->"} Always
             </li>
             <li>
               <span class="font-japanese text-2xl font-medium">ちょっと</span>{" "}
