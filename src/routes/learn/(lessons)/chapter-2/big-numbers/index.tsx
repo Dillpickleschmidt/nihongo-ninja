@@ -2,6 +2,7 @@ import ContentBox from "@/components/ContentBox"
 import BigNumbers from "@/features/charts/BigNumbersChart"
 import DigitsPractice from "./components/DigitsPractice"
 import NumbersKanjiPractice from "./components/NumbersKanjiPractice"
+import YouTubeVideo from "@/features/youtube/YouTube"
 
 export default function page() {
   return (
@@ -21,6 +22,11 @@ export default function page() {
           explore big numbers in Japanese and practice reading them as both
           digits and kanji.
         </p>
+        <YouTubeVideo
+          videoId="qqT1oL7Edyk"
+          title="How to Count in Japanese (1 to 1 Million+) 🇯🇵"
+          credit="NihongoDekita with Sayaka"
+        />
         <BigNumbers />
         <p class="text-base italic text-muted-foreground">
           *Note that <span class="font-japanese not-italic">一万</span> is{" "}

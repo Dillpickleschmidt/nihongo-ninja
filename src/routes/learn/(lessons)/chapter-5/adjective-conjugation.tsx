@@ -2,6 +2,7 @@ import ContentBox from "@/components/ContentBox"
 import PortraitIcon from "@/components/PortraitIcon"
 import Furigana from "@/components/text/Furigana"
 import SelectText from "@/components/text/MultipleChoiceText"
+import YouTubeVideo from "@/features/youtube/YouTube"
 import { A } from "@solidjs/router"
 
 export default function AdjectiveTypes() {
@@ -68,6 +69,12 @@ export default function AdjectiveTypes() {
             </div>
           </div>
         </div>
+
+        <YouTubeVideo
+          videoId="SAXtJwgj71U"
+          title="The Most Common Mistake for Japanese Beginners"
+          credit="ToKini Andy"
+        />
 
         <div class="grid gap-6 md:grid-cols-2">
           {/* い-Adjectives section */}

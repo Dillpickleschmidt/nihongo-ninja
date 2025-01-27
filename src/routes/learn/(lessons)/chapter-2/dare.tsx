@@ -1,6 +1,7 @@
 import ContentBox from "@/components/ContentBox"
 import Furigana from "@/components/text/Furigana"
 import SelectText from "@/components/text/MultipleChoiceText"
+import YouTubeVideo from "@/features/youtube/YouTube"
 
 export default function page() {
   return (
@@ -12,6 +13,11 @@ export default function page() {
         Asking Who with <span class="font-japanese text-red-500">だれ</span>
       </h1>
       <div class="space-y-6 px-8 sm:px-16 md:px-24">
+        <YouTubeVideo
+          videoId="UYzsulvocL0"
+          title="Japanese Lesson #105 Question! Who? だれ(dare)"
+          credit="Onigiri Nihongo Club"
+        />
         <h3 class="!mt-12 text-2xl font-bold">
           <span class="font-japanese text-3xl">
             <Furigana furigana={<span class="text-lg">だれ</span>}>誰</Furigana>
@@ -147,6 +153,19 @@ export default function page() {
           d="あのおじいさんはだれですか。"
           class="text-xl"
         />
+        <p>
+          Option e:{" "}
+          <a
+            href="https://www.youtube.com/watch?v=3OFmtwO7ZnI"
+            target="_blank"
+            class="text-sky-400 hover:underline"
+          >
+            あれはアナトリですか。
+          </a>{" "}
+          <span class="text-base text-muted-foreground">
+            (I would also accept this answer).
+          </span>
+        </p>
         <p>
           Someone crazy-looking comes up to you and proclaims to be your
           long-lost brother, but you're at least willing to hear them out...

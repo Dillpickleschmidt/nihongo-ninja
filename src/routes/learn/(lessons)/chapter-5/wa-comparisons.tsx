@@ -1,6 +1,7 @@
 import ContentBox from "@/components/ContentBox"
 import Furigana from "@/components/text/Furigana"
 import SelectText from "@/components/text/MultipleChoiceText"
+import YouTubeVideo from "@/features/youtube/YouTube"
 
 export default function WaContrast() {
   return (
@@ -13,16 +14,35 @@ export default function WaContrast() {
       </h1>
 
       <div class="space-y-6 px-8 sm:px-16 md:px-24">
+        <YouTubeVideo
+          videoId="qrjHT8FAuWY"
+          title="The difference between は and が particle part 1"
+          credit="Miku Real Japanese"
+          timestamps={[
+            { label: "は vs が", time: 0 },
+            { label: "は for comparisons", time: 472 },
+          ]}
+        />
+        <p>
+          If you remember from the not-so-distant past, in the が lesson, we
+          said we'd look at が again in the future. Well here we are, in the
+          future.
+        </p>
+        <p>
+          The above video serves as a great review of が, and also demonstrates
+          some ways that that は has an implicit comparison effect. Don't skip
+          it.
+        </p>
+
+        <h3 class="!mt-9 text-2xl font-bold">
+          Understanding Through Literal Translation
+        </h3>
         <p>
           First, let's remember the purpose of は: it's for marking a new topic
           being brought up. But if you recall, Japanese speakers will most often
           omit the topic if it's obvious. So what happens if you choose to
           include it anyway?
         </p>
-
-        <h3 class="!mt-9 text-2xl font-bold">
-          Understanding Through Literal Translation
-        </h3>
         <p>
           Here, it's actually useful to recall the way は is literally
           translated. Take this statement directed towards a woman:

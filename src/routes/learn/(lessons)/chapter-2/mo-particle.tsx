@@ -2,6 +2,7 @@ import ContentBox from "@/components/ContentBox"
 import Furigana from "@/components/text/Furigana"
 import SelectText from "@/components/text/MultipleChoiceText"
 import { TextField, TextFieldRoot } from "@/components/ui/textfield"
+import YouTubeVideo from "@/features/youtube/YouTube"
 
 export default function page() {
   return (
@@ -54,6 +55,12 @@ export default function page() {
             </div>
           </div>
         </div>
+
+        <YouTubeVideo
+          videoId="M27oQwq4jqg"
+          title="「も」- The Inclusive Particle MO - JLPT N5 Grammar ┃ Genki Lesson 2"
+          credit="Game Gengo ゲーム言語"
+        />
 
         <h3 class="text-2xl font-bold">Basic Usage</h3>
         <ol class="!mt-4 ml-6 list-decimal space-y-2">

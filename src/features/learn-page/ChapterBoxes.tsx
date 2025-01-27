@@ -960,6 +960,11 @@ export default function ChapterBoxes() {
             types: ["practice-sentence"],
           },
           {
+            title: 'Don\'t use いいえ! - Saying "No" Naturally',
+            link: "/learn/chapter-4/saying-no-naturally",
+            types: ["video"],
+          },
+          {
             title: "と - And/With",
             link: "/learn/chapter-4/to-particle",
             types: ["lesson"],
@@ -1246,6 +1251,11 @@ export default function ChapterBoxes() {
             types: ["lesson"],
           },
           {
+            title: "Why Your Speaking Sucks",
+            link: "/learn/chapter-6/why-your-speaking-sucks",
+            types: ["video"],
+          },
+          {
             title: "All Vocab - Test",
             link: "/learn/chapter-6/all-vocab-test",
             types: ["vocab-test"],
@@ -1412,6 +1422,11 @@ export default function ChapterBoxes() {
             title: "Practice Adj, Adv, & Misc. - Kana",
             link: "/learn/chapter-8/practice/adj-adv-misc-kana",
             types: ["vocab-practice"],
+          },
+          {
+            title: "How Verbs Work",
+            link: "/learn/chapter-8/how-verbs-work",
+            types: ["video"],
           },
           {
             title: "All Vocab - Test",

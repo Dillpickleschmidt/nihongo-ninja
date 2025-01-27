@@ -11,6 +11,7 @@ import {
 import IrregularVerbsTeFormChart1 from "./components/IrregularVerbsTeFormChart1"
 import IrregularVerbsTeFormChart2 from "./components/IrregularVerbsTeFormChart2"
 import { A } from "@solidjs/router"
+import YouTubeVideo from "@/features/youtube/YouTube"
 
 export default function TeForm() {
   return (
@@ -358,6 +359,28 @@ export default function TeForm() {
         </div>
         <hr class="my-6 border-t" />
 
+        <YouTubeVideo
+          videoId="P029zwYS4Cs"
+          title="The ULTIMATE Te-Form Song | 10 Hour Version"
+          credit="ToKini Andy"
+        />
+        <p class="text-base text-muted-foreground">
+          Personally, don't find songs the most helpful way to memorize, but I
+          hear others swear by it. So here's a rare gem of a song that goes
+          through all the て-form conjugations that I'd actually sing along to.
+          :)
+        </p>
+        <p>
+          The original song -{" "}
+          <a
+            href="https://www.youtube.com/watch?v=Cj-P-nEPoe0"
+            target="_blank"
+            class="text-sky-400 hover:underline"
+          >
+            て形の歌
+          </a>
+        </p>
+
         <div class="rounded-lg bg-gradient-to-br from-orange-500/10 to-pink-500/10 p-6">
           <h2 class="py-4 text-center text-2xl font-bold">
             What Tense are These?
@@ -413,6 +436,15 @@ export default function TeForm() {
             </p>
           </div>
         </div>
+
+        <YouTubeVideo
+          videoId="HAdmKhVjVs8"
+          title="The ULTIMATE Japanese Te-Form CHEAT SHEET 【て Form】"
+          credit="Jouzu Juls (上手 ジューズ)"
+        />
+        <p class="text-base text-muted-foreground">
+          Why is the production quality so good? 😭
+        </p>
 
         <hr class="my-6 border-t" />
 

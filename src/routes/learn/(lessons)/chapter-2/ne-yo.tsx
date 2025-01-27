@@ -281,6 +281,16 @@ export default function page() {
             </ul>
           </li>
         </ol>
+
+        <p>
+          In many cases, choosing between{" "}
+          <span class="font-japanese font-semibold text-yellow-400">ね</span>{" "}
+          and{" "}
+          <span class="font-japanese font-semibold text-orange-500">よね</span>{" "}
+          is just a matter of personal choice. Do whichever one sounds right to
+          you. You'll get a better sense of what sounds right just by listening
+          to Japanese people talk.
+        </p>
       </div>
 
       <div class="space-y-4 px-12 pb-32 leading-8 sm:px-16 md:px-24 [&>*]:space-y-4">

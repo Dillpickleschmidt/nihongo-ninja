@@ -153,7 +153,15 @@ export default function page() {
           The <span class="font-japanese text-emerald-500">ます</span> Form:
           Habitual Actions & Future Tense (Polite)
         </h2>
-        <p class="!mt-9">
+
+        <div class="pt-4">
+          <YouTubeVideo
+            videoId="20gML75dUDw"
+            title="Learn Japanese verb conjugation: The polite form MASU (ます形)"
+            credit="KANJI - Link"
+          />
+        </div>
+        <p>
           The{" "}
           <span class="font-japanese text-xl font-semibold text-emerald-500">
             ます

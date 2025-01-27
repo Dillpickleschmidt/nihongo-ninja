@@ -1,6 +1,7 @@
 import ContentBox from "@/components/ContentBox"
 import Furigana from "@/components/text/Furigana"
 import SelectText from "@/components/text/MultipleChoiceText"
+import YouTubeVideo from "@/features/youtube/YouTube"
 
 export default function page() {
   return (
@@ -38,6 +39,12 @@ export default function page() {
           Well, now you can do the same thing with adjectives and nouns! Time to
           level up your description game.
         </p>
+
+        <YouTubeVideo
+          videoId="RCR0N55l600"
+          title="【How to connect adjectives】Japanese くて/で"
+          credit="Miku Real Japanese"
+        />
 
         <div class="grid gap-6 md:grid-cols-2">
           {/* い Adjectives Card */}
