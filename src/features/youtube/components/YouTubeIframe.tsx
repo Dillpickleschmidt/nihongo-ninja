@@ -25,8 +25,8 @@ export default function YouTubeIframe(props: YouTubeIframeProps) {
         start: props.startTime || 0,
         enablejsapi: 1,
       },
-      height: "100%", // Add this
-      width: "100%", // Add this
+      height: "100%",
+      width: "100%",
       events: {
         onReady: (event) => {
           setIsLoading(false)
@@ -42,6 +42,16 @@ export default function YouTubeIframe(props: YouTubeIframeProps) {
     })
   })
 
+  // Create an effect to watch for seekTime changes
+  createEffect(() => {
+    const currentPlayer = player()
+    const seekTo = props.seekTime
+
+    if (currentPlayer && seekTo !== null && seekTo !== undefined) {
+      currentPlayer.seekTo(seekTo, true)
+    }
+  })
+
   onCleanup(() => {
     if (timeUpdateInterval) {
       clearInterval(timeUpdateInterval)
@@ -54,7 +64,6 @@ export default function YouTubeIframe(props: YouTubeIframeProps) {
     <div class="relative z-10">
       {/* Add another container div for aspect ratio */}
       <div class="relative w-full pt-[56.25%]">
-        {" "}
         {/* 16:9 aspect ratio */}
         <div ref={iframeRef} class="absolute inset-0" />
       </div>
