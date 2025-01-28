@@ -1,0 +1,199 @@
+[
+  {
+    "word": "重い",
+    "furigana": ["重[おも]い"],
+    "english": ["heavy", "serious (illness)"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": 19,
+    "category": "i-adjective",
+    "particles": []
+  },
+  {
+    "word": "軽い",
+    "furigana": ["軽[かる]い"],
+    "english": ["light"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": 19,
+    "category": "i-adjective",
+    "particles": []
+  },
+  {
+    "word": "不思議",
+    "furigana": ["不思議[ふしぎ]"],
+    "english": ["mysterious"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": 19,
+    "category": "na-adjective",
+    "particles": []
+  },
+  {
+    "word": "おる",
+    "furigana": ["おる"],
+    "english": ["extra-modest expression for いる"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": 19,
+    "category": "verb",
+    "particles": []
+  },
+  {
+    "word": "参る",
+    "furigana": ["参[まい]る"],
+    "english": ["extra-modest expression for 行く and 来る"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": 19,
+    "category": "verb",
+    "particles": []
+  },
+  {
+    "word": "申す",
+    "furigana": ["申[もう]す"],
+    "english": ["extra-modest expression for 言う"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": 19,
+    "category": "verb",
+    "particles": []
+  },
+  {
+    "word": "致す",
+    "furigana": ["致[いた]す"],
+    "english": ["extra-modest expression for する"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": 19,
+    "category": "verb",
+    "particles": []
+  },
+  {
+    "word": "頂く",
+    "furigana": ["頂[いただ]く"],
+    "english": ["extra-modest expression for 食べる and 飲む"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": 19,
+    "category": "verb",
+    "particles": []
+  },
+  {
+    "word": "ござる",
+    "furigana": ["ござる"],
+    "english": ["extra-modest expression for ある"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": 19,
+    "category": "verb",
+    "particles": []
+  },
+  {
+    "word": "～ておる",
+    "furigana": ["～ておる"],
+    "english": ["extra-modest expression for ～ている"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": 19,
+    "category": "verb",
+    "particles": []
+  },
+  {
+    "word": "～てござる",
+    "furigana": ["～てござる"],
+    "english": ["extra-modest expression for です"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": 19,
+    "category": "verb",
+    "particles": []
+  },
+  {
+    "word": "頂く",
+    "furigana": ["頂[いただ]く"],
+    "english": ["humble expression for もらう"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": 19,
+    "category": "verb",
+    "particles": [
+      {
+        "label": "person",
+        "particle": "に"
+      },
+      {
+        "label": "thing",
+        "particle": "を"
+      }
+    ]
+  },
+  {
+    "word": "伺う",
+    "furigana": ["伺[うかが]う"],
+    "english": ["to humbly visit (place に)", "to humbly ask (person に)"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": 19,
+    "category": "verb",
+    "particles": [
+      {
+        "label": "place",
+        "particle": "に"
+      },
+      {
+        "label": "person",
+        "particle": "に"
+      }
+    ]
+  },
+  {
+    "word": "曲がる",
+    "furigana": ["曲[ま]がる"],
+    "english": ["to turn (right/left) (corner を direction に)"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": 19,
+    "category": "verb",
+    "particles": [
+      {
+        "label": "corner",
+        "particle": "を"
+      },
+      {
+        "label": "direction",
+        "particle": "に"
+      }
+    ]
+  },
+  {
+    "word": "戻る",
+    "furigana": ["戻[もど]る"],
+    "english": ["to return", "to come back"],
+    "mnemonics": [],
+    "info": [],
+    "example_sentences": [],
+    "chapter": 19,
+    "category": "verb",
+    "particles": [
+      {
+        "label": "place",
+        "particle": "に"
+      }
+    ]
+  }
+]

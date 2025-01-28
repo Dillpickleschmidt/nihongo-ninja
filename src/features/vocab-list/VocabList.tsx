@@ -64,6 +64,153 @@ const chapters = [
     ],
   },
   {
+    number: "4",
+    categories: [
+      { title: "Nouns 1", component: <VocabGroup path="chapter-4/nouns-1" /> },
+      { title: "Nouns 2", component: <VocabGroup path="chapter-4/nouns-2" /> },
+      {
+        title: "Location Words",
+        component: <VocabGroup path="chapter-4/location-words" />,
+      },
+      {
+        title: "Verbs, Adverbs, & Misc.",
+        component: <VocabGroup path="chapter-4/verbs-adv-misc" />,
+      },
+    ],
+  },
+  {
+    number: "5",
+    categories: [
+      { title: "Nouns", component: <VocabGroup path="chapter-5/nouns" /> },
+      {
+        title: "い Adjectives",
+        component: <VocabGroup path="chapter-5/i-adjectives" />,
+      },
+      {
+        title: "な Adjectives",
+        component: <VocabGroup path="chapter-5/na-adjectives" />,
+      },
+      {
+        title: "Verbs, Adverbs, & Misc.",
+        component: <VocabGroup path="chapter-5/verbs-adv-misc" />,
+      },
+    ],
+  },
+  {
+    number: "6",
+    categories: [
+      { title: "Nouns", component: <VocabGroup path="chapter-6/nouns" /> },
+      {
+        title: "う Verbs & Adjectives",
+        component: <VocabGroup path="chapter-6/u-verbs-and-adj" />,
+      },
+      {
+        title: "る Verbs, Irregular V., Adv., & Misc",
+        component: <VocabGroup path="chapter-6/ru-v-irr-v-adv-misc" />,
+      },
+    ],
+  },
+  {
+    number: "7",
+    categories: [
+      { title: "Nouns 1", component: <VocabGroup path="chapter-7/nouns-1" /> },
+      {
+        title: "Body Parts",
+        component: <VocabGroup path="chapter-7/body-parts" />,
+      },
+      {
+        title: "Verbs",
+        component: <VocabGroup path="chapter-7/verbs" />,
+      },
+      {
+        title: "Adjectives, Adverbs, & Misc.",
+        component: <VocabGroup path="chapter-7/adj-adv-misc" />,
+      },
+    ],
+  },
+  {
+    number: "8",
+    categories: [
+      { title: "Nouns 1", component: <VocabGroup path="chapter-8/nouns-1" /> },
+      { title: "Nouns 2", component: <VocabGroup path="chapter-8/nouns-2" /> },
+      {
+        title: "Verbs",
+        component: <VocabGroup path="chapter-8/verbs" />,
+      },
+      {
+        title: "Adjectives, Adverbs, & Misc.",
+        component: <VocabGroup path="chapter-8/adj-adv-misc" />,
+      },
+    ],
+  },
+  {
+    number: "9",
+    categories: [
+      { title: "Nouns", component: <VocabGroup path="chapter-9/nouns" /> },
+      {
+        title: "Verbs",
+        component: <VocabGroup path="chapter-9/verbs" />,
+      },
+      {
+        title: "Small Item Counters",
+        component: <VocabGroup path="chapter-9/small-item-counters" />,
+      },
+      {
+        title: "Adjectives, Adverbs, & Misc.",
+        component: <VocabGroup path="chapter-9/adj-adv-misc" />,
+      },
+    ],
+  },
+  {
+    number: "10",
+    categories: [
+      { title: "Nouns 1", component: <VocabGroup path="chapter-10/nouns-1" /> },
+      { title: "Nouns 2", component: <VocabGroup path="chapter-10/nouns-2" /> },
+      {
+        title: "Verbs & Adjectives",
+        component: <VocabGroup path="chapter-10/verbs-adj" />,
+      },
+      {
+        title: "Adverbs & Misc.",
+        component: <VocabGroup path="chapter-10/adverbs-misc" />,
+      },
+    ],
+  },
+  {
+    number: "11",
+    categories: [
+      { title: "Nouns 1", component: <VocabGroup path="chapter-11/nouns-1" /> },
+      { title: "Nouns 2", component: <VocabGroup path="chapter-11/nouns-2" /> },
+      {
+        title: "る Verbs & う Verbs",
+        component: <VocabGroup path="chapter-11/ru-v-u-v" />,
+      },
+      {
+        title: "Irregular Verbs, Adverbs, & Misc.",
+        component: <VocabGroup path="chapter-11/irr-v-adv-misc" />,
+      },
+      {
+        title: "Occupations",
+        component: <VocabGroup path="chapter-11/occupations" />,
+      },
+    ],
+  },
+  {
+    number: "12",
+    categories: [
+      { title: "Nouns 1", component: <VocabGroup path="chapter-12/nouns-1" /> },
+      { title: "Nouns 2", component: <VocabGroup path="chapter-12/nouns-2" /> },
+      {
+        title: "Verbs",
+        component: <VocabGroup path="chapter-12/verbs" />,
+      },
+      {
+        title: "Adjectives, Adverbs, & Misc.",
+        component: <VocabGroup path="chapter-12/adj-adv-misc" />,
+      },
+    ],
+  },
+  {
     number: "13",
     categories: [
       { title: "Nouns", component: <VocabGroup path="chapter-13/nouns" /> },
@@ -158,6 +305,23 @@ const chapters = [
       {
         title: "Ru-Verbs & Misc.",
         component: <VocabGroup path="chapter-18/ru-verbs-and-misc" />,
+      },
+    ],
+  },
+  {
+    number: "19",
+    categories: [
+      {
+        title: "Nouns & Adjectives",
+        component: <VocabGroup path="chapter-19/nouns-and-adj" />,
+      },
+      {
+        title: "う & る Verbs",
+        component: <VocabGroup path="chapter-19/u-ru-verbs" />,
+      },
+      {
+        title: "Irregular Verbs, Adverbs, & Misc.",
+        component: <VocabGroup path="chapter-19/irr-v-adv-misc" />,
       },
     ],
   },

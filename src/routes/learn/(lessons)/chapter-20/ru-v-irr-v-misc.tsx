@@ -1,0 +1,38 @@
+import { Show } from "solid-js"
+import { getVocabularyByPath } from "@/db/statements"
+import VocabCardSingle from "@/features/vocab-card/single/VocabCardSingle"
+import VocabCardPairNoBG from "@/features/vocab-card/pair/VocabCardPairNoBG"
+import VocabCardPair from "@/features/vocab-card/pair/VocabCardPair"
+import VocabCard4NoBG from "@/features/vocab-card/quadruplet/VocabCard4NoBG"
+import { A, cache, createAsync } from "@solidjs/router"
+import { Button } from "@/components/ui/button"
+import type { RichVocabItem } from "@/types/vocab"
+import VocabCards from "@/features/vocab-card/VocabCards"
+import ContentBox from "@/components/ContentBox"
+
+const path = "chapter-20/ru-v-irr-v-misc"
+const getData = cache(async () => {
+  return await getVocabularyByPath(path)
+}, path)
+export const route = {
+  preload: () => getData(),
+}
+
+export default function page() {
+  const data = createAsync<RichVocabItem[]>(() => getData())
+
+  return (
+    <ContentBox
+      nextButtonLink="/learn/chapter-20/practice/ru-v-irr-v-misc-readings"
+      nextButtonText="Next Lesson ->"
+    >
+      <h1 class="px-28 pb-6 pt-6 text-center text-4xl font-semibold sm:pt-12 lg:pt-24">
+        Ru-Verbs, Irregular Verbs, & Misc.
+      </h1>
+      <Show when={data()}>
+        <VocabCards data={data()!} />
+      </Show>
+      <div class="pb-32" />
+    </ContentBox>
+  )
+}

@@ -1523,6 +1523,11 @@ export default function ChapterBoxes() {
             types: ["vocab-practice"],
           },
           {
+            title: "Colors",
+            link: "/learn/chapter-9/colors",
+            types: ["video"],
+          },
+          {
             title: "All Vocab - Test",
             link: "/learn/chapter-9/all-vocab-test",
             types: ["vocab-test"],
@@ -2401,7 +2406,17 @@ export default function ChapterBoxes() {
           },
         ]}
       />
-      <ChapterBox text="Chapter 20" class="bg-neutral-700" content={[]} />
+      <ChapterBox
+        text="Chapter 20"
+        class="bg-neutral-700"
+        content={[
+          {
+            title: "Nouns",
+            link: "/learn/chapter-20/nouns",
+            types: ["vocab"],
+          },
+        ]}
+      />
       <ChapterBox text="Chapter 21" class="bg-neutral-700" content={[]} />
       <ChapterBox text="Chapter 22" class="bg-neutral-700" content={[]} />
       <ChapterBox text="Chapter 23" class="bg-neutral-700" content={[]} />
