@@ -3,9 +3,6 @@
     "word": "鼻",
     "furigana": ["鼻[はな]"],
     "english": ["nose"],
-    "mnemonics": [
-      "Sounds like 'Hana.' Imagine a flower ('hana' in Japanese) near your nose."
-    ],
     "info": [],
     "chapter": 7
   },
@@ -13,9 +10,6 @@
     "word": "耳",
     "furigana": ["耳[みみ]"],
     "english": ["ear"],
-    "mnemonics": [
-      "Sounds like 'me-me.' Think of someone saying 'Listen to me' with their ears."
-    ],
     "info": [],
     "chapter": 7
   },
@@ -33,9 +27,6 @@
     "word": "眉毛",
     "furigana": ["眉[まゆ] 毛[げ]"],
     "english": ["eyebrows"],
-    "mnemonics": [
-      "Sounds like 'Mayu-ge.' Picture drawing your eyebrows carefully in May."
-    ],
     "info": [],
     "chapter": 7
   },
@@ -43,13 +34,9 @@
     "word": "髪",
     "furigana": ["髪[かみ]"],
     "english": ["hair"],
-    "mnemonics": [
-      "Think of 'kami' as in origami. Picture folding origami with hair-like delicacy."
-    ],
     "info": [],
     "chapter": 7
   },
-
   {
     "word": "口",
     "furigana": ["口[くち]"],
@@ -64,9 +51,6 @@
     "word": "目",
     "furigana": ["目[め]"],
     "english": ["eye"],
-    "mnemonics": [
-      "Sounds like 'May.' Think of your eyes always brightening up in the month of May."
-    ],
     "info": [],
     "chapter": 7
   },
@@ -74,9 +58,6 @@
     "word": "頭",
     "furigana": ["頭[あたま]"],
     "english": ["head"],
-    "mnemonics": [
-      "Sounds like 'a-tama.' Imagine a head ('atama') adorned with a crown."
-    ],
     "info": [],
     "chapter": 7
   },
@@ -114,9 +95,7 @@
     "word": "手",
     "furigana": ["手[て]"],
     "english": ["hand"],
-    "mnemonics": [
-      "'Te' as in 'tea.' Picture yourself delicately holding a tea cup in your hand."
-    ],
+    "mnemonics": [],
     "info": [],
     "chapter": 7
   },
@@ -164,9 +143,6 @@
     "word": "尾尻",
     "furigana": ["尾[お] 尻[しり]"],
     "english": ["buttocks"],
-    "mnemonics": [
-      "Sounds like 'oh-she-ree.' Think of sitting down after a long day saying, 'Oh, finally!'"
-    ],
     "info": [],
     "chapter": 7
   },
@@ -174,9 +150,6 @@
     "word": "足",
     "furigana": ["足[あし]"],
     "english": ["leg/foot"],
-    "mnemonics": [
-      "Sounds like 'Ah-she.' Imagine stepping into a relaxing bath and saying 'Ah, relief!'"
-    ],
     "info": [],
     "chapter": 7
   }
