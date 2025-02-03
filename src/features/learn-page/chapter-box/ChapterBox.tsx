@@ -23,6 +23,7 @@ type ContentItem = {
 
 type FolderItem = {
   title: string
+  id?: string
   items: ContentItem[]
 }
 
@@ -106,6 +107,7 @@ export default function ChapterBox(props: ChapterBoxProps) {
         <DialogTrigger>
           <div class="duration-75 ease-in-out hover:scale-[98.5%]">
             <Button
+              id={folder.id}
               variant="outline"
               class="relative h-12 w-full justify-between overflow-y-hidden overflow-x-scroll whitespace-nowrap px-6 text-sm font-normal no-scrollbar"
             >

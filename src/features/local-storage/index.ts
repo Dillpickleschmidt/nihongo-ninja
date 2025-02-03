@@ -51,7 +51,7 @@ export const AppStorage = {
   learnPage: {
     key: (setting: string) => `learnPage-${setting}`,
     defaultValue: {
-      sortOrder: "module-type" as sortOrder,
+      sortOrder: "chronological" as sortOrder,
     },
   },
 

@@ -111,7 +111,20 @@ export default function LearnPageTour(props: {
         title: "Module Types",
         content: (
           <div class="space-y-3">
-            <p>These blue +books are short vocabulary lists.</p>
+            <p>
+              Many units are grouped in folders if they focus on the same topic.
+            </p>
+          </div>
+        ),
+        placement: breakpoints.sm() ? "right-end" : "top",
+        scroll: true,
+      },
+      {
+        target: "#vocab-tour-example",
+        title: "Module Types",
+        content: (
+          <div class="space-y-3">
+            <p>The blue +books are short vocabulary lists.</p>
             <p>
               They include detailed explanations and mnemonics to help you
               remember them.
@@ -144,13 +157,13 @@ export default function LearnPageTour(props: {
         scroll: true,
       },
       {
-        target: "#vocab-practice-tour-example",
+        target: "#vocab-tour-example",
         title: "Module Types",
         content: (
           <div class="space-y-3">
             <p>
-              Once you've finished looking at the vocab, you can practice here
-              to memorize them as quickly as possible.
+              Once you've finished looking at the vocab, you can use the orange
+              practice tool to memorize them as quickly as possible.
             </p>
             <p>
               These are highly efficient—first, you'll select the correct word
@@ -202,23 +215,6 @@ export default function LearnPageTour(props: {
           </div>
         ),
         placement: breakpoints.sm() ? "right-start" : "bottom",
-        class: "max-w-96",
-        scroll: true,
-      },
-      {
-        target: "#dotted-scrollbar",
-        title: "Module Navigation",
-        content: (
-          <div class="space-y-3">
-            <p>
-              You can quickly navigate to any chapter by clicking on these dots.
-            </p>
-            <p class="text-sm text-muted-foreground">
-              Because I'm not expecting you all to have to doom scroll.
-            </p>
-          </div>
-        ),
-        placement: breakpoints.sm() ? "left-start" : "left",
         onNextFunction: () => {
           if (!breakpoints.sm()) {
             props.setIsSidebarOpen(true)
@@ -238,7 +234,43 @@ export default function LearnPageTour(props: {
             })
           }
         },
+        class: "max-w-96",
+        scroll: true,
       },
+      // {
+      //   target: "#dotted-scrollbar",
+      //   title: "Module Navigation",
+      //   content: (
+      //     <div class="space-y-3">
+      //       <p>
+      //         You can quickly navigate to any chapter by clicking on these dots.
+      //       </p>
+      //       <p class="text-sm text-muted-foreground">
+      //         Because I'm not expecting you all to have to doom scroll.
+      //       </p>
+      //     </div>
+      //   ),
+      //   placement: breakpoints.sm() ? "left-start" : "left",
+      //   onNextFunction: () => {
+      //     if (!breakpoints.sm()) {
+      //       props.setIsSidebarOpen(true)
+
+      //       tourStore.setTourState("learn-page", {
+      //         currentStep: 11,
+      //         isOpen: false,
+      //       })
+
+      //       // Update the sidebar tour state
+      //       tourStore.setTourState("learn-sidebar", {
+      //         completed: false,
+      //       })
+      //     } else {
+      //       tourStore.setTourState("learn-page", {
+      //         currentStep: 11,
+      //       })
+      //     }
+      //   },
+      // },
       {
         target: "#grammar-notes-link-sidebar",
         title: "Grammar Notes",

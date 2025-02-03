@@ -148,6 +148,7 @@ export default function ChapterBoxes() {
             title: "Practice Greet. & Common Expr.",
             link: "/learn/chapter-0/practice/greetings-common-expressions",
             types: ["vocab-practice"],
+            id: "vocab-practice-tour-example", // For the learn page tour
           },
           {
             title: "Numbers",
@@ -216,18 +217,17 @@ export default function ChapterBoxes() {
                 title: "Kanji Numbers",
                 link: "/learn/chapter-1/kanji-numbers",
                 types: ["vocab"],
-                id: "vocab-tour-example", // For the learn page tour
               },
               {
                 title: "Practice Kanji Numbers",
                 link: "/learn/chapter-1/practice/kanji-numbers",
                 types: ["vocab-practice"],
-                id: "vocab-practice-tour-example", // For the learn page tour
               },
             ],
           },
           {
             title: "People, Descriptors, Misc.",
+            id: "vocab-tour-example", // For the learn page tour
             items: [
               {
                 title: "People, Descriptors, Misc.",
