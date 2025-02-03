@@ -10,8 +10,8 @@ export default function page() {
     >
       <YouTubeVideo
         videoId="J9JdP6pA5LY"
-        title="Unlearning Japanese - Real Real Japan #01"
-        credit="Real Real Japan"
+        title="Japanese People Rarely Say いいえ iie, What Do We Say?"
+        credit="That Japanese Man Yuta"
       />
       <div class="mx-auto max-w-2xl space-y-3 px-4 pb-32">
         <div class="w-full border-b px-6 pb-6 pt-6 text-center text-4xl font-semibold lg:pt-12">
