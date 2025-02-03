@@ -1,20 +1,36 @@
-// ChapterBox.tsx
-import { For, createMemo, onMount } from "solid-js"
+import { For, Show, createMemo, onMount } from "solid-js"
 import { twMerge } from "tailwind-merge"
+import { Button } from "@/components/ui/button"
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
 import UnitButton from "./UnitButton"
+import UnitButtonContents from "./UnitButtonContents"
 import { UnitButtonType, UnitButtonTypes } from "./types"
 import { useLearnPageContext } from "../context/LearnPageContext"
+
+type ContentItem = {
+  title: string
+  link?: string
+  types: Array<UnitButtonType>
+  disabled?: boolean
+  id?: string
+}
+
+type FolderItem = {
+  title: string
+  id?: string
+  items: ContentItem[]
+}
 
 type ChapterBoxProps = {
   text: string
   class?: string
-  content: Array<{
-    title: string
-    link: string
-    types: Array<UnitButtonType>
-    disabled?: boolean
-    id?: string
-  }>
+  content: Array<ContentItem | FolderItem>
 }
 
 export default function ChapterBox(props: ChapterBoxProps) {
@@ -30,73 +46,108 @@ export default function ChapterBox(props: ChapterBoxProps) {
 
     // Register unit IDs separately
     props.content.forEach((item) => {
-      if (item.id && !context.unitIds().includes(item.id)) {
-        context.setUnitIds([...context.unitIds(), item.id!])
+      if ("items" in item) {
+        item.items.forEach(({ id }) => {
+          if (id && !context.unitIds().includes(id)) {
+            context.setUnitIds([...context.unitIds(), id])
+          }
+        })
+      } else if (item.id && !context.unitIds().includes(item.id)) {
+        context.setUnitIds([...context.unitIds(), item.id])
       }
     })
   })
 
-  // Group content by type when sort order is "module-type"
+  const flattenedContent = createMemo(() => {
+    if (context.sortOrder() === "module-type") {
+      return props.content.reduce<ContentItem[]>((acc, item) => {
+        return [...acc, ...("items" in item ? item.items : [item])]
+      }, [])
+    }
+    return props.content
+  })
+
   const groupedContent = createMemo(() => {
     if (context.sortOrder() !== "module-type") return null
 
-    const groups = new Map<string, typeof props.content>()
+    const groups = new Map<string, ContentItem[]>([
+      ["overview", []] as [string, ContentItem[]],
+      ...UnitButtonTypes.filter(
+        (type) => !["grammar-notes", "vocab-list"].includes(type),
+      ).map((type) => [type, []] as [string, ContentItem[]]),
+    ])
 
-    // Initialize groups
-    groups.set("overview", []) // Combined group for grammar-notes and vocab-list
-    UnitButtonTypes.forEach((type) => {
-      if (type !== "grammar-notes" && type !== "vocab-list") {
-        groups.set(type, [])
+    // Group content by type when sort order is "module-type"
+    flattenedContent().forEach((item) => {
+      if (!("items" in item)) {
+        const groupKey = ["grammar-notes", "vocab-list"].includes(item.types[0])
+          ? "overview"
+          : item.types[0]
+        groups.get(groupKey)?.push(item)
       }
     })
 
-    // Sort each item into its primary (first) type group
-    props.content.forEach((item) => {
-      const primaryType = item.types[0]
-
-      // Determine which group this item belongs to
-      let groupKey: UnitButtonType | "overview" = primaryType
-      if (primaryType === "grammar-notes" || primaryType === "vocab-list") {
-        groupKey = "overview"
-      }
-
-      const group = groups.get(groupKey) || []
-      group.push(item)
-      groups.set(groupKey, group)
-    })
-
-    // Convert map to array, maintaining the original type order
-    // Put overview first, then other types in the order they appear in UnitButtonTypes
-    const overviewGroup = groups.get("overview") || []
-    const otherGroups = UnitButtonTypes.filter(
-      (type) => type !== "grammar-notes" && type !== "vocab-list",
-    )
-      .map((type) => ({
-        type,
-        items: groups.get(type) || [],
-      }))
-      .filter((group) => group.items.length > 0)
-
-    return [{ type: "overview", items: overviewGroup }, ...otherGroups].filter(
-      (group) => group.items.length > 0,
-    )
+    return [
+      { type: "overview", items: groups.get("overview") || [] },
+      ...UnitButtonTypes.filter(
+        (type) => !["grammar-notes", "vocab-list"].includes(type),
+      )
+        .map((type) => ({ type, items: groups.get(type) || [] }))
+        .filter((group) => group.items.length > 0),
+    ].filter((group) => group.items.length > 0)
   })
 
-  function toTitleCase(str: string): string {
-    return str
-      .toLowerCase()
-      .split(" ")
-      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(" ")
-  }
+  const renderFolderButton = (folder: FolderItem, index: number) => {
+    const allTypes = Array.from(
+      new Set(folder.items.flatMap((item) => item.types)),
+    )
 
-  // Create stable IDs for items that don't have them
-  const getStableId = (item: ChapterBoxProps["content"][0], index: number) => {
-    return item.id || `${chapterID}-item-${index}`
+    return (
+      <Dialog>
+        <DialogTrigger>
+          <div class="duration-75 ease-in-out hover:scale-[98.5%]">
+            <Button
+              id={folder.id}
+              variant="outline"
+              class="relative h-12 w-full justify-between overflow-y-hidden overflow-x-scroll whitespace-nowrap px-6 text-sm font-normal no-scrollbar"
+            >
+              <UnitButtonContents
+                id={`${index + 1}.`}
+                types={allTypes}
+                // isFolder={true}
+              >
+                {folder.title}
+              </UnitButtonContents>
+            </Button>
+          </div>
+        </DialogTrigger>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>{folder.title}</DialogTitle>
+          </DialogHeader>
+          <div class="grid gap-6">
+            <For each={folder.items}>
+              {(item, subIndex) => (
+                <UnitButton
+                  id={item.id || `${chapterID}-folder-item-${subIndex()}`}
+                  number={`${subIndex() + 1}.`}
+                  types={item.types}
+                  link={item.link}
+                  disabled={item.disabled}
+                >
+                  {item.title}
+                </UnitButton>
+              )}
+            </For>
+          </div>
+        </DialogContent>
+      </Dialog>
+    )
   }
 
   return (
     <>
+      {/* Chapter Header - Always rendered */}
       <div
         id={chapterID}
         class={twMerge(
@@ -107,19 +158,26 @@ export default function ChapterBox(props: ChapterBoxProps) {
         <div class="px-14 py-4 text-4xl">{props.text}</div>
       </div>
 
+      {/* Content Section - Conditionally rendered based on sort order */}
       {context.sortOrder() === "module-type" ? (
-        <div class="-mt-2 flex w-full flex-col space-y-3">
+        // Module Type View - Groups content by type (e.g., vocab, practice, etc.)
+        <div class="flex w-full flex-col space-y-3">
           <For each={groupedContent()}>
             {(group) => (
               <div class="space-y-2">
+                {/* Group Header (e.g., "Vocab", "Practice") */}
                 <h3 class="text-lg font-semibold text-muted-foreground">
-                  {toTitleCase(group.type.replace(/-/g, " "))}
+                  {group.type
+                    .replace(/-/g, " ")
+                    .replace(/\b\w/g, (c) => c.toUpperCase())}
                 </h3>
-                <div class="grid w-full grid-cols-1 gap-x-6 gap-y-6 md:grid-cols-2 2xl:grid-cols-3 [&>*]:px-7 [&>*]:py-6 [&>*]:text-base [&>*]:shadow-lg">
+                {/* Grid of Unit Buttons for this group */}
+                <div class="grid w-full grid-cols-1 gap-6 md:grid-cols-2 2xl:grid-cols-3">
                   <For each={group.items}>
+                    {/* Regular Unit Buttons - Folders are flattened in module view */}
                     {(item, index) => (
                       <UnitButton
-                        id={getStableId(item, index())}
+                        id={item.id || `${chapterID}-item-${index()}`}
                         number={`${index() + 1}.`}
                         types={item.types}
                         link={item.link}
@@ -135,18 +193,31 @@ export default function ChapterBox(props: ChapterBoxProps) {
           </For>
         </div>
       ) : (
-        <div class="grid w-full grid-cols-1 gap-x-6 gap-y-6 md:grid-cols-2 2xl:grid-cols-3 [&>*]:px-7 [&>*]:py-6 [&>*]:text-base [&>*]:shadow-lg">
-          <For each={props.content}>
+        // Sequential View - Shows content in order, including folders
+        <div class="grid w-full grid-cols-1 gap-6 md:grid-cols-2 2xl:grid-cols-3">
+          <For each={flattenedContent()}>
             {(item, index) => (
-              <UnitButton
-                id={getStableId(item, index())}
-                number={`${index() + 1}.`}
-                types={item.types}
-                link={item.link}
-                disabled={item.disabled}
+              <Show
+                // Determine if this item is a folder
+                when={"items" in item}
+                // Regular Unit Button (non-folder item)
+                fallback={
+                  <UnitButton
+                    id={
+                      (item as ContentItem).id || `${chapterID}-item-${index()}`
+                    }
+                    number={`${index() + 1}.`}
+                    types={(item as ContentItem).types}
+                    link={(item as ContentItem).link}
+                    disabled={(item as ContentItem).disabled}
+                  >
+                    {(item as ContentItem).title}
+                  </UnitButton>
+                }
               >
-                {item.title}
-              </UnitButton>
+                {/* Folder Button - Opens dialog with nested content */}
+                {renderFolderButton(item as FolderItem, index())}
+              </Show>
             )}
           </For>
         </div>
