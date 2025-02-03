@@ -75,9 +75,9 @@ export default function Home() {
                   >
                     Get Started! <span class="ml-2 font-semibold">{"->"}</span>
                   </Button>
-                  <h3 class="text-2xl font-semibold italic text-red-500">
+                  {/* <h3 class="text-2xl font-semibold italic text-red-500">
                     This website is currently in ALPHA!
-                  </h3>
+                  </h3> */}
                 </div>
               </div>
               <div class="mt-12 w-full md:mt-0 md:w-1/2">

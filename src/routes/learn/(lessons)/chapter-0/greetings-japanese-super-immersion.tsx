@@ -10,7 +10,7 @@ const chapters = [
   { label: "こんにちは", time: 43 },
   { label: "こんばんは", time: 60 },
   { label: "おやすみなさい", time: 79 },
-  { label: "おやすみなさい", time: 90 },
+  { label: "おやすみ", time: 90 },
 ]
 
 export default function page() {

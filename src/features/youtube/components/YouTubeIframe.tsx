@@ -21,8 +21,9 @@ export default function YouTubeIframe(props: YouTubeIframeProps) {
 
     const newPlayer = new YT.Player(iframeRef, {
       videoId: props.videoId,
+      host: "https://www.youtube-nocookie.com",
       playerVars: {
-        start: props.startTime || 0,
+        start: props.startTime ?? 0,
         enablejsapi: 1,
       },
       height: "100%",
