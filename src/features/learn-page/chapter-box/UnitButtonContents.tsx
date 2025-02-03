@@ -14,17 +14,15 @@ import {
   BookPlus,
 } from "lucide-solid"
 import { UnitButtonType } from "./types"
-import { cn } from "@/libs/cn"
 
 type UnitButtonContentsProps = {
   children: string
   id: string
   types: Array<UnitButtonType>
-  isFolder?: boolean
 }
 
 export default function UnitButtonContents(props: UnitButtonContentsProps) {
-  const iconSize = props.isFolder ? "16px" : "22px"
+  const iconSize = "22px"
 
   const getIcon = (type: UnitButtonType) => {
     switch (type) {
@@ -70,20 +68,6 @@ export default function UnitButtonContents(props: UnitButtonContentsProps) {
     }
   }
 
-  // Calculate positions for icons in a circle
-  const getIconStyle = (index: number, total: number) => {
-    if (!props.isFolder) return ""
-
-    const radius = 10
-    const startAngle = total === 2 ? -180 : -90 // Start from left for 2 icons, top for others
-    const angle = (360 / total) * index + startAngle
-
-    const x = Math.cos((angle * Math.PI) / 180) * radius
-    const y = Math.sin((angle * Math.PI) / 180) * radius
-
-    return `transform: translate(${x}px, ${y}px);`
-  }
-
   return (
     <>
       <div class="flex h-full items-center">
@@ -91,26 +75,9 @@ export default function UnitButtonContents(props: UnitButtonContentsProps) {
         <span class="mx-[0.3rem]"></span>
         <span class="text-muted-foreground">{props.children}</span>
       </div>
-      <div
-        class={cn(
-          "sticky right-0 ml-2 flex rounded-full bg-inherit text-muted-foreground",
-          props.isFolder &&
-            "relative flex h-8 w-8 items-center justify-center border border-black bg-neutral-100/50 dark:bg-neutral-700/50",
-        )}
-      >
+      <div class="sticky right-0 ml-2 flex rounded-full bg-inherit text-muted-foreground">
         <For each={props.types}>
-          {(type, index) => (
-            <div
-              class={cn(
-                "ml-1",
-                props.isFolder &&
-                  "absolute m-0 flex items-center justify-center",
-              )}
-              style={getIconStyle(index(), props.types.length)}
-            >
-              {getIcon(type)}
-            </div>
-          )}
+          {(type) => <div class="ml-1">{getIcon(type)}</div>}
         </For>
       </div>
     </>
