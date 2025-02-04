@@ -54,7 +54,7 @@ function FolderButton(props: {
             <UnitButtonContents
               id={`${props.index + 1}.`}
               types={allTypes}
-              // isFolder={true}
+              isFolder={true}
             >
               {props.folder.title}
             </UnitButtonContents>
