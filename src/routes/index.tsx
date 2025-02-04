@@ -1,7 +1,7 @@
 import { A } from "@solidjs/router"
 import { Button } from "@/components/ui/button"
 import { Title } from "@solidjs/meta"
-import HomePageCarousel from "@/features/home-page/Carousel"
+import CoverflowCarousel3 from "@/features/home-page/Carousel3"
 
 export default function Home() {
   return (
@@ -54,41 +54,52 @@ export default function Home() {
           </div>
         </header>
 
-        {/* Hero Section */}
-        <section class="px-6 pb-16 pt-6 md:px-16 md:py-24">
-          <div class="mx-auto max-w-[1450px]">
-            <div class="flex flex-col md:flex-row md:items-start md:justify-between md:gap-12">
-              <div class="md:w-1/2">
-                <h1 class="text-4xl font-medium leading-tight dark:text-[#BBBBBB] md:text-5xl">
-                  Wish You Could Watch Anime Without Subtitles?
-                </h1>
-                <p class="mt-6 text-lg leading-relaxed md:text-xl">
-                  You're watching your favorite show, and suddenly you recognize
-                  a Japanese word or phrase. That little moment feels amazing,
-                  right? Imagine experiencing that all the time.
-                </p>
-                <div class="flex items-end justify-between gap-4">
-                  <Button
-                    class="mt-8 transform text-nowrap rounded-lg bg-[#ffd4ba] px-6 py-3 text-lg text-black duration-200 hover:scale-105 hover:bg-[#ffe2cf]"
-                    as="a"
-                    href="/learn"
-                  >
-                    Get Started! <span class="ml-2 font-semibold">{"->"}</span>
-                  </Button>
-                  {/* <h3 class="text-2xl font-semibold italic text-red-500">
-                    This website is currently in ALPHA!
-                  </h3> */}
-                </div>
-              </div>
-              <div class="mt-12 w-full md:mt-0 md:w-1/2">
-                <HomePageCarousel />
-              </div>
+        <div>
+          {/* Mobile View */}
+          <div class="px-10 md:hidden">
+            <div class="pt-4">
+              <CoverflowCarousel3 />
+            </div>
+            <h1 class="mt-6 text-4xl font-medium leading-tight text-[#BBBBBB]">
+              Curated Japanese Tools and Learning Resources
+            </h1>
+          </div>
+
+          {/* Desktop View */}
+          <div class="hidden md:block">
+            <div class="w-full pt-4">
+              <CoverflowCarousel3 />
+            </div>
+            <div class="px-16 lg:px-24 2xl:px-32">
+              <h1 class="mt-16 max-w-[800px] text-5xl font-medium leading-[3.25rem] text-[#BBBBBB]">
+                Curated Japanese Tools and Learning Resources
+              </h1>
             </div>
           </div>
-        </section>
+
+          {/* Shared Content */}
+          <div class="px-10 pb-12 md:px-16 lg:px-24 2xl:px-32">
+            <h2 class="mt-8 max-w-[950px] text-lg leading-8 md:text-2xl md:leading-[2.5rem]">
+              Discover <span class="text-[#E8C1A9]">helpful videos</span>,
+              tackle challenging <span class="text-[#E8C1A9]">grammar</span>{" "}
+              concepts, learn <span class="text-[#E8C1A9]">vocabulary</span>{" "}
+              through anime examples, master{" "}
+              <span class="text-[#E8C1A9]">conjugation</span>, conquer{" "}
+              <span class="text-[#E8C1A9]">kanji</span>, reinforce your skills
+              with <span class="text-[#E8C1A9]">games</span>, and more.
+            </h2>
+            <Button
+              class="mt-8 transform rounded-lg bg-[#ffd4ba] px-6 py-3 text-lg text-black duration-200 hover:scale-105 hover:bg-[#ffe2cf]"
+              as="a"
+              href="/learn"
+            >
+              Get Started! <span class="ml-2 font-semibold">{"->"}</span>
+            </Button>
+          </div>
+        </div>
 
         {/* Features Section */}
-        <section class="content-gradient px-6 py-16 md:px-16 md:py-24">
+        <section class="content-gradient px-6 py-8 md:px-16 md:py-16">
           <div class="mx-auto max-w-[1450px]">
             <div class="grid gap-12 md:grid-cols-2">
               <div class="rounded-2xl bg-gradient-to-br from-purple-900/20 to-indigo-900/30 p-8 backdrop-blur-sm">
@@ -97,10 +108,8 @@ export default function Home() {
                 </h2>
                 <p class="mt-4 text-lg leading-relaxed">
                   If you love anime, you already have the perfect gateway to
-                  Japanese. Discover helpful videos, tackle challenging grammar
-                  concepts, learn vocabulary through anime examples, and master
-                  the fundamentals—all explained in a way that actually makes
-                  sense.
+                  Japanese. Learn through carefully chosen examples and clear
+                  explanations that actually make sense, with (a little) humor.
                 </p>
               </div>
               <div class="rounded-2xl bg-card/10 p-8 backdrop-blur-sm">
@@ -120,9 +129,11 @@ export default function Home() {
                   Tools That Fast-Track Your Progress
                 </h2>
                 <p class="mt-4 text-lg leading-relaxed">
-                  Master conjugation and sentence structure through focused
+                  Master grammar and sentence structure through focused
                   exercises that follow the Genki textbook order—perfect for
-                  self-study or complementing your college courses.
+                  self-study or complementing your college courses. Includes
+                  extensive listening practice from across the internet,
+                  carefully curated to match your current level.
                 </p>
               </div>
               <div class="rounded-2xl bg-gradient-to-br from-purple-500/15 to-pink-500/15 p-8 backdrop-blur-sm">
