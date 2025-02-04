@@ -2815,12 +2815,12 @@ export default function ChapterBoxes() {
                 link: "/learn/chapter-18/practice/ru-verbs-and-misc-kana",
                 types: ["vocab-practice"],
               },
-              {
-                title: "All Vocab - Test",
-                link: "/learn/chapter-18/all-vocab-test",
-                types: ["vocab-test"],
-              },
             ],
+          },
+          {
+            title: "All Vocab - Test",
+            link: "/learn/chapter-18/all-vocab-test",
+            types: ["vocab-test"],
           },
         ]}
       />
@@ -2933,12 +2933,83 @@ export default function ChapterBoxes() {
       />
       <ChapterBox
         text="Chapter 20"
-        class="bg-neutral-700"
+        class="bg-indigo-500 saturate-[33%]"
         content={[
           {
+            title: "Chapter 20 Vocab List",
+            link: "/learn/chapter-20/vocab-list",
+            types: ["vocab-list"],
+          },
+          {
+            title: "Chapter 20 Grammar Notes",
+            link: "/learn/grammar-notes",
+            types: ["grammar-notes"],
+            disabled: true,
+          },
+          {
             title: "Nouns",
-            link: "/learn/chapter-20/nouns",
-            types: ["vocab"],
+            items: [
+              {
+                title: "Nouns",
+                link: "/learn/chapter-20/nouns",
+                types: ["vocab"],
+              },
+              {
+                title: "Practice Nouns - Readings",
+                link: "/learn/chapter-20/practice/nouns-readings",
+                types: ["vocab-practice"],
+              },
+              {
+                title: "Practice Nouns - Kana",
+                link: "/learn/chapter-20/practice/nouns-kana",
+                types: ["vocab-practice"],
+              },
+            ],
+          },
+          {
+            title: "Adjectives & う-Verbs",
+            items: [
+              {
+                title: "Adjectives & う-Verbs",
+                link: "/learn/chapter-20/adj-u-v",
+                types: ["vocab"],
+              },
+              {
+                title: "Practice Adjectives & う-Verbs - Readings",
+                link: "/learn/chapter-20/practice/adj-u-v-readings",
+                types: ["vocab-practice"],
+              },
+              {
+                title: "Practice Adjectives & う-Verbs - Kana",
+                link: "/learn/chapter-20/practice/adj-u-v-kana",
+                types: ["vocab-practice"],
+              },
+            ],
+          },
+          {
+            title: "る-Verbs, Irr. V., Adv., & Misc.",
+            items: [
+              {
+                title: "る-Verbs, Irr. V., Adv., & Misc.",
+                link: "/learn/chapter-20/ru-v-irr-v-adv-misc",
+                types: ["vocab"],
+              },
+              {
+                title: "Practice る-Verbs, Irr. V., Adv., & Misc. - Readings",
+                link: "/learn/chapter-20/practice/ru-v-irr-v-adv-misc-readings",
+                types: ["vocab-practice"],
+              },
+              {
+                title: "Practice る-Verbs, Irr. V., Adv., & Misc. - Kana",
+                link: "/learn/chapter-20/practice/ru-v-irr-v-adv-misc-kana",
+                types: ["vocab-practice"],
+              },
+            ],
+          },
+          {
+            title: "All Vocab - Test",
+            link: "/learn/chapter-20/all-vocab-test",
+            types: ["vocab-test"],
           },
         ]}
       />
