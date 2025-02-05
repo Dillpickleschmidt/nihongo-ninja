@@ -10,7 +10,7 @@ import type { RichVocabItem } from "@/types/vocab"
 import VocabCards from "@/features/vocab-card/VocabCards"
 import ContentBox from "@/components/ContentBox"
 
-const path = "chapter-20/ru-v-irr-v-misc"
+const path = "chapter-20/ru-v-irr-v-adv-misc"
 const getData = cache(async () => {
   return await getVocabularyByPath(path)
 }, path)
@@ -23,11 +23,11 @@ export default function page() {
 
   return (
     <ContentBox
-      nextButtonLink="/learn/chapter-20/practice/ru-v-irr-v-misc-readings"
+      nextButtonLink="/learn/chapter-20/practice/ru-v-irr-v-adv-misc-readings"
       nextButtonText="Next Lesson ->"
     >
       <h1 class="px-28 pb-6 pt-6 text-center text-4xl font-semibold sm:pt-12 lg:pt-24">
-        Ru-Verbs, Irregular Verbs, & Misc.
+        る Verbs, Irregular Verbs, Adv., & Misc.
       </h1>
       <Show when={data()}>
         <VocabCards data={data()!} />

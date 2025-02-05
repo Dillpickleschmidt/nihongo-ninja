@@ -183,7 +183,7 @@
     "furigana": ["では"],
     "english": ["well then (polite)"],
     "mnemonics": [],
-    "info": [],
+    "info": ["The colloqual form of this is しゃあ"],
     "example_sentences": [],
     "chapter": 19,
     "category": "phrase",
@@ -205,7 +205,9 @@
     "furigana": ["誠[まこと]に"],
     "english": ["really (very polite)"],
     "mnemonics": [],
-    "info": [],
+    "info": [
+      "Same meaning as 本当に but is extremely polite and is often used with customer service."
+    ],
     "example_sentences": [],
     "chapter": 19,
     "category": "adverb",
@@ -216,7 +218,11 @@
     "furigana": ["よろしかったら"],
     "english": ["if it is okay (polite)"],
     "mnemonics": [],
-    "info": [],
+    "info": [
+      "Polite version of よかったら",
+      "It has the same meaning as よろしければ, but よろしかったら sounds a bit bit old/classic, so it might be a little more formal.",
+      "いい→よろしい→よろしく which is part of よろしくお願いします"
+    ],
     "example_sentences": [],
     "chapter": 19,
     "category": "phrase",
@@ -227,7 +233,7 @@
     "furigana": ["かしこまりました"],
     "english": ["Certainly."],
     "mnemonics": [],
-    "info": [],
+    "info": ["extemely polite, usually used in customer service"],
     "example_sentences": [],
     "chapter": 19,
     "category": "phrase",
@@ -246,10 +252,12 @@
   },
   {
     "word": "申し訳ありません",
-    "furigana": ["申し訳[もうしわけ]ありません"],
+    "furigana": ["申[もう]し 訳[わけ]ありません"],
     "english": ["You have my apologies. (polite)"],
     "mnemonics": [],
-    "info": [],
+    "info": [
+      "You can think of this like an extra polite version of すみません"
+    ],
     "example_sentences": [],
     "chapter": 19,
     "category": "phrase",

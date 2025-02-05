@@ -95,7 +95,7 @@ export default function UnitButtonContents(props: UnitButtonContentsProps) {
         class={cn(
           "sticky right-0 ml-2 flex rounded-full bg-inherit text-muted-foreground",
           props.isFolder &&
-            "relative flex h-8 w-8 items-center justify-center border border-black bg-neutral-100/50 dark:bg-neutral-700/50",
+            "relative flex h-8 w-8 items-center justify-center border border-neutral-400 bg-neutral-100/50 dark:border-black dark:bg-neutral-700/50",
         )}
       >
         <For each={props.types}>

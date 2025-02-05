@@ -13,7 +13,10 @@
     "word": "小説",
     "furigana": ["小説[しょうせつ]"],
     "english": ["novel"],
-    "mnemonics": [],
+    "mnemonics": [
+      "It has 説 from 説明 (even pronounced the same [せつ])",
+      "It has 言 as a radical"
+    ],
     "info": [],
     "example_sentences": [],
     "chapter": 19,
@@ -23,7 +26,7 @@
     "word": "趣味",
     "furigana": ["趣味[しゅみ]"],
     "english": ["hobby", "pastime"],
-    "mnemonics": [],
+    "mnemonics": ["It has 味 from 興味 (even pronounced the same [み])"],
     "info": [],
     "example_sentences": [],
     "chapter": 19,
@@ -111,10 +114,14 @@
   },
   {
     "word": "係りの者",
-    "furigana": ["係[かか]りの者[もの]"],
+    "furigana": ["係[かか]りの 者[もの]"],
     "english": ["our person in charge"],
     "mnemonics": [],
-    "info": [],
+    "info": [
+      "係の者 ↓ - \"Our person in charge\" (humble)",
+      "係の方（かた） ↑ - \"Person in charge\" (honorific)",
+      "係の人 - \"Person in charge\" (neutral, used when speaking within the same company/group)"
+    ],
     "example_sentences": [],
     "chapter": 19,
     "category": "noun"
@@ -124,14 +131,17 @@
     "furigana": ["お 宅[たく]"],
     "english": ["(someone's) home", "(someone's) house"],
     "mnemonics": [],
-    "info": [],
+    "info": [
+      "The word \"オタク\" (otaku) is derived from this word.",
+      "Refers to the listener's home (not the speaker's)."
+    ],
     "example_sentences": [],
     "chapter": 19,
     "category": "noun"
   },
   {
     "word": "～屋",
-    "furigana": ["～屋[や]"],
+    "furigana": ["～ 屋[や]"],
     "english": ["...shop"],
     "mnemonics": [],
     "info": [],
@@ -185,7 +195,16 @@
     "english": ["letter", "character"],
     "mnemonics": [],
     "info": [],
-    "example_sentences": [],
+    "example_sentences": [
+      {
+        "japanese": "字がきれいですね。 ",
+        "english": "Your handwriting is beautiful."
+      },
+      {
+        "japanese": "250 字以内で書いてください。 ",
+        "english": "Please write within 250 characters."
+      }
+    ],
     "chapter": 19,
     "category": "noun"
   },
