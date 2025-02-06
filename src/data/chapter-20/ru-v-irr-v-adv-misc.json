@@ -136,7 +136,7 @@
   },
   {
     "word": "～階",
-    "furigana": ["～階[かい]"],
+    "furigana": ["～ 階[かい]"],
     "english": ["...th floor"],
     "mnemonics": [],
     "info": [],
@@ -165,7 +165,8 @@
     "example_sentences": [],
     "chapter": 19,
     "category": "phrase",
-    "particles": []
+    "particles": [],
+    "overwrite_word": "みたいな"
   },
   {
     "word": "また",
@@ -187,7 +188,8 @@
     "example_sentences": [],
     "chapter": 19,
     "category": "phrase",
-    "particles": []
+    "particles": [],
+    "overwrite_word": "では"
   },
   {
     "word": "できれば",

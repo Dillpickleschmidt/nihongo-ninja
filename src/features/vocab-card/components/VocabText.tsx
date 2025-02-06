@@ -55,7 +55,7 @@ function VocabExamples(props: {
               <div class="flex-grow">
                 <div class="mb-2 flex items-center gap-2">
                   <button
-                    class="rounded-full p-2 hover:bg-gray-100"
+                    class="rounded-full p-2 hover:bg-neutral-200/50"
                     onClick={() =>
                       example.sound_url && playAudio(example.sound_url)
                     }

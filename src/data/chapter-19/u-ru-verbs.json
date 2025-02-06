@@ -34,7 +34,8 @@
     "example_sentences": [],
     "chapter": 19,
     "category": "godan-v",
-    "particles": []
+    "particles": [],
+    "overwrite_word": "下さいます"
   },
   {
     "word": "なさる",
@@ -45,7 +46,8 @@
     "example_sentences": [],
     "chapter": 19,
     "category": "godan-v",
-    "particles": []
+    "particles": [],
+    "overwrite_word": "なさいます"
   },
   {
     "word": "お休みになる",
@@ -144,11 +146,19 @@
     "mnemonics": [
       "You know 決める, right? Well, I've already determined that you can interpret this."
     ],
-    "info": ["Intransitive verb"],
+    "info": [
+      "Intransitive verb",
+      "Japanese use 決まる instead of 決める to be a little less direct, even though it's typically translated to English as (someone) decided (not passive voice).",
+      "Imagine a waiter coming up to you at a restaurant and saying, \"Has the customer decided?\" instead of \"Did you decide?\" It's a little more polite and indirect."
+    ],
     "example_sentences": [
       {
         "japanese": "専攻はまだ決まっていません",
         "english": "I haven't decided on my major yet."
+      },
+      {
+        "japanese": "ご注文はお決まりでしょうか。",
+        "english": "Have you decided on your order?"
       }
     ],
     "chapter": 19,
@@ -292,14 +302,18 @@
         "label": "people",
         "particle": "に"
       }
-    ]
+    ],
+    "overwrite_word": "モテる"
   },
   {
     "word": "晴れる",
     "furigana": ["晴[は]れる"],
-    "english": ["to become sunny"],
+    "english": ["to become sunny", "to clear up"],
     "mnemonics": [],
-    "info": ["Don't say \"晴れるになる\""],
+    "info": [
+      "Don't say \"晴れるになる\"",
+      "Also has some figurative meanings like to clear one's name / to remove doubts"
+    ],
     "example_sentences": [],
     "chapter": 19,
     "category": "ichidan-v",

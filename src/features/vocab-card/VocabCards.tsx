@@ -17,12 +17,14 @@ export default function VocabCards(props: VocabCardsProps) {
   onMount(async () => {
     for (let i = 0; i < props.data.length; i++) {
       try {
-        // Load each word's examples sequentially
-        const wordExamples = await getAnimeExamples(props.data[i].word)
+        const item = props.data[i]
+        // Load each word's examples sequentially, using overwrite_word if available
+        const wordExamples = await getAnimeExamples(
+          item.word,
+          item.overwrite_word,
+        )
         // Update examples for this word
         setExamples((prev) => ({ ...prev, [i]: wordExamples }))
-        // Small delay between requests to avoid rate limiting
-        // await new Promise((resolve) => setTimeout(resolve, 500))
       } catch (error) {
         console.error(`Failed to load examples for word ${i}:`, error)
       }

@@ -139,7 +139,8 @@
     "example_sentences": [],
     "chapter": 19,
     "category": "adv",
-    "particles": []
+    "particles": [],
+    "overwrite_word": "本当は"
   },
   {
     "word": "まだ",
@@ -159,7 +160,10 @@
     "mnemonics": [
       "\"Show-show,\" because even a few seconds feels like a mini-show of patience."
     ],
-    "info": ["Fun fact: 々 is a kanji that repeats the previous kanji."],
+    "info": [
+      "Fun fact: 々 is a kanji that repeats the previous kanji.",
+      "少々 also means 'a little bit'."
+    ],
     "example_sentences": [],
     "chapter": 19,
     "category": "adv",

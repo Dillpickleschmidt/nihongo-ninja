@@ -1,3 +1,4 @@
+// types/vocab.ts
 export type ExampleSentence = {
   japanese: string
   english: string
@@ -18,6 +19,7 @@ export type VocabItem = {
   created_at: string
   path: string
   word: string
+  overwrite_word?: string // for exact matching in immersion kit
   furigana: string[]
   english: string[]
   chapter: number | null

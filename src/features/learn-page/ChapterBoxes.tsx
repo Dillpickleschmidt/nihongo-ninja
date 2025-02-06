@@ -2865,7 +2865,7 @@ export default function ChapterBoxes() {
             types: ["vocab-test"],
           },
           {
-            title: "Title",
+            title: "Nouns & Adj.",
             items: [
               {
                 title: "Nouns & Adj.",

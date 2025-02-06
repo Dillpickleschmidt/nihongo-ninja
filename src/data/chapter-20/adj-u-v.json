@@ -15,7 +15,10 @@
     "furigana": ["軽[かる]い"],
     "english": ["light"],
     "mnemonics": [],
-    "info": [],
+    "info": [
+      "Refers to physical weight or lightness of touch (ex. 軽い鞄 -> light bag)",
+      "It also has figurative meanings (like saying something lightly, having a mild cold, a light punishment, etc.)"
+    ],
     "example_sentences": [],
     "chapter": 19,
     "category": "i-adjective",
@@ -41,7 +44,8 @@
     "example_sentences": [],
     "chapter": 19,
     "category": "verb",
-    "particles": []
+    "particles": [],
+    "overwrite_word": "おる"
   },
   {
     "word": "参る",
@@ -52,7 +56,8 @@
     "example_sentences": [],
     "chapter": 19,
     "category": "verb",
-    "particles": []
+    "particles": [],
+    "overwrite_word": "参ります"
   },
   {
     "word": "申す",
@@ -96,7 +101,8 @@
     "example_sentences": [],
     "chapter": 19,
     "category": "verb",
-    "particles": []
+    "particles": [],
+    "overwrite_word": "ござる"
   },
   {
     "word": "～ておる",
@@ -107,7 +113,8 @@
     "example_sentences": [],
     "chapter": 19,
     "category": "verb",
-    "particles": []
+    "particles": [],
+    "overwrite_word": "ております"
   },
   {
     "word": "～てござる",
@@ -118,7 +125,8 @@
     "example_sentences": [],
     "chapter": 19,
     "category": "verb",
-    "particles": []
+    "particles": [],
+    "overwrite_word": "でござる"
   },
   {
     "word": "頂く",

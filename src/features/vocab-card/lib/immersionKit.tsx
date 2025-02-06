@@ -1,16 +1,23 @@
 // lib/immersionKit.ts
 import { ImmersionKitResponse } from "../immersion-kit"
 
-const DELAY = 50 // 1 second between requests
+const DELAY = 50 // 50ms between requests
 const MAX_RETRIES = 20
 
-export async function getAnimeExamples(word: string, attempt = 1) {
+export async function getAnimeExamples(
+  word: string,
+  overwriteWord?: string,
+  attempt = 1,
+) {
   try {
     // Ensure minimum time between requests
     await new Promise((resolve) => setTimeout(resolve, DELAY))
 
+    // Use overwriteWord if provided, otherwise use the original word
+    const searchWord = overwriteWord ? `「${overwriteWord}」` : word
+
     const response = await fetch(
-      `https://api.immersionkit.com/look_up_dictionary?keyword=${word}&category=anime&sort=shortness`,
+      `https://api.immersionkit.com/look_up_dictionary?keyword=${searchWord}&category=anime&sort=shortness`,
       {
         headers: {
           Accept: "application/json",
@@ -28,8 +35,8 @@ export async function getAnimeExamples(word: string, attempt = 1) {
 
     // If we got no examples but have retries left, try again
     if (examples.length === 0 && attempt < MAX_RETRIES) {
-      console.log(`Retrying ${word} - attempt ${attempt + 1}`)
-      return getAnimeExamples(word, attempt + 1)
+      console.log(`Retrying ${searchWord} - attempt ${attempt + 1}`)
+      return getAnimeExamples(word, overwriteWord, attempt + 1)
     }
 
     if (examples.length > 0) {
@@ -40,7 +47,7 @@ export async function getAnimeExamples(word: string, attempt = 1) {
   } catch (error) {
     if (attempt < MAX_RETRIES) {
       console.log(`Error on attempt ${attempt}, retrying...`)
-      return getAnimeExamples(word, attempt + 1)
+      return getAnimeExamples(word, overwriteWord, attempt + 1)
     }
     console.error("Error fetching examples for word:", word, error)
     return []
