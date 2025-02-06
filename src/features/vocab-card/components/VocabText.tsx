@@ -44,12 +44,12 @@ function VocabExamples(props: {
       >
         <For each={props.examples?.slice(0, 2)}>
           {(example) => (
-            <div class="flex gap-4">
-              <div class="flex-shrink-0">
+            <div class="flex flex-col gap-4 sm:flex-row">
+              <div class="w-full sm:w-32">
                 <img
                   src={example.image_url}
                   alt="Anime scene"
-                  class="h-20 w-32 rounded-lg object-cover"
+                  class="h-48 w-full rounded-lg object-cover sm:h-20 sm:w-32"
                 />
               </div>
               <div class="flex-grow">
