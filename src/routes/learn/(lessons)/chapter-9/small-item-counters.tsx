@@ -23,6 +23,7 @@ export default function page() {
 
   return (
     <ContentBox
+      size="lg"
       nextButtonLink="/learn/chapter-9/practice/small-item-counters-readings"
       nextButtonText="Next Lesson ->"
     >

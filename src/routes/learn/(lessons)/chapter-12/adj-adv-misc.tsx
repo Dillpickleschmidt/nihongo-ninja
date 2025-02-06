@@ -23,6 +23,7 @@ export default function page() {
 
   return (
     <ContentBox
+      size="lg"
       nextButtonLink="/learn/chapter-12/practice/adj-adv-misc-readings"
       nextButtonText="Next Lesson ->"
     >

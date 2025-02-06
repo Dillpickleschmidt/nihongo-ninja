@@ -23,6 +23,7 @@ export default function page() {
 
   return (
     <ContentBox
+      size="lg"
       nextButtonLink="/learn/chapter-18/practice/ru-verbs-and-misc-readings"
       nextButtonText="Next Lesson ->"
     >

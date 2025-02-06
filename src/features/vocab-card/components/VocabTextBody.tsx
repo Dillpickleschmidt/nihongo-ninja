@@ -1,3 +1,4 @@
+// VocabTextBody.tsx
 import { For } from "solid-js"
 import type { RichVocabItem } from "@/types/vocab"
 
@@ -19,14 +20,14 @@ export default function VocabTextBody(props: VocabTextBodyProps) {
                   {object.label ? (
                     <li class="font-bold">
                       {object.label} -{" "}
-                      <span class="font-japanese text-2xl">
+                      <span class="font-japanese text-xl text-emerald-500">
                         {object.particle}
                       </span>
                     </li>
                   ) : (
                     <li class="font-bold">
                       Particle:{" "}
-                      <span class="font-japanese text-2xl">
+                      <span class="font-japanese text-xl text-emerald-500">
                         {object.particle}
                       </span>
                     </li>
@@ -39,7 +40,7 @@ export default function VocabTextBody(props: VocabTextBodyProps) {
         <For each={item.mnemonics}>
           {(mnemonic, idx) => (
             <p class="space-y-6">
-              <span class="font-bold">Mnemonic: </span>
+              <span class="font-bold text-sky-500">Mnemonic: </span>
               {mnemonic}
             </p>
           )}

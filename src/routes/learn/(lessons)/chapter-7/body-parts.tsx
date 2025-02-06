@@ -24,6 +24,7 @@ export default function page() {
 
   return (
     <ContentBox
+      size="lg"
       nextButtonLink="/learn/chapter-7/practice/body-parts-readings"
       nextButtonText="Next Lesson ->"
     >

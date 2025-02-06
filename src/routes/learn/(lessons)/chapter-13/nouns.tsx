@@ -23,6 +23,7 @@ export default function page() {
 
   return (
     <ContentBox
+      size="lg"
       nextButtonLink="/learn/chapter-13/practice/nouns-readings"
       nextButtonText="Next Lesson ->"
     >

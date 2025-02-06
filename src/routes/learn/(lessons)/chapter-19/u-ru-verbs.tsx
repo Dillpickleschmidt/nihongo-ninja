@@ -23,8 +23,10 @@ export default function page() {
 
   return (
     <ContentBox
+      size="lg"
       nextButtonLink="/learn/chapter-19/practice/u-ru-verbs-readings"
       nextButtonText="Next Lesson ->"
+      size="lg"
     >
       <h1 class="px-28 pb-6 pt-6 text-center text-4xl font-semibold sm:pt-12 lg:pt-24">
         U + Ru Verbs

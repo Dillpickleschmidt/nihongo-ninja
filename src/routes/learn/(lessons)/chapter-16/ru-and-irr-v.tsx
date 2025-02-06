@@ -23,6 +23,7 @@ export default function page() {
 
   return (
     <ContentBox
+      size="lg"
       nextButtonLink="/learn/chapter-16/practice/ru-and-irr-v-readings"
       nextButtonText="Next Lesson ->"
     >

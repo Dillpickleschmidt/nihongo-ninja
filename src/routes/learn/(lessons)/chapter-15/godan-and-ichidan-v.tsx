@@ -23,6 +23,7 @@ export default function page() {
 
   return (
     <ContentBox
+      size="lg"
       nextButtonLink="/learn/chapter-15/practice/godan-and-ichidan-v-readings"
       nextButtonText="Next Lesson ->"
     >

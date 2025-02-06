@@ -23,6 +23,7 @@ export default function page() {
 
   return (
     <ContentBox
+      size="lg"
       nextButtonLink="/learn/chapter-5/practice/i-adjectives-readings"
       nextButtonText="Next Lesson ->"
     >
