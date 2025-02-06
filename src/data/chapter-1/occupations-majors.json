@@ -8,7 +8,8 @@
       "It is used to refer to medical professionals who diagnose and treat illnesses."
     ],
     "example_sentences": [],
-    "chapter": 1
+    "chapter": 1,
+    "overwrite_word": "医者"
   },
   {
     "word": "かいしゃいん",
@@ -20,7 +21,8 @@
       "The term combines 'かいしゃ' (company) and 'いん' (member)."
     ],
     "example_sentences": [],
-    "chapter": 1
+    "chapter": 1,
+    "overwrite_word": "会社員"
   },
   {
     "word": "こうこうせい",
@@ -32,7 +34,8 @@
       "High school in Japan typically includes grades 10 through 12."
     ],
     "example_sentences": [],
-    "chapter": 1
+    "chapter": 1,
+    "overwrite_word": "高校生"
   },
   {
     "word": "だいがくいんせい",
@@ -44,7 +47,8 @@
       "It refers to students pursuing advanced degrees beyond a bachelor's."
     ],
     "example_sentences": [],
-    "chapter": 1
+    "chapter": 1,
+    "overwrite_word": "大学院生"
   },
   {
     "word": "かんごし",
@@ -56,7 +60,8 @@
       "The term is gender-neutral, although 'かんごふ' (kangofu) is sometimes used specifically for female nurses."
     ],
     "example_sentences": [],
-    "chapter": 1
+    "chapter": 1,
+    "overwrite_word": "看護師"
   },
   {
     "word": "べんごし",
@@ -68,7 +73,8 @@
       "The term combines 'べんご' (defense) and 'し' (professional)."
     ],
     "example_sentences": [],
-    "chapter": 1
+    "chapter": 1,
+    "overwrite_word": "弁護士"
   },
   {
     "word": "しゅふ",
@@ -80,7 +86,8 @@
       "The term can also apply to men who stay at home, although 'しゅふ' is traditionally used for women."
     ],
     "example_sentences": [],
-    "chapter": 1
+    "chapter": 1,
+    "overwrite_word": "主婦"
   },
   {
     "word": "アジアけんきゅう",
@@ -92,7 +99,8 @@
       "The term combines 'アジア' (Asia)—written in Katakana—and 'けんきゅう' (research/study)."
     ],
     "example_sentences": [],
-    "chapter": 1
+    "chapter": 1,
+    "overwrite_word": "アジア研究"
   },
   {
     "word": "けいざい",
@@ -104,7 +112,8 @@
       "The term is commonly used in academic and professional contexts."
     ],
     "example_sentences": [],
-    "chapter": 1
+    "chapter": 1,
+    "overwrite_word": "経済"
   },
   {
     "word": "こうがく",
@@ -116,7 +125,8 @@
       "The term is commonly used in academic and professional contexts."
     ],
     "example_sentences": [],
-    "chapter": 1
+    "chapter": 1,
+    "overwrite_word": "工学"
   },
   {
     "word": "こくさいかんけい",
@@ -128,7 +138,8 @@
       "The term combines 'こくさい' (international) and 'かんけい' (relations)."
     ],
     "example_sentences": [],
-    "chapter": 1
+    "chapter": 1,
+    "overwrite_word": "国際関係"
   },
   {
     "word": "コンピューター",
@@ -151,7 +162,8 @@
       "The term is used in academic, professional, and everyday contexts."
     ],
     "example_sentences": [],
-    "chapter": 1
+    "chapter": 1,
+    "overwrite_word": "政治"
   },
   {
     "word": "せいぶつがく",
@@ -163,7 +175,8 @@
       "The term combines 'せいぶつ' (living things) and 'がく' (study)."
     ],
     "example_sentences": [],
-    "chapter": 1
+    "chapter": 1,
+    "overwrite_word": "生物学"
   },
   {
     "word": "ビジネス",
@@ -186,7 +199,8 @@
       "The term is used in academic and literary contexts."
     ],
     "example_sentences": [],
-    "chapter": 1
+    "chapter": 1,
+    "overwrite_word": "文学"
   },
   {
     "word": "れきし",
@@ -198,7 +212,8 @@
       "The term is used in academic, educational, and everyday contexts."
     ],
     "example_sentences": [],
-    "chapter": 1
+    "chapter": 1,
+    "overwrite_word": "歴史"
   },
   {
     "word": "えいご",
@@ -209,6 +224,7 @@
       "It refers to the language spoken in England, the United States, and other countries."
     ],
     "example_sentences": [],
-    "chapter": 1
+    "chapter": 1,
+    "overwrite_word": "英語"
   }
 ]

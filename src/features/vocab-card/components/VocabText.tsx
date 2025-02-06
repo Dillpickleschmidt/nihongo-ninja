@@ -1,85 +1,16 @@
 // VocabText.tsx
-import { createSignal, For, Show, Suspense } from "solid-js"
+import { Suspense } from "solid-js"
 import type { RichVocabItem } from "@/types/vocab"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { AudioLines, Book, Grid2x2 } from "lucide-solid"
+import { Book, Grid2x2 } from "lucide-solid"
 import { ImmersionKitResponse } from "../immersion-kit"
 import VocabTextBody from "./VocabTextBody"
+import VocabExamples from "./VocabExamples"
 
 type VocabTextProps = {
   data: RichVocabItem[]
   index: number
   examples: ImmersionKitResponse["data"][0]["examples"] | undefined
-}
-
-function VocabExamples(props: {
-  examples: ImmersionKitResponse["data"][0]["examples"] | undefined
-}) {
-  const [playingAudio, setPlayingAudio] = createSignal<HTMLAudioElement | null>(
-    null,
-  )
-
-  const playAudio = (soundUrl: string) => {
-    if (playingAudio()) {
-      playingAudio()?.pause()
-      if (playingAudio()) {
-        playingAudio()!.currentTime = 0
-      }
-    }
-
-    const audio = new Audio(soundUrl)
-    setPlayingAudio(audio)
-    audio.play().catch((error) => {
-      console.error("Error playing audio:", error)
-      setPlayingAudio(null)
-    })
-    audio.onended = () => setPlayingAudio(null)
-  }
-
-  return (
-    <div class="space-y-4">
-      <Show
-        when={props.examples?.length}
-        fallback={<p class="text-gray-500">No examples available</p>}
-      >
-        <For each={props.examples?.slice(0, 2)}>
-          {(example) => (
-            <div class="flex flex-col gap-4 sm:flex-row">
-              <div class="w-full sm:w-32">
-                <img
-                  src={example.image_url}
-                  alt="Anime scene"
-                  class="h-48 w-full rounded-lg object-cover sm:h-20 sm:w-32"
-                />
-              </div>
-              <div class="flex-grow">
-                <div class="mb-2 flex items-center gap-2">
-                  <button
-                    class="rounded-full p-2 hover:bg-neutral-200/50"
-                    onClick={() =>
-                      example.sound_url && playAudio(example.sound_url)
-                    }
-                    disabled={!example.sound_url}
-                  >
-                    <AudioLines
-                      class={`h-4 w-4 ${
-                        playingAudio()?.src === example.sound_url
-                          ? "text-emerald-500"
-                          : ""
-                      }`}
-                    />
-                  </button>
-                  <span class="text-sm text-gray-500">{example.deck_name}</span>
-                </div>
-                <p class="mb-1 font-japanese">{example.sentence}</p>
-                <p class="text-sm text-gray-600">{example.translation}</p>
-              </div>
-            </div>
-          )}
-        </For>
-      </Show>
-    </div>
-  )
 }
 
 export default function VocabText(props: VocabTextProps) {
@@ -127,7 +58,7 @@ export default function VocabText(props: VocabTextProps) {
                 <div class="p-4 text-gray-500">Loading examples...</div>
               }
             >
-              <VocabExamples examples={props.examples} />
+              <VocabExamples {...props} />
             </Suspense>
           </TabsContent>
         </Tabs>
@@ -142,7 +73,7 @@ export default function VocabText(props: VocabTextProps) {
           <Suspense
             fallback={<div class="p-4 text-gray-500">Loading examples...</div>}
           >
-            <VocabExamples examples={props.examples} />
+            <VocabExamples {...props} />
           </Suspense>
         </div>
       </div>

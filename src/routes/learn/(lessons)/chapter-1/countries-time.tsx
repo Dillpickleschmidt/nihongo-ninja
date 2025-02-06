@@ -1,12 +1,9 @@
 import { createResource, Show } from "solid-js"
 import { getVocabularyByPath } from "@/db/statements"
-import VocabCardSingle from "@/features/vocab-card/single/VocabCardSingle"
-import VocabCardPairNoBG from "@/features/vocab-card/pair/VocabCardPairNoBG"
-import VocabCardPair from "@/features/vocab-card/pair/VocabCardPair"
-import VocabCard4NoBG from "@/features/vocab-card/quadruplet/VocabCard4NoBG"
 import { A } from "@solidjs/router"
 import { Button } from "@/components/ui/button"
 import type { RichVocabItem } from "@/types/vocab"
+import VocabCards from "@/features/vocab-card/VocabCards"
 
 export default function page() {
   const path = "chapter-1/countries-time"
@@ -32,13 +29,7 @@ export default function page() {
         Countries & Time
       </h1>
       <Show when={data()}>
-        <VocabCardSingle data={data()!} index={0} />
-        <VocabCardPairNoBG data={data()!} index={1} />
-        <VocabCardPairNoBG data={data()!} index={3} />
-        <VocabCardPairNoBG data={data()!} index={5} />
-        <VocabCardPair data={data()!} index={7} />
-        <VocabCard4NoBG data={data()!} index={9} />
-        <VocabCard4NoBG data={data()!} index={13} />
+        <VocabCards data={data()!} />
       </Show>
       <div class="pb-32" />
       <div class="absolute bottom-16 right-16">

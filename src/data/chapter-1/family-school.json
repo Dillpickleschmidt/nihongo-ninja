@@ -10,7 +10,8 @@
       "In informal contexts, you might hear it as 'かあさん'."
     ],
     "example_sentences": [],
-    "chapter": 1
+    "chapter": 1,
+    "overwrite_word": "お母さん"
   },
   {
     "word": "おとうさん",
@@ -25,6 +26,7 @@
     "example_sentences": [],
     "chapter": 1,
     "videos": [],
+    "overwrite_word": "お父さん",
     "extra": "https://www.youtube.com/shorts/g5gdUiKYFx8?feature=share"
   },
   {
@@ -38,7 +40,8 @@
       "In informal contexts, you might hear 'ねえさん'."
     ],
     "example_sentences": [],
-    "chapter": 1
+    "chapter": 1,
+    "overwrite_word": "お姉さん"
   },
   {
     "word": "おにいさん",
@@ -51,7 +54,8 @@
       "In informal contexts, you might hear 'にいさん'."
     ],
     "example_sentences": [],
-    "chapter": 1
+    "chapter": 1,
+    "overwrite_word": "お兄さん"
   },
   {
     "word": "いもうと",
@@ -64,7 +68,8 @@
       "For someone else's younger sister, you would say 'いもうとさん'."
     ],
     "example_sentences": [],
-    "chapter": 1
+    "chapter": 1,
+    "overwrite_word": "妹"
   },
   {
     "word": "おとうと",
@@ -77,7 +82,8 @@
       "For someone else's younger brother, you would say 'おとうとさん'."
     ],
     "example_sentences": [],
-    "chapter": 1
+    "chapter": 1,
+    "overwrite_word": "弟"
   },
   {
     "word": "おばあさん",
@@ -142,7 +148,8 @@
       "It can also be part of compound words, such as 'だいがくせい' (college student)."
     ],
     "example_sentences": [],
-    "chapter": 1
+    "chapter": 1,
+    "overwrite_word": "大学"
   },
   {
     "word": "こうこう",
@@ -155,7 +162,8 @@
       "Students in high school are referred to as 'こうこうせい'."
     ],
     "example_sentences": [],
-    "chapter": 1
+    "chapter": 1,
+    "overwrite_word": "高校"
   },
   {
     "word": "がくせい",
@@ -167,7 +175,8 @@
       "It can be used to refer to students of all educational levels."
     ],
     "example_sentences": [],
-    "chapter": 1
+    "chapter": 1,
+    "overwrite_word": "学生"
   },
   {
     "word": "だいがくせい",
@@ -180,7 +189,8 @@
       "It is commonly used to identify someone's educational status."
     ],
     "example_sentences": [],
-    "chapter": 1
+    "chapter": 1,
+    "overwrite_word": "大学生"
   },
   {
     "word": "りゅうがくせい",
@@ -193,7 +203,8 @@
       "It is used to describe students who study abroad."
     ],
     "example_sentences": [],
-    "chapter": 1
+    "chapter": 1,
+    "overwrite_word": "留学生"
   },
   {
     "word": "～ねんせい",
@@ -205,7 +216,8 @@
       "For example, 'さんねんせい' means 'third-year student'."
     ],
     "example_sentences": [],
-    "chapter": 1
+    "chapter": 1,
+    "overwrite_word": "年生"
   },
   {
     "word": "いちねんせい",
@@ -218,7 +230,8 @@
       "It is commonly used to describe students in their first year of study."
     ],
     "example_sentences": [],
-    "chapter": 1
+    "chapter": 1,
+    "overwrite_word": "一年生"
   },
   {
     "word": "せんこう",
@@ -230,6 +243,7 @@
       "It is used to describe the primary subject area a student is studying."
     ],
     "example_sentences": [],
-    "chapter": 1
+    "chapter": 1,
+    "overwrite_word": "専攻"
   }
 ]

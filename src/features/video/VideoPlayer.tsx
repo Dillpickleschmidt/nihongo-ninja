@@ -1,3 +1,4 @@
+// VideoPlayer.tsx
 import { createSignal, Show, onMount, createResource } from "solid-js"
 import { getDriveThumbnail } from "./googleDrive"
 import VideoControls from "./VideoControls"
@@ -5,10 +6,13 @@ import VideoControls from "./VideoControls"
 type VideoPlayerProps = {
   id: string
   initialThumbnail?: string
+  controls?: boolean
+  ref?: (el: HTMLVideoElement) => void
 }
 
 export default function VideoPlayer(props: VideoPlayerProps) {
   const [video, setVideo] = createSignal<HTMLVideoElement>()
+  const controls = props.controls ?? true
   const [loaded, setLoaded] = createSignal<boolean>(false)
   const [canPlay, setCanPlay] = createSignal<boolean>(false)
   const [error, setError] = createSignal<string | undefined>()
@@ -77,7 +81,10 @@ export default function VideoPlayer(props: VideoPlayerProps) {
         </Show>
 
         <video
-          ref={setVideo}
+          ref={(el) => {
+            setVideo(el)
+            props.ref?.(el)
+          }}
           src={videoSrc()}
           class="absolute inset-0 z-20 h-full w-full"
           preload="auto"
@@ -88,7 +95,7 @@ export default function VideoPlayer(props: VideoPlayerProps) {
           Your browser does not support the video tag.
         </video>
 
-        <Show when={loaded()}>
+        <Show when={loaded() && controls}>
           <VideoControls videoRef={video} />
         </Show>
       </Show>

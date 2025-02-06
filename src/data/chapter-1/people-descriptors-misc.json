@@ -44,7 +44,8 @@
       "NEVER use 'さん' when referring to yourself. It is strictly used to address or refer to others. Using ～さん for oneself is like calling yourself Mr./Mrs.[your name] and considered overly self-important and inappropriate."
     ],
     "example_sentences": [],
-    "chapter": 1
+    "chapter": 1,
+    "overwrite_word": "さん"
   },
   {
     "word": "～じん",
@@ -57,7 +58,8 @@
       "It is commonly used to describe the people of a particular country."
     ],
     "example_sentences": [],
-    "chapter": 1
+    "chapter": 1,
+    "overwrite_word": "アメリカ人"
   },
   {
     "word": "にほんじん",
@@ -66,7 +68,8 @@
     "mnemonics": [],
     "info": ["It combines 'にほん' (Japan) and 'じん' (people)."],
     "example_sentences": [],
-    "chapter": 1
+    "chapter": 1,
+    "overwrite_word": "日本人"
   },
   {
     "word": "せんせい",
@@ -79,7 +82,8 @@
       "It is also used as a suffix after a person's name, just like ～さん. For example: '田中せんせい' (Dr. Tanaka)."
     ],
     "example_sentences": [],
-    "chapter": 1
+    "chapter": 1,
+    "overwrite_word": "先生"
   },
   {
     "word": "～さい",
@@ -92,7 +96,8 @@
       "For example, 'にじゅっさい' means '20 years old'."
     ],
     "example_sentences": [],
-    "chapter": 1
+    "chapter": 1,
+    "overwrite_word": "歳"
   },
   {
     "word": "～ご",
@@ -105,7 +110,8 @@
       "For example, 'にほんご' means 'Japanese language' and 'えいご' means 'English language'."
     ],
     "example_sentences": [],
-    "chapter": 1
+    "chapter": 1,
+    "overwrite_word": "語"
   },
   {
     "word": "にほんご",
@@ -118,7 +124,8 @@
       "It is used to refer to the language spoken in Japan."
     ],
     "example_sentences": [],
-    "chapter": 1
+    "chapter": 1,
+    "overwrite_word": "日本語"
   },
   {
     "word": "でんわ",
@@ -130,7 +137,8 @@
       "It can refer to both the device itself and the act of making a phone call."
     ],
     "example_sentences": [],
-    "chapter": 1
+    "chapter": 1,
+    "overwrite_word": "電話"
   },
   {
     "word": "～ばん",
@@ -142,7 +150,8 @@
       "It is added after numbers to denote the order or position, like 'いちばん' for 'number one'."
     ],
     "example_sentences": [],
-    "chapter": 1
+    "chapter": 1,
+    "overwrite_word": "番"
   },
   {
     "word": "ばんごう",
@@ -155,7 +164,8 @@
       "For example, 'でんわばんごう' means 'phone number'."
     ],
     "example_sentences": [],
-    "chapter": 1
+    "chapter": 1,
+    "overwrite_word": "番号"
   },
   {
     "word": "なまえ",
@@ -170,6 +180,7 @@
     "example_sentences": [],
     "chapter": 1,
     "videos": [],
+    "overwrite_word": "名前",
     "extra": "https://www.youtube.com/shorts/onMjNs7o2lM?feature=share"
   },
   {
@@ -195,7 +206,8 @@
       "You'll get a feel for which to use pretty quickly just by listening."
     ],
     "example_sentences": [],
-    "chapter": 1
+    "chapter": 1,
+    "overwrite_word": "何"
   },
   {
     "word": "あのう",
@@ -264,6 +276,7 @@
       "It is used to refer to the place where someone is from."
     ],
     "example_sentences": [],
-    "chapter": 1
+    "chapter": 1,
+    "overwrite_word": "出身"
   }
 ]

@@ -7,6 +7,8 @@ import VocabCard4NoBG from "@/features/vocab-card/quadruplet/VocabCard4NoBG"
 import { A } from "@solidjs/router"
 import { Button } from "@/components/ui/button"
 import type { RichVocabItem } from "@/types/vocab"
+import ContentBox from "@/components/ContentBox"
+import VocabCards from "@/features/vocab-card/VocabCards"
 
 export default function page() {
   const path = "chapter-1/people-descriptors-misc"
@@ -36,23 +38,16 @@ export default function page() {
   ]
 
   return (
-    <>
+    <ContentBox
+      size="lg"
+      nextButtonLink="/learn/chapter-20/practice/nouns-readings"
+      nextButtonText="Next Lesson ->"
+    >
       <h1 class="px-28 pb-6 pt-6 text-center text-4xl font-semibold sm:pt-12 lg:pt-24">
         People, Descriptors, & Misc
       </h1>
       <Show when={data()}>
-        <VocabCardPair data={data()!} index={0} />
-        <VocabCardSingle data={data()!} index={2} />
-        <VocabCardPairNoBG data={data()!} index={3} />
-        <VocabCardSingle data={data()!} index={5} />
-        <VocabCardPairNoBG data={data()!} index={6} />
-        <VocabCardPairNoBG data={data()!} index={8} />
-        <VocabCardPair data={data()!} index={10} />
-        <VocabCardPairNoBG data={data()!} index={12} />
-        <VocabCardPairNoBG data={data()!} index={14} />
-        <VocabCardPair data={data()!} index={16} />
-        <VocabCardSingle data={data()!} index={18} />
-        <VocabCardPairNoBG data={data()!} index={19} single />
+        <VocabCards data={data()!} />
       </Show>
       <div class="pb-32" />
       <div class="absolute bottom-16 right-16">
@@ -60,6 +55,6 @@ export default function page() {
           <Button>Next Lesson {"->"}</Button>
         </A>
       </div>
-    </>
+    </ContentBox>
   )
 }

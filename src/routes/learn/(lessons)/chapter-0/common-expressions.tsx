@@ -1,13 +1,11 @@
 import { getVocabularyByPath } from "@/db/statements"
-import VocabCardPairNoBG from "@/features/vocab-card/pair/VocabCardPairNoBG"
 import type { RichVocabItem } from "@/types/vocab"
 import { createResource, Show } from "solid-js"
-import VocabPair from "@/features/vocab-card/pair/VocabCardPair"
-import VocabSingle from "@/features/vocab-card/single/VocabCardSingle"
-import VocabCard4NoBG from "@/features/vocab-card/quadruplet/VocabCard4NoBG"
 import { A } from "@solidjs/router"
 import { Button } from "@/components/ui/button"
 import SelectText from "@/components/text/MultipleChoiceText"
+import ContentBox from "@/components/ContentBox"
+import VocabCards from "@/features/vocab-card/VocabCards"
 
 export default function test2() {
   const [data] = createResource<RichVocabItem[]>(
@@ -20,9 +18,13 @@ export default function test2() {
     },
   )
   return (
-    <>
+    <ContentBox
+      size="lg"
+      nextButtonLink="/learn/chapter-20/practice/nouns-readings"
+      nextButtonText="Next Lesson ->"
+    >
       <div class="flex flex-col items-center">
-        <div class="mx-4 max-w-[1300px] md:mx-8">
+        <div class="mx-4 md:mx-8 lg:mx-16">
           <h1 class="pb-6 pt-20 text-center text-4xl font-medium leading-[3.25rem]">
             Welcome to your next lesson. We've got a lot to talk about. This one
             will be well worth your time. Good luck!
@@ -30,9 +32,9 @@ export default function test2() {
         </div>
       </div>
       <Show when={data()}>
-        <VocabSingle data={data()!} index={0} />
+        <VocabCards data={data()!.slice(0, 1)} />
         <div class="flex flex-col items-center">
-          <div class="max-w-[850px] px-4 pb-16 md:px-8">
+          <div class="px-4 pb-16 md:px-8 lg:px-16">
             <div class="space-y-8 px-6 py-8 md:px-12">
               <p>
                 <strong>As an Apology:</strong> In situations where a light
@@ -100,13 +102,7 @@ export default function test2() {
             </p>
           </div>
         </div>
-        <VocabSingle data={data()!} index={1} />
-        <VocabCardPairNoBG data={data()!} index={2} />
-        <VocabPair data={data()!} index={4} />
-        <VocabSingle data={data()!} index={6} />
-        <VocabPair data={data()!} index={7} />
-        <VocabCardPairNoBG data={data()!} index={9} />
-        <VocabCardPairNoBG data={data()!} index={11} />
+        <VocabCards data={data()!.slice(1)} />
         <div class="mt-12 flex flex-col items-center">
           <div class="max-w-[850px] px-4 pb-32 md:px-8">
             <p>
@@ -219,6 +215,6 @@ export default function test2() {
           </A>
         </div>
       </Show>
-    </>
+    </ContentBox>
   )
 }

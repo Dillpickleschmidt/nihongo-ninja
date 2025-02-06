@@ -262,7 +262,7 @@ export default function ChapterBoxes() {
             types: ["lesson"],
           },
           {
-            title: "Title",
+            title: "Occupations & Majors",
             items: [
               {
                 title: "Occupations & Majors",

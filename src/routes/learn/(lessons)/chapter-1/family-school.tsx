@@ -1,12 +1,10 @@
 import { createResource, Show } from "solid-js"
 import { getVocabularyByPath } from "@/db/statements"
-import VocabCardSingle from "@/features/vocab-card/single/VocabCardSingle"
-import VocabCardPairNoBG from "@/features/vocab-card/pair/VocabCardPairNoBG"
-import VocabCardPair from "@/features/vocab-card/pair/VocabCardPair"
-import VocabCard4NoBG from "@/features/vocab-card/quadruplet/VocabCard4NoBG"
 import { A } from "@solidjs/router"
 import { Button } from "@/components/ui/button"
 import type { RichVocabItem } from "@/types/vocab"
+import VocabCards from "@/features/vocab-card/VocabCards"
+import ContentBox from "@/components/ContentBox"
 
 export default function page() {
   const path = "chapter-1/family-school"
@@ -35,20 +33,16 @@ export default function page() {
   ]
 
   return (
-    <>
+    <ContentBox
+      size="lg"
+      nextButtonLink="/learn/chapter-20/practice/nouns-readings"
+      nextButtonText="Next Lesson ->"
+    >
       <h1 class="px-28 pb-6 pt-6 text-center text-4xl font-semibold sm:pt-12 lg:pt-24">
         Family & School
       </h1>
       <Show when={data()}>
-        <VocabCardPair data={data()!} index={0} />
-        <VocabCardPairNoBG data={data()!} index={2} />
-        <VocabCardPairNoBG data={data()!} index={4} />
-        <VocabCardPair data={data()!} index={6} />
-        <VocabCardPair data={data()!} index={8} />
-        <VocabCardPairNoBG data={data()!} index={10} />
-        <VocabCardPairNoBG data={data()!} index={12} single />
-        <VocabCard4NoBG data={data()!} index={13} />
-        <VocabCardPairNoBG data={data()!} index={17} single />
+        <VocabCards data={data()!} />
       </Show>
       <div class="pb-32" />
       <div class="absolute bottom-16 right-16">
@@ -56,6 +50,6 @@ export default function page() {
           <Button>Next Lesson {"->"}</Button>
         </A>
       </div>
-    </>
+    </ContentBox>
   )
 }

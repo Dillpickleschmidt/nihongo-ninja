@@ -1,13 +1,11 @@
 import { getVocabularyByPath } from "@/db/statements"
-import VocabCardPairNoBG from "@/features/vocab-card/pair/VocabCardPairNoBG"
 import type { RichVocabItem } from "@/types/vocab"
 import { createResource, Show } from "solid-js"
-import VocabPair from "@/features/vocab-card/pair/VocabCardPair"
-import VocabSingle from "@/features/vocab-card/single/VocabCardSingle"
-import VocabCard4NoBG from "@/features/vocab-card/quadruplet/VocabCard4NoBG"
 import { A } from "@solidjs/router"
 import { Button } from "@/components/ui/button"
 import SelectText from "@/components/text/MultipleChoiceText"
+import VocabCards from "@/features/vocab-card/VocabCards"
+import ContentBox from "@/components/ContentBox"
 
 export default function page() {
   const [data] = createResource<RichVocabItem[]>(
@@ -26,30 +24,31 @@ export default function page() {
   )
 
   return (
-    <>
-      <div class="flex flex-col items-center">
-        <div class="mx-4 max-w-[1300px] md:mx-8">
-          <h1 class="pt-20 text-center text-4xl font-medium leading-[3.25rem]">
-            <span class="text-5xl font-medium">Great job</span>, you've finally
-            made it! You've now got a strong grasp of Hiragana! Not only can you{" "}
-            <span class="text-5xl">read</span> hiragana, but you also have the
-            phonetic arsenal to <span class="text-5xl">say</span> pretty much{" "}
-            <span class="font-bold">*anything*</span> in Japanese!🔥
-          </h1>
-          <h2 class="px-8 pb-6 pt-12 text-2xl">
-            Now that you're familiar with the basics, let's dive into some
-            common Japanese greetings. These phrases will be your first steps
-            into conversational Japanese, and they're essential for everyday
-            interactions.
-          </h2>
-        </div>
+    <ContentBox
+      size="lg"
+      nextButtonLink="/learn/chapter-20/practice/nouns-readings"
+      nextButtonText="Next Lesson ->"
+    >
+      <div class="px-12 md:px-16 xl:px-24">
+        {/* <h1 class="pt-20 text-center text-4xl font-medium leading-[3.25rem]">
+          <span class="text-5xl font-medium">Great job</span>, you've finally
+          made it! You've now got a strong grasp of Hiragana! Not only can you{" "}
+          <span class="text-5xl">read</span> hiragana, but you also have the
+          phonetic arsenal to <span class="text-5xl">say</span> pretty much{" "}
+          <span class="font-bold">*anything*</span> in Japanese!🔥
+        </h1> */}
+        <h2 class="pb-6 pt-16 text-2xl lg:pt-32">
+          Now that you're familiar with the basics, let's dive into some common
+          Japanese greetings. These phrases will be your first steps into
+          conversational Japanese, and they're essential for everyday
+          interactions.
+        </h2>
+        <p class="italic text-muted-foreground">
+          Click on the examples to hear the words actually being used!
+        </p>
       </div>
       <Show when={data()}>
-        <VocabCardPairNoBG data={data()!} index={0} />
-        <VocabSingle data={data()!} index={2} />
-        <VocabCardPairNoBG data={data()!} index={3} />
-        <VocabCardPairNoBG data={data()!} index={5} />
-        <VocabCardPairNoBG data={data()!} index={7} single />
+        <VocabCards data={data()!} />
       </Show>
       <div class="mt-12 flex flex-col items-center">
         <div class="max-w-[850px] px-4 pb-32 md:px-8">
@@ -148,6 +147,6 @@ export default function page() {
           <Button>Next Lesson {"->"}</Button>
         </A>
       </div>
-    </>
+    </ContentBox>
   )
 }
