@@ -151,7 +151,7 @@
   {
     "word": "伺う",
     "furigana": ["伺[うかが]う"],
-    "english": ["to humbly visit (place に)", "to humbly ask (person に)"],
+    "english": ["to humbly visit", "to humbly ask"],
     "mnemonics": [],
     "info": [],
     "example_sentences": [],
@@ -171,7 +171,7 @@
   {
     "word": "曲がる",
     "furigana": ["曲[ま]がる"],
-    "english": ["to turn (right/left) (corner を direction に)"],
+    "english": ["to turn (right/left)"],
     "mnemonics": [],
     "info": [],
     "example_sentences": [],

@@ -61,7 +61,7 @@ function FolderButton(props: {
           </Button>
         </div>
       </DialogTrigger>
-      <DialogContent>
+      <DialogContent class="max-w-screen">
         <DialogHeader>
           <DialogTitle>{props.folder.title}</DialogTitle>
         </DialogHeader>
