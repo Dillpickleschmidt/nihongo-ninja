@@ -1,6 +1,6 @@
 // auth.ts
 "use server"
-import { createBackendClient } from "./supabase"
+import { createBackendClient } from "./client"
 
 export async function loginWithGoogle(credential: string) {
   const supabase = createBackendClient()
@@ -21,9 +21,8 @@ export async function logout() {
   await supabase.auth.signOut()
 }
 
-export async function getSession() {
+export async function getUser() {
   const supabase = createBackendClient()
-  // Get authenticated user instead of session
   const {
     data: { user },
     error,

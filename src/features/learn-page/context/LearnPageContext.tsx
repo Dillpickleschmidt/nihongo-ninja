@@ -2,6 +2,9 @@
 import { createContext, useContext, createSignal, onMount } from "solid-js"
 import { isServer } from "solid-js/web"
 import { AppStorage, storageUtils } from "@/features/local-storage"
+import { getUser } from "@/features/supabase/auth"
+import type { User } from "@supabase/supabase-js"
+import { createAsync } from "@solidjs/router"
 
 type LearnPageContextProps = {
   children: any
@@ -19,6 +22,7 @@ type LearnPageContextType = {
   sortOrder: () => sortOrder
   setSortOrder: (order: sortOrder) => void
   sortChangeCounter: () => number
+  user: () => User | null
 }
 
 const LearnPageContext = createContext<LearnPageContextType>()
@@ -32,9 +36,17 @@ export function LearnPageProvider(props: LearnPageContextProps) {
   const [sortOrder, internalSetSortOrder] =
     createSignal<sortOrder>(defaultSortOrder)
   const [sortChangeCounter, setSortChangeCounter] = createSignal(0)
+  const [user, setUser] = createSignal<User | null>(null)
+
+  const getUserResponse = createAsync(() => getUser())
+  const userResponse = getUserResponse()
+  if (userResponse && !userResponse.error && userResponse.user) {
+    // console.log("User is logged in")
+    setUser(userResponse.user)
+  }
 
   // Load from storage only after mount
-  onMount(() => {
+  onMount(async () => {
     const storedValue = storageUtils.get(storageKey)
     internalSetSortOrder(storedValue.sortOrder)
   })
@@ -57,6 +69,7 @@ export function LearnPageProvider(props: LearnPageContextProps) {
         sortOrder,
         setSortOrder,
         sortChangeCounter,
+        user,
       }}
     >
       {props.children}

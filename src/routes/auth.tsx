@@ -1,5 +1,5 @@
 import Login from "@/features/auth/components/login"
-import { loginWithGoogle, logout, getSession } from "@/features/auth/auth"
+import { loginWithGoogle, logout, getUser } from "@/features/supabase/auth"
 import { onMount, createSignal } from "solid-js"
 import type { User } from "@supabase/supabase-js"
 
@@ -35,7 +35,7 @@ export default function Auth() {
     document.head.appendChild(script)
 
     // Get authenticated user
-    const { user: authUser, error } = await getSession()
+    const { user: authUser, error } = await getUser()
     if (!error && authUser) {
       setUser(authUser)
     }
