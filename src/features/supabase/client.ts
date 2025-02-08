@@ -1,3 +1,4 @@
+// client.ts
 import {
   createBrowserClient,
   createServerClient,
@@ -33,6 +34,9 @@ export function createBackendClient() {
             ),
           )
         },
+      },
+      auth: {
+        autoRefreshToken: false,
       },
     },
   )
