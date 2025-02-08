@@ -1,16 +1,23 @@
-"use server"
 import {
+  createBrowserClient,
   createServerClient,
   parseCookieHeader,
   serializeCookieHeader,
 } from "@supabase/ssr"
 import { getRequestEvent } from "solid-js/web"
 
-export function createClient() {
-  console.log
-  return createServerClient(
+export function createFrontendClient() {
+  return createBrowserClient(
     import.meta.env.VITE_SUPABASE_URL,
     import.meta.env.VITE_SUPABASE_ANON_KEY,
+  )
+}
+
+export function createBackendClient() {
+  "use server"
+  return createServerClient(
+    process.env.VITE_SUPABASE_URL!,
+    process.env.VITE_SUPABASE_ANON_KEY!,
     {
       cookies: {
         getAll() {

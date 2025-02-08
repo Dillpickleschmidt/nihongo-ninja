@@ -6,7 +6,7 @@ const getAudioContext = () => {
 const AudioContextClass = getAudioContext()
 
 const TARGET_VOLUME = 0.3 // Adjusted target volume
-const MIN_GAIN = 0.5 // Don't reduce volume below this
+const MIN_GAIN = 0.3 // Don't reduce volume below this
 const MAX_GAIN = 4.0 // Don't amplify more than this
 
 export class AudioNormalizer {
