@@ -5,10 +5,7 @@ import WordsThatPoint from "@/features/vocab-list/components/chapter-2/WordsThat
 
 export default function page() {
   return (
-    <ContentBox
-      nextButtonText="Next Lesson ->"
-      nextButtonLink="/learn/grammar-notes"
-    >
+    <ContentBox nextButtonLink="/learn/grammar-notes">
       <div class="border-b border-neutral-600 pb-32 md:mx-16">
         <h1 class="mx-auto mb-12 mt-20 text-center text-5xl font-semibold tracking-wide">
           <em>Vocabulary</em>

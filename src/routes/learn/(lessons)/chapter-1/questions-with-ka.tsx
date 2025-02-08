@@ -4,10 +4,7 @@ import YouTubeVideo from "@/features/youtube/YouTube"
 
 export default function Page() {
   return (
-    <ContentBox
-      nextButtonText="Next Lesson ->"
-      nextButtonLink="/learn/chapter-1/the-no-particle"
-    >
+    <ContentBox nextButtonLink="/learn/chapter-1/the-no-particle">
       <h1 class="px-12 pb-6 pt-6 text-center text-4xl font-semibold sm:pt-12 lg:px-28 lg:pt-24">
         Forming Questions With The{" "}
         <span class="font-japanese text-red-500">か</span> Particle

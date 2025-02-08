@@ -2,10 +2,7 @@ import ContentBox from "@/components/ContentBox"
 
 export default function JapanesePronunciation() {
   return (
-    <ContentBox
-      nextButtonText="Next Lesson ->"
-      nextButtonLink="/learn/chapter-0/practice/dakuten-handakuten"
-    >
+    <ContentBox nextButtonLink="/learn/chapter-0/practice/dakuten-handakuten">
       <h2 class="px-20 pt-6 text-center text-[2.625rem] font-medium leading-[3.25rem] sm:pt-12 lg:pt-24">
         🌊
       </h2>

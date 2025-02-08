@@ -3,11 +3,7 @@ import YouTubeVideo from "@/features/youtube/YouTube"
 
 export default function page() {
   return (
-    <ContentBox
-      nextButtonText="Next Lesson ->"
-      nextButtonLink="/learn/chapter-3/next-lesson"
-      size="lg"
-    >
+    <ContentBox nextButtonLink="/learn/chapter-3/next-lesson" size="lg">
       <YouTubeVideo
         videoId="J9JdP6pA5LY"
         title="Japanese People Rarely Say いいえ iie, What Do We Say?"

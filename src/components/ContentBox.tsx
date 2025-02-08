@@ -61,14 +61,25 @@ export default function ContentBox(props: ContentBoxProps) {
     <div class="flex w-full justify-center">
       <div class={cn(contentBoxVariants({ size: props.size }), props.class)}>
         {props.children}
-        <Show when={props.nextButtonText && props.nextButtonLink}>
-          <div class="absolute bottom-16 right-16">
+        <Show when={props.nextButtonLink}>
+          <div class="absolute bottom-16 right-16 flex gap-2">
             <Button
               as="a" // so users see the link preview when hovering
               href={props.nextButtonLink}
+              variant="outline"
+              class="border-green-500/35 bg-green-500/15 hover:bg-green-500/25"
+              onClick={(e) => handleClick(e, "/learn")}
+            >
+              {props.nextButtonText ?? "<- Complete & Return"}
+            </Button>
+            <Button
+              as="a" // so users see the link preview when hovering
+              href={props.nextButtonLink}
+              variant="outline"
+              class="border-green-500/35 bg-green-500/15 hover:bg-green-500/25"
               onClick={(e) => handleClick(e, props.nextButtonLink!)}
             >
-              {props.nextButtonText}
+              {props.nextButtonText ?? "Complete & Next ->"}
             </Button>
           </div>
         </Show>

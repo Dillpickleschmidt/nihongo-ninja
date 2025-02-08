@@ -5,10 +5,7 @@ import YouTubeVideo from "@/features/youtube/YouTube"
 
 export default function WaContrast() {
   return (
-    <ContentBox
-      nextButtonText="Next Lesson ->"
-      nextButtonLink="/learn/chapter-2/next-lesson"
-    >
+    <ContentBox nextButtonLink="/learn/chapter-2/next-lesson">
       <h1 class="px-12 pb-6 pt-6 text-center text-4xl font-semibold sm:pt-12 lg:px-28 lg:pt-24">
         The Hidden Meaning of <span class="font-japanese text-sky-400">は</span>
       </h1>

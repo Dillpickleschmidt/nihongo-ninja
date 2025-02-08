@@ -4,10 +4,7 @@ import YouTubeVideo from "@/features/youtube/YouTube"
 
 export default function JapanesePronunciation() {
   return (
-    <ContentBox
-      nextButtonText="Next Lesson ->"
-      nextButtonLink="/learn/chapter-0/all-hiragana-quiz"
-    >
+    <ContentBox nextButtonLink="/learn/chapter-0/all-hiragana-quiz">
       <h1 class="px-12 pt-6 text-center text-[2rem] font-medium leading-[2.875rem] sm:pt-12 lg:px-20 lg:pt-24">
         You thought you were finally in the clear?{" "}
         <span class="text-[2.75rem] font-bold">

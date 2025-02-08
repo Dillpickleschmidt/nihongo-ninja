@@ -15,10 +15,7 @@ import YouTubeVideo from "@/features/youtube/YouTube"
 
 export default function TeForm() {
   return (
-    <ContentBox
-      nextButtonText="Next Lesson ->"
-      nextButtonLink="/learn/conjugation?normal=false&teForm=true&volitional=false&taiForm=false&tariForm=false&potential=false&imperative=false&conditional=false&passive=false&causative=false&causativePassive=false&verb=true&iAdjective=false&naAdjective=false&polite=true&plain=false&nonPast=true&past=false&positive=true&negative=false"
-    >
+    <ContentBox nextButtonLink="/learn/conjugation?normal=false&teForm=true&volitional=false&taiForm=false&tariForm=false&potential=false&imperative=false&conditional=false&passive=false&causative=false&causativePassive=false&verb=true&iAdjective=false&naAdjective=false&polite=true&plain=false&nonPast=true&past=false&positive=true&negative=false">
       <div class="space-y-6 px-4 sm:px-12 md:px-20">
         <div class="mb-6 mt-28 w-full border-b py-6">
           <h1 class="text-center text-4xl font-semibold">

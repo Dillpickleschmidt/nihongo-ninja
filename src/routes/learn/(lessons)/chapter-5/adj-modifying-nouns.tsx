@@ -3,10 +3,7 @@ import SelectText from "@/components/text/MultipleChoiceText"
 
 export default function page() {
   return (
-    <ContentBox
-      nextButtonText="Next Lesson ->"
-      nextButtonLink="/learn/chapter-3/next-lesson"
-    >
+    <ContentBox nextButtonLink="/learn/chapter-3/next-lesson">
       <div class="space-y-6 px-4 sm:px-12 md:px-20">
         <div class="mb-6 mt-28 w-full border-b py-6">
           <h1 class="text-center text-4xl font-semibold">

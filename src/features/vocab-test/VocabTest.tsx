@@ -241,7 +241,7 @@ export default function VocabTest({
   }
 
   return (
-    <ContentBox nextButtonText="Next Lesson ->" nextButtonLink="/learn">
+    <ContentBox nextButtonLink="/learn">
       <div class="absolute right-4 top-4">
         <Button
           onClick={() => setShowVocabList(!showVocabList())}

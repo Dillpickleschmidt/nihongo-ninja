@@ -4,7 +4,6 @@ import Kikusasaizu from "@/features/kikusasaizu/Kikusasaizu"
 export default function page() {
   return (
     <ContentBox
-      nextButtonText="Next Lesson ->"
       nextButtonLink="/learn/chapter-1/japanese-super-immersion-nice-to-meet-you"
       size="lg"
     >

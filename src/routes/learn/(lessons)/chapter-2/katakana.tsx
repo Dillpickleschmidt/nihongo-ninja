@@ -7,10 +7,7 @@ import YouTubeVideo from "@/features/youtube/YouTube"
 
 export default function page() {
   return (
-    <ContentBox
-      nextButtonText="Next Lesson ->"
-      nextButtonLink="/learn/chapter-2/practice/katakana"
-    >
+    <ContentBox nextButtonLink="/learn/chapter-2/practice/katakana">
       <div class="space-y-2 pl-8 pt-8">
         <h4 class="text-xl font-medium">Lesson Resources:</h4>
         <ul class="list-inside list-disc">

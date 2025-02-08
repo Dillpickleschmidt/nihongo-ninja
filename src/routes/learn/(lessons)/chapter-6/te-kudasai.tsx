@@ -4,10 +4,7 @@ import SelectText from "@/components/text/MultipleChoiceText"
 
 export default function page() {
   return (
-    <ContentBox
-      nextButtonText="Next Lesson ->"
-      nextButtonLink="/learn/chapter-6/te-mo-ii-desu"
-    >
+    <ContentBox nextButtonLink="/learn/chapter-6/te-mo-ii-desu">
       <h1 class="px-12 pb-6 pt-6 text-center text-4xl font-semibold sm:pt-12 lg:px-28 lg:pt-24">
         Making Requests with{" "}
         <span class="font-japanese text-teal-500">てください</span>

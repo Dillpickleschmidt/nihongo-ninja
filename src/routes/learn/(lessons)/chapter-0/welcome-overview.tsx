@@ -24,7 +24,7 @@ export default function WelcomePage() {
   const iconSize = "22px"
   return (
     <ContentBox
-      nextButtonText="Next Lesson->"
+      nextButtonText="Next Lesson ->"
       nextButtonLink="/learn/chapter-0/japanese-pronunciation"
     >
       {/* Lesson Resources */}

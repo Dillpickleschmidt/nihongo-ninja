@@ -11,11 +11,7 @@ export default function page() {
   )
 
   return (
-    <ContentBox
-      size="lg"
-      nextButtonLink="/learn/chapter-1/countries-time"
-      nextButtonText="Next Lesson ->"
-    >
+    <ContentBox size="lg" nextButtonLink="/learn/chapter-1/countries-time">
       <h1 class="px-28 pb-6 pt-6 text-center text-4xl font-semibold sm:pt-12 lg:pt-24">
         Useful Expressions
       </h1>

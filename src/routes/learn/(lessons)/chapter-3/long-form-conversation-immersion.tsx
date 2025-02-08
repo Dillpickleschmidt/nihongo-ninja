@@ -164,7 +164,6 @@ export default function page() {
 
   return (
     <ContentBox
-      nextButtonText="Next Lesson ->"
       nextButtonLink="/learn/chapter-1/my-kikitori-conversation-1"
       size="lg"
     >

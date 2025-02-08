@@ -3,11 +3,7 @@ import YouTubeVideo from "@/features/youtube/YouTube"
 
 export default function page() {
   return (
-    <ContentBox
-      nextButtonText="Next Lesson ->"
-      nextButtonLink="/learn/chapter-3/next-lesson"
-      size="lg"
-    >
+    <ContentBox nextButtonLink="/learn/chapter-3/next-lesson" size="lg">
       <YouTubeVideo
         videoId="BH9n_fNA7Z8"
         title="Unlearning Japanese - Real Real Japan #01"

@@ -26,10 +26,7 @@ export default function page() {
   ]
 
   return (
-    <ContentBox
-      nextButtonText="Next Lesson ->"
-      nextButtonLink="/learn/chapter-2/kikusasaizu-2-1"
-    >
+    <ContentBox nextButtonLink="/learn/chapter-2/kikusasaizu-2-1">
       <h1 class="px-12 pb-6 pt-6 text-center text-4xl font-semibold sm:pt-12 lg:px-28 lg:pt-24">
         <span class="font-japanese text-orange-400">じゃない</span>—The Negative
         Form in Japanese

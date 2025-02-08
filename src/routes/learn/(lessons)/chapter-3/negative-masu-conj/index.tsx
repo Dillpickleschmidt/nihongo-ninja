@@ -4,10 +4,7 @@ import NegativeMasuPractice from "./components/NegativeMasuPractice"
 
 export default function page() {
   return (
-    <ContentBox
-      nextButtonText="Next Lesson ->"
-      nextButtonLink="/learn/chapter-3/practice/masu-conjugation"
-    >
+    <ContentBox nextButtonLink="/learn/chapter-3/practice/masu-conjugation">
       <h1 class="px-6 pb-6 pt-6 text-center text-4xl font-semibold sm:px-12 sm:pt-12 lg:px-28 lg:pt-24">
         <strong>Negative</strong> <span class="font-japanese">ます</span> Form
       </h1>

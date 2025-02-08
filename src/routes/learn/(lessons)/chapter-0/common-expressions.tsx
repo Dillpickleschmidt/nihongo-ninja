@@ -21,7 +21,6 @@ export default function test2() {
     <ContentBox
       size="lg"
       nextButtonLink="/learn/chapter-20/practice/nouns-readings"
-      nextButtonText="Next Lesson ->"
     >
       <div class="flex flex-col items-center">
         <div class="mx-4 md:mx-8 lg:mx-16">

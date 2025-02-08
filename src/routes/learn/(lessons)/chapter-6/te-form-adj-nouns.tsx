@@ -5,10 +5,7 @@ import YouTubeVideo from "@/features/youtube/YouTube"
 
 export default function page() {
   return (
-    <ContentBox
-      nextButtonText="Next Lesson ->"
-      nextButtonLink="/learn/chapter-6/kara"
-    >
+    <ContentBox nextButtonLink="/learn/chapter-6/kara">
       <h1 class="px-12 pb-6 pt-6 text-center text-4xl font-semibold sm:pt-12 lg:px-28 lg:pt-24">
         Adjectives & Nouns -{" "}
         <span class="font-japanese text-green-500">て</span>-Form

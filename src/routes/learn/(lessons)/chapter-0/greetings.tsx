@@ -27,7 +27,6 @@ export default function page() {
     <ContentBox
       size="lg"
       nextButtonLink="/learn/chapter-20/practice/nouns-readings"
-      nextButtonText="Next Lesson ->"
     >
       <div class="px-12 md:px-16 xl:px-24">
         {/* <h1 class="pt-20 text-center text-4xl font-medium leading-[3.25rem]">

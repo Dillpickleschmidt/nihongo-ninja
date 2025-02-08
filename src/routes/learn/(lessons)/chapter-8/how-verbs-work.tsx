@@ -3,11 +3,7 @@ import YouTubeVideo from "@/features/youtube/YouTube"
 
 export default function page() {
   return (
-    <ContentBox
-      nextButtonText="Next Lesson ->"
-      nextButtonLink="/learn/chapter-3/next-lesson"
-      size="lg"
-    >
+    <ContentBox nextButtonLink="/learn/chapter-3/next-lesson" size="lg">
       <YouTubeVideo
         videoId="cGA6Tj9_lSg"
         title="The ULTIMATE Japanese Verb Conjugation CHEAT SHEET"

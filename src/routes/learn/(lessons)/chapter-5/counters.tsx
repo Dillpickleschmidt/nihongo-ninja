@@ -6,10 +6,7 @@ import Furigana from "@/components/text/Furigana"
 
 export default function page() {
   return (
-    <ContentBox
-      nextButtonText="Next Lesson ->"
-      nextButtonLink="/learn/chapter-3/next-lesson"
-    >
+    <ContentBox nextButtonLink="/learn/chapter-3/next-lesson">
       <h1 class="px-6 pb-6 pt-6 text-center text-4xl font-semibold sm:px-12 sm:pt-12 lg:px-28 lg:pt-24">
         Generic Counters: One Thing, Two Things, etc.
       </h1>

@@ -5,10 +5,7 @@ import YouTubeVideo from "@/features/youtube/YouTube"
 
 export default function page() {
   return (
-    <ContentBox
-      nextButtonText="Next Lesson ->"
-      nextButtonLink="/learn/chapter-1/occupations-majors"
-    >
+    <ContentBox nextButtonLink="/learn/chapter-1/occupations-majors">
       <div class="space-y-6 px-4 pb-32 sm:px-12 md:px-20">
         <div class="mb-6 mt-16 w-full border-b py-6">
           <h1 class="text-center text-4xl font-semibold">

@@ -4,10 +4,7 @@ import YouTubeVideo from "@/features/youtube/YouTube"
 
 export default function JapanesePronunciation() {
   return (
-    <ContentBox
-      nextButtonText="Next Lesson ->"
-      nextButtonLink="/learn/chapter-0/writing-systems"
-    >
+    <ContentBox nextButtonLink="/learn/chapter-0/writing-systems">
       {/* Lesson Introduction */}
       <div class="space-y-6 px-4 sm:px-12 md:px-20">
         <div class="mb-6 mt-28 w-full border-b py-6">

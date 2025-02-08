@@ -3,10 +3,7 @@ import Furigana from "@/components/text/Furigana"
 
 export default function page() {
   return (
-    <ContentBox
-      nextButtonText="Next Lesson ->"
-      nextButtonLink="/learn/chapter-1/kikusasaizu-1-1"
-    >
+    <ContentBox nextButtonLink="/learn/chapter-1/kikusasaizu-1-1">
       <h1 class="px-12 pb-6 pt-6 text-center text-4xl font-semibold sm:pt-12 lg:px-28 lg:pt-24">
         <em>Fill</em> the Gaps: Master Your Japanese Filler Words
       </h1>

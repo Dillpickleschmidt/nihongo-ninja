@@ -3,10 +3,7 @@ import PortraitIcon from "@/components/PortraitIcon"
 
 export default function JapaneseWritingSystems() {
   return (
-    <ContentBox
-      nextButtonText="Next Lesson ->"
-      nextButtonLink="/learn/chapter-0/hiragana"
-    >
+    <ContentBox nextButtonLink="/learn/chapter-0/hiragana">
       <div class="-mt-2 h-48 w-full border-b border-black">
         <img src="/img/chapter-0/brushes.jpg" alt="japanese brushstrokes" />
       </div>

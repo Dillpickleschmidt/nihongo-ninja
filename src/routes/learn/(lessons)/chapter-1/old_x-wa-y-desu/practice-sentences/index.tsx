@@ -4,10 +4,7 @@ import { TextField, TextFieldRoot } from "@/components/ui/textfield"
 
 export default function page() {
   return (
-    <ContentBox
-      nextButtonText="Next Lesson ->"
-      nextButtonLink="/learn/chapter-1/everyday-expressions"
-    >
+    <ContentBox nextButtonLink="/learn/chapter-1/everyday-expressions">
       <h1 class="px-20 pb-12 pt-24 text-center text-4xl font-bold">
         <span class="text-orange-400">X</span>
         <span class="font-japanese">は</span>

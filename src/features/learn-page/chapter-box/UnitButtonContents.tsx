@@ -88,16 +88,16 @@ export default function UnitButtonContents(props: UnitButtonContentsProps) {
           )}
         >
           {props.isCompleted && (
-            <CircleCheckBig class="mr-2 inline-flex h-[18px] w-[18px]" />
+            <CircleCheckBig class="mr-2 inline-flex h-4 w-4 origin-center" />
           )}
           {props.children}
         </span>
       </div>
       <div
         class={cn(
-          "sticky right-0 ml-2 flex rounded-full bg-inherit text-muted-foreground",
+          "sticky right-0 flex",
           props.isFolder &&
-            "relative h-8 w-8 items-center justify-center border border-neutral-400 bg-neutral-100/50 dark:border-black dark:bg-neutral-700/50",
+            `relative h-8 w-8 items-center justify-center rounded-full ${props.isCompleted ? "border-2 border-green-500/25 bg-green-500/10" : "border border-neutral-400 bg-neutral-100/50 dark:border-black dark:bg-neutral-700/50"}`,
         )}
       >
         <For each={props.types}>
@@ -105,11 +105,7 @@ export default function UnitButtonContents(props: UnitButtonContentsProps) {
             const IconComponent = iconComponents[type]
             return (
               <div
-                class={cn(
-                  "ml-1",
-                  props.isFolder &&
-                    "absolute m-0 flex items-center justify-center",
-                )}
+                class={`${props.isFolder && "absolute"}`}
                 style={getIconStyle(index(), props.types.length)}
               >
                 <IconComponent size={iconSize} class={iconClasses[type]} />

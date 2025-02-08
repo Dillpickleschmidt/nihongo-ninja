@@ -20,11 +20,7 @@ export default function page() {
   // const [seekTime, setSeekTime] = createSignal<number | null>(null)
 
   return (
-    <ContentBox
-      nextButtonText="Next Lesson ->"
-      nextButtonLink="/learn/chapter-3/next-lesson"
-      size="lg"
-    >
+    <ContentBox nextButtonLink="/learn/chapter-3/next-lesson" size="lg">
       <YouTubeVideo
         videoId="p37XUVrHP4E"
         title="Easy Japanese - Hobbies"

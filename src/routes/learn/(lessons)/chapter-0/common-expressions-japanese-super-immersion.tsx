@@ -18,7 +18,6 @@ export default function page() {
 
   return (
     <ContentBox
-      nextButtonText="Next Lesson ->"
       nextButtonLink="/learn/chapter-0/practice/greetings-common-expressions"
       size="lg"
     >

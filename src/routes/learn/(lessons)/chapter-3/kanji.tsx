@@ -4,10 +4,7 @@ import YouTubeVideo from "@/features/youtube/YouTube"
 
 export default function page() {
   return (
-    <ContentBox
-      nextButtonText="Next Lesson ->"
-      nextButtonLink="/learn/chapter-3/kanji-radicals"
-    >
+    <ContentBox nextButtonLink="/learn/chapter-3/kanji-radicals">
       <div class="flex w-full justify-center">
         <div class="mt-16 w-96">
           <img

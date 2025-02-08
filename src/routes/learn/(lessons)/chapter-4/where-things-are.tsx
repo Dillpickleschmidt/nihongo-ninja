@@ -4,10 +4,7 @@ import SelectText from "@/components/text/MultipleChoiceText"
 
 export default function LocationWords() {
   return (
-    <ContentBox
-      nextButtonText="Next Lesson ->"
-      nextButtonLink="/learn/chapter-4/next-lesson"
-    >
+    <ContentBox nextButtonLink="/learn/chapter-4/next-lesson">
       <h1 class="px-12 pb-6 pt-6 text-center text-4xl font-semibold sm:pt-12 lg:px-28 lg:pt-24">
         Where Is Everything? ～ Your Guide to Japanese Location Words
       </h1>

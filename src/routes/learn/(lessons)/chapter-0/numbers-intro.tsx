@@ -3,10 +3,7 @@ import PortraitIcon from "@/components/PortraitIcon"
 
 export default function JapanesePronunciation() {
   return (
-    <ContentBox
-      nextButtonText="Next Lesson ->"
-      nextButtonLink="/learn/chapter-0/numbers-0-100"
-    >
+    <ContentBox nextButtonLink="/learn/chapter-0/numbers-0-100">
       <h1 class="px-4 pb-16 pt-36 text-center text-5xl font-medium leading-[4rem] sm:px-20">
         <span class="text-6xl font-bold">Ditch the Charades:</span>{" "}
         <span class="text-5xl">Conquer</span> Japanese Numbers and{" "}
