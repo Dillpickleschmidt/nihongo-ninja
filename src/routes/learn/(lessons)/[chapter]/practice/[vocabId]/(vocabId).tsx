@@ -1,5 +1,5 @@
 import PracticeMode from "@/features/practice-mode/PracticeMode"
-import { getVocabularyByPath } from "@/db/statements"
+import { getVocabularyByPath } from "@/data-utils/statements"
 import { RichVocabItem } from "@/types/vocab"
 import { Match, Show, Switch } from "solid-js"
 import { createAsync, useLocation } from "@solidjs/router"

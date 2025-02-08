@@ -1,4 +1,4 @@
-import { getVocabularyByPath } from "@/db/statements"
+import { getVocabularyByPath } from "@/data-utils/statements"
 import type { RichVocabItem } from "@/types/vocab"
 import { createResource, Show } from "solid-js"
 import SelectText from "@/components/text/MultipleChoiceText"

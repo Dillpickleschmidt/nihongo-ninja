@@ -1,4 +1,4 @@
-import { getVocabularyByPath } from "@/db/statements"
+import { getVocabularyByPath } from "@/data-utils/statements"
 import VocabTest from "@/features/vocab-test/VocabTest"
 import { RichVocabItem } from "@/types/vocab"
 import { cache, createAsync } from "@solidjs/router"

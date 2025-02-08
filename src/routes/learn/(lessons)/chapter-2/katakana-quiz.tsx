@@ -1,5 +1,5 @@
 import KanaQuiz from "@/features/kana-quiz/KanaQuiz"
-import { getVocabularyByPath } from "@/db/statements"
+import { getVocabularyByPath } from "@/data-utils/statements"
 import { createResource, Show } from "solid-js"
 import { RichVocabItem } from "@/types/vocab"
 

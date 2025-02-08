@@ -1,6 +1,6 @@
 // VocabGroup.tsx
 import { createResource } from "solid-js"
-import { getVocabularyByPath } from "@/db/statements"
+import { getVocabularyByPath } from "@/data-utils/statements"
 import { addKanaAndRuby } from "@/util/vocabDataTransformer"
 import VocabTable from "./VocabTable"
 

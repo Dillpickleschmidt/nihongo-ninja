@@ -1,7 +1,7 @@
 import PracticeMode from "@/features/practice-mode/PracticeMode"
 import type { RichVocabItem } from "@/types/vocab"
 import { createResource, Show } from "solid-js"
-import { getVocabularyByPath } from "@/db/statements"
+import { getVocabularyByPath } from "@/data-utils/statements"
 
 export default function page() {
   const [data] = createResource<RichVocabItem[]>(

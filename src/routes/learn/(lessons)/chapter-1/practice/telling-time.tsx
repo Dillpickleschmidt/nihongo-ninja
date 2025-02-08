@@ -1,7 +1,7 @@
 import type { RichVocabItem } from "@/types/vocab"
 import { createResource, Show } from "solid-js"
 import PracticeMode from "@/features/practice-mode/PracticeMode"
-import { getVocabularyByPath } from "@/db/statements"
+import { getVocabularyByPath } from "@/data-utils/statements"
 
 export default function Page() {
   const [data] = createResource<RichVocabItem[]>(

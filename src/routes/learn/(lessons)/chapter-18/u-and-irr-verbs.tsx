@@ -1,5 +1,5 @@
 import { Show } from "solid-js"
-import { getVocabularyByPath } from "@/db/statements"
+import { getVocabularyByPath } from "@/data-utils/statements"
 import VocabCardSingle from "@/features/vocab-card/single/VocabCardSingle"
 import VocabCardPairNoBG from "@/features/vocab-card/pair/VocabCardPairNoBG"
 import VocabCardPair from "@/features/vocab-card/pair/VocabCardPair"

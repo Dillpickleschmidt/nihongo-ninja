@@ -1,5 +1,5 @@
 import { createResource, Show } from "solid-js"
-import { getVocabularyByPath } from "@/db/statements"
+import { getVocabularyByPath } from "@/data-utils/statements"
 import type { RichVocabItem } from "@/types/vocab"
 import VocabCards from "@/features/vocab-card/VocabCards"
 import ContentBox from "@/components/ContentBox"

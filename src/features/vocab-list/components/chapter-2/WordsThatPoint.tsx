@@ -1,5 +1,5 @@
 import { createResource } from "solid-js"
-import { getVocabularyByPath } from "@/db/statements"
+import { getVocabularyByPath } from "@/data-utils/statements"
 import { addKanaAndRuby } from "@/util/vocabDataTransformer"
 import type { RichVocabItem } from "@/types/vocab"
 import VocabTable from "../VocabTable"

@@ -1,5 +1,5 @@
 import { createResource, Show } from "solid-js"
-import { getVocabularyByPath } from "@/db/statements"
+import { getVocabularyByPath } from "@/data-utils/statements"
 import { A } from "@solidjs/router"
 import { Button } from "@/components/ui/button"
 import type { RichVocabItem } from "@/types/vocab"

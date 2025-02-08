@@ -1,53 +1,76 @@
-// import { createSignal } from "solid-js"
-// import { login } from "@/features/auth/auth"
+import Login from "@/features/auth/components/login"
+import { loginWithGoogle, logout, getSession } from "@/features/auth/auth"
+import { onMount, createSignal } from "solid-js"
+import type { User } from "@supabase/supabase-js"
 
-// export default function Auth() {
-//   const [loading, setLoading] = createSignal(false)
-//   const [email, setEmail] = createSignal("")
-//   const [password, setPassword] = createSignal("testPassword123")
+declare global {
+  function handleSignInWithGoogle(response: {
+    credential: string
+  }): Promise<void>
+}
 
-//   const handleLogin = async (e: SubmitEvent) => {
-//     e.preventDefault()
+export default function Auth() {
+  const [user, setUser] = createSignal<User | null>(null)
 
-//     //   try {
-//     //     setLoading(true)
-//     //     const { error } = await supabase.auth.signInWithOtp({ email: email() })
-//     //     if (error) throw error
-//     //     alert("Check your email for the login link!")
-//     //   } catch (error) {
-//     //     if (error instanceof Error) {
-//     //       alert(error.message)
-//     //     }
-//     //   } finally {
-//     //     setLoading(false)
-//     //   }
-//     console.log(login(email(), password()))
-//   }
+  onMount(async () => {
+    // Set up Google Sign In
+    window.handleSignInWithGoogle = async function (response) {
+      try {
+        const result = await loginWithGoogle(response.credential)
+        if (result.error) {
+          console.error("Error signing in:", result.error)
+          return
+        }
+        window.location.href = "/learn"
+      } catch (error) {
+        console.error("Error signing in:", error)
+      }
+    }
 
-//   return (
-//     <div class="row flex-center flex">
-//       <div class="col-6 form-widget" aria-live="polite">
-//         <h1 class="header">Supabase + SolidJS</h1>
-//         <p class="description">Sign in below</p>
-//         <form class="form-widget" onSubmit={handleLogin}>
-//           <div>
-//             <label for="email">Email</label>
-//             <input
-//               id="email"
-//               class="inputField"
-//               type="email"
-//               placeholder="Your email"
-//               value={email()}
-//               onChange={(e) => setEmail(e.currentTarget.value)}
-//             />
-//           </div>
-//           <div>
-//             <button type="submit" class="button block" aria-live="polite">
-//               {loading() ? <span>Loading</span> : <span>Login</span>}
-//             </button>
-//           </div>
-//         </form>
-//       </div>
-//     </div>
-//   )
-// }
+    // Load Google's script
+    const script = document.createElement("script")
+    script.src = "https://accounts.google.com/gsi/client"
+    script.async = true
+    script.defer = true
+    document.head.appendChild(script)
+
+    // Get authenticated user
+    const { user: authUser, error } = await getSession()
+    if (!error && authUser) {
+      setUser(authUser)
+    }
+  })
+
+  const handleLogout = async () => {
+    await logout()
+    setUser(null)
+    window.location.href = "/auth"
+  }
+
+  return (
+    <div class="relative min-h-screen bg-gray-50">
+      <div class="absolute right-4 top-4">
+        {user() && (
+          <div class="flex items-center gap-4">
+            <span class="text-sm text-gray-700">{user()?.email}</span>
+            <button
+              onClick={handleLogout}
+              class="rounded-md bg-gray-100 px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-200"
+            >
+              Sign out
+            </button>
+          </div>
+        )}
+      </div>
+
+      <div class="flex min-h-full flex-1 flex-col justify-center py-12 sm:px-6 lg:px-8">
+        <div class="sm:mx-auto sm:w-full sm:max-w-md">
+          <h2 class="mt-6 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
+            Sign in to your account
+          </h2>
+        </div>
+        <Login />
+      </div>
+    </div>
+  )
+}
