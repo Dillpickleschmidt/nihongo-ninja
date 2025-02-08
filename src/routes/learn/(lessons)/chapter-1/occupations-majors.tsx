@@ -31,7 +31,7 @@ export default function page() {
   return (
     <ContentBox
       size="lg"
-      nextButtonLink="/learn/chapter-20/practice/nouns-readings"
+      nextButtonLink="/learn/chapter-1/practice/occupations-majors"
       nextButtonText="Next Lesson ->"
     >
       <h1 class="px-28 pb-6 pt-6 text-center text-4xl font-semibold sm:pt-12 lg:pt-24">
@@ -260,11 +260,6 @@ export default function page() {
             </tbody>
           </table>
         </div>
-      </div>
-      <div class="absolute bottom-16 right-16">
-        <A href="/learn/chapter-1/practice/occupations-majors">
-          <Button>Next Lesson {"->"}</Button>
-        </A>
       </div>
     </ContentBox>
   )

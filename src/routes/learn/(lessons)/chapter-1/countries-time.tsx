@@ -1,9 +1,8 @@
 import { createResource, Show } from "solid-js"
 import { getVocabularyByPath } from "@/db/statements"
-import { A } from "@solidjs/router"
-import { Button } from "@/components/ui/button"
 import type { RichVocabItem } from "@/types/vocab"
 import VocabCards from "@/features/vocab-card/VocabCards"
+import ContentBox from "@/components/ContentBox"
 
 export default function page() {
   const path = "chapter-1/countries-time"
@@ -24,7 +23,11 @@ export default function page() {
   ]
 
   return (
-    <>
+    <ContentBox
+      size="lg"
+      nextButtonLink="/learn/chapter-1/practice/countries-time"
+      nextButtonText="Next Lesson ->"
+    >
       <h1 class="px-28 pb-6 pt-6 text-center text-4xl font-semibold sm:pt-12 lg:pt-24">
         Countries & Time
       </h1>
@@ -32,11 +35,6 @@ export default function page() {
         <VocabCards data={data()!} />
       </Show>
       <div class="pb-32" />
-      <div class="absolute bottom-16 right-16">
-        <A href="/learn/chapter-1/practice/countries-time">
-          <Button>Next Lesson {"->"}</Button>
-        </A>
-      </div>
-    </>
+    </ContentBox>
   )
 }

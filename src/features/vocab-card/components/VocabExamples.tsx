@@ -1,9 +1,9 @@
-// VocabExamples.tsx
-import { For, Show, createSignal } from "solid-js"
+import { For, Show, createSignal, onCleanup } from "solid-js"
 import type { RichVocabItem } from "@/types/vocab"
 import { AudioLines } from "lucide-solid"
 import { ImmersionKitResponse } from "../immersion-kit"
 import VocabVideoSection from "./VocabVideoSection"
+import { AudioNormalizer } from "../util/audio-normalizer"
 
 type VocabExamplesProps = {
   data: RichVocabItem[]
@@ -13,56 +13,60 @@ type VocabExamplesProps = {
 
 export default function VocabExamples(props: VocabExamplesProps) {
   const item = props.data[props.index]
-  const [playingAudio, setPlayingAudio] = createSignal<HTMLAudioElement | null>(
-    null,
-  )
+  const [playingUrl, setPlayingUrl] = createSignal<string | null>(null)
   const [pauseVideo, setPauseVideo] = createSignal<(() => void) | null>(null)
+  const normalizer = AudioNormalizer.getInstance()
 
-  const playAudio = (soundUrl: string) => {
-    if (playingAudio()) {
-      playingAudio()?.pause()
-      playingAudio()!.currentTime = 0
+  const playAudio = async (soundUrl: string) => {
+    // If clicking the same audio that's playing, stop it
+    if (playingUrl() === soundUrl) {
+      setPlayingUrl(null)
+      return
     }
 
     // Pause video if playing
-    // console.log("Calling pauseVideo from playAudio")
     pauseVideo()?.()
 
-    const audio = new Audio(soundUrl)
-    setPlayingAudio(audio)
-    audio.play().catch((error) => {
-      console.error("Error playing audio:", error)
-      setPlayingAudio(null)
-    })
-    audio.onended = () => setPlayingAudio(null)
-  }
+    try {
+      setPlayingUrl(soundUrl)
+      const audio = await normalizer.play(soundUrl)
 
-  const stopAudio = () => {
-    // console.log("Stopping audio")
-    if (playingAudio()) {
-      playingAudio()?.pause()
-      playingAudio()!.currentTime = 0
-      setPlayingAudio(null)
+      audio.onended = () => {
+        if (playingUrl() === soundUrl) {
+          setPlayingUrl(null)
+        }
+      }
+
+      // If playback fails or is stopped, clear the playing state
+      audio.onpause = () => {
+        if (playingUrl() === soundUrl) {
+          setPlayingUrl(null)
+        }
+      }
+    } catch (error) {
+      console.error("Error playing audio:", error)
+      setPlayingUrl(null)
     }
   }
 
   const handlePauseVideo = (pause: () => void) => {
-    // console.log("Setting new pause video function")
     setPauseVideo(() => pause)
   }
 
+  onCleanup(() => {
+    normalizer.clearCache()
+  })
+
   return (
     <div class="space-y-6">
-      {/* Videos Section (if available) */}
       <Show when={item.videos?.length}>
         <VocabVideoSection
           videos={item.videos}
-          onVideoPlay={stopAudio}
+          onVideoPlay={() => setPlayingUrl(null)}
           onPause={handlePauseVideo}
         />
       </Show>
 
-      {/* ImmersionKit Examples */}
       <div class="space-y-4">
         <Show
           when={props.examples?.length}
@@ -71,11 +75,11 @@ export default function VocabExamples(props: VocabExamplesProps) {
           <For each={props.examples?.slice(0, 2)}>
             {(example) => (
               <div class="flex flex-col gap-4 sm:flex-row">
-                <div class="w-full sm:w-32">
+                <div class="w-full sm:w-40">
                   <img
                     src={example.image_url}
                     alt="Anime scene"
-                    class="h-48 w-full cursor-pointer rounded-lg object-cover duration-200 ease-in-out sm:h-20 sm:w-32"
+                    class="h-48 w-full cursor-pointer rounded-lg object-cover duration-200 ease-in-out sm:h-24 sm:w-40"
                     onClick={() =>
                       example.sound_url && playAudio(example.sound_url)
                     }
@@ -92,7 +96,7 @@ export default function VocabExamples(props: VocabExamplesProps) {
                     >
                       <AudioLines
                         class={`h-4 w-4 ${
-                          playingAudio()?.src === example.sound_url
+                          playingUrl() === example.sound_url
                             ? "text-emerald-500"
                             : ""
                         }`}

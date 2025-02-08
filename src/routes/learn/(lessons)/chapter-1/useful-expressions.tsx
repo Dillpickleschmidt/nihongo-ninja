@@ -1,13 +1,9 @@
 import { getVocabularyByPath } from "@/db/statements"
-import VocabCardPairNoBG from "@/features/vocab-card/pair/VocabCardPairNoBG"
 import type { RichVocabItem } from "@/types/vocab"
 import { createResource, Show } from "solid-js"
-import VocabCardPair from "@/features/vocab-card/pair/VocabCardPair"
-import VocabCardSingle from "@/features/vocab-card/single/VocabCardSingle"
-import VocabCard4NoBG from "@/features/vocab-card/quadruplet/VocabCard4NoBG"
 import SelectText from "@/components/text/MultipleChoiceText"
-import { A } from "@solidjs/router"
-import { Button } from "@/components/ui/button"
+import ContentBox from "@/components/ContentBox"
+import VocabCards from "@/features/vocab-card/VocabCards"
 
 export default function page() {
   const [data] = createResource<RichVocabItem[]>(
@@ -15,22 +11,16 @@ export default function page() {
   )
 
   return (
-    <>
+    <ContentBox
+      size="lg"
+      nextButtonLink="/learn/chapter-1/countries-time"
+      nextButtonText="Next Lesson ->"
+    >
       <h1 class="px-28 pb-6 pt-6 text-center text-4xl font-semibold sm:pt-12 lg:pt-24">
         Useful Expressions
       </h1>
       <Show when={data()}>
-        <VocabCardPairNoBG data={data()!} index={0} />
-        <VocabCardSingle data={data()!} index={2} />
-        <VocabCardPairNoBG data={data()!} index={3} />
-        <VocabCardSingle data={data()!} index={5} />
-        <VocabCardPairNoBG data={data()!} index={6} />
-        <VocabCardPair data={data()!} index={8} />
-        <VocabCardPair data={data()!} index={10} />
-        <VocabCardPairNoBG data={data()!} index={12} single />
-        <VocabCardPairNoBG data={data()!} index={13} />
-        <VocabCardPair data={data()!} index={15} />
-        <VocabCard4NoBG data={data()!} index={17} />
+        <VocabCards data={data()!} />
       </Show>
       <div class="mt-12 flex flex-col items-center">
         <div class="max-w-[850px] px-4 pb-32 md:px-8">
@@ -242,12 +232,6 @@ export default function page() {
           </div>
         </div>
       </div>
-
-      <div class="absolute bottom-16 right-16">
-        <A href="/learn/chapter-1/countries-time">
-          <Button>Next Lesson {"->"}</Button>
-        </A>
-      </div>
-    </>
+    </ContentBox>
   )
 }

@@ -65,11 +65,11 @@ export default function VocabText(props: VocabTextProps) {
       </div>
 
       {/* Desktop: Compact Layout */}
-      <div class="hidden md:grid md:grid-cols-2 md:gap-6">
-        <div class="border-l-2 border-orange-400 pl-6">
+      <div class="hidden md:flex md:justify-between md:gap-6">
+        <div class="max-w-[50%] border-l-2 border-orange-400 pl-6">
           <VocabTextBody data={props.data} index={props.index} />
         </div>
-        <div class="rounded-lg bg-white/50 p-4 shadow-inner shadow-black/15">
+        <div class="w-full max-w-[60%] rounded-lg bg-white/50 p-4 shadow-inner shadow-black/15">
           <Suspense
             fallback={<div class="p-4 text-gray-500">Loading examples...</div>}
           >
