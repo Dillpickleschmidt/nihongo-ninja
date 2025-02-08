@@ -1,17 +1,16 @@
-// LearnPageContext.tsx
 import { createContext, useContext, createSignal, onMount } from "solid-js"
 import { isServer } from "solid-js/web"
 import { AppStorage, storageUtils } from "@/features/local-storage"
 import { getUser } from "@/features/supabase/auth"
-import type { User } from "@supabase/supabase-js"
 import { createAsync } from "@solidjs/router"
+import { getCompletedModules } from "@/features/supabase/db"
+import type { User } from "@supabase/supabase-js"
 
 type LearnPageContextProps = {
   children: any
 }
 
 export const sortOrderTypes = ["module-type", "chronological"] as const
-
 export type sortOrder = (typeof sortOrderTypes)[number]
 
 type LearnPageContextType = {
@@ -23,38 +22,42 @@ type LearnPageContextType = {
   setSortOrder: (order: sortOrder) => void
   sortChangeCounter: () => number
   user: () => User | null
+  completedModules: () => {
+    data?: { module_path: string }[]
+    error?: string
+  }
 }
 
 const LearnPageContext = createContext<LearnPageContextType>()
 
 export function LearnPageProvider(props: LearnPageContextProps) {
-  const storageKey = AppStorage.learnPage.key("sortOrder")
-  const defaultSortOrder = AppStorage.learnPage.defaultValue.sortOrder
-
   const [chapterIds, setChapterIds] = createSignal<string[]>([])
   const [unitIds, setUnitIds] = createSignal<string[]>([])
-  const [sortOrder, internalSetSortOrder] =
-    createSignal<sortOrder>(defaultSortOrder)
+  const [sortOrder, internalSetSortOrder] = createSignal<sortOrder>(
+    AppStorage.learnPage.defaultValue.sortOrder,
+  )
   const [sortChangeCounter, setSortChangeCounter] = createSignal(0)
-  const [user, setUser] = createSignal<User | null>(null)
 
-  const getUserResponse = createAsync(() => getUser())
-  const userResponse = getUserResponse()
-  if (userResponse && !userResponse.error && userResponse.user) {
-    // console.log("User is logged in")
-    setUser(userResponse.user)
-  }
+  const userData = createAsync(() => getUser())
+  const user = () => userData()?.user || null
 
-  // Load from storage only after mount
-  onMount(async () => {
-    const storedValue = storageUtils.get(storageKey)
+  const completedModules = createAsync(async () => {
+    const currentUser = user()
+    if (!currentUser) return { data: [] }
+    return await getCompletedModules(currentUser.id)
+  })
+
+  onMount(() => {
+    const storedValue = storageUtils.get(AppStorage.learnPage.key("sortOrder"))
     internalSetSortOrder(storedValue.sortOrder)
   })
 
   const setSortOrder = (newOrder: sortOrder) => {
     internalSetSortOrder(newOrder)
     if (!isServer) {
-      storageUtils.set(storageKey, { sortOrder: newOrder })
+      storageUtils.set(AppStorage.learnPage.key("sortOrder"), {
+        sortOrder: newOrder,
+      })
     }
     setSortChangeCounter((c) => c + 1)
   }
@@ -70,6 +73,7 @@ export function LearnPageProvider(props: LearnPageContextProps) {
         setSortOrder,
         sortChangeCounter,
         user,
+        completedModules: () => completedModules() || { data: [] },
       }}
     >
       {props.children}

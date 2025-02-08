@@ -1,3 +1,4 @@
+// ChapterBox.tsx
 import { For, Show, createMemo, onMount } from "solid-js"
 import { twMerge } from "tailwind-merge"
 import { Button } from "@/components/ui/button"
@@ -37,6 +38,7 @@ function FolderButton(props: {
   folder: FolderItem
   index: number
   chapterID: string
+  isCompleted: boolean
 }) {
   const allTypes = Array.from(
     new Set(props.folder.items.flatMap((item) => item.types)),
@@ -49,15 +51,20 @@ function FolderButton(props: {
           <Button
             id={props.folder.id}
             variant="outline"
-            class="relative h-12 w-full justify-between overflow-y-hidden whitespace-nowrap px-6 text-sm font-normal"
+            class={`relative h-12 w-full whitespace-nowrap text-sm font-normal ${props.isCompleted && "border-green-500/50 font-bold text-green-500"}`}
           >
-            <UnitButtonContents
-              id={`${props.index + 1}.`}
-              types={allTypes}
-              isFolder={true}
+            <div
+              class={`absolute inset-0 flex items-center justify-between overflow-y-hidden overflow-x-scroll px-6 no-scrollbar ${props.isCompleted && "bg-green-500/10"}`}
             >
-              {props.folder.title}
-            </UnitButtonContents>
+              <UnitButtonContents
+                id={`${props.index + 1}.`}
+                types={allTypes}
+                isFolder={true}
+                isCompleted={props.folder.items.every((item) => item.disabled)}
+              >
+                {props.folder.title}
+              </UnitButtonContents>
+            </div>
           </Button>
         </div>
       </DialogTrigger>
@@ -180,6 +187,7 @@ export default function ChapterBox(props: ChapterBoxProps) {
                     folder={item as FolderItem}
                     index={index()}
                     chapterID={chapterID}
+                    isCompleted={false}
                   />
                 </Show>
               )}
