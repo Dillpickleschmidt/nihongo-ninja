@@ -6,13 +6,13 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 
 // Add build-time environment check
-console.log("Build-time environment variables:", {
-  hasSupabaseUrl: !!process.env.SUPABASE_URL,
-  hasSupabaseKey: !!process.env.SUPABASE_ANON_KEY,
-  hasViteSupabaseUrl: !!process.env.VITE_SUPABASE_URL,
-  hasViteSupabaseKey: !!process.env.VITE_SUPABASE_ANON_KEY,
-  envKeys: Object.keys(process.env),
-})
+// console.log("Build-time environment variables:", {
+//   hasSupabaseUrl: !!process.env.SUPABASE_URL,
+//   hasSupabaseKey: !!process.env.SUPABASE_ANON_KEY,
+//   hasViteSupabaseUrl: !!process.env.VITE_SUPABASE_URL,
+//   hasViteSupabaseKey: !!process.env.VITE_SUPABASE_ANON_KEY,
+//   envKeys: Object.keys(process.env),
+// })
 
 export default defineConfig({
   server: {
