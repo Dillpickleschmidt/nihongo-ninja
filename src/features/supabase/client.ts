@@ -8,16 +8,30 @@ import {
 import { getRequestEvent } from "solid-js/web"
 
 export function createFrontendClient() {
-  return createBrowserClient(
-    import.meta.env.VITE_SUPABASE_URL,
-    import.meta.env.VITE_SUPABASE_ANON_KEY,
-  )
+  const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
+  const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY
+
+  console.log("Frontend Client Environment Variables:", {
+    hasSupabaseUrl: !!supabaseUrl,
+    hasSupabaseKey: !!supabaseKey,
+    actualUrl: supabaseUrl,
+    allViteEnv: import.meta.env, // Log all Vite env variables
+  })
+
+  return createBrowserClient(supabaseUrl, supabaseKey)
 }
 
 export function createBackendClient() {
   "use server"
   const supabaseUrl = process.env.SUPABASE_URL
   const supabaseAnonKey = process.env.SUPABASE_ANON_KEY
+
+  console.log("Backend Client Environment Variables:", {
+    hasSupabaseUrl: !!supabaseUrl,
+    hasSupabaseKey: !!supabaseAnonKey,
+    actualUrl: supabaseUrl, // Be careful with logging sensitive keys in production
+    envKeys: Object.keys(process.env), // List all available env variables
+  })
 
   if (!supabaseUrl || !supabaseAnonKey) {
     throw new Error("Missing Supabase environment variables")

@@ -22,6 +22,10 @@ export async function logout() {
 }
 
 export async function getUser() {
+  console.log("getUser - Environment check:", {
+    hasSupabaseUrl: !!process.env.SUPABASE_URL,
+    hasSupabaseKey: !!process.env.SUPABASE_ANON_KEY,
+  })
   const supabase = createBackendClient()
   const {
     data: { user },
