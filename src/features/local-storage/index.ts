@@ -1,6 +1,6 @@
 // src/features/local-storage/local-storage.ts
 import type { Settings } from "@/features/conjugation-practice/types"
-import type { sortOrder } from "@/features/learn-page/context/LearnPageContext"
+import type { SortOrder } from "@/features/learn-page/context/LearnPageContext"
 
 /**
  * Central data structure defining all stored data
@@ -51,7 +51,7 @@ export const AppStorage = {
   learnPage: {
     key: (setting: string) => `learnPage-${setting}`,
     defaultValue: {
-      sortOrder: "module-type" as sortOrder,
+      sortOrder: "module-type" as SortOrder,
     },
   },
 
