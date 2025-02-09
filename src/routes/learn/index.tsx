@@ -7,7 +7,7 @@ import {
 } from "@/components/ui/radio-group"
 import ChapterBoxes from "@/features/learn-page/ChapterBoxes"
 import {
-  sortOrder,
+  type SortOrder,
   sortOrderTypes,
   useLearnPageContext,
 } from "@/features/learn-page/context/LearnPageContext"
@@ -100,7 +100,7 @@ export default function index() {
                 </h4>
                 <RadioGroup
                   value={context.sortOrder()}
-                  onChange={(value) => context.setSortOrder(value as sortOrder)}
+                  onChange={(value) => context.setSortOrder(value as SortOrder)}
                   class="space-y-2 hover:cursor-pointer"
                 >
                   <For each={sortOrderTypes}>
@@ -112,7 +112,7 @@ export default function index() {
                         <RadioGroupItemControl />
                         <RadioGroupItemLabel
                           onClick={() =>
-                            context.setSortOrder(item as sortOrder)
+                            context.setSortOrder(item as SortOrder)
                           }
                           class="text-sm hover:cursor-pointer"
                         >
