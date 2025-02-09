@@ -17,7 +17,7 @@ export default function JapanesePronunciation() {
       <div class="mb-32 px-8 sm:px-24 lg:px-16 [&>*]:my-6">
         <h3 class="pt-6 text-2xl font-medium text-muted-foreground">
           Say goodbye to unpredictable rules—Japanese pronunciation is
-          consistent, logical, and easy to get right.
+          consistent, logical, and easy to master.
         </h3>
 
         <div class="pb-4 pt-2 [&>*]:my-6">

@@ -42,14 +42,9 @@ function FolderButton(props: {
   const { completedModules } = useLearnPageContext()
 
   // Check if all items in the folder are completed
-  const isCompleted = createMemo(() => {
-    return props.folder.items.every((item) => {
-      const strippedLink = item.link?.replace(/^\/learn\//, "")
-      return (
-        completedModules()?.data?.some((e) => e.module_path === strippedLink) ||
-        false
-      )
-    })
+  const isCompleted = props.folder.items.every((item) => {
+    const strippedLink = item.link?.replace(/^\/learn\//, "")
+    return completedModules()?.data?.find((e) => e.module_path === strippedLink)
   })
 
   const allTypes = Array.from(
@@ -63,16 +58,16 @@ function FolderButton(props: {
           <Button
             id={props.folder.id}
             variant="outline"
-            class={`relative h-12 w-full whitespace-nowrap text-sm font-normal ${isCompleted() && "border-green-500/50 font-bold text-green-500"}`}
+            class={`relative h-12 w-full whitespace-nowrap text-sm font-normal ${isCompleted && "border-green-500/50 font-bold text-green-500"}`}
           >
             <div
-              class={`absolute inset-0 flex items-center justify-between overflow-y-hidden overflow-x-scroll px-6 no-scrollbar ${isCompleted() && "bg-green-500/10"}`}
+              class={`absolute inset-0 flex items-center justify-between overflow-y-hidden overflow-x-scroll px-6 no-scrollbar ${isCompleted && "bg-green-500/10"}`}
             >
               <UnitButtonContents
                 id={`${props.index + 1}.`}
                 types={allTypes}
                 isFolder={true}
-                isCompleted={isCompleted()}
+                isCompleted={isCompleted}
               >
                 {props.folder.title}
               </UnitButtonContents>
