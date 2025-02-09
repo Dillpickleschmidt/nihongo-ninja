@@ -8,6 +8,7 @@ type VideoPlayerProps = {
   initialThumbnail?: string
   controls?: boolean
   ref?: (el: HTMLVideoElement) => void
+  muted?: boolean
 }
 
 export default function VideoPlayer(props: VideoPlayerProps) {
@@ -91,6 +92,8 @@ export default function VideoPlayer(props: VideoPlayerProps) {
           onLoadedMetadata={handleLoadedMetadata}
           onCanPlay={handleCanPlay}
           onError={handleError}
+          playsinline={true}
+          muted={props.muted}
         >
           Your browser does not support the video tag.
         </video>

@@ -272,7 +272,7 @@ export default function VocabTest({
                 <Show when={showAnswers() && hasIncorrectAnswer(wordIndex())}>
                   <Button
                     onClick={() => handleMarkCorrect(wordIndex())}
-                    class="absolute left-[16px] bg-green-500 hover:bg-green-600 sm:left-[32px] md:left-[-48px]"
+                    class="absolute left-[16px] min-h-0 bg-green-500 px-2 py-1.5 text-xs hover:bg-green-600 sm:left-[32px] md:left-[-48px]"
                   >
                     Overwrite?
                   </Button>
