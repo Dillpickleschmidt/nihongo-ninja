@@ -46,6 +46,7 @@ export function LearnPageProvider(props: LearnPageContextProps) {
     if (!currentUser) return { data: [] }
     return await getCompletedModules(currentUser.id)
   })
+  //
 
   onMount(() => {
     const storedValue = storageUtils.get(AppStorage.learnPage.key("sortOrder"))
