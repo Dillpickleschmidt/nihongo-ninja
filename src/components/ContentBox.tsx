@@ -29,7 +29,11 @@ export const contentBoxVariants = cva("relative w-full bg-background/75", {
 export default function ContentBox(props: ContentBoxProps) {
   const navigate = useNavigate()
   const supabase = createFrontendClient()
-  const { user } = useLearnPageContext()
+  const {
+    user,
+    completedModules,
+    // setCompletedModules
+  } = useLearnPageContext()
 
   async function handleClick(e: Event, nextButtonLink: string) {
     e.preventDefault()
@@ -53,6 +57,12 @@ export default function ContentBox(props: ContentBoxProps) {
         console.error("Error recording module completion:", err)
       }
     }
+    // setCompletedModules({
+    //   data: [
+    //     ...(completedModules()?.data ?? []),
+    //     { module_path: window.location.pathname.replace(/^\/learn\//, "") },
+    //   ],
+    // })
 
     navigate(nextButtonLink)
   }
@@ -70,7 +80,7 @@ export default function ContentBox(props: ContentBoxProps) {
               class="border-green-500/35 bg-green-500/15 hover:bg-green-500/25"
               onClick={(e) => handleClick(e, "/learn")}
             >
-              {props.nextButtonText ?? "<- Complete & Return"}
+              {"<-"} Complete & Return
             </Button>
             <Button
               as="a" // so users see the link preview when hovering
