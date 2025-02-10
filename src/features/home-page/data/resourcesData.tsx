@@ -1,4 +1,4 @@
-import { Check, X } from "lucide-solid"
+import { Check } from "lucide-solid"
 import { JSX } from "solid-js"
 
 export type StarRatingMetric = {

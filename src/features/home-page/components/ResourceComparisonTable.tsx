@@ -11,7 +11,6 @@ import {
   HoverCardTrigger,
 } from "@/components/ui/hover-card"
 import { Info } from "lucide-solid"
-import { X } from "lucide-solid"
 
 const StarRating = ({ value }: { value: number }) => {
   if (value === 0) {

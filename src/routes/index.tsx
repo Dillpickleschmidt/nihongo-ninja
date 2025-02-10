@@ -1,4 +1,3 @@
-import { A } from "@solidjs/router"
 import { Button } from "@/components/ui/button"
 import { Title } from "@solidjs/meta"
 import CoverflowCarousel3 from "@/features/home-page/Carousel3"
