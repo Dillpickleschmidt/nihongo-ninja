@@ -5,6 +5,7 @@ import CoverflowCarousel3 from "@/features/home-page/Carousel3"
 import HomePageVocabCard from "@/features/home-page/components/HomePageVocabCard"
 import { GraduationCap, PencilLine } from "lucide-solid"
 import ToolPreviewCarousel from "@/features/home-page/components/ToolPreviewCarousel"
+import ResourceComparisonTable from "@/features/home-page/components/ResourceComparisonTable"
 
 export default function Home() {
   const iconSize = "22px"
@@ -148,7 +149,7 @@ export default function Home() {
                   selected a collection of engaging listening materials that are
                   perfectly matched to your skill level{" "}
                   <span class="text-base text-muted-foreground">
-                    (selected by college students)
+                    (curated by college students)
                   </span>
                   .
                 </p>
@@ -275,6 +276,17 @@ export default function Home() {
               </div>
             </div>
           </div>
+        </section>
+
+        <section class="content-gradient p-8 md:py-16">
+          <h2 class="pb-4 text-center text-4xl font-medium">
+            Similar Resources
+          </h2>
+          <ResourceComparisonTable />
+          <p class="pt-4 text-center text-base text-muted-foreground">
+            If we got something wrong, please let us know—we're not trying to
+            deceive you!
+          </p>
         </section>
 
         {/* CTA Section */}
