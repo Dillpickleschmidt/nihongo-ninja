@@ -39,8 +39,8 @@ export function createBackendClient() {
         )
       },
     },
-    auth: {
-      autoRefreshToken: false,
-    },
+    // auth: {
+    //   autoRefreshToken: false,
+    // },
   })
 }
