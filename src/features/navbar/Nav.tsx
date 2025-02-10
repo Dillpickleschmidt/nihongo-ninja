@@ -1,5 +1,5 @@
-import { A, createAsync, useLocation, useNavigate } from "@solidjs/router"
-import { createEffect, createSignal, Show } from "solid-js"
+import { createAsync, useLocation, useNavigate } from "@solidjs/router"
+import { createSignal, Show } from "solid-js"
 import ModeToggle from "./ModeToggle"
 import { Button } from "@/components/ui/button"
 import { GraduationCap, Pencil, LogIn, LogOut } from "lucide-solid"
@@ -14,20 +14,11 @@ export default function Nav() {
   const [isPopoverOpen, setIsPopoverOpen] = createSignal(false)
   const location = useLocation()
   const navigate = useNavigate()
-
   const userData = createAsync(() => getUser())
-  const [user, setUser] = createSignal(userData()?.user || null)
-
-  // Watch userData and update our local user state
-  createEffect(() => {
-    const currentUser = userData()?.user
-    setUser(currentUser || null)
-  })
 
   async function handleSignOut() {
     await logout()
     setIsPopoverOpen(false)
-    setUser(null)
     navigate("/auth")
   }
 
@@ -92,9 +83,8 @@ export default function Nav() {
             <div class="inline-flex saturate-[50%]">
               <ModeToggle />
             </div>
-
             <Show
-              when={user()}
+              when={userData()?.user}
               fallback={
                 <Button
                   as="a"
@@ -113,7 +103,7 @@ export default function Nav() {
               >
                 <PopoverTrigger class="h-8 w-8 overflow-hidden rounded-full">
                   <img
-                    src={user()?.user_metadata?.avatar_url}
+                    src={userData()?.user?.user_metadata?.avatar_url}
                     alt="Profile"
                     class="h-full w-full object-cover"
                   />
