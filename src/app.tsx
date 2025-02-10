@@ -22,7 +22,7 @@ export default function App() {
               <Suspense>
                 <ColorModeScript />
                 <ColorModeProvider>
-                  <Nav />
+                  {/* <Nav /> */}
                   <div class="relative font-inter text-lg">
                     {props.children}
                   </div>
