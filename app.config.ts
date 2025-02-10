@@ -17,6 +17,7 @@ const __dirname = dirname(__filename)
 export default defineConfig({
   server: {
     preset: "aws-amplify",
+    compatibilityDate: "2025-02-10",
   },
   vite: {
     resolve: {
@@ -25,20 +26,20 @@ export default defineConfig({
       },
     },
     define: {
-      // Client-side variables
-      "process.env.VITE_POSTHOG_KEY": JSON.stringify(
+      // Client-side variables - import.meta.env pattern
+      "import.meta.env.VITE_POSTHOG_KEY": JSON.stringify(
         process.env.VITE_POSTHOG_KEY,
       ),
-      "process.env.VITE_POSTHOG_HOST": JSON.stringify(
+      "import.meta.env.VITE_POSTHOG_HOST": JSON.stringify(
         process.env.VITE_POSTHOG_HOST,
       ),
-      "process.env.VITE_SUPABASE_URL": JSON.stringify(
+      "import.meta.env.VITE_SUPABASE_URL": JSON.stringify(
         process.env.VITE_SUPABASE_URL,
       ),
-      "process.env.VITE_SUPABASE_ANON_KEY": JSON.stringify(
+      "import.meta.env.VITE_SUPABASE_ANON_KEY": JSON.stringify(
         process.env.VITE_SUPABASE_ANON_KEY,
       ),
-      "process.env.VITE_GOOGLE_CLIENT_ID": JSON.stringify(
+      "import.meta.env.VITE_GOOGLE_CLIENT_ID": JSON.stringify(
         process.env.VITE_GOOGLE_CLIENT_ID,
       ),
 

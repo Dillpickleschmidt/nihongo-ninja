@@ -12,6 +12,7 @@ export function createBackendClient() {
   const supabaseAnonKey = process.env.SUPABASE_ANON_KEY
 
   if (!supabaseUrl || !supabaseAnonKey) {
+    console.error("Missing Supabase environment variables")
     throw new Error("Missing Supabase environment variables")
   }
 
