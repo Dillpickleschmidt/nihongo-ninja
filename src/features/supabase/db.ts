@@ -1,6 +1,6 @@
 // db.ts
 "use server"
-import { createBackendClient } from "./client"
+import { createBackendClient } from "./backendClient"
 
 export async function getCompletedModules(userId: string) {
   try {

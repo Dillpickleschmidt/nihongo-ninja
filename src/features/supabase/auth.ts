@@ -1,6 +1,6 @@
 // auth.ts
 "use server"
-import { createBackendClient } from "./client"
+import { createBackendClient } from "./backendClient"
 
 export async function loginWithGoogle(credential: string) {
   const supabase = createBackendClient()

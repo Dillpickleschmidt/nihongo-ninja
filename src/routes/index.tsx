@@ -277,7 +277,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section class="content-gradient p-8 md:py-16">
+        {/* <section class="content-gradient p-8 md:py-16">
           <h2 class="pb-4 text-center text-4xl font-medium">
             Similar Resources
           </h2>
@@ -295,7 +295,7 @@ export default function Home() {
               assessment.
             </p>
           </div>
-        </section>
+        </section> */}
 
         {/* CTA Section */}
         <section class="px-6 py-16 md:px-16 md:py-24">

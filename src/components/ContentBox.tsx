@@ -3,7 +3,7 @@ import { Button } from "./ui/button"
 import { useNavigate } from "@solidjs/router"
 import { cva } from "class-variance-authority"
 import { cn } from "@/libs/cn"
-import { createFrontendClient } from "@/features/supabase/client"
+import { createFrontendClient } from "@/features/supabase/frontendClient"
 import { useLearnPageContext } from "@/features/learn-page/context/LearnPageContext"
 
 type ContentBoxProps = {
