@@ -109,14 +109,12 @@ const ResourceColumn = (props: { resource: Resource; isFirst?: boolean }) => {
 
 export default function ResourceComparisonTable() {
   return (
-    <div class="mx-auto max-w-[1450px]">
-      <div class="flex w-full">
-        <LabelColumn />
-        <div class="flex w-full overflow-x-auto rounded-r-xl">
-          {resources.map((resource, index) => (
-            <ResourceColumn resource={resource} isFirst={index === 0} />
-          ))}
-        </div>
+    <div class="flex w-full text-base md:text-lg">
+      <LabelColumn />
+      <div class="flex w-full overflow-x-auto rounded-r-xl">
+        {resources.map((resource, index) => (
+          <ResourceColumn resource={resource} isFirst={index === 0} />
+        ))}
       </div>
     </div>
   )

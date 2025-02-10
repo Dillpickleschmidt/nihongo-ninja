@@ -144,7 +144,7 @@ export const resources: Resource[] = [
         <Check class="h-6 w-6 text-green-500" />,
         "It is structured, but your progression is very slow.",
       ),
-      speakingPractice: { type: "stars", value: 3 },
+      speakingPractice: { type: "stars", value: 1 },
       handwritingPractice: createFlexibleMetric(
         <span class="font-medium">-</span>,
       ),
@@ -276,7 +276,7 @@ export const resources: Resource[] = [
         <span class="font-medium">-</span>,
         "Not a structured course—focuses on reading immersion.",
       ),
-      speakingPractice: { type: "stars", value: 1 },
+      speakingPractice: { type: "stars", value: 3 },
       handwritingPractice: createFlexibleMetric(
         <span class="font-medium">-</span>,
       ),

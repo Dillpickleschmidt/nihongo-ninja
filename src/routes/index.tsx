@@ -281,11 +281,20 @@ export default function Home() {
           <h2 class="pb-4 text-center text-4xl font-medium">
             Similar Resources
           </h2>
-          <ResourceComparisonTable />
-          <p class="pt-4 text-center text-base text-muted-foreground">
-            If we got something wrong, please let us know—we're not trying to
-            deceive you!
-          </p>
+          <div class="mx-auto max-w-[1450px]">
+            <ResourceComparisonTable />
+            <p class="pt-4 text-center text-base text-muted-foreground">
+              If we got something wrong, please let us know—we're not trying to
+              deceive you!
+            </p>
+
+            <p class="mx-auto max-w-3xl pt-8 leading-relaxed">
+              This chart offers a broad comparison of each resource's features
+              but might not capture the subtle nuances that make some unique.
+              Consider it a quick reference rather than a comprehensive
+              assessment.
+            </p>
+          </div>
         </section>
 
         {/* CTA Section */}
