@@ -74,14 +74,16 @@ export default function SidebarTour(props: {
   onMount(() => {
     const tourController = tourStore.createTourController(steps, tourKey)
     setController(tourController)
+    // console.log("Sidebar tour controller created")
 
     // Check state and start the tour if needed
     setTimeout(() => {
       const sidebarState = tourStore.getTourState(tourKey)
       const learnState = tourStore.getTourState(learnTourKey)
 
-      if (!sidebarState.completed && learnState.currentStep === 10) {
+      if (!sidebarState.completed && learnState.currentStep === 11) {
         tourController.start()
+        // console.log("Sidebar tour started after 400ms")
       }
     }, 400)
   })
