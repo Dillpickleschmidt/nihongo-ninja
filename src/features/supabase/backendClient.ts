@@ -12,63 +12,34 @@ export function createBackendClient() {
   const supabaseUrl = process.env.SUPABASE_URL
   const supabaseAnonKey = process.env.SUPABASE_ANON_KEY
 
-  console.log("[Supabase] Creating backend client", {
-    hasUrl: !!supabaseUrl,
-    hasKey: !!supabaseAnonKey,
-  })
-
   if (!supabaseUrl || !supabaseAnonKey) {
-    console.error("[Supabase] Missing environment variables")
     throw new Error("Missing Supabase environment variables")
   }
+
+  // Keep track of cookies we need to set
+  let pendingCookies = new Set()
 
   return createServerClient(supabaseUrl, supabaseAnonKey, {
     cookies: {
       getAll() {
-        const event = getRequestEvent()
-        const cookies = parseCookieHeader(
-          event?.request?.headers?.get("Cookie") ?? "",
+        return parseCookieHeader(
+          getRequestEvent()?.request?.headers?.get("Cookie") ?? "",
         )
-        console.log("[Supabase] Getting cookies", {
-          hasEvent: !!event,
-          hasRequest: !!event?.request,
-          hasHeaders: !!event?.request?.headers,
-          cookieCount: cookies.length,
-        })
-        return cookies
       },
       setAll(cookiesToSet) {
         const event = getRequestEvent()
-        console.log("[Supabase] Attempting to set cookies", {
-          hasEvent: !!event,
-          hasResponse: !!event?.response,
-          hasHeaders: !!event?.response?.headers,
-          cookieCount: cookiesToSet.length,
-          url: event?.request?.url,
-          existingHeaders: event?.response?.headers
-            ? Array.from(event.response.headers.keys())
-            : "none",
+        if (!event?.response?.headers) return
+
+        // Only set each cookie once
+        cookiesToSet.forEach(({ name, value, options }) => {
+          if (!pendingCookies.has(name)) {
+            pendingCookies.add(name)
+            event.response.headers.append(
+              "Set-Cookie",
+              serializeCookieHeader(name, value, options),
+            )
+          }
         })
-
-        if (!event?.response?.headers) {
-          console.warn("[Supabase] No response headers available")
-          return
-        }
-
-        try {
-          cookiesToSet.forEach(({ name, value, options }) => {
-            console.log("[Supabase] Setting cookie", { name })
-            const serializedCookie = serializeCookieHeader(name, value, options)
-            event.response.headers.append("Set-Cookie", serializedCookie)
-          })
-        } catch (error) {
-          const typedError = error as any
-          console.error("[Supabase] Error setting cookies:", {
-            error: typedError.message,
-            code: typedError.code,
-            stack: typedError.stack,
-          })
-        }
       },
     },
   })
