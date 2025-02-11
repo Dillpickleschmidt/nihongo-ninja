@@ -1,3 +1,4 @@
+// frontendClient.ts
 import { createBrowserClient } from "@supabase/ssr"
 
 export function createFrontendClient() {
