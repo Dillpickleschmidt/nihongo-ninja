@@ -18,16 +18,16 @@ export default function FuriganaText(props: FuriganaTextProps) {
       return textProcessor.convertToRuby(props.text, props.furiganaSize)
     }
 
-    // First split the text into words
     const words = props.text.split(/\s+/)
     const parts = []
     let currentPosition = 0
 
     for (const word of words) {
+      const normalizedWord = textProcessor.normalize(word)
       const { baseToOriginal } = textProcessor.calculatePositionMappings(word)
-      const wordLength = textProcessor.removeFurigana(word).length
+      const wordLength = textProcessor.removeFurigana(normalizedWord).length
 
-      // Check if this word contains any errors
+      // Adjust error positions based on normalized text
       const wordErrors = props.errors
         .filter((error) => {
           const errorStart = error.start - currentPosition
@@ -40,7 +40,6 @@ export default function FuriganaText(props: FuriganaTextProps) {
         }))
 
       if (wordErrors.length > 0) {
-        // Process word with errors
         let lastEnd = 0
         for (const { start, end } of wordErrors) {
           const originalStart = baseToOriginal.get(start) ?? 0
@@ -77,7 +76,6 @@ export default function FuriganaText(props: FuriganaTextProps) {
           })
         }
       } else {
-        // No errors in this word
         parts.push({
           html: textProcessor.convertToRuby(word, props.furiganaSize),
           isError: false,
@@ -93,7 +91,7 @@ export default function FuriganaText(props: FuriganaTextProps) {
           ? `<span class="${props.highlightClass}">${part.html}</span>`
           : part.html,
       )
-      .join("") // Join without spaces in the final output
+      .join("")
   })
 
   return <span class={props.class} innerHTML={processText()} />

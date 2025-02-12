@@ -34,14 +34,24 @@ export class TextProcessor {
     let basePosition = 0
     let inBracket = false
 
+    // Pre-calculate normalized positions
+    const normalizedPositions = new Map<number, number>()
+    let normalizedIndex = 0
+    for (let i = 0; i < text.length; i++) {
+      const char = text[i]
+      if (char !== "、") {
+        normalizedPositions.set(normalizedIndex, i)
+        normalizedIndex++
+      }
+    }
+
     for (let i = 0; i < text.length; i++) {
       const char = text[i]
       if (char === "[") {
         inBracket = true
       } else if (char === "]") {
         inBracket = false
-      } else if (!inBracket && char !== " ") {
-        // Skip spaces as well
+      } else if (!inBracket && char !== " " && char !== "、") {
         originalToBase.set(i, basePosition)
         baseToOriginal.set(basePosition, i)
         basePosition++

@@ -1357,6 +1357,11 @@ export default function ChapterBoxes() {
             types: ["lesson"],
           },
           {
+            title: "When Not to use は",
+            link: "/learn/chapter-5/when-not-to-use-wa",
+            types: ["lesson", "video"],
+          },
+          {
             title: "Adjectives Modifying Nouns",
             link: "/learn/chapter-5/adj-modifying-nouns",
             types: ["lesson"],
@@ -1370,6 +1375,11 @@ export default function ChapterBoxes() {
             title: "は For Comparisons",
             link: "/learn/chapter-5/wa-comparisons",
             types: ["lesson"],
+          },
+          {
+            title: "Practice 好き・嫌い in Sentences",
+            link: "/learn/chapter-5/sentence-practice/suki-kirai",
+            types: ["practice-sentence"],
           },
           {
             title: "Polite Volitional - ましょう・ましょうか",
