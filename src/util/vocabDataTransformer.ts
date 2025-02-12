@@ -1,3 +1,4 @@
+// src/util/vocabDataTransformer.ts
 import { VocabItem, RichVocabItem, Card } from "@/types/vocab"
 
 /**
@@ -75,7 +76,7 @@ export function convertFuriganaToRubyHtml<T extends string | string[]>(
 
       if (char === "[") {
         foundFurigana = true
-        rubyText += `<ruby>${tempArr.join("")}<rp>(</rp><rt><span style="font-size: ${furiganaSize};">`
+        rubyText += `<ruby>${tempArr.join("")}<rp>(</rp><rt><span style="font-size: ${furiganaSize}; user-select: none;">`
         tempArr = []
       } else if (char === "]") {
         rubyText += `${tempArr.join("")}</span></rt><rp>)</rp>`
@@ -84,13 +85,13 @@ export function convertFuriganaToRubyHtml<T extends string | string[]>(
         if (foundFurigana) {
           rubyText += `${tempArr.join("")}</ruby>`
         } else {
-          rubyText += tempArr.join("").replace(/\s/g, "") // Remove spaces
+          rubyText += tempArr.join("").trim()
         }
         tempArr = []
       }
     }
 
-    return rubyText.replace(/[\[\]\s]/g, "")
+    return rubyText.replace(/[\[\]]/g, "")
   }
 
   if (Array.isArray(furigana)) {

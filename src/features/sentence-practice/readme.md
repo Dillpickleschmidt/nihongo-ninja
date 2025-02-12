@@ -1,108 +1,155 @@
-# Japanese Sentence Practice Program
+# Japanese Sentence Practice - Technical Documentation
+
+## Project Structure
+
+```
+src/features/sentence-practice/
+├── core/
+│   ├── answer-processing/
+│   │   ├── AnswerChecker.ts      # Handles answer validation and matching
+│   │   ├── AnswerMatcher.ts      # Compares user input with correct answers
+│   │   ├── VariationGenerator.ts # Generates answer variations
+│   │   └── types.ts              # Answer-related type definitions
+│   ├── conjugation/
+│   │   ├── ConjugationEngine.ts  # Main conjugation processing
+│   │   ├── ConjugationRules.ts   # Rules for conjugation patterns
+│   │   └── types.ts              # Conjugation-related types
+│   ├── grammar/
+│   │   ├── HonorificHandler.ts   # Handles honorific variations
+│   │   ├── PronounHandler.ts     # Manages pronoun variations
+│   │   └── types.ts              # Grammar-related types
+│   ├── text/
+│   │   ├── TextProcessor.ts      # Text normalization and processing
+│   │   └── KanjiProcessor.ts     # Kanji/reading handling
+│   └── PracticeService.ts        # Main orchestration service
+├── store/
+│   ├── PracticeContext.tsx       # Store context provider
+│   ├── practiceStore.ts          # State management
+│   └── types.ts                  # Store state types
+└── ui/
+    └── practice/
+        ├── PracticeContainer.tsx # Main practice component
+        ├── PromptDisplay.tsx     # Question display
+        ├── AnswerInput.tsx       # User input handling
+        ├── ProgressDisplay.tsx   # Progress tracking
+        └── ResultDisplay.tsx     # Answer feedback display
+```
 
 ## Core Features
 
-1. **Dynamic Conjugation System**
+### Answer Processing
 
-   - Conjugates Japanese verbs and adjectives based on their type:
-     - Godan verbs (う、つ、る、く、ぐ、ぶ、む、ぬ、す endings)
-     - Ichidan verbs (る ending)
-     - い and な adjectives
-     - Irregular verbs (来る、する)
-   - Maintains kanji with readings through conjugation (食[た]べる → 食[た]べます)
-   - Supports positive/negative and past/non-past forms
-   - Handles both polite (です/ます) and casual forms
+- **Answer Checking**: Validates user input against all possible correct answers
+- **String Matching**: Uses dynamic programming for fuzzy matching
+- **Error Highlighting**: Identifies and displays differences between input and correct answers
 
-2. **Answer Variation Generation**
+### Conjugation System
 
-   - Pre-generates all valid forms of each answer:
-     - Politeness variations (です/ます style vs だ/plain form)
-     - Kanji/hiragana variations (食べる vs たべる)
-     - Optional period variations (ending with/without 。)
-     - First-person pronoun variations (私は/僕は/etc. for sentences starting with "I")
-   - Marks variations to differentiate primary answers from their alternatives
-   - Configurable via politeOnly/shortOnly options
+- **Rule-Based Conjugation**: Handles verb and adjective conjugations
+- **Form Management**: Supports polite/casual and past/non-past forms
+- **Context Awareness**: Adjusts conjugation based on following words
 
-3. **Answer Matching System**
+### Variation Generation
 
-   - Checks user input against all possible variations
-   - Identifies closest matching answer using string similarity
-   - Highlights differences between user input and correct answers
-   - Returns similarity percentage for near-matches
+- **Answer Variations**: Generates all valid forms of answers
+- **Politeness Forms**: Handles です/ます and plain forms
+- **Pronoun Variations**: Manages first-person pronoun alternatives
+- **Honorific Handling**: Processes さん/くん/ちゃん variations
 
-4. **Form-Aware Alternative Display**
-   - Analyzes conjugatable segments in closest matching answer:
-     - Scans for polite markers (ます、でした, etc.) and casual markers (だ、た, etc.)
-     - Counts form occurrences to determine user's preferred style
-   - Filters alternative answers to show only those matching the preferred form
-   - Dynamically updates as the closest match changes
-   - Excludes variations of the same answer pattern
+### Text Processing
+
+- **Kanji Processing**: Maintains kanji with readings through conjugation
+- **Text Normalization**: Standardizes input for comparison
+- **Furigana Handling**: Processes reading brackets [読]み
 
 ## Data Flow
 
 1. **Initialization**
 
-   ```
-   Load JSON question data
-   → Generate all conjugation variations (polite/casual)
-   → Generate all form variations (kanji/kana/period/pronouns)
-   → Mark non-primary forms as variations
-   ```
+```mermaid
+graph LR
+    A[Load JSON] --> B[PracticeService]
+    B --> C[Generate Conjugations]
+    C --> D[Generate Variations]
+    D --> E[Store Processed Questions]
+```
 
-2. **Input Processing**
+2. **Answer Processing**
 
-   ```
-   User types answer
-   → Compare against all variations
-   → Calculate similarity scores
-   → Identify best match
-   → Analyze preferred form
-   → Update alternative display
-   ```
+```mermaid
+graph LR
+    A[User Input] --> B[TextProcessor]
+    B --> C[AnswerChecker]
+    C --> D[AnswerMatcher]
+    D --> E[Display Result]
+```
 
-3. **Alternative Answer Processing**
-   ```
-   Best match identified
-   → Count polite/casual markers in matched answer
-   → Determine form preference
-   → Filter alternative answers to match preference
-   → Exclude variations and current match
-   → Display filtered alternatives
-   ```
+3. **State Management**
+
+```mermaid
+graph LR
+    A[PracticeStore] --> B[Context Provider]
+    B --> C[UI Components]
+    C --> D[User Interaction]
+    D --> A
+```
+
+## Usage Example
+
+```typescript
+// Initialize practice
+const practiceService = new PracticeService()
+const questions = await loadQuestions("path/to/questions.json")
+const processedQuestions = practiceService.prepareQuestions(questions)
+
+// Check answer
+const result = practiceService.checkAnswer(userInput, currentQuestion)
+
+// Access via store
+const { store, actions } = usePracticeStore()
+actions.checkAnswer()
+actions.nextQuestion()
+```
 
 ## Key Technical Features
 
-1. **Type Safety**
+### Type Safety
 
-   - Strict typing for conjugated words and variations
-   - Type guards for safe word type handling
-   - Interface definitions for component props and data structures
+- Comprehensive type definitions for all components
+- Type guards for conjugation patterns
+- Strict typing for store state
 
-2. **Modular Architecture**
+### Performance
 
-   - Separate modules for conjugation logic
-   - Isolated variation generation
-   - Independent form analysis
-   - Reusable UI components
+- Efficient variation generation
+- Memoized text processing
+- Optimized string matching
 
-<!-- 3. **Performance Optimizations**
+### Extensibility
 
-   - Memoized form preference calculations
-   - Efficient alternative filtering
-   - Smart variation generation to avoid duplicates -->
+- Modular architecture
+- Clear separation of concerns
+- Easy addition of new variation types
 
-3. **Extensibility**
-   - Configurable conjugation patterns
-   - Expandable variation types
-   - Customizable display options (furigana on/off)
-   - Easy addition of new word types/patterns
+### Maintainability
 
-## Components
+- Clear component responsibilities
+- Consistent error handling
+- Well-documented interfaces
 
-- **JapanesePractice**: Main practice interface
-- **AnswerInput**: User input handling
-- **HighlightedText**: Displays text with furigana and error highlighting
-- **AlternativeAnswers**: Shows form-matched alternative answers
-- **FeedbackDisplay**: Provides feedback on user answers
+## Configuration Options
 
-The system combines these elements to create a comprehensive practice tool that intelligently handles Japanese language variations while maintaining consistency with user preferences.
+```typescript
+interface PracticeState {
+  questions: PracticeQuestion[]
+  currentQuestionIndex: number
+  currentInput: string
+  showResult: boolean
+  isLoading: boolean
+  error: string | null
+  path: string | null
+  showFurigana: boolean
+}
+```
+
+This system provides a robust foundation for Japanese language practice, with clear separation of concerns and extensible architecture.

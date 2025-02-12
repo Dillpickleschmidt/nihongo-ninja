@@ -1,5 +1,5 @@
-import { SentencePracticeProvider } from "@/features/sentence-practice/context/SentencePracticeContext"
-import JapanesePractice from "@/features/sentence-practice/JapanesePractice"
+// (id).tsx
+import PracticeContainer from "@/features/sentence-practice/ui/practice/PracticeContainer"
 import { useLocation } from "@solidjs/router"
 
 export default function data() {
@@ -8,9 +8,5 @@ export default function data() {
     .replace("/learn/", "")
     .replace("/sentence-practice", "")
 
-  return (
-    <SentencePracticeProvider>
-      <JapanesePractice path={path} />
-    </SentencePracticeProvider>
-  )
+  return <PracticeContainer path={path} />
 }

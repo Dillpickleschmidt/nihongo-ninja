@@ -1,13 +1,11 @@
-// ProgressDisplay.tsx
-import { createMemo } from "solid-js"
-
-type ProgressDisplayProps = {
+// ui/practice/ProgressDisplay.tsx
+interface ProgressDisplayProps {
   attempted: number
   total: number
 }
 
 export default function ProgressDisplay(props: ProgressDisplayProps) {
-  const progress = createMemo(() => (props.attempted / props.total) * 100)
+  const progress = () => (props.attempted / props.total) * 100
 
   return (
     <div class="pt-2">

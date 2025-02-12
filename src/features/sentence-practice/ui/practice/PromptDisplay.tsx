@@ -1,6 +1,7 @@
-import { PracticeQuestion } from "../types"
+// ui/practice/PromptDisplay.tsx
+import type { PracticeQuestion } from "../../core/answer-processing/types"
 
-type PromptDisplayProps = {
+interface PromptDisplayProps {
   question: PracticeQuestion
 }
 

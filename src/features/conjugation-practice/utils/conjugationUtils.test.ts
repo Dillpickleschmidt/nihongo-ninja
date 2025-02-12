@@ -372,7 +372,7 @@ describe("Conjugation Utils", () => {
             polite: true,
             negative: true,
           }),
-        ).toEqual(["たかくないです"])
+        ).toEqual(["たかくないです", "たかくありません"])
         expect(
           conjugationUtils.normalForm("たかい", "I-adjective", {
             polite: true,
