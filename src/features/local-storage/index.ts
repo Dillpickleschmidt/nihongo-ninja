@@ -52,6 +52,7 @@ export const AppStorage = {
     key: (setting: string) => `learnPage-${setting}`,
     defaultValue: {
       sortOrder: "module-type" as SortOrder,
+      loginHintClosed: false,
     },
   },
 
