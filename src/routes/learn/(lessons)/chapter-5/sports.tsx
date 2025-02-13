@@ -108,7 +108,14 @@ export default function page() {
         </div>
         <p>
           This video is great for getting a feel for how Japanese speakers
-          construct their sentences.
+          construct their sentences. You're not expected to know most of the
+          grammar structures, but you can still get a feel for the flow of the
+          language.
+        </p>
+        <p>Try without subtitles and see how much you can pick up on!</p>
+        <p>
+          By the end of chapter 6, you're going to understand a lot of the
+          grammar used in this video.
         </p>
 
         <h2 class="pt-6 text-2xl font-semibold">New words and phrases</h2>

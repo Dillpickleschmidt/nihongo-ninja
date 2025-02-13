@@ -300,10 +300,13 @@ export default function page() {
           </p>
         </div>
 
-        <p>
+        <p class="leading-relaxed">
           Now, either that was midly amusing and you learned some contexts you
-          could use volitional form in, or you suddenly have an urge to jump off
-          a bridge after reading cringe. Sorry, not sorry.
+          could use volitional form in, or you{" "}
+          <span class="text-xl font-medium">
+            suddenly have an urge to jump off a bridge after reading such cringe
+          </span>
+          . <span class="text-base">Sorry, not sorry :P</span>
         </p>
       </div>
     </ContentBox>

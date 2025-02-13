@@ -238,6 +238,16 @@ export default function JapaneseLearningInterface() {
             },
           ],
         },
+        {
+          title: "好き・嫌い",
+          items: [
+            {
+              character: "好き・嫌い",
+              meaning: "What you like/dislike",
+              link: "/learn/chapter-5/sentence-practice/suki-kirai",
+            },
+          ],
+        },
       ],
     },
     {

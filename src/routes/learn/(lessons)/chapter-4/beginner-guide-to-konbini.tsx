@@ -19,7 +19,7 @@ export default function page() {
           </h1>
         </div>
         <p>
-          かなめさん back at it again with another banger. This time, we're
+          Kaname 先生 back at it again with another banger. This time, we're
           checking out some common phrases and ways to interact with others at
           the コンビニ.
         </p>
@@ -28,7 +28,7 @@ export default function page() {
           video is how to give responses.
         </p>
         <p class="text-base text-muted-foreground">
-          かなめさん also talks a bit about counters which you'll learn in
+          Kaname 先生 also talks a bit about counters which you'll learn in
           Chapter 5!
         </p>
       </div>

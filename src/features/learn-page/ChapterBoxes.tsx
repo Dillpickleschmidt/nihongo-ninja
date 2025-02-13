@@ -1001,11 +1001,6 @@ export default function ChapterBoxes() {
             types: ["audio"],
           },
           {
-            title: "する vs. やる",
-            link: "/learn/chapter-3/suru-vs-yaru",
-            types: ["lesson"],
-          },
-          {
             title: "Long Form Conversation Immersion",
             link: "/learn/chapter-3/long-form-conversation-immersion",
             types: ["video"],
@@ -1312,8 +1307,13 @@ export default function ChapterBoxes() {
             ],
           },
           {
-            title: "Practice Adjectives",
+            title: "Adjectives",
             items: [
+              {
+                title: "い/な-Adjective Conjugation",
+                link: "/learn/chapter-5/adjective-conjugation",
+                types: ["lesson"],
+              },
               {
                 title: "Practice Adjective Conjugation",
                 link: "/learn/conjugation?normal=true&teForm=false&volitional=false&taiForm=false&tariForm=false&potential=false&imperative=false&conditional=false&passive=false&causative=false&causativePassive=false&verb=false&iAdjective=true&naAdjective=true&polite=true&plain=false&nonPast=true&past=true&positive=true&negative=true",
@@ -1326,6 +1326,32 @@ export default function ChapterBoxes() {
               },
             ],
           },
+          {
+            title: "When Not to use は",
+            link: "/learn/chapter-5/when-not-to-use-wa",
+            types: ["lesson", "video"],
+          },
+          {
+            title: "Adjectives Modifying Nouns",
+            link: "/learn/chapter-5/adj-modifying-nouns",
+            types: ["lesson"],
+          },
+          {
+            title: "好き・嫌い",
+            link: "/learn/chapter-5/suki-kirai",
+            types: ["lesson"],
+          },
+          {
+            title: "は For Comparisons",
+            link: "/learn/chapter-5/wa-comparisons",
+            types: ["lesson"],
+          },
+          {
+            title: "Practice 好き・嫌い Sentences",
+            link: "/learn/chapter-5/sentence-practice/suki-kirai",
+            types: ["practice-sentence"],
+          },
+
           {
             title: "Verbs, Adv, & Misc.",
             items: [
@@ -1351,35 +1377,11 @@ export default function ChapterBoxes() {
             link: "/learn/chapter-5/all-vocab-test",
             types: ["vocab-test"],
           },
+
           {
-            title: "い/な-Adjective Conjugation",
-            link: "/learn/chapter-5/adjective-conjugation",
+            title: "する vs. やる",
+            link: "/learn/chapter-5/suru-vs-yaru",
             types: ["lesson"],
-          },
-          {
-            title: "When Not to use は",
-            link: "/learn/chapter-5/when-not-to-use-wa",
-            types: ["lesson", "video"],
-          },
-          {
-            title: "Adjectives Modifying Nouns",
-            link: "/learn/chapter-5/adj-modifying-nouns",
-            types: ["lesson"],
-          },
-          {
-            title: "好き・嫌い",
-            link: "/learn/chapter-5/suki-kirai",
-            types: ["lesson"],
-          },
-          {
-            title: "は For Comparisons",
-            link: "/learn/chapter-5/wa-comparisons",
-            types: ["lesson"],
-          },
-          {
-            title: "Practice 好き・嫌い in Sentences",
-            link: "/learn/chapter-5/sentence-practice/suki-kirai",
-            types: ["practice-sentence"],
           },
           {
             title: "Polite Volitional - ましょう・ましょうか",
