@@ -50,7 +50,7 @@ export default function GrammarNotes(props: GrammarNotesProps) {
                         )}
                       </div>
                     </DialogTrigger>
-                    <DialogContent class="max-h-screen max-w-[700px]">
+                    <DialogContent class="min-w-[700px] max-w-[700px] scale-[65%] overflow-y-auto no-scrollbar md:max-h-screen md:scale-100">
                       <div
                         ref={setContentRef}
                         class="overflow-hidden bg-background-secondary print:bg-white"
