@@ -290,6 +290,21 @@ export default function JapaneseLearningInterface() {
         },
       ],
     },
+    {
+      title: "Chapter 20: Modesty and Humility",
+      lessons: [
+        {
+          title: "",
+          items: [
+            {
+              character: "Extra Modest Expressions",
+              meaning: "Lower yourself",
+              link: "/learn/chapter-20/sentence-practice/extra-modest-expressions",
+            },
+          ],
+        },
+      ],
+    },
   ]
 
   return (

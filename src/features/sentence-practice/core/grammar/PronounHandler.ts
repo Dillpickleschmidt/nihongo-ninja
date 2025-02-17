@@ -5,6 +5,7 @@ import type { SinglePronoun, PluralPronoun } from "./types"
 export class PronounHandler {
   private readonly PRONOUNS: readonly SinglePronoun[] = [
     "私[わたし]",
+    "私[わたくし]",
     "僕[ぼく]",
     "俺[おれ]",
     "あたし",

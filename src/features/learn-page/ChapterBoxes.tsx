@@ -3028,6 +3028,11 @@ export default function ChapterBoxes() {
             link: "/learn/chapter-20/all-vocab-test",
             types: ["vocab-test"],
           },
+          {
+            title: "Extra Modest Expressions",
+            link: "/learn/chapter-20/sentence-practice/extra-modest-expressions",
+            types: ["practice-sentence"],
+          },
         ]}
       />
       <ChapterBox text="Chapter 21" class="bg-neutral-700" content={[]} />

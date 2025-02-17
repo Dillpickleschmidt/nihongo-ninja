@@ -8,6 +8,7 @@ export type Honorific =
 
 export type SinglePronoun =
   | "私[わたし]"
+  | "私[わたくし]"
   | "僕[ぼく]"
   | "俺[おれ]"
   | "あたし"
