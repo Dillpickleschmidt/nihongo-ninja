@@ -2941,6 +2941,11 @@ export default function ChapterBoxes() {
             link: "/learn/chapter-19/all-vocab-test",
             types: ["vocab-test"],
           },
+          {
+            title: "Honorific Verbs Sentence Practice",
+            link: "/learn/chapter-19/sentence-practice/honorific-verbs",
+            types: ["practice-sentence"],
+          },
         ]}
       />
       <ChapterBox

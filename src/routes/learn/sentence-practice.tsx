@@ -275,6 +275,21 @@ export default function JapaneseLearningInterface() {
         },
       ],
     },
+    {
+      title: "Chapter 19: Honorifics",
+      lessons: [
+        {
+          title: "",
+          items: [
+            {
+              character: "Honorific Verbs",
+              meaning: "Exalt the other person",
+              link: "/learn/chapter-19/sentence-practice/honorific-verbs",
+            },
+          ],
+        },
+      ],
+    },
   ]
 
   return (
