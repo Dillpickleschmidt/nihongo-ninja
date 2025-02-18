@@ -3033,6 +3033,11 @@ export default function ChapterBoxes() {
             link: "/learn/chapter-20/sentence-practice/extra-modest-expressions",
             types: ["practice-sentence"],
           },
+          {
+            title: "Humble Expressions",
+            link: "/learn/chapter-20/sentence-practice/humble-expressions",
+            types: ["practice-sentence"],
+          },
         ]}
       />
       <ChapterBox text="Chapter 21" class="bg-neutral-700" content={[]} />

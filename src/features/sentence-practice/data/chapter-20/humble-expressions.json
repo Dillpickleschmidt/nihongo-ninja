@@ -1,0 +1,864 @@
+[
+  {
+    "english": "I will humbly prepare tea for the guest.",
+    "answers": [
+      {
+        "segments": [
+          "お 客様[きゃくさま]",
+          "に",
+          "お 茶[ちゃ]",
+          "を",
+          "お 入[い]れいたします"
+        ],
+        "notes": "Uses お入れいたします as the humble form of 入れる."
+      },
+      {
+        "segments": [
+          "お 客様[きゃくさま]",
+          "に",
+          "お 茶[ちゃ]",
+          "を",
+          "お 入[い]れします"
+        ],
+        "notes": "Uses お入れします as another humble form of 入れる."
+      },
+      {
+        "segments": [
+          "お 茶[ちゃ]",
+          "を",
+          "お 客様[きゃくさま]",
+          "に",
+          "お 入[い]れいたします"
+        ],
+        "notes": "Uses お入れいたします as the humble form of 入れる."
+      },
+      {
+        "segments": [
+          "お 茶[ちゃ]",
+          "を",
+          "お 客様[きゃくさま]",
+          "に",
+          "お 入[い]れします"
+        ],
+        "notes": "Uses お入れします as another humble form of 入れる."
+      }
+    ]
+  },
+  {
+    "english": "I humbly asked the teacher a question.",
+    "answers": [
+      {
+        "segments": [
+          "先生[せんせい]",
+          "に",
+          "質問[しつもん]",
+          "を",
+          "伺[うかが]いました"
+        ],
+        "notes": "Uses 伺いました as the humble form of 聞く."
+      },
+      {
+        "segments": [
+          "先生[せんせい]",
+          "に",
+          "質問[しつもん]",
+          "を",
+          "伺[うかが]いたしました"
+        ],
+        "notes": "Uses 伺いたしました because you're an overly modest weirdo (kind of redundant/weird because 伺う is already humble)."
+      }
+    ]
+  },
+  {
+    "english": "I will humbly take the guest to the station.",
+    "answers": [
+      {
+        "segments": [
+          "お 客様[きゃくさま]",
+          "を",
+          "駅[えき]",
+          "まで",
+          "お 送り[おくり]いたします"
+        ],
+        "notes": "Uses お送りいたします as the humble form of 送る."
+      },
+      {
+        "segments": [
+          "お 客様[きゃくさま]",
+          "を",
+          "駅[えき]",
+          "まで",
+          "お 送り[おくり]します"
+        ],
+        "notes": "Uses お送りします as another humble form of 送る."
+      },
+      {
+        "segments": [
+          "お 客様[きゃくさま]",
+          "を",
+          "駅[えき]",
+          "まで",
+          "お 連[つ]れいたします"
+        ],
+        "notes": "Uses お連れいたします as the humble form of 連れる."
+      },
+      {
+        "segments": [
+          "お 客様[きゃくさま]",
+          "を",
+          "駅[えき]",
+          "まで",
+          "お 連[つ]れします"
+        ],
+        "notes": "Uses お連れします as another humble form of 連れる."
+      },
+      {
+        "segments": [
+          "駅[えき]",
+          "まで",
+          "お 客様[きゃくさま]",
+          "を",
+          "お 送り[おくり]いたします"
+        ],
+        "notes": "Uses お送りいたします as the humble form of 送る."
+      },
+      {
+        "segments": [
+          "駅[えき]",
+          "まで",
+          "お 客様[きゃくさま]",
+          "を",
+          "お 送り[おくり]します"
+        ],
+        "notes": "Uses お送りします as another humble form of 送る."
+      },
+      {
+        "segments": [
+          "駅[えき]",
+          "まで",
+          "お 客様[きゃくさま]",
+          "を",
+          "お 連[つ]れいたします"
+        ],
+        "notes": "Uses お連れいたします as the humble form of 連れる."
+      },
+      {
+        "segments": [
+          "駅[えき]",
+          "まで",
+          "お 客様[きゃくさま]",
+          "を",
+          "お 連[つ]れします"
+        ],
+        "notes": "Uses お連れします as another humble form of 連れる."
+      }
+    ]
+  },
+  {
+    "english": "Because the department manager's baggage looked heavy, I carried it (for him).",
+    "answers": [
+      {
+        "segments": [
+          "部長[ぶちょう]",
+          "の",
+          "荷物[にもつ]",
+          "が",
+          "重[おも]",
+          "そう",
+          "だった",
+          "ので",
+          "お 持[も]ちいたしました"
+        ],
+        "notes": "Uses お持ちいたしました as the humble form of 持つ."
+      },
+      {
+        "segments": [
+          "部長[ぶちょう]",
+          "の",
+          "荷物[にもつ]",
+          "が",
+          "重[おも]",
+          "そう",
+          "だった",
+          "ので",
+          "お 持[も]ちしました"
+        ],
+        "notes": "Uses お持ちしました as another humble form of 持つ."
+      }
+    ]
+  },
+  {
+    "english": "Because the department manager was busy, I humbly sent the email on his behalf.",
+    "answers": [
+      {
+        "segments": [
+          "部長[ぶちょう]",
+          "が",
+          "お 忙[いそが]しかった",
+          "ので",
+          "メール",
+          "を",
+          "お 送り[おくり]しました"
+        ],
+        "notes": "Uses お送りしました as the humble form of 送る."
+      },
+      {
+        "segments": [
+          "部長[ぶちょう]",
+          "が",
+          "お 忙[いそが]しかった",
+          "ので",
+          "メール",
+          "を",
+          "お 送り[おくり]いたしました"
+        ],
+        "notes": "Uses お送りいたしました as another humble form of 送る."
+      },
+      {
+        "segments": [
+          "部長[ぶちょう]",
+          "は",
+          "お 忙[いそが]しかった",
+          "ので",
+          "メール",
+          "を",
+          "お 送り[おくり]しました"
+        ],
+        "notes": "Uses お送りしました as the humble form of 送る."
+      },
+      {
+        "segments": [
+          "部長[ぶちょう]",
+          "は",
+          "お 忙[いそが]しかった",
+          "ので",
+          "メール",
+          "を",
+          "お 送り[おくり]いたしました"
+        ],
+        "notes": "Uses お送りいたしました as another humble form of 送る."
+      }
+    ]
+  },
+  {
+    "english": "I humbly gave a present to the company president.",
+    "answers": [
+      {
+        "segments": [
+          "社長[しゃちょう]",
+          "に",
+          "プレゼント",
+          "を",
+          "差[さ]し 上[あ]げました"
+        ],
+        "notes": "Uses 差し上げました as the humble form of あげる."
+      },
+      {
+        "segments": [
+          "社長[しゃちょう]",
+          "に",
+          "プレゼント",
+          "を",
+          "お 渡[わた]ししました"
+        ],
+        "notes": "Uses お渡ししました as the humble form of 渡す (emphasizes the physical act of handing over the present)."
+      },
+      {
+        "segments": [
+          "社長[しゃちょう]",
+          "に",
+          "プレゼント",
+          "を",
+          "お 渡[わた]しいたしました"
+        ],
+        "notes": "Uses お渡しいたしました as another humble form of 渡す (emphasizes the physical act of handing over the present)."
+      }
+    ]
+  },
+  {
+    "english": "Tomorrow is Valentine's Day, so I intend to give the department manager a chocolate.",
+    "answers": [
+      {
+        "segments": [
+          "明日[あした]",
+          "は",
+          "バレンタインデー",
+          "なので",
+          "部長[ぶちょう]",
+          "に",
+          "チョコレート",
+          "を",
+          "差[さ]し 上[あ]げよう",
+          "と",
+          "思[おも]っています"
+        ],
+        "notes": "Uses 差し上げようと思っています as the humble form of あげる."
+      },
+      {
+        "segments": [
+          "明日[あした]",
+          "は",
+          "バレンタインデー",
+          "なので",
+          "部長[ぶちょう]",
+          "に",
+          "チョコレート",
+          "を",
+          "差[さ]し 上[あ]げる",
+          "つもり",
+          "です"
+        ],
+        "notes": "Uses 差し上げるつもりです as another humble way to express intention."
+      }
+    ]
+  },
+  {
+    "english": "I humbly lent the book to the teacher.",
+    "answers": [
+      {
+        "segments": [
+          "先生[せんせい]",
+          "に",
+          "本[ほん]",
+          "を",
+          "お 貸[か]ししました"
+        ],
+        "notes": "Uses お貸ししました as the humble form of 貸す."
+      },
+      {
+        "segments": [
+          "先生[せんせい]",
+          "に",
+          "本[ほん]",
+          "を",
+          "お 貸[か]しいたしました"
+        ],
+        "notes": "Uses お貸しいたしました as another humble form of 貸す."
+      }
+    ]
+  },
+  {
+    "english": "I humbly brought lunch to the department manager.",
+    "answers": [
+      {
+        "segments": [
+          "部長[ぶちょう]",
+          "に",
+          "お 昼[ひる]ご飯[はん]",
+          "を",
+          "お 持[も]ちしました"
+        ],
+        "notes": "Uses お持ちしました as the humble form of 持つ."
+      },
+      {
+        "segments": [
+          "部長[ぶちょう]",
+          "に",
+          "お 昼[ひる]ご飯[はん]",
+          "を",
+          "お 持[も]ちいたしました"
+        ],
+        "notes": "Uses お持ちいたしました as another humble form of 持つ."
+      },
+      {
+        "segments": [
+          "部長[ぶちょう]",
+          "に",
+          "お 昼[ひる]ご飯[はん]",
+          "を",
+          "お 届け[とどけ]しました"
+        ],
+        "notes": "Uses お届けしました as the humble form of 届ける."
+      },
+      {
+        "segments": [
+          "部長[ぶちょう]",
+          "に",
+          "お 昼[ひる]ご飯[はん]",
+          "を",
+          "お 届け[とどけ]いたしました"
+        ],
+        "notes": "Uses お届けいたしました as another humble form of 届ける."
+      }
+    ]
+  },
+  {
+    "english": "I humbly explained the product to the customer.",
+    "answers": [
+      {
+        "segments": [
+          "お 客様[きゃくさま]",
+          "に",
+          "商品[しょうひん]",
+          "の",
+          "説明[せつめい]",
+          "を",
+          "いたしました"
+        ],
+        "notes": "Uses いたしました as the humble form of する."
+      },
+      {
+        "segments": [
+          "お 客様[きゃくさま]",
+          "に",
+          "商品[しょうひん]",
+          "を",
+          "ご 説明[せつめい]",
+          "いたしました"
+        ],
+        "notes": "Uses ご説明いたしました as the humble form of 説明する."
+      },
+      {
+        "segments": [
+          "お 客様[きゃくさま]",
+          "に",
+          "商品[しょうひん]",
+          "を",
+          "ご説明[ごせつめい]",
+          "しました"
+        ],
+        "notes": "Uses ご説明しました as another humble form of 説明する."
+      }
+    ]
+  },
+  {
+    "english": "Because the department manager was not in the office, I humbly informed him of the meeting time by phone.",
+    "hint": "知らせる (しらせる) -> to inform (you should turn it into a humble expression); 会議 (かいぎ) -> meeting",
+    "answers": [
+      {
+        "segments": [
+          "部長[ぶちょう]",
+          "が",
+          "オフィス",
+          "に",
+          "いらっしゃらなかった",
+          "ので",
+          "会議[かいぎ]",
+          "の",
+          "時間[じかん]",
+          "を",
+          "電話[でんわ]",
+          "で",
+          "お 知らせ[しらせ]しました"
+        ],
+        "notes": "Uses お知らせしました as the humble form of 知らせる."
+      },
+      {
+        "segments": [
+          "部長[ぶちょう]",
+          "が",
+          "オフィス",
+          "に",
+          "いらっしゃらなかった",
+          "ので",
+          "会議[かいぎ]",
+          "の",
+          "時間[じかん]",
+          "を",
+          "電話[でんわ]",
+          "で",
+          "お 知らせ[しらせ]いたしました"
+        ],
+        "notes": "Uses お知らせいたしました as another humble form of 知らせる."
+      }
+    ]
+  },
+  {
+    "english": "I humbly had the teacher check/read my report.",
+    "answers": [
+      {
+        "segments": [
+          "先生[せんせい]",
+          "に",
+          "レポート",
+          "を",
+          "ご確認[ごかくにん]",
+          "いただきました"
+        ],
+        "notes": "Uses ご確認いただきました as the humble form of 確認する."
+      },
+      {
+        "segments": [
+          "先生[せんせい]",
+          "に",
+          "レポート",
+          "を",
+          "お 読み[よみ]",
+          "いただきました"
+        ],
+        "notes": "Uses お読みいただきました as the humble form of 読む."
+      },
+      {
+        "segments": [
+          "先生[せんせい]",
+          "に",
+          "レポート",
+          "を",
+          "チェック",
+          "していただきました"
+        ],
+        "notes": "Uses チェックしていただきました as the humble form of チェックする."
+      }
+    ]
+  },
+  {
+    "english": "I humbly visited the department manager's house.",
+    "answers": [
+      {
+        "segments": [
+          "部長[ぶちょう]",
+          "の",
+          "お 宅[たく]",
+          "に",
+          "伺[うかが]いました"
+        ],
+        "notes": "Uses 伺う."
+      },
+      {
+        "segments": [
+          "部長[ぶちょう]",
+          "の",
+          "お 宅[たく]",
+          "に",
+          "お 邪魔[じゃま]しました"
+        ],
+        "notes": "Uses お邪魔しました an alternative to 伺う."
+      }
+    ]
+  },
+  {
+    "english": "I will humbly carry the luggage for the customer.",
+    "answers": [
+      {
+        "segments": [
+          "お 客様[きゃくさま]",
+          "に",
+          "荷物[にもつ]",
+          "を",
+          "お 持[も]ちいたします"
+        ],
+        "notes": "Uses お持ちいたします as the humble form of 持つ."
+      },
+      {
+        "segments": [
+          "荷物[にもつ]",
+          "を",
+          "お 客様[きゃくさま]",
+          "に",
+          "お 持[も]ちいたします"
+        ],
+        "notes": "Places 荷物を before お客様に while using お持ちいたします as the humble form of 持つ."
+      },
+      {
+        "segments": [
+          "お 客様[きゃくさま]",
+          "に",
+          "荷物[にもつ]",
+          "を",
+          "お 持[も]ちします"
+        ],
+        "notes": "Uses お持ちします as another humble form of 持つ."
+      },
+      {
+        "segments": [
+          "荷物[にもつ]",
+          "を",
+          "お 客様[きゃくさま]",
+          "に",
+          "お 持[も]ちします"
+        ],
+        "notes": "Places 荷物を before お客様に while using お持ちします as another humble form of 持つ."
+      },
+      {
+        "segments": [
+          "お 客様[きゃくさま]",
+          "に",
+          "荷物[にもつ]",
+          "を",
+          "お 届け[とどけ]いたします"
+        ],
+        "notes": "Uses お届けいたします as the humble form of 届ける."
+      },
+      {
+        "segments": [
+          "荷物[にもつ]",
+          "を",
+          "お 客様[きゃくさま]",
+          "に",
+          "お 届け[とどけ]いたします"
+        ],
+        "notes": "Places 荷物を before お客様に while using お届けいたします as the humble form of 届ける."
+      },
+      {
+        "segments": [
+          "お 客様[きゃくさま]",
+          "に",
+          "荷物[にもつ]",
+          "を",
+          "お 届け[とどけ]します"
+        ],
+        "notes": "Uses お届けします as another humble form of 届ける."
+      },
+      {
+        "segments": [
+          "荷物[にもつ]",
+          "を",
+          "お 客様[きゃくさま]",
+          "に",
+          "お 届け[とどけ]します"
+        ],
+        "notes": "Places 荷物を before お客様に while using お届けします as another humble form of 届ける."
+      }
+    ]
+  },
+  {
+    "english": "I humbly received advice from the department manager.",
+    "answers": [
+      {
+        "segments": [
+          "部長[ぶちょう]",
+          "に",
+          "アドバイス",
+          "を",
+          "いただきました"
+        ],
+        "notes": "Uses いただきました as the humble form of もらう."
+      },
+      {
+        "segments": [
+          "部長[ぶちょう]",
+          "に",
+          "アドバイス",
+          "を",
+          "頂戴[ちょうだい]しました"
+        ],
+        "notes": "Uses 頂戴しました as another humble form of もらう."
+      }
+    ]
+  },
+  {
+    "english": "I humbly talked to the president about the new project.",
+    "hint": "プロジェクト -> project",
+    "answers": [
+      {
+        "segments": [
+          "社長[しゃちょう]",
+          "に",
+          "新[あたら]しい",
+          "プロジェクト",
+          "について",
+          "お 話[はなし]しました"
+        ],
+        "notes": "Uses お話しました as the humble form of 話す."
+      },
+      {
+        "segments": [
+          "社長[しゃちょう]",
+          "に",
+          "新[あたら]しい",
+          "プロジェクト",
+          "について",
+          "お 話[はなし]しいたしました"
+        ],
+        "notes": "Uses お話しいたしました as another humble form of 話す."
+      }
+    ]
+  },
+  {
+    "english": "I humbly made a phone call to the department manager.",
+    "hint": "電話をかける -> to make a phone call",
+    "answers": [
+      {
+        "segments": [
+          "部長[ぶちょう]",
+          "に",
+          "お 電話[でんわ]",
+          "を",
+          "おかけしました"
+        ],
+        "notes": "Uses おかけしました as the humble form of 電話をかける."
+      },
+      {
+        "segments": [
+          "部長[ぶちょう]",
+          "に",
+          "お 電話[でんわ]",
+          "を",
+          "おかけいたしました"
+        ],
+        "notes": "Uses おかけいたしました as another humble form of 電話をかける."
+      }
+    ]
+  },
+  {
+    "english": "I humbly conveyed my gratitude to the teacher.",
+    "answers": [
+      {
+        "segments": [
+          "先生[せんせい]",
+          "に",
+          "感謝[かんしゃ]",
+          "の",
+          "気持[きも]ち",
+          "を",
+          "お 伝[つた]えしました"
+        ],
+        "notes": "Uses お伝えしました as the humble form of 伝える."
+      },
+      {
+        "segments": [
+          "先生[せんせい]",
+          "に",
+          "感謝[かんしゃ]",
+          "の",
+          "気持[きも]ち",
+          "を",
+          "お 伝[つた]えいたしました"
+        ],
+        "notes": "Uses お伝えいたしました as another humble form of 伝える."
+      },
+      {
+        "segments": [
+          "先生[せんせい]",
+          "に",
+          "感謝[かんしゃ]",
+          "の",
+          "気持[きも]ち",
+          "を",
+          "申し上[もうしあ]げました"
+        ],
+        "notes": "Uses 申し上げました as the humble form of 言う."
+      },
+      {
+        "segments": [
+          "先生[せんせい]",
+          "に",
+          "感謝[かんしゃ]",
+          "の",
+          "気持[きも]ち",
+          "を",
+          "申し上[もうしあ]げいたしました"
+        ],
+        "notes": "Uses 申し上げいたしました as another humble form of 言う."
+      },
+      {
+        "segments": [
+          "先生[せんせい]",
+          "に",
+          "お 礼[れい]",
+          "を",
+          "お 伝[つた]えしました"
+        ],
+        "notes": "Uses お礼 and お伝えしました as the humble form of 伝える."
+      },
+      {
+        "segments": [
+          "先生[せんせい]",
+          "に",
+          "お 礼[れい]",
+          "を",
+          "お 伝[つた]えいたしました"
+        ],
+        "notes": "Uses お礼 and お伝えいたしました as another humble form of 伝える."
+      },
+      {
+        "segments": [
+          "先生[せんせい]",
+          "に",
+          "お 礼[れい]",
+          "を",
+          "申し上[もうしあ]げました"
+        ],
+        "notes": "Uses お礼 and 申し上げました as the humble form of 言う."
+      },
+      {
+        "segments": [
+          "先生[せんせい]",
+          "に",
+          "お 礼[れい]",
+          "を",
+          "申し上[もうしあ]げいたしました"
+        ],
+        "notes": "Uses お礼 and 申し上げいたしました as another humble form of 言う."
+      }
+    ]
+  },
+  {
+    "english": "Because the department manager was going on a business trip, I humbly lent him my camera.",
+    "answers": [
+      {
+        "segments": [
+          "部長[ぶちょう]",
+          "が",
+          "出張[しゅっちょう]",
+          "に",
+          "いらっしゃる",
+          "ので",
+          "カメラ",
+          "を",
+          "お 貸[か]ししました"
+        ],
+        "notes": "Uses お貸ししました as the humble form of 貸す."
+      },
+      {
+        "segments": [
+          "部長[ぶちょう]",
+          "が",
+          "出張[しゅっちょう]",
+          "に",
+          "いらっしゃる",
+          "ので",
+          "カメラ",
+          "を",
+          "お 貸[か]しいたしました"
+        ],
+        "notes": "Uses お貸しいたしました as another humble form of 貸す."
+      }
+    ]
+  },
+  {
+    "english": "I will humbly bring a drink to the customer.",
+    "answers": [
+      {
+        "segments": [
+          "お 客様[きゃくさま]",
+          "に",
+          "お 飲[の]み 物[もの]",
+          "を",
+          "お 持[も]ちいたします"
+        ],
+        "notes": "Uses お持ちいたします as the humble form of 持つ."
+      },
+      {
+        "segments": [
+          "お 客様[きゃくさま]",
+          "に",
+          "お 飲[の]み 物[もの]",
+          "を",
+          "お 持[も]ちします"
+        ],
+        "notes": "Uses お持ちします as another humble form of 持つ."
+      },
+      {
+        "segments": [
+          "お 客様[きゃくさま]",
+          "に",
+          "お 飲[の]み 物[もの]",
+          "を",
+          "お 届け[とどけ]いたします"
+        ],
+        "notes": "Uses お届けいたします as the humble form of 届ける."
+      },
+      {
+        "segments": [
+          "お 客様[きゃくさま]",
+          "に",
+          "お 飲[の]み 物[もの]",
+          "を",
+          "お 届け[とどけ]します"
+        ],
+        "notes": "Uses お届けします as another humble form of 届ける."
+      }
+    ]
+  }
+]

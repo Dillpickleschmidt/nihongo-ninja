@@ -303,6 +303,16 @@ export default function JapaneseLearningInterface() {
             },
           ],
         },
+        {
+          title: "",
+          items: [
+            {
+              character: "Huble Expressions",
+              meaning: "You ↓ Other person ↑",
+              link: "/learn/chapter-20/sentence-practice/humble-expressions",
+            },
+          ],
+        },
       ],
     },
   ]

@@ -22,7 +22,7 @@ export class VariationGenerator {
       const answersWithPronouns = question.answers.map((answer) => ({
         ...answer,
         segments: ["私[わたし]", "は", ...answer.segments],
-        isVariation: false,
+        isVariation: true,
       }))
 
       question.answers = [...originalAnswers, ...answersWithPronouns]
