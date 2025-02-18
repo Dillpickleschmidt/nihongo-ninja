@@ -10,7 +10,7 @@ export class TextProcessor {
   }
 
   extractPlainText(segments: string[]): string {
-    return segments.map(this.removeFurigana).join("")
+    return segments.map(this.removeFurigana).join("").replace(/\s+/g, "") // Remove all spaces after joining
   }
 
   removeFurigana(segment: string): string {
