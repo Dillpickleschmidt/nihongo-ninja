@@ -10,7 +10,7 @@
           "を",
           "お 入[い]れいたします"
         ],
-        "notes": "Uses お入れいたします as the humble form of 入れる."
+        "notes": "Uses お入れいたします as the humble form of 入れる, combining the honorific prefix お with the verb stem 入れ and いたします (humble form of する)."
       },
       {
         "segments": [
@@ -20,7 +20,7 @@
           "を",
           "お 入[い]れします"
         ],
-        "notes": "Uses お入れします as another humble form of 入れる."
+        "notes": "Uses お入れします as another humble form of 入れる, using お with the verb stem 入れ and します (polite form of する)."
       },
       {
         "segments": [
@@ -30,7 +30,7 @@
           "に",
           "お 入[い]れいたします"
         ],
-        "notes": "Uses お入れいたします as the humble form of 入れる."
+        "notes": "Uses お入れいたします as the humble form of 入れる, combining お with 入れ and いたします."
       },
       {
         "segments": [
@@ -40,7 +40,7 @@
           "に",
           "お 入[い]れします"
         ],
-        "notes": "Uses お入れします as another humble form of 入れる."
+        "notes": "Uses お入れします as another humble form of 入れる, using お with 入れ and します."
       }
     ]
   },
@@ -55,7 +55,7 @@
           "を",
           "伺[うかが]いました"
         ],
-        "notes": "Uses 伺いました as the humble form of 聞く."
+        "notes": "Uses 伺いました as the humble form of 聞く, expressing humility when asking a question."
       },
       {
         "segments": [
@@ -65,7 +65,7 @@
           "を",
           "伺[うかが]いたしました"
         ],
-        "notes": "Uses 伺いたしました because you're an overly modest weirdo (kind of redundant/weird because 伺う is already humble)."
+        "notes": "Uses 伺いたしました because you're a foreign weirdo (kind of redundant/weird because 伺う is already humble)."
       }
     ]
   },
@@ -80,7 +80,7 @@
           "まで",
           "お 送り[おくり]いたします"
         ],
-        "notes": "Uses お送りいたします as the humble form of 送る."
+        "notes": "Uses お送りいたします as the humble form of 送る, combining お with the verb stem 送り and いたします."
       },
       {
         "segments": [
@@ -90,7 +90,7 @@
           "まで",
           "お 送り[おくり]します"
         ],
-        "notes": "Uses お送りします as another humble form of 送る."
+        "notes": "Uses お送りします as another humble form of 送る, using お with 送り and します."
       },
       {
         "segments": [
@@ -100,7 +100,7 @@
           "まで",
           "お 連[つ]れいたします"
         ],
-        "notes": "Uses お連れいたします as the humble form of 連れる."
+        "notes": "Uses お連れいたします as the humble form of 連れる, combining お with the verb stem 連れ and いたします."
       },
       {
         "segments": [
@@ -110,7 +110,7 @@
           "まで",
           "お 連[つ]れします"
         ],
-        "notes": "Uses お連れします as another humble form of 連れる."
+        "notes": "Uses お連れします as another humble form of 連れる, using お with 連れ and します."
       },
       {
         "segments": [
@@ -120,7 +120,7 @@
           "を",
           "お 送り[おくり]いたします"
         ],
-        "notes": "Uses お送りいたします as the humble form of 送る."
+        "notes": "Uses お送りいたします as the humble form of 送る, combining お with 送り and いたします."
       },
       {
         "segments": [
@@ -130,7 +130,7 @@
           "を",
           "お 送り[おくり]します"
         ],
-        "notes": "Uses お送りします as another humble form of 送る."
+        "notes": "Uses お送りします as another humble form of 送る, using お with 送り and します."
       },
       {
         "segments": [
@@ -140,7 +140,7 @@
           "を",
           "お 連[つ]れいたします"
         ],
-        "notes": "Uses お連れいたします as the humble form of 連れる."
+        "notes": "Uses お連れいたします as the humble form of 連れる, combining お with 連れ and いたします."
       },
       {
         "segments": [
@@ -150,7 +150,7 @@
           "を",
           "お 連[つ]れします"
         ],
-        "notes": "Uses お連れします as another humble form of 連れる."
+        "notes": "Uses お連れします as another humble form of 連れる, using お with 連れ and します."
       }
     ]
   },
@@ -169,7 +169,7 @@
           "ので",
           "お 持[も]ちいたしました"
         ],
-        "notes": "Uses お持ちいたしました as the humble form of 持つ."
+        "notes": "Uses お持ちいたしました as the humble form of 持つ, combining お with the verb stem 持ち and いたしました."
       },
       {
         "segments": [
@@ -183,7 +183,35 @@
           "ので",
           "お 持[も]ちしました"
         ],
-        "notes": "Uses お持ちしました as another humble form of 持つ."
+        "notes": "Uses お持ちしました as another humble form of 持つ, using お with 持ち and しました."
+      },
+      {
+        "segments": [
+          "部長[ぶちょう]",
+          "の",
+          "荷物[にもつ]",
+          "は",
+          "重[おも]",
+          "そう",
+          "だった",
+          "ので",
+          "お 持[も]ちいたしました"
+        ],
+        "notes": "Uses お持ちいたしました as the humble form of 持つ, combining お with 持ち and いたしました."
+      },
+      {
+        "segments": [
+          "部長[ぶちょう]",
+          "の",
+          "荷物[にもつ]",
+          "は",
+          "重[おも]",
+          "そう",
+          "だった",
+          "ので",
+          "お 持[も]ちしました"
+        ],
+        "notes": "Uses お持ちしました as another humble form of 持つ, using お with 持ち and しました."
       }
     ]
   },
@@ -200,7 +228,7 @@
           "を",
           "お 送り[おくり]しました"
         ],
-        "notes": "Uses お送りしました as the humble form of 送る."
+        "notes": "Uses お送りしました as the humble form of 送る, using お with the verb stem 送り and しました."
       },
       {
         "segments": [
@@ -212,7 +240,7 @@
           "を",
           "お 送り[おくり]いたしました"
         ],
-        "notes": "Uses お送りいたしました as another humble form of 送る."
+        "notes": "Uses お送りいたしました as another humble form of 送る, combining お with 送り and いたしました."
       },
       {
         "segments": [
@@ -224,7 +252,7 @@
           "を",
           "お 送り[おくり]しました"
         ],
-        "notes": "Uses お送りしました as the humble form of 送る."
+        "notes": "Uses お送りしました as the humble form of 送る, using お with 送り and しました."
       },
       {
         "segments": [
@@ -236,7 +264,7 @@
           "を",
           "お 送り[おくり]いたしました"
         ],
-        "notes": "Uses お送りいたしました as another humble form of 送る."
+        "notes": "Uses お送りいたしました as another humble form of 送る, combining お with 送り and いたしました."
       }
     ]
   },
@@ -261,7 +289,7 @@
           "を",
           "お 渡[わた]ししました"
         ],
-        "notes": "Uses お渡ししました as the humble form of 渡す (emphasizes the physical act of handing over the present)."
+        "notes": "Uses お渡ししました as the humble form of 渡す, combining お with the verb stem 渡し and しました to emphasize the act of handing over. It's grammatically valid but redundant because 渡す is already polite."
       },
       {
         "segments": [
@@ -271,13 +299,45 @@
           "を",
           "お 渡[わた]しいたしました"
         ],
-        "notes": "Uses お渡しいたしました as another humble form of 渡す (emphasizes the physical act of handing over the present)."
+        "notes": "Uses お渡しいたしました as another humble form of 渡す, combining お with 渡し and いたしました for extra formality."
       }
     ]
   },
   {
     "english": "Tomorrow is Valentine's Day, so I intend to give the department manager a chocolate.",
     "answers": [
+      {
+        "segments": [
+          "明日[あした]",
+          "は",
+          "バレンタインデー",
+          "ので",
+          "部長[ぶちょう]",
+          "に",
+          "チョコレート",
+          "を",
+          "差[さ]し 上[あ]げよう",
+          "と",
+          "思[おも]っています"
+        ],
+        "notes": "Uses 差し上げようと思っています as the humble form of あげる, expressing intention with the volitional form よう."
+      },
+      {
+        "segments": [
+          "明日[あした]",
+          "は",
+          "バレンタインデー",
+          "ので",
+          "部長[ぶちょう]",
+          "に",
+          "チョコレート",
+          "を",
+          "差[さ]し 上[あ]げる",
+          "つもり",
+          "です"
+        ],
+        "notes": "Uses 差し上げるつもりです as another humble way to express intention, using つもり to indicate a plan."
+      },
       {
         "segments": [
           "明日[あした]",
@@ -292,7 +352,7 @@
           "と",
           "思[おも]っています"
         ],
-        "notes": "Uses 差し上げようと思っています as the humble form of あげる."
+        "notes": "Uses 差し上げようと思っています as the humble form of あげる, expressing intention with よう."
       },
       {
         "segments": [
@@ -308,7 +368,71 @@
           "つもり",
           "です"
         ],
-        "notes": "Uses 差し上げるつもりです as another humble way to express intention."
+        "notes": "Uses 差し上げるつもりです as another humble way to express intention, using つもり to indicate a plan."
+      },
+      {
+        "segments": [
+          "明日[あした]",
+          "は",
+          "バレンタインデー",
+          "ので",
+          "部長[ぶちょう]",
+          "に",
+          "チョコ",
+          "を",
+          "差[さ]し 上[あ]げよう",
+          "と",
+          "思[おも]っています"
+        ],
+        "notes": "Uses 差し上げようと思っています as the humble form of あげる, expressing intention with よう."
+      },
+      {
+        "segments": [
+          "明日[あした]",
+          "は",
+          "バレンタインデー",
+          "ので",
+          "部長[ぶちょう]",
+          "に",
+          "チョコ",
+          "を",
+          "差[さ]し 上[あ]げる",
+          "つもり",
+          "です"
+        ],
+        "notes": "Uses 差し上げるつもりです as another humble way to express intention, using つもり to indicate a plan."
+      },
+      {
+        "segments": [
+          "明日[あした]",
+          "は",
+          "バレンタインデー",
+          "なので",
+          "部長[ぶちょう]",
+          "に",
+          "チョコ",
+          "を",
+          "差[さ]し 上[あ]げよう",
+          "と",
+          "思[おも]っています"
+        ],
+        "notes": "Uses 差し上げようと思っています as the humble form of あげる, expressing intention with よう."
+      },
+      {
+        "segments": [
+          "明日[あした]",
+          "は",
+          "バレンタインデー",
+          "なので",
+          "部長[ぶちょう]",
+          "に",
+          "チョコ",
+          "を",
+          "差[さ]し 上[あ]げる",
+          "つもり",
+          "です"
+        ],
+        "notes": "Uses 差し上げるつもりです as another humble way to express intention, using つもり to indicate a plan."
       }
     ]
   },
@@ -323,7 +447,7 @@
           "を",
           "お 貸[か]ししました"
         ],
-        "notes": "Uses お貸ししました as the humble form of 貸す."
+        "notes": "Uses お貸ししました as the humble form of 貸す, using お with the verb stem 貸し and しました."
       },
       {
         "segments": [
@@ -333,7 +457,7 @@
           "を",
           "お 貸[か]しいたしました"
         ],
-        "notes": "Uses お貸しいたしました as another humble form of 貸す."
+        "notes": "Uses お貸しいたしました as another humble form of 貸す, combining お with 貸し and いたしました."
       }
     ]
   },
@@ -344,46 +468,87 @@
         "segments": [
           "部長[ぶちょう]",
           "に",
-          "お 昼[ひる]ご飯[はん]",
+          "お 昼[ひる]ご 飯[はん]",
           "を",
           "お 持[も]ちしました"
         ],
-        "notes": "Uses お持ちしました as the humble form of 持つ."
+        "notes": "Uses お持ちしました as the humble form of 持つ, using お with the verb stem 持ち and しました."
       },
       {
         "segments": [
           "部長[ぶちょう]",
           "に",
-          "お 昼[ひる]ご飯[はん]",
+          "お 昼[ひる]ご 飯[はん]",
           "を",
           "お 持[も]ちいたしました"
         ],
-        "notes": "Uses お持ちいたしました as another humble form of 持つ."
+        "notes": "Uses お持ちいたしました as another humble form of 持つ, combining お with 持ち and いたしました."
       },
       {
         "segments": [
           "部長[ぶちょう]",
           "に",
-          "お 昼[ひる]ご飯[はん]",
+          "お 昼[ひる]ご 飯[はん]",
           "を",
           "お 届け[とどけ]しました"
         ],
-        "notes": "Uses お届けしました as the humble form of 届ける."
+        "notes": "Uses お届けしました as the humble form of 届ける, using お with the verb stem 届け and しました."
       },
       {
         "segments": [
           "部長[ぶちょう]",
           "に",
-          "お 昼[ひる]ご飯[はん]",
+          "お 昼[ひる]ご 飯[はん]",
           "を",
           "お 届け[とどけ]いたしました"
         ],
-        "notes": "Uses お届けいたしました as another humble form of 届ける."
+        "notes": "Uses お届けいたしました as another humble form of 届ける, combining お with 届け and いたしました."
+      },
+      {
+        "segments": [
+          "部長[ぶちょう]",
+          "に",
+          "お 弁当[べんとう]",
+          "を",
+          "お 持[も]ちしました"
+        ],
+        "notes": "Uses お持ちしました as the humble form of 持つ, using お with 持ち and しました."
+      },
+      {
+        "segments": [
+          "部長[ぶちょう]",
+          "に",
+          "お 弁当[べんとう]",
+          "を",
+          "お 持[も]ちいたしました"
+        ],
+        "notes": "Uses お持ちいたしました as another humble form of 持つ, combining お with 持ち and いたしました."
+      },
+      {
+        "segments": [
+          "部長[ぶちょう]",
+          "に",
+          "お 弁当[べんとう]",
+          "を",
+          "お 届け[とどけ]しました"
+        ],
+        "notes": "Uses お届けしました as the humble form of 届ける, using お with 届け and しました."
+      },
+      {
+        "segments": [
+          "部長[ぶちょう]",
+          "に",
+          "お 弁当[べんとう]",
+          "を",
+          "お 届け[とどけ]いたしました"
+        ],
+        "notes": "Uses お届けいたしました as another humble form of 届ける, combining お with 届け and いたしました."
       }
     ]
   },
   {
     "english": "I humbly explained the product to the customer.",
+    "hint": "商品 (しょうひん) -> product",
     "answers": [
       {
         "segments": [
@@ -395,7 +560,7 @@
           "を",
           "いたしました"
         ],
-        "notes": "Uses いたしました as the humble form of する."
+        "notes": "Uses いたしました as the humble form of する, treating 説明 as a noun."
       },
       {
         "segments": [
@@ -406,7 +571,7 @@
           "ご 説明[せつめい]",
           "いたしました"
         ],
-        "notes": "Uses ご説明いたしました as the humble form of 説明する."
+        "notes": "Uses ご説明いたしました as the humble form of 説明する, adding the prefix ご for politeness."
       },
       {
         "segments": [
@@ -417,7 +582,7 @@
           "ご説明[ごせつめい]",
           "しました"
         ],
-        "notes": "Uses ご説明しました as another humble form of 説明する."
+        "notes": "Uses ご説明しました as another humble form of 説明する, using ご with 説明 and しました. It's grammatically fine but a little less modest than ご説明いたしました."
       }
     ]
   },
@@ -441,7 +606,7 @@
           "で",
           "お 知らせ[しらせ]しました"
         ],
-        "notes": "Uses お知らせしました as the humble form of 知らせる."
+        "notes": "Uses お知らせしました as the humble form of 知らせる, using お with the verb stem 知らせ and しました (fine but slightly less formal than お知らせいたしました)."
       },
       {
         "segments": [
@@ -459,7 +624,43 @@
           "で",
           "お 知らせ[しらせ]いたしました"
         ],
-        "notes": "Uses お知らせいたしました as another humble form of 知らせる."
+        "notes": "Uses お知らせいたしました as another humble form of 知らせる, combining お with 知らせ and いたしました."
+      },
+      {
+        "segments": [
+          "部長[ぶちょう]",
+          "は",
+          "オフィス",
+          "に",
+          "いらっしゃらなかった",
+          "ので",
+          "会議[かいぎ]",
+          "の",
+          "時間[じかん]",
+          "を",
+          "電話[でんわ]",
+          "で",
+          "お 知らせ[しらせ]しました"
+        ],
+        "notes": "Uses お知らせしました as the humble form of 知らせる, using お with 知らせ and しました (fine but slightly less formal than お知らせいたしました)."
+      },
+      {
+        "segments": [
+          "部長[ぶちょう]",
+          "は",
+          "オフィス",
+          "に",
+          "いらっしゃらなかった",
+          "ので",
+          "会議[かいぎ]",
+          "の",
+          "時間[じかん]",
+          "を",
+          "電話[でんわ]",
+          "で",
+          "お 知らせ[しらせ]いたしました"
+        ],
+        "notes": "Uses お知らせいたしました as another humble form of 知らせる, combining お with 知らせ and いたしました."
       }
     ]
   },
@@ -472,10 +673,10 @@
           "に",
           "レポート",
           "を",
-          "ご確認[ごかくにん]",
+          "ご 確認[かくにん]",
           "いただきました"
         ],
-        "notes": "Uses ご確認いただきました as the humble form of 確認する."
+        "notes": "Uses ご確認いただきました as the humble form of 確認する, using ご with 確認 and いただきました."
       },
       {
         "segments": [
@@ -486,7 +687,7 @@
           "お 読み[よみ]",
           "いただきました"
         ],
-        "notes": "Uses お読みいただきました as the humble form of 読む."
+        "notes": "Uses お読みいただきました as the humble form of 読む, using お with 読み and いただきました."
       },
       {
         "segments": [
@@ -497,7 +698,7 @@
           "チェック",
           "していただきました"
         ],
-        "notes": "Uses チェックしていただきました as the humble form of チェックする."
+        "notes": "Uses チェックしていただきました as the humble form of チェックする, using していただきました."
       }
     ]
   },
@@ -512,7 +713,7 @@
           "に",
           "伺[うかが]いました"
         ],
-        "notes": "Uses 伺う."
+        "notes": "Uses 伺う as the humble form of 訪ねる."
       },
       {
         "segments": [
@@ -522,7 +723,7 @@
           "に",
           "お 邪魔[じゃま]しました"
         ],
-        "notes": "Uses お邪魔しました an alternative to 伺う."
+        "notes": "Uses お邪魔しました as an alternative to 伺う, using お with 邪魔 and しました."
       }
     ]
   },
@@ -537,7 +738,7 @@
           "を",
           "お 持[も]ちいたします"
         ],
-        "notes": "Uses お持ちいたします as the humble form of 持つ."
+        "notes": "Uses お持ちいたします as the humble form of 持つ, combining お with 持ち and いたします."
       },
       {
         "segments": [
@@ -557,7 +758,7 @@
           "を",
           "お 持[も]ちします"
         ],
-        "notes": "Uses お持ちします as another humble form of 持つ."
+        "notes": "Uses お持ちします as another humble form of 持つ, using お with 持ち and します."
       },
       {
         "segments": [
@@ -577,7 +778,7 @@
           "を",
           "お 届け[とどけ]いたします"
         ],
-        "notes": "Uses お届けいたします as the humble form of 届ける."
+        "notes": "Uses お届けいたします as the humble form of 届ける, combining お with 届け and いたします."
       },
       {
         "segments": [
@@ -597,7 +798,7 @@
           "を",
           "お 届け[とどけ]します"
         ],
-        "notes": "Uses お届けします as another humble form of 届ける."
+        "notes": "Uses お届けします as another humble form of 届ける, using お with 届け and します."
       },
       {
         "segments": [
@@ -649,7 +850,7 @@
           "について",
           "お 話[はなし]しました"
         ],
-        "notes": "Uses お話しました as the humble form of 話す."
+        "notes": "Uses お話しました as the humble form of 話す, using お with 話 and しました."
       },
       {
         "segments": [
@@ -660,7 +861,7 @@
           "について",
           "お 話[はなし]しいたしました"
         ],
-        "notes": "Uses お話しいたしました as another humble form of 話す."
+        "notes": "Uses お話しいたしました as another humble form of 話す, combining お with 話し and いたしました."
       }
     ]
   },
@@ -676,7 +877,7 @@
           "を",
           "おかけしました"
         ],
-        "notes": "Uses おかけしました as the humble form of 電話をかける."
+        "notes": "Uses おかけしました as the humble form of 電話をかける, using お with かけ and しました."
       },
       {
         "segments": [
@@ -686,7 +887,7 @@
           "を",
           "おかけいたしました"
         ],
-        "notes": "Uses おかけいたしました as another humble form of 電話をかける."
+        "notes": "Uses おかけいたしました as another humble form of 電話をかける, combining お with かけ and いたしました."
       }
     ]
   },
@@ -703,7 +904,7 @@
           "を",
           "お 伝[つた]えしました"
         ],
-        "notes": "Uses お伝えしました as the humble form of 伝える."
+        "notes": "Uses お伝えしました as the humble form of 伝える, using お with 伝え and しました."
       },
       {
         "segments": [
@@ -715,7 +916,7 @@
           "を",
           "お 伝[つた]えいたしました"
         ],
-        "notes": "Uses お伝えいたしました as another humble form of 伝える."
+        "notes": "Uses お伝えいたしました as another humble form of 伝える, combining お with 伝え and いたしました."
       },
       {
         "segments": [
@@ -784,7 +985,7 @@
     ]
   },
   {
-    "english": "Because the department manager was going on a business trip, I humbly lent him my camera.",
+    "english": "Because the department manager will be going on a business trip, I humbly lent him my camera.",
     "answers": [
       {
         "segments": [
@@ -798,7 +999,7 @@
           "を",
           "お 貸[か]ししました"
         ],
-        "notes": "Uses お貸ししました as the humble form of 貸す."
+        "notes": "Uses お貸ししました as the humble form of 貸す, using お with 貸し and しました."
       },
       {
         "segments": [
@@ -812,7 +1013,35 @@
           "を",
           "お 貸[か]しいたしました"
         ],
-        "notes": "Uses お貸しいたしました as another humble form of 貸す."
+        "notes": "Uses お貸しいたしました as another humble form of 貸す, combining お with 貸し and いたしました."
+      },
+      {
+        "segments": [
+          "部長[ぶちょう]",
+          "は",
+          "出張[しゅっちょう]",
+          "に",
+          "いらっしゃる",
+          "ので",
+          "カメラ",
+          "を",
+          "お 貸[か]ししました"
+        ],
+        "notes": "Uses お貸ししました as the humble form of 貸す, using お with 貸し and しました."
+      },
+      {
+        "segments": [
+          "部長[ぶちょう]",
+          "は",
+          "出張[しゅっちょう]",
+          "に",
+          "いらっしゃる",
+          "ので",
+          "カメラ",
+          "を",
+          "お 貸[か]しいたしました"
+        ],
+        "notes": "Uses お貸しいたしました as another humble form of 貸す, combining お with 貸し and いたしました."
       }
     ]
   },
@@ -827,7 +1056,7 @@
           "を",
           "お 持[も]ちいたします"
         ],
-        "notes": "Uses お持ちいたします as the humble form of 持つ."
+        "notes": "Uses お持ちいたします as the humble form of 持つ, combining お with 持ち and いたします."
       },
       {
         "segments": [
@@ -837,7 +1066,7 @@
           "を",
           "お 持[も]ちします"
         ],
-        "notes": "Uses お持ちします as another humble form of 持つ."
+        "notes": "Uses お持ちします as another humble form of 持つ, using お with 持ち and します."
       },
       {
         "segments": [
@@ -847,7 +1076,7 @@
           "を",
           "お 届け[とどけ]いたします"
         ],
-        "notes": "Uses お届けいたします as the humble form of 届ける."
+        "notes": "Uses お届けいたします as the humble form of 届ける, combining お with 届け and いたします."
       },
       {
         "segments": [
@@ -857,7 +1086,7 @@
           "を",
           "お 届け[とどけ]します"
         ],
-        "notes": "Uses お届けします as another humble form of 届ける."
+        "notes": "Uses お届けします as another humble form of 届ける, using お with 届け and します."
       }
     ]
   }
