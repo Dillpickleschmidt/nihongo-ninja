@@ -13,11 +13,9 @@ interface PracticeContextValue {
     nextQuestion: () => void
     resetInput: () => void
     toggleFurigana: () => void
-    updateInput: (value: string) => void
+    updateInput: (value: string, index?: number) => void
     loadQuestions: (path: string) => Promise<void>
     setDifficulty: (difficulty: Difficulty) => void
-    updateBlankInput: (index: number, value: string) => void
-    resetInputs: () => void
   }
 }
 

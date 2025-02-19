@@ -47,7 +47,7 @@ function PracticeContent(props: PracticeContainerProps) {
   })
 
   createEffect(() => {
-    const currentQuestion = store.questions[store.currentQuestionIndex]
+    const currentQuestion = store.rawQuestions[store.currentQuestionIndex]
     if (currentQuestion && store.difficulty === "easy") {
       console.log(
         "Full sentence with blanks:",
@@ -58,13 +58,7 @@ function PracticeContent(props: PracticeContainerProps) {
 
   return (
     <div class="mx-auto max-w-2xl space-y-4 px-4 pb-32 pt-12 lg:pt-24">
-      <DifficultySelector
-        class="flex justify-end"
-        onDifficultyChange={(difficulty) => {
-          // Handle difficulty change when needed
-          console.log("Difficulty changed to:", difficulty)
-        }}
-      />
+      <DifficultySelector class="flex justify-end" />
       <Show when={!store.isLoading} fallback={<div>Loading questions...</div>}>
         <Show
           when={store.questions[store.currentQuestionIndex]}
@@ -79,10 +73,6 @@ function PracticeContent(props: PracticeContainerProps) {
               segments={
                 store.rawQuestions[store.currentQuestionIndex]!.answers[0]
                   .segments
-              }
-              inputValues={store.inputs}
-              onInputChange={(index, value) =>
-                actions.updateBlankInput(index, value)
               }
             />
           </Show>

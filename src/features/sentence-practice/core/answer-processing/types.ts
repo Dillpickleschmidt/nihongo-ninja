@@ -19,15 +19,12 @@ export type ErrorRange = {
 
 export type CheckResult = {
   isCorrect: boolean
-  userErrors: ErrorRange[]
-  answerErrors: ErrorRange[]
-  bestMatch: Answer
-  allMatches: AnswerMatch[]
-}
-
-export type AnswerMatch = {
-  answer: Answer
-  similarity: number
-  userErrors: ErrorRange[]
-  answerErrors: ErrorRange[]
+  inputs: {
+    value: string
+    errors: ErrorRange[]
+  }[]
+  answers: {
+    segments: string[]
+    errors: ErrorRange[]
+  }[]
 }

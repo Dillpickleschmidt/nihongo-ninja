@@ -3,6 +3,7 @@ import type { CheckResult, PracticeQuestion } from "./types"
 import { AnswerMatcher } from "./AnswerMatcher"
 import { TextProcessor as JapaneseTextProcessor } from "../text/TextProcessor"
 
+// core/answer-processing/AnswerChecker.ts
 export class AnswerChecker {
   private matcher: AnswerMatcher
   private textProcessor: JapaneseTextProcessor
@@ -14,8 +15,9 @@ export class AnswerChecker {
 
   checkAnswer(input: string, question: PracticeQuestion): CheckResult {
     const userText = this.textProcessor.normalize(input)
+    console.log("userText", userText)
 
-    const allMatches = question.answers
+    const matches = question.answers
       .map((answer) => {
         const correctText = this.textProcessor.extractPlainText(answer.segments)
         const matchResult = this.matcher.match(userText, correctText)
@@ -27,14 +29,22 @@ export class AnswerChecker {
       })
       .sort((a, b) => b.similarity - a.similarity)
 
-    const bestMatch = allMatches[0]
+    const bestMatch = matches[0]
 
     return {
       isCorrect: bestMatch.similarity === 1,
-      userErrors: bestMatch.userErrors,
-      answerErrors: bestMatch.answerErrors,
-      bestMatch: bestMatch.answer,
-      allMatches,
+      inputs: [
+        {
+          value: input,
+          errors: bestMatch.userErrors,
+        },
+      ],
+      answers: [
+        {
+          segments: bestMatch.answer.segments,
+          errors: bestMatch.answerErrors,
+        },
+      ],
     }
   }
 }

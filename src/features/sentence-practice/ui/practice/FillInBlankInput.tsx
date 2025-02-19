@@ -1,24 +1,34 @@
 // ui/practice/FillInBlankInput.tsx
 import { For } from "solid-js"
-import { TextProcessor } from "../../core/text/TextProcessor"
-import { TextField, TextFieldRoot } from "@/components/ui/textfield"
+import { Button } from "@/components/ui/button"
 import type { ConjugatableSegment } from "../../core/conjugation/types"
-import WanakanaWrapper from "@/features/wanakana/WanaKana"
+import { usePracticeStore } from "../../store/PracticeContext"
+import { TextProcessor } from "../../core/text/TextProcessor"
+import PracticeInput from "./PracticeInput"
 
 interface FillInBlankInputProps {
   segments: ConjugatableSegment[]
-  onInputChange: (index: number, value: string) => void
-  inputValues: string[]
 }
 
 const textProcessor = new TextProcessor()
 
 export default function FillInBlankInput(props: FillInBlankInputProps) {
+  const { store, actions } = usePracticeStore()
+  const isLastQuestion =
+    store.currentQuestionIndex === store.questions.length - 1
+  const isAnswerCorrect = () => store.showResult && store.checkResult?.isCorrect
+
+  const handleMainButton = () => {
+    if (isAnswerCorrect()) {
+      actions.nextQuestion()
+    } else {
+      actions.checkAnswer()
+    }
+  }
+
   const displaySegments = textProcessor.processSegmentsForDisplay(
     props.segments,
   )
-  console.log("sourceSegments: ", props.segments)
-  console.log("displaySegments: ", displaySegments)
 
   return (
     <div class="space-y-4">
@@ -27,25 +37,31 @@ export default function FillInBlankInput(props: FillInBlankInputProps) {
           {(segment, index) => (
             <>
               {segment.isBlank ? (
-                <WanakanaWrapper>
-                  <TextFieldRoot class="inline-flex">
-                    <TextField
-                      value={props.inputValues[index()]}
-                      onInput={(e) =>
-                        props.onInputChange(index(), e.currentTarget.value)
-                      }
-                      class="mx-1 w-32 text-center text-2xl"
-                    />
-                  </TextFieldRoot>
-                </WanakanaWrapper>
+                <div class="inline-block">
+                  <PracticeInput
+                    value={store.inputs.blanks?.[index()] || ""}
+                    onInput={(value) => actions.updateInput(value, index())}
+                    class="mx-1 w-32 text-center text-2xl"
+                  />
+                </div>
               ) : (
-                <span>{segment.text as string}</span>
+                <span>{segment.text}</span>
               )}
             </>
           )}
         </For>
       </div>
       <p class="pt-1 text-sm text-muted-foreground">*use caps for katakana</p>
+      <Button
+        onClick={handleMainButton}
+        class={`${isAnswerCorrect() ? "bg-green-400 hover:bg-green-500 dark:bg-green-500 dark:hover:bg-green-600" : "bg-amber-400 dark:bg-amber-500 dark:saturate-[85%]"} w-full py-3 text-sm text-black lg:text-base`}
+      >
+        {isAnswerCorrect()
+          ? isLastQuestion
+            ? "Finish"
+            : "Next Question"
+          : "Check Answer"}
+      </Button>
     </div>
   )
 }

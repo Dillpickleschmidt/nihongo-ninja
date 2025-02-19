@@ -14,6 +14,7 @@ import type {
   ConjugatedWord,
   BlankableWord,
 } from "./conjugation/types"
+import { AnswerInputs } from "../store/types"
 
 export class PracticeService {
   private answerChecker: AnswerChecker
@@ -135,7 +136,40 @@ export class PracticeService {
     return result
   }
 
-  checkAnswer(input: string, question: PracticeQuestion): CheckResult {
-    return this.answerChecker.checkAnswer(input, question)
+  fillBlankInputs(
+    inputs: AnswerInputs,
+    question: PracticeQuestion,
+  ): AnswerInputs {
+    const blankInputs = inputs.blanks ?? []
+    const fullInput = question.answers[0].segments.map((segment, index) => {
+      if (blankInputs[index]) {
+        return blankInputs[index]
+      }
+      return this.textProcessor.removeFurigana(segment.toString())
+    })
+
+    return { blanks: fullInput }
+  }
+
+  checkAnswer(inputs: AnswerInputs, question: PracticeQuestion): CheckResult {
+    if (inputs.single) {
+      return this.answerChecker.checkAnswer(inputs.single, question)
+    }
+
+    const blankInputs = inputs.blanks ?? []
+    const result = this.answerChecker.checkAnswer(
+      inputs.blanks?.join("") ?? "",
+      question,
+    )
+
+    // Transform the single input result into multiple inputs for blanks
+    return {
+      isCorrect: result.isCorrect,
+      inputs: blankInputs.map((value) => ({
+        value,
+        errors: [], // TODO: Split result.inputs[0].errors by position
+      })),
+      answers: result.answers,
+    }
   }
 }

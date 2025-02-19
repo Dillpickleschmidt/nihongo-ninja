@@ -26,7 +26,7 @@ export default function AnswerInput() {
           <TextFieldRoot>
             <TextField
               type="text"
-              value={store.currentInput}
+              value={store.inputs.single || ""}
               onInput={(e) => actions.updateInput(e.currentTarget.value)}
               onKeyPress={(e: KeyboardEvent) => {
                 if (e.key === "Enter") {

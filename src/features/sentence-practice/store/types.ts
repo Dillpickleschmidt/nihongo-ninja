@@ -2,6 +2,7 @@
 import type {
   PracticeQuestion,
   CheckResult,
+  ErrorRange,
 } from "../core/answer-processing/types"
 import type { UnprocessedQuestion } from "../core/conjugation/types"
 
@@ -11,19 +12,17 @@ export type PracticeState = {
   questions: PracticeQuestion[]
   rawQuestions: UnprocessedQuestion[]
   currentQuestionIndex: number
-  currentInput: string
+  inputs: AnswerInputs
   showResult: boolean
   isLoading: boolean
   error: string | null
   path: string | null
   showFurigana: boolean
-  checkResult?: CheckResult
   difficulty: Difficulty
-  inputs: string[]
-  inputResults: (InputResult | undefined)[]
+  checkResult?: CheckResult
 }
 
-export interface InputResult {
-  isCorrect: boolean
-  expectedAnswer: string
+export type AnswerInputs = {
+  single?: string // For hard mode
+  blanks?: string[] // For easy mode
 }

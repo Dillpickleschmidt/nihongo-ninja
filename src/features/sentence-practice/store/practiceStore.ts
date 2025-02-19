@@ -1,6 +1,6 @@
 // store/practiceStore.ts
 import { createStore } from "solid-js/store"
-import type { PracticeState } from "./types"
+import type { PracticeState, AnswerInputs } from "./types"
 import { PracticeService } from "../core/PracticeService"
 import type { FileLoader } from "./fileLoader"
 import type { Difficulty } from "./types"
@@ -9,15 +9,16 @@ const initialState: PracticeState = {
   questions: [],
   rawQuestions: [],
   currentQuestionIndex: 0,
-  currentInput: "",
+  inputs: {
+    single: "",
+    blanks: [],
+  },
   showResult: false,
   isLoading: true,
   error: null,
   path: null,
   showFurigana: true,
   difficulty: "easy",
-  inputs: [],
-  inputResults: [],
 }
 
 export function createPracticeStore(fileLoader: FileLoader) {
@@ -32,72 +33,100 @@ export function createPracticeStore(fileLoader: FileLoader) {
         const currentQuestion = store.questions[store.currentQuestionIndex]
         if (!currentQuestion) return
 
-        const result = practiceService.checkAnswer(
-          store.currentInput,
+        const filledInputs = practiceService.fillBlankInputs(
+          store.inputs,
           currentQuestion,
         )
-        setStore({
-          showResult: true,
-          checkResult: result,
-        })
+
+        const result = practiceService.checkAnswer(
+          filledInputs,
+          currentQuestion,
+        )
+        console.log("Check result in practiceStore:", result)
+        setStore("showResult", true)
+        setStore("checkResult", result)
+        console.log("Check result:", result)
         return result
+      },
+      updateInput: (value: string, index?: number) => {
+        if (store.difficulty === "easy" && typeof index === "number") {
+          setStore("inputs", "blanks", (blanks = []) => {
+            const newBlanks = [...blanks]
+            newBlanks[index] = value
+            console.log("New blanks:", newBlanks)
+            return newBlanks
+          })
+        } else {
+          setStore("inputs", "single", value)
+        }
+
+        if (store.showResult) {
+          const currentQuestion = store.questions[store.currentQuestionIndex]
+          if (currentQuestion) {
+            const filledInputs = practiceService.fillBlankInputs(
+              store.inputs,
+              currentQuestion,
+            )
+
+            const result = practiceService.checkAnswer(
+              filledInputs,
+              currentQuestion,
+            )
+            setStore("checkResult", result)
+          }
+        }
       },
       nextQuestion: () => {
         if (store.currentQuestionIndex < store.questions.length - 1) {
-          setStore("currentQuestionIndex", (i) => i + 1)
-          setStore("showResult", false)
-          setStore("currentInput", "")
+          setStore({
+            currentQuestionIndex: store.currentQuestionIndex + 1,
+            showResult: false,
+            inputs: { single: "", blanks: [] },
+          })
         }
       },
       resetInput: () => {
-        setStore("currentInput", "")
+        setStore(
+          "inputs",
+          store.difficulty === "easy" ? { blanks: [] } : { single: "" },
+        )
         setStore("showResult", false)
       },
       toggleFurigana: () => setStore("showFurigana", (prev) => !prev),
-      updateInput: (value: string) => {
-        setStore("currentInput", value)
-        // If we've already shown a result, keep checking on each change
-        if (store.showResult) {
-          const currentQuestion = store.questions[store.currentQuestionIndex]
-          if (!currentQuestion) return
-
-          const result = practiceService.checkAnswer(value, currentQuestion)
-          setStore("checkResult", result)
-        }
-      },
       loadQuestions: async (path: string) => {
-        setStore("path", path)
-        setStore("currentQuestionIndex", 0)
-        setStore("currentInput", "")
-        setStore("showResult", false)
-        setStore("isLoading", true)
-        setStore("error", null)
+        setStore({
+          path,
+          currentQuestionIndex: 0,
+          inputs: { single: "", blanks: [] },
+          showResult: false,
+          isLoading: true,
+          error: null,
+        })
 
         try {
           const rawQuestions = await fileLoader.loadQuestionFile(path)
-          setStore("rawQuestions", rawQuestions)
           const processedQuestions =
             practiceService.prepareQuestions(rawQuestions)
-          setStore("questions", processedQuestions)
-          setStore("isLoading", false)
+          setStore({
+            rawQuestions,
+            questions: processedQuestions,
+            isLoading: false,
+          })
         } catch (e) {
-          setStore("error", e instanceof Error ? e.message : "Unknown error")
-          setStore("questions", [])
-          setStore("isLoading", false)
+          setStore({
+            error: e instanceof Error ? e.message : "Unknown error",
+            questions: [],
+            rawQuestions: [],
+            isLoading: false,
+          })
         }
       },
       setDifficulty: (difficulty: Difficulty) => {
-        setStore("difficulty", difficulty)
-      },
-      updateBlankInput: (index: number, value: string) => {
-        setStore("inputs", (inputs) => {
-          const newInputs = [...inputs]
-          newInputs[index] = value
-          return newInputs
+        setStore({
+          difficulty,
+          inputs: difficulty === "easy" ? { blanks: [] } : { single: "" },
+          showResult: false,
         })
-      },
-      resetInputs: () => {
-        setStore("inputs", [])
       },
     },
   }
