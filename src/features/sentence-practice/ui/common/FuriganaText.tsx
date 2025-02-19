@@ -13,7 +13,7 @@ interface FuriganaTextProps {
 }
 
 export default function FuriganaText(props: FuriganaTextProps) {
-  console.log("FuriganaText", props)
+  // console.log("FuriganaText", props)
   const processText = createMemo(() => {
     if (!props.errors?.length) {
       return textProcessor.convertToRuby(props.text, props.furiganaSize)

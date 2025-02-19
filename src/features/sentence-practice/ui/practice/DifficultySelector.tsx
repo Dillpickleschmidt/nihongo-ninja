@@ -9,8 +9,7 @@ import {
 import { Button } from "@/components/ui/button"
 import { ChevronDown } from "lucide-solid"
 import { usePracticeStore } from "../../store/PracticeContext"
-
-export type Difficulty = "easy" | "hard"
+import type { Difficulty } from "../../store/types"
 
 interface DifficultySelectorProps {
   initialDifficulty?: Difficulty
@@ -33,7 +32,7 @@ export default function DifficultySelector(props: DifficultySelectorProps) {
         <DropdownMenuTrigger>
           <Button variant="outline" class="w-24">
             <span class="mr-2">
-              {store.difficulty === "easy" ? "Easy" : "Hard"}
+              {store.selectedDifficulty === "easy" ? "Easy" : "Hard"}
             </span>
             <ChevronDown
               class={`h-5 w-5 transform transition-transform duration-200 ${
@@ -45,13 +44,13 @@ export default function DifficultySelector(props: DifficultySelectorProps) {
         <DropdownMenuContent class="w-24">
           <DropdownMenuItem
             onSelect={() => handleDifficultyChange("easy")}
-            class={store.difficulty === "easy" ? "bg-accent" : ""}
+            class={store.selectedDifficulty === "easy" ? "bg-accent" : ""}
           >
             Easy
           </DropdownMenuItem>
           <DropdownMenuItem
             onSelect={() => handleDifficultyChange("hard")}
-            class={store.difficulty === "hard" ? "bg-accent" : ""}
+            class={store.selectedDifficulty === "hard" ? "bg-accent" : ""}
           >
             Hard
           </DropdownMenuItem>

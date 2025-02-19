@@ -6,35 +6,10 @@ import AnswerInput from "./AnswerInput"
 import ProgressDisplay from "./ProgressDisplay"
 import ResultDisplay from "./ResultDisplay"
 import DifficultySelector from "./DifficultySelector"
-import { ConjugatableSegment } from "../../core/conjugation/types"
 import FillInBlankInput from "./FillInBlankInput"
 
 interface PracticeContainerProps {
   path: string
-}
-
-function formatSentenceWithBlanks(segments: ConjugatableSegment[]): string {
-  return segments
-    .map((segment) => {
-      if (typeof segment === "string") {
-        return segment
-      }
-
-      if ("blank" in segment && segment.blank) {
-        if (typeof segment.word === "string") {
-          return `(${segment.word})`.replace(/\[.*?\]/g, "")
-        } else {
-          return `(${segment.word.word})`.replace(/\[.*?\]/g, "")
-        }
-      }
-
-      if ("word" in segment) {
-        return segment.word
-      }
-
-      return ""
-    })
-    .join("")
 }
 
 function PracticeContent(props: PracticeContainerProps) {
@@ -43,16 +18,6 @@ function PracticeContent(props: PracticeContainerProps) {
   createEffect(() => {
     if (props.path !== store.path) {
       actions.loadQuestions(props.path)
-    }
-  })
-
-  createEffect(() => {
-    const currentQuestion = store.rawQuestions[store.currentQuestionIndex]
-    if (currentQuestion && store.difficulty === "easy") {
-      console.log(
-        "Full sentence with blanks:",
-        formatSentenceWithBlanks(currentQuestion.answers[0].segments),
-      )
     }
   })
 
@@ -68,7 +33,10 @@ function PracticeContent(props: PracticeContainerProps) {
             question={store.questions[store.currentQuestionIndex]!}
           />
 
-          <Show when={store.difficulty === "easy"} fallback={<AnswerInput />}>
+          <Show
+            when={store.effectiveDifficulty === "easy"}
+            fallback={<AnswerInput />}
+          >
             <FillInBlankInput
               segments={
                 store.rawQuestions[store.currentQuestionIndex]!.answers[0]
@@ -76,6 +44,7 @@ function PracticeContent(props: PracticeContainerProps) {
               }
             />
           </Show>
+
           <ProgressDisplay
             attempted={store.currentQuestionIndex + 1}
             total={store.questions.length}

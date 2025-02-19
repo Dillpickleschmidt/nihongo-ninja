@@ -18,7 +18,8 @@ export type PracticeState = {
   error: string | null
   path: string | null
   showFurigana: boolean
-  difficulty: Difficulty
+  selectedDifficulty: Difficulty
+  effectiveDifficulty: Difficulty
   checkResult?: CheckResult
 }
 

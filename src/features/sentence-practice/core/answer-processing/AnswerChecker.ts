@@ -15,7 +15,6 @@ export class AnswerChecker {
 
   checkAnswer(input: string, question: PracticeQuestion): CheckResult {
     const userText = this.textProcessor.normalize(input)
-    console.log("userText", userText)
 
     const matches = question.answers
       .map((answer) => {
@@ -35,7 +34,7 @@ export class AnswerChecker {
       isCorrect: bestMatch.similarity === 1,
       inputs: [
         {
-          value: input,
+          value: input, // Using original input here, not normalized
           errors: bestMatch.userErrors,
         },
       ],
