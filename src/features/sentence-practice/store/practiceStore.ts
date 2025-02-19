@@ -3,9 +3,11 @@ import { createStore } from "solid-js/store"
 import type { PracticeState } from "./types"
 import { PracticeService } from "../core/PracticeService"
 import type { FileLoader } from "./fileLoader"
+import type { Difficulty } from "./types"
 
 const initialState: PracticeState = {
   questions: [],
+  rawQuestions: [],
   currentQuestionIndex: 0,
   currentInput: "",
   showResult: false,
@@ -13,6 +15,9 @@ const initialState: PracticeState = {
   error: null,
   path: null,
   showFurigana: true,
+  difficulty: "easy",
+  inputs: [],
+  inputResults: [],
 }
 
 export function createPracticeStore(fileLoader: FileLoader) {
@@ -70,6 +75,7 @@ export function createPracticeStore(fileLoader: FileLoader) {
 
         try {
           const rawQuestions = await fileLoader.loadQuestionFile(path)
+          setStore("rawQuestions", rawQuestions)
           const processedQuestions =
             practiceService.prepareQuestions(rawQuestions)
           setStore("questions", processedQuestions)
@@ -79,6 +85,19 @@ export function createPracticeStore(fileLoader: FileLoader) {
           setStore("questions", [])
           setStore("isLoading", false)
         }
+      },
+      setDifficulty: (difficulty: Difficulty) => {
+        setStore("difficulty", difficulty)
+      },
+      updateBlankInput: (index: number, value: string) => {
+        setStore("inputs", (inputs) => {
+          const newInputs = [...inputs]
+          newInputs[index] = value
+          return newInputs
+        })
+      },
+      resetInputs: () => {
+        setStore("inputs", [])
       },
     },
   }

@@ -4,14 +4,20 @@
     "answers": [
       {
         "segments": [
-          "映画[えいが]",
+          {
+            "word": "映画[えいが]",
+            "blank": true
+          },
           "は",
           {
-            "word": "つまらない",
-            "pos": "i-adjective",
-            "polarity": "positive",
-            "tense": "non-past",
-            "politeOnly": true
+            "word": {
+              "word": "つまらない",
+              "pos": "i-adjective",
+              "polarity": "positive",
+              "tense": "non-past",
+              "politeOnly": true
+            },
+            "blank": true
           }
         ]
       }

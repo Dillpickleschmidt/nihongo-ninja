@@ -3,14 +3,36 @@ import {
   extractHiragana,
   convertFuriganaToRubyHtml,
 } from "@/util/vocabDataTransformer"
+import type { ConjugatableSegment, BlankableWord } from "../conjugation/types"
 
 export class TextProcessor {
   normalize(text: string): string {
     return text.trim().normalize("NFKC").replace(/、/g, "")
   }
 
-  extractPlainText(segments: string[]): string {
-    return segments.map(this.removeFurigana).join("").replace(/\s+/g, "") // Remove all spaces after joining
+  isBlankableWord(segment: ConjugatableSegment): segment is BlankableWord {
+    return typeof segment === "object" && "blank" in segment
+  }
+
+  extractPlainText(segments: ConjugatableSegment[]): string {
+    return segments
+      .map((segment) => {
+        if (typeof segment === "string") {
+          return this.removeFurigana(segment)
+        }
+        if (this.isBlankableWord(segment)) {
+          const word = segment.word
+          return this.removeFurigana(
+            typeof word === "string" ? word : word.word,
+          )
+        }
+        if ("word" in segment) {
+          return this.removeFurigana(segment.word)
+        }
+        return ""
+      })
+      .join("")
+      .replace(/\s+/g, "") // Remove all spaces after joining
   }
 
   removeFurigana(segment: string): string {
@@ -23,6 +45,30 @@ export class TextProcessor {
 
   convertToKana(segment: string): string {
     return extractHiragana(segment)
+  }
+
+  getSegmentDisplay(segment: ConjugatableSegment): {
+    text: string
+    isBlank: boolean
+  } {
+    if (typeof segment === "string") {
+      return { text: segment, isBlank: false }
+    }
+
+    if (this.isBlankableWord(segment)) {
+      const word = segment.word
+      const text = typeof word === "string" ? word : word.word
+      return { text, isBlank: segment.blank }
+    }
+
+    return { text: segment.word, isBlank: false }
+  }
+
+  processSegmentsForDisplay(segments: ConjugatableSegment[]): Array<{
+    text: string
+    isBlank: boolean
+  }> {
+    return segments.map((segment) => this.getSegmentDisplay(segment))
   }
 
   calculatePositionMappings(text: string): {

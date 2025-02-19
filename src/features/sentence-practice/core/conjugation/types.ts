@@ -51,8 +51,12 @@ export type ConjugatedWord = {
   shortOnly?: boolean
 }
 
-// Types for questions containing conjugatable words
-export type ConjugatableSegment = string | ConjugatedWord
+export type BlankableWord = {
+  word: string | ConjugatedWord
+  blank: boolean
+}
+
+export type ConjugatableSegment = string | ConjugatedWord | BlankableWord
 
 export type UnprocessedAnswer = {
   segments: ConjugatableSegment[]

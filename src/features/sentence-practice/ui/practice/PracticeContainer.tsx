@@ -5,9 +5,36 @@ import PromptDisplay from "./PromptDisplay"
 import AnswerInput from "./AnswerInput"
 import ProgressDisplay from "./ProgressDisplay"
 import ResultDisplay from "./ResultDisplay"
+import DifficultySelector from "./DifficultySelector"
+import { ConjugatableSegment } from "../../core/conjugation/types"
+import FillInBlankInput from "./FillInBlankInput"
 
 interface PracticeContainerProps {
   path: string
+}
+
+function formatSentenceWithBlanks(segments: ConjugatableSegment[]): string {
+  return segments
+    .map((segment) => {
+      if (typeof segment === "string") {
+        return segment
+      }
+
+      if ("blank" in segment && segment.blank) {
+        if (typeof segment.word === "string") {
+          return `(${segment.word})`.replace(/\[.*?\]/g, "")
+        } else {
+          return `(${segment.word.word})`.replace(/\[.*?\]/g, "")
+        }
+      }
+
+      if ("word" in segment) {
+        return segment.word
+      }
+
+      return ""
+    })
+    .join("")
 }
 
 function PracticeContent(props: PracticeContainerProps) {
@@ -19,8 +46,25 @@ function PracticeContent(props: PracticeContainerProps) {
     }
   })
 
+  createEffect(() => {
+    const currentQuestion = store.questions[store.currentQuestionIndex]
+    if (currentQuestion && store.difficulty === "easy") {
+      console.log(
+        "Full sentence with blanks:",
+        formatSentenceWithBlanks(currentQuestion.answers[0].segments),
+      )
+    }
+  })
+
   return (
     <div class="mx-auto max-w-2xl space-y-4 px-4 pb-32 pt-12 lg:pt-24">
+      <DifficultySelector
+        class="flex justify-end"
+        onDifficultyChange={(difficulty) => {
+          // Handle difficulty change when needed
+          console.log("Difficulty changed to:", difficulty)
+        }}
+      />
       <Show when={!store.isLoading} fallback={<div>Loading questions...</div>}>
         <Show
           when={store.questions[store.currentQuestionIndex]}
@@ -29,7 +73,19 @@ function PracticeContent(props: PracticeContainerProps) {
           <PromptDisplay
             question={store.questions[store.currentQuestionIndex]!}
           />
-          <AnswerInput />
+
+          <Show when={store.difficulty === "easy"} fallback={<AnswerInput />}>
+            <FillInBlankInput
+              segments={
+                store.rawQuestions[store.currentQuestionIndex]!.answers[0]
+                  .segments
+              }
+              inputValues={store.inputs}
+              onInputChange={(index, value) =>
+                actions.updateBlankInput(index, value)
+              }
+            />
+          </Show>
           <ProgressDisplay
             attempted={store.currentQuestionIndex + 1}
             total={store.questions.length}

@@ -1,6 +1,6 @@
 // store/PracticeContext.tsx
 import { createContext, useContext, JSX } from "solid-js"
-import type { PracticeState } from "./types"
+import type { Difficulty, PracticeState } from "./types"
 import type { SetStoreFunction } from "solid-js/store"
 import type { CheckResult } from "../core/answer-processing/types"
 import { createStore } from "./createStore"
@@ -15,6 +15,9 @@ interface PracticeContextValue {
     toggleFurigana: () => void
     updateInput: (value: string) => void
     loadQuestions: (path: string) => Promise<void>
+    setDifficulty: (difficulty: Difficulty) => void
+    updateBlankInput: (index: number, value: string) => void
+    resetInputs: () => void
   }
 }
 

@@ -2,6 +2,7 @@
 import { AnswerChecker } from "./answer-processing/AnswerChecker"
 import { VariationGenerator } from "./answer-processing/VariationGenerator"
 import { ConjugationEngine } from "./conjugation/ConjugationEngine"
+import { TextProcessor } from "./text/TextProcessor"
 import type {
   PracticeQuestion,
   CheckResult,
@@ -11,23 +12,24 @@ import type {
   UnprocessedQuestion,
   ConjugatableSegment,
   ConjugatedWord,
+  BlankableWord,
 } from "./conjugation/types"
 
 export class PracticeService {
   private answerChecker: AnswerChecker
   private variationGenerator: VariationGenerator
   private conjugationEngine: ConjugationEngine
+  private textProcessor: TextProcessor
 
   constructor() {
     this.answerChecker = new AnswerChecker()
     this.variationGenerator = new VariationGenerator()
     this.conjugationEngine = new ConjugationEngine()
+    this.textProcessor = new TextProcessor()
   }
 
   /**
    * Converts unprocessed questions with conjugatable segments into processed questions with string segments
-   * @param questions Array of questions with potentially conjugatable segments
-   * @returns Processed questions with all conjugations and variations resolved
    */
   prepareQuestions(questions: UnprocessedQuestion[]): PracticeQuestion[] {
     return questions.map((question) => ({
@@ -37,19 +39,47 @@ export class PracticeService {
   }
 
   /**
-   * Processes unprocessed answers into fully processed answers with all variations
-   * @param unprocessedAnswers Array of answers containing conjugatable segments
-   * @returns Array of processed answers with all conjugations and variations
+   * Processes raw segments into simple string arrays by handling both blank words and conjugatable words
    */
+  private prepareSegments(
+    segments: ConjugatableSegment[],
+    isPolite: boolean,
+  ): string[][] {
+    return segments.map((segment) => {
+      // First handle blank words
+      const transformedSegment = this.transformBlankWords(segment)
+      // Then handle any conjugatable words
+      return this.transformConjugatableWords(transformedSegment, isPolite)
+    })
+  }
+
+  private transformBlankWords(
+    segment: ConjugatableSegment,
+  ): string | ConjugatedWord {
+    if (this.isBlankableWord(segment)) {
+      return segment.word
+    }
+    return segment
+  }
+
+  private transformConjugatableWords(
+    segment: string | ConjugatedWord,
+    isPolite: boolean,
+  ): string[] {
+    if (this.isConjugatedWord(segment)) {
+      return this.conjugationEngine
+        .conjugateSegments([segment], isPolite)
+        .flat()
+    }
+    return [segment as string]
+  }
+
   private processAnswers(
     unprocessedAnswers: UnprocessedQuestion["answers"],
     english: string,
   ): Answer[] {
     return unprocessedAnswers.flatMap((answer) => {
-      // First convert unprocessed segments to string[] by handling conjugations
       const processedAnswers = this.processAnswer(answer)
-
-      // Then generate all variations (kana, pronouns, etc.)
       return this.variationGenerator.generateVariations({
         answers: processedAnswers,
         english,
@@ -57,31 +87,15 @@ export class PracticeService {
     })
   }
 
-  /**
-   * Processes a single unprocessed answer into an array of processed answers
-   * handling conjugations and generating all valid combinations
-   * @param answer Unprocessed answer containing conjugatable segments
-   * @returns Array of processed answers with all conjugations resolved
-   */
   private processAnswer(
     answer: UnprocessedQuestion["answers"][number],
   ): Answer[] {
-    // Generate both polite and casual forms unless constrained
     const politenessVariations = [true, false]
 
     return politenessVariations.flatMap((isPolite) => {
-      const processedSegments = answer.segments.map((segment) => {
-        if (this.isConjugatedWord(segment)) {
-          // Need to flatten the conjugated results into a single string[]
-          return this.conjugationEngine
-            .conjugateSegments([segment], isPolite)
-            .flat() // Add .flat() here
-        }
-        return [segment]
-      })
+      const preparedSegments = this.prepareSegments(answer.segments, isPolite)
 
-      // Create all possible combinations of conjugated segments
-      return this.generateCombinations(processedSegments).map(
+      return this.generateCombinations(preparedSegments).map(
         (combinedSegments) => ({
           segments: combinedSegments,
           notes: answer.notes,
@@ -92,23 +106,18 @@ export class PracticeService {
     })
   }
 
-  /**
-   * Type guard to check if a segment is a ConjugatedWord
-   */
+  private isBlankableWord(
+    segment: ConjugatableSegment,
+  ): segment is BlankableWord {
+    return typeof segment === "object" && "blank" in segment
+  }
+
   private isConjugatedWord(
     segment: ConjugatableSegment,
   ): segment is ConjugatedWord {
     return typeof segment !== "string" && "word" in segment && "pos" in segment
   }
 
-  /**
-   * Generates all possible combinations of segments when some segments have multiple variations
-   * @param segmentArrays Array where each element is an array of possible variations for that segment position
-   * @returns Array of all possible combinations of segments
-   * @example
-   * Input: [["猫"], ["が", "は"], ["好き"]]
-   * Output: [["猫", "が", "好き"], ["猫", "は", "好き"]]
-   */
   private generateCombinations(segmentArrays: string[][]): string[][] {
     if (segmentArrays.length === 0) return [[]]
     if (segmentArrays.length === 1) return segmentArrays[0].map((seg) => [seg])
@@ -117,9 +126,7 @@ export class PracticeService {
     const remainingCombinations = this.generateCombinations(restSegmentArrays)
 
     const result: string[][] = []
-    // For each possible variation of the current segment
     for (const segment of firstSegmentArray) {
-      // Combine it with each possible combination of the remaining segments
       for (const combination of remainingCombinations) {
         result.push([segment, ...combination])
       }
@@ -128,9 +135,6 @@ export class PracticeService {
     return result
   }
 
-  /**
-   * Checks a user's answer against a practice question
-   */
   checkAnswer(input: string, question: PracticeQuestion): CheckResult {
     return this.answerChecker.checkAnswer(input, question)
   }
