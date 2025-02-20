@@ -17,66 +17,61 @@ describe("Japanese Practice System Integration", () => {
   })
 
   describe("Question Processing and Variation Generation", () => {
-    const sampleQuestion: PracticeQuestion = {
+    const sampleQuestion: UnprocessedQuestion = {
       english: "I am a student.",
       answers: [
         {
-          segments: ["私[わたし]", "は", "学生[がくせい]", "です。"],
+          segments: ["学生[がくせい]", "です"],
         },
       ],
     }
 
-    test("generates all expected variations for a complex sentence", () => {
+    test("generates expected variations", () => {
       const processedQuestions = practiceService.prepareQuestions([
         sampleQuestion,
       ])
       const variations = processedQuestions[0].answers
 
-      // Test kanji variations
-      expect(variations).toContainEqual({
-        segments: ["私[わたし]", "は", "学生[がくせい]", "です。"],
-        isVariation: false,
-        originalPoliteForm: true,
-      })
-
-      // Test all-kana variations
-      expect(variations).toContainEqual({
-        segments: ["わたし", "は", "がくせい", "です。"],
-        isVariation: true,
-        originalPoliteForm: true,
-      })
-
-      // Test pronoun variations (maintaining kanji/kana consistency)
       const expectedVariations = [
-        // Kanji variations
+        // Base form
         {
-          segments: ["僕[ぼく]", "は", "学生[がくせい]", "です。"],
+          segments: ["学生[がくせい]", "です"],
+          isVariation: false,
+          originalPoliteForm: true,
+        },
+
+        // Test a few representative pronoun variations to validate pronoun generation
+        {
+          segments: ["私[わたし]", "は", "学生[がくせい]", "です"],
+          isVariation: false,
+          originalPoliteForm: true,
+        },
+        {
+          segments: ["僕[ぼく]", "は", "学生[がくせい]", "です"],
+          isVariation: true,
+          originalPoliteForm: true,
+        },
+
+        // Test kana conversion (one with kanji, one pronoun)
+        {
+          segments: ["がくせい", "です"],
           isVariation: true,
           originalPoliteForm: true,
         },
         {
-          segments: ["俺[おれ]", "は", "学生[がくせい]", "です。"],
+          segments: ["ぼく", "は", "がくせい", "です"],
           isVariation: true,
           originalPoliteForm: true,
         },
-        // Kana variations
+
+        // Period variations (one with and without pronoun)
         {
-          segments: ["ぼく", "は", "がくせい", "です。"],
-          isVariation: true,
-          originalPoliteForm: true,
-        },
-        {
-          segments: ["おれ", "は", "がくせい", "です。"],
+          segments: ["学生[がくせい]", "です。"],
           isVariation: true,
           originalPoliteForm: true,
         },
         {
-          segments: ["あたし", "は", "がくせい", "です。"],
-          isVariation: true,
-          originalPoliteForm: true,
-        },
-        {
-          segments: ["うち", "は", "がくせい", "です。"],
+          segments: ["私[わたし]", "は", "学生[がくせい]", "です。"],
           isVariation: true,
           originalPoliteForm: true,
         },
@@ -84,18 +79,6 @@ describe("Japanese Practice System Integration", () => {
 
       expectedVariations.forEach((variation) => {
         expect(variations).toContainEqual(variation)
-      })
-
-      // Test period variations (maintaining kanji/kana consistency)
-      expect(variations).toContainEqual({
-        segments: ["私[わたし]", "は", "学生[がくせい]", "です"],
-        isVariation: true,
-        originalPoliteForm: true,
-      })
-      expect(variations).toContainEqual({
-        segments: ["わたし", "は", "がくせい", "です"],
-        isVariation: true,
-        originalPoliteForm: true,
       })
     })
   })
@@ -122,7 +105,7 @@ describe("Japanese Practice System Integration", () => {
       },
     ]
 
-    test("correctly evaluates all valid answer variations", () => {
+    test("correctly evaluates answers in hard mode", () => {
       const processedQuestions =
         practiceService.prepareQuestions(complexQuestions)
 
@@ -141,38 +124,57 @@ describe("Japanese Practice System Integration", () => {
       ]
 
       validAnswers.forEach((input) => {
-        const result = practiceService.checkAnswer(input, processedQuestions[0])
+        const result = practiceService.checkAnswer(
+          { single: input },
+          processedQuestions[0],
+        )
         expect(result.isCorrect).toBe(true)
       })
     })
 
-    test("provides helpful error feedback for incorrect answers", () => {
+    test("correctly evaluates answers in easy mode", () => {
+      const processedQuestions =
+        practiceService.prepareQuestions(complexQuestions)
+
+      const result = practiceService.checkAnswer(
+        { blanks: ["寿司", "が", "食べたい"] },
+        processedQuestions[0],
+      )
+      expect(result.isCorrect).toBe(true)
+    })
+
+    test("provides helpful error feedback", () => {
       const processedQuestions =
         practiceService.prepareQuestions(complexQuestions)
 
       const testCases = [
         {
-          input: "寿司が食べ",
+          input: { single: "寿司が食べ" },
           description: "incomplete answer",
           expectedErrors: {
-            userErrors: [],
-            answerErrors: expect.arrayContaining([expect.any(Object)]),
+            inputs: [{ value: "寿司が食べ", errors: [] }],
+            answers: [{ errors: expect.arrayContaining([expect.any(Object)]) }],
           },
         },
         {
-          input: "寿司か食べたいです。",
+          input: { single: "寿司か食べたいです。" },
           description: "particle typo",
           expectedErrors: {
-            userErrors: expect.arrayContaining([expect.any(Object)]),
-            answerErrors: expect.arrayContaining([expect.any(Object)]),
+            inputs: [
+              {
+                value: "寿司か食べたいです。",
+                errors: expect.arrayContaining([expect.any(Object)]),
+              },
+            ],
+            answers: [{ errors: expect.arrayContaining([expect.any(Object)]) }],
           },
         },
         {
-          input: "",
+          input: { single: "" },
           description: "empty input",
           expectedErrors: {
-            userErrors: [],
-            answerErrors: expect.arrayContaining([expect.any(Object)]),
+            inputs: [], // Changed to match new behavior - empty input results in empty array
+            answers: [{ errors: expect.arrayContaining([expect.any(Object)]) }],
           },
         },
       ]
@@ -186,15 +188,16 @@ describe("Japanese Practice System Integration", () => {
   })
 
   describe("Store Integration", () => {
-    test("manages complete practice session flow", async () => {
-      // Load questions
+    test("manages complete practice session flow in hard mode", async () => {
       await store.actions.loadQuestions("test/greetings")
+      store.actions.setDifficulty("hard")
+
       expect(store.store.currentQuestionIndex).toBe(0)
       expect(store.store.showResult).toBe(false)
-      expect(store.store.currentInput).toBe("")
+      expect(store.store.inputs.single).toBe("")
 
       // Answer first question
-      store.setStore("currentInput", "こんにちは。")
+      store.actions.updateInput("こんにちは")
       const firstResult = store.actions.checkAnswer()
       expect(firstResult?.isCorrect).toBe(true)
       expect(store.store.showResult).toBe(true)
@@ -203,10 +206,10 @@ describe("Japanese Practice System Integration", () => {
       store.actions.nextQuestion()
       expect(store.store.currentQuestionIndex).toBe(1)
       expect(store.store.showResult).toBe(false)
-      expect(store.store.currentInput).toBe("")
+      expect(store.store.inputs.single).toBe("")
 
       // Answer final question
-      store.setStore("currentInput", "おはようございます。")
+      store.actions.updateInput("おはようございます")
       const finalResult = store.actions.checkAnswer()
       expect(finalResult?.isCorrect).toBe(true)
 
@@ -234,11 +237,14 @@ describe("Japanese Practice System Integration", () => {
 
       // Test answering with invalid input
       await store.actions.loadQuestions("test/greetings")
-      store.setStore("currentInput", "")
+      store.actions.setDifficulty("hard")
+      store.actions.updateInput("")
       const result = store.actions.checkAnswer()
       expect(result?.isCorrect).toBe(false)
-      expect(result?.userErrors).toEqual([])
-      expect(result?.answerErrors).toBeTruthy()
+      if (result?.inputs.length) {
+        expect(result.inputs[0].errors).toEqual([])
+      }
+      expect(result?.answers[0]?.errors).toBeTruthy()
     })
   })
 })

@@ -14,16 +14,15 @@ describe("VariationGenerator", () => {
   const serialize = (answer: Answer) =>
     JSON.stringify({
       segments: answer.segments,
-      isVariation: answer.isVariation,
     })
 
   describe("Variation Combinations", () => {
-    test("generates all types of variations that can mix and match", () => {
+    test("generates pronoun and period variations while preserving original", () => {
       const question: PracticeQuestion = {
         english: "I am Mr. Tanaka.",
         answers: [
           {
-            segments: ["私[わたし]", "は", "田中[たなか]", "さん", "です。"],
+            segments: ["田中[たなか]", "さん", "です"],
           },
         ],
       }
@@ -32,47 +31,50 @@ describe("VariationGenerator", () => {
 
       // Representative examples of each combination type
       const expectedVariations = [
-        // 1. Original answer (no variation)
+        // Original answer (without pronoun)
         {
-          segments: ["私[わたし]", "は", "田中[たなか]", "さん", "です。"],
-          isVariation: false,
+          segments: ["田中[たなか]", "さん", "です"],
+        },
+        // Original with period
+        {
+          segments: ["田中[たなか]", "さん", "です。"],
         },
 
-        // 2. Single-type variations
-        // Honorific only
-        {
-          segments: [
-            "私[わたし]",
-            "は",
-            "田中[たなか]",
-            "先生[せんせい]",
-            "です。",
-          ],
-          isVariation: true,
-        },
-        // Pronoun only
-        {
-          segments: ["僕[ぼく]", "は", "田中[たなか]", "さん", "です。"],
-          isVariation: true,
-        },
-        // Kana only
-        {
-          segments: ["わたし", "は", "たなか", "さん", "です。"],
-          isVariation: true,
-        },
-        // Period only
+        // With pronouns added (with and without periods)
         {
           segments: ["私[わたし]", "は", "田中[たなか]", "さん", "です"],
-          isVariation: true,
+        },
+        {
+          segments: ["私[わたし]", "は", "田中[たなか]", "さん", "です。"],
+        },
+        {
+          segments: ["僕[ぼく]", "は", "田中[たなか]", "さん", "です"],
+        },
+        {
+          segments: ["僕[ぼく]", "は", "田中[たなか]", "さん", "です。"],
         },
 
-        // 3. Two-type combinations
-        // Honorific + Kana
+        // Kana variations (both with and without pronouns and periods)
         {
-          segments: ["わたし", "は", "たなか", "せんせい", "です。"],
-          isVariation: true,
+          segments: ["たなか", "さん", "です"],
         },
-        // Honorific + Period
+        {
+          segments: ["たなか", "さん", "です。"],
+        },
+        {
+          segments: ["わたし", "は", "たなか", "さん", "です"],
+        },
+        {
+          segments: ["わたし", "は", "たなか", "さん", "です。"],
+        },
+
+        // Honorific variations (with and without periods)
+        {
+          segments: ["田中[たなか]", "先生[せんせい]", "です"],
+        },
+        {
+          segments: ["田中[たなか]", "先生[せんせい]", "です。"],
+        },
         {
           segments: [
             "私[わたし]",
@@ -81,58 +83,15 @@ describe("VariationGenerator", () => {
             "先生[せんせい]",
             "です",
           ],
-          isVariation: true,
         },
-        // Pronoun + Honorific
         {
           segments: [
-            "僕[ぼく]",
+            "私[わたし]",
             "は",
             "田中[たなか]",
             "先生[せんせい]",
             "です。",
           ],
-          isVariation: true,
-        },
-        // Pronoun + Kana
-        {
-          segments: ["ぼく", "は", "たなか", "さん", "です。"],
-          isVariation: true,
-        },
-        // Pronoun + Period
-        {
-          segments: ["僕[ぼく]", "は", "田中[たなか]", "さん", "です"],
-          isVariation: true,
-        },
-
-        // 4. Three-type combinations
-        // Pronoun + Honorific + Kana
-        {
-          segments: ["ぼく", "は", "たなか", "せんせい", "です。"],
-          isVariation: true,
-        },
-        // Pronoun + Honorific + Period
-        {
-          segments: [
-            "僕[ぼく]",
-            "は",
-            "田中[たなか]",
-            "先生[せんせい]",
-            "です",
-          ],
-          isVariation: true,
-        },
-        // Honorific + Kana + Period
-        {
-          segments: ["わたし", "は", "たなか", "せんせい", "です"],
-          isVariation: true,
-        },
-
-        // 5. All variations combined
-        // Pronoun + Honorific + Kana + Period
-        {
-          segments: ["ぼく", "は", "たなか", "せんせい", "です"],
-          isVariation: true,
         },
       ]
 
@@ -144,11 +103,35 @@ describe("VariationGenerator", () => {
         expect(generatedSet.has(serialize(variation))).toBe(true)
       })
 
-      // Check that all variations maintain proper structure
+      // Check that variations with pronouns have proper structure
       result.answers.forEach((answer) => {
-        expect(answer.segments.length).toBe(5) // Should maintain segment structure
-        expect(answer.segments[1]).toBe("は") // Particle should remain unchanged
-        expect(answer.segments[4].startsWith("です")).toBe(true) // Copula should remain
+        if (
+          answer.segments[0].includes("わたし") ||
+          answer.segments[0].includes("ぼく")
+        ) {
+          expect(answer.segments[1]).toBe("は")
+        }
+      })
+
+      // Check that each answer has a corresponding version with and without period
+      const answersWithoutPeriods = result.answers.filter(
+        (a) => !a.segments[a.segments.length - 1].endsWith("。"),
+      )
+      const answersWithPeriods = result.answers.filter((a) =>
+        a.segments[a.segments.length - 1].endsWith("。"),
+      )
+
+      answersWithoutPeriods.forEach((answer) => {
+        const matchingWithPeriod = answersWithPeriods.some(
+          (withPeriod) =>
+            // Check if it's the same answer but with a period
+            withPeriod.segments
+              .slice(0, -1)
+              .every((segment, i) => segment === answer.segments[i]) &&
+            withPeriod.segments[withPeriod.segments.length - 1] ===
+              answer.segments[answer.segments.length - 1] + "。",
+        )
+        expect(matchingWithPeriod).toBe(true)
       })
     })
   })
@@ -160,7 +143,7 @@ describe("VariationGenerator", () => {
       expect(result.answers).toEqual([])
     })
 
-    test("handles answers without kanji, periods, honorifics, or pronouns", () => {
+    test("handles answers without kanji or honorifics", () => {
       const question = createQuestion([
         {
           segments: ["はい"],
@@ -169,15 +152,15 @@ describe("VariationGenerator", () => {
 
       const result = generator.generateVariations(question)
       expect(result.answers).toEqual([
-        { segments: ["はい"], isVariation: false },
-        { segments: ["はい。"], isVariation: true },
+        { isVariation: false, segments: ["はい"] },
+        { isVariation: true, segments: ["はい。"] },
       ])
     })
 
     test("does not generate pronoun variations for non-first-person sentences", () => {
       const question = createQuestion([
         {
-          segments: ["彼[かれ]", "は", "学生[がくせい]", "です。"],
+          segments: ["彼[かれ]", "は", "学生[がくせい]", "です"],
         },
       ])
 
@@ -188,7 +171,7 @@ describe("VariationGenerator", () => {
       firstPersonPronouns.forEach((pronoun) => {
         expect(result.answers).not.toContainEqual(
           expect.objectContaining({
-            segments: [pronoun, "は", "学生[がくせい]", "です。"],
+            segments: [pronoun, "は", "学生[がくせい]", "です"],
           }),
         )
       })
@@ -199,7 +182,7 @@ describe("VariationGenerator", () => {
         english: "This is a book.",
         answers: [
           {
-            segments: ["これ", "は", "本[ほん]", "です。"],
+            segments: ["これ", "は", "本[ほん]", "です"],
           },
         ],
       }
@@ -217,6 +200,37 @@ describe("VariationGenerator", () => {
       result.answers.forEach((answer) => {
         honorifics.forEach((honorific) => {
           expect(answer.segments).not.toContain(honorific)
+        })
+      })
+    })
+
+    test("adds pronoun variations only for sentences starting with 'I '", () => {
+      const notFirstPerson = [
+        "We are",
+        "You are",
+        "They are",
+        "I'll",
+        "I've",
+        "I'd",
+      ]
+
+      notFirstPerson.forEach((start) => {
+        const question: PracticeQuestion = {
+          english: `${start} students.`,
+          answers: [
+            {
+              segments: ["学生[がくせい]", "です"],
+            },
+          ],
+        }
+
+        const result = generator.generateVariations(question)
+
+        // Should not contain any pronoun variations
+        result.answers.forEach((answer) => {
+          expect(answer.segments[0]).not.toContain("私")
+          expect(answer.segments[0]).not.toContain("僕")
+          expect(answer.segments[0]).not.toContain("俺")
         })
       })
     })

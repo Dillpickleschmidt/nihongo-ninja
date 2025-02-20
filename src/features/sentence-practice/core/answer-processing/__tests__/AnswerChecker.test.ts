@@ -1,8 +1,8 @@
 // core/answer-processing/__tests__/AnswerChecker.test.ts
 import { AnswerChecker } from "../AnswerChecker"
-import type { PracticeQuestion, CheckResult, AnswerMatch } from "../types"
+import type { PracticeQuestion, CheckResult } from "../types"
 import { AnswerMatcher } from "../AnswerMatcher"
-import { TextProcessor as JapaneseTextProcessor } from "../../text/TextProcessor"
+import { TextProcessor } from "../../text/TextProcessor"
 
 jest.mock("../AnswerMatcher")
 jest.mock("../../text/TextProcessor")
@@ -10,12 +10,11 @@ jest.mock("../../text/TextProcessor")
 describe("AnswerChecker", () => {
   let checker: AnswerChecker
   let mockMatcher: jest.Mocked<AnswerMatcher>
-  let mockTextProcessor: jest.Mocked<JapaneseTextProcessor>
+  let mockTextProcessor: jest.Mocked<TextProcessor>
 
   beforeEach(() => {
     mockMatcher = new AnswerMatcher() as jest.Mocked<AnswerMatcher>
-    mockTextProcessor =
-      new JapaneseTextProcessor() as jest.Mocked<JapaneseTextProcessor>
+    mockTextProcessor = new TextProcessor() as jest.Mocked<TextProcessor>
     checker = new AnswerChecker()
     ;(checker as any).matcher = mockMatcher
     ;(checker as any).textProcessor = mockTextProcessor
@@ -61,7 +60,13 @@ describe("AnswerChecker", () => {
         }) => {
           const question: PracticeQuestion = {
             english: "Test question",
-            answers: [{ segments: ["こんにちは"] }],
+            answers: [
+              {
+                segments: ["こんにちは"],
+                isVariation: false,
+                originalPoliteForm: true,
+              },
+            ],
           }
 
           mockTextProcessor.normalize.mockReturnValue(input)
@@ -75,8 +80,9 @@ describe("AnswerChecker", () => {
           const result = checker.checkAnswer(input, question)
 
           expect(result.isCorrect).toBe(expectedIsCorrect)
-          expect(result.userErrors).toEqual(userErrors)
-          expect(result.answerErrors).toEqual(answerErrors)
+          expect(result.inputs[0].errors).toEqual(userErrors)
+          expect(result.answers[0].errors).toEqual(answerErrors)
+          expect(result.allMatches[0].similarity).toBe(similarity)
         },
       )
     })
@@ -87,12 +93,23 @@ describe("AnswerChecker", () => {
       const input = "ねこ"
       const question: PracticeQuestion = {
         english: "What is cat in Japanese?",
-        answers: [{ segments: ["猫[ねこ]"] }, { segments: ["ねこ"] }],
+        answers: [
+          {
+            segments: ["猫[ねこ]"],
+            isVariation: false,
+            originalPoliteForm: true,
+          },
+          {
+            segments: ["ねこ"],
+            isVariation: true,
+            originalPoliteForm: true,
+          },
+        ],
       }
 
       mockTextProcessor.normalize.mockReturnValue("ねこ")
       mockTextProcessor.extractPlainText
-        .mockReturnValueOnce("猫[ねこ]")
+        .mockReturnValueOnce("猫")
         .mockReturnValueOnce("ねこ")
 
       mockMatcher.match
@@ -110,7 +127,8 @@ describe("AnswerChecker", () => {
       const result = checker.checkAnswer(input, question)
 
       expect(result.isCorrect).toBe(true)
-      expect(result.bestMatch).toEqual(question.answers[1])
+      expect(result.inputs[0].value).toBe(input)
+      expect(result.answers[0].segments).toEqual(question.answers[1].segments)
       expect(result.allMatches).toHaveLength(2)
     })
   })
@@ -119,7 +137,13 @@ describe("AnswerChecker", () => {
     test("handles empty input", () => {
       const question: PracticeQuestion = {
         english: "Test question",
-        answers: [{ segments: ["テスト"] }],
+        answers: [
+          {
+            segments: ["テスト"],
+            isVariation: false,
+            originalPoliteForm: true,
+          },
+        ],
       }
 
       mockTextProcessor.normalize.mockReturnValue("")
@@ -133,8 +157,9 @@ describe("AnswerChecker", () => {
       const result = checker.checkAnswer("", question)
 
       expect(result.isCorrect).toBe(false)
-      expect(result.userErrors).toEqual([])
-      expect(result.answerErrors).toEqual([{ start: 0, end: 3 }])
+      expect(result.inputs[0].value).toBe("")
+      expect(result.inputs[0].errors).toEqual([])
+      expect(result.answers[0].errors).toEqual([{ start: 0, end: 3 }])
     })
   })
 })
