@@ -1,19 +1,19 @@
 // store/fileLoader.ts
-import type { PracticeQuestion } from "../core/answer-processing/types"
+import type { UnprocessedQuestion } from "../core/conjugation/types"
 
 export interface FileLoader {
-  loadQuestionFile: (path: string) => Promise<PracticeQuestion[]>
+  loadQuestionFile: (path: string) => Promise<UnprocessedQuestion[]>
 }
 
 // Test implementation
 export class TestFileLoader implements FileLoader {
-  private testData: Record<string, PracticeQuestion[]>
+  private testData: Record<string, UnprocessedQuestion[]>
 
-  constructor(testData: Record<string, PracticeQuestion[]> = {}) {
+  constructor(testData: Record<string, UnprocessedQuestion[]> = {}) {
     this.testData = testData
   }
 
-  async loadQuestionFile(path: string): Promise<PracticeQuestion[]> {
+  async loadQuestionFile(path: string): Promise<UnprocessedQuestion[]> {
     if (path === "non/existent/path") {
       throw new Error("File not found")
     }
@@ -26,11 +26,27 @@ export class TestFileLoader implements FileLoader {
     return [
       {
         english: "Hello.",
-        answers: [{ segments: ["こんにちは。"] }],
+        answers: [
+          {
+            segments: [{ word: "こんにちは", blank: true }],
+          },
+        ],
       },
       {
         english: "Good morning.",
-        answers: [{ segments: ["おはよう", "ございます。"] }],
+        answers: [
+          {
+            segments: [{ word: "おはよう", blank: true }, "ございます"],
+          },
+        ],
+      },
+      {
+        english: "Good morning.",
+        answers: [
+          {
+            segments: ["おはよう", "ございます"],
+          },
+        ],
       },
     ]
   }

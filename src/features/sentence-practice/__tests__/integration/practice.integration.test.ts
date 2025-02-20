@@ -208,14 +208,38 @@ describe("Japanese Practice System Integration", () => {
       expect(store.store.showResult).toBe(false)
       expect(store.store.inputs.single).toBe("")
 
+      // Answer second question
+      store.actions.updateInput("おはようございます")
+      let result = store.actions.checkAnswer()
+      expect(result?.isCorrect).toBe(true)
+
+      // Move to last question
+      store.actions.nextQuestion()
+      expect(store.store.currentQuestionIndex).toBe(2)
+      expect(store.store.showResult).toBe(false)
+      expect(store.store.inputs.single).toBe("")
+
       // Answer final question
       store.actions.updateInput("おはようございます")
-      const finalResult = store.actions.checkAnswer()
-      expect(finalResult?.isCorrect).toBe(true)
+      result = store.actions.checkAnswer()
+      expect(result?.isCorrect).toBe(true)
 
       // Verify session completion behavior
       store.actions.nextQuestion()
-      expect(store.store.currentQuestionIndex).toBe(1) // Should stay on last question
+      expect(store.store.currentQuestionIndex).toBe(2) // Should stay on last question (index 2)
+    })
+
+    test("handles difficulty changes correctly", async () => {
+      await store.actions.loadQuestions("test/greetings")
+
+      store.actions.setDifficulty("hard")
+      expect(store.store.selectedDifficulty).toBe("hard")
+      expect(store.store.effectiveDifficulty).toBe("hard")
+      expect(store.store.inputs).toEqual({ single: "" })
+
+      store.actions.setDifficulty("easy")
+      expect(store.store.selectedDifficulty).toBe("easy")
+      expect(store.store.inputs).toEqual({ blanks: [] })
     })
 
     test("handles furigana visibility toggle", async () => {
