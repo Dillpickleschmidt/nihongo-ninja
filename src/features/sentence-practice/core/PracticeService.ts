@@ -137,6 +137,10 @@ export class PracticeService {
     inputs: AnswerInputs,
     question: PracticeQuestion,
   ): AnswerInputs {
+    // If we have a single input (hard mode), return it as-is
+    if (inputs.single !== undefined) return inputs
+
+    // Only process blank inputs for easy mode
     const blankInputs = inputs.blanks ?? []
     const fullInput = question.answers[0].segments.map((segment, index) =>
       blankInputs[index] !== undefined
@@ -153,7 +157,7 @@ export class PracticeService {
 
     const blankInputs = inputs.blanks ?? []
     const result = this.answerChecker.checkAnswer(
-      inputs.blanks?.join("") ?? "",
+      blankInputs.join("") ?? "",
       question,
     )
 
@@ -165,6 +169,7 @@ export class PracticeService {
         errors: [], // TODO: Split result.inputs[0].errors by position
       })),
       answers: result.answers,
+      allMatches: result.allMatches,
     }
   }
 }

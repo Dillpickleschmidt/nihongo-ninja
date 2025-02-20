@@ -1,13 +1,13 @@
 // ui/practice/AlternativeAnswers.tsx
 import { For, Show } from "solid-js"
 import FuriganaText from "../common/FuriganaText"
-import type { CheckResult } from "../../core/answer-processing/types"
+import type { AnswerMatch } from "../../core/answer-processing/types"
 import { TextProcessor } from "../../core/text/TextProcessor"
 
 const textProcessor = new TextProcessor()
 
 interface AlternativeAnswersProps {
-  allMatches: CheckResult["allMatches"] //  All possible matches for the answer
+  allMatches: AnswerMatch[] //              All possible matches for the answer
   currentAnswerIndex: number //             Index of the currently displayed best match
   showFurigana: boolean //                  Whether to show furigana readings
   bestMatchPoliteForm: boolean //           Whether to show polite or casual form alternatives

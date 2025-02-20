@@ -69,7 +69,7 @@ export function createPracticeStore(fileLoader: FileLoader) {
         ? {
             blanks: prepareBlankInputs(currentRawQuestion, store.inputs.blanks),
           }
-        : store.inputs
+        : { single: store.inputs.single }
 
     const answers = practiceService.fillBlankInputs(inputs, currentQuestion)
     const result = practiceService.checkAnswer(answers, currentQuestion)

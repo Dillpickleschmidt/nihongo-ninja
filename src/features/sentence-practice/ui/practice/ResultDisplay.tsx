@@ -3,6 +3,7 @@ import { For, Show } from "solid-js"
 import { usePracticeStore } from "../../store/PracticeContext"
 import FuriganaText from "../common/FuriganaText"
 import type { CheckResult } from "../../core/answer-processing/types"
+import AlternativeAnswers from "./AlternativeAnswers"
 
 export default function ResultDisplay() {
   const { store } = usePracticeStore()
@@ -68,20 +69,20 @@ export default function ResultDisplay() {
               </div>
             </div>
           </Show>
-        </div>
-      )}
 
-      {/* Alternative Answers Section */}
-      {/* <Show when={checkResult.allMatches?.length > 1}>
+          {/* Alternative Answers Section */}
+          <Show when={checkResult.allMatches?.length > 1}>
             <AlternativeAnswers
               allMatches={checkResult.allMatches}
               currentAnswerIndex={0}
               showFurigana={store.showFurigana}
               bestMatchPoliteForm={
-                checkResult.bestMatch?.originalPoliteForm ?? false
+                checkResult.allMatches[0]?.answer.originalPoliteForm ?? false
               }
             />
-          </Show> */}
+          </Show>
+        </div>
+      )}
     </Show>
   )
 }

@@ -3,7 +3,6 @@ import type { CheckResult, PracticeQuestion } from "./types"
 import { AnswerMatcher } from "./AnswerMatcher"
 import { TextProcessor as JapaneseTextProcessor } from "../text/TextProcessor"
 
-// core/answer-processing/AnswerChecker.ts
 export class AnswerChecker {
   private matcher: AnswerMatcher
   private textProcessor: JapaneseTextProcessor
@@ -23,7 +22,9 @@ export class AnswerChecker {
 
         return {
           answer,
-          ...matchResult,
+          similarity: matchResult.similarity,
+          userErrors: matchResult.userErrors,
+          answerErrors: matchResult.answerErrors,
         }
       })
       .sort((a, b) => b.similarity - a.similarity)
@@ -44,6 +45,7 @@ export class AnswerChecker {
           errors: bestMatch.answerErrors,
         },
       ],
+      allMatches: matches,
     }
   }
 }

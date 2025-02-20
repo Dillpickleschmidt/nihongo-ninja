@@ -17,6 +17,13 @@ export type ErrorRange = {
   end: number
 }
 
+export type AnswerMatch = {
+  answer: Answer
+  similarity: number
+  userErrors: ErrorRange[]
+  answerErrors: ErrorRange[]
+}
+
 export type CheckResult = {
   isCorrect: boolean
   inputs: {
@@ -27,4 +34,5 @@ export type CheckResult = {
     segments: string[]
     errors: ErrorRange[]
   }[]
+  allMatches: AnswerMatch[]
 }
