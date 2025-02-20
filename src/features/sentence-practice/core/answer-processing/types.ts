@@ -3,6 +3,7 @@ export type Answer = {
   segments: string[] // Array of strings with readings in brackets
   notes?: string
   isVariation?: boolean
+  isKanaVariation?: boolean
   originalPoliteForm?: boolean
 }
 

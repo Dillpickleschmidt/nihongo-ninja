@@ -4,6 +4,7 @@ import {
   convertFuriganaToRubyHtml,
 } from "@/util/vocabDataTransformer"
 import type { ConjugatableSegment, BlankableWord } from "../conjugation/types"
+import * as wanakana from "wanakana"
 
 export class TextProcessor {
   normalize(text: string): string {
@@ -43,8 +44,21 @@ export class TextProcessor {
     return convertFuriganaToRubyHtml(text, furiganaSize)
   }
 
-  convertToKana(segment: string): string {
-    return extractHiragana(segment)
+  /**
+   * Extracts kana readings from text with furigana brackets
+   */
+  convertToKana(text: string): string {
+    return extractHiragana(text)
+  }
+
+  /**
+   * Checks if text contains only kana characters (and allowed punctuation)
+   */
+  containsKanji(input: string | (string | null | undefined)[]): boolean {
+    const inputs = Array.isArray(input) ? input : [input]
+    return inputs.some(
+      (text) => text && text.split("").some((char) => wanakana.isKanji(char)),
+    )
   }
 
   getSegmentDisplay(segment: ConjugatableSegment): {
@@ -52,16 +66,16 @@ export class TextProcessor {
     isBlank: boolean
   } {
     if (typeof segment === "string") {
-      return { text: segment, isBlank: false }
+      return { text: this.removeFurigana(segment), isBlank: false }
     }
 
     if (this.isBlankableWord(segment)) {
       const word = segment.word
       const text = typeof word === "string" ? word : word.word
-      return { text, isBlank: segment.blank }
+      return { text: this.removeFurigana(text), isBlank: segment.blank }
     }
 
-    return { text: segment.word, isBlank: false }
+    return { text: this.removeFurigana(segment.word), isBlank: false }
   }
 
   processSegmentsForDisplay(segments: ConjugatableSegment[]): Array<{

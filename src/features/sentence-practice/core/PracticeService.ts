@@ -142,11 +142,20 @@ export class PracticeService {
 
     // Only process blank inputs for easy mode
     const blankInputs = inputs.blanks ?? []
-    const fullInput = question.answers[0].segments.map((segment, index) =>
-      blankInputs[index] !== undefined
-        ? blankInputs[index]
-        : this.textProcessor.removeFurigana(segment.toString()),
-    )
+    const baseSegments = question.answers[0].segments
+    const shouldUseKana = !this.textProcessor.containsKanji(blankInputs)
+
+    const fullInput = baseSegments.map((segment, index) => {
+      if (blankInputs[index] !== undefined) {
+        return blankInputs[index]
+      } else {
+        const text = segment
+        return shouldUseKana
+          ? this.textProcessor.convertToKana(text)
+          : this.textProcessor.removeFurigana(text)
+      }
+    })
+
     return { blanks: fullInput }
   }
 
@@ -156,20 +165,17 @@ export class PracticeService {
     }
 
     const blankInputs = inputs.blanks ?? []
-    const result = this.answerChecker.checkAnswer(
-      blankInputs.join("") ?? "",
-      question,
-    )
+    const joinedInput = blankInputs.join("")
+    const result = this.answerChecker.checkAnswer(joinedInput, question)
 
-    // Transform the single input result into multiple inputs for blanks
-    return {
-      isCorrect: result.isCorrect,
-      inputs: blankInputs.map((value) => ({
-        value: value ?? "",
-        errors: [], // TODO: Split result.inputs[0].errors by position
-      })),
-      answers: result.answers,
-      allMatches: result.allMatches,
+    // If user input is pure kana, show kana version in result
+    if (!this.textProcessor.containsKanji(blankInputs)) {
+      result.inputs = result.inputs.map((input) => ({
+        ...input,
+        value: this.textProcessor.convertToKana(input.value),
+      }))
     }
+
+    return result
   }
 }

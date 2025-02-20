@@ -130,6 +130,7 @@ export class VariationGenerator {
         ...answer,
         segments: kanaSegments,
         isVariation: true,
+        isKanaVariation: true,
       })
     }
 
