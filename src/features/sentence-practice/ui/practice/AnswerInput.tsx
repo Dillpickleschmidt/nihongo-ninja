@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button"
 import { TextField, TextFieldRoot } from "@/components/ui/textfield"
 import WanakanaWrapper from "@/features/wanakana/WanaKana"
 import { usePracticeStore } from "../../store/PracticeContext"
+import PracticeInput from "./PracticeInput"
 
 export default function AnswerInput() {
   const { store, actions } = usePracticeStore()
@@ -22,23 +23,18 @@ export default function AnswerInput() {
   return (
     <div class="space-y-4">
       <div>
-        <WanakanaWrapper>
-          <TextFieldRoot>
-            <TextField
-              type="text"
-              value={store.inputs.single || ""}
-              onInput={(e) => actions.updateInput(e.currentTarget.value)}
-              onKeyPress={(e: KeyboardEvent) => {
-                if (e.key === "Enter") {
-                  handleMainButton()
-                }
-              }}
-              autofocus
-              class="w-full py-6 text-2xl"
-              placeholder="Type your answer in Japanese..."
-            />
-          </TextFieldRoot>
-        </WanakanaWrapper>
+        <PracticeInput
+          value={store.inputs.single || ""}
+          onInput={(value) => actions.updateInput(value)}
+          onKeyPress={(e) => {
+            if (e.key === "Enter") {
+              handleMainButton()
+            }
+          }}
+          autofocus
+          class="w-full py-6 text-2xl"
+          placeholder="Type your answer in Japanese..."
+        />
         <p class="pt-1 text-sm text-muted-foreground">*use caps for katakana</p>
       </div>
       <Button

@@ -57,10 +57,7 @@ export class PracticeService {
   private transformBlankWords(
     segment: ConjugatableSegment,
   ): string | ConjugatedWord {
-    if (this.isBlankableWord(segment)) {
-      return segment.word
-    }
-    return segment
+    return this.isBlankableWord(segment) ? segment.word : segment
   }
 
   private transformConjugatableWords(
@@ -141,13 +138,11 @@ export class PracticeService {
     question: PracticeQuestion,
   ): AnswerInputs {
     const blankInputs = inputs.blanks ?? []
-    const fullInput = question.answers[0].segments.map((segment, index) => {
-      if (blankInputs[index]) {
-        return blankInputs[index]
-      }
-      return this.textProcessor.removeFurigana(segment.toString())
-    })
-
+    const fullInput = question.answers[0].segments.map((segment, index) =>
+      blankInputs[index] !== undefined
+        ? blankInputs[index]
+        : this.textProcessor.removeFurigana(segment.toString()),
+    )
     return { blanks: fullInput }
   }
 
@@ -166,7 +161,7 @@ export class PracticeService {
     return {
       isCorrect: result.isCorrect,
       inputs: blankInputs.map((value) => ({
-        value,
+        value: value ?? "",
         errors: [], // TODO: Split result.inputs[0].errors by position
       })),
       answers: result.answers,

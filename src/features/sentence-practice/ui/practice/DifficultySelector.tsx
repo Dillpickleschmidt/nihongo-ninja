@@ -30,7 +30,11 @@ export default function DifficultySelector(props: DifficultySelectorProps) {
     <div class={props.class}>
       <DropdownMenu open={isDropdownOpen()} onOpenChange={setIsDropdownOpen}>
         <DropdownMenuTrigger>
-          <Button variant="outline" class="w-24">
+          <Button
+            variant="outline"
+            class="w-24"
+            onClick={(e) => e.preventDefault()}
+          >
             <span class="mr-2">
               {store.selectedDifficulty === "easy" ? "Easy" : "Hard"}
             </span>

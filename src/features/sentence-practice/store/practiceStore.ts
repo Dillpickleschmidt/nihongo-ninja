@@ -1,6 +1,6 @@
 // store/practiceStore.ts
 import { createStore } from "solid-js/store"
-import type { PracticeState, AnswerInputs, Difficulty } from "./types"
+import type { PracticeState, Difficulty } from "./types"
 import { PracticeService } from "../core/PracticeService"
 import type { FileLoader } from "./fileLoader"
 import type { UnprocessedQuestion } from "../core/conjugation/types"
@@ -40,29 +40,56 @@ export function createPracticeStore(fileLoader: FileLoader) {
     return hasBlankSegments ? "easy" : "hard"
   }
 
+  function prepareBlankInputs(
+    currentRawQuestion: UnprocessedQuestion,
+    currentInputs: (string | null | undefined)[] = [],
+  ): (string | null | undefined)[] {
+    return currentRawQuestion.answers[0].segments.map((segment, i) => {
+      const isBlank = typeof segment === "object" && "blank" in segment
+      return currentInputs[i] || (isBlank ? null : undefined)
+    })
+  }
+
+  function resetInputsForDifficulty(difficulty: Difficulty) {
+    return {
+      effectiveDifficulty: difficulty,
+      inputs: difficulty === "easy" ? { blanks: [] } : { single: "" },
+      showResult: false,
+    }
+  }
+
+  // Extracted here for reuse in updateInput
+  function checkCurrentAnswer(updateStore = true) {
+    const currentQuestion = store.questions[store.currentQuestionIndex]
+    const currentRawQuestion = store.rawQuestions[store.currentQuestionIndex]
+    if (!currentQuestion) return
+
+    const inputs =
+      store.effectiveDifficulty === "easy"
+        ? {
+            blanks: prepareBlankInputs(currentRawQuestion, store.inputs.blanks),
+          }
+        : store.inputs
+
+    const answers = practiceService.fillBlankInputs(inputs, currentQuestion)
+    const result = practiceService.checkAnswer(answers, currentQuestion)
+
+    if (updateStore) {
+      setStore({ showResult: true, checkResult: result })
+    }
+    return result
+  }
+
   return {
     store,
     setStore,
     actions: {
-      checkAnswer: () => {
-        const currentQuestion = store.questions[store.currentQuestionIndex]
-        if (!currentQuestion) return
+      checkAnswer: () => checkCurrentAnswer(),
 
-        const inputs =
-          store.effectiveDifficulty === "easy"
-            ? practiceService.fillBlankInputs(store.inputs, currentQuestion)
-            : store.inputs
-
-        const result = practiceService.checkAnswer(inputs, currentQuestion)
-        setStore("showResult", true)
-        setStore("checkResult", result)
-        console.log("Check result:", result)
-        return result
-      },
       updateInput: (value: string, index?: number) => {
         if (store.effectiveDifficulty === "easy" && typeof index === "number") {
           setStore("inputs", "blanks", (blanks = []) => {
-            const newBlanks = [...blanks]
+            const newBlanks = [...(blanks || [])]
             newBlanks[index] = value
             return newBlanks
           })
@@ -70,63 +97,42 @@ export function createPracticeStore(fileLoader: FileLoader) {
           setStore("inputs", "single", value)
         }
 
+        // If showing result, recheck answer with current question
         if (store.showResult) {
-          const currentQuestion = store.questions[store.currentQuestionIndex]
-          if (currentQuestion) {
-            const inputs =
-              store.effectiveDifficulty === "easy"
-                ? practiceService.fillBlankInputs(store.inputs, currentQuestion)
-                : store.inputs
-
-            const result = practiceService.checkAnswer(inputs, currentQuestion)
-            setStore("checkResult", result)
-          }
+          const result = checkCurrentAnswer(false)
+          setStore("checkResult", result)
         }
       },
+
       setDifficulty: (difficulty: Difficulty) => {
-        const currentQuestion = store.rawQuestions[store.currentQuestionIndex]
         const newEffectiveDifficulty = calculateEffectiveDifficulty(
           difficulty,
-          currentQuestion,
+          store.rawQuestions[store.currentQuestionIndex],
         )
-
         setStore({
           selectedDifficulty: difficulty,
-          effectiveDifficulty: newEffectiveDifficulty,
-          inputs:
-            newEffectiveDifficulty === "easy" ? { blanks: [] } : { single: "" },
-          showResult: false,
+          ...resetInputsForDifficulty(newEffectiveDifficulty),
         })
       },
+
       nextQuestion: () => {
         if (store.currentQuestionIndex < store.questions.length - 1) {
           const nextIndex = store.currentQuestionIndex + 1
-          const nextQuestion = store.rawQuestions[nextIndex]
-
           const newEffectiveDifficulty = calculateEffectiveDifficulty(
             store.selectedDifficulty,
-            nextQuestion,
+            store.rawQuestions[nextIndex],
           )
-
           setStore({
             currentQuestionIndex: nextIndex,
-            effectiveDifficulty: newEffectiveDifficulty,
-            showResult: false,
-            inputs:
-              newEffectiveDifficulty === "easy"
-                ? { blanks: [] }
-                : { single: "" },
+            ...resetInputsForDifficulty(newEffectiveDifficulty),
           })
         }
       },
+
       resetInput: () => {
-        setStore(
-          "inputs",
-          store.effectiveDifficulty === "easy"
-            ? { blanks: [] }
-            : { single: "" },
-        )
-        setStore("showResult", false)
+        setStore({
+          ...resetInputsForDifficulty(store.effectiveDifficulty),
+        })
       },
       toggleFurigana: () => setStore("showFurigana", (prev) => !prev),
       loadQuestions: async (path: string) => {

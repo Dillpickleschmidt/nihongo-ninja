@@ -25,5 +25,5 @@ export type PracticeState = {
 
 export type AnswerInputs = {
   single?: string // For hard mode
-  blanks?: string[] // For easy mode
+  blanks?: (string | null | undefined)[] // For easy mode
 }

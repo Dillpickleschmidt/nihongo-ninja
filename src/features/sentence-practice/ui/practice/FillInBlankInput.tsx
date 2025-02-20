@@ -41,7 +41,14 @@ export default function FillInBlankInput(props: FillInBlankInputProps) {
                   <PracticeInput
                     value={store.inputs.blanks?.[index()] || ""}
                     onInput={(value) => actions.updateInput(value, index())}
-                    class="mx-1 w-32 text-center text-2xl"
+                    onKeyPress={(e) => {
+                      if (e.key === "Enter") {
+                        handleMainButton()
+                      }
+                    }}
+                    class="mx-1 w-32 text-center text-2xl placeholder:text-muted-foreground/35"
+                    autofocus={index() === 0}
+                    placeholder="答え"
                   />
                 </div>
               ) : (
@@ -50,8 +57,8 @@ export default function FillInBlankInput(props: FillInBlankInputProps) {
             </>
           )}
         </For>
+        <p class="pt-1 text-sm text-muted-foreground">*use caps for katakana</p>
       </div>
-      <p class="pt-1 text-sm text-muted-foreground">*use caps for katakana</p>
       <Button
         onClick={handleMainButton}
         class={`${isAnswerCorrect() ? "bg-green-400 hover:bg-green-500 dark:bg-green-500 dark:hover:bg-green-600" : "bg-amber-400 dark:bg-amber-500 dark:saturate-[85%]"} w-full py-3 text-sm text-black lg:text-base`}
