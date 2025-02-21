@@ -31,7 +31,7 @@ export default function page() {
       <div class="mx-auto max-w-2xl space-y-3 px-4 pb-32">
         <div class="w-full border-b px-12 pb-6 pt-6 text-center text-4xl font-semibold lg:px-28 lg:pt-12">
           <h1 class="text-center text-4xl font-semibold">
-            Good Morning, Good Afternoon, Goodnight
+            More Common Expressions
           </h1>
         </div>
         <div>

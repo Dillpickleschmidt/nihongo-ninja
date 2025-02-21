@@ -963,7 +963,7 @@ export default function ChapterBoxes() {
           {
             title: "MyKikitori - Campus Interview #1",
             link: "/learn/chapter-3/my-kikitori-campus-interview-1",
-            types: ["video"],
+            types: ["audio"],
           },
           {
             title: "Aizuchi: Japanese Noises",
@@ -1592,7 +1592,7 @@ export default function ChapterBoxes() {
               {
                 title: "Body Parts",
                 link: "/learn/chapter-7/body-parts",
-                types: ["vocab"],
+                types: ["vocab", "video"],
               },
               {
                 title: "Practice Body Parts - Readings",

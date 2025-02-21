@@ -18,8 +18,8 @@ const initialState: PracticeState = {
   error: null,
   path: null,
   showFurigana: true,
-  selectedDifficulty: "easy",
-  effectiveDifficulty: "easy",
+  selectedDifficulty: "hard",
+  effectiveDifficulty: "hard",
 }
 
 export function createPracticeStore(fileLoader: FileLoader) {
