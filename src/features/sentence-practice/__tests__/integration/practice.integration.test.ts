@@ -56,11 +56,13 @@ describe("Japanese Practice System Integration", () => {
         {
           segments: ["がくせい", "です"],
           isVariation: true,
+          isKanaVariation: true,
           originalPoliteForm: true,
         },
         {
           segments: ["ぼく", "は", "がくせい", "です"],
           isVariation: true,
+          isKanaVariation: true,
           originalPoliteForm: true,
         },
 

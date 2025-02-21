@@ -165,17 +165,13 @@ export class PracticeService {
     }
 
     const blankInputs = inputs.blanks ?? []
-    const joinedInput = blankInputs.join("")
-    const result = this.answerChecker.checkAnswer(joinedInput, question)
 
-    // If user input is pure kana, show kana version in result
-    if (!this.textProcessor.containsKanji(blankInputs)) {
-      result.inputs = result.inputs.map((input) => ({
-        ...input,
-        value: this.textProcessor.convertToKana(input.value),
-      }))
+    return {
+      ...this.answerChecker.checkAnswer(blankInputs.join(""), question),
+      inputs: blankInputs.map((input) => ({
+        value: input || "",
+        errors: [], // Individual blank errors to be implemented
+      })),
     }
-
-    return result
   }
 }
