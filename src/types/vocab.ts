@@ -14,22 +14,22 @@ export type Particle = {
   particle: string
 }
 
-export type VocabItem = {
-  id: number
-  created_at: string
-  path: string
+export type VocabRawItem = {
   word: string
-  overwrite_word?: string // for exact matching in immersion kit
-  furigana: string[]
+  furigana: string
   english: string[]
-  chapter: number | null
-  example_sentences: ExampleSentence[] | null
-  info: string[]
-  mnemonics: string[]
-  category: string | null
-  videos: Video[] | null
+  info?: string[]
+  mnemonics?: string[]
+  example_sentences?: ExampleSentence[]
+  videos?: Video[] | null
   particles?: Particle[]
-  extra: any
+  overwrite_word?: string // for exact matching in immersion kit
+  extra?: any
+}
+
+export type VocabItem = VocabRawItem & {
+  chapter?: number | null
+  category?: string | null
 }
 
 export type RichVocabItem = VocabItem & {
@@ -43,14 +43,14 @@ export type Card = {
     category: string
     answers: string[]
   }[]
-  mnemonics: string[]
+  mnemonics?: string[]
   order: number
   cardStyle: "multiple-choice" | "write" | "done"
   wrongAnswerCount: number
-  exampleSentences: ExampleSentence[] | null
-  info: string[]
-  category: string | null
-  videos: Video[] | null
+  exampleSentences?: ExampleSentence[] | null
+  info?: string[]
+  category?: string | null
+  videos?: Video[] | null
   particles?: Particle[]
 }
 

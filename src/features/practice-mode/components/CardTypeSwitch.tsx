@@ -10,21 +10,24 @@ export default function CardTypeSwitch() {
     context.store.activeDeck[context.store.currentCardIndex]
   const hasUserAnswered = () => context.store.hasUserAnswered
   const isUserAnswerCorrect = () => context.store.isAnswerCorrect
-  const hasMnemonic = () => currentCard().mnemonics.length > 0
+  const hasMnemonic = () => {
+    const card = currentCard()
+    return card && card.mnemonics && card.mnemonics.length > 0
+  }
 
   return (
     <div class="w-full">
       <Show
         fallback={
           <h2 class="mx-12 flex h-48 flex-col justify-center text-center font-japanese text-5xl lg:text-6xl">
-            {currentCard().key}
+            {currentCard()?.key}
           </h2>
         }
         when={hasUserAnswered() && !isUserAnswerCorrect() && hasMnemonic()}
       >
         <div class="flex h-48 flex-col justify-center">
           <h2 class="mx-12 text-center font-japanese text-5xl lg:text-6xl">
-            {currentCard().key}
+            {currentCard()?.key}
           </h2>
           <div class="mb-4 max-h-32 overflow-y-auto px-3 pt-3">
             <h3 class="">
@@ -34,7 +37,8 @@ export default function CardTypeSwitch() {
                 Mnemonic:{" "}
               </span>
               {/* Might need to loop in the future */}
-              {currentCard().mnemonics}
+              {currentCard()?.mnemonics?.[0]}{" "}
+              {/* Using optional chaining and assuming we want the first mnemonic */}
             </h3>
           </div>
         </div>
@@ -46,10 +50,10 @@ export default function CardTypeSwitch() {
           </div>
         }
       >
-        <Match when={currentCard().cardStyle === "multiple-choice"}>
+        <Match when={currentCard()?.cardStyle === "multiple-choice"}>
           <MultipleChoice />
         </Match>
-        <Match when={currentCard().cardStyle === "write"}>
+        <Match when={currentCard()?.cardStyle === "write"}>
           <WriteComponent />
         </Match>
       </Switch>

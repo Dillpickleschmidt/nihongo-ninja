@@ -1,19 +1,23 @@
-import { VocabItem, RichVocabItem } from "@/types/vocab"
+import type { VocabItem, RichVocabItem } from "@/types/vocab"
 import { addKanaAndRuby, stripFurigana } from "@/util/vocabDataTransformer"
 
-const vocabModules = import.meta.glob("../data/**/*.json", { eager: true })
+// This will grab all .ts files in the data directory and its subdirectories
+const vocabModules = import.meta.glob<{ default: VocabItem[] }>(
+  "@/data/**/*.ts",
+  { eager: true },
+)
 
 const getVocabData = async (fileName: string): Promise<VocabItem[]> => {
-  const filePath = `../data/${fileName}.json`
+  // Construct the file path to match the glob pattern
+  const filePath = `/src/data/${fileName}.ts`
   try {
     if (filePath in vocabModules) {
-      const module = vocabModules[filePath] as { default: VocabItem[] }
-      return module.default
+      return vocabModules[filePath].default
     } else {
       throw new Error(`File not found: ${filePath}`)
     }
   } catch (e) {
-    console.warn(`The file "${filePath}" could not be loaded.`, e)
+    console.warn(`The vocab file "${filePath}" could not be loaded.`, e)
     return []
   }
 }
@@ -33,6 +37,7 @@ export async function getVocabularyByPath(
       processedItems = stripFurigana(processedItems)
     }
 
+    // console.log(`Loaded ${processedItems.length} vocab items for ${filePath}`)
     return processedItems
   } catch (error) {
     console.error(`Error in getVocabularyByPath for ${filePath}:`, error)

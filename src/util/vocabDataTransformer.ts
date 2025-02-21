@@ -14,13 +14,10 @@ export function addKanaAndRuby(
 ): RichVocabItem[] {
   return items.map((item) => {
     const hiragana = extractHiragana(item.furigana)
-    const rubyText = item.furigana.map((furi) =>
-      convertFuriganaToRubyHtml(furi, furiganaSize),
-    )
-    if (removeDuplicateKana && hiragana && hiragana[0] === item.word) {
-      hiragana.shift()
-    }
-    return { ...item, hiragana, rubyText }
+    const rubyText = convertFuriganaToRubyHtml(item.furigana, furiganaSize)
+    const finalHiragana =
+      removeDuplicateKana && hiragana === item.word ? "" : hiragana
+    return { ...item, hiragana: [finalHiragana], rubyText: [rubyText] }
   })
 }
 
@@ -142,7 +139,7 @@ function convertVocabItemToFlashcard(
 ): Card {
   const answerCategories =
     mode === "kana"
-      ? [{ category: "Kana", answers: extractHiragana(entry.furigana) }]
+      ? [{ category: "Kana", answers: [extractHiragana(entry.furigana)] }]
       : [{ category: "English", answers: entry.english }]
 
   return {
@@ -175,11 +172,11 @@ export function convertVocabItemsToFlashcards(
  * @returns A new VocabItem object with the word converted to kana.
  */
 function convertSingleKanjiToKana(entry: VocabItem): VocabItem {
-  const hiragana = entry.furigana?.[0] && extractHiragana(entry.furigana[0])
+  const hiragana = entry.furigana && extractHiragana(entry.furigana)
   return {
     ...entry,
     word: hiragana ?? entry.word,
-    furigana: hiragana ? [] : entry.furigana,
+    furigana: hiragana ? "" : entry.furigana,
   }
 }
 
@@ -218,7 +215,7 @@ function swapSingleWordAndEnglish(entry: VocabItem): VocabItem {
     ...entry,
     word: entry.english?.join(", ") ?? entry.word,
     english: [],
-    furigana: [entry.word],
+    furigana: entry.word,
   }
 }
 
@@ -250,7 +247,7 @@ export function swapWordAndEnglish<T extends VocabItem | VocabItem[]>(
 function stripFuriganaFromEntry(entry: VocabItem): VocabItem {
   return {
     ...entry,
-    furigana: [],
+    furigana: "",
   }
 }
 

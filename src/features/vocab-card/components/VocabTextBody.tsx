@@ -9,6 +9,8 @@ type VocabTextBodyProps = {
 
 export default function VocabTextBody(props: VocabTextBodyProps) {
   const item = props.data[props.index]
+  if (!item) return null // Guard against undefined item
+
   return (
     <>
       <div class="min-h-32">
@@ -37,17 +39,21 @@ export default function VocabTextBody(props: VocabTextBodyProps) {
             </For>
           </ul>
         )}
-        <For each={item.mnemonics}>
-          {(mnemonic, idx) => (
-            <p class="space-y-6">
-              <span class="font-bold text-sky-500">Mnemonic: </span>
-              {mnemonic}
-            </p>
-          )}
-        </For>
-        {item.info.length > 0 && (
+        {item.mnemonics && (
+          <For each={item.mnemonics}>
+            {(mnemonic, idx) => (
+              <p class="space-y-6">
+                <span class="font-bold text-sky-500">Mnemonic: </span>
+                {mnemonic}
+              </p>
+            )}
+          </For>
+        )}
+        {item.info && item.info.length > 0 && (
           <ul
-            class={`ml-6 list-disc ${item.mnemonics.length > 0 ? "pt-3" : ""}`}
+            class={`ml-6 list-disc ${
+              item.mnemonics && item.mnemonics.length > 0 ? "pt-3" : ""
+            }`}
           >
             <For each={item.info}>
               {(info) => <li class="space-y-6">{info}</li>}
