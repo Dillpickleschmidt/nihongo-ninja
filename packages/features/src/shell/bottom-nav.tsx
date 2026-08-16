@@ -95,13 +95,20 @@ export function BottomNav() {
       <div className="flex items-center justify-center border-t border-card-foreground/50 bg-background/50 px-6 pb-[env(safe-area-inset-bottom)] text-primary shadow-lg shadow-black/10 backdrop-blur-lg">
         <nav className="flex w-100 items-center justify-between">
           {NAV_ITEMS.map((item) => (
-            <a key={item.id} href={item.href} className={itemClasses(isActive(item.href))}>
+            <a
+              key={item.id}
+              href={item.href}
+              aria-label={item.label}
+              aria-current={isActive(item.href) ? "page" : undefined}
+              className={itemClasses(isActive(item.href))}
+            >
               <item.icon className={iconClasses(isActive(item.href))} />
             </a>
           ))}
 
           <a
             href="/dashboard"
+            aria-label="Daily review progress"
             className="group relative flex size-16 items-center justify-center rounded-full transition-all duration-200 hover:scale-110"
           >
             <div className="absolute inset-0 flex items-center justify-center">
@@ -120,7 +127,12 @@ export function BottomNav() {
             </span>
           </a>
 
-          <a href="/search" className={itemClasses(isActive("/search"))}>
+          <a
+            href="/search"
+            aria-label="Search"
+            aria-current={isActive("/search") ? "page" : undefined}
+            className={itemClasses(isActive("/search"))}
+          >
             <Search className={iconClasses(isActive("/search"))} />
           </a>
 
