@@ -1,5 +1,5 @@
 import { MutationCtx, QueryCtx } from "../_generated/server";
-import { DEFAULT_USER_PREFERENCES } from "../validators";
+import { DEFAULT_USER_PREFERENCES, type AnimeService } from "../validators";
 
 /**
  * Gets the current user's profile
@@ -57,4 +57,14 @@ export async function ensureProfileExists(ctx: MutationCtx) {
   }
 
   return profile;
+}
+
+export async function getServiceToken(ctx: QueryCtx, service: AnimeService) {
+  const identity = await ctx.auth.getUserIdentity();
+  if (!identity) return null;
+
+  return ctx.db
+    .query("userServiceTokens")
+    .withIndex("by_user_service", (q) => q.eq("userId", identity.subject).eq("service", service))
+    .first();
 }

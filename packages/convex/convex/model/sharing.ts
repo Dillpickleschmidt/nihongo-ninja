@@ -2,7 +2,7 @@ import { PaginationOptions, PaginationResult } from "convex/server";
 
 import { Id } from "../_generated/dataModel";
 import { MutationCtx, QueryCtx } from "../_generated/server";
-import { createDeck as createDeckModel } from "./decks";
+import { createDeck as createDeckModel, resolveUniqueDeckName } from "./decks";
 import { getUserDeckVocabItems, createDeckVocabItems } from "./vocabulary";
 
 type SortBy = "recent" | "popular";
@@ -119,7 +119,7 @@ export async function importSharedDeck(ctx: MutationCtx, deckId: Id<"userDecks">
   if (originalDeck.userId === identity.subject) throw new Error("Cannot import your own deck");
 
   const newDeckId = await createDeckModel(ctx, {
-    deckName: originalDeck.deckName,
+    deckName: await resolveUniqueDeckName(ctx, originalDeck.deckName),
     deckDescription: originalDeck.deckDescription,
     source: "shared",
     originalDeckId: deckId,

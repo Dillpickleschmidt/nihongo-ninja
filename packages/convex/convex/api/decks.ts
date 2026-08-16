@@ -2,7 +2,6 @@ import { v } from "convex/values";
 
 import { mutation, query } from "../_generated/server";
 import * as Decks from "../model/decks";
-import * as Vocabulary from "../model/vocabulary";
 import { practiceModeValidator, deckVocabItemInputValidator } from "../validators";
 
 /**
@@ -14,14 +13,7 @@ export const createDeck = mutation({
     deckDescription: v.optional(v.string()),
     folderId: v.optional(v.id("userDeckFolders")),
   },
-  handler: async (ctx, args) => {
-    await Decks.checkDeckNameUnique(ctx, args.deckName);
-    return Decks.createDeck(ctx, {
-      ...args,
-      source: "user",
-      allowedPracticeModes: ["meanings", "spellings"],
-    });
-  },
+  handler: (ctx, args) => Decks.createUserDeck(ctx, args),
 });
 
 /**
@@ -34,10 +26,7 @@ export const updateDeck = mutation({
     deckDescription: v.optional(v.string()),
     folderId: v.optional(v.union(v.id("userDeckFolders"), v.null())),
   },
-  handler: async (ctx, args) => {
-    if (args.deckName) {
-      await Decks.checkDeckNameUnique(ctx, args.deckName, args.deckId);
-    }
+  handler: (ctx, args) => {
     const { deckId, ...updates } = args;
     return Decks.updateDeck(ctx, deckId, updates);
   },
@@ -62,16 +51,7 @@ export const createDeckWithVocab = mutation({
     allowedPracticeModes: v.array(practiceModeValidator),
     vocabularyItems: v.array(deckVocabItemInputValidator),
   },
-  handler: async (ctx, args) => {
-    await Decks.checkDeckNameUnique(ctx, args.deckName);
-    const { vocabularyItems, ...deckData } = args;
-    const deckId = await Decks.createDeck(ctx, {
-      ...deckData,
-      source: "user",
-    });
-    await Vocabulary.createDeckVocabItems(ctx, deckId, vocabularyItems);
-    return deckId;
-  },
+  handler: (ctx, args) => Decks.createUserDeckWithVocab(ctx, args),
 });
 
 /**
@@ -86,16 +66,9 @@ export const updateDeckWithVocab = mutation({
     allowedPracticeModes: v.optional(v.array(practiceModeValidator)),
     vocabularyItems: v.optional(v.array(deckVocabItemInputValidator)),
   },
-  handler: async (ctx, args) => {
-    if (args.deckName) {
-      await Decks.checkDeckNameUnique(ctx, args.deckName, args.deckId);
-    }
+  handler: (ctx, args) => {
     const { deckId, vocabularyItems, ...updates } = args;
-    await Decks.updateDeck(ctx, deckId, updates);
-    if (vocabularyItems !== undefined) {
-      await Vocabulary.replaceDeckVocabItems(ctx, deckId, vocabularyItems);
-    }
-    return deckId;
+    return Decks.updateDeckWithVocab(ctx, deckId, updates, vocabularyItems);
   },
 });
 
@@ -126,22 +99,5 @@ export const copyDeck = mutation({
     deckDescription: v.optional(v.string()),
     folderId: v.optional(v.id("userDeckFolders")),
   },
-  handler: async (ctx, args) => {
-    await Decks.checkDeckNameUnique(ctx, args.deckName);
-    if (args.deckSource === "user") {
-      const docId = ctx.db.normalizeId("userDecks", args.deckId);
-      if (!docId) throw new Error("Deck not found");
-      await Decks.verifyDeckReadAccess(ctx, docId);
-    }
-    const vocabItems = await Vocabulary.fetchDeckVocab(ctx, args.deckId, args.deckSource);
-    const newDeckId = await Decks.createDeck(ctx, {
-      deckName: args.deckName,
-      deckDescription: args.deckDescription,
-      folderId: args.folderId,
-      source: "user",
-      allowedPracticeModes: ["meanings", "spellings"],
-    });
-    await Vocabulary.createDeckVocabItems(ctx, newDeckId, vocabItems);
-    return newDeckId;
-  },
+  handler: (ctx, args) => Decks.copyDeck(ctx, args),
 });

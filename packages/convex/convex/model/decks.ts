@@ -3,9 +3,16 @@ import { dynamic_modules } from "@nn/data/dynamic_modules";
 
 import { Id } from "../_generated/dataModel";
 import { MutationCtx, QueryCtx } from "../_generated/server";
+import { DeckVocabItemInput } from "../validators";
 import { verifyFolderOwnership } from "./folders";
 import { deleteShareForDeck, isShared } from "./sharing";
-import { deleteDeckVocabItems, getUserDeckVocabItems } from "./vocabulary";
+import {
+  createDeckVocabItems,
+  deleteDeckVocabItems,
+  fetchDeckVocab,
+  getUserDeckVocabItems,
+  replaceDeckVocabItems,
+} from "./vocabulary";
 
 type DeckSource = "built-in" | "anki" | "wanikani" | "jpdb" | "user" | "shared" | "learning_path";
 
@@ -112,6 +119,25 @@ export async function checkDeckNameUnique(
   }
 }
 
+// For programmatic creates (imports, copies) that must not fail on a name
+// collision: append " (2)", " (3)", ... until the name is free.
+export async function resolveUniqueDeckName(ctx: QueryCtx, baseName: string): Promise<string> {
+  const identity = await ctx.auth.getUserIdentity();
+  if (!identity) throw new Error("Unauthenticated");
+
+  const decks = await ctx.db
+    .query("userDecks")
+    .withIndex("by_user", (q) => q.eq("userId", identity.subject))
+    .collect();
+  const names = new Set(decks.map((d) => d.deckName.toLowerCase()));
+
+  if (!names.has(baseName.toLowerCase())) return baseName;
+  for (let n = 2; ; n++) {
+    const candidate = `${baseName} (${n})`;
+    if (!names.has(candidate.toLowerCase())) return candidate;
+  }
+}
+
 export async function verifyDeckOwnership(ctx: QueryCtx, deckDocId: Id<"userDecks">) {
   const identity = await ctx.auth.getUserIdentity();
   if (!identity) throw new Error("Unauthenticated");
@@ -161,11 +187,89 @@ export async function createDeck(
   if (!identity) throw new Error("Unauthenticated");
 
   if (data.folderId) await verifyFolderOwnership(ctx, data.folderId);
+  await checkDeckNameUnique(ctx, data.deckName);
 
   return ctx.db.insert("userDecks", {
     ...data,
     userId: identity.subject,
   });
+}
+
+export function createUserDeck(
+  ctx: MutationCtx,
+  args: { deckName: string; deckDescription?: string; folderId?: Id<"userDeckFolders"> },
+) {
+  return createDeck(ctx, {
+    ...args,
+    source: "user",
+    allowedPracticeModes: ["meanings", "spellings"],
+  });
+}
+
+export async function createUserDeckWithVocab(
+  ctx: MutationCtx,
+  args: {
+    deckName: string;
+    deckDescription?: string;
+    folderId?: Id<"userDeckFolders">;
+    allowedPracticeModes: PracticeMode[];
+    vocabularyItems: DeckVocabItemInput[];
+  },
+) {
+  const { vocabularyItems, ...deckData } = args;
+  const deckId = await createDeck(ctx, { ...deckData, source: "user" });
+  await createDeckVocabItems(ctx, deckId, vocabularyItems);
+  return deckId;
+}
+
+export async function updateDeckWithVocab(
+  ctx: MutationCtx,
+  deckId: Id<"userDecks">,
+  updates: {
+    deckName?: string;
+    deckDescription?: string;
+    folderId?: Id<"userDeckFolders"> | null;
+    allowedPracticeModes?: PracticeMode[];
+  },
+  vocabularyItems?: DeckVocabItemInput[],
+) {
+  await updateDeck(ctx, deckId, updates);
+  if (vocabularyItems !== undefined) {
+    await replaceDeckVocabItems(ctx, deckId, vocabularyItems);
+  }
+  return deckId;
+}
+
+export async function copyDeck(
+  ctx: MutationCtx,
+  args: {
+    deckId: string;
+    deckSource: "user" | "built-in";
+    deckName: string;
+    deckDescription?: string;
+    folderId?: Id<"userDeckFolders">;
+  },
+) {
+  if (args.deckSource === "user") {
+    const docId = ctx.db.normalizeId("userDecks", args.deckId);
+    if (!docId) throw new Error("Deck not found");
+    await verifyDeckReadAccess(ctx, docId);
+  }
+  const vocabItems = await fetchDeckVocab(ctx, args.deckId, args.deckSource);
+  const newDeckId = await createUserDeck(ctx, {
+    deckName: args.deckName,
+    deckDescription: args.deckDescription,
+    folderId: args.folderId,
+  });
+  await createDeckVocabItems(ctx, newDeckId, vocabItems);
+  return newDeckId;
+}
+
+// Resolves any deck ID (built-in or user) and returns its vocabulary.
+export async function getResolvedDeckVocab(ctx: QueryCtx, deckId: string) {
+  const deck = await resolveDeckById(ctx, deckId);
+  if (!deck) return [];
+  return fetchDeckVocab(ctx, deck.id, deck.source);
 }
 
 export async function updateDeck(
@@ -180,6 +284,9 @@ export async function updateDeck(
 ) {
   await verifyDeckOwnership(ctx, deckId);
   if (updates.folderId) await verifyFolderOwnership(ctx, updates.folderId);
+  if (updates.deckName !== undefined) {
+    await checkDeckNameUnique(ctx, updates.deckName, deckId);
+  }
 
   // Convert null to undefined for Convex (optional fields)
   const patch: {
