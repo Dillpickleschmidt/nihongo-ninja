@@ -55,8 +55,7 @@ export const updateFolder = mutation({
     folderName: v.optional(v.string()),
     parentFolderId: v.optional(v.union(v.id("userDeckFolders"), v.null())),
   },
-  handler: async (ctx, args) => {
-    await Folders.verifyFolderOwnership(ctx, args.folderId);
+  handler: (ctx, args) => {
     const { folderId, ...updates } = args;
     return Folders.updateFolder(ctx, folderId, updates);
   },
@@ -70,8 +69,6 @@ export const deleteFolder = mutation({
     folderId: v.id("userDeckFolders"),
     strategy: v.union(v.literal("move-up"), v.literal("delete-all")),
   },
-  handler: async (ctx, { folderId, strategy }) => {
-    await Folders.verifyFolderOwnership(ctx, folderId);
-    return Folders.deleteFolderWithStrategy(ctx, folderId, strategy);
-  },
+  handler: (ctx, { folderId, strategy }) =>
+    Folders.deleteFolderWithStrategy(ctx, folderId, strategy),
 });

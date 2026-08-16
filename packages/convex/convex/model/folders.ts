@@ -30,6 +30,7 @@ export function getBuiltInFolders(): UnifiedFolder[] {
 
     // Add chapters as child folders
     const textbookChapters = chapters[textbookId as TextbookIDEnum];
+    if (!textbookChapters) continue;
     for (const [chapterSlug, chapter] of Object.entries(textbookChapters)) {
       folders.push({
         id: `${textbookId}/${chapterSlug}`,
@@ -122,6 +123,8 @@ export async function createFolder(
   const identity = await ctx.auth.getUserIdentity();
   if (!identity) throw new Error("Unauthenticated");
 
+  if (parentFolderId) await verifyFolderOwnership(ctx, parentFolderId);
+
   return ctx.db.insert("userDeckFolders", {
     userId: identity.subject,
     folderName,
@@ -138,8 +141,8 @@ export async function updateFolder(
     parentFolderId?: Id<"userDeckFolders"> | null;
   },
 ) {
-  const identity = await ctx.auth.getUserIdentity();
-  if (!identity) throw new Error("Unauthenticated");
+  await verifyFolderOwnership(ctx, folderId);
+  if (updates.parentFolderId) await verifyFolderOwnership(ctx, updates.parentFolderId);
 
   const patch: { folderName?: string; parentFolderId?: Id<"userDeckFolders"> } = {};
   if (updates.folderName !== undefined) {
@@ -156,11 +159,7 @@ export async function deleteFolderWithStrategy(
   folderId: Id<"userDeckFolders">,
   strategy: "move-up" | "delete-all",
 ) {
-  const identity = await ctx.auth.getUserIdentity();
-  if (!identity) throw new Error("Unauthenticated");
-
-  const folder = await ctx.db.get(folderId);
-  if (!folder) throw new Error("Folder not found");
+  const folder = await verifyFolderOwnership(ctx, folderId);
 
   const allFolderIds = await getDescendantFolderIds(ctx, folderId);
   allFolderIds.add(folderId);

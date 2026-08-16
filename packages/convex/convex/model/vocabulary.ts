@@ -83,6 +83,7 @@ export async function createDeckVocabItems(
       info: item.info,
       mnemonics: item.mnemonics,
       exampleSentences: item.exampleSentences,
+      videos: item.videos,
       particles: item.particles,
       isVerb: item.isVerb,
     });
@@ -290,8 +291,13 @@ async function getCustomLearningPathIndex(
   const orderedKeys: string[] = [];
   const deckTerms: { deckId: string; terms: string[] }[] = [];
 
-  for (const source of vocabSources) {
-    const vocab = await fetchUserDeckVocab(ctx, source.moduleId as Id<"userDecks">);
+  // Fetch in parallel; accumulate sequentially to preserve orderIndex order.
+  const vocabBySource = await Promise.all(
+    vocabSources.map((source) => fetchUserDeckVocab(ctx, source.moduleId as Id<"userDecks">)),
+  );
+
+  for (const [i, source] of vocabSources.entries()) {
+    const vocab = vocabBySource[i] ?? [];
     const terms: string[] = [];
     for (const item of vocab) {
       if (!seenKeys.has(item.word)) {
@@ -373,14 +379,18 @@ export async function fetchSetsByIds(
 ): Promise<Record<string, string[]>> {
   if (setIds.length === 0) return {};
 
+  const results = await Promise.all(
+    setIds.map((setId) =>
+      ctx.db
+        .query("coreVocabularySets")
+        .withIndex("by_setId", (q) => q.eq("setId", setId))
+        .first(),
+    ),
+  );
+
   const sets: Record<string, string[]> = {};
-
-  for (const setId of setIds) {
-    const set = await ctx.db
-      .query("coreVocabularySets")
-      .withIndex("by_setId", (q) => q.eq("setId", setId))
-      .first();
-
+  for (const [i, setId] of setIds.entries()) {
+    const set = results[i];
     if (set) {
       sets[setId] = set.vocabularyKeys;
     }

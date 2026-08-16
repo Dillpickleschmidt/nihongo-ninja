@@ -122,7 +122,6 @@ export const chapters: Record<TextbookIDEnum, Record<string, BuiltInChapter>> = 
         // "sentence-practice-ne-yo",
         "kikusasaizu-2-2",
         "genki_1_ch2_places-money-food",
-        "genki_1_ch2_places-money-food",
         "kudasai-vs-onegaishimasu",
         "my-kikitori-at-a-cafe",
         "big-numbers",
@@ -551,7 +550,7 @@ export const chapters: Record<TextbookIDEnum, Record<string, BuiltInChapter>> = 
       slug: "chapter-20",
       title: "Chapter 20",
       description:
-        "Conclude Genki I with more vocabulary covering nouns, adjectives, and various verb types, and practice different expression levels.",
+        "Conclude Genki II with more vocabulary covering nouns, adjectives, and various verb types, and practice different expression levels.",
 
       learning_path_item_ids: [
         "grammar-notes",

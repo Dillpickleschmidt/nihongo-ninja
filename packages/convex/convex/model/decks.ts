@@ -3,7 +3,8 @@ import { dynamic_modules } from "@nn/data/dynamic_modules";
 
 import { Id } from "../_generated/dataModel";
 import { MutationCtx, QueryCtx } from "../_generated/server";
-import { deleteShareForDeck } from "./sharing";
+import { verifyFolderOwnership } from "./folders";
+import { deleteShareForDeck, isShared } from "./sharing";
 import { deleteDeckVocabItems } from "./vocabulary";
 
 type DeckSource = "built-in" | "anki" | "wanikani" | "jpdb" | "user" | "shared" | "learning_path";
@@ -22,7 +23,11 @@ export interface UnifiedDeck {
 
 // ===== Built-in Deck Generation =====
 
+// The source data is static, so build the list once per isolate.
+let builtInDecksCache: UnifiedDeck[] | null = null;
+
 export function getBuiltInDecks(): UnifiedDeck[] {
+  if (builtInDecksCache) return builtInDecksCache;
   const decks: UnifiedDeck[] = [];
 
   for (const [textbookId, textbookChapters] of Object.entries(chapters)) {
@@ -44,6 +49,7 @@ export function getBuiltInDecks(): UnifiedDeck[] {
     }
   }
 
+  builtInDecksCache = decks;
   return decks;
 }
 
@@ -59,12 +65,14 @@ export async function getAllDecks(ctx: QueryCtx): Promise<UnifiedDeck[]> {
 
   const userDecks = await getUserDecks(ctx);
 
+  // Always "user": the row's own source (anki, shared, ...) records provenance,
+  // but the vocab lives in deckVocabularyItems. Matches resolveDeckById.
   const normalized: UnifiedDeck[] = userDecks.map((d) => ({
     id: d._id,
     deckName: d.deckName,
     deckDescription: d.deckDescription,
     folderId: d.folderId,
-    source: (d.source === "built-in" ? "built-in" : "user") as "user" | "built-in",
+    source: "user",
   }));
 
   return [...builtIn, ...normalized];
@@ -114,6 +122,17 @@ export async function verifyDeckOwnership(ctx: QueryCtx, deckDocId: Id<"userDeck
   return deck;
 }
 
+// Read access: the owner, or anyone when the deck has a public share.
+export async function verifyDeckReadAccess(ctx: QueryCtx, deckDocId: Id<"userDecks">) {
+  const deck = await ctx.db.get(deckDocId);
+  if (!deck) throw new Error("Deck not found");
+
+  const identity = await ctx.auth.getUserIdentity();
+  if (identity && deck.userId === identity.subject) return deck;
+  if (await isShared(ctx, deckDocId)) return deck;
+  throw new Error("Unauthorized");
+}
+
 // ===== Mutation Helpers =====
 
 export async function createDeck(
@@ -129,6 +148,8 @@ export async function createDeck(
 ) {
   const identity = await ctx.auth.getUserIdentity();
   if (!identity) throw new Error("Unauthenticated");
+
+  if (data.folderId) await verifyFolderOwnership(ctx, data.folderId);
 
   return ctx.db.insert("userDecks", {
     ...data,
@@ -146,8 +167,8 @@ export async function updateDeck(
     allowedPracticeModes?: PracticeMode[];
   },
 ) {
-  const identity = await ctx.auth.getUserIdentity();
-  if (!identity) throw new Error("Unauthenticated");
+  await verifyDeckOwnership(ctx, deckId);
+  if (updates.folderId) await verifyFolderOwnership(ctx, updates.folderId);
 
   // Convert null to undefined for Convex (optional fields)
   const patch: {
@@ -175,26 +196,23 @@ export async function resolveDeckById(ctx: QueryCtx, deckId: string): Promise<Un
   const builtIn = getBuiltInDecks().find((d) => d.id === deckId);
   if (builtIn) return builtIn;
 
-  try {
-    const userDeck = await ctx.db.get(deckId as Id<"userDecks">);
-    if (!userDeck) return null;
-    const identity = await ctx.auth.getUserIdentity();
-    if (!identity || userDeck.userId !== identity.subject) return null;
-    return {
-      id: userDeck._id,
-      deckName: userDeck.deckName,
-      deckDescription: userDeck.deckDescription,
-      folderId: userDeck.folderId,
-      source: "user",
-    };
-  } catch {
-    return null;
-  }
+  const docId = ctx.db.normalizeId("userDecks", deckId);
+  if (!docId) return null;
+  const userDeck = await ctx.db.get(docId);
+  if (!userDeck) return null;
+  const identity = await ctx.auth.getUserIdentity();
+  if (!identity || userDeck.userId !== identity.subject) return null;
+  return {
+    id: userDeck._id,
+    deckName: userDeck.deckName,
+    deckDescription: userDeck.deckDescription,
+    folderId: userDeck.folderId,
+    source: "user",
+  };
 }
 
 export async function deleteDeck(ctx: MutationCtx, deckId: Id<"userDecks">) {
-  const identity = await ctx.auth.getUserIdentity();
-  if (!identity) throw new Error("Unauthenticated");
+  await verifyDeckOwnership(ctx, deckId);
 
   await deleteDeckVocabItems(ctx, deckId);
   await deleteShareForDeck(ctx, deckId);

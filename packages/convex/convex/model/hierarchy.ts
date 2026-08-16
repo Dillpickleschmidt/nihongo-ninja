@@ -101,14 +101,19 @@ function buildHierarchyRelationships(
   kanjiEntries: KanjiEntry[],
   radicalEntries: RadicalEntry[],
 ): VocabHierarchy {
+  // Only reference items that are present in the payload, so consumers never
+  // join a reference to a missing entry.
+  const knownKanji = new Set(kanjiEntries.map((k) => k.kanji));
+  const knownRadicals = new Set(radicalEntries.map((r) => r.radical));
+
   const vocabRelationships: VocabRelationship[] = vocabulary.map((item) => ({
     word: item.word,
-    kanjiComponents: extractKanjiCharacters(item.word),
+    kanjiComponents: extractKanjiCharacters(item.word).filter((k) => knownKanji.has(k)),
   }));
 
   const kanjiRelationships: KanjiRelationship[] = kanjiEntries.map((k) => ({
     kanji: k.kanji,
-    radicalComponents: k.radicalComponents,
+    radicalComponents: k.radicalComponents.filter((r) => knownRadicals.has(r)),
   }));
 
   const radicals: string[] = radicalEntries.map((r) => r.radical);

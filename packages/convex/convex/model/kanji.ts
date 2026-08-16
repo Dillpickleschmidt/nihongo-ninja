@@ -46,15 +46,17 @@ async function fetchWanikaniItemsByCharacters(
   ctx: QueryCtx,
   characters: string[],
 ): Promise<WanikaniItem[]> {
+  // collect(), not first(): a character can exist as both a kanji and a
+  // radical (一, 人, 日, ...), and the caller partitions by characterType.
   const results = await Promise.all(
     characters.map((char) =>
       ctx.db
         .query("wanikaniItems")
         .withIndex("by_character", (q) => q.eq("characters", char))
-        .first(),
+        .collect(),
     ),
   );
-  return results.filter((item): item is WanikaniItem => item !== null);
+  return results.flat();
 }
 
 function partitionItemsByType(items: WanikaniItem[]): {

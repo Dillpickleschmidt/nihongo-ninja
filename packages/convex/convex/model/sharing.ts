@@ -5,12 +5,13 @@ import { getUserDeckVocabItems, createDeckVocabItems } from "./vocabulary";
 
 type SortBy = "recent" | "popular";
 
+// sharedBy stays out of this type on purpose: it is the raw auth subject, and
+// a public listing must not publish a stable account identifier.
 export interface SharedDeckInfo {
   shareId: Id<"publicDeckShares">;
   deckId: Id<"userDecks">;
   deckName: string;
   deckDescription?: string;
-  sharedBy: string;
   sharedAt: number;
   importCount: number;
 }
@@ -43,7 +44,6 @@ export async function getSharedDecks(
       deckId: share.deckId,
       deckName: deck.deckName,
       deckDescription: deck.deckDescription,
-      sharedBy: share.sharedBy,
       sharedAt: share._creationTime,
       importCount: share.importCount,
     });

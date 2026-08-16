@@ -1,12 +1,12 @@
 import type { MutationCtx, QueryCtx } from "../_generated/server";
-import type { PracticeMode } from "../validators";
+import type { PracticeItemType, PracticeMode } from "../validators";
 import { createDeck } from "./decks";
 import { fetchVocabItemsByKeys } from "./vocabulary";
 import { createDeckVocabItems } from "./vocabulary";
 
 export interface MissedItem {
   practiceItemKey: string;
-  type: string;
+  type: PracticeItemType;
   missCount: number;
 }
 
@@ -32,8 +32,10 @@ export async function getMostMissedItems(
   if (cards.length === 0) return [];
 
   // For each card, count recent misses (rating === 1 = Rating.Again)
-  const missCountMap: Map<string, { practiceItemKey: string; type: string; count: number }> =
-    new Map();
+  const missCountMap: Map<
+    string,
+    { practiceItemKey: string; type: PracticeItemType; count: number }
+  > = new Map();
 
   for (const card of cards) {
     const logs = await ctx.db

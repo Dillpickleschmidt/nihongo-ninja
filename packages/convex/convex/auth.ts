@@ -8,7 +8,13 @@ import type { DataModel } from "./_generated/dataModel";
 import type { QueryCtx, MutationCtx } from "./_generated/server";
 import authConfig from "./auth.config";
 
-const siteUrl = process.env.SITE_URL!;
+function requireSiteUrl(): string {
+  const siteUrl = process.env.SITE_URL;
+  if (!siteUrl) {
+    throw new Error("SITE_URL is not set. Run: npx convex env set SITE_URL <app url>");
+  }
+  return siteUrl;
+}
 
 // The component client has methods needed for integrating Convex with Better Auth,
 // as well as helper methods for general use.
@@ -16,7 +22,7 @@ export const authComponent = createClient<DataModel>(components.betterAuth);
 
 const createAuthOptions = (ctx: GenericCtx<DataModel>) => {
   return {
-    baseURL: siteUrl,
+    baseURL: requireSiteUrl(),
     database: authComponent.adapter(ctx),
     // Configure simple, non-verified email/password to get started
     emailAndPassword: {

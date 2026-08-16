@@ -1,4 +1,5 @@
 import { chapters } from "./chapters";
+import { dynamic_modules } from "./dynamic_modules";
 import { external_resources, getExternalResourceLink } from "./external_resources";
 import { static_modules } from "./static_modules";
 
@@ -84,8 +85,16 @@ export function getModuleIdFromUrl(
   if (linkToModuleId[fullUrl]) return linkToModuleId[fullUrl];
   if (linkToModuleId[pathname]) return linkToModuleId[pathname];
 
+  // The value comes from the URL — only accept IDs that exist in a registry.
   const importParam = params.get("import");
-  if (importParam) return importParam;
+  if (
+    importParam &&
+    (Object.hasOwn(dynamic_modules, importParam) ||
+      Object.hasOwn(static_modules, importParam) ||
+      Object.hasOwn(external_resources, importParam))
+  ) {
+    return importParam;
+  }
 
   const sentenceMatch = pathname.match(/^\/sentence-practice\/(.+)$/);
   if (sentenceMatch) return `sentence-practice-${sentenceMatch[1]}`;

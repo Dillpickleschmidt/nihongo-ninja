@@ -6,5 +6,5 @@ export function getAllTextbooks(): Array<Omit<Textbook, "id"> & { id: string }> 
 }
 
 export function isBuiltInTextbook(id: string): boolean {
-  return id in textbooks;
+  return Object.hasOwn(textbooks, id);
 }

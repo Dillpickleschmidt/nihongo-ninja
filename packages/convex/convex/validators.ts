@@ -229,7 +229,7 @@ export const DEFAULT_USER_PREFERENCES = {
   },
   accentColor: "#797980",
   timestamp: 0,
-};
+} satisfies Infer<typeof userPreferencesValidator>;
 
 // === Anime Service Validator ===
 export const animeServiceValidator = v.union(
@@ -311,6 +311,7 @@ export const deckVocabItemInputValidator = v.object({
   info: v.optional(v.array(v.string())),
   mnemonics: v.optional(mnemonicsValidator),
   exampleSentences: v.optional(v.array(exampleSentenceValidator)),
+  videos: v.optional(v.array(videoValidator)),
   particles: v.optional(v.array(particleValidator)),
   isVerb: v.optional(v.boolean()),
 });

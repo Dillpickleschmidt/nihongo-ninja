@@ -143,18 +143,19 @@ async function resolveReviewVocabulary(
     }
   }
 
-  const missingKeys = vocabKeys.filter((key) => !resolved.has(key));
-  if (missingKeys.length === 0) {
-    return vocabKeys
+  const collectResolved = () =>
+    vocabKeys
       .map((key) => resolved.get(key))
       .filter((item): item is VocabularyItem => item !== undefined);
+
+  const missingKeys = vocabKeys.filter((key) => !resolved.has(key));
+  if (missingKeys.length === 0) {
+    return collectResolved();
   }
 
   const identity = await ctx.auth.getUserIdentity();
   if (!identity) {
-    return vocabKeys
-      .map((key) => resolved.get(key))
-      .filter((item): item is VocabularyItem => item !== undefined);
+    return collectResolved();
   }
 
   const ownedDecks = await ctx.db
@@ -193,9 +194,7 @@ async function resolveReviewVocabulary(
     }
   }
 
-  return vocabKeys
-    .map((key) => resolved.get(key))
-    .filter((item): item is VocabularyItem => item !== undefined);
+  return collectResolved();
 }
 
 function uniqueInOrder(values: string[]) {

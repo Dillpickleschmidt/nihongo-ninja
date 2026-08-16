@@ -253,13 +253,11 @@ export async function upsertFSRSCard(
   );
 }
 
-// Skip importing cards where existing has a longer interval (better knowledge)
-const SKIP_WORSE_IMPORTS = true;
-
 /**
  * Import FSRS cards in batch.
- * When SKIP_WORSE_IMPORTS is true, skips cards where the existing stored card
- * has a longer interval than the incoming card.
+ * Skips cards where the existing stored card has a longer interval (better
+ * knowledge). Duplicate (type, searchTerm) inputs are collapsed to the entry
+ * with the longest interval, so one request cannot insert duplicate rows.
  */
 export async function batchImportFSRSCards(
   ctx: MutationCtx,
@@ -277,18 +275,30 @@ export async function batchImportFSRSCards(
 
   const userId = identity.subject;
 
+  const byKey = new Map<string, (typeof cards)[number]>();
+  for (const card of cards) {
+    const key = `${card.type}:${card.searchTerm}`;
+    const prev = byKey.get(key);
+    if (!prev || card.card.scheduled_days > prev.card.scheduled_days) {
+      byKey.set(key, card);
+    }
+  }
+  const uniqueCards = [...byKey.values()];
+
   // Batch fetch existing cards
   const existingCards = await Promise.all(
-    cards.map((card) => fetchExistingCard(ctx, userId, card.searchTerm, "meanings", card.type)),
+    uniqueCards.map((card) =>
+      fetchExistingCard(ctx, userId, card.searchTerm, "meanings", card.type),
+    ),
   );
 
   // Filter + upsert in one pass
   let importedCount = 0;
   await Promise.all(
-    cards.map(async (card, i) => {
+    uniqueCards.map(async (card, i) => {
       const existing = existingCards[i] ?? null;
 
-      if (SKIP_WORSE_IMPORTS && !shouldImportCard(card.card.scheduled_days, existing)) {
+      if (!shouldImportCard(card.card.scheduled_days, existing)) {
         return null;
       }
 

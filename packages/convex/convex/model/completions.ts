@@ -57,6 +57,7 @@ export async function syncCompletions(
 
   for (const completion of completions) {
     if (!existingPaths.has(completion.modulePath)) {
+      existingPaths.add(completion.modulePath);
       await ctx.db.insert("userCompletedModules", {
         userId: identity.subject,
         modulePath: completion.modulePath,

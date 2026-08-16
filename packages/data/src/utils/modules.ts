@@ -1,8 +1,9 @@
+// Module path and resolution utilities
+
 import { chapters } from "../chapters";
 import { dynamic_modules, type DynamicModule } from "../dynamic_modules";
 import { external_resources, type ExternalResource } from "../external_resources";
 import { getModuleLink, type ModuleLink } from "../module-links";
-// Module path and resolution utilities
 import { static_modules, type StaticModule } from "../static_modules";
 
 // Unified Module type

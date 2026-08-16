@@ -35,7 +35,6 @@ export const updateDeck = mutation({
     folderId: v.optional(v.union(v.id("userDeckFolders"), v.null())),
   },
   handler: async (ctx, args) => {
-    await Decks.verifyDeckOwnership(ctx, args.deckId);
     if (args.deckName) {
       await Decks.checkDeckNameUnique(ctx, args.deckName, args.deckId);
     }
@@ -49,10 +48,7 @@ export const updateDeck = mutation({
  */
 export const deleteDeck = mutation({
   args: { deckId: v.id("userDecks") },
-  handler: async (ctx, { deckId }) => {
-    await Decks.verifyDeckOwnership(ctx, deckId);
-    return Decks.deleteDeck(ctx, deckId);
-  },
+  handler: (ctx, { deckId }) => Decks.deleteDeck(ctx, deckId),
 });
 
 /**
@@ -91,7 +87,6 @@ export const updateDeckWithVocab = mutation({
     vocabularyItems: v.optional(v.array(deckVocabItemInputValidator)),
   },
   handler: async (ctx, args) => {
-    await Decks.verifyDeckOwnership(ctx, args.deckId);
     if (args.deckName) {
       await Decks.checkDeckNameUnique(ctx, args.deckName, args.deckId);
     }
@@ -109,7 +104,10 @@ export const updateDeckWithVocab = mutation({
  */
 export const getUserDeckVocabItems = query({
   args: { deckId: v.id("userDecks") },
-  handler: (ctx, { deckId }) => Vocabulary.getUserDeckVocabItems(ctx, deckId),
+  handler: async (ctx, { deckId }) => {
+    await Decks.verifyDeckOwnership(ctx, deckId);
+    return Vocabulary.getUserDeckVocabItems(ctx, deckId);
+  },
 });
 
 /**
@@ -138,6 +136,11 @@ export const copyDeck = mutation({
   },
   handler: async (ctx, args) => {
     await Decks.checkDeckNameUnique(ctx, args.deckName);
+    if (args.deckSource === "user") {
+      const docId = ctx.db.normalizeId("userDecks", args.deckId);
+      if (!docId) throw new Error("Deck not found");
+      await Decks.verifyDeckReadAccess(ctx, docId);
+    }
     const vocabItems = await Vocabulary.fetchDeckVocab(ctx, args.deckId, args.deckSource);
     const newDeckId = await Decks.createDeck(ctx, {
       deckName: args.deckName,

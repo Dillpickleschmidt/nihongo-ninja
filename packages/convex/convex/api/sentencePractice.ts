@@ -1,62 +1,29 @@
 import { v } from "convex/values";
 
-import { mutation, query } from "../_generated/server";
-import { sentenceAnswerTokenValidator, sentenceAnswerValidator } from "../validators";
+import { internalMutation, query } from "../_generated/server";
+import * as SentencePractice from "../model/sentencePractice";
 
 /**
- * Get sentence practice questions for a given set ID
- * Returns questions sorted by order
+ * Get sentence practice questions for a given set ID, sorted by order
  */
 export const getQuestionsBySetId = query({
   args: { setId: v.string() },
-  handler: async (ctx, { setId }) => {
-    const questions = await ctx.db
-      .query("sentencePracticeQuestions")
-      .withIndex("by_setId", (q) => q.eq("setId", setId))
-      .collect();
-
-    return questions.sort((a, b) => a.order - b.order);
-  },
+  handler: (ctx, { setId }) => SentencePractice.getQuestionsBySetId(ctx, setId),
 });
 
-const sentencePracticeQuestionInputValidator = v.object({
-  setId: v.string(),
-  order: v.number(),
-  english: v.string(),
-  hint: v.optional(v.string()),
-  answers: v.array(sentenceAnswerValidator),
-  canonicalAnswerTokens: v.array(v.array(sentenceAnswerTokenValidator)),
-});
+// The write operations are internal: curriculum content is seeded by scripts
+// (`npx convex run`), never by clients.
 
-export const deleteQuestionsBySetId = mutation({
+export const deleteQuestionsBySetId = internalMutation({
   args: { setId: v.string() },
-  handler: async (ctx, { setId }) => {
-    const existing = await ctx.db
-      .query("sentencePracticeQuestions")
-      .withIndex("by_setId", (q) => q.eq("setId", setId))
-      .collect();
-
-    for (const question of existing) {
-      await ctx.db.delete(question._id);
-    }
-
-    return { deleted: existing.length };
-  },
+  handler: (ctx, { setId }) => SentencePractice.deleteQuestionsBySetId(ctx, setId),
 });
 
-export const insertQuestionsForSet = mutation({
+export const insertQuestionsForSet = internalMutation({
   args: {
     setId: v.string(),
-    questions: v.array(sentencePracticeQuestionInputValidator),
+    questions: v.array(SentencePractice.sentencePracticeQuestionInputValidator),
   },
-  handler: async (ctx, { setId, questions }) => {
-    for (const question of questions) {
-      if (question.setId !== setId) {
-        throw new Error(`Question setId ${question.setId} does not match ${setId}`);
-      }
-      await ctx.db.insert("sentencePracticeQuestions", question);
-    }
-
-    return { inserted: questions.length };
-  },
+  handler: (ctx, { setId, questions }) =>
+    SentencePractice.insertQuestionsForSet(ctx, setId, questions),
 });
