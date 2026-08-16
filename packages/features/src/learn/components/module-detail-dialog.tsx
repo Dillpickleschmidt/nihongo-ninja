@@ -150,6 +150,7 @@ function ModuleDetailVocabulary({
             <button
               key={`${word.word}-${index}`}
               type="button"
+              aria-pressed={focusedIndex === index}
               onClick={() => {
                 setFocusedIndex(index);
               }}
@@ -257,6 +258,7 @@ function ModuleDetailGrammar({
         <>
           <button
             type="button"
+            aria-expanded={expanded}
             onClick={() => {
               setExpanded(!expanded);
             }}
