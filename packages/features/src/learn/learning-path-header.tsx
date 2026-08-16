@@ -1,10 +1,16 @@
 import { convexQuery } from "@convex-dev/react-query";
 import { api } from "@nn/convex/_generated/api";
 import { getDefaultChapterSlugForPath } from "@nn/data/backgrounds/learning-path-selection";
+import {
+  clearChapterBackground,
+  getChapterBackgroundSelection,
+  type BackgroundTarget,
+} from "@nn/data/backgrounds/overrides";
 import { resolveBackground } from "@nn/data/backgrounds/resolve-background";
+import { getChapterDisplayNumber } from "@nn/data/utils/chapter-helpers";
 import { cn } from "@nn/ui";
 import { useQuery } from "@tanstack/react-query";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, RotateCcw, Wallpaper } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 function QueryErrorPanel({ onRetry }: { onRetry: () => void }) {
@@ -22,6 +28,7 @@ function QueryErrorPanel({ onRetry }: { onRetry: () => void }) {
   );
 }
 
+import { BackgroundAssignmentDialog } from "./components/background-assignment-dialog";
 import { BackgroundPreviewMedia } from "./components/background-preview-media";
 import { DueCountBadge } from "./components/due-count-badge";
 import { LearningPathBackgroundCard } from "./components/learning-path-background-card";
@@ -30,6 +37,8 @@ import { useLearningPath, type LearningPathChapter } from "./context";
 export function LearningPathHeader() {
   const [isPathPanelOpen, setIsPathPanelOpen] = useState(false);
   const [chaptersExpanded, setChaptersExpanded] = useState(false);
+  const [editTarget, setEditTarget] = useState<BackgroundTarget | null>(null);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
   const {
     data,
     error,
@@ -94,6 +103,25 @@ export function LearningPathHeader() {
     resolveBackground(pathId, getDefaultChapterSlugForPath(pathId), backgroundOverrides);
   const resolveChapterBackground = (chapterSlug: string) =>
     resolveBackground(selectedPathId, chapterSlug, backgroundOverrides);
+
+  const openEditor = (target: BackgroundTarget) => {
+    setEditTarget(target);
+    setIsPathPanelOpen(false);
+    setIsDialogOpen(true);
+  };
+
+  const hasChapterBackground = (target: BackgroundTarget) =>
+    !!getChapterBackgroundSelection(backgroundOverrides, target);
+
+  const resetChapterBackground = (target: BackgroundTarget) => {
+    setPreference("backgroundOverrides", clearChapterBackground(backgroundOverrides, target));
+  };
+
+  const getPathLabel = (pathId: string) =>
+    paths.find((path) => path.id === pathId)?.shortName ?? pathId;
+
+  const getEditContextLabel = (target: BackgroundTarget) =>
+    `${getPathLabel(target.pathId)} · Chapter ${getChapterDisplayNumber(target.chapterSlug)}`;
 
   return (
     <section className="animate-fade-up">
@@ -193,8 +221,21 @@ export function LearningPathHeader() {
                     active={activeChapterSlug === chapter.slug}
                     completedCount={chapter.modules.filter((m) => isCompleted(m.moduleId)).length}
                     resolvedBackground={resolveChapterBackground(chapter.slug)}
+                    hasOverride={hasChapterBackground({
+                      pathId: selectedPathId,
+                      chapterSlug: chapter.slug,
+                    })}
                     onSelect={() => {
                       setPreference("activeChapter", chapter.slug);
+                    }}
+                    onReset={() => {
+                      resetChapterBackground({
+                        pathId: selectedPathId,
+                        chapterSlug: chapter.slug,
+                      });
+                    }}
+                    onEdit={() => {
+                      openEditor({ pathId: selectedPathId, chapterSlug: chapter.slug });
                     }}
                   />
                 ))}
@@ -221,6 +262,20 @@ export function LearningPathHeader() {
           </div>
         </div>
       )}
+
+      {editTarget !== null ? (
+        <BackgroundAssignmentDialog
+          open={isDialogOpen}
+          onOpenChange={setIsDialogOpen}
+          onOpenChangeComplete={(open) => {
+            // Unmount only after the close transition finishes.
+            if (!open) setEditTarget(null);
+          }}
+          contextLabel={getEditContextLabel(editTarget)}
+          target={editTarget}
+          getPathLabel={getPathLabel}
+        />
+      ) : null}
     </section>
   );
 }
@@ -245,14 +300,20 @@ function ChapterCard({
   active,
   completedCount,
   resolvedBackground,
+  hasOverride,
   onSelect,
+  onReset,
+  onEdit,
 }: {
   ref: (el: HTMLDivElement | null) => void;
   chapter: LearningPathChapter;
   active: boolean;
   completedCount: number;
   resolvedBackground: ReturnType<typeof resolveBackground>;
+  hasOverride: boolean;
   onSelect: () => void;
+  onReset: () => void;
+  onEdit: () => void;
 }) {
   const total = chapter.modules.length;
   const percent = total === 0 ? 0 : (completedCount / total) * 100;
@@ -303,6 +364,59 @@ function ChapterCard({
           </div>
         </div>
       </button>
+      <div className="absolute top-1.5 right-1.5 flex items-center gap-1">
+        <BackgroundOverrideActions
+          label={
+            getChapterDisplayNumber(chapter.slug)
+              ? `chapter ${getChapterDisplayNumber(chapter.slug)}`
+              : chapter.title
+          }
+          hasOverride={hasOverride}
+          onReset={onReset}
+          onEdit={onEdit}
+        />
+      </div>
     </div>
+  );
+}
+
+function BackgroundOverrideActions({
+  label,
+  hasOverride,
+  onReset,
+  onEdit,
+}: {
+  label: string;
+  hasOverride: boolean;
+  onReset: () => void;
+  onEdit: () => void;
+}) {
+  return (
+    <>
+      {hasOverride ? (
+        <button
+          type="button"
+          onClick={(e) => {
+            e.stopPropagation();
+            onReset();
+          }}
+          aria-label={`Reset background image for ${label}`}
+          className="cursor-pointer rounded-md p-1.5 text-white/75 transition-colors hover:bg-white/10 hover:text-white"
+        >
+          <RotateCcw className="size-3.5" />
+        </button>
+      ) : null}
+      <button
+        type="button"
+        onClick={(e) => {
+          e.stopPropagation();
+          onEdit();
+        }}
+        aria-label={`Change background image for ${label}`}
+        className="cursor-pointer rounded-md p-1.5 text-white/80 transition-colors hover:bg-white/10 hover:text-white"
+      >
+        <Wallpaper className="size-4" />
+      </button>
+    </>
   );
 }

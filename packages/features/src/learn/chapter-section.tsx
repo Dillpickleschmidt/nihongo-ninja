@@ -1,18 +1,21 @@
 import { cn } from "@nn/ui";
 
 import { ExternalResourcesSection } from "./components/external-resources";
+import { ModuleTimelineView } from "./components/module-timeline-view";
 import { ModuleCategorizedView, ModuleListView } from "./components/module-views";
 import type { LearnViewMode } from "./components/view-toggle";
-import type { LearningPathChapter } from "./context";
+import type { LearningPathChapter, LearningPathModule } from "./context";
 
 export function ChapterSection({
   chapter,
   viewMode,
   isCompleted,
+  onModuleSelect,
 }: {
   chapter: LearningPathChapter;
   viewMode: LearnViewMode;
   isCompleted: (moduleId: string) => boolean;
+  onModuleSelect?: (module: LearningPathModule) => void;
 }) {
   const hasExternalResources = chapter.externalResourceIds.length > 0;
 
@@ -49,9 +52,28 @@ export function ChapterSection({
       </div>
 
       {viewMode === "grid" ? (
-        <ModuleListView modules={chapter.modules} isCompleted={isCompleted} />
+        <>
+          <div className="md:hidden">
+            <ModuleTimelineView
+              modules={chapter.modules}
+              isCompleted={isCompleted}
+              onModuleSelect={onModuleSelect}
+            />
+          </div>
+          <div className="hidden md:block">
+            <ModuleListView
+              modules={chapter.modules}
+              isCompleted={isCompleted}
+              onModuleSelect={onModuleSelect}
+            />
+          </div>
+        </>
       ) : (
-        <ModuleCategorizedView modules={chapter.modules} isCompleted={isCompleted} />
+        <ModuleCategorizedView
+          modules={chapter.modules}
+          isCompleted={isCompleted}
+          onModuleSelect={onModuleSelect}
+        />
       )}
     </div>
   );

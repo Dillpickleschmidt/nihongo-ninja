@@ -2,8 +2,9 @@ import { useState } from "react";
 
 import { FloatingKanji } from "../homepage/landing/floating-kanji";
 import { ChapterSection } from "./chapter-section";
+import { ModuleDetailDialog } from "./components/module-detail-dialog";
 import { ViewToggle, type LearnViewMode } from "./components/view-toggle";
-import { LearningPathProvider, useLearningPath } from "./context";
+import { LearningPathProvider, useLearningPath, type LearningPathModule } from "./context";
 import { LearningPathHeader } from "./learning-path-header";
 
 // The learn hub (web). Mobile renders learn-page.native.tsx instead.
@@ -24,7 +25,17 @@ export default function LearnPage() {
 
 function LearningPathSection() {
   const [selectedView, setSelectedView] = useState<LearnViewMode>("grid");
-  const { currentChapter, isCompleted, error, refetch } = useLearningPath();
+  const [selectedModule, setSelectedModule] = useState<LearningPathModule | null>(null);
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const { currentChapter, isCompleted, error, refetch, selectedPath, selectedPathId } =
+    useLearningPath();
+
+  // User-created paths open modules in a detail dialog instead of navigating.
+  const openInDialog = selectedPath?.isUserCreated ?? false;
+  const handleModuleSelect = (module: LearningPathModule) => {
+    setSelectedModule(module);
+    setDialogOpen(true);
+  };
 
   return (
     <section className="animate-fade-up mt-8" style={{ animationDelay: "150ms" }}>
@@ -62,9 +73,19 @@ function LearningPathSection() {
             chapter={currentChapter}
             viewMode={selectedView}
             isCompleted={isCompleted}
+            onModuleSelect={openInDialog ? handleModuleSelect : undefined}
           />
         </>
       )}
+
+      {openInDialog && selectedModule !== null ? (
+        <ModuleDetailDialog
+          pathId={selectedPathId}
+          module={selectedModule}
+          open={dialogOpen}
+          onOpenChange={setDialogOpen}
+        />
+      ) : null}
     </section>
   );
 }

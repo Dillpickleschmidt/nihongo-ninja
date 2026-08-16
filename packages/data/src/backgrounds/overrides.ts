@@ -34,7 +34,10 @@ export function clearChapterBackground(
 ): BackgroundOverrides {
   const chapters = { ...overrides.chapters };
   delete chapters[getChapterBackgroundKey(target.pathId, target.chapterSlug)];
-  return { ...overrides, chapters };
+  const next = { ...overrides, chapters };
+  // A lock whose source chapter is cleared has no backing selection and
+  // would silently reapply on the next assignment; drop it too.
+  return isLockSource(overrides.lock, target) ? clearBackgroundLock(next) : next;
 }
 
 export function getActiveBackgroundLock(
