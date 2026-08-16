@@ -150,6 +150,16 @@ dev --once` provisions a local one without an account).
   `apps/expo/src/app/_layout.tsx`. Add a `loader` to every new web route that
   reads Convex data, or that data will not be in the server HTML.
 
+## Agent skills
+
+### Issue tracker
+
+Issues live in GitHub Issues via the `gh` CLI. See `docs/agents/issue-tracker.md`.
+
+### Domain docs
+
+Single-context: one `CONTEXT.md` + `docs/adr/` at the repo root. See `docs/agents/domain.md`.
+
 ## Out of scope for v0 (do not build unprompted)
 
 Lesson content, learning tools, auth flows, and the subtitle overlay itself.
