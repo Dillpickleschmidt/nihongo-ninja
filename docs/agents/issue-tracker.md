@@ -2,8 +2,6 @@
 
 Issues and specs for this repo live as GitHub issues. Use the `gh` CLI for all operations.
 
-> Note: no git remote exists yet (fresh `git init`). Push this repo to GitHub before these operations can work.
-
 
 ## Conventions
 
