@@ -7,9 +7,42 @@ import { getModuleIcon, getModuleIconClasses } from "../module-helpers";
 type ModuleViewProps = {
   modules: LearningPathModule[];
   isCompleted: (moduleId: string) => boolean;
+  // When set, modules open a detail dialog instead of navigating.
+  onModuleSelect?: (module: LearningPathModule) => void;
 };
 
-function moduleHref(module: LearningPathModule): string {
+function ModuleAction({
+  module,
+  onModuleSelect,
+  className,
+  children,
+}: {
+  module: LearningPathModule;
+  onModuleSelect?: (module: LearningPathModule) => void;
+  className: string;
+  children: React.ReactNode;
+}) {
+  if (onModuleSelect && !module.disabled) {
+    return (
+      <button
+        type="button"
+        onClick={() => {
+          onModuleSelect(module);
+        }}
+        className={cn(className, "w-full cursor-pointer text-left")}
+      >
+        {children}
+      </button>
+    );
+  }
+  return (
+    <a href={module.disabled ? undefined : moduleHref(module)} className={className}>
+      {children}
+    </a>
+  );
+}
+
+export function moduleHref(module: LearningPathModule): string {
   const { to, search } = module.linkTo;
   if (!search) return to;
   const params = new URLSearchParams();
@@ -26,7 +59,7 @@ function moduleHref(module: LearningPathModule): string {
 
 // Most module targets are not ported yet; plain anchors keep the typed Href
 // union honest and 404 gracefully in dev.
-export function ModuleListView({ modules, isCompleted }: ModuleViewProps) {
+export function ModuleListView({ modules, isCompleted, onModuleSelect }: ModuleViewProps) {
   return (
     <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 xl:grid-cols-3">
       {modules.map((module, index) => {
@@ -35,8 +68,9 @@ export function ModuleListView({ modules, isCompleted }: ModuleViewProps) {
 
         return (
           <div key={module.moduleId} className="hover:scale-[98.5%]">
-            <a
-              href={module.disabled ? undefined : moduleHref(module)}
+            <ModuleAction
+              module={module}
+              onModuleSelect={onModuleSelect}
               className={cn(
                 "group relative block h-12 w-full rounded-md border border-border/70 bg-card bg-gradient-to-br from-white/80 to-muted/40 font-outfit text-sm whitespace-nowrap shadow-sm backdrop-blur-sm dark:border-card-foreground/70 dark:from-neutral-600/15 dark:to-gray-600/10",
                 completed && "border-green-500/50 font-semibold text-green-500",
@@ -74,7 +108,7 @@ export function ModuleListView({ modules, isCompleted }: ModuleViewProps) {
                   />
                 </div>
               </div>
-            </a>
+            </ModuleAction>
           </div>
         );
       })}
@@ -108,7 +142,7 @@ const CATEGORIES: Record<CategoryKey, { title: string; iconModuleType: string; t
     },
   };
 
-export function ModuleCategorizedView({ modules, isCompleted }: ModuleViewProps) {
+export function ModuleCategorizedView({ modules, isCompleted, onModuleSelect }: ModuleViewProps) {
   const indexByModuleId = new Map(modules.map((module, index) => [module.moduleId, index]));
   const groups: Record<CategoryKey, LearningPathModule[]> = {
     vocabulary: [],
@@ -144,9 +178,10 @@ export function ModuleCategorizedView({ modules, isCompleted }: ModuleViewProps)
                   const originalIndex = indexByModuleId.get(module.moduleId) ?? 0;
 
                   return (
-                    <a
+                    <ModuleAction
                       key={module.moduleId}
-                      href={module.disabled ? undefined : moduleHref(module)}
+                      module={module}
+                      onModuleSelect={onModuleSelect}
                       className={cn(
                         "block transition-colors",
                         module.disabled && "cursor-not-allowed opacity-50",
@@ -172,7 +207,7 @@ export function ModuleCategorizedView({ modules, isCompleted }: ModuleViewProps)
                           {module.module.description ?? "Description coming soon"}
                         </p>
                       </div>
-                    </a>
+                    </ModuleAction>
                   );
                 })}
               </div>
