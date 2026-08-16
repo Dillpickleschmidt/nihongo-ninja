@@ -26,21 +26,30 @@ export async function buildDeckHierarchy(
 ): Promise<DeckHierarchyResult> {
   const kanjiChars = extractAllKanjiFromVocab(vocabulary);
   const kanjiResult = await fetchKanjiAndRadicals(ctx, kanjiChars, []);
+
+  // The component radicals were already loaded while building the kanji
+  // entries — read them from the result instead of fetching them again.
   const radicalChars = extractAllRadicalsFromKanji(kanjiResult.kanji);
-  const radicalResult = await fetchKanjiAndRadicals(ctx, [], radicalChars);
-  const hierarchy = buildHierarchyRelationships(
-    vocabulary,
-    kanjiResult.kanji,
-    radicalResult.radicals,
-  );
+  const radicals: RadicalEntry[] = [];
+  const skippedRadicals: string[] = [];
+  for (const char of radicalChars) {
+    const entry = kanjiResult.componentRadicals.get(char);
+    if (entry) {
+      radicals.push(entry);
+    } else {
+      skippedRadicals.push(char);
+    }
+  }
+
+  const hierarchy = buildHierarchyRelationships(vocabulary, kanjiResult.kanji, radicals);
 
   return {
     vocabulary,
     hierarchy,
     kanji: kanjiResult.kanji,
-    radicals: radicalResult.radicals,
+    radicals,
     skippedKanji: kanjiResult.skippedKanji,
-    skippedRadicals: radicalResult.skippedRadicals,
+    skippedRadicals,
   };
 }
 

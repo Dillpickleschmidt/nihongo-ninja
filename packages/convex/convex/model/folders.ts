@@ -219,7 +219,7 @@ export async function getDescendantFolderIds(
   const result = new Set<Id<"userDeckFolders">>();
   const children = await ctx.db
     .query("userDeckFolders")
-    .filter((q) => q.eq(q.field("parentFolderId"), folderId))
+    .withIndex("by_parent", (q) => q.eq("parentFolderId", folderId))
     .collect();
 
   for (const child of children) {

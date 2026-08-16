@@ -33,7 +33,9 @@ export default defineSchema({
     folderName: v.string(),
     parentFolderId: v.optional(v.id("userDeckFolders")),
     learningPathId: v.optional(v.id("learningPathTranscripts")),
-  }).index("by_user", ["userId"]),
+  })
+    .index("by_user", ["userId"])
+    .index("by_parent", ["parentFolderId"]),
 
   // User Decks
   userDecks: defineTable({
@@ -66,7 +68,7 @@ export default defineSchema({
     videos: v.optional(v.array(videoValidator)),
     particles: v.optional(v.array(particleValidator)),
     isVerb: v.optional(v.boolean()),
-  }).index("by_deck", ["deckId"]),
+  }).index("by_deck_word", ["deckId", "word"]),
 
   // FSRS Cards (Spaced Repetition) - flat structure for bandwidth efficiency
   userFsrsCards: defineTable({
@@ -101,7 +103,7 @@ export default defineSchema({
     scheduled_days: v.number(),
     learning_steps: v.number(),
     review: v.number(), // timestamp of the review
-  }).index("by_card", ["cardId"]),
+  }).index("by_card_review", ["cardId", "review"]),
 
   // User Completed Modules
   userCompletedModules: defineTable({
@@ -160,7 +162,9 @@ export default defineSchema({
     deckId: v.id("userDecks"),
     sharedBy: v.string(), // userId
     importCount: v.number(),
-  }).index("by_deck", ["deckId"]),
+  })
+    .index("by_deck", ["deckId"])
+    .index("by_importCount", ["importCount"]),
 
   // ===== Learning Path Tables =====
 

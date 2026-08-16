@@ -37,18 +37,20 @@ export async function getMostMissedItems(
     { practiceItemKey: string; type: PracticeItemType; count: number }
   > = new Map();
 
-  for (const card of cards) {
-    const logs = await ctx.db
-      .query("userFsrsCardLogs")
-      .withIndex("by_card", (q) => q.eq("cardId", card._id))
-      .collect();
+  // Parallel, and range-bounded by the index: only logs inside the time
+  // window are read, not each card's full review history.
+  const logsPerCard = await Promise.all(
+    cards.map((card) =>
+      ctx.db
+        .query("userFsrsCardLogs")
+        .withIndex("by_card_review", (q) => q.eq("cardId", card._id).gte("review", cutoff))
+        .collect(),
+    ),
+  );
 
-    let count = 0;
-    for (const log of logs) {
-      if (log.rating === 1 && log.review >= cutoff) {
-        count++;
-      }
-    }
+  for (const [i, card] of cards.entries()) {
+    const logs = logsPerCard[i] ?? [];
+    const count = logs.filter((log) => log.rating === 1).length;
 
     if (count > 0) {
       missCountMap.set(card._id, {

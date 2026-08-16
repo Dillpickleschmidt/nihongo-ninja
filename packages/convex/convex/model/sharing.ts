@@ -1,3 +1,5 @@
+import { PaginationOptions, PaginationResult } from "convex/server";
+
 import { Id } from "../_generated/dataModel";
 import { MutationCtx, QueryCtx } from "../_generated/server";
 import { createDeck as createDeckModel } from "./decks";
@@ -29,35 +31,37 @@ function getShareByDeckId(ctx: QueryCtx, deckId: Id<"userDecks">) {
 
 export async function getSharedDecks(
   ctx: QueryCtx,
-  args: { sortBy: SortBy; limit: number; offset: number },
-): Promise<SharedDeckInfo[]> {
-  const shares = await ctx.db.query("publicDeckShares").collect();
+  args: { sortBy: SortBy; paginationOpts: PaginationOptions },
+): Promise<PaginationResult<SharedDeckInfo>> {
+  // Cursor pagination against an index: only one page of shares is read,
+  // whatever the table size. "recent" uses creation order; "popular" uses
+  // the by_importCount index.
+  const shares =
+    args.sortBy === "popular"
+      ? await ctx.db
+          .query("publicDeckShares")
+          .withIndex("by_importCount")
+          .order("desc")
+          .paginate(args.paginationOpts)
+      : await ctx.db.query("publicDeckShares").order("desc").paginate(args.paginationOpts);
 
-  // Join with deck info
-  const results: SharedDeckInfo[] = [];
-  for (const share of shares) {
-    const deck = await ctx.db.get(share.deckId);
-    if (!deck) continue; // Skip orphaned shares
+  const page = await Promise.all(
+    shares.page.map(async (share): Promise<SharedDeckInfo | null> => {
+      const deck = await ctx.db.get(share.deckId);
+      if (!deck) return null; // Skip orphaned shares
 
-    results.push({
-      shareId: share._id,
-      deckId: share.deckId,
-      deckName: deck.deckName,
-      deckDescription: deck.deckDescription,
-      sharedAt: share._creationTime,
-      importCount: share.importCount,
-    });
-  }
+      return {
+        shareId: share._id,
+        deckId: share.deckId,
+        deckName: deck.deckName,
+        deckDescription: deck.deckDescription,
+        sharedAt: share._creationTime,
+        importCount: share.importCount,
+      };
+    }),
+  );
 
-  // Sort
-  if (args.sortBy === "popular") {
-    results.sort((a, b) => b.importCount - a.importCount);
-  } else {
-    results.sort((a, b) => b.sharedAt - a.sharedAt);
-  }
-
-  // Paginate
-  return results.slice(args.offset, args.offset + args.limit);
+  return { ...shares, page: page.filter((entry) => entry !== null) };
 }
 
 export async function isShared(ctx: QueryCtx, deckId: Id<"userDecks">) {

@@ -60,7 +60,7 @@ export async function fetchVocabBySets(
 export async function getUserDeckVocabItems(ctx: QueryCtx, deckId: Id<"userDecks">) {
   return ctx.db
     .query("deckVocabularyItems")
-    .withIndex("by_deck", (q) => q.eq("deckId", deckId))
+    .withIndex("by_deck_word", (q) => q.eq("deckId", deckId))
     .collect();
 }
 
@@ -99,7 +99,7 @@ export async function createDeckVocabItems(
 export async function deleteDeckVocabItems(ctx: MutationCtx, deckId: Id<"userDecks">) {
   const items = await ctx.db
     .query("deckVocabularyItems")
-    .withIndex("by_deck", (q) => q.eq("deckId", deckId))
+    .withIndex("by_deck_word", (q) => q.eq("deckId", deckId))
     .collect();
 
   for (const item of items) {
@@ -433,7 +433,7 @@ export async function fetchVocabItemsByKeys(
     const keySet = new Set(keys);
     const deckItems = await ctx.db
       .query("deckVocabularyItems")
-      .withIndex("by_deck", (q) => q.eq("deckId", deckId))
+      .withIndex("by_deck_word", (q) => q.eq("deckId", deckId))
       .collect();
 
     for (const deckItem of deckItems) {

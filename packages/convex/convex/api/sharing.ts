@@ -1,3 +1,4 @@
+import { paginationOptsValidator } from "convex/server";
 import { v } from "convex/values";
 
 import { mutation, query } from "../_generated/server";
@@ -9,8 +10,7 @@ import * as Sharing from "../model/sharing";
 export const getSharedDecks = query({
   args: {
     sortBy: v.union(v.literal("recent"), v.literal("popular")),
-    limit: v.number(),
-    offset: v.number(),
+    paginationOpts: paginationOptsValidator,
   },
   handler: (ctx, args) => Sharing.getSharedDecks(ctx, args),
 });

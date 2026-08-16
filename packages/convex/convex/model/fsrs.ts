@@ -195,6 +195,10 @@ export async function getItemStatuses(
   return statusMap;
 }
 
+// Counts cap here instead of reading an unbounded backlog; the UI can render
+// the cap as "500+".
+const DUE_COUNT_CAP = 500;
+
 export async function getDueFSRSCardsCount(
   ctx: QueryCtx,
 ): Promise<{ meanings: number; spellings: number }> {
@@ -205,8 +209,8 @@ export async function getDueFSRSCardsCount(
   const now = Date.now();
 
   const [meanings, spellings] = await Promise.all([
-    queryCardsByMode(ctx, userId, "meanings", now).collect(),
-    queryCardsByMode(ctx, userId, "spellings", now).collect(),
+    queryCardsByMode(ctx, userId, "meanings", now).take(DUE_COUNT_CAP),
+    queryCardsByMode(ctx, userId, "spellings", now).take(DUE_COUNT_CAP),
   ]);
 
   return { meanings: meanings.length, spellings: spellings.length };

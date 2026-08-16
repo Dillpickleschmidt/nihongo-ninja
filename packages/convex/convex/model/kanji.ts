@@ -20,14 +20,35 @@ export async function fetchKanjiAndRadicals(
   radicals: RadicalEntry[];
   skippedKanji: string[];
   skippedRadicals: string[];
+  // Entries for the kanji's component radicals, keyed by character. Built from
+  // documents this function already loaded — callers that need the component
+  // radicals read them here instead of fetching the same documents again.
+  componentRadicals: Map<string, RadicalEntry>;
 }> {
   if (kanjiChars.length === 0 && radicalChars.length === 0) {
-    return { kanji: [], radicals: [], skippedKanji: [], skippedRadicals: [] };
+    return {
+      kanji: [],
+      radicals: [],
+      skippedKanji: [],
+      skippedRadicals: [],
+      componentRadicals: new Map(),
+    };
   }
 
   const items = await fetchWanikaniItemsByCharacters(ctx, [...kanjiChars, ...radicalChars]);
   const { kanjiMap, radicalMap } = partitionItemsByType(items);
   const componentMap = await buildComponentRadicalMap(ctx, kanjiMap);
+
+  const componentRadicals = new Map<string, RadicalEntry>();
+  for (const item of componentMap.values()) {
+    if (item.characters) {
+      componentRadicals.set(item.characters, {
+        radical: item.characters,
+        meanings: item.meanings,
+        meaningMnemonic: item.meaningMnemonic,
+      });
+    }
+  }
 
   const { entries: kanji, skipped: skippedKanji } = buildKanjiEntries(
     kanjiChars,
@@ -39,7 +60,7 @@ export async function fetchKanjiAndRadicals(
     radicalMap,
   );
 
-  return { kanji, radicals, skippedKanji, skippedRadicals };
+  return { kanji, radicals, skippedKanji, skippedRadicals, componentRadicals };
 }
 
 async function fetchWanikaniItemsByCharacters(
@@ -80,7 +101,7 @@ function partitionItemsByType(items: WanikaniItem[]): {
 async function buildComponentRadicalMap(
   ctx: QueryCtx,
   kanjiMap: Map<string, WanikaniItem>,
-): Promise<Map<number, string>> {
+): Promise<Map<number, WanikaniItem>> {
   const componentIds = new Set<number>();
   for (const item of kanjiMap.values()) {
     for (const id of item.componentIds) {
@@ -88,7 +109,7 @@ async function buildComponentRadicalMap(
     }
   }
 
-  const map = new Map<number, string>();
+  const map = new Map<number, WanikaniItem>();
   if (componentIds.size === 0) return map;
 
   const results = await Promise.all(
@@ -102,7 +123,7 @@ async function buildComponentRadicalMap(
 
   for (const item of results) {
     if (item?.characterType === "radical" && item.characters) {
-      map.set(item.wanikaniId, item.characters);
+      map.set(item.wanikaniId, item);
     }
   }
 
@@ -112,7 +133,7 @@ async function buildComponentRadicalMap(
 function buildKanjiEntries(
   kanjiChars: string[],
   kanjiMap: Map<string, WanikaniItem>,
-  componentMap: Map<number, string>,
+  componentMap: Map<number, WanikaniItem>,
 ): { entries: KanjiEntry[]; skipped: string[] } {
   const entries: KanjiEntry[] = [];
   const skipped: string[] = [];
@@ -125,7 +146,7 @@ function buildKanjiEntries(
     }
 
     const radicalComponents = item.componentIds
-      .map((id) => componentMap.get(id))
+      .map((id) => componentMap.get(id)?.characters)
       .filter((c): c is string => c !== undefined);
 
     entries.push({
