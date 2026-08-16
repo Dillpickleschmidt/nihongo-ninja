@@ -20,8 +20,8 @@ export default function HomePage() {
           : "Connecting to Convex…"}
       </Paragraph>
       <View className="flex-row gap-4">
-        <Link href="/lessons/getting-started">
-          <Button variant="secondary">Demo lesson</Button>
+        <Link href="/lessons/greetings">
+          <Button variant="secondary">Greetings lesson</Button>
         </Link>
         <Link href="/watch">
           <Button>Watch (DRM spike)</Button>
