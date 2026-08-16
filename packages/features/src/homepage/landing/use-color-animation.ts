@@ -1,0 +1,25 @@
+import { useEffect } from "react";
+
+const ORANGE = { accent: "#f59e0b", accentEnd: "#f43f5e" };
+const PINK = { accent: "#ec4899", accentEnd: "#a855f7" };
+
+// Cycles the landing accent between orange and pink every five seconds.
+export function useColorAnimation() {
+  useEffect(() => {
+    const root = document.documentElement;
+    root.style.setProperty("--landing-accent", ORANGE.accent);
+    root.style.setProperty("--landing-accent-end", ORANGE.accentEnd);
+
+    let isPink = false;
+    const interval = setInterval(() => {
+      const colors = isPink ? ORANGE : PINK;
+      root.style.setProperty("--landing-accent", colors.accent);
+      root.style.setProperty("--landing-accent-end", colors.accentEnd);
+      isPink = !isPink;
+    }, 5000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
+}
