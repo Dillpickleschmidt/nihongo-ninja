@@ -22,7 +22,8 @@ export function VideoShowcase({
   videoSrc?: string;
   autoPlay?: boolean;
 }) {
-  const [isPlaying, setIsPlaying] = useState(autoPlay ?? false);
+  // false until the media element confirms playback via onPlay
+  const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   // isPlaying follows the media element's own events, so it stays correct
