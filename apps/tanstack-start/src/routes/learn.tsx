@@ -1,5 +1,6 @@
 import { setBackgroundSettings } from "@nn/features/ambient-background";
 import LearnPage from "@nn/features/learn";
+import { HomeShell } from "@nn/features/shell";
 import { createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/learn")({
@@ -10,5 +11,9 @@ export const Route = createFileRoute("/learn")({
       showGradient: false,
     });
   },
-  component: LearnPage,
+  component: () => (
+    <HomeShell>
+      <LearnPage />
+    </HomeShell>
+  ),
 });
