@@ -85,6 +85,7 @@ function toNativeFile(routePath: string): string {
 
 const problems: string[] = [];
 const emitted = new Set<string>();
+const layoutPaths = new Set<string>();
 
 for (const routePath of [...paths].sort((a, b) => a.localeCompare(b))) {
   const webFile = path.join(webRoutesDir, `${toWebRouteModule(routePath)}.tsx`);
@@ -92,7 +93,14 @@ for (const routePath of [...paths].sort((a, b) => a.localeCompare(b))) {
     problems.push(`${routePath}: no web route file at ${path.relative(repoRoot, webFile)}`);
     continue;
   }
-  const src = fs.readFileSync(webFile, "utf8").match(PAGE_IMPORT_RE)?.[1];
+  const contents = fs.readFileSync(webFile, "utf8");
+  // A route that renders an Outlet is a layout. Mobile layouts are written by
+  // hand (_layout.tsx files), so emit no stub and no Href entry for it.
+  if (contents.includes("<Outlet")) {
+    layoutPaths.add(routePath);
+    continue;
+  }
+  const src = contents.match(PAGE_IMPORT_RE)?.[1];
   if (src === undefined) {
     problems.push(
       `${routePath}: ${path.relative(repoRoot, webFile)} has no @nn/features page import`,
@@ -138,6 +146,7 @@ sweep(appDir);
 // A static route becomes a string literal ("/watch"); a $param segment becomes
 // ${string} so a resolved path (`/lessons/abc`) type-checks against it.
 const hrefMembers = [...paths]
+  .filter((p) => !layoutPaths.has(p))
   .sort((a, b) => a.localeCompare(b))
   .map((p) => {
     if (!p.includes("$")) return JSON.stringify(p);

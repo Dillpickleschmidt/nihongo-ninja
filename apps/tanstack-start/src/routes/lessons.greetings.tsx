@@ -4,9 +4,11 @@ import GreetingsLesson, { GREETINGS_SET_ID } from "@nn/features/lessons/greeting
 import { createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/lessons/greetings")({
-  loader: ({ context }) =>
-    context.queryClient.ensureQueryData(
+  loader: async ({ context }) => {
+    await context.queryClient.ensureQueryData(
       convexQuery(api.api.vocabulary.getBySets, { setIds: [GREETINGS_SET_ID] }),
-    ),
+    );
+    return { maxWidth: "max-w-5xl" };
+  },
   component: GreetingsLesson,
 });
