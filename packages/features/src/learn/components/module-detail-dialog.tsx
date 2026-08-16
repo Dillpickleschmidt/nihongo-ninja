@@ -118,7 +118,7 @@ function TranscriptSentence({
 }) {
   return (
     <div className="rounded-lg border border-card-foreground/50 bg-card/40 px-4 py-3 backdrop-blur-sm">
-      <p className={cn("font-japanese text-sm leading-relaxed text-white/75", textClass)}>
+      <p className={cn("font-japanese text-sm leading-relaxed text-foreground/75", textClass)}>
         {sentence.text}
       </p>
       <p className="mt-1 text-xs text-muted-foreground">
@@ -144,7 +144,7 @@ function ModuleDetailVocabulary({
   return (
     <div className="space-y-6">
       <div>
-        <p className="mb-2 text-sm font-medium text-white/40">Words</p>
+        <p className="mb-2 text-sm font-medium text-muted-foreground">Words</p>
         <div className="flex flex-wrap gap-2">
           {vocabularyItems.map((word, index) => (
             <button
@@ -156,8 +156,8 @@ function ModuleDetailVocabulary({
               className={cn(
                 "cursor-pointer rounded-full px-3.5 py-1 text-sm font-medium transition-colors duration-200",
                 focusedIndex === index
-                  ? "bg-orange-500/15 text-orange-300 ring-1 ring-orange-400/25"
-                  : "text-muted-foreground hover:bg-white/5 hover:text-white/60",
+                  ? "bg-orange-500/15 text-orange-600 ring-1 ring-orange-400/25 dark:text-orange-300"
+                  : "text-muted-foreground hover:bg-accent hover:text-foreground/70",
               )}
             >
               <span className="font-japanese">{word.word}</span>
@@ -172,7 +172,7 @@ function ModuleDetailVocabulary({
             <div className="flex items-center justify-between gap-3">
               <div className="flex min-w-0 items-center gap-3">
                 <GraduationCap className="size-5 shrink-0 text-orange-400" />
-                <p className="font-japanese text-xl text-white/90">
+                <p className="font-japanese text-xl text-foreground/90">
                   {focusedWord.word}
                   {focusedWord.furigana === undefined ? null : (
                     <span className="ml-1.5 text-sm text-muted-foreground">
@@ -183,20 +183,20 @@ function ModuleDetailVocabulary({
               </div>
               <a
                 href={href}
-                className="flex shrink-0 items-center gap-1.5 rounded-lg bg-orange-500/15 px-3 py-1.5 text-sm font-medium text-orange-300 ring-1 ring-orange-400/25 transition-colors hover:bg-orange-500/25 hover:text-orange-200"
+                className="flex shrink-0 items-center gap-1.5 rounded-lg bg-orange-500/15 px-3 py-1.5 text-sm font-medium text-orange-600 ring-1 ring-orange-400/25 transition-colors hover:bg-orange-500/25 dark:text-orange-300 dark:hover:text-orange-200"
               >
                 Continue
                 <ChevronRight className="size-4" />
               </a>
             </div>
             {focusedWord.english === undefined ? null : (
-              <p className="mt-2 text-sm text-white/55">{focusedWord.english}</p>
+              <p className="mt-2 text-sm text-muted-foreground">{focusedWord.english}</p>
             )}
           </div>
 
           {contextSentences.length === 0 ? null : (
             <div>
-              <p className="mb-3 text-xs font-medium tracking-wider text-white/25 uppercase">
+              <p className="mb-3 text-xs font-medium tracking-wider text-muted-foreground/70 uppercase">
                 Context
               </p>
               <div className="space-y-2">
@@ -230,11 +230,11 @@ function ModuleDetailGrammar({
     <div className="space-y-6">
       {firstSentence === undefined ? null : (
         <div>
-          <p className="mb-2 text-sm font-medium text-white/40">Example</p>
+          <p className="mb-2 text-sm font-medium text-muted-foreground">Example</p>
           <div className="rounded-lg border border-card-foreground/70 bg-gradient-to-br p-5 backdrop-blur-sm dark:from-neutral-600/15 dark:to-gray-600/10">
             <div className="flex items-start justify-between gap-3">
               <div className="min-w-0">
-                <p className="font-japanese text-xl leading-relaxed text-white/90">
+                <p className="font-japanese text-xl leading-relaxed text-foreground/90">
                   {firstSentence.text}
                 </p>
                 <p className="mt-2 text-sm text-muted-foreground">
@@ -243,7 +243,7 @@ function ModuleDetailGrammar({
               </div>
               <a
                 href={href}
-                className="flex shrink-0 items-center gap-1.5 rounded-lg bg-amber-500/15 px-3 py-1.5 text-sm font-medium text-amber-300 ring-1 ring-amber-400/25 transition-colors hover:bg-amber-500/25 hover:text-amber-200"
+                className="flex shrink-0 items-center gap-1.5 rounded-lg bg-amber-500/15 px-3 py-1.5 text-sm font-medium text-amber-600 ring-1 ring-amber-400/25 transition-colors hover:bg-amber-500/25 dark:text-amber-300 dark:hover:text-amber-200"
               >
                 Continue
                 <ChevronRight className="size-4" />
@@ -260,7 +260,7 @@ function ModuleDetailGrammar({
             onClick={() => {
               setExpanded(!expanded);
             }}
-            className="group flex cursor-pointer items-center gap-1.5 text-xs font-medium tracking-wider text-white/30 uppercase transition-colors hover:text-white/50"
+            className="group flex cursor-pointer items-center gap-1.5 text-xs font-medium tracking-wider text-muted-foreground/80 uppercase transition-colors hover:text-muted-foreground"
           >
             <ChevronDown
               className={cn("size-3 transition-transform duration-200", expanded && "rotate-180")}
@@ -274,7 +274,7 @@ function ModuleDetailGrammar({
                 <TranscriptSentence
                   key={sentence.line_id}
                   sentence={sentence}
-                  textClass="text-white/70"
+                  textClass="text-foreground/70"
                 />
               ))}
             </div>
@@ -283,11 +283,11 @@ function ModuleDetailGrammar({
       )}
 
       <div>
-        <p className="mb-2 text-sm font-medium text-white/40">Notes</p>
+        <p className="mb-2 text-sm font-medium text-muted-foreground">Notes</p>
         <div className="rounded-xl bg-amber-500/6 px-5 py-4">
           <div className="flex items-center gap-2.5">
             <PencilLine className="size-4 shrink-0 text-amber-400" />
-            <span className="text-sm font-medium text-white/80">{moduleId}</span>
+            <span className="text-sm font-medium text-foreground/80">{moduleId}</span>
           </div>
           <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
             {moduleDescription || "[Grammar description]"}

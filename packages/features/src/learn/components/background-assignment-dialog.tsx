@@ -34,12 +34,14 @@ type UploadState =
 export function BackgroundAssignmentDialog({
   open,
   onOpenChange,
+  onOpenChangeComplete,
   contextLabel,
   target,
   getPathLabel,
 }: {
   open: boolean;
   onOpenChange: (open: boolean) => void;
+  onOpenChangeComplete?: (open: boolean) => void;
   contextLabel: string;
   target: BackgroundTarget;
   getPathLabel?: (pathId: string) => string;
@@ -84,6 +86,7 @@ export function BackgroundAssignmentDialog({
 
   const clearChapter = () => {
     setPreference("backgroundOverrides", clearChapterBackground(overrides, target));
+    setApplyScope("chapter");
   };
 
   const unlockBackground = () => {
@@ -108,15 +111,21 @@ export function BackgroundAssignmentDialog({
         method: "POST",
         headers: { "content-type": file.type, "x-image-width": String(width) },
         body: file,
+        signal: AbortSignal.timeout(60_000),
       });
       if (!res.ok) {
         const message = await res.text();
         throw new Error(message || `Image upload failed (${res.status})`);
       }
-      const upload = (await res.json()) as { imageId: string };
-      selectBackground(
-        uploadPreviewItem(upload.imageId, width, file.type === "image/gif" ? "gif" : "image"),
-      );
+      const upload: unknown = await res.json();
+      if (
+        typeof upload !== "object" ||
+        upload === null ||
+        typeof (upload as { imageId?: unknown }).imageId !== "string"
+      ) {
+        throw new Error("Image upload returned an unexpected response.");
+      }
+      selectBackground(uploadPreviewItem((upload as { imageId: string }).imageId, width, "image"));
       setUploadState({ status: "idle" });
     } catch (err) {
       const message = err instanceof Error ? err.message : "Upload failed.";
@@ -125,7 +134,11 @@ export function BackgroundAssignmentDialog({
   };
 
   return (
-    <Dialog.Root open={open} onOpenChange={onOpenChange}>
+    <Dialog.Root
+      open={open}
+      onOpenChange={onOpenChange}
+      onOpenChangeComplete={onOpenChangeComplete}
+    >
       <Dialog.Portal>
         <Dialog.Backdrop className="fixed inset-0 z-50 bg-black/55 transition-opacity data-ending-style:opacity-0 data-starting-style:opacity-0" />
         <Dialog.Popup
@@ -164,11 +177,16 @@ export function BackgroundAssignmentDialog({
               activeLock={activeLock}
               target={target}
               applyScope={applyScope}
+              pathLabel={pathLabel}
               onApplyScopeChange={changeApplyScope}
               onUnlock={unlockBackground}
             />
 
-            <section className={cn(lockedByAnotherChapter && "pointer-events-none opacity-45")}>
+            <section
+              inert={lockedByAnotherChapter}
+              aria-disabled={lockedByAnotherChapter}
+              className={cn(lockedByAnotherChapter && "opacity-45")}
+            >
               <SectionHeader
                 label="Your uploads"
                 trailing={
@@ -195,7 +213,11 @@ export function BackgroundAssignmentDialog({
               ) : null}
             </section>
 
-            <section className={cn(lockedByAnotherChapter && "pointer-events-none opacity-45")}>
+            <section
+              inert={lockedByAnotherChapter}
+              aria-disabled={lockedByAnotherChapter}
+              className={cn(lockedByAnotherChapter && "opacity-45")}
+            >
               <SectionHeader
                 label="Built-in"
                 trailing={
@@ -237,12 +259,14 @@ function BackgroundScopeSection({
   activeLock,
   target,
   applyScope,
+  pathLabel,
   onApplyScopeChange,
   onUnlock,
 }: {
   activeLock: BackgroundLock | null;
   target: BackgroundTarget;
   applyScope: BackgroundApplyScope;
+  pathLabel: (pathId: string) => string;
   onApplyScopeChange: (scope: BackgroundApplyScope) => void;
   onUnlock: () => void;
 }) {
@@ -259,7 +283,8 @@ function BackgroundScopeSection({
               {activeLock.scope === "global"
                 ? "Locked everywhere"
                 : "Locked for this learning path"}{" "}
-              from {activeLock.pathId} · {activeLock.chapterSlug}
+              from {pathLabel(activeLock.pathId)} · Chapter{" "}
+              {getChapterDisplayNumber(activeLock.chapterSlug)}
             </span>
           </div>
           <button
@@ -412,6 +437,8 @@ function BackgroundTileGrid({
           <button
             key={id}
             type="button"
+            aria-label={`Use background ${id}`}
+            aria-pressed={assigned}
             onClick={() => {
               onSelect(item);
             }}

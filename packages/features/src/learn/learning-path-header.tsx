@@ -266,8 +266,9 @@ export function LearningPathHeader() {
       {editTarget !== null ? (
         <BackgroundAssignmentDialog
           open={isDialogOpen}
-          onOpenChange={(open) => {
-            setIsDialogOpen(open);
+          onOpenChange={setIsDialogOpen}
+          onOpenChangeComplete={(open) => {
+            // Unmount only after the close transition finishes.
             if (!open) setEditTarget(null);
           }}
           contextLabel={getEditContextLabel(editTarget)}
@@ -365,7 +366,11 @@ function ChapterCard({
       </button>
       <div className="absolute top-1.5 right-1.5 flex items-center gap-1">
         <BackgroundOverrideActions
-          label={`chapter ${getChapterDisplayNumber(chapter.slug)}`}
+          label={
+            getChapterDisplayNumber(chapter.slug)
+              ? `chapter ${getChapterDisplayNumber(chapter.slug)}`
+              : chapter.title
+          }
           hasOverride={hasOverride}
           onReset={onReset}
           onEdit={onEdit}

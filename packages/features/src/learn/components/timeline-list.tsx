@@ -64,7 +64,7 @@ export function TimelineItem({
 
   return (
     <li className={cn("relative", !last && "pb-1")}>
-      {onSelect ? (
+      {onSelect && !disabled ? (
         <button type="button" onClick={onSelect} className={cn(baseClasses, "w-full text-left")}>
           {content}
         </button>
