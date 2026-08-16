@@ -19,6 +19,7 @@
   },
   "devDependencies": {
     "@nn/tsconfig": "workspace:*",
+    "@types/node": "catalog:",
     "@types/react": "catalog:react19",
     "nativewind": "catalog:",
     "react": "catalog:react19",

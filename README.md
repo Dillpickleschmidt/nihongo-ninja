@@ -35,7 +35,11 @@ apps
       └─ WebContentsView Crunchyroll embed
 packages
   ├─ convex
-  │   └─ Convex schema + functions (shared by all apps)
+  │   └─ Convex schema + functions (api/ validates, model/ holds the logic;
+  │      Better Auth; shared by all apps)
+  ├─ data
+  │   └─ Static curriculum content (textbooks, chapters, modules) + utils.
+  │      Imported by the backend and by features.
   ├─ features
   │   └─ Shared pages by domain (homepage/, lessons/, watch/): all UI +
   │      data via Convex hooks. Rendered by both routers.

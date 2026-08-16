@@ -137,6 +137,11 @@ family) — do not "upgrade to latest" without reading it.
 
 ### Convex
 
+- **Function files use the thin-api/fat-model split** (ported from the source
+  app): `convex/api/*.ts` files only validate args and delegate; the logic
+  lives in `convex/model/*.ts`. Add new functions the same way.
+- Static content (textbooks, chapters, modules) comes from `@nn/data` —
+  the backend imports it; do not duplicate content into the database.
 - `packages/convex` is the only Convex surface. Codegen output
   (`convex/_generated`) is gitignored; `nub run -F @nn/convex build` regenerates
   it and needs a configured deployment (`CONVEX_AGENT_MODE=anonymous npx convex
@@ -160,7 +165,9 @@ Issues live in GitHub Issues via the `gh` CLI. See `docs/agents/issue-tracker.md
 
 Single-context: one `CONTEXT.md` + `docs/adr/` at the repo root. See `docs/agents/domain.md`.
 
-## Out of scope for v0 (do not build unprompted)
+## Port status
 
-Lesson content, learning tools, auth flows, and the subtitle overlay itself.
-v0 exists to prove the architecture end-to-end on all three targets.
+v0 proved the architecture end-to-end on all three targets. The port from
+`../nihongo-ninja-tanstack` (branch `feat/supabase-to-convex`) is now underway,
+tracked as GitHub issues. Do not start deferred pieces (billing, animeAuth /
+discover, learning_paths, subtitle overlay) unprompted — each has an issue.
