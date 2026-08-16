@@ -40,10 +40,7 @@ export const createFolder = mutation({
     folderName: v.string(),
     parentFolderId: v.optional(v.id("userDeckFolders")),
   },
-  handler: async (ctx, args) => {
-    await Folders.checkFolderNameUnique(ctx, args.folderName, args.parentFolderId);
-    return Folders.createFolder(ctx, args.folderName, args.parentFolderId);
-  },
+  handler: (ctx, args) => Folders.createFolder(ctx, args.folderName, args.parentFolderId),
 });
 
 /**

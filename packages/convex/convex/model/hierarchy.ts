@@ -9,7 +9,9 @@ import type {
   VocabRelationship,
   KanjiRelationship,
 } from "../validators";
+import { resolveDeckById } from "./decks";
 import { fetchKanjiAndRadicals } from "./kanji";
+import { fetchDeckVocab } from "./vocabulary";
 
 export type DeckHierarchyResult = {
   vocabulary: VocabularyItem[];
@@ -19,6 +21,16 @@ export type DeckHierarchyResult = {
   skippedKanji: string[];
   skippedRadicals: string[];
 };
+
+// Resolve any deck ID (built-in or user) and build its full hierarchy.
+export async function getDeckHierarchy(ctx: QueryCtx, deckId: string) {
+  const deck = await resolveDeckById(ctx, deckId);
+  if (!deck) return null;
+
+  const vocabulary = await fetchDeckVocab(ctx, deck.id, deck.source);
+  const hierarchy = await buildDeckHierarchy(ctx, vocabulary);
+  return { deck, hierarchy };
+}
 
 export async function buildDeckHierarchy(
   ctx: QueryCtx,

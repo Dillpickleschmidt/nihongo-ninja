@@ -39,13 +39,5 @@ export const getServiceToken = query({
   args: {
     service: animeServiceValidator,
   },
-  handler: async (ctx, { service }) => {
-    const identity = await ctx.auth.getUserIdentity();
-    if (!identity) return null;
-
-    return await ctx.db
-      .query("userServiceTokens")
-      .withIndex("by_user_service", (q) => q.eq("userId", identity.subject).eq("service", service))
-      .first();
-  },
+  handler: (ctx, { service }) => Profiles.getServiceToken(ctx, service),
 });

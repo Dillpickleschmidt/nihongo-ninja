@@ -1,7 +1,7 @@
 import { v } from "convex/values";
 
 import { query } from "../_generated/server";
-import { resolveDeckById } from "../model/decks";
+import * as Decks from "../model/decks";
 import * as Fsrs from "../model/fsrs";
 import { fetchKanjiAndRadicals } from "../model/kanji";
 import * as Vocabulary from "../model/vocabulary";
@@ -32,11 +32,7 @@ export const getByKeys = query({
  */
 export const getDeckVocab = query({
   args: { deckId: v.string() },
-  handler: async (ctx, { deckId }) => {
-    const deck = await resolveDeckById(ctx, deckId);
-    if (!deck) return [];
-    return Vocabulary.fetchDeckVocab(ctx, deck.id, deck.source);
-  },
+  handler: (ctx, { deckId }) => Decks.getResolvedDeckVocab(ctx, deckId),
 });
 
 /**
@@ -65,20 +61,7 @@ export const getKnownVocabWords = query({
  */
 export const getConjugatableVocab = query({
   args: { jlptLevels: v.array(v.string()) },
-  handler: async (ctx, { jlptLevels }) => {
-    const sets = await Vocabulary.fetchSetsByIds(ctx, jlptLevels);
-    const allKeys = [...new Set(Object.values(sets).flat())];
-    const itemsMap = await Vocabulary.fetchVocabItemsByKeys(ctx, allKeys);
-    return Object.values(itemsMap)
-      .filter((item) => item.partOfSpeech != null)
-      .map(({ key, word, furigana, english, partOfSpeech }) => ({
-        key,
-        word,
-        furigana,
-        english,
-        partOfSpeech: partOfSpeech!,
-      }));
-  },
+  handler: (ctx, { jlptLevels }) => Vocabulary.getConjugatableVocab(ctx, jlptLevels),
 });
 
 /**

@@ -5,7 +5,7 @@ import { resolveDeckById, type UnifiedDeck } from "./decks";
 import { getDueFSRSCards, getFSRSCardsForItems } from "./fsrs";
 import { buildDeckHierarchy, extractHierarchyKeys, type DeckHierarchyResult } from "./hierarchy";
 import { fetchKanjiAndRadicals } from "./kanji";
-import { fetchDeckVocab, fetchVocabItemsByKeys } from "./vocabulary";
+import { deckItemToVocabularyItem, fetchDeckVocab, fetchVocabItemsByKeys } from "./vocabulary";
 
 export type PracticeSessionItemData = {
   vocabulary: VocabularyItem[];
@@ -183,17 +183,7 @@ async function resolveReviewVocabulary(
       const item = matches.find((m) => m !== null);
       if (!item) return;
 
-      resolved.set(item.word, {
-        key: item.word,
-        word: item.word,
-        furigana: item.furigana ?? "",
-        english: item.english,
-        info: item.info,
-        mnemonics: item.mnemonics,
-        exampleSentences: item.exampleSentences,
-        videos: item.videos,
-        particles: item.particles,
-      } as VocabularyItem);
+      resolved.set(item.word, deckItemToVocabularyItem(item));
     }),
   );
 

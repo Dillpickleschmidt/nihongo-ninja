@@ -101,7 +101,7 @@ export async function buildMissedWordsDeck(
     }));
 
   if (vocabItems.length === 0) {
-    throw new Error("No vocabulary items found for the given keys");
+    throw new Error("None of the keys matched core vocabulary items");
   }
 
   const deckId = await createDeck(ctx, {
@@ -112,5 +112,11 @@ export async function buildMissedWordsDeck(
 
   await createDeckVocabItems(ctx, deckId, vocabItems);
 
-  return deckId;
+  // Keys that did not resolve — kanji and radical items have no core
+  // vocabulary entry and cannot go in a deck. The caller can surface these.
+  const skippedKeys = args.practiceItemKeys.filter(
+    (key) => vocabMap[encodeURIComponent(key)] === undefined,
+  );
+
+  return { deckId, skippedKeys };
 }

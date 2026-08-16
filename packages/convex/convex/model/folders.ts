@@ -125,6 +125,7 @@ export async function createFolder(
   if (!identity) throw new Error("Unauthenticated");
 
   if (parentFolderId) await verifyFolderOwnership(ctx, parentFolderId);
+  await checkFolderNameUnique(ctx, folderName, parentFolderId);
 
   return ctx.db.insert("userDeckFolders", {
     userId: identity.subject,

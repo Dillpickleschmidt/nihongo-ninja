@@ -2,7 +2,7 @@ import { dynamic_modules } from "@nn/data/dynamic_modules";
 import { getChaptersByTextbook } from "@nn/data/utils/chapters";
 import { isBuiltInTextbook } from "@nn/data/utils/textbooks";
 
-import { Id } from "../_generated/dataModel";
+import { Doc, Id } from "../_generated/dataModel";
 import { MutationCtx, QueryCtx } from "../_generated/server";
 import { type VocabularyItem, type DeckVocabItemInput } from "../validators";
 import { getDescendantFolderIds } from "./folders";
@@ -62,6 +62,21 @@ export async function getUserDeckVocabItems(ctx: QueryCtx, deckId: Id<"userDecks
     .query("deckVocabularyItems")
     .withIndex("by_deck_word", (q) => q.eq("deckId", deckId))
     .collect();
+}
+
+// The one mapping from a stored deck row to the VocabularyItem shape.
+export function deckItemToVocabularyItem(item: Doc<"deckVocabularyItems">): VocabularyItem {
+  return {
+    key: item.word,
+    word: item.word,
+    furigana: item.furigana ?? "",
+    english: item.english,
+    info: item.info,
+    mnemonics: item.mnemonics,
+    exampleSentences: item.exampleSentences,
+    videos: item.videos,
+    particles: item.particles,
+  };
 }
 
 /**
@@ -357,17 +372,31 @@ async function fetchUserDeckVocab(
   deckId: Id<"userDecks">,
 ): Promise<VocabularyItem[]> {
   const deckItems = await getUserDeckVocabItems(ctx, deckId);
-  return deckItems.map((item) => ({
-    key: item.word,
-    word: item.word,
-    furigana: item.furigana ?? "",
-    english: item.english,
-    info: item.info,
-    mnemonics: item.mnemonics,
-    exampleSentences: item.exampleSentences,
-    particles: item.particles,
-    videos: undefined,
-  })) as VocabularyItem[];
+  return deckItems.map(deckItemToVocabularyItem);
+}
+
+/**
+ * Vocabulary suitable for conjugation practice: items with a partOfSpeech
+ * (verbs + adjectives), projected to a slim shape.
+ */
+export async function getConjugatableVocab(ctx: QueryCtx, jlptLevels: string[]) {
+  const sets = await fetchSetsByIds(ctx, jlptLevels);
+  const allKeys = [...new Set(Object.values(sets).flat())];
+  const itemsMap = await fetchVocabItemsByKeys(ctx, allKeys);
+  return Object.values(itemsMap)
+    .filter(
+      (
+        item,
+      ): item is VocabularyItem & { partOfSpeech: NonNullable<VocabularyItem["partOfSpeech"]> } =>
+        item.partOfSpeech != null,
+    )
+    .map(({ key, word, furigana, english, partOfSpeech }) => ({
+      key,
+      word,
+      furigana,
+      english,
+      partOfSpeech,
+    }));
 }
 
 /**
