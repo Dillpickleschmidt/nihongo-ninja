@@ -6,9 +6,10 @@ import { getChaptersByTextbook } from "@nn/data/utils/chapters";
 import { moduleCatalog } from "@nn/data/utils/modules";
 import { getAllTextbooks, isBuiltInTextbook } from "@nn/data/utils/textbooks";
 
-import { Id } from "../_generated/dataModel";
+import { Doc, Id } from "../_generated/dataModel";
 import { MutationCtx, QueryCtx } from "../_generated/server";
 import { deleteDeck } from "./decks";
+import { getDescendantFolderIds } from "./folders";
 import { createDeckVocabItems } from "./vocabulary";
 
 const MODULES_PER_CHAPTER = 30;
@@ -121,30 +122,6 @@ export async function getAllLearningPaths(ctx: QueryCtx): Promise<LearningPath[]
   }));
 
   return [...builtInPaths, ...mappedUserPaths];
-}
-
-/**
- * Gets chapters for a learning path (built-in or user-created)
- */
-export async function getChaptersForPath(ctx: QueryCtx, pathId: string) {
-  // Built-in textbook - get chapters from code
-  if (isBuiltInTextbook(pathId)) {
-    return getChaptersByTextbook(pathId);
-  }
-
-  const userPathId = await resolveUserPathId(ctx, pathId);
-  if (!userPathId) return [];
-
-  // User path - generate chapters from modules
-  const moduleSources = await ctx.db
-    .query("learningPathModuleSources")
-    .withIndex("by_path", (q) => q.eq("pathId", userPathId))
-    .collect();
-
-  moduleSources.sort((a, b) => a.orderIndex - b.orderIndex);
-
-  const moduleIds = moduleSources.map((m) => m.moduleId);
-  return chunkIntoChapters(moduleIds);
 }
 
 export async function getResolvedChaptersForPath(
@@ -282,19 +259,10 @@ export async function getModuleDetail(
     return null;
   }
 
+  // Resolve by line_id, not array position: ids need not be zero-based or dense.
+  const lineById = new Map(path.transcriptData.map((line) => [line.line_id, line]));
   const transcriptGroups = source.transcriptLineIds.map((group) =>
-    group
-      .map((lineId) => path.transcriptData[lineId])
-      .filter(
-        (
-          line,
-        ): line is {
-          line_id: number;
-          text: string;
-          english: string;
-          timestamp?: string;
-        } => line !== undefined,
-      ),
+    group.map((lineId) => lineById.get(lineId)).filter((line) => line !== undefined),
   );
 
   if (source.sourceType === "grammar") {
@@ -343,12 +311,63 @@ export async function getModuleDetail(
   };
 }
 
+// Convex caps one document at ~1 MiB and one transaction at 16 MiB / 16k
+// documents — reject inputs that could exceed them.
+const MAX_TRANSCRIPT_LINES = 5000;
+const MAX_TRANSCRIPT_BYTES = 900_000;
+const MAX_GRAMMAR_MODULES = 200;
+const MAX_VOCAB_DECKS = 100;
+const MAX_WORDS_PER_DECK = 500;
+const MAX_LINE_ID_GROUPS = 200;
+
+function requireValidOrderIndex(orderIndex: number): void {
+  if (!Number.isInteger(orderIndex) || orderIndex < 0) {
+    throw new Error(`orderIndex must be a non-negative integer, got ${orderIndex}`);
+  }
+}
+
+function validateCreateCustomLearningPathArgs(args: CreateCustomLearningPathArgs): void {
+  const { transcript, selectedGrammarModules, selectedVocabDecks } = args;
+  if (transcript.transcriptData.length > MAX_TRANSCRIPT_LINES) {
+    throw new Error(`Transcript has too many lines (max ${MAX_TRANSCRIPT_LINES})`);
+  }
+  if (JSON.stringify(transcript.transcriptData).length > MAX_TRANSCRIPT_BYTES) {
+    throw new Error("Transcript is too large");
+  }
+  if (selectedGrammarModules.length > MAX_GRAMMAR_MODULES) {
+    throw new Error(`Too many grammar modules (max ${MAX_GRAMMAR_MODULES})`);
+  }
+  if (selectedVocabDecks.length > MAX_VOCAB_DECKS) {
+    throw new Error(`Too many vocabulary decks (max ${MAX_VOCAB_DECKS})`);
+  }
+  for (const module of selectedGrammarModules) {
+    if (!Object.hasOwn(moduleCatalog, module.moduleId)) {
+      throw new Error(`Unknown module id: ${module.moduleId}`);
+    }
+    requireValidOrderIndex(module.orderIndex);
+    if (module.transcriptLineIds.length > MAX_LINE_ID_GROUPS) {
+      throw new Error(`Too many transcript line groups (max ${MAX_LINE_ID_GROUPS})`);
+    }
+  }
+  for (const deck of selectedVocabDecks) {
+    requireValidOrderIndex(deck.orderIndex);
+    if (deck.words.length > MAX_WORDS_PER_DECK) {
+      throw new Error(`Too many words in a deck (max ${MAX_WORDS_PER_DECK})`);
+    }
+    if (deck.transcriptLineIds.length > MAX_LINE_ID_GROUPS) {
+      throw new Error(`Too many transcript line groups (max ${MAX_LINE_ID_GROUPS})`);
+    }
+  }
+}
+
 export async function createCustomLearningPath(
   ctx: MutationCtx,
   args: CreateCustomLearningPathArgs,
 ): Promise<{ pathId: string; firstChapterSlug: string }> {
   const identity = await ctx.auth.getUserIdentity();
   if (!identity) throw new Error("Unauthenticated");
+
+  validateCreateCustomLearningPathArgs(args);
 
   // Create root folder first (needed for path record)
   const rootFolderId = await ctx.db.insert("userDeckFolders", {
@@ -397,12 +416,17 @@ export async function createCustomLearningPath(
     });
   }
 
-  for (let i = 0; i < sortedVocabDecks.length; i++) {
-    const deck = sortedVocabDecks[i]!;
-    const deckName = `${deck.isVerbDeck ? "Verbs" : "Non-Verbs"} - Part ${i + 1}`;
+  // Part numbers restart per chapter and per deck kind.
+  const partCounters = new Map<string, number>();
+  for (const deck of sortedVocabDecks) {
     const chapterNum = Math.floor(deck.orderIndex / MODULES_PER_CHAPTER) + 1;
     const chapterSlug = `chapter-${chapterNum}`;
     const chapterFolderId = chapterFolderIdBySlug.get(chapterSlug);
+    const kind = deck.isVerbDeck ? "Verbs" : "Non-Verbs";
+    const counterKey = `${chapterSlug}:${kind}`;
+    const part = (partCounters.get(counterKey) ?? 0) + 1;
+    partCounters.set(counterKey, part);
+    const deckName = `${kind} - Part ${part}`;
     const deckId = await ctx.db.insert("userDecks", {
       userId: identity.subject,
       deckName,
@@ -473,7 +497,24 @@ export async function deleteCustomLearningPath(ctx: MutationCtx, pathId: string)
     await ctx.db.delete(source._id);
   }
 
-  await deleteFolderTree(ctx, path.rootFolderId);
+  // Detach any decks the user moved into the path's folders (only decks the
+  // path created were deleted above), then delete the folder tree.
+  const treeFolderIds = await getDescendantFolderIds(ctx, path.rootFolderId);
+  treeFolderIds.add(path.rootFolderId);
+
+  const ownedDecks = await ctx.db
+    .query("userDecks")
+    .withIndex("by_user", (q) => q.eq("userId", identity.subject))
+    .collect();
+  for (const deck of ownedDecks) {
+    if (deck.folderId && treeFolderIds.has(deck.folderId)) {
+      await ctx.db.patch(deck._id, { folderId: undefined });
+    }
+  }
+
+  for (const folderId of treeFolderIds) {
+    await ctx.db.delete(folderId);
+  }
 
   await ctx.db.delete(userPathId);
 
@@ -498,19 +539,6 @@ export async function deleteCustomLearningPath(ctx: MutationCtx, pathId: string)
       timestamp: Date.now(),
     },
   });
-}
-
-function chunkIntoChapters(moduleIds: string[]) {
-  const chapters = [];
-  for (let i = 0; i < moduleIds.length; i += MODULES_PER_CHAPTER) {
-    const chapterNum = Math.floor(i / MODULES_PER_CHAPTER) + 1;
-    chapters.push({
-      slug: `chapter-${chapterNum}`,
-      title: `Chapter ${chapterNum}`,
-      learning_path_item_ids: moduleIds.slice(i, i + MODULES_PER_CHAPTER),
-    });
-  }
-  return chapters;
 }
 
 function buildCustomPathChapters(modules: LearningPathModule[]): LearningPathChapter[] {
@@ -581,28 +609,14 @@ async function resolveUserPathId(
   return maybePath._id;
 }
 
-async function deleteFolderTree(ctx: MutationCtx, folderId: Id<"userDeckFolders">): Promise<void> {
-  const children = await ctx.db
-    .query("userDeckFolders")
-    .filter((q) => q.eq(q.field("parentFolderId"), folderId))
-    .collect();
-
-  for (const child of children) {
-    await deleteFolderTree(ctx, child._id);
-  }
-
-  await ctx.db.delete(folderId);
-}
-
 async function buildFolderPath(ctx: QueryCtx, folderId: Id<"userDeckFolders">): Promise<string> {
   const segments: string[] = [];
+  const visited = new Set<Id<"userDeckFolders">>();
   let currentId: Id<"userDeckFolders"> | undefined = folderId;
 
-  while (currentId) {
-    const [folder] = await ctx.db
-      .query("userDeckFolders")
-      .filter((q) => q.eq(q.field("_id"), currentId!))
-      .collect();
+  while (currentId !== undefined && !visited.has(currentId)) {
+    visited.add(currentId);
+    const folder: Doc<"userDeckFolders"> | null = await ctx.db.get(currentId);
     if (!folder) break;
     segments.unshift(String(folder._id));
     currentId = folder.parentFolderId;
