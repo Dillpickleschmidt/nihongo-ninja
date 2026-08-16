@@ -26,7 +26,7 @@ export function HeroSection() {
           <div ref={text.ref} style={text.initialStyles}>
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-(--landing-accent)/20 bg-(--landing-accent)/10 px-4 py-1.5 text-sm text-(--landing-accent)">
               <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-(--landing-accent) opacity-75" />
+                <span className="absolute inline-flex h-full w-full rounded-full bg-(--landing-accent) opacity-75 motion-safe:animate-ping" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-(--landing-accent)" />
               </span>
               Creating an account is optional

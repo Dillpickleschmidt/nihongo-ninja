@@ -48,6 +48,14 @@ export function animateElementIn(
   initialPosition: Position,
   options: { duration?: number; distance?: number; scale?: number } = {},
 ): void {
+  // Reduced motion: reveal instantly, no transition.
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    element.style.transition = "none";
+    element.style.transform = "none";
+    element.style.opacity = "1";
+    return;
+  }
+
   const {
     duration = ANIMATION_CONFIG.duration,
     distance = ANIMATION_CONFIG.distance,

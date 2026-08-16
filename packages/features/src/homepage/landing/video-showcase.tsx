@@ -25,15 +25,16 @@ export function VideoShowcase({
   const [isPlaying, setIsPlaying] = useState(autoPlay ?? false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
+  // isPlaying follows the media element's own events, so it stays correct
+  // when autoplay is blocked or the OS pauses playback.
   const togglePlay = () => {
     const video = videoRef.current;
     if (!video) return;
-    if (isPlaying) {
-      video.pause();
-    } else {
+    if (video.paused) {
       void video.play();
+    } else {
+      video.pause();
     }
-    setIsPlaying(!isPlaying);
   };
 
   return (
@@ -55,6 +56,12 @@ export function VideoShowcase({
             playsInline
             preload="metadata"
             autoPlay={autoPlay}
+            onPlay={() => {
+              setIsPlaying(true);
+            }}
+            onPause={() => {
+              setIsPlaying(false);
+            }}
           />
           <div
             className={cn(
@@ -77,6 +84,7 @@ export function VideoShowcase({
           <div className="absolute inset-0 scale-150 rounded-full bg-(--landing-accent)/20 blur-xl transition-transform duration-700 group-hover:scale-[2]" />
           <button
             type="button"
+            aria-label={isPlaying ? `Pause: ${title}` : `Play: ${title}`}
             onClick={togglePlay}
             className="relative flex h-16 w-16 items-center justify-center rounded-full bg-linear-to-br from-(--landing-accent) to-(--landing-accent-end) transition-transform duration-300 group-hover:scale-110"
             style={{

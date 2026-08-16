@@ -1,6 +1,6 @@
 import { Link } from "@nn/router";
 import { cn } from "@nn/ui";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 import { FeatureVideoCard } from "./feature-video-card";
 import { FEATURES } from "./features-data";
@@ -52,6 +52,7 @@ export function StatsSection() {
 
 export function WhatMakesUsDifferent() {
   const [expanded, setExpanded] = useState(false);
+  const contentRef = useRef<HTMLDivElement>(null);
 
   return (
     <section className="relative pt-14 pb-20 lg:pt-24 lg:pb-32">
@@ -66,9 +67,13 @@ export function WhatMakesUsDifferent() {
         <div className="relative">
           <div
             className="overflow-hidden transition-[max-height] duration-700 ease-in-out"
-            style={{ maxHeight: expanded ? "3000px" : "405px" }}
+            // Measured, not a magic cap: a cap can clip zoomed/narrow layouts.
+            style={{ maxHeight: expanded ? (contentRef.current?.scrollHeight ?? 10000) : 405 }}
           >
-            <div className="space-y-6 font-outfit text-lg leading-relaxed text-white/70">
+            <div
+              ref={contentRef}
+              className="space-y-6 font-outfit text-lg leading-relaxed text-white/70"
+            >
               <p>
                 Many courses have very decent information to teach, but most lack good practice
                 material, if any. They&apos;ll hand you worksheets and tell you to start writing, or

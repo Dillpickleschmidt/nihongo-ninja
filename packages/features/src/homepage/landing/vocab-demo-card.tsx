@@ -12,7 +12,7 @@ export function VocabDemoCard() {
         </div>
         <p className="mt-1 text-white/70">to be audible</p>
         <ul className="mt-4 space-y-1.5 text-sm text-white/60">
-          <li>• Potential variation of 聞く (to hear)</li>
+          <li>• Intransitive counterpart of 聞く (to hear) — the sound reaches you on its own</li>
           <li>• Used when something can be heard naturally, without actively trying to listen</li>
         </ul>
         <div className="mt-4 space-y-2 border-t border-white/10 pt-4 text-sm">

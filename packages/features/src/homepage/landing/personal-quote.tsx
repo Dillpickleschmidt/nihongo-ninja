@@ -9,6 +9,10 @@ const bounceKeyframes = `
   16% { transform: translateY(1.5px); }
   20% { transform: translateY(0); }
 }
+.sprite-bounce { animation: sprite-bounce 3s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .sprite-bounce { animation: none; }
+}
 `;
 
 function EmDashEasterEgg() {
@@ -18,8 +22,7 @@ function EmDashEasterEgg() {
     <span className="relative inline-block">
       <button
         type="button"
-        className="inline-block cursor-pointer"
-        style={{ animation: "sprite-bounce 3s ease-in-out infinite" }}
+        className="sprite-bounce inline-block cursor-pointer"
         onClick={() => {
           setOpen(!open);
         }}
