@@ -4,10 +4,9 @@ import { createFileRoute, Outlet, useMatches } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/lessons")({
   loader: ({ context }) => {
-    // The lesson layout draws its own fixed artwork.
     setBackgroundSettings(context.queryClient, {
-      blur: 0,
-      opacityOffset: -1,
+      blur: 6,
+      opacityOffset: -0.35,
       showGradient: false,
     });
   },

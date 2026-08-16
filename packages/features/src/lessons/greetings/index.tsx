@@ -33,7 +33,7 @@ export default function GreetingsLesson() {
   const vocabItems = data?.[GREETINGS_SET_ID]?.slice(0, 10);
 
   return (
-    <Main className="bg-background pb-32">
+    <Main className="relative pb-32">
       <View pointerEvents="none" className="absolute top-8 right-6 sm:top-11 sm:right-8">
         <Text className="font-japanese text-[10rem] leading-none text-foreground/[0.04] sm:text-[11rem]">
           挨

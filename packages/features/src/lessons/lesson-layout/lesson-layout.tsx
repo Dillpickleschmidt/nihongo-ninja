@@ -13,7 +13,8 @@ export function LessonLayout({
   children: React.ReactNode;
 }) {
   return (
-    <View className="min-h-screen bg-background">
+    // No background color here: the ambient chapter background shows through.
+    <View className="relative min-h-screen">
       {/* Dust texture overlay */}
       <View
         pointerEvents="none"
