@@ -57,11 +57,16 @@ export async function getDeckPracticeSessionData(
   return { deck, hierarchy, moduleData, reviewData };
 }
 
+// A session loads at most this many due cards. Unbounded reads fail outright
+// at the per-query document limit for users with a large backlog; the next
+// batch loads when the session is finished.
+const REVIEW_SESSION_CARD_LIMIT = 100;
+
 export async function getReviewOnlySessionData(
   ctx: QueryCtx,
   mode: PracticeMode,
 ): Promise<ReviewOnlySessionData> {
-  const reviewFsrs = await getDueFSRSCards(ctx, mode);
+  const reviewFsrs = await getDueFSRSCards(ctx, mode, REVIEW_SESSION_CARD_LIMIT);
   const reviewData = await buildReviewData(ctx, reviewFsrs, mode);
   return { reviewData };
 }
@@ -133,7 +138,7 @@ async function resolveReviewVocabulary(
 ): Promise<VocabularyItem[]> {
   if (vocabKeys.length === 0) return [];
 
-  const coreItems = await fetchVocabItemsByKeys(ctx, vocabKeys, null);
+  const coreItems = await fetchVocabItemsByKeys(ctx, vocabKeys);
   const resolved = new Map<string, VocabularyItem>();
 
   for (const key of vocabKeys) {
@@ -163,21 +168,20 @@ async function resolveReviewVocabulary(
     .withIndex("by_user", (q) => q.eq("userId", identity.subject))
     .collect();
 
-  const missingKeySet = new Set(missingKeys);
-  const deckItemsByDeck = await Promise.all(
-    ownedDecks.map((deck) =>
-      ctx.db
-        .query("deckVocabularyItems")
-        .withIndex("by_deck", (q) => q.eq("deckId", deck._id))
-        .collect(),
-    ),
-  );
-
-  for (const items of deckItemsByDeck) {
-    if (missingKeySet.size === 0) break;
-
-    for (const item of items) {
-      if (!missingKeySet.has(item.word)) continue;
+  // Indexed point lookups per (missing key, deck) instead of reading every
+  // vocabulary item in every owned deck.
+  await Promise.all(
+    missingKeys.map(async (key) => {
+      const matches = await Promise.all(
+        ownedDecks.map((deck) =>
+          ctx.db
+            .query("deckVocabularyItems")
+            .withIndex("by_deck_word", (q) => q.eq("deckId", deck._id).eq("word", key))
+            .first(),
+        ),
+      );
+      const item = matches.find((m) => m !== null);
+      if (!item) return;
 
       resolved.set(item.word, {
         key: item.word,
@@ -190,9 +194,8 @@ async function resolveReviewVocabulary(
         videos: item.videos,
         particles: item.particles,
       } as VocabularyItem);
-      missingKeySet.delete(item.word);
-    }
-  }
+    }),
+  );
 
   return collectResolved();
 }

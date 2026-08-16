@@ -212,19 +212,24 @@ export async function deleteFolderWithStrategy(
   }
 }
 
+// updateFolder rejects cyclic parents, so cycles cannot be created through the
+// API — the visited set is defense in depth against bad data.
 export async function getDescendantFolderIds(
   ctx: QueryCtx | MutationCtx,
   folderId: Id<"userDeckFolders">,
+  visited: Set<Id<"userDeckFolders">> = new Set([folderId]),
 ): Promise<Set<Id<"userDeckFolders">>> {
   const result = new Set<Id<"userDeckFolders">>();
   const children = await ctx.db
     .query("userDeckFolders")
-    .filter((q) => q.eq(q.field("parentFolderId"), folderId))
+    .withIndex("by_parent", (q) => q.eq("parentFolderId", folderId))
     .collect();
 
   for (const child of children) {
+    if (visited.has(child._id)) continue;
+    visited.add(child._id);
     result.add(child._id);
-    const descendants = await getDescendantFolderIds(ctx, child._id);
+    const descendants = await getDescendantFolderIds(ctx, child._id, visited);
     for (const id of descendants) {
       result.add(id);
     }

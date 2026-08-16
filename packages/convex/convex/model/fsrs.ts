@@ -195,21 +195,25 @@ export async function getItemStatuses(
   return statusMap;
 }
 
+// Counts cap here instead of reading an unbounded backlog. `cap` is part of
+// the return value so consumers can render "500+" when a count reaches it.
+const DUE_COUNT_CAP = 500;
+
 export async function getDueFSRSCardsCount(
   ctx: QueryCtx,
-): Promise<{ meanings: number; spellings: number }> {
+): Promise<{ meanings: number; spellings: number; cap: number }> {
   const identity = await ctx.auth.getUserIdentity();
-  if (!identity) return { meanings: 0, spellings: 0 };
+  if (!identity) return { meanings: 0, spellings: 0, cap: DUE_COUNT_CAP };
 
   const userId = identity.subject;
   const now = Date.now();
 
   const [meanings, spellings] = await Promise.all([
-    queryCardsByMode(ctx, userId, "meanings", now).collect(),
-    queryCardsByMode(ctx, userId, "spellings", now).collect(),
+    queryCardsByMode(ctx, userId, "meanings", now).take(DUE_COUNT_CAP),
+    queryCardsByMode(ctx, userId, "spellings", now).take(DUE_COUNT_CAP),
   ]);
 
-  return { meanings: meanings.length, spellings: spellings.length };
+  return { meanings: meanings.length, spellings: spellings.length, cap: DUE_COUNT_CAP };
 }
 
 export async function upsertFSRSCard(
