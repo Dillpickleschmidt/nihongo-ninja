@@ -12,3 +12,15 @@
 @source "../../../packages/ui/src/**/*.{ts,tsx}";
 @source "../../../packages/features/src/**/*.{ts,tsx}";
 @source "../../../packages/router/src/**/*.{ts,tsx}";
+
+/* The landing page's handwritten display font (web-only) */
+@font-face {
+  font-family: "Excalifont";
+  src: url("https://excalidraw.nyc3.cdn.digitaloceanspaces.com/fonts/Excalifont-Regular.woff2")
+    format("woff2");
+  font-display: swap;
+}
+
+@theme {
+  --font-excalifont: "Excalifont", "sans-serif";
+}
