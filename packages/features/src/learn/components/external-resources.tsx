@@ -41,7 +41,7 @@ function ExternalResourceCard({
         <div
           className="absolute inset-0 -z-2 scale-[135%] opacity-45"
           style={{
-            backgroundImage: `url(${thumbnailUrl})`,
+            backgroundImage: `url("${encodeURI(thumbnailUrl)}")`,
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",

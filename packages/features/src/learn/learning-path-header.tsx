@@ -7,6 +7,21 @@ import { useQuery } from "@tanstack/react-query";
 import { ChevronDown } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
+function QueryErrorPanel({ onRetry }: { onRetry: () => void }) {
+  return (
+    <div className="rounded-2xl border border-destructive/40 bg-destructive/10 p-6 text-sm">
+      <p className="text-foreground">Could not load the learning path.</p>
+      <button
+        type="button"
+        onClick={onRetry}
+        className="mt-3 cursor-pointer rounded-md border border-border px-3 py-1.5 text-foreground hover:bg-accent"
+      >
+        Try again
+      </button>
+    </div>
+  );
+}
+
 import { BackgroundPreviewMedia } from "./components/background-preview-media";
 import { DueCountBadge } from "./components/due-count-badge";
 import { LearningPathBackgroundCard } from "./components/learning-path-background-card";
@@ -17,6 +32,8 @@ export function LearningPathHeader() {
   const [chaptersExpanded, setChaptersExpanded] = useState(false);
   const {
     data,
+    error,
+    refetch,
     preferences,
     setPreference,
     selectedPathId,
@@ -26,6 +43,26 @@ export function LearningPathHeader() {
   } = useLearningPath();
   const chapterRefs = useRef(new Map<string, HTMLDivElement>());
   const chapterScrollContainer = useRef<HTMLDivElement>(null);
+  const pathPanelContainer = useRef<HTMLDivElement>(null);
+
+  // Close the path panel on Escape or a click outside it.
+  useEffect(() => {
+    if (!isPathPanelOpen) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setIsPathPanelOpen(false);
+    };
+    const onPointerDown = (event: PointerEvent) => {
+      if (!pathPanelContainer.current?.contains(event.target as Node)) {
+        setIsPathPanelOpen(false);
+      }
+    };
+    document.addEventListener("keydown", onKeyDown);
+    document.addEventListener("pointerdown", onPointerDown);
+    return () => {
+      document.removeEventListener("keydown", onKeyDown);
+      document.removeEventListener("pointerdown", onPointerDown);
+    };
+  }, [isPathPanelOpen]);
 
   const { data: dueCounts } = useQuery(convexQuery(api.api.fsrs.getDueFSRSCardsCount, {}));
 
@@ -69,11 +106,13 @@ export function LearningPathHeader() {
         />
       </div>
 
-      {data === undefined ? (
+      {data === undefined && error !== null ? (
+        <QueryErrorPanel onRetry={refetch} />
+      ) : data === undefined ? (
         <LearningPathHeaderSkeleton />
       ) : (
         <div className="flex flex-col gap-5 lg:flex-row lg:items-start">
-          <div className="relative lg:w-56 lg:shrink-0">
+          <div ref={pathPanelContainer} className="relative lg:w-56 lg:shrink-0">
             <button
               type="button"
               onClick={() => {
@@ -144,7 +183,11 @@ export function LearningPathHeader() {
                   <ChapterCard
                     key={chapter.slug}
                     ref={(el) => {
-                      if (el) chapterRefs.current.set(chapter.slug, el);
+                      if (el) {
+                        chapterRefs.current.set(chapter.slug, el);
+                      } else {
+                        chapterRefs.current.delete(chapter.slug);
+                      }
                     }}
                     chapter={chapter}
                     active={activeChapterSlug === chapter.slug}

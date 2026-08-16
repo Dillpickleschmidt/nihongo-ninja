@@ -10,16 +10,6 @@ import { LearningPathHeader } from "./learning-path-header";
 export default function LearnPage() {
   return (
     <div className="relative min-h-screen text-foreground">
-      <style>{`
-        @keyframes fade-up {
-          from { opacity: 0; transform: translateY(20px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        /* opacity lives here, not in a utility: the important-mode
-           opacity-0 utility would defeat the animation */
-        .animate-fade-up { opacity: 0; animation: fade-up 0.3s ease-out forwards; }
-      `}</style>
-
       <FloatingKanji char="忍" className="top-52 left-10" />
 
       <main className="mx-auto max-w-7xl px-4 pt-20 pb-32 md:px-6 md:pt-20 2xl:pt-28">
@@ -34,11 +24,22 @@ export default function LearnPage() {
 
 function LearningPathSection() {
   const [selectedView, setSelectedView] = useState<LearnViewMode>("grid");
-  const { currentChapter, isCompleted } = useLearningPath();
+  const { currentChapter, isCompleted, error, refetch } = useLearningPath();
 
   return (
     <section className="animate-fade-up mt-8" style={{ animationDelay: "150ms" }}>
-      {currentChapter === undefined ? (
+      {currentChapter === undefined && error !== null ? (
+        <div className="rounded-2xl border border-destructive/40 bg-destructive/10 p-6 text-sm">
+          <p className="text-foreground">Could not load the chapter.</p>
+          <button
+            type="button"
+            onClick={refetch}
+            className="mt-3 cursor-pointer rounded-md border border-border px-3 py-1.5 text-foreground hover:bg-accent"
+          >
+            Try again
+          </button>
+        </div>
+      ) : currentChapter === undefined ? (
         <div className="space-y-4">
           <div className="h-24 animate-pulse rounded bg-muted/70" />
           <div className="h-24 animate-pulse rounded bg-muted/70" />

@@ -21,7 +21,8 @@ export function BackgroundPreviewMedia({
       src={src}
       width={width}
       height={height ?? width}
-      alt="Background preview"
+      alt=""
+      loading="lazy"
       className={className}
     />
   );

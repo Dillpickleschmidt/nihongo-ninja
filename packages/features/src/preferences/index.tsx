@@ -33,7 +33,31 @@ function loadStoredPreferences(): Preferences {
   const raw = localStorage.getItem(STORAGE_KEY);
   if (raw === null) return DEFAULT_PREFERENCES;
   try {
-    return { ...DEFAULT_PREFERENCES, ...(JSON.parse(raw) as Partial<Preferences>) };
+    const parsed: unknown = JSON.parse(raw);
+    if (typeof parsed !== "object" || parsed === null) return DEFAULT_PREFERENCES;
+    const candidate = parsed as Record<string, unknown>;
+    const overrides = candidate.backgroundOverrides;
+    return {
+      activeLearningPath:
+        typeof candidate.activeLearningPath === "string"
+          ? candidate.activeLearningPath
+          : DEFAULT_PREFERENCES.activeLearningPath,
+      activeChapter:
+        typeof candidate.activeChapter === "string"
+          ? candidate.activeChapter
+          : DEFAULT_PREFERENCES.activeChapter,
+      backgroundOverrides:
+        typeof overrides === "object" &&
+        overrides !== null &&
+        typeof (overrides as { chapters?: unknown }).chapters === "object" &&
+        (overrides as { chapters?: unknown }).chapters !== null
+          ? (overrides as Preferences["backgroundOverrides"])
+          : DEFAULT_PREFERENCES.backgroundOverrides,
+      accentColor:
+        typeof candidate.accentColor === "string"
+          ? candidate.accentColor
+          : DEFAULT_PREFERENCES.accentColor,
+    };
   } catch {
     return DEFAULT_PREFERENCES;
   }

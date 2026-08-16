@@ -109,6 +109,7 @@ const CATEGORIES: Record<CategoryKey, { title: string; iconModuleType: string; t
   };
 
 export function ModuleCategorizedView({ modules, isCompleted }: ModuleViewProps) {
+  const indexByModuleId = new Map(modules.map((module, index) => [module.moduleId, index]));
   const groups: Record<CategoryKey, LearningPathModule[]> = {
     vocabulary: [],
     lessons: [],
@@ -140,7 +141,7 @@ export function ModuleCategorizedView({ modules, isCompleted }: ModuleViewProps)
                 {groups[categoryKey].map((module) => {
                   const ModuleIcon = getModuleIcon(module.module.module_type);
                   const completed = isCompleted(module.moduleId);
-                  const originalIndex = modules.findIndex((m) => m.moduleId === module.moduleId);
+                  const originalIndex = indexByModuleId.get(module.moduleId) ?? 0;
 
                   return (
                     <a

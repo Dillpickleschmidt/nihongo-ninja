@@ -13,6 +13,8 @@ export type LearningPathModule = LearningPathChapter["modules"][number];
 
 type LearningPathContextValue = {
   data: DashboardData | undefined;
+  error: Error | null;
+  refetch: () => void;
   preferences: Preferences;
   setPreference: ReturnType<typeof usePreferences>["setPreference"];
   selectedPathId: string;
@@ -28,7 +30,7 @@ export function LearningPathProvider({ children }: { children: React.ReactNode }
   const { preferences, setPreference, setPreferences } = usePreferences();
   const selectedPathId = preferences.activeLearningPath;
 
-  const { data } = useQuery(
+  const { data, error, refetch } = useQuery(
     convexQuery(api.api.learning_paths.getDashboardData, { pathId: selectedPathId }),
   );
 
@@ -40,6 +42,10 @@ export function LearningPathProvider({ children }: { children: React.ReactNode }
 
     return {
       data,
+      error,
+      refetch: () => {
+        void refetch();
+      },
       preferences,
       setPreference,
       selectedPathId,
@@ -50,7 +56,7 @@ export function LearningPathProvider({ children }: { children: React.ReactNode }
       },
       isCompleted: (moduleId) => completedSet.has(moduleId),
     };
-  }, [data, preferences, setPreference, setPreferences, selectedPathId]);
+  }, [data, error, refetch, preferences, setPreference, setPreferences, selectedPathId]);
 
   return <LearningPathContext.Provider value={value}>{children}</LearningPathContext.Provider>;
 }
