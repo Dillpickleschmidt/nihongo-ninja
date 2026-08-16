@@ -1,4 +1,7 @@
 /// <reference types="vite/client" />
+
+import { AmbientBackground } from "@nn/features/ambient-background";
+import { PreferencesProvider } from "@nn/features/preferences";
 import type { Theme } from "@nn/ui";
 import { ThemeProvider, themeInitScript } from "@nn/ui";
 import type { QueryClient } from "@tanstack/react-query";
@@ -55,7 +58,12 @@ function RootDocument({ theme, children }: { theme: Theme; children: React.React
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
       <body className="min-h-screen bg-background font-outfit text-foreground antialiased">
-        <ThemeProvider initialTheme={theme}>{children}</ThemeProvider>
+        <ThemeProvider initialTheme={theme}>
+          <PreferencesProvider>
+            <AmbientBackground />
+            {children}
+          </PreferencesProvider>
+        </ThemeProvider>
         <Scripts />
       </body>
     </html>

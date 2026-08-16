@@ -12,10 +12,13 @@
   "dependencies": {
     "@convex-dev/react-query": "catalog:",
     "@nn/convex": "workspace:*",
+    "@nn/data": "workspace:*",
     "@nn/router": "workspace:*",
     "@nn/ui": "workspace:*",
     "@tanstack/react-query": "catalog:",
-    "convex": "catalog:"
+    "convex": "catalog:",
+    "fast-average-color": "^9.5.2",
+    "lucide-react": "^1.31.0"
   },
   "devDependencies": {
     "@nn/tsconfig": "workspace:*",

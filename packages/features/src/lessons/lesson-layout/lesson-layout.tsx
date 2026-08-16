@@ -49,9 +49,8 @@ export function LessonLayout({
         />
       </View>
 
-      {/* Back button. Points home until the /learn hub is ported. */}
       <View className="fixed top-4 left-4 z-50">
-        <Link href="/">
+        <Link href="/learn">
           <Text className="text-sm text-muted-foreground hover:text-foreground">← Back</Text>
         </Link>
       </View>
