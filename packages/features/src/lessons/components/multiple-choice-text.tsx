@@ -54,6 +54,12 @@ export function MultipleChoiceText({ answer, className, ...options }: MultipleCh
             onPress={() => {
               handlePress(option);
             }}
+            accessibilityRole="button"
+            accessibilityLabel={
+              clicked[option]
+                ? `${option}: ${text} — ${correct[option] ? "correct" : "incorrect"}`
+                : `${option}: ${text}`
+            }
             className={cn("cursor-pointer flex-row items-baseline self-start", stateClass(option))}
           >
             <Text
@@ -64,6 +70,12 @@ export function MultipleChoiceText({ answer, className, ...options }: MultipleCh
             >
               {text}
             </Text>
+            {/* Not color-only: a marker also shows the result */}
+            {clicked[option] ? (
+              <Text className={cn("pl-2 text-lg font-bold", stateTextClass(option))}>
+                {correct[option] ? "✓" : "✗"}
+              </Text>
+            ) : null}
           </Pressable>
         );
       })}
