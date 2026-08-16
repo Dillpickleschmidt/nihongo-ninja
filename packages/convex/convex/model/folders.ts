@@ -143,7 +143,21 @@ export async function updateFolder(
   },
 ) {
   const folder = await verifyFolderOwnership(ctx, folderId);
-  if (updates.parentFolderId) await verifyFolderOwnership(ctx, updates.parentFolderId);
+
+  // Reject a parent assignment that would create a cycle: walk the proposed
+  // parent's ancestor chain and fail if it reaches this folder.
+  if (updates.parentFolderId) {
+    const visited = new Set<Id<"userDeckFolders">>();
+    let ancestorId: Id<"userDeckFolders"> | undefined = updates.parentFolderId;
+    while (ancestorId) {
+      if (ancestorId === folderId || visited.has(ancestorId)) {
+        throw new Error("Cannot move a folder into itself or its descendants");
+      }
+      visited.add(ancestorId);
+      const ancestor = await verifyFolderOwnership(ctx, ancestorId);
+      ancestorId = ancestor.parentFolderId;
+    }
+  }
 
   // A rename or move must obey the same sibling-name rule as creation.
   if (updates.folderName !== undefined || updates.parentFolderId !== undefined) {
