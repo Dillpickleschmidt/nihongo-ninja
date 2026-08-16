@@ -23,7 +23,7 @@ export const getBySets = query({
 export const getByKeys = query({
   args: { keys: v.array(v.string()) },
   handler: async (ctx, { keys }) => {
-    return Vocabulary.fetchVocabItemsByKeys(ctx, keys, null);
+    return Vocabulary.fetchVocabItemsByKeys(ctx, keys);
   },
 });
 
@@ -68,7 +68,7 @@ export const getConjugatableVocab = query({
   handler: async (ctx, { jlptLevels }) => {
     const sets = await Vocabulary.fetchSetsByIds(ctx, jlptLevels);
     const allKeys = [...new Set(Object.values(sets).flat())];
-    const itemsMap = await Vocabulary.fetchVocabItemsByKeys(ctx, allKeys, null);
+    const itemsMap = await Vocabulary.fetchVocabItemsByKeys(ctx, allKeys);
     return Object.values(itemsMap)
       .filter((item) => item.partOfSpeech != null)
       .map(({ key, word, furigana, english, partOfSpeech }) => ({

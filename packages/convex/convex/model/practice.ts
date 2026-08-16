@@ -138,7 +138,7 @@ async function resolveReviewVocabulary(
 ): Promise<VocabularyItem[]> {
   if (vocabKeys.length === 0) return [];
 
-  const coreItems = await fetchVocabItemsByKeys(ctx, vocabKeys, null);
+  const coreItems = await fetchVocabItemsByKeys(ctx, vocabKeys);
   const resolved = new Map<string, VocabularyItem>();
 
   for (const key of vocabKeys) {

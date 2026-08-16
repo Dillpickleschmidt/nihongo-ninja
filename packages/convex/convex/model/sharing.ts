@@ -29,10 +29,19 @@ function getShareByDeckId(ctx: QueryCtx, deckId: Id<"userDecks">) {
 
 // ===== Queries =====
 
+// The client controls numItems; clamp it so one request cannot ask for an
+// arbitrarily large page.
+const MAX_PAGE_SIZE = 50;
+
 export async function getSharedDecks(
   ctx: QueryCtx,
   args: { sortBy: SortBy; paginationOpts: PaginationOptions },
 ): Promise<PaginationResult<SharedDeckInfo>> {
+  const paginationOpts = {
+    ...args.paginationOpts,
+    numItems: Math.min(args.paginationOpts.numItems, MAX_PAGE_SIZE),
+  };
+
   // Cursor pagination against an index: only one page of shares is read,
   // whatever the table size. "recent" uses creation order; "popular" uses
   // the by_importCount index.
@@ -42,8 +51,8 @@ export async function getSharedDecks(
           .query("publicDeckShares")
           .withIndex("by_importCount")
           .order("desc")
-          .paginate(args.paginationOpts)
-      : await ctx.db.query("publicDeckShares").order("desc").paginate(args.paginationOpts);
+          .paginate(paginationOpts)
+      : await ctx.db.query("publicDeckShares").order("desc").paginate(paginationOpts);
 
   const page = await Promise.all(
     shares.page.map(async (share): Promise<SharedDeckInfo | null> => {

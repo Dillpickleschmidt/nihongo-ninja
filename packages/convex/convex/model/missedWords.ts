@@ -85,7 +85,7 @@ export async function buildMissedWordsDeck(
   if (!identity) throw new Error("Unauthenticated");
 
   // Fetch full vocab data for these keys
-  const vocabMap = await fetchVocabItemsByKeys(ctx, args.practiceItemKeys, null);
+  const vocabMap = await fetchVocabItemsByKeys(ctx, args.practiceItemKeys);
 
   const vocabItems = args.practiceItemKeys
     .map((key) => vocabMap[encodeURIComponent(key)])

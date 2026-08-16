@@ -44,7 +44,7 @@ export async function fetchVocabBySets(
     }
   }
 
-  const itemsMap = await fetchVocabItemsByKeys(ctx, [...allKeys], null);
+  const itemsMap = await fetchVocabItemsByKeys(ctx, [...allKeys]);
 
   return Object.fromEntries(
     Object.entries(sets).map(([setId, keys]) => [
@@ -174,7 +174,7 @@ async function getBuiltInTextbookIndex(
   for (const keys of Object.values(allSets)) {
     for (const key of keys) allKeys.add(key);
   }
-  const itemsMap = await fetchVocabItemsByKeys(ctx, [...allKeys], null);
+  const itemsMap = await fetchVocabItemsByKeys(ctx, [...allKeys]);
 
   // Build orderedKeys preserving learning path order (first occurrence wins)
   const seenKeys = new Set<string>();
@@ -400,12 +400,11 @@ export async function fetchSetsByIds(
 }
 
 /**
- * Fetches vocabulary items by keys with optional deck override
+ * Fetches vocabulary items by keys from the core vocabulary table
  */
 export async function fetchVocabItemsByKeys(
   ctx: QueryCtx,
   keys: string[],
-  deckId: Id<"userDecks"> | null,
 ): Promise<Record<string, VocabularyItem>> {
   if (keys.length === 0) return {};
 
@@ -426,30 +425,6 @@ export async function fetchVocabItemsByKeys(
     if (item) {
       const { _id, _creationTime, ...vocabItem } = item;
       results[encodeURIComponent(key)] = vocabItem;
-    }
-  }
-
-  if (deckId !== null) {
-    const keySet = new Set(keys);
-    const deckItems = await ctx.db
-      .query("deckVocabularyItems")
-      .withIndex("by_deck_word", (q) => q.eq("deckId", deckId))
-      .collect();
-
-    for (const deckItem of deckItems) {
-      if (keySet.has(deckItem.word)) {
-        results[encodeURIComponent(deckItem.word)] = {
-          key: deckItem.word,
-          word: deckItem.word,
-          furigana: deckItem.furigana ?? "",
-          english: deckItem.english,
-          info: deckItem.info,
-          mnemonics: deckItem.mnemonics,
-          exampleSentences: deckItem.exampleSentences,
-          videos: deckItem.videos,
-          particles: deckItem.particles,
-        } as VocabularyItem;
-      }
     }
   }
 
