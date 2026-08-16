@@ -1,15 +1,14 @@
 import { setBackgroundSettings } from "@nn/features/ambient-background";
-import HomePage from "@nn/features/homepage";
+import LearnPage from "@nn/features/learn";
 import { createFileRoute } from "@tanstack/react-router";
 
-export const Route = createFileRoute("/")({
+export const Route = createFileRoute("/learn")({
   loader: ({ context }) => {
-    // The landing page brings its own backdrop.
     setBackgroundSettings(context.queryClient, {
-      blur: 0,
-      opacityOffset: -1,
+      blur: 4,
+      opacityOffset: -0.22,
       showGradient: false,
     });
   },
-  component: HomePage,
+  component: LearnPage,
 });
