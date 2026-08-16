@@ -1,0 +1,47 @@
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/preflight.css" layer(base);
+@import "tailwindcss/utilities.css";
+
+@import "nativewind/theme";
+
+@import "@nn/tailwind-config/theme";
+
+/* Native dark palette. react-native-css only maps `prefers-color-scheme` to the
+   color scheme (not the `.dark` class), so the shared theme.css `.dark` block —
+   which drives web — is inert here. The ThemeProvider's colorScheme.set selects
+   light/dark/system. Keep in sync with theme.css `.dark`. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: hsl(0 0% 9.8%);
+    --color-foreground: hsl(0 0% 98%);
+    --color-muted: hsl(240 0% 15.9%);
+    --color-muted-foreground: hsl(240 0% 64.9%);
+    --color-popover: hsl(240 10% 3.9%);
+    --color-popover-foreground: hsl(0 0% 98%);
+    --color-card: hsl(0 0% 13%);
+    --color-card-foreground: hsl(0 0% 22.5%);
+    --color-primary: hsl(0 0% 98%);
+    --color-primary-foreground: hsl(240 5.9% 10%);
+    --color-secondary: hsl(35 67% 89%);
+    --color-secondary-foreground: hsl(0 0% 98%);
+    --color-accent: hsl(240 3.7% 15.9%);
+    --color-accent-foreground: hsl(0 0% 98%);
+    --color-destructive: hsl(0 62.8% 30.6%);
+    --color-destructive-foreground: hsl(0 0% 98%);
+    --color-info: hsl(226.2 57% 21%);
+    --color-info-foreground: hsl(199 89% 48%);
+    --color-success: hsl(165.7 91.3% 9%);
+    --color-success-foreground: hsl(160 84% 39%);
+    --color-warning: hsl(26 83.3% 14.1%);
+    --color-warning-foreground: hsl(25 95% 53%);
+    --color-error: hsl(0 74.7% 15.5%);
+    --color-error-foreground: hsl(0 84% 60%);
+    --color-border: hsl(240 3.7% 15.9%);
+    --color-input: hsl(240 3.7% 15.9%);
+    --color-ring: hsl(240 4.9% 83.9%);
+  }
+}
+
+@source "../../../packages/ui/src/**/*.{ts,tsx}";
+@source "../../../packages/features/src/**/*.{ts,tsx}";
+@source "../../../packages/router/src/**/*.{ts,tsx}";

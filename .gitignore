@@ -1,0 +1,36 @@
+# Dependencies
+node_modules
+
+# Builds
+dist
+dist-electron
+.cache
+
+.output
+.nitro
+
+# Expo
+.expo
+.expo-shared
+apps/expo/android
+apps/expo/ios
+
+# Generated
+routeTree.gen.ts
+
+# Convex
+packages/convex/convex/_generated
+
+# Env
+.env
+.env.local
+.env.*.local
+
+# Misc
+.DS_Store
+*.log
+*.pem
+*.tsbuildinfo
+
+# Expo generated types
+expo-env.d.ts

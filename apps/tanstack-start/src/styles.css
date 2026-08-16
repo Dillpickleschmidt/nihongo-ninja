@@ -1,0 +1,14 @@
+/* "important" makes each utility win over react-native-web's runtime style
+   resets (for example Text color: black), which are not in a CSS layer and
+   would beat layered utilities. */
+@import "tailwindcss" important;
+
+@import "@nn/tailwind-config/theme";
+
+@import "@fontsource-variable/outfit";
+@import "@fontsource-variable/noto-sans-jp";
+@import "@fontsource/zen-maru-gothic";
+
+@source "../../../packages/ui/src/**/*.{ts,tsx}";
+@source "../../../packages/features/src/**/*.{ts,tsx}";
+@source "../../../packages/router/src/**/*.{ts,tsx}";

@@ -1,0 +1,8 @@
+{
+  "$schema": "https://oxc.rs/schemas/oxfmtrc.json",
+  "sortImports": {},
+  "sortTailwindcss": {
+    "functions": ["cn", "cva"],
+    "stylesheet": "apps/tanstack-start/src/styles.css"
+  }
+}

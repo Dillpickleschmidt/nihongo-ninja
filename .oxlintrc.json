@@ -1,0 +1,33 @@
+{
+  "$schema": "https://oxc.rs/schemas/oxlintrc.json",
+  "plugins": ["typescript", "unicorn", "oxc", "import", "react"],
+  "categories": {
+    "correctness": "error"
+  },
+  "rules": {
+    "no-restricted-imports": [
+      "error",
+      {
+        "paths": [
+          {
+            "name": "react-native",
+            "importNames": ["Text"],
+            "message": "Import Text/Heading/Paragraph from @nn/ui instead of react-native."
+          }
+        ]
+      }
+    ],
+    "no-promise-executor-return": "warn",
+    "typescript/no-confusing-void-expression": "warn",
+    "typescript/strict-void-return": "warn",
+    "unicorn/prefer-import-meta-properties": "warn"
+  },
+  "overrides": [
+    {
+      "files": ["packages/ui/src/**"],
+      "rules": {
+        "no-restricted-imports": "off"
+      }
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "name": "@nn/tanstack-start",
+  "private": true,
+  "type": "module",
+  "sideEffects": false,
+  "scripts": {
+    "dev": "nub run with-env vite dev",
+    "build": "nub run with-env vite build",
+    "start": "node .output/server/index.mjs",
+    "typecheck": "tsc --noEmit",
+    "with-env": "dotenv -e ../../.env --",
+    "build:electron": "nub run with-env vite build && nub ../../scripts/export-electron.ts"
+  },
+  "dependencies": {
+    "@convex-dev/react-query": "catalog:",
+    "@fontsource-variable/noto-sans-jp": "^5.3.0",
+    "@fontsource-variable/outfit": "^5.3.0",
+    "@fontsource/zen-maru-gothic": "^5.3.0",
+    "@nn/convex": "workspace:*",
+    "@nn/features": "workspace:*",
+    "@nn/router": "workspace:*",
+    "@nn/ui": "workspace:*",
+    "@tanstack/react-query": "catalog:",
+    "@tanstack/react-router": "catalog:",
+    "@tanstack/react-router-ssr-query": "^1.167.1",
+    "@tanstack/react-start": "catalog:",
+    "convex": "catalog:",
+    "nativewind": "catalog:",
+    "nitro": "3.0.1-alpha.1",
+    "react": "catalog:react19",
+    "react-dom": "catalog:react19",
+    "react-native-css": "catalog:",
+    "react-native-web": "^0.21.2",
+    "react-native-worklets": "catalog:"
+  },
+  "devDependencies": {
+    "@nn/tailwind-config": "workspace:*",
+    "@nn/tsconfig": "workspace:*",
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/node": "catalog:",
+    "@types/react": "catalog:react19",
+    "@types/react-dom": "catalog:react19",
+    "@vitejs/plugin-react": "5.1.0",
+    "dotenv-cli": "^10.0.0",
+    "tailwindcss": "catalog:",
+    "typescript": "catalog:",
+    "vite": "7.1.12",
+    "vite-plugin-react-native-web": "^3.2.0",
+    "vite-tsconfig-paths": "^5.1.4"
+  }
+}

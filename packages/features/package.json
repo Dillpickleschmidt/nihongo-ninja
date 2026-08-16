@@ -1,0 +1,40 @@
+{
+  "name": "@nn/features",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    "./*": "./src/*/index.tsx"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit --emitDeclarationOnly false"
+  },
+  "dependencies": {
+    "@convex-dev/react-query": "catalog:",
+    "@nn/convex": "workspace:*",
+    "@nn/router": "workspace:*",
+    "@nn/ui": "workspace:*",
+    "@tanstack/react-query": "catalog:",
+    "convex": "catalog:"
+  },
+  "devDependencies": {
+    "@nn/tsconfig": "workspace:*",
+    "@types/react": "catalog:react19",
+    "nativewind": "catalog:",
+    "react": "catalog:react19",
+    "react-native": "catalog:",
+    "react-native-css": "catalog:",
+    "react-native-webview": "catalog:",
+    "typescript": "catalog:"
+  },
+  "peerDependencies": {
+    "react": "19.1.4",
+    "react-native": "*",
+    "react-native-webview": "*"
+  },
+  "peerDependenciesMeta": {
+    "react-native-webview": {
+      "optional": true
+    }
+  }
+}

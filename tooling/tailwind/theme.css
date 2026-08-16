@@ -1,0 +1,100 @@
+@custom-variant dark (.dark &);
+
+@theme {
+  --color-background: hsl(0 0% 100%);
+  --color-foreground: hsl(240 10% 3.9%);
+  --color-muted: hsl(240 0% 95.9%);
+  --color-muted-foreground: hsl(240 0% 46.1%);
+  --color-popover: hsl(0 0% 100%);
+  --color-popover-foreground: hsl(240 10% 3.9%);
+  --color-card: hsl(0 0% 100%);
+  --color-card-foreground: hsl(240 10% 3.9%);
+  --color-primary: hsl(240 5.9% 10%);
+  --color-primary-foreground: hsl(0 0% 98%);
+  --color-secondary: hsl(35 67% 89%);
+  --color-secondary-foreground: hsl(240 5.9% 10%);
+  --color-accent: hsl(240 4.8% 95.9%);
+  --color-accent-foreground: hsl(240 5.9% 10%);
+  --color-destructive: hsl(0 84.2% 60.2%);
+  --color-destructive-foreground: hsl(0 0% 98%);
+  --color-info: hsl(204 94% 94%);
+  --color-info-foreground: hsl(199 89% 48%);
+  --color-success: hsl(149 80% 90%);
+  --color-success-foreground: hsl(160 84% 39%);
+  --color-warning: hsl(48 96% 89%);
+  --color-warning-foreground: hsl(25 95% 53%);
+  --color-error: hsl(0 93% 94%);
+  --color-error-foreground: hsl(0 84% 60%);
+  --color-border: hsl(240 5.9% 90%);
+  --color-input: hsl(240 5.9% 90%);
+  --color-ring: hsl(240 5.9% 10%);
+
+  /* Set at runtime for the per-anime accent. */
+  --color-dynamic-accent: var(--dynamic-accent);
+
+  --radius: 0.5rem;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --font-outfit: "Outfit Variable", "sans-serif";
+  --font-japanese: "Zen Maru Gothic", "sans-serif";
+  --font-noto-sans-jp: "Noto Sans JP Variable", "sans-serif";
+}
+
+/* Sidebar + landing tokens. Consumed with hsl(var(--…)); not Tailwind colors. */
+:root {
+  --sidebar-background: 0 0% 98%;
+  --sidebar-foreground: 240 5.3% 26.1%;
+  --sidebar-primary: 240 5.9% 10%;
+  --sidebar-primary-foreground: 0 0% 98%;
+  --sidebar-accent: 240 4.8% 95.9%;
+  --sidebar-accent-foreground: 240 5.9% 10%;
+  --sidebar-border: 220 13% 91%;
+  --sidebar-ring: 217.2 91.2% 59.8%;
+  --landing-accent: #f59e0b;
+  --landing-accent-end: #f43f5e;
+}
+
+/* Dark palette (web). The provider toggles `.dark` on <html>. Native can't use a
+   class selector for this — it applies the same palette via the
+   prefers-color-scheme block in apps/expo/src/styles.css. Keep the two in sync. */
+.dark {
+  --color-background: hsl(0 0% 9.8%);
+  --color-foreground: hsl(0 0% 98%);
+  --color-muted: hsl(240 0% 15.9%);
+  --color-muted-foreground: hsl(240 0% 64.9%);
+  --color-popover: hsl(240 10% 3.9%);
+  --color-popover-foreground: hsl(0 0% 98%);
+  --color-card: hsl(0 0% 13%);
+  --color-card-foreground: hsl(0 0% 22.5%);
+  --color-primary: hsl(0 0% 98%);
+  --color-primary-foreground: hsl(240 5.9% 10%);
+  --color-secondary: hsl(35 67% 89%);
+  --color-secondary-foreground: hsl(0 0% 98%);
+  --color-accent: hsl(240 3.7% 15.9%);
+  --color-accent-foreground: hsl(0 0% 98%);
+  --color-destructive: hsl(0 62.8% 30.6%);
+  --color-destructive-foreground: hsl(0 0% 98%);
+  --color-info: hsl(226.2 57% 21%);
+  --color-info-foreground: hsl(199 89% 48%);
+  --color-success: hsl(165.7 91.3% 9%);
+  --color-success-foreground: hsl(160 84% 39%);
+  --color-warning: hsl(26 83.3% 14.1%);
+  --color-warning-foreground: hsl(25 95% 53%);
+  --color-error: hsl(0 74.7% 15.5%);
+  --color-error-foreground: hsl(0 84% 60%);
+  --color-border: hsl(240 3.7% 15.9%);
+  --color-input: hsl(240 3.7% 15.9%);
+  --color-ring: hsl(240 4.9% 83.9%);
+
+  --sidebar-background: 240 5.9% 10%;
+  --sidebar-foreground: 240 4.8% 95.9%;
+  --sidebar-primary: 224.3 76.3% 48%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 240 3.7% 15.9%;
+  --sidebar-accent-foreground: 240 4.8% 95.9%;
+  --sidebar-border: 0 0% 22.5%;
+  --sidebar-ring: 217.2 91.2% 59.8%;
+}

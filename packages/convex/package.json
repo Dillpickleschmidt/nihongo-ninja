@@ -1,0 +1,27 @@
+{
+  "name": "@nn/convex",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    "./_generated/api": {
+      "types": "./convex/_generated/api.d.ts",
+      "default": "./convex/_generated/api.js"
+    },
+    "./_generated/dataModel": {
+      "types": "./convex/_generated/dataModel.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "convex codegen",
+    "dev": "convex dev",
+    "typecheck": "tsc --noEmit -p convex"
+  },
+  "dependencies": {
+    "convex": "catalog:"
+  },
+  "devDependencies": {
+    "@nn/tsconfig": "workspace:*",
+    "typescript": "catalog:"
+  }
+}

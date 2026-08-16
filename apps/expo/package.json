@@ -1,0 +1,49 @@
+{
+  "name": "@nn/expo",
+  "private": true,
+  "main": "index.ts",
+  "scripts": {
+    "dev": "expo start",
+    "dev:android": "expo start --android",
+    "dev:ios": "expo start --ios",
+    "android": "expo run:android",
+    "ios": "expo run:ios",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@convex-dev/react-query": "catalog:",
+    "@nn/convex": "workspace:*",
+    "@nn/features": "workspace:*",
+    "@nn/router": "workspace:*",
+    "@nn/ui": "workspace:*",
+    "@react-native-async-storage/async-storage": "catalog:",
+    "@tanstack/react-query": "catalog:",
+    "convex": "catalog:",
+    "expo": "~54.0.36",
+    "expo-constants": "~18.0.13",
+    "expo-dev-client": "~6.0.21",
+    "expo-linking": "~8.0.12",
+    "expo-router": "catalog:",
+    "expo-splash-screen": "~31.0.13",
+    "expo-status-bar": "~3.0.9",
+    "expo-system-ui": "~6.0.9",
+    "nativewind": "catalog:",
+    "react": "catalog:react19",
+    "react-dom": "catalog:react19",
+    "react-native": "catalog:",
+    "react-native-css": "catalog:",
+    "react-native-gesture-handler": "~2.28.0",
+    "react-native-reanimated": "~4.1.7",
+    "react-native-safe-area-context": "~5.6.2",
+    "react-native-screens": "~4.16.0",
+    "react-native-webview": "catalog:",
+    "react-native-worklets": "catalog:"
+  },
+  "devDependencies": {
+    "@nn/tailwind-config": "workspace:*",
+    "@nn/tsconfig": "workspace:*",
+    "@types/react": "catalog:react19",
+    "tailwindcss": "catalog:",
+    "typescript": "catalog:"
+  }
+}

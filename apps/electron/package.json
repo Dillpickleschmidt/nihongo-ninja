@@ -1,0 +1,13 @@
+{
+  "name": "@nn/electron",
+  "private": true,
+  "main": "src/main.cjs",
+  "scripts": {
+    "setup": "install-electron",
+    "dev": "ELECTRON_START_URL=http://localhost:3000 electron .",
+    "start": "electron ."
+  },
+  "devDependencies": {
+    "electron": "git+https://github.com/castlabs/electron-releases.git#v42.5.2+wvcus"
+  }
+}

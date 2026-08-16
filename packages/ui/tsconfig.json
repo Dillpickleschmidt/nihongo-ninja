@@ -1,0 +1,10 @@
+{
+  "extends": "@nn/tsconfig/base.json",
+  "compilerOptions": {
+    "lib": ["ES2022", "dom", "dom.iterable"],
+    "jsx": "react-jsx",
+    "rootDir": "."
+  },
+  "include": ["src", "nativewind-env.d.ts"],
+  "exclude": ["node_modules"]
+}

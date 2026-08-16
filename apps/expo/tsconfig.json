@@ -1,0 +1,13 @@
+{
+  "extends": ["@nn/tsconfig/base.json"],
+  "compilerOptions": {
+    "jsx": "react-native",
+    "checkJs": false,
+    "moduleSuffixes": [".ios", ".android", ".native", ""],
+    "paths": {
+      "~/*": ["./src/*"]
+    }
+  },
+  "include": ["src", "*.ts", "*.js", "env.d.ts", "nativewind-env.d.ts"],
+  "exclude": ["node_modules"]
+}

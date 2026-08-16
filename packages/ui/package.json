@@ -1,0 +1,37 @@
+{
+  "name": "@nn/ui",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./button": "./src/button.tsx",
+    "./text": "./src/text.tsx",
+    "./semantic": "./src/semantic.tsx",
+    "./utils": "./src/utils.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit --emitDeclarationOnly false"
+  },
+  "dependencies": {
+    "@react-native-async-storage/async-storage": "catalog:",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "tailwind-merge": "^3.6.0"
+  },
+  "devDependencies": {
+    "@nn/tsconfig": "workspace:*",
+    "@types/react": "catalog:react19",
+    "nativewind": "catalog:",
+    "react": "catalog:react19",
+    "react-native": "catalog:",
+    "react-native-css": "catalog:",
+    "typescript": "catalog:"
+  },
+  "peerDependencies": {
+    "nativewind": "*",
+    "react": "19.1.4",
+    "react-native": "*",
+    "react-native-css": "*"
+  }
+}

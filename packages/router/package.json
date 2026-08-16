@@ -1,0 +1,33 @@
+{
+  "name": "@nn/router",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit --emitDeclarationOnly false"
+  },
+  "devDependencies": {
+    "@nn/tsconfig": "workspace:*",
+    "@tanstack/react-router": "catalog:",
+    "@types/react": "catalog:react19",
+    "expo-router": "catalog:",
+    "react": "catalog:react19",
+    "typescript": "catalog:"
+  },
+  "peerDependencies": {
+    "@tanstack/react-router": "*",
+    "expo-router": "*",
+    "react": "19.1.4"
+  },
+  "peerDependenciesMeta": {
+    "@tanstack/react-router": {
+      "optional": true
+    },
+    "expo-router": {
+      "optional": true
+    }
+  }
+}
