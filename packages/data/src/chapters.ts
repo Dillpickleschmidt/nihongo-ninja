@@ -1,0 +1,567 @@
+import type { TextbookIDEnum } from "./textbooks";
+
+export interface BuiltInChapter {
+  slug: string;
+  title: string;
+  description?: string;
+  disabled?: boolean;
+  heading?: string;
+  features?: string[];
+  learning_path_item_ids: string[];
+  disabled_modules?: string[];
+}
+
+export const chapters: Record<TextbookIDEnum, Record<string, BuiltInChapter>> = {
+  // Genki 1 Chapters (Ch0-Ch12)
+  genki_1: {
+    "chapter-0": {
+      slug: "chapter-0",
+      title: "Chapter 0: Japanese from scratch.",
+      description:
+        "Comprehend all the Japanese sounds, master hiragana, learn essential greetings, and count to 100.",
+      features: [
+        "Hiragana mastery through progressive quizzes",
+        "Natural greetings and everyday expressions",
+        "Numbers 0-100 with practical applications",
+      ],
+      learning_path_item_ids: [
+        "welcome-overview",
+        "lesson-structure",
+        "writing-systems",
+        "hiragana",
+        "hiragana-practice",
+        "hiragana-quiz",
+        "dakuten-handakuten",
+        "dakuten-handakuten-practice",
+        "dakuten-handakuten-quiz",
+        "contracted-sounds",
+        "contracted-sounds-practice",
+        "contracted-sounds-quiz",
+        "long-vowels-paused-consonants",
+        "all-hiragana-quiz",
+        "punctuation-misc",
+        "greetings",
+        "greetings-japanese-super-immersion",
+        "common-expressions",
+        "common-expressions-japanese-super-immersion",
+        "genki_1_ch0_greetings-common-expressions",
+        "numbers-0-100",
+        "genki_1_ch0_numbers-0-10",
+        "genki_1_ch0_numbers-11-100",
+      ],
+    },
+
+    "chapter-1": {
+      slug: "chapter-1",
+      title: "Chapter 1: Basic Sentences",
+      description:
+        "The symbols make sense now. Build your first real sentences—introductions, descriptions, and the particles that hold them together.",
+      features: [
+        "Build up your vocabulary",
+        "Introduce yourself",
+        "Learn the foundational Japanese sentence structure",
+      ],
+
+      learning_path_item_ids: [
+        "grammar-notes",
+        "genki_1_ch1_kanji-numbers",
+        "genki_1_ch1_people-descriptors-misc",
+        "genki_1_ch1_family-school",
+        "x-wa-y-desu",
+        "genki_1_ch1_occupations-majors",
+        "sentence-practice-x-wa-y-desu",
+        "self-introductions",
+        "japanese-names-honorifics",
+        "saying-you-in-japanese",
+        "genki_1_ch1_useful-expressions",
+        "genki_1_ch1_countries-time",
+        "questions-with-ka",
+        "sentence-practice-questions-with-ka",
+        "the-no-particle",
+        "sentence-practice-the-no-particle",
+        "worksheet-1",
+        "anou-etto",
+        "kikusasaizu-1-1",
+        "japanese-super-immersion-nice-to-meet-you",
+        "my-kikitori-conversation-1",
+        "telling-time",
+        "genki_1_ch1_telling-time",
+        "minutes",
+        "genki_1_ch1_minutes",
+        "my-kikitori-conversation-2",
+        "kikusasaizu-1-3",
+        "my-kikitori-conversation-3",
+      ],
+      disabled_modules: ["grammar-notes", "worksheet-1"],
+    },
+
+    "chapter-2": {
+      slug: "chapter-2",
+      title: "Chapter 2",
+      description:
+        "Building on introductions, learn to identify and ask about things, use particles が and も, and negate statements.",
+
+      learning_path_item_ids: [
+        "grammar-notes",
+        "katakana",
+        "katakana-practice",
+        "katakana-quiz",
+        "katakana-words-worksheet",
+        "genki_1_ch2_things",
+        "words-that-point",
+        "ga-particle",
+        "dare",
+        "sentence-practice-words-that-point",
+        "sentence-practice-dare",
+        "mo-particle",
+        "sentence-practice-mo-particle",
+        "janai",
+        "sentence-practice-janai",
+        "kikusasaizu-2-1",
+        "ne-yo-particles",
+        // "sentence-practice-ne-yo",
+        "kikusasaizu-2-2",
+        "genki_1_ch2_places-money-food",
+        "kudasai-vs-onegaishimasu",
+        "my-kikitori-at-a-cafe",
+        "big-numbers",
+        "unlearning-japanese",
+        "japanese-money",
+        "practice-money",
+        "my-kikitori-at-a-store",
+        "genki_1_ch2_all-vocab-test",
+      ],
+      disabled_modules: [
+        "grammar-notes",
+        "katakana-words-worksheet",
+        "practice-money",
+        "genki_1_ch2_all-vocab-test",
+      ],
+    },
+
+    "chapter-3": {
+      slug: "chapter-3",
+      title: "Chapter 3",
+      description:
+        "Introduce verbs and adjectives, learn basic conjugations, and use location and direction particles.",
+
+      learning_path_item_ids: [
+        "grammar-notes",
+        "introduction-to-kanji",
+        "kanji-radicals",
+        "genki_1_ch3_chapter-1-kanji-part-1",
+        "genki_1_ch3_chapter-1-kanji-part-2",
+        "genki_1_ch3_chapter-1-kanji-part-3",
+        "genki_1_ch3_chapter-2-kanji",
+        "jpdb",
+        "genki_1_ch3_nouns",
+        "genki_1_ch3_days-and-time",
+        "genki_1_ch3_verbs-and-adj",
+        "verb-conj-masu",
+        "negative-masu-conj",
+        "conjugation-practice-masu",
+        "o-de-ni-e-particles",
+        "word-order",
+        "sentence-practice-o-de-ni-e-particles",
+        "your-japanese-voice",
+        "polite-invitations",
+        "sentence-practice-polite-invitations",
+        "kikusasaizu-3-2",
+        "kikusasaizu-3-3",
+        "my-kikitori-do-you-want-to-go-to-tokyo",
+        "genki_1_ch3_adverbs-expressions",
+        "genki_1_ch3_all-vocab-test",
+        "sentence-practice-time-expressions",
+        "my-kikitori-campus-interview-1",
+        "aizuchi",
+        "saying-and-so-but",
+        "adverbs",
+        "sentence-practice-frequency-adverbs",
+        "kikusasaizu-3-1",
+        "my-kikitori-campus-interview-2",
+        "long-form-conversation-immersion",
+      ],
+      disabled_modules: ["grammar-notes", "genki_1_ch3_all-vocab-test"],
+    },
+
+    "chapter-4": {
+      slug: "chapter-4",
+      title: "Chapter 4",
+      description:
+        "Learn to talk about existence of things and people, use past tense, and connect nouns with と.",
+
+      learning_path_item_ids: [
+        "grammar-notes",
+        "genki_1_ch4_nouns-1",
+        "genki_1_ch4_nouns-2",
+        "genki_1_ch4_location-words",
+        "iru-aru",
+        "sentence-practice-iru-aru",
+        "where-things-are",
+        "sentence-practice-where-things-are",
+        "genki_1_ch4_verbs-adv-misc",
+        "genki_1_ch4_all-vocab-test",
+        "polite-past-tense",
+        "conjugation-practice-polite-past-tense-verbs",
+        "sentence-practice-deshita-past-tense-verbs",
+        "saying-no-naturally",
+        "to-particle",
+        "immersion-with-yuta",
+        "sentence-practice-to-particle",
+        "mo-particle",
+        "jikan",
+        "sentence-practice-duration",
+        "counter-practice-time-and-duration",
+        "takusan",
+        "beginner-guide-to-konbini",
+      ],
+      disabled_modules: ["grammar-notes", "genki_1_ch4_all-vocab-test"],
+    },
+
+    "chapter-5": {
+      slug: "chapter-5",
+      title: "Chapter 5",
+      description:
+        "Learn about い and な adjectives, their conjugations, and how to use them to modify nouns.",
+
+      learning_path_item_ids: [
+        "grammar-notes",
+        "genki_1_ch5_nouns",
+        "genki_1_ch5_i-adjectives",
+        "genki_1_ch5_na-adjectives",
+        "adjective-conjugation",
+        "conjugation-practice-adjective",
+        "sentence-practice-adjectives",
+        "when-not-to-use-wa",
+        "adj-modifying-nouns",
+        "suki-kirai",
+        "wa-comparisons",
+        "sentence-practice-suki-kirai",
+        "genki_1_ch5_verbs-adv-misc",
+        "genki_1_ch5_all-vocab-test",
+        "suru-vs-yaru",
+        "polite-volitional",
+        "sports",
+        "counters",
+        "counter-practice-basic-counters",
+      ],
+      disabled_modules: ["grammar-notes", "genki_1_ch5_all-vocab-test"],
+    },
+
+    "chapter-6": {
+      slug: "chapter-6",
+      title: "Chapter 6",
+      description:
+        "Learn the essential て-form of verbs, its various uses, and how to connect actions and ideas.",
+
+      learning_path_item_ids: [
+        "grammar-notes",
+        "genki_1_ch6_nouns",
+        "genki_1_ch6_u-verbs-and-adj",
+        "genki_1_ch6_ru-v-irr-v-adv-misc",
+        "te-form",
+        "conjugation-practice-te-form",
+        "te-form-connection",
+        "te-kudasai",
+        "te-mo-ii-desu",
+        "te-wa-ikemasen",
+        "sentence-practice-te-form-constructions",
+        "dame",
+        "te-form-adj-nouns",
+        "kara",
+        "why-your-speaking-sucks",
+        "sentence-practice-te-form-adj-nouns",
+        "genki_1_ch6_all-vocab-test",
+      ],
+      disabled_modules: ["grammar-notes", "genki_1_ch6_all-vocab-test"],
+    },
+
+    "chapter-7": {
+      slug: "chapter-7",
+      title: "Chapter 7",
+      description:
+        "Expand vocabulary with nouns, body parts, verbs, and adjectives, and learn about converting adjectives to adverbs.",
+
+      learning_path_item_ids: [
+        "grammar-notes",
+        "genki_1_ch7_nouns-1",
+        "genki_1_ch7_body-parts",
+        "genki_1_ch7_verbs",
+        "genki_1_ch7_adj-adv-misc",
+        "adj-to-adv",
+        "sentence-practice-te-iru",
+        "sentence-practice-Verb-Stem-に行く",
+        "sentence-practice-メアリーさんは髪が長いです",
+        "genki_1_ch7_all-vocab-test",
+      ],
+      disabled_modules: ["grammar-notes", "genki_1_ch7_all-vocab-test"],
+    },
+
+    "chapter-8": {
+      slug: "chapter-8",
+      title: "Chapter 8",
+      description:
+        "Focus on vocabulary expansion with nouns, verbs, adjectives, and adverbs, and explore verb functionality.",
+
+      learning_path_item_ids: [
+        "grammar-notes",
+        "genki_1_ch8_nouns-1",
+        "genki_1_ch8_nouns-2",
+        "genki_1_ch8_verbs",
+        "genki_1_ch8_adj-adv-misc",
+        "how-verbs-work",
+        "sentence-practice-short-forms-quoted-speech",
+        "sentence-practice-Verb-のが好きです／上手です",
+        "sentence-practice-〜ないでください",
+        "genki_1_ch8_all-vocab-test",
+      ],
+      disabled_modules: ["grammar-notes", "genki_1_ch8_all-vocab-test"],
+    },
+
+    "chapter-9": {
+      slug: "chapter-9",
+      title: "Chapter 9",
+      description:
+        "Learn about various noun categories, small item counters, and continue expanding verb and adjective vocabulary.",
+
+      learning_path_item_ids: [
+        "grammar-notes",
+        "genki_1_ch9_nouns",
+        "genki_1_ch9_small-item-counters",
+        "genki_1_ch9_verbs",
+        "genki_1_ch9_adj-adv-misc",
+        "colors",
+        "sentence-practice-past-tense-short-forms",
+        "sentence-practice-Qualifying-Nouns-with-Verbs-and-Adjectives",
+        "sentence-practice-もう〜ました-and-まだ〜ていません",
+        "genki_1_ch9_all-vocab-test",
+      ],
+      disabled_modules: ["grammar-notes", "genki_1_ch9_all-vocab-test"],
+    },
+
+    "chapter-10": {
+      slug: "chapter-10",
+      title: "Chapter 10",
+      description:
+        "Continue building vocabulary with different noun groups, verbs, and explore concepts like comparing sizes and emotions.",
+
+      learning_path_item_ids: [
+        "grammar-notes",
+        "genki_1_ch10_nouns-1",
+        "genki_1_ch10_nouns-2",
+        "genki_1_ch10_verbs",
+        "genki_1_ch10_adj-adv-misc",
+        "comparing-sizes",
+        "emotions",
+        "sentence-practice-Comparison-between-Two-Items",
+        "sentence-practice-Comparison-among-Three-or-More-Items",
+        "sentence-practice-Adjective・Noun+の",
+        "sentence-practice-〜つもりだ",
+        "sentence-practice-Adjective+なる",
+        "sentence-practice-どこかに・どこにも",
+        "sentence-practice-で",
+        "sentence-practice-〜てくる・〜ていく",
+        "genki_1_ch10_all-vocab-test",
+      ],
+      disabled_modules: ["grammar-notes", "genki_1_ch10_all-vocab-test"],
+    },
+
+    "chapter-11": {
+      slug: "chapter-11",
+      title: "Chapter 11",
+      description:
+        "Delve deeper into nouns and verbs, including irregular verbs, adverbs, and occupations.",
+
+      learning_path_item_ids: [
+        "grammar-notes",
+        "genki_1_ch11_nouns-1",
+        "genki_1_ch11_nouns-2",
+        "genki_1_ch11_ru-v-u-v",
+        "genki_1_ch11_irr-v-adv-misc",
+        "genki_1_ch11_occupations",
+        "sentence-practice-〜たい",
+        "sentence-practice-〜たり〜たりする",
+        "sentence-practice-〜ことがある",
+        "genki_1_ch11_all-vocab-test",
+      ],
+      disabled_modules: ["grammar-notes", "genki_1_ch11_all-vocab-test"],
+    },
+
+    "chapter-12": {
+      slug: "chapter-12",
+      title: "Chapter 12",
+      description: "Review and expand vocabulary with more nouns, verbs, adjectives, and adverbs.",
+
+      learning_path_item_ids: [
+        "grammar-notes",
+        "genki_1_ch12_nouns-1",
+        "genki_1_ch12_nouns-2",
+        "genki_1_ch12_verbs",
+        "genki_1_ch12_adj-adv-misc",
+        "sentence-practice-〜んです",
+        "sentence-practice-〜ほうがいいです",
+        "sentence-practice-〜ので",
+        "sentence-practice-〜でしょうか",
+        "genki_1_ch12_all-vocab-test",
+      ],
+      disabled_modules: ["grammar-notes", "genki_1_ch12_all-vocab-test"],
+    },
+  },
+
+  // Genki 2 Chapters (Ch13-Ch20)
+  genki_2: {
+    "chapter-13": {
+      slug: "chapter-13",
+      title: "Chapter 13",
+      description: "Focus on vocabulary for nouns, adjectives, verbs, and day counts.",
+
+      learning_path_item_ids: [
+        "grammar-notes",
+        "genki_2_ch13_nouns",
+        "genki_2_ch13_adj-and-verbs",
+        "genki_2_ch13_day-count-and-misc",
+        "sentence-practice-Potential Verbs",
+        "sentence-practice-〜てみる",
+        "sentence-practice-なら",
+        "sentence-practice-一週間に三回",
+        "genki_2_ch13_all-vocab-test",
+      ],
+      disabled_modules: ["grammar-notes", "genki_2_ch13_all-vocab-test"],
+    },
+
+    "chapter-14": {
+      slug: "chapter-14",
+      title: "Chapter 14",
+      description:
+        "Introduce more nouns, adjectives, verbs, counters, adverbs, and other miscellaneous vocabulary.",
+
+      learning_path_item_ids: [
+        "grammar-notes",
+        "genki_2_ch14_nouns-1",
+        "genki_2_ch14_nouns-2",
+        "genki_2_ch14_adj-and-verbs",
+        "genki_2_ch14_counters-adv-misc",
+        "sentence-practice-〜かもしれません",
+        "genki_2_ch14_all-vocab-test",
+      ],
+      disabled_modules: ["grammar-notes", "genki_2_ch14_all-vocab-test"],
+    },
+
+    "chapter-15": {
+      slug: "chapter-15",
+      title: "Chapter 15",
+      description:
+        "Focus on different verb types (Ichidan, Godan, Irregular) and continue expanding noun, adverb, and miscellaneous vocabulary.",
+
+      learning_path_item_ids: [
+        "grammar-notes",
+        "genki_2_ch15_nouns-1",
+        "genki_2_ch15_nouns-2",
+        "genki_2_ch15_godan-and-ichidan-v",
+        "genki_2_ch15_irr-v-adv-misc",
+        "hobbies-with-yuta",
+        "sentence-practice-Volitional Form",
+        "sentence-practice-Volitional Form + と思っています",
+        "sentence-practice-〜ておく",
+        "genki_2_ch15_all-vocab-test",
+      ],
+      disabled_modules: ["grammar-notes", "genki_2_ch15_all-vocab-test"],
+    },
+
+    "chapter-16": {
+      slug: "chapter-16",
+      title: "Chapter 16",
+      description:
+        "Introduce more nouns, adjectives, and verbs (U, Ru, Irregular), along with adverbs and other miscellaneous terms.",
+
+      learning_path_item_ids: [
+        "grammar-notes",
+        "genki_2_ch16_nouns",
+        "genki_2_ch16_adj-and-u-v",
+        "genki_2_ch16_ru-and-irr-v",
+        "genki_2_ch16_adv-and-misc",
+        "sentence-practice-〜ていただけませんか",
+        "sentence-practice-〜時",
+        "sentence-practice-〜てすみませんでした",
+        "genki_2_ch16_all-vocab-test",
+      ],
+      disabled_modules: ["grammar-notes", "genki_2_ch16_all-vocab-test"],
+    },
+
+    "chapter-17": {
+      slug: "chapter-17",
+      title: "Chapter 17",
+      description:
+        "Expand vocabulary with more nouns, verbs, adjectives, and adverbs, and practice new sentence patterns.",
+
+      learning_path_item_ids: [
+        "grammar-notes",
+        "genki_2_ch17_nouns-1",
+        "genki_2_ch17_nouns-2",
+        "genki_2_ch17_verbs",
+        "genki_2_ch17_adj-adv-misc",
+        "genki_2_ch17_all-vocab-test",
+        "sentence-practice-sou-desu-heresay",
+        "sentence-practice-tte",
+        "sentence-practice-tara",
+      ],
+      disabled_modules: ["grammar-notes", "genki_2_ch17_all-vocab-test"],
+    },
+
+    "chapter-18": {
+      slug: "chapter-18",
+      title: "Chapter 18",
+      description:
+        "Further vocabulary expansion with various noun groups, adjectives, and verb types (U, Ru, Irregular).",
+
+      learning_path_item_ids: [
+        "grammar-notes",
+        "genki_2_ch18_nouns-1",
+        "genki_2_ch18_nouns-2-and-adjectives",
+        "genki_2_ch18_u-and-irr-verbs",
+        "genki_2_ch18_ru-verbs-and-misc",
+        "genki_2_ch18_all-vocab-test",
+      ],
+      disabled_modules: ["grammar-notes", "genki_2_ch18_all-vocab-test"],
+    },
+
+    "chapter-19": {
+      slug: "chapter-19",
+      title: "Chapter 19",
+      description:
+        "Review and test vocabulary from previous chapters and introduce new vocabulary related to nouns, adjectives, and verbs.",
+
+      learning_path_item_ids: [
+        "grammar-notes",
+        "genki_2_ch19_chapter-13-18-nouns",
+        "genki_2_ch19_chapter-13-18-adjectives",
+        "genki_2_ch19_chapter-13-18-verbs",
+        "genki_2_ch19_chapter-13-18-adv-misc",
+        "genki_2_ch19_nouns-and-adj",
+        "genki_2_ch19_u-ru-verbs",
+        "genki_2_ch19_irr-v-adv-misc",
+        "genki_2_ch19_all-vocab-test",
+        "sentence-practice-honorific-verbs",
+      ],
+      disabled_modules: ["grammar-notes", "genki_2_ch19_all-vocab-test"],
+    },
+
+    "chapter-20": {
+      slug: "chapter-20",
+      title: "Chapter 20",
+      description:
+        "Conclude Genki II with more vocabulary covering nouns, adjectives, and various verb types, and practice different expression levels.",
+
+      learning_path_item_ids: [
+        "grammar-notes",
+        "genki_2_ch20_nouns",
+        "genki_2_ch20_adj-u-v",
+        "genki_2_ch20_ru-v-irr-v-adv-misc",
+        "genki_2_ch20_all-vocab-test",
+        "sentence-practice-extra-modest-expressions",
+        "sentence-practice-humble-expressions",
+      ],
+      disabled_modules: ["grammar-notes", "genki_2_ch20_all-vocab-test"],
+    },
+  },
+};

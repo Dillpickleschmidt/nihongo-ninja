@@ -2,10 +2,12 @@
   "compilerOptions": {
     "allowJs": true,
     "strict": true,
+    "noUncheckedIndexedAccess": true,
     "moduleResolution": "Bundler",
     "jsx": "react-jsx",
     "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
+    "types": ["node"],
     "target": "ESNext",
     "module": "ESNext",
     "isolatedModules": true,
