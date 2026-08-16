@@ -3,6 +3,7 @@ import { textbooks, type TextbookIDEnum } from "@nn/data/textbooks";
 
 import { Id } from "../_generated/dataModel";
 import { MutationCtx, QueryCtx } from "../_generated/server";
+import { deleteDeck } from "./decks";
 
 // ===== Unified Folder Type =====
 
@@ -141,8 +142,18 @@ export async function updateFolder(
     parentFolderId?: Id<"userDeckFolders"> | null;
   },
 ) {
-  await verifyFolderOwnership(ctx, folderId);
+  const folder = await verifyFolderOwnership(ctx, folderId);
   if (updates.parentFolderId) await verifyFolderOwnership(ctx, updates.parentFolderId);
+
+  // A rename or move must obey the same sibling-name rule as creation.
+  if (updates.folderName !== undefined || updates.parentFolderId !== undefined) {
+    const targetName = updates.folderName ?? folder.folderName;
+    const targetParent =
+      updates.parentFolderId === undefined
+        ? folder.parentFolderId
+        : (updates.parentFolderId ?? undefined);
+    await checkFolderNameUnique(ctx, targetName, targetParent, folderId);
+  }
 
   const patch: { folderName?: string; parentFolderId?: Id<"userDeckFolders"> } = {};
   if (updates.folderName !== undefined) {
@@ -176,8 +187,9 @@ export async function deleteFolderWithStrategy(
       await ctx.db.patch(deck._id, { folderId: folder.parentFolderId });
     }
   } else {
+    // deleteDeck also removes the deck's vocabulary items and share records.
     for (const deck of decksInFolders) {
-      await ctx.db.delete(deck._id);
+      await deleteDeck(ctx, deck._id);
     }
   }
 

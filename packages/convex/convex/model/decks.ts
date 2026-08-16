@@ -5,7 +5,7 @@ import { Id } from "../_generated/dataModel";
 import { MutationCtx, QueryCtx } from "../_generated/server";
 import { verifyFolderOwnership } from "./folders";
 import { deleteShareForDeck, isShared } from "./sharing";
-import { deleteDeckVocabItems } from "./vocabulary";
+import { deleteDeckVocabItems, getUserDeckVocabItems } from "./vocabulary";
 
 type DeckSource = "built-in" | "anki" | "wanikani" | "jpdb" | "user" | "shared" | "learning_path";
 
@@ -120,6 +120,17 @@ export async function verifyDeckOwnership(ctx: QueryCtx, deckDocId: Id<"userDeck
   if (!deck) throw new Error("Deck not found");
   if (deck.userId !== identity.subject) throw new Error("Unauthorized");
   return deck;
+}
+
+export async function getOwnedDeckVocabItems(ctx: QueryCtx, deckId: Id<"userDecks">) {
+  await verifyDeckOwnership(ctx, deckId);
+  return getUserDeckVocabItems(ctx, deckId);
+}
+
+export async function getDeckWithVocab(ctx: QueryCtx, deckId: Id<"userDecks">) {
+  const deck = await verifyDeckOwnership(ctx, deckId);
+  const vocabItems = await getUserDeckVocabItems(ctx, deckId);
+  return { deck, vocabItems };
 }
 
 // Read access: the owner, or anyone when the deck has a public share.

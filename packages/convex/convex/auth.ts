@@ -9,9 +9,11 @@ import type { QueryCtx, MutationCtx } from "./_generated/server";
 import authConfig from "./auth.config";
 
 function requireSiteUrl(): string {
-  const siteUrl = process.env.SITE_URL;
-  if (!siteUrl) {
-    throw new Error("SITE_URL is not set. Run: npx convex env set SITE_URL <app url>");
+  const siteUrl = process.env.SITE_URL?.trim();
+  if (!siteUrl || !/^https?:\/\//u.test(siteUrl)) {
+    throw new Error(
+      "SITE_URL must be an absolute http(s) URL. Run: npx convex env set SITE_URL <app url>",
+    );
   }
   return siteUrl;
 }
