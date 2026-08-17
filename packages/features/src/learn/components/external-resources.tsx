@@ -31,10 +31,12 @@ function ExternalResourceCard({
   const thumbnailUrl = getThumbnailUrl(resource.external_url);
   const link = getExternalResourceLink(resourceId);
 
+  // The source card carries shadow classes, but its squircle clip-path
+  // clips the shadow away — visibly there is none.
   return (
     <a
       href={link.to}
-      className="relative block overflow-hidden rounded-[14px] p-3.5 shadow-lg shadow-black transition-opacity hover:opacity-80"
+      className="relative block overflow-hidden rounded-[14px] p-3.5 transition-opacity hover:opacity-80"
       style={{ width: 160, height: 105 }}
     >
       {thumbnailUrl === null ? null : (

@@ -109,7 +109,7 @@ export function Sidebar() {
   );
 
   return (
-    <div className="h-full border-r border-border/70 bg-background/60 backdrop-blur-md">
+    <div className="h-full">
       <LearningPathProvider>
         <div className="flex h-full flex-col">
           <div
@@ -128,7 +128,7 @@ export function Sidebar() {
             ) : null}
           </div>
 
-          <div className="min-h-0 flex-1 overflow-y-auto">
+          <div className="min-h-0 flex-1 overflow-y-auto [scrollbar-width:none]">
             {tab === "course" ? <CourseOutline /> : <MenuContent />}
           </div>
 
@@ -169,7 +169,7 @@ function SidebarTabs({
           <Tabs.Tab
             key={tabValue}
             value={tabValue}
-            className="h-6 cursor-pointer rounded-md text-xs capitalize data-active:bg-card-foreground/10 data-active:text-dynamic-accent data-active:brightness-110 dark:data-active:bg-card-foreground/40"
+            className="h-6 cursor-pointer rounded-md text-xs capitalize data-active:bg-dynamic-accent/20 data-active:text-dynamic-accent data-active:brightness-125 dark:data-active:bg-dynamic-accent/25"
           >
             {tabValue}
           </Tabs.Tab>
@@ -198,7 +198,7 @@ export function MenuContent({ onNavigate }: { onNavigate?: () => void }) {
               href={item.href}
               onClick={onNavigate}
               className={cn(
-                "flex w-full items-center justify-start gap-2 rounded-md py-2.5 pr-6 pl-6.5 hover:bg-dynamic-accent/20",
+                "flex w-full items-center justify-start gap-2 rounded-md py-2.5 pr-6 pl-6.5 text-sm font-medium hover:bg-dynamic-accent/20",
                 !item.ported && "opacity-50",
               )}
             >
@@ -319,8 +319,8 @@ function CourseOutline() {
             value={chapter.slug}
             className="border-t border-border/50"
           >
-            <Accordion.Header className="sticky top-0 z-20 bg-background/80 backdrop-blur-sm">
-              <Accordion.Trigger className="group flex w-full cursor-pointer items-center gap-2 px-6 py-3 text-left hover:text-dynamic-accent">
+            <Accordion.Header className="sticky top-0 z-20">
+              <Accordion.Trigger className="group flex w-full cursor-pointer items-center gap-2 px-6 py-3 text-left font-medium hover:text-dynamic-accent">
                 <div className="min-w-0 flex-1">
                   <div className="truncate text-xs font-semibold text-foreground">
                     {chapter.title}

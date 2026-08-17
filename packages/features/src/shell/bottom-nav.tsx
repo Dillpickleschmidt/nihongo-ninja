@@ -104,7 +104,7 @@ export function BottomNav() {
     cn("size-5 transition-colors duration-200", active ? "text-primary" : "text-primary/60");
 
   return (
-    <div className="fixed right-0 bottom-0 left-0 z-40 lg:hidden">
+    <div className="fixed right-0 bottom-0 left-0 z-40 xl:hidden">
       <div className="flex items-center justify-center border-t border-card-foreground/50 bg-background/50 px-6 pb-[env(safe-area-inset-bottom)] text-primary shadow-lg shadow-black/10 backdrop-blur-lg">
         <nav className="flex w-100 items-center justify-between">
           {NAV_ITEMS.map((item) => (

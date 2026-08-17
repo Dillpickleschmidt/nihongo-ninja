@@ -1,9 +1,10 @@
 import { Link } from "@nn/router";
-import { cn, Text } from "@nn/ui";
-import { Image, View } from "react-native";
+import { cn } from "@nn/ui";
+import { ArrowLeft } from "lucide-react";
 
 // Web layout for every lesson page: fixed decorative artwork behind the
-// content, a back button, and a per-lesson content width. The images are
+// content, a back button, and a per-lesson content width. No background
+// color here: the ambient chapter background shows through. The images are
 // web-only assets served from /img (see lesson-layout.native.tsx).
 export function LessonLayout({
   maxWidth = "max-w-3xl",
@@ -13,14 +14,11 @@ export function LessonLayout({
   children: React.ReactNode;
 }) {
   return (
-    // No background color here: the ambient chapter background shows through.
-    <View className="relative min-h-screen">
+    <div className="relative min-h-screen text-foreground">
       {/* Dust texture overlay */}
-      <View
-        pointerEvents="none"
-        className="fixed inset-0 z-0 opacity-[0.03]"
+      <div
+        className="pointer-events-none fixed inset-0 z-0 opacity-[0.03]"
         style={{
-          // @ts-expect-error web-only CSS, rendered by react-native-web
           backgroundImage: "url(/img/dust-splatter-1.png)",
           backgroundSize: "600px",
           backgroundRepeat: "repeat",
@@ -28,35 +26,36 @@ export function LessonLayout({
       />
 
       {/* Decorative sumi-e artwork — top right */}
-      <View pointerEvents="none" className="fixed top-0 right-0 z-0 h-[500px] w-[400px] opacity-20">
-        <Image
-          source={{ uri: "/img/mountain-temple-1.jpg" }}
+      <div className="pointer-events-none fixed top-0 right-0 z-0 h-[500px] w-[400px] opacity-20">
+        <img
+          src="/img/mountain-temple-1.jpg"
           alt=""
-          className="h-full w-full"
-          resizeMode="contain"
+          className="h-full w-full object-contain object-right-top"
         />
-      </View>
+      </div>
 
       {/* Decorative cherry blossom — bottom left */}
-      <View
-        pointerEvents="none"
-        className="fixed bottom-0 left-0 z-0 size-[350px] -scale-x-100 opacity-20 md:size-[380px]"
-      >
-        <Image
-          source={{ uri: "/img/cherry-blossom-branch.jpg" }}
+      <div className="pointer-events-none fixed bottom-0 left-0 z-0 size-[350px] opacity-20 md:size-[380px]">
+        <img
+          src="/img/cherry-blossom-branch.jpg"
           alt=""
-          className="h-full w-full"
-          resizeMode="contain"
+          className="h-full w-full -scale-x-100 object-contain object-left-bottom"
         />
-      </View>
+      </div>
 
-      <View className="fixed top-4 left-4 z-50">
-        <Link href="/learn">
-          <Text className="text-sm text-muted-foreground hover:text-foreground">← Back</Text>
+      {/* Back button */}
+      <div className="fixed top-4 left-4 z-50">
+        <Link
+          href="/learn"
+          className="flex items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-foreground"
+        >
+          <ArrowLeft className="size-3.5" />
+          Back
         </Link>
-      </View>
+      </div>
 
-      <View className={cn("relative z-10 mx-auto w-full", maxWidth)}>{children}</View>
-    </View>
+      {/* Content */}
+      <div className={cn("relative z-10 mx-auto", maxWidth)}>{children}</div>
+    </div>
   );
 }

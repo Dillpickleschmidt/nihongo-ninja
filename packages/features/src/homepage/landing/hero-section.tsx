@@ -46,8 +46,7 @@ export function HeroSection() {
             </p>
 
             <div className="flex flex-col gap-4 sm:flex-row">
-              {/* Points at the lessons until the dashboard ports */}
-              <Link href="/lessons/greetings">
+              <Link href="/dashboard">
                 <span
                   className="group inline-flex items-center justify-center gap-2 rounded-xl bg-linear-to-r from-(--landing-accent) to-(--landing-accent-end) px-8 py-4 font-semibold text-white transition-transform hover:scale-[1.02]"
                   style={{
