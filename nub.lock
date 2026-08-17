@@ -474,6 +474,9 @@ importers:
 
   scripts:
     devDependencies:
+      '@nn/convex':
+        specifier: workspace:*
+        version: link:../packages/convex
       '@nn/tsconfig':
         specifier: workspace:*
         version: link:../tooling/typescript
