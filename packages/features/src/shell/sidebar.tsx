@@ -115,7 +115,7 @@ export function Sidebar() {
           <div
             className={cn(
               "shrink-0 space-y-3 px-6 pt-6 pb-3",
-              tab === "course" && "border-b border-border/70",
+              tab === "course" && "border-b border-border/70 dark:border-white/10",
             )}
           >
             <SidebarBrand />
@@ -132,7 +132,7 @@ export function Sidebar() {
             {tab === "course" ? <CourseOutline /> : <MenuContent />}
           </div>
 
-          <div className="shrink-0 border-t border-border/70 px-4 py-2">
+          <div className="shrink-0 border-t border-border/70 px-4 py-2 dark:border-white/10">
             <SidebarAuthFooter />
           </div>
         </div>
@@ -317,7 +317,7 @@ function CourseOutline() {
           <Accordion.Item
             key={chapter.slug}
             value={chapter.slug}
-            className="border-t border-border/50"
+            className="border-t border-b border-border/50 dark:border-white/8"
           >
             <Accordion.Header className="sticky top-0 z-20">
               <Accordion.Trigger className="group flex w-full cursor-pointer items-center gap-2 px-6 py-3 text-left font-medium hover:text-dynamic-accent">
@@ -333,7 +333,7 @@ function CourseOutline() {
               </Accordion.Trigger>
             </Accordion.Header>
             <Accordion.Panel className="px-0">
-              <div className="border-t border-border/40 py-1">
+              <div className="border-t border-border/40 py-1 dark:border-white/5">
                 {chapter.modules.map((module, index) => (
                   <CourseModuleLink
                     key={module.moduleId}
