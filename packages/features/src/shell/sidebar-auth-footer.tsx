@@ -1,7 +1,7 @@
 import { Popover } from "@base-ui/react/popover";
 import { resolveBackground } from "@nn/data/backgrounds/resolve-background";
 import { getChapterDisplayNumber } from "@nn/data/utils/chapter-helpers";
-import { ChevronDown, ChevronUp, LogIn, LogOut } from "lucide-react";
+import { ChevronDown, ChevronUp, LogIn, LogOut, Settings } from "lucide-react";
 import { useState } from "react";
 
 import { authClient } from "../auth/client";
@@ -105,7 +105,13 @@ function SignedInFooter({ name, email }: { name: string; email: string }) {
                 <div className="h-px bg-white/10" />
 
                 <div className="grid gap-1">
-                  {/* Settings link lands with the settings page port. */}
+                  <a
+                    href="/settings"
+                    className="flex w-full items-center gap-2 rounded-md px-2 py-2 text-sm text-white/70 transition-colors hover:bg-white/5 hover:text-white"
+                  >
+                    <Settings className="size-4" />
+                    Settings
+                  </a>
                   <button
                     type="button"
                     onClick={() => void handleSignOut()}
