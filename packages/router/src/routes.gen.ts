@@ -8,5 +8,7 @@ export type Href =
   | "/lessons/greetings"
   | "/review/session"
   | "/settings"
+  | "/vocab"
+  | `/vocab/${string}`
   | `/vocab/practice/${string}`
   | "/watch";

@@ -61,17 +61,22 @@ if (paths.size === 0) {
 
 /** `/lessons/$slug` -> web route file `lessons.$slug.tsx` */
 function toWebRouteModule(routePath: string): string {
-  return routePath === "/" ? "index" : routePath.slice(1).replaceAll("/", ".");
+  if (routePath === "/") return "index";
+  // `/vocab/` (an index route under a prefix) -> `vocab.index`
+  const normalized = routePath.endsWith("/") ? `${routePath.slice(0, -1)}/index` : routePath;
+  return normalized.slice(1).replaceAll("/", ".");
 }
-/** `/lessons/$slug` -> mobile file `lessons/[slug].tsx` */
+/** `/lessons/$slug` -> mobile file `lessons/[slug].tsx`; `$` (splat) -> `[...rest]` */
 function toNativeFile(routePath: string): string {
   const rel =
     routePath === "/"
       ? "index"
-      : routePath
+      : (routePath.endsWith("/") ? `${routePath.slice(0, -1)}/index` : routePath)
           .slice(1)
           .split("/")
-          .map((seg) => (seg.startsWith("$") ? `[${seg.slice(1)}]` : seg))
+          .map((seg) =>
+            seg === "$" ? "[...rest]" : seg.startsWith("$") ? `[${seg.slice(1)}]` : seg,
+          )
           .join("/");
   return `${rel}.tsx`;
 }
@@ -83,10 +88,19 @@ const layoutPaths = new Set<string>();
 for (const routePath of [...paths].sort((a, b) => a.localeCompare(b))) {
   // Server-only routes (auth proxy, image endpoints) have no mobile page.
   if (routePath.startsWith("/api/")) continue;
-  const webFile = path.join(webRoutesDir, `${toWebRouteModule(routePath)}.tsx`);
+  // An index route under a prefix (`/vocab` from `vocab.index.tsx`) has no
+  // `vocab.tsx`; fall back to the `.index` module.
+  let webFile = path.join(webRoutesDir, `${toWebRouteModule(routePath)}.tsx`);
+  let isIndexVariant = false;
   if (!fs.existsSync(webFile)) {
-    problems.push(`${routePath}: no web route file at ${path.relative(repoRoot, webFile)}`);
-    continue;
+    const indexVariant = path.join(webRoutesDir, `${toWebRouteModule(routePath)}.index.tsx`);
+    if (fs.existsSync(indexVariant)) {
+      webFile = indexVariant;
+      isIndexVariant = true;
+    } else {
+      problems.push(`${routePath}: no web route file at ${path.relative(repoRoot, webFile)}`);
+      continue;
+    }
   }
   const contents = fs.readFileSync(webFile, "utf8");
   // A route that renders an Outlet is a layout. Mobile layouts are written by
@@ -103,7 +117,7 @@ for (const routePath of [...paths].sort((a, b) => a.localeCompare(b))) {
     continue;
   }
 
-  const outFile = path.join(appDir, toNativeFile(routePath));
+  const outFile = path.join(appDir, toNativeFile(isIndexVariant ? `${routePath}/` : routePath));
   fs.mkdirSync(path.dirname(outFile), { recursive: true });
   fs.writeFileSync(
     outFile,
@@ -142,6 +156,7 @@ sweep(appDir);
 // ${string} so a resolved path (`/lessons/abc`) type-checks against it.
 const hrefMembers = [...paths]
   .filter((p) => !layoutPaths.has(p))
+  .map((p) => (p !== "/" && p.endsWith("/") ? p.slice(0, -1) : p))
   .sort((a, b) => a.localeCompare(b))
   .map((p) => {
     if (!p.includes("$")) return JSON.stringify(p);

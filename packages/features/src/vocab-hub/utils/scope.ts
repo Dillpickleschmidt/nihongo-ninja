@@ -1,0 +1,27 @@
+import type { UnifiedDeck } from "@nn/convex/model/decks";
+import type { UnifiedFolder } from "@nn/convex/model/folders";
+
+/**
+ * Derives the scopeId for a deck by walking its folder tree to the root.
+ * Returns the root folder's ID (server detects whether it's a textbook or user folder).
+ * Returns "" for unsorted decks (no folder).
+ */
+export function resolveDeckScopeId(
+  deckId: string,
+  decks: UnifiedDeck[],
+  folders: UnifiedFolder[],
+): string {
+  const deck = decks.find((d) => d.id === deckId);
+  if (!deck?.folderId) return "";
+
+  const visited = new Set<string>();
+  let current = folders.find((f) => f.id === deck.folderId);
+  while (current?.parentFolderId && !visited.has(current.id)) {
+    visited.add(current.id);
+    const parent = folders.find((f) => f.id === current!.parentFolderId);
+    if (!parent) break;
+    current = parent;
+  }
+
+  return current?.id ?? "";
+}
