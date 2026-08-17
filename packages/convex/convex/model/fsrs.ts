@@ -1,8 +1,8 @@
 import type { Infer } from "convex/values";
-import type { Card, ReviewLog } from "ts-fsrs";
 
 import { Doc, Id } from "../_generated/dataModel";
 import { MutationCtx, QueryCtx } from "../_generated/server";
+import { fromTsFsrsCard, fromTsFsrsLog, toTsFsrsCard } from "../shared/fsrs_serde";
 import type {
   PracticeMode,
   PracticeItemType,
@@ -10,37 +10,11 @@ import type {
   fsrsReviewLogValidator,
 } from "../validators";
 
+export { fromTsFsrsCard, fromTsFsrsLog, toTsFsrsCard };
+
 // Validated formats (what API receives - already storage-ready)
 type ValidatedCard = Infer<typeof fsrsCardValidator>;
 type ValidatedLog = Infer<typeof fsrsReviewLogValidator>;
-
-// Helper: Convert flat card document to ts-fsrs Card (for algorithm operations)
-export function toTsFsrsCard(doc: Doc<"userFsrsCards">): Card {
-  return {
-    due: new Date(doc.dueAt),
-    stability: doc.stability,
-    difficulty: doc.difficulty,
-    elapsed_days: doc.elapsed_days,
-    scheduled_days: doc.scheduled_days,
-    reps: doc.reps,
-    lapses: doc.lapses,
-    state: doc.state,
-    learning_steps: doc.learning_steps ?? 0,
-    last_review: undefined,
-  };
-}
-
-// Helper: Convert ts-fsrs Card to flat fields for storage
-export function fromTsFsrsCard(card: Card) {
-  const { due, last_review: _last_review, ...rest } = card;
-  return { ...rest, dueAt: due.getTime() };
-}
-
-// Helper: Convert ts-fsrs ReviewLog to flat fields for storage
-export function fromTsFsrsLog(log: ReviewLog) {
-  const { due, review, ...rest } = log;
-  return { ...rest, due: due.getTime(), review: review.getTime() };
-}
 
 // Helper: query cards by user + mode, with optional dueAt upper bound
 function queryCardsByMode(ctx: QueryCtx, userId: string, mode: PracticeMode, dueAt?: number) {
