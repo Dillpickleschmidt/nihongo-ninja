@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 
+import { extractHiragana } from "./furigana";
 import { buildBracketFurigana } from "./kana";
 
 describe("buildBracketFurigana", () => {
@@ -37,9 +38,10 @@ describe("buildBracketFurigana", () => {
     expect(buildBracketFurigana("見合わせる", "みあわせる")).toBe("見合[みあ]わせる");
   });
 
-  it("appends leftover reading after a kana-final word", () => {
-    // The heuristic aligns kana greedily; an unmatched remainder is
-    // appended so no part of the reading is lost.
-    expect(buildBracketFurigana("行く", "いくよ")).toBe("行[い]く[よ]");
+  it("appends leftover reading as a space-separated segment", () => {
+    // Not a bracket: after kana it would parse as that kana's reading.
+    // The space-separated form round-trips through extractHiragana.
+    expect(buildBracketFurigana("行く", "いくよ")).toBe("行[い]く よ");
+    expect(extractHiragana(buildBracketFurigana("行く", "いくよ"))).toBe("いくよ");
   });
 });
