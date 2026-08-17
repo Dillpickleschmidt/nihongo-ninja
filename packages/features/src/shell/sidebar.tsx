@@ -319,7 +319,7 @@ function CourseOutline() {
             value={chapter.slug}
             className="border-t border-border/50"
           >
-            <Accordion.Header className="sticky top-0 z-20 bg-background/80 backdrop-blur-sm">
+            <Accordion.Header className="sticky top-0 z-20">
               <Accordion.Trigger className="group flex w-full cursor-pointer items-center gap-2 px-6 py-3 text-left font-medium hover:text-dynamic-accent">
                 <div className="min-w-0 flex-1">
                   <div className="truncate text-xs font-semibold text-foreground">
