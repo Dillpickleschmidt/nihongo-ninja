@@ -33,21 +33,13 @@ interface NavigationItem {
   href: string;
   icon: LucideIcon | string;
   className: string;
-  // Only some targets exist yet; the rest render as plain anchors.
-  ported?: boolean;
 }
 
 export const NAVIGATION: { label?: string; items: NavigationItem[] }[] = [
   {
     items: [
-      { title: "Home", href: "/dashboard", icon: House, className: "text-primary", ported: true },
-      {
-        title: "Learning Path",
-        href: "/learn",
-        icon: BookOpen,
-        className: "text-primary",
-        ported: true,
-      },
+      { title: "Home", href: "/dashboard", icon: House, className: "text-primary" },
+      { title: "Learning Path", href: "/learn", icon: BookOpen, className: "text-primary" },
       { title: "Real Content", href: "/discover", icon: Clapperboard, className: "text-primary" },
     ],
   },
@@ -164,7 +156,7 @@ function SidebarTabs({
         onChange(next as SidebarTab);
       }}
     >
-      <Tabs.List className="grid h-8 w-full grid-cols-2 rounded-md bg-transparent p-0">
+      <Tabs.List className="grid h-8 w-full grid-cols-2 rounded-md bg-transparent p-0 text-muted-foreground">
         {(["menu", "course"] as const).map((tabValue) => (
           <Tabs.Tab
             key={tabValue}
@@ -184,7 +176,7 @@ export function MenuContent({ onNavigate }: { onNavigate?: () => void }) {
   const isActive = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
 
   return (
-    <nav className="flex flex-col gap-4 px-1 pt-4 pb-4 lg:gap-0 xl:pt-11">
+    <nav className="flex flex-col gap-4 px-1 pb-4 lg:gap-0 xl:pt-11 2xl:pt-15 xl:[@media(min-height:900px)]:gap-8">
       {NAVIGATION.map((section) => (
         <div key={section.label ?? "main"} className="flex flex-col">
           {section.label === undefined ? null : (
@@ -197,10 +189,7 @@ export function MenuContent({ onNavigate }: { onNavigate?: () => void }) {
               key={item.href}
               href={item.href}
               onClick={onNavigate}
-              className={cn(
-                "flex w-full items-center justify-start gap-2 rounded-md py-2.5 pr-6 pl-6.5 text-sm font-medium hover:bg-dynamic-accent/20",
-                !item.ported && "opacity-50",
-              )}
+              className="flex w-full items-center justify-start gap-2 rounded-md py-2.5 pr-6 pl-6.5 text-sm font-medium hover:bg-dynamic-accent/20"
             >
               {typeof item.icon === "string" ? (
                 <span
@@ -238,14 +227,23 @@ export function MenuContent({ onNavigate }: { onNavigate?: () => void }) {
 }
 
 function CourseBackButton() {
+  const goBack = () => {
+    if (window.history.length > 1) {
+      window.history.back();
+      return;
+    }
+    window.location.assign("/dashboard");
+  };
+
   return (
-    <a
-      href="/learn"
-      className="flex items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-foreground dark:text-white/30 dark:hover:text-white/60"
+    <button
+      type="button"
+      onClick={goBack}
+      className="flex cursor-pointer items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-foreground dark:text-white/30 dark:hover:text-white/60"
     >
       <ArrowLeft className="size-3.5" />
       Back
-    </a>
+    </button>
   );
 }
 
