@@ -20,7 +20,7 @@ export function VocabRightPanel() {
     const segments = pathname.replace("/vocab/", "").split("/").filter(Boolean);
     if (segments.length === 0) return null;
 
-    const deck = resolveDeckFromPath(segments, decks);
+    const deck = resolveDeckFromPath(segments, decks, folders);
     if (deck) return { type: "deck" as const, id: deck.id };
 
     const folder = resolveFolderFromPath(segments, folders);

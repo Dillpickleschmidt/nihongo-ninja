@@ -8,7 +8,7 @@ import { Fragment, useMemo, useState } from "react";
 import { usePreferences } from "../../../preferences";
 import { DeckCard } from "../../components/deck-card";
 import { useVocab, type Deck, type Folder } from "../../context";
-import { getRootFolders, getRootOrphanDecks } from "../../utils/hierarchy";
+import { getFolderPath, getRootFolders, getRootOrphanDecks } from "../../utils/hierarchy";
 import { ChapterAccordion } from "./chapter-accordion";
 import { UserFolderContent } from "./user-folder-content";
 import { filterDecks, type MenuGroup, type MenuItem } from "./utils";
@@ -78,12 +78,23 @@ export function FolderBrowser({
     enabled: searchFocused && selected !== null,
   });
 
+  // Name/description matching stays within the selected scope, like the
+  // term index — a match elsewhere would suppress the no-results state.
+  const scopeDecks = useMemo((): Deck[] => {
+    if (!selected) return [];
+    if (selected.type === "unsorted") return orphanDecks;
+    return decks.filter(
+      (d) => d.folderId && getFolderPath(d.folderId, folders)[0]?.id === selected.id,
+    );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selected, decks, folders]);
+
   const matchingDeckIds = useMemo((): Set<string> | null => {
     const q = search.trim().toLowerCase();
     if (!q) return null;
 
     const matches = new Set<string>();
-    for (const deck of decks) {
+    for (const deck of scopeDecks) {
       if (
         deck.deckName.toLowerCase().includes(q) ||
         deck.deckDescription?.toLowerCase().includes(q)
@@ -97,7 +108,7 @@ export function FolderBrowser({
       }
     }
     return matches;
-  }, [search, decks, indexData]);
+  }, [search, scopeDecks, indexData]);
 
   const selectItems = allItems.map((m) => ({ value: m.id, label: m.label }));
 

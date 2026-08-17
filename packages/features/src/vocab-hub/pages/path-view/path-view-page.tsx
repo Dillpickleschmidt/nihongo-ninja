@@ -24,7 +24,7 @@ export default function PathViewPage({ splat }: { splat: string }) {
   const folder = resolveFolderFromPath(pathSegments, folders);
   if (folder) return <FolderView folderId={folder.id} />;
 
-  const deck = resolveDeckFromPath(pathSegments, decks);
+  const deck = resolveDeckFromPath(pathSegments, decks, folders);
   if (deck) return <DeckViewLite deck={deck} />;
 
   return <EmptyState message="Not found" />;

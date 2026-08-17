@@ -72,11 +72,14 @@ export function buildDeckUrlPath(deck: UnifiedDeck, folders: UnifiedFolder[]): s
 export function resolveDeckFromPath(
   pathSegments: string[],
   decks: UnifiedDeck[],
+  folders: UnifiedFolder[],
 ): UnifiedDeck | null {
   if (pathSegments.length === 0) return null;
-  // Last segment could be a deck ID
   const lastSegment = pathSegments[pathSegments.length - 1];
-  return decks.find((d) => d.id === lastSegment) ?? null;
+  const deck = decks.find((d) => d.id === lastSegment);
+  if (!deck) return null;
+  // The whole path must match, so a bad folder prefix is not silently accepted.
+  return buildDeckUrlPath(deck, folders) === pathSegments.join("/") ? deck : null;
 }
 
 // ===== Practice Route Utilities =====

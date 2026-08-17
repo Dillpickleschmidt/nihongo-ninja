@@ -21,8 +21,10 @@ export function getDecksInFolder(decks: UnifiedDeck[], folderId: string): Unifie
 
 export function getFolderPath(folderId: string, folders: UnifiedFolder[]): UnifiedFolder[] {
   const path: UnifiedFolder[] = [];
+  const visited = new Set<string>();
   let current = folders.find((f) => f.id === folderId);
-  while (current) {
+  while (current && !visited.has(current.id)) {
+    visited.add(current.id);
     path.unshift(current);
     current = current.parentFolderId
       ? folders.find((f) => f.id === current!.parentFolderId)

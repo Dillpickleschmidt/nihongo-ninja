@@ -14,8 +14,10 @@ export function resolveDeckScopeId(
   const deck = decks.find((d) => d.id === deckId);
   if (!deck?.folderId) return "";
 
+  const visited = new Set<string>();
   let current = folders.find((f) => f.id === deck.folderId);
-  while (current?.parentFolderId) {
+  while (current?.parentFolderId && !visited.has(current.id)) {
+    visited.add(current.id);
     const parent = folders.find((f) => f.id === current!.parentFolderId);
     if (!parent) break;
     current = parent;
