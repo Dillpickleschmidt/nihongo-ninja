@@ -1,18 +1,18 @@
 import { convexQuery } from "@convex-dev/react-query";
 import { api } from "@nn/convex/_generated/api";
 import { setBackgroundSettings } from "@nn/features/ambient-background";
-import ReviewSessionPage from "@nn/features/review-session";
 import { HomeShell } from "@nn/features/shell";
+import DeckPracticePage from "@nn/features/vocab-practice";
 import { createFileRoute } from "@tanstack/react-router";
 
-type ReviewMode = "meanings" | "spellings";
+type PracticeMode = "meanings" | "spellings";
 
-export const Route = createFileRoute("/review/session")({
-  validateSearch: (search: Record<string, unknown>): { mode: ReviewMode } => ({
+export const Route = createFileRoute("/vocab/practice/$deckId")({
+  validateSearch: (search: Record<string, unknown>): { mode: PracticeMode } => ({
     mode: search.mode === "spellings" ? "spellings" : "meanings",
   }),
   loaderDeps: ({ search }) => ({ mode: search.mode }),
-  loader: ({ context, deps }) => {
+  loader: ({ context, params, deps }) => {
     setBackgroundSettings(context.queryClient, {
       blur: 4,
       opacityOffset: -0.22,
@@ -20,7 +20,10 @@ export const Route = createFileRoute("/review/session")({
     });
     if (context.userId) {
       void context.queryClient.prefetchQuery(
-        convexQuery(api.api.practice.getReviewSessionData, { mode: deps.mode }),
+        convexQuery(api.api.practice.getPracticeData, {
+          deckId: params.deckId,
+          mode: deps.mode,
+        }),
       );
     }
   },
@@ -28,10 +31,13 @@ export const Route = createFileRoute("/review/session")({
 });
 
 function RouteComponent() {
+  const { deckId } = Route.useParams();
   const { mode } = Route.useSearch();
   return (
     <HomeShell>
-      <ReviewSessionPage key={mode} mode={mode} />
+      {/* Param changes must remount: the session manager and persistence
+          cursors inside are per-session state. */}
+      <DeckPracticePage key={`${deckId}:${mode}`} deckId={deckId} mode={mode} />
     </HomeShell>
   );
 }

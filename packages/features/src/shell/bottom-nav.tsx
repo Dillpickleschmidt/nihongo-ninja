@@ -2,6 +2,7 @@ import { Drawer } from "@base-ui/react/drawer";
 import { convexQuery } from "@convex-dev/react-query";
 import { api } from "@nn/convex/_generated/api";
 import { DAILY_PROGRESS_TARGET_UNITS, getLocalDateKey } from "@nn/data/progress/weights";
+import { usePathname } from "@nn/router";
 import { cn } from "@nn/ui";
 import { useQuery } from "@tanstack/react-query";
 import { BookOpen, House, Menu, Search, type LucideIcon } from "lucide-react";
@@ -89,7 +90,7 @@ function ProgressCircle({
 
 export function BottomNav() {
   const dailyProgress = useDailyProgressPercentage();
-  const pathname = typeof location === "undefined" ? "" : location.pathname;
+  const pathname = usePathname();
   const isActive = (href: string) =>
     href === "/learn" ? pathname.startsWith("/learn") : pathname === href;
 
