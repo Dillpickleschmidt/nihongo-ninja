@@ -1,11 +1,23 @@
 import { Drawer } from "@base-ui/react/drawer";
+import { convexQuery } from "@convex-dev/react-query";
+import { api } from "@nn/convex/_generated/api";
+import { DAILY_PROGRESS_TARGET_UNITS, getLocalDateKey } from "@nn/data/progress/weights";
 import { cn } from "@nn/ui";
+import { useQuery } from "@tanstack/react-query";
 import { BookOpen, House, Menu, Search, type LucideIcon } from "lucide-react";
 
+import { authClient } from "../auth/client";
 import { MenuContent } from "./sidebar";
 
-// Daily review progress needs the FSRS port; keep 0 until then.
-const DAILY_PROGRESS: number = 0;
+function useDailyProgressPercentage(): number {
+  const { data: session } = authClient.useSession();
+  const { data } = useQuery({
+    ...convexQuery(api.api.progress.getDailyProgress, { dateKey: getLocalDateKey() }),
+    enabled: !!session,
+  });
+  const units = data?.progressUnits ?? 0;
+  return Math.min(100, Math.round((units / DAILY_PROGRESS_TARGET_UNITS) * 100));
+}
 
 const NAV_ITEMS: { id: string; label: string; href: string; icon: LucideIcon }[] = [
   { id: "home", label: "Home", href: "/dashboard", icon: House },
@@ -76,6 +88,7 @@ function ProgressCircle({
 }
 
 export function BottomNav() {
+  const dailyProgress = useDailyProgressPercentage();
   const pathname = typeof location === "undefined" ? "" : location.pathname;
   const isActive = (href: string) =>
     href === "/learn" ? pathname.startsWith("/learn") : pathname === href;
@@ -116,14 +129,19 @@ export function BottomNav() {
                 size={56}
                 radius={18}
                 strokeWidth={2.5}
-                progress={DAILY_PROGRESS}
-                progressColor={getProgressColor(DAILY_PROGRESS)}
-                bgColor={getProgressColor(DAILY_PROGRESS, 0.3)}
+                progress={dailyProgress}
+                progressColor={getProgressColor(dailyProgress)}
+                bgColor={getProgressColor(dailyProgress, 0.3)}
                 className="size-14"
               />
             </div>
-            <span className="relative z-10 text-xs font-bold text-primary/80">
-              {DAILY_PROGRESS === 100 ? "百" : `${DAILY_PROGRESS}%`}
+            <span
+              className={cn(
+                "relative z-10 font-bold",
+                dailyProgress === 100 ? "text-sm text-green-500" : "text-xs text-primary/80",
+              )}
+            >
+              {dailyProgress === 100 ? "百" : `${dailyProgress}%`}
             </span>
           </a>
 

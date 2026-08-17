@@ -3,6 +3,7 @@ export type Href =
   | "/"
   | `/api/auth/${string}`
   | "/auth"
+  | "/dashboard"
   | "/learn"
   | "/lessons/greetings"
   | "/settings"

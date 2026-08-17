@@ -218,6 +218,9 @@ importers:
       '@nn/convex':
         specifier: workspace:*
         version: link:../../packages/convex
+      '@nn/data':
+        specifier: workspace:*
+        version: link:../../packages/data
       '@nn/features':
         specifier: workspace:*
         version: link:../../packages/features
