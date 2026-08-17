@@ -6,6 +6,9 @@ settings:
 
 catalogs:
   default:
+    '@convex-dev/better-auth':
+      specifier: 0.12.2
+      version: 0.12.2
     '@convex-dev/react-query':
       specifier: ^0.1.0
       version: 0.1.0
@@ -24,6 +27,9 @@ catalogs:
     '@types/node':
       specifier: ^26.0.0
       version: 26.2.0
+    better-auth:
+      specifier: 1.6.9
+      version: 1.6.9
     convex:
       specifier: ^1.38.0
       version: 1.44.0
@@ -194,6 +200,9 @@ importers:
 
   apps/tanstack-start:
     dependencies:
+      '@convex-dev/better-auth':
+        specifier: 'catalog:'
+        version: 0.12.2(better-auth@1.6.9(@tanstack/react-start@1.168.46(react@19.1.4)(react-dom@19.1.4(react@19.1.4))(vite@7.1.12(@types/node@26.2.0)(jiti@2.7.0)(lightningcss@1.30.1)(terser@5.50.0)(yaml@2.9.0)))(react@19.1.4)(react-dom@19.1.4(react@19.1.4)))(convex@1.44.0(react@19.1.4))(react@19.1.4)(rollup@4.62.4)(typescript@6.0.3)
       '@convex-dev/react-query':
         specifier: 'catalog:'
         version: 0.1.0(@tanstack/react-query@5.101.4(react@19.1.4))(convex@1.44.0(react@19.1.4))
@@ -230,6 +239,9 @@ importers:
       '@tanstack/react-start':
         specifier: 'catalog:'
         version: 1.168.46(react@19.1.4)(react-dom@19.1.4(react@19.1.4))(rollup@4.62.4)(vite@7.1.12(@types/node@26.2.0)(jiti@2.7.0)(lightningcss@1.30.1)(terser@5.50.0)(yaml@2.9.0))
+      better-auth:
+        specifier: 'catalog:'
+        version: 1.6.9(@tanstack/react-start@1.168.46(react@19.1.4)(react-dom@19.1.4(react@19.1.4))(vite@7.1.12(@types/node@26.2.0)(jiti@2.7.0)(lightningcss@1.30.1)(terser@5.50.0)(yaml@2.9.0)))(react@19.1.4)(react-dom@19.1.4(react@19.1.4))(rollup@4.62.4)
       convex:
         specifier: 'catalog:'
         version: 1.44.0(react@19.1.4)
@@ -298,13 +310,13 @@ importers:
   packages/convex:
     dependencies:
       '@convex-dev/better-auth':
-        specifier: 0.12.2
+        specifier: 'catalog:'
         version: 0.12.2(better-auth@1.6.9(@tanstack/react-start@1.168.46(react@19.1.4)(react-dom@19.1.4(react@19.1.4))(vite@7.1.12(@types/node@26.2.0)(jiti@2.7.0)(lightningcss@1.30.1)(terser@5.50.0)(yaml@2.9.0)))(react@19.1.4)(react-dom@19.1.4(react@19.1.4)))(convex@1.44.0(react@19.1.4))(react@19.1.4)(rollup@4.62.4)(typescript@6.0.3)
       '@nn/data':
         specifier: workspace:*
         version: link:../data
       better-auth:
-        specifier: 1.6.9
+        specifier: 'catalog:'
         version: 1.6.9(@tanstack/react-start@1.168.46(react@19.1.4)(react-dom@19.1.4(react@19.1.4))(vite@7.1.12(@types/node@26.2.0)(jiti@2.7.0)(lightningcss@1.30.1)(terser@5.50.0)(yaml@2.9.0)))(react@19.1.4)(react-dom@19.1.4(react@19.1.4))(rollup@4.62.4)
       convex:
         specifier: 'catalog:'
@@ -337,6 +349,9 @@ importers:
       '@base-ui/react':
         specifier: ^1.7.0
         version: 1.7.0(@types/react@19.1.17)(react@19.1.4)(react-dom@19.1.4(react@19.1.4))
+      '@convex-dev/better-auth':
+        specifier: 'catalog:'
+        version: 0.12.2(better-auth@1.6.9(@tanstack/react-start@1.168.46(react@19.1.4)(react-dom@19.1.4(react@19.1.4))(vite@7.1.12(@types/node@26.2.0)(jiti@2.7.0)(lightningcss@1.30.1)(terser@5.50.0)(yaml@2.9.0)))(react@19.1.4)(react-dom@19.1.4(react@19.1.4)))(convex@1.44.0(react@19.1.4))(react@19.1.4)(rollup@4.62.4)(typescript@6.0.3)
       '@convex-dev/react-query':
         specifier: 'catalog:'
         version: 0.1.0(@tanstack/react-query@5.101.4(react@19.1.4))(convex@1.44.0(react@19.1.4))
@@ -355,6 +370,9 @@ importers:
       '@tanstack/react-query':
         specifier: 'catalog:'
         version: 5.101.4(react@19.1.4)
+      better-auth:
+        specifier: 'catalog:'
+        version: 1.6.9(@tanstack/react-start@1.168.46(react@19.1.4)(react-dom@19.1.4(react@19.1.4))(vite@7.1.12(@types/node@26.2.0)(jiti@2.7.0)(lightningcss@1.30.1)(terser@5.50.0)(yaml@2.9.0)))(react@19.1.4)(react-dom@19.1.4(react@19.1.4))(rollup@4.62.4)
       convex:
         specifier: 'catalog:'
         version: 1.44.0(react@19.1.4)

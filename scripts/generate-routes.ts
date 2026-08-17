@@ -90,6 +90,8 @@ const emitted = new Set<string>();
 const layoutPaths = new Set<string>();
 
 for (const routePath of [...paths].sort((a, b) => a.localeCompare(b))) {
+  // Server-only routes (auth proxy, image endpoints) have no mobile page.
+  if (routePath.startsWith("/api/")) continue;
   const webFile = path.join(webRoutesDir, `${toWebRouteModule(routePath)}.tsx`);
   if (!fs.existsSync(webFile)) {
     problems.push(`${routePath}: no web route file at ${path.relative(repoRoot, webFile)}`);
