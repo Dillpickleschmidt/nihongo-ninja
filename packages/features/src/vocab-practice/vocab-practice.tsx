@@ -48,7 +48,10 @@ export function VocabPractice({
   // Refs, not render state: burst events (double keypress) would read a
   // stale count from the render closure and double-process an answer. The
   // stamp identifies one appearance of a card (the same key can cycle back
-  // later), so each appearance is answered at most once.
+  // later), so each appearance is answered at most once. cardAppearance is
+  // also part of the CardView key: a card returning consecutively must
+  // remount, or its answered/revealed local state carries over.
+  const [cardAppearance, setCardAppearance] = useState(0);
   const resultsCountRef = useRef(0);
   const lastAnswerStamp = useRef<string | null>(null);
 
@@ -77,6 +80,7 @@ export function VocabPractice({
 
     const isCorrect = rating !== Rating.Again;
     resultsCountRef.current += 1;
+    setCardAppearance((appearance) => appearance + 1);
     setAllResults((prev) => [...prev, { card: currentCard, correct: isCorrect }]);
 
     if (resultsCountRef.current - lastReviewIndex >= CARDS_UNTIL_REVIEW) {
@@ -130,11 +134,12 @@ export function VocabPractice({
         />
       )}
 
-      {/* key={currentCard.key} forces a remount per card, so per-card local
-          state (selected answer, revealed, inputs) resets. */}
+      {/* The key forces a remount per card APPEARANCE, so per-card local
+          state (selected answer, revealed, inputs) resets even when the
+          same key cycles back consecutively. */}
       {showCard && currentCard && (
         <CardView
-          key={currentCard.key}
+          key={`${currentCard.key}:${cardAppearance}`}
           card={currentCard}
           allCards={allCards}
           onAnswer={handleAnswer}
