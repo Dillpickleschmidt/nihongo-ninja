@@ -40,7 +40,7 @@ interface NavigationItem {
 export const NAVIGATION: { label?: string; items: NavigationItem[] }[] = [
   {
     items: [
-      { title: "Home", href: "/dashboard", icon: House, className: "text-primary" },
+      { title: "Home", href: "/dashboard", icon: House, className: "text-primary", ported: true },
       {
         title: "Learning Path",
         href: "/learn",

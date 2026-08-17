@@ -2,7 +2,7 @@ import { resolveBackground } from "@nn/data/backgrounds/resolve-background";
 import type { BackgroundSettings } from "@nn/data/backgrounds/types";
 import { useQuery, type QueryClient } from "@tanstack/react-query";
 import { FastAverageColor } from "fast-average-color";
-import { useMemo } from "react";
+import { useEffect, useMemo, useRef } from "react";
 
 import { usePreferences } from "../preferences";
 
@@ -40,6 +40,23 @@ export function AmbientBackground() {
   const { preferences, setPreference } = usePreferences();
   const settings = useBackgroundSettings();
 
+  const extractAndSetColor = (element: HTMLImageElement | HTMLVideoElement) => {
+    try {
+      const color = fac.getColor(element);
+      document.documentElement.style.setProperty("--dynamic-accent", color.hex);
+      setPreference("accentColor", color.hex);
+    } catch (e) {
+      console.warn("Failed to extract color from background:", e);
+    }
+  };
+
+  // Seed --dynamic-accent from the stored color right away. Extraction
+  // updates it, but a cached image can finish loading before hydration
+  // attaches onLoad, and raw var(--dynamic-accent) styles need a value.
+  useEffect(() => {
+    document.documentElement.style.setProperty("--dynamic-accent", preferences.accentColor);
+  }, [preferences.accentColor]);
+
   const resolved = useMemo(
     () =>
       resolveBackground(
@@ -52,17 +69,37 @@ export function AmbientBackground() {
 
   const background = resolved.background;
   const finalOpacity = background.opacity + settings.opacityOffset;
-  if (finalOpacity <= 0) return null;
+  const visible = finalOpacity > 0;
 
-  const extractAndSetColor = (element: HTMLImageElement | HTMLVideoElement) => {
-    try {
-      const color = fac.getColor(element);
-      document.documentElement.style.setProperty("--dynamic-accent", color.hex);
-      setPreference("accentColor", color.hex);
-    } catch (e) {
-      console.warn("Failed to extract color from background:", e);
-    }
+  const mediaRef = useRef<HTMLImageElement | HTMLVideoElement | null>(null);
+  const setMediaRef = (el: HTMLImageElement | HTMLVideoElement | null) => {
+    mediaRef.current = el;
   };
+
+  // Extract once the media has pixel data. A cached image can finish
+  // loading before hydration attaches handlers, so check readiness first
+  // and fall back to a native load listener.
+  useEffect(() => {
+    const el = mediaRef.current;
+    if (!el) return;
+    const ready =
+      el instanceof HTMLImageElement ? el.complete && el.naturalWidth > 0 : el.readyState >= 2;
+    if (ready) {
+      extractAndSetColor(el);
+      return;
+    }
+    const eventName = el instanceof HTMLImageElement ? "load" : "loadeddata";
+    const onReady = () => {
+      extractAndSetColor(el);
+    };
+    el.addEventListener(eventName, onReady);
+    return () => {
+      el.removeEventListener(eventName, onReady);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [background.src, visible]);
+
+  if (!visible) return null;
 
   const yOffset = background.yOffsetDesktop ?? "0";
   const height = yOffset.startsWith("-") ? `calc(100% + ${yOffset.slice(1)})` : "100%";
@@ -80,6 +117,7 @@ export function AmbientBackground() {
     <>
       {background.mediaType === "video" ? (
         <video
+          ref={setMediaRef}
           src={background.src}
           className="pointer-events-none fixed inset-0 -z-10 -mt-8"
           style={{
@@ -92,9 +130,6 @@ export function AmbientBackground() {
           muted
           playsInline
           preload="auto"
-          onLoadedData={(e) => {
-            extractAndSetColor(e.currentTarget);
-          }}
         />
       ) : (
         <div
@@ -102,15 +137,13 @@ export function AmbientBackground() {
           style={mediaStyle}
         >
           <img
+            ref={setMediaRef}
             src={background.src}
             alt=""
             crossOrigin="anonymous"
             className={`h-full w-full object-cover ${
               background.layout === "vertical" ? "object-top" : "object-center"
             }`}
-            onLoad={(e) => {
-              extractAndSetColor(e.currentTarget);
-            }}
           />
         </div>
       )}
