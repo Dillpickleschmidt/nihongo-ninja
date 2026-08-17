@@ -17,6 +17,15 @@
     "./fsrs-serde": "./convex/shared/fsrs_serde.ts",
     "./model/practice": {
       "types": "./convex/model/practice.ts"
+    },
+    "./model/decks": {
+      "types": "./convex/model/decks.ts"
+    },
+    "./model/folders": {
+      "types": "./convex/model/folders.ts"
+    },
+    "./model/learning_paths": {
+      "types": "./convex/model/learning_paths.ts"
     }
   },
   "scripts": {

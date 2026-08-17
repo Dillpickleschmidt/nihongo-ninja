@@ -108,6 +108,10 @@ family) — do not "upgrade to latest" without reading it.
   each package), NOT `nativewind/types`.
 - Known utility gaps on native: `text-start` (use `text-left`), spot-check
   `line-clamp`. Animations route through Reanimated and are low priority.
+- NativeWind's web output emits utilities with `!important`, which beats CSS
+  animations in the cascade — an animated property's initial state must live
+  in the keyframes (`animation-fill-mode: both`), not in a utility class like
+  `opacity-0`.
 
 ### Expo CLI
 
