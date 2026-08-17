@@ -1,8 +1,6 @@
 import { cn } from "@nn/ui";
 import { ChevronRight, type LucideIcon } from "lucide-react";
 
-// Vertical list with a left rail and one dot per item. The mobile
-// counterpart of the desktop module grid.
 export function TimelineList({ children }: { children: React.ReactNode }) {
   return <ul className="relative ml-[7px] border-l-2 border-card-foreground/10">{children}</ul>;
 }

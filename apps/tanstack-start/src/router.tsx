@@ -33,15 +33,12 @@ export function getRouter() {
     context: { queryClient, convexQueryClient },
     defaultPreload: "intent",
     Wrap: (props) => (
-      // Provides the Convex client and keeps its auth token in sync with the
-      // Better Auth session.
       <ConvexBetterAuthProvider client={convexQueryClient.convexClient} authClient={authClient}>
         {props.children}
       </ConvexBetterAuthProvider>
     ),
   });
 
-  // Adds the QueryClientProvider and handles cache dehydration/hydration.
   setupRouterSsrQueryIntegration({ router, queryClient });
 
   return router;

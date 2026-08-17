@@ -1,18 +1,9 @@
 #!/usr/bin/env node
-// Makes the Expo Router routes from the web TanStack routes.
-// The web route tree is the source of truth.
-//
-//   1. Read the FileRoutesByFullPath keys from routeTree.gen.ts with a regex.
-//      Do not run the file. It imports every route component.
-//   2. For each route, read the matching web route file and copy its
-//      @nn/features page import into an Expo re-export stub. This mirrors
-//      whatever the web route uses, so @nn/features can be organized by domain
-//      however it likes — the generator does not assume a path convention.
-//   3. Emit the shared Href union for @nn/router from the route list.
-//
-// This script does not change `_layout.tsx` files. It removes old generated
-// files. It stops with an error on zero routes, a missing web route file, or a
-// web route with no @nn/features page import.
+// The web route tree is the source of truth for the Expo Router routes and
+// the @nn/router Href union; both derive from it here. Reads
+// routeTree.gen.ts with a regex: do not import it, it pulls in every route
+// component. Each stub mirrors the web route's own @nn/features import, so
+// the generator assumes no path convention inside @nn/features.
 import * as fs from "node:fs";
 import * as path from "node:path";
 

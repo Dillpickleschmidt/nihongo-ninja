@@ -8,7 +8,6 @@ import { ViewToggle, type LearnViewMode } from "./components/view-toggle";
 import { LearningPathProvider, useLearningPath, type LearningPathModule } from "./context";
 import { LearningPathHeader } from "./learning-path-header";
 
-// The learn hub (web). Mobile renders learn-page.native.tsx instead.
 export default function LearnPage() {
   return (
     <div className="relative min-h-screen text-foreground">

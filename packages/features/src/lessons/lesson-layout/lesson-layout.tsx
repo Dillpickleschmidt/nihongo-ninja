@@ -2,10 +2,7 @@ import { Link } from "@nn/router";
 import { cn } from "@nn/ui";
 import { ArrowLeft } from "lucide-react";
 
-// Web layout for every lesson page: fixed decorative artwork behind the
-// content, a back button, and a per-lesson content width. No background
-// color here: the ambient chapter background shows through. The images are
-// web-only assets served from /img (see lesson-layout.native.tsx).
+// No background color here: the ambient chapter background shows through.
 export function LessonLayout({
   maxWidth = "max-w-3xl",
   children,

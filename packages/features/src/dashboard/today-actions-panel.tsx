@@ -7,12 +7,9 @@ import { getModuleIcon, getModuleIconClasses } from "../learn/module-helpers";
 
 export type NextDashboardModule = LearningPathModule & { chapterTitle: string };
 
-// Flat, borderless container — items only differ by hover/padding.
 const ITEM_BASE = "flex flex-col rounded-lg px-3 py-2";
 const ITEM_INTERACTIVE = `group/item ${ITEM_BASE} text-left transition-colors hover:bg-foreground/[0.04] dark:hover:bg-white/[0.04]`;
 
-// The dashboard header's action pair — "next up" and "due for review" as
-// flat typographic blocks that read as part of the header.
 export function TodayActionsPanel({
   className,
   mod,
@@ -123,7 +120,6 @@ function ReviewItem({
   );
 }
 
-// Flat text "button" — accent label with an arrow that nudges on hover.
 function ActionText({ label }: { label: string }) {
   return (
     <span

@@ -1,5 +1,3 @@
-// Web embed page.
-//
 // A browser cannot show Crunchyroll in an iframe (X-Frame-Options). In a
 // browser this page only shows where to find the feature. In the desktop app,
 // the main process draws a WebContentsView over this page. The preload script

@@ -33,9 +33,8 @@ function useBackgroundSettings(): BackgroundSettings {
 
 const fac = new FastAverageColor();
 
-// The fixed page background behind all content: the active learning path's
-// chapter background (image or video), blurred and dimmed per-route. Extracts
-// the average color into --dynamic-accent.
+// Fixed page background; also extracts the media's average color into
+// --dynamic-accent.
 export function AmbientBackground() {
   const { preferences, setPreference } = usePreferences();
   const settings = useBackgroundSettings();

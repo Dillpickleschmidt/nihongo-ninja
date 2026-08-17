@@ -3,13 +3,9 @@ import { View as RNView } from "react-native";
 
 import { Text } from "./text";
 
-// Semantic components. On web, react-native-web maps `role` to a real HTML tag
-// (role="heading" + aria-level -> <h1>, role="main" -> <main>, and so on).
-// On mobile, `role` sets the accessibility role. Use these for page structure
-// so the server HTML has headings and landmarks for search engines.
-//
-// Heading and Paragraph build on Text, so the default font and color come from
-// one place (see textBase in text.tsx).
+// On web, react-native-web maps `role` to a real HTML tag (role="heading" +
+// aria-level -> <h1>, role="main" -> <main>); on mobile it sets the
+// accessibility role.
 
 type Level = 1 | 2 | 3 | 4 | 5 | 6;
 

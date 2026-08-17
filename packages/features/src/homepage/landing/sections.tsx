@@ -67,7 +67,6 @@ export function WhatMakesUsDifferent() {
         <div className="relative">
           <div
             className="overflow-hidden transition-[max-height] duration-700 ease-in-out"
-            // Measured, not a magic cap: a cap can clip zoomed/narrow layouts.
             style={{ maxHeight: expanded ? (contentRef.current?.scrollHeight ?? 10000) : 405 }}
           >
             <div

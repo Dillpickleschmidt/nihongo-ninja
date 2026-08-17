@@ -52,9 +52,8 @@ export function buildBracketFurigana(word: string, reading: string): string {
   }
 
   if (readingIndex < normalizedReading.length) {
-    // A space-separated segment, not a bracket: a bracket after kana would
-    // make the furigana parser read it as that kana's reading (extractHiragana
-    // on 行[い]く[よ] yields いよ — く lost). 行[い]く よ parses to いくよ.
+    // Space-separated, not a bracket: after kana, a bracket parses as that
+    // kana's reading (行[い]く[よ] extracts いよ; 行[い]く よ extracts いくよ).
     result += ` ${normalizedReading.slice(readingIndex)}`;
   }
 

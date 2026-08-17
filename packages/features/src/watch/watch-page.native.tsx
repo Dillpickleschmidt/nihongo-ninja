@@ -1,5 +1,3 @@
-// Native embed page. This is the DRM test (handoff §5).
-//
 // Android (verified on device): set allowsProtectedMedia to true. It defaults
 // to false; without it protected playback fails with "Unsupported keySystem".
 // Crunchyroll also detects a mobile browser and shows a "Watch on the app"

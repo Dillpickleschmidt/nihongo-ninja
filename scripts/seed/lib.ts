@@ -1,5 +1,3 @@
-// Shared helpers for the seed scripts. Every import goes through the
-// Convex CLI, which reads the deployment from packages/convex.
 import { execFileSync } from "node:child_process";
 import * as fs from "node:fs";
 import * as path from "node:path";

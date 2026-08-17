@@ -70,6 +70,12 @@ family) — do not "upgrade to latest" without reading it.
   `_layout.tsx` files on native.
 - The desktop app is castLabs Electron **only because of Widevine**. Keep it a
   thin shell: main process (`apps/electron/src/main.cjs`), preload, no React.
+- **Comments state constraints, not narration.** Write a comment only for what
+  the code cannot say: platform quirks, ordering/race requirements, deliberate
+  divergence from the source app, port-status placeholders. Never describe what
+  the next line does, restate a component's design in prose, or cite where code
+  came from — those drift as the code changes. When porting, carry the source's
+  comments; hold new ones to this bar.
 
 ## Traps (all empirically hit — do not rediscover)
 

@@ -5,9 +5,6 @@ import { useEffect, useRef, useState } from "react";
 import { getModuleIcon, getModuleIconClasses } from "../learn/module-helpers";
 import type { DashboardCard } from "./dashboard-cards-data";
 
-// Tool showcase — every practice tool is rendered stacked as an alternating
-// two-column feature block. A sticky rail at the top quick-jumps between
-// them and highlights whichever block is in view (scroll-spy).
 export function ToolShowcase({
   tools,
   vocabDueCount,
