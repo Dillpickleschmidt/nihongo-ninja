@@ -1,6 +1,6 @@
 import { useVocab } from "../../context";
 import { resolveDeckFromPath, resolveFolderFromPath } from "../../utils/navigation";
-import { DeckViewLite } from "../deck-view-lite";
+import { DeckView } from "../deck-view/deck-view";
 import { EmptyState, FolderView } from "../folder-view";
 import { UnsortedView } from "../unsorted-view";
 
@@ -25,7 +25,7 @@ export default function PathViewPage({ splat }: { splat: string }) {
   if (folder) return <FolderView folderId={folder.id} />;
 
   const deck = resolveDeckFromPath(pathSegments, decks, folders);
-  if (deck) return <DeckViewLite deck={deck} />;
+  if (deck) return <DeckView deck={deck} />;
 
   return <EmptyState message="Not found" />;
 }

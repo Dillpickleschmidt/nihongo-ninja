@@ -22,7 +22,7 @@ export const Route = createFileRoute("/vocab/$")({
     const deck = resolveDeckFromPath(segments, decks, folders);
     if (deck) {
       await context.queryClient.ensureQueryData(
-        convexQuery(api.api.vocabulary.getDeckVocab, { deckId: deck.id }),
+        convexQuery(api.api.hierarchy.getDeckHierarchy, { deckId: deck.id }),
       );
     }
   },
