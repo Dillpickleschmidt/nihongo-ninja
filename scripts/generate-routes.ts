@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-// Makes the Expo Router routes (and the @nn/router Href union) from the web
-// TanStack routes — the web route tree is the source of truth. Reads
+// The web route tree is the source of truth for the Expo Router routes and
+// the @nn/router Href union; both derive from it here. Reads
 // routeTree.gen.ts with a regex: do not import it, it pulls in every route
 // component. Each stub mirrors the web route's own @nn/features import, so
 // the generator assumes no path convention inside @nn/features.
