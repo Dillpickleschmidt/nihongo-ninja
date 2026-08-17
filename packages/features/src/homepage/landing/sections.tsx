@@ -227,7 +227,7 @@ export function CTASection() {
             level. No sign-up needed to get started.
           </p>
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Link href="/lessons/greetings">
+            <Link href="/dashboard">
               <span
                 className="group inline-flex items-center justify-center gap-2 rounded-xl bg-linear-to-r from-(--landing-accent) to-(--landing-accent-end) px-10 py-4 text-lg font-semibold text-white transition-transform hover:scale-[1.02]"
                 style={{

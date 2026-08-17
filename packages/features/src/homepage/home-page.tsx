@@ -60,7 +60,7 @@ export default function HomePage() {
             <span>Discover</span>
             <span>About</span>
           </div>
-          <Link href="/lessons/greetings">
+          <Link href="/dashboard">
             <span
               className="rounded-full bg-linear-to-r from-(--landing-accent) to-(--landing-accent-end) px-5 py-2 text-sm font-medium text-white transition-transform hover:scale-105"
               style={{
