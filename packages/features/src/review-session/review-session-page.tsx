@@ -88,7 +88,7 @@ export default function ReviewSessionPage({ mode }: { mode: PracticeMode }) {
         practiceManager={practiceManager}
         deckName={mode === "meanings" ? "Meanings Review" : "Spellings Review"}
         reviewOnly
-        onAnswer={(rating: Grade) => practiceManager.answerCard(rating)}
+        onAnswer={practiceManager.answerCard}
         onIntroductionComplete={() => {
           practiceManager.processIntroduction();
         }}

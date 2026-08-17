@@ -16,7 +16,7 @@ export function WriteCard({
   onAnswer,
 }: {
   card: PracticeCard;
-  onAnswer: (rating: Grade) => Promise<void>;
+  onAnswer: (rating: Grade) => void;
 }) {
   // Mounted with key={card.key}, so state resets per card. Inputs are
   // uncontrolled (see useWanakana); state mirrors them for checking.
@@ -117,7 +117,7 @@ export function WriteCard({
   };
 
   const handleNext = () => {
-    void onAnswer(isCorrect ? Rating.Good : Rating.Again);
+    onAnswer(isCorrect ? Rating.Good : Rating.Again);
   };
 
   return (

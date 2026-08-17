@@ -32,7 +32,7 @@ export function VocabPractice({
   practiceManager: PracticeManagerHook;
   deckName: string;
   reviewOnly?: boolean;
-  onAnswer: (rating: Grade) => Promise<void>;
+  onAnswer: (rating: Grade) => void;
   onIntroductionComplete: () => void;
   onProgressEvent?: (progressUnitsDelta: number, questionsAnsweredDelta: number) => void;
   onReturn: () => void;
@@ -46,9 +46,11 @@ export function VocabPractice({
   const [lastReviewIndex, setLastReviewIndex] = useState(0);
   const [showReview, setShowReview] = useState(false);
   // Refs, not render state: burst events (double keypress) would read a
-  // stale count from the render closure and double-process an answer.
+  // stale count from the render closure and double-process an answer. The
+  // stamp identifies one appearance of a card (the same key can cycle back
+  // later), so each appearance is answered at most once.
   const resultsCountRef = useRef(0);
-  const answerInFlight = useRef(false);
+  const lastAnswerStamp = useRef<string | null>(null);
 
   const recentHistory = allResults.slice(lastReviewIndex);
 
@@ -67,30 +69,29 @@ export function VocabPractice({
   const correctCount = allResults.filter((r) => r.correct).length;
   const wrongCount = allResults.filter((r) => !r.correct).length;
 
-  const handleAnswer = async (rating: Grade) => {
-    if (!currentCard || answerInFlight.current) return;
-    answerInFlight.current = true;
-    try {
-      const isCorrect = rating !== Rating.Again;
-      resultsCountRef.current += 1;
-      setAllResults((prev) => [...prev, { card: currentCard, correct: isCorrect }]);
+  const handleAnswer = (rating: Grade) => {
+    if (!currentCard) return;
+    const stamp = `${currentCard.key}:${resultsCountRef.current}`;
+    if (lastAnswerStamp.current === stamp) return;
+    lastAnswerStamp.current = stamp;
 
-      if (resultsCountRef.current - lastReviewIndex >= CARDS_UNTIL_REVIEW) {
-        setShowReview(true);
-      }
+    const isCorrect = rating !== Rating.Again;
+    resultsCountRef.current += 1;
+    setAllResults((prev) => [...prev, { card: currentCard, correct: isCorrect }]);
 
-      if (currentCard.sessionStyle === "multiple-choice") {
-        onProgressEvent?.(5, 1);
-      } else if (currentCard.sessionStyle === "write") {
-        onProgressEvent?.(10, 1);
-      } else if (currentCard.sessionStyle === "flashcard") {
-        onProgressEvent?.(5, 1);
-      }
-
-      await onAnswer(rating);
-    } finally {
-      answerInFlight.current = false;
+    if (resultsCountRef.current - lastReviewIndex >= CARDS_UNTIL_REVIEW) {
+      setShowReview(true);
     }
+
+    if (currentCard.sessionStyle === "multiple-choice") {
+      onProgressEvent?.(5, 1);
+    } else if (currentCard.sessionStyle === "write") {
+      onProgressEvent?.(10, 1);
+    } else if (currentCard.sessionStyle === "flashcard") {
+      onProgressEvent?.(5, 1);
+    }
+
+    onAnswer(rating);
   };
 
   const handleReviewContinue = () => {
@@ -158,7 +159,7 @@ function CardView({
 }: {
   card: PracticeCard;
   allCards: PracticeCard[];
-  onAnswer: (rating: Grade) => Promise<void>;
+  onAnswer: (rating: Grade) => void;
   onIntroductionComplete: () => void;
 }) {
   switch (card.sessionStyle) {

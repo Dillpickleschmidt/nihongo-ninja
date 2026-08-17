@@ -67,10 +67,22 @@ export function usePracticeManager(
     [],
   );
 
-  const answerCard = useCallback(async (rating: Grade): Promise<void> => {
+  // Persistence runs detached so a slow write never blocks the next card.
+  // Writes are chained per card key: log batches for one card must reach
+  // the server in order (the delta cursor depends on it).
+  const pendingWrites = useRef(new Map<string, Promise<void>>());
+
+  const answerCard = useCallback((rating: Grade): void => {
     const updatedCard = managerRef.current!.processAnswer(rating);
     if (persistCardRef.current && updatedCard) {
-      await persistCardRef.current(updatedCard, rating);
+      const key = updatedCard.key;
+      const previous = pendingWrites.current.get(key) ?? Promise.resolve();
+      const next = previous
+        .then(() => persistCardRef.current?.(updatedCard, rating))
+        .catch((error: unknown) => {
+          console.error("Failed to persist practice answer:", error);
+        });
+      pendingWrites.current.set(key, next);
     }
   }, []);
 

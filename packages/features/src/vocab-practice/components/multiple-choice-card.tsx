@@ -30,7 +30,7 @@ export function MultipleChoiceCard({
 }: {
   card: PracticeCard;
   allCards: PracticeCard[];
-  onAnswer: (rating: Grade) => Promise<void>;
+  onAnswer: (rating: Grade) => void;
 }) {
   // Mounted with key={card.key}, so state resets per card.
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
@@ -62,7 +62,7 @@ export function MultipleChoiceCard({
   const isCorrect = selectedAnswer !== null && matchesValidAnswer(selectedAnswer);
 
   const handleNext = () => {
-    void onAnswer(isCorrect ? Rating.Good : Rating.Again);
+    onAnswer(isCorrect ? Rating.Good : Rating.Again);
   };
 
   const getButtonState = (answer: string) => {

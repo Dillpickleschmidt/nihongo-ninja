@@ -23,7 +23,7 @@ export function FlashcardCard({
   onAnswer,
 }: {
   card: PracticeCard;
-  onAnswer: (rating: Grade) => Promise<void>;
+  onAnswer: (rating: Grade) => void;
 }) {
   // Mounted with key={card.key}, so state resets per card.
   const [isRevealed, setIsRevealed] = useState(false);
@@ -34,7 +34,7 @@ export function FlashcardCard({
       if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) return;
       if (!isRevealed) return;
       const button = RATING_BUTTONS[parseInt(e.key) - 1];
-      if (button) void onAnswer(button.rating);
+      if (button) onAnswer(button.rating);
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => {
@@ -96,7 +96,7 @@ export function FlashcardCard({
                 className="text-sm"
                 onClick={() => {
                   playClickSound();
-                  void onAnswer(rating);
+                  onAnswer(rating);
                 }}
               >
                 {label}
