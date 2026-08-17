@@ -74,7 +74,9 @@ export function VocabPractice({
 
   const handleAnswer = (rating: Grade) => {
     if (!currentCard) return;
-    const stamp = `${currentCard.key}:${resultsCountRef.current}`;
+    // cardAppearance is render state, so burst events within one render
+    // compute the same stamp (a ref would already be incremented).
+    const stamp = `${currentCard.key}:${cardAppearance}`;
     if (lastAnswerStamp.current === stamp) return;
     lastAnswerStamp.current = stamp;
 
@@ -123,7 +125,9 @@ export function VocabPractice({
         />
       )}
 
-      {showReview && <ReviewScreen results={recentHistory} onContinue={handleReviewContinue} />}
+      {showReview && !isFinished && (
+        <ReviewScreen results={recentHistory} onContinue={handleReviewContinue} />
+      )}
 
       {isFinished && (
         <FinishScreen
