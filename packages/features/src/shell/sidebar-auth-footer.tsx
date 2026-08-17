@@ -20,7 +20,7 @@ export function SidebarAuthFooter() {
     return (
       <a
         href="/auth"
-        className="flex w-full items-center gap-2 rounded-md px-2 py-2 text-sm font-medium text-primary/60 transition-colors hover:bg-dynamic-accent/20 hover:text-primary"
+        className="flex h-10 w-full items-center justify-start gap-2 rounded-md px-4 py-2 text-sm font-medium text-primary/60 transition-colors hover:bg-dynamic-accent/20 hover:text-primary"
       >
         <LogIn className="size-3.5 2xl:size-4" />
         Sign In

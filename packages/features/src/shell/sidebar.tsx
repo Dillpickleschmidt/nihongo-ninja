@@ -169,7 +169,7 @@ function SidebarTabs({
           <Tabs.Tab
             key={tabValue}
             value={tabValue}
-            className="h-6 cursor-pointer rounded-md text-xs capitalize data-active:bg-card-foreground/10 data-active:text-dynamic-accent data-active:brightness-110 dark:data-active:bg-card-foreground/40"
+            className="h-6 cursor-pointer rounded-md text-xs capitalize data-active:bg-dynamic-accent/20 data-active:text-dynamic-accent data-active:brightness-125 dark:data-active:bg-dynamic-accent/25"
           >
             {tabValue}
           </Tabs.Tab>
