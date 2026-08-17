@@ -1,3 +1,4 @@
+import { Link } from "@nn/router";
 import { cn } from "@nn/ui";
 import { ArrowLeft } from "lucide-react";
 
@@ -44,13 +45,13 @@ export function LessonLayout({
 
       {/* Back button */}
       <div className="fixed top-4 left-4 z-50">
-        <a
+        <Link
           href="/learn"
           className="flex items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-foreground"
         >
           <ArrowLeft className="size-3.5" />
           Back
-        </a>
+        </Link>
       </div>
 
       {/* Content */}
