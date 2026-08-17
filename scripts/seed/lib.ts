@@ -1,6 +1,6 @@
 // Shared helpers for the seed scripts. Every import goes through the
 // Convex CLI, which reads the deployment from packages/convex.
-import { execSync } from "node:child_process";
+import { execFileSync } from "node:child_process";
 import * as fs from "node:fs";
 import * as path from "node:path";
 
@@ -8,7 +8,7 @@ export const repoRoot = path.resolve(import.meta.dirname, "../..");
 const convexDir = path.join(repoRoot, "packages/convex");
 
 export function importToConvex(tableName: string, filePath: string): void {
-  execSync(`npx convex import --table ${tableName} ${filePath} --replace -y`, {
+  execFileSync("npx", ["convex", "import", "--table", tableName, filePath, "--replace", "-y"], {
     stdio: "inherit",
     cwd: convexDir,
   });

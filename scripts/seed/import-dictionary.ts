@@ -214,10 +214,10 @@ try {
   importToConvex("tagMeta", TAG_META_FILE);
   console.log("Importing terms...");
   importToConvex("terms", TERMS_FILE);
-  if (hasBccwj) {
-    console.log("Importing termMeta...");
-    importToConvex("termMeta", TERM_META_FILE);
-  }
+  // Imported even when empty: --replace then clears frequency rows that
+  // would otherwise reference a dropped BCCWJ dictionary row.
+  console.log("Importing termMeta...");
+  importToConvex("termMeta", TERM_META_FILE);
 } finally {
   for (const f of [DICTIONARIES_FILE, TAG_META_FILE, TERMS_FILE, TERM_META_FILE]) {
     try {

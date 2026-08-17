@@ -131,8 +131,12 @@ async function fetchAllPages<T>(initialEndpoint: string): Promise<T[]> {
   let allData: T[] = [];
   let currentUrl: string | null = initialEndpoint;
 
+  const apiOrigin = new URL(API_BASE).origin;
   while (currentUrl) {
     const fullUrl: string = currentUrl.startsWith("http") ? currentUrl : `${API_BASE}${currentUrl}`;
+    if (new URL(fullUrl).origin !== apiOrigin) {
+      throw new Error(`Refusing to follow pagination off the WaniKani origin: ${fullUrl}`);
+    }
 
     console.log(`   Fetching from: ${fullUrl}`);
     const response = await fetch(fullUrl, {
