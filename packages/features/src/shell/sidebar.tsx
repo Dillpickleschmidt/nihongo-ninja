@@ -109,7 +109,7 @@ export function Sidebar() {
   );
 
   return (
-    <div className="h-full border-r border-border/70 bg-background/60 backdrop-blur-md">
+    <div className="h-full">
       <LearningPathProvider>
         <div className="flex h-full flex-col">
           <div
@@ -128,7 +128,7 @@ export function Sidebar() {
             ) : null}
           </div>
 
-          <div className="min-h-0 flex-1 overflow-y-auto">
+          <div className="min-h-0 flex-1 overflow-y-auto [scrollbar-width:none]">
             {tab === "course" ? <CourseOutline /> : <MenuContent />}
           </div>
 
