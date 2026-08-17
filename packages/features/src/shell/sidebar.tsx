@@ -198,7 +198,7 @@ export function MenuContent({ onNavigate }: { onNavigate?: () => void }) {
               href={item.href}
               onClick={onNavigate}
               className={cn(
-                "flex w-full items-center justify-start gap-2 rounded-md py-2.5 pr-6 pl-6.5 hover:bg-dynamic-accent/20",
+                "flex w-full items-center justify-start gap-2 rounded-md py-2.5 pr-6 pl-6.5 text-sm font-medium hover:bg-dynamic-accent/20",
                 !item.ported && "opacity-50",
               )}
             >
@@ -320,7 +320,7 @@ function CourseOutline() {
             className="border-t border-border/50"
           >
             <Accordion.Header className="sticky top-0 z-20 bg-background/80 backdrop-blur-sm">
-              <Accordion.Trigger className="group flex w-full cursor-pointer items-center gap-2 px-6 py-3 text-left hover:text-dynamic-accent">
+              <Accordion.Trigger className="group flex w-full cursor-pointer items-center gap-2 px-6 py-3 text-left font-medium hover:text-dynamic-accent">
                 <div className="min-w-0 flex-1">
                   <div className="truncate text-xs font-semibold text-foreground">
                     {chapter.title}

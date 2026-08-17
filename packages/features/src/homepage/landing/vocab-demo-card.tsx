@@ -10,7 +10,7 @@ export function VocabDemoCard() {
           <span className="font-japanese text-sm text-white/50">きこえる</span>
           <span className="text-sm text-white/50">が</span>
         </div>
-        <p className="mt-1 text-white/70">to be audible</p>
+        <p className="mt-1 text-sm text-white/70">to be audible</p>
         <ul className="mt-4 space-y-1.5 text-sm text-white/60">
           <li>• Intransitive counterpart of 聞く (to hear) — the sound reaches you on its own</li>
           <li>• Used when something can be heard naturally, without actively trying to listen</li>

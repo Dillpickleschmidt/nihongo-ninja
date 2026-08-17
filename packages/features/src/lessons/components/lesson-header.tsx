@@ -25,7 +25,7 @@ export function LessonHeader({
 }) {
   return (
     <Header className="overflow-hidden px-8 pt-16 pb-12 sm:grid sm:grid-cols-[1fr_minmax(0,1fr)] sm:gap-x-12">
-      <Text className="mb-4 text-[0.65rem] font-semibold tracking-[0.2em] text-muted-foreground/60 uppercase sm:col-span-2">
+      <Text className="mb-4 text-[0.65rem]/[1.5] font-semibold tracking-[0.2em] text-muted-foreground/60 uppercase sm:col-span-2">
         {chapter}
       </Text>
       <View className="sm:order-1">
