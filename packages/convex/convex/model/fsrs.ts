@@ -2,7 +2,7 @@ import type { Infer } from "convex/values";
 
 import { Doc, Id } from "../_generated/dataModel";
 import { MutationCtx, QueryCtx } from "../_generated/server";
-import { fromTsFsrsCard, fromTsFsrsLog, toTsFsrsCard } from "../shared/fsrs-serde";
+import { fromTsFsrsCard, fromTsFsrsLog, toTsFsrsCard } from "../shared/fsrs_serde";
 import type {
   PracticeMode,
   PracticeItemType,

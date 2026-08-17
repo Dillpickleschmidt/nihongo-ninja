@@ -78,6 +78,7 @@ export default defineSchema({
     type: practiceItemTypeValidator,
     // FSRS card fields (flattened):
     dueAt: v.number(), // timestamp - when card is due for review
+    lastReviewAt: v.optional(v.number()), // absent until the first review
     stability: v.float64(),
     difficulty: v.float64(),
     elapsed_days: v.number(),

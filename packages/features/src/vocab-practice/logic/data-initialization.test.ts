@@ -8,7 +8,7 @@ import type {
 } from "@nn/convex/validators";
 import { createEmptyCard, State } from "ts-fsrs";
 // vocab-practice/logic/data-initialization.test.ts
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, vi } from "vitest";
 
 import {
   initializePracticeSession,
@@ -196,7 +196,7 @@ describe("Data Initialization", () => {
       expect(result.cardMap.get("vocabulary:食べる")?.sessionScope).toBe("module");
     });
 
-    it("should keep the same module cards when shuffle is enabled", () => {
+    it("should reorder module cards without changing the set when shuffle is enabled", () => {
       const unshuffled = initializePracticeSession(
         mockHierarchy,
         createModuleData(),
@@ -205,16 +205,25 @@ describe("Data Initialization", () => {
         false,
         false, // no prerequisites, so every module card lands in moduleQueue
       );
-      const shuffled = initializePracticeSession(
-        mockHierarchy,
-        createModuleData(),
-        createNonModuleData(),
-        "meanings",
-        true, // shuffle
-        false,
-      );
 
-      expect([...shuffled.moduleQueue].sort()).toEqual([...unshuffled.moduleQueue].sort());
+      // Math.random -> 0 makes Fisher-Yates rotate deterministically.
+      const randomSpy = vi.spyOn(Math, "random").mockReturnValue(0);
+      try {
+        const shuffled = initializePracticeSession(
+          mockHierarchy,
+          createModuleData(),
+          createNonModuleData(),
+          "meanings",
+          true, // shuffle
+          false,
+        );
+
+        expect(unshuffled.moduleQueue.length).toBeGreaterThan(1);
+        expect([...shuffled.moduleQueue].sort()).toEqual([...unshuffled.moduleQueue].sort());
+        expect(shuffled.moduleQueue).not.toEqual(unshuffled.moduleQueue);
+      } finally {
+        randomSpy.mockRestore();
+      }
     });
 
     it("should handle duplicate keys between module and due cards correctly", () => {

@@ -14,7 +14,7 @@
     "./validators": {
       "types": "./convex/validators.ts"
     },
-    "./fsrs-serde": "./convex/shared/fsrs-serde.ts",
+    "./fsrs-serde": "./convex/shared/fsrs_serde.ts",
     "./model/practice": {
       "types": "./convex/model/practice.ts"
     }

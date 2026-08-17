@@ -16,14 +16,18 @@ export function toTsFsrsCard(doc: Doc<"userFsrsCards">): Card {
     lapses: doc.lapses,
     state: doc.state,
     learning_steps: doc.learning_steps ?? 0,
-    last_review: undefined,
+    last_review: doc.lastReviewAt === undefined ? undefined : new Date(doc.lastReviewAt),
   };
 }
 
 // Convert ts-fsrs Card to flat fields for storage
 export function fromTsFsrsCard(card: Card) {
-  const { due, last_review: _last_review, ...rest } = card;
-  return { ...rest, dueAt: due.getTime() };
+  const { due, last_review, ...rest } = card;
+  return {
+    ...rest,
+    dueAt: due.getTime(),
+    ...(last_review === undefined ? {} : { lastReviewAt: last_review.getTime() }),
+  };
 }
 
 // Convert ts-fsrs ReviewLog to flat fields for storage
