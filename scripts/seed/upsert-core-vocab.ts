@@ -7,7 +7,7 @@ import { vocabulary } from "./data/vocabulary";
 import { vocabularySets } from "./data/vocabulary_sets";
 import { importToConvex, writeJsonl } from "./lib";
 
-// Fail fast on duplicate keys within a set (ported from the source's test).
+// Fail fast on duplicate keys within a set.
 const duplicateMessages: string[] = [];
 for (const [setId, vocabSet] of Object.entries(vocabularySets)) {
   const seen = new Map<string, number>();

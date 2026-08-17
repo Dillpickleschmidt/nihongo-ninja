@@ -6,8 +6,8 @@ import { authClient } from "../auth/client";
 import { ConfirmActionDialog } from "./confirm-action-dialog";
 import { clearLocalCompletions, useLocalCompletions } from "./local-completions";
 
-// After sign-in, offers to move completions made while signed out into the
-// account. Dismissing discards them, same as the source app.
+// After sign-in, offers to move signed-out completions into the account.
+// Dismissing discards them.
 export function CompletionsSyncDialog() {
   const { data: session } = authClient.useSession();
   const localCompletions = useLocalCompletions();

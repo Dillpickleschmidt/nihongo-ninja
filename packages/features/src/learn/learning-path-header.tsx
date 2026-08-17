@@ -54,7 +54,6 @@ export function LearningPathHeader() {
   const chapterScrollContainer = useRef<HTMLDivElement>(null);
   const pathPanelContainer = useRef<HTMLDivElement>(null);
 
-  // Close the path panel on Escape or a click outside it.
   useEffect(() => {
     if (!isPathPanelOpen) return;
     const onKeyDown = (event: KeyboardEvent) => {
@@ -80,7 +79,6 @@ export function LearningPathHeader() {
   const activeChapterSlug = preferences.activeChapter;
   const backgroundOverrides = preferences.backgroundOverrides;
 
-  // Keep the active chapter card scrolled into view.
   useEffect(() => {
     if (!data || chaptersExpanded) return;
     const card = chapterRefs.current.get(activeChapterSlug);

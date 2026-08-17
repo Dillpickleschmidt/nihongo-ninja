@@ -17,9 +17,6 @@ type TranscriptLine = {
   timestamp?: string;
 };
 
-// Detail dialog for modules on user-created paths: vocabulary decks show
-// their words with context sentences; grammar modules show an example
-// sentence, the transcript, and the grammar note.
 export function ModuleDetailDialog({
   pathId,
   module,

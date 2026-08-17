@@ -1,4 +1,3 @@
-// Module icon and styling helpers
 import {
   Blocks,
   BookOpen,

@@ -5,8 +5,6 @@ import { useState } from "react";
 
 import { authClient } from "./client";
 
-// Email/password sign-in and sign-up. Social providers are not configured;
-// this mirrors the source app.
 export default function AuthPage() {
   const queryClient = useQueryClient();
   const ensureProfile = useConvexMutation(api.api.profiles.ensureProfile);
@@ -29,7 +27,6 @@ export default function AuthPage() {
       } else {
         const result = await authClient.signUp.email({ name, email, password });
         if (result.error) throw new Error(result.error.message ?? "Sign up failed");
-        // Create the default profile after signup.
         await ensureProfile({});
       }
 
