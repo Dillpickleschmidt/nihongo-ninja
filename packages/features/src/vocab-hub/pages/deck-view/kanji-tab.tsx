@@ -23,6 +23,7 @@ export function KanjiTab({
   kanjiToVocab,
   skippedKanji,
   selectedKanji,
+  selectedRadical,
   toggleKanji,
   toggleRadical,
 }: {
@@ -30,6 +31,7 @@ export function KanjiTab({
   kanjiToVocab?: Map<string, string[]>;
   skippedKanji?: string[];
   selectedKanji: string | null;
+  selectedRadical: string | null;
   toggleKanji: (k: string) => void;
   toggleRadical: (r: string) => void;
 }) {
@@ -87,6 +89,7 @@ export function KanjiTab({
                           key={r}
                           label={r}
                           color="purple"
+                          selected={selectedRadical === r}
                           onClick={() => {
                             toggleRadical(r);
                           }}

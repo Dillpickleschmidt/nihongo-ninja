@@ -80,6 +80,7 @@ export function DeckView({ deck }: { deck: Deck }) {
             kanjiToVocab={view.kanjiToVocab}
             skippedKanji={view.skippedKanji}
             selectedKanji={view.selectedKanji}
+            selectedRadical={view.selectedRadical}
             toggleKanji={view.toggleKanji}
             toggleRadical={view.toggleRadical}
           />

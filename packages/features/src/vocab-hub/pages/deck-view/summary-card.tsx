@@ -17,12 +17,14 @@ export function SummaryCard({
 }) {
   const visibleDueRows = (dueRows || []).filter((row) => row.hasHistory);
 
+  const cardClasses =
+    "flex h-full flex-col items-start justify-start rounded-xl border border-border/60 bg-card/60 p-3 text-left backdrop-blur-sm dark:border-card-foreground/70 dark:bg-card/40";
+
+  const Wrapper = onClick ? "button" : "div";
   return (
-    <button
-      type="button"
-      onClick={onClick}
-      className="flex h-full cursor-pointer flex-col items-start justify-start rounded-xl border border-border/60 bg-card/60 p-3 text-left backdrop-blur-sm transition hover:bg-accent/40 dark:border-card-foreground/70 dark:bg-card/40"
-      title={`View ${label}`}
+    <Wrapper
+      {...(onClick ? { type: "button" as const, onClick, title: `View ${label}` } : {})}
+      className={`${cardClasses} ${onClick ? "cursor-pointer transition hover:bg-accent/40" : ""}`}
     >
       <span className="text-xs text-muted-foreground">{label}</span>
       <span className="mt-1 flex w-full flex-col items-start gap-1.5 sm:flex-row sm:items-end sm:justify-between">
@@ -46,6 +48,6 @@ export function SummaryCard({
           </span>
         )}
       </span>
-    </button>
+    </Wrapper>
   );
 }
