@@ -8,6 +8,7 @@ export type { Href };
 
 export interface LinkProps {
   href: Href;
+  search?: Record<string, string>;
   className?: string;
   children?: ReactNode;
   replace?: boolean;
