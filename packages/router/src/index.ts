@@ -3,4 +3,4 @@
 // Metro uses link.native.tsx and router.native.ts (Expo Router).
 export type { Href, LinkProps } from "./types";
 export { Link } from "./link";
-export { useRouter, useParams } from "./router";
+export { useRouter, useParams, usePathname } from "./router";

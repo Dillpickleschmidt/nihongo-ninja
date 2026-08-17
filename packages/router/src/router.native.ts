@@ -1,4 +1,4 @@
-import { router, useLocalSearchParams } from "expo-router";
+import { router, useLocalSearchParams, usePathname as useExpoPathname } from "expo-router";
 
 import type { Href, Router } from "./types";
 
@@ -18,4 +18,8 @@ export function useRouter(): Router {
 
 export function useParams(): Record<string, string> {
   return useLocalSearchParams() as Record<string, string>;
+}
+
+export function usePathname(): string {
+  return useExpoPathname();
 }

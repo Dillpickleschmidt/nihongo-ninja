@@ -1,5 +1,6 @@
 import { Accordion } from "@base-ui/react/accordion";
 import { Tabs } from "@base-ui/react/tabs";
+import { usePathname } from "@nn/router";
 import { cn } from "@nn/ui";
 import {
   ArrowLeft,
@@ -96,9 +97,8 @@ export const NAVIGATION: { label?: string; items: NavigationItem[] }[] = [
 ];
 
 export function Sidebar() {
-  const [tab, setTab] = useState<SidebarTab>(
-    typeof location !== "undefined" && location.pathname.startsWith("/learn") ? "course" : "menu",
-  );
+  const pathname = usePathname();
+  const [tab, setTab] = useState<SidebarTab>(pathname.startsWith("/learn") ? "course" : "menu");
 
   return (
     <div className="h-full">
@@ -172,7 +172,7 @@ function SidebarTabs({
 }
 
 export function MenuContent({ onNavigate }: { onNavigate?: () => void }) {
-  const pathname = typeof location === "undefined" ? "" : location.pathname;
+  const pathname = usePathname();
   const isActive = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
 
   return (
@@ -359,7 +359,7 @@ function CourseModuleLink({
   completed: boolean;
 }) {
   const ModuleIcon = getModuleIcon(module.module.module_type);
-  const pathname = typeof location === "undefined" ? "" : location.pathname;
+  const pathname = usePathname();
   const active = pathname === module.linkTo.to;
 
   const statusIcon = completed ? (
