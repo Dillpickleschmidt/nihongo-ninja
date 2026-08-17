@@ -1,6 +1,5 @@
 import { convexQuery } from "@convex-dev/react-query";
 import { api } from "@nn/convex/_generated/api";
-import { getLocalDateKey } from "@nn/data/progress/weights";
 import { setBackgroundSettings } from "@nn/features/ambient-background";
 import DashboardPage from "@nn/features/dashboard";
 import { HomeShell } from "@nn/features/shell";
@@ -15,11 +14,10 @@ export const Route = createFileRoute("/dashboard")({
     });
 
     if (context.userId) {
-      const todayKey = getLocalDateKey();
+      // No dated prefetch here: the server's getLocalDateKey can differ
+      // from the client's (time zone, 4 AM cutoff), so the page computes
+      // its own date key and queries client-side.
       void context.queryClient.prefetchQuery(convexQuery(api.api.fsrs.getDueFSRSCardsCount, {}));
-      void context.queryClient.prefetchQuery(
-        convexQuery(api.api.progress.getDailyModuleStatsForDate, { dateKey: todayKey }),
-      );
       void context.queryClient.prefetchQuery(
         convexQuery(api.api.progress.getRecentModuleActivity, { limit: 10 }),
       );

@@ -132,7 +132,7 @@ export function ToolShowcase({
       {/* Sticky quick-jump rail */}
       <div
         ref={railRef}
-        role="tablist"
+        role="navigation"
         aria-label="Practice tools"
         onKeyDown={onKeyDown}
         className={cn(
@@ -162,10 +162,7 @@ export function ToolShowcase({
                 tabRefs.current[i] = el;
               }}
               type="button"
-              role="tab"
-              aria-selected={isActive}
-              aria-controls={`tool-${tool.id}`}
-              tabIndex={isActive ? 0 : -1}
+              aria-current={isActive || undefined}
               onClick={() => {
                 jumpTo(i);
               }}

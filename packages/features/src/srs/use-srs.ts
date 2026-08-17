@@ -14,13 +14,25 @@ export type DueCounts = {
 };
 
 export function useSrs(): { dueCounts: DueCounts } {
-  const { data: session } = authClient.useSession();
+  const { data: session, isPending } = authClient.useSession();
   const authed = !!session;
 
   const { data } = useQuery({
     ...convexQuery(api.api.fsrs.getDueFSRSCardsCount, {}),
-    enabled: authed,
+    enabled: authed && !isPending,
   });
+
+  // Session state unknown: report loading, not zero.
+  if (isPending) {
+    return {
+      dueCounts: {
+        vocabMeanings: undefined,
+        vocabSpellings: undefined,
+        vocabTotal: undefined,
+        sentences: undefined,
+      },
+    };
+  }
 
   if (!authed) {
     return {
