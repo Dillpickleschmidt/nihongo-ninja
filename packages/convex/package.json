@@ -13,6 +13,10 @@
     },
     "./validators": {
       "types": "./convex/validators.ts"
+    },
+    "./fsrs-serde": "./convex/shared/fsrs-serde.ts",
+    "./model/practice": {
+      "types": "./convex/model/practice.ts"
     }
   },
   "scripts": {
@@ -25,7 +29,7 @@
     "@nn/data": "workspace:*",
     "better-auth": "catalog:",
     "convex": "catalog:",
-    "ts-fsrs": "^5.3.2"
+    "ts-fsrs": "catalog:"
   },
   "devDependencies": {
     "@nn/tsconfig": "workspace:*",

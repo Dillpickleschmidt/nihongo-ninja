@@ -8,7 +8,8 @@
     "./auth/client": "./src/auth/client.ts"
   },
   "scripts": {
-    "typecheck": "tsc --noEmit --emitDeclarationOnly false"
+    "typecheck": "tsc --noEmit --emitDeclarationOnly false",
+    "test": "vitest run"
   },
   "dependencies": {
     "@base-ui/react": "^1.7.0",
@@ -22,7 +23,8 @@
     "better-auth": "catalog:",
     "convex": "catalog:",
     "fast-average-color": "^9.5.2",
-    "lucide-react": "^1.31.0"
+    "lucide-react": "^1.31.0",
+    "ts-fsrs": "catalog:"
   },
   "devDependencies": {
     "@nn/tsconfig": "workspace:*",
@@ -33,7 +35,8 @@
     "react-native": "catalog:",
     "react-native-css": "catalog:",
     "react-native-webview": "catalog:",
-    "typescript": "catalog:"
+    "typescript": "catalog:",
+    "vitest": "^4.1.10"
   },
   "peerDependencies": {
     "react": "19.1.4",
