@@ -40,6 +40,15 @@ export function extractHiragana<T extends string | string[]>(
  * @returns An HTML string or array of HTML strings with ruby tags for furigana display,
  *          depending on the input type.
  */
+export function escapeHtml(text: string): string {
+  return text
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
 export function convertFuriganaToRubyHtml<T extends string | string[]>(
   furigana: T,
   furiganaSize = "0.75rem",
@@ -47,8 +56,9 @@ export function convertFuriganaToRubyHtml<T extends string | string[]>(
   const convert = (text: string): string => {
     if (!text) return "";
     const sizeStyle = ` style="font-size: ${furiganaSize}; user-select: none; position: relative; z-index: 1;"`;
-    // Convert furigana to ruby HTML
-    let convertedHtml = text.replace(
+    // The output is injected as HTML, and furigana strings can come from
+    // user or shared-deck data — escape before building markup.
+    let convertedHtml = escapeHtml(text).replace(
       createFuriganaGroupRegex(),
       `<ruby>$1<rp>(</rp><rt><span${sizeStyle}>$2</span></rt><rp>)</rp></ruby>`,
     );

@@ -1,4 +1,5 @@
 import { Dialog } from "@base-ui/react/dialog";
+import { Link } from "@nn/router";
 import { cn } from "@nn/ui";
 
 export function ReviewModeDialog({
@@ -74,13 +75,13 @@ function ReviewModeOption({
   if (disabled) {
     return <div className={cn(classes, "opacity-50")}>{content}</div>;
   }
-  // The review session route arrives with the vocab practice port.
   return (
-    <a
-      href={`/review/session?mode=${mode}`}
+    <Link
+      href="/review/session"
+      search={{ mode }}
       className={cn(classes, "transition-colors hover:bg-accent dark:hover:bg-white/[0.05]")}
     >
       {content}
-    </a>
+    </Link>
   );
 }

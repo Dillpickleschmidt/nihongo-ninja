@@ -24,7 +24,8 @@
     "convex": "catalog:",
     "fast-average-color": "^9.5.2",
     "lucide-react": "^1.31.0",
-    "ts-fsrs": "catalog:"
+    "ts-fsrs": "catalog:",
+    "wanakana": "^5.3.1"
   },
   "devDependencies": {
     "@nn/tsconfig": "workspace:*",

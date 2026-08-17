@@ -6,5 +6,6 @@ export type Href =
   | "/dashboard"
   | "/learn"
   | "/lessons/greetings"
+  | "/review/session"
   | "/settings"
   | "/watch";

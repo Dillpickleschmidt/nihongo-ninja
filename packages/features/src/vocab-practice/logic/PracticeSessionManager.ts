@@ -42,10 +42,14 @@ export class PracticeSessionManager {
   // --- OBSERVER PATTERN FOR REACTIVITY ---
 
   /**
-   * Register a callback to be called when manager state changes
+   * Register a callback to be called when manager state changes.
+   * Returns an unsubscribe function.
    */
-  onChange(callback: () => void): void {
+  onChange(callback: () => void): () => void {
     this.changeCallbacks.push(callback);
+    return () => {
+      this.changeCallbacks = this.changeCallbacks.filter((cb) => cb !== callback);
+    };
   }
 
   /**
