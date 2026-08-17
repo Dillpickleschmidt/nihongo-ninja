@@ -21,7 +21,7 @@ export interface StaticModule {
   daily_prog_amount?: number;
 }
 
-export const static_modules: Record<string, StaticModule> = {
+const modules = {
   "welcome-overview": {
     title: "Welcome to Nihongo Ninja",
     link: { to: "/guides" },
@@ -312,7 +312,7 @@ export const static_modules: Record<string, StaticModule> = {
   },
   "mo-particle1": {
     title: "も - Also/Too",
-    link: { to: "/lessons/mo-particle" },
+    link: { to: "/lessons/mo-particle-1" },
     module_type: "lesson",
   },
   jikan: {
@@ -531,4 +531,10 @@ export const static_modules: Record<string, StaticModule> = {
     link: { to: "/lessons/adj-to-adv" },
     module_type: "lesson",
   },
-};
+} satisfies Record<string, StaticModule>;
+
+// Literal keys catch typos in cross-references (chapters, grammar maps).
+export type StaticModuleId = keyof typeof modules;
+
+// Record view for dynamic string lookups.
+export const static_modules: Record<string, StaticModule> = modules;

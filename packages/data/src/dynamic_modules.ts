@@ -253,7 +253,7 @@ export const dynamic_modules: Record<string, DynamicModule> = {
   "genki_1_ch3_chapter-2-kanji": {
     title: "Chapter 2 Kanji",
     module_type: "vocab-practice",
-    vocab_set_ids: ["genki_1_ch3_chapter-2-kanji"], // FIX
+    vocab_set_ids: ["genki_1_ch3_chapter-2-kanji"],
     instructions: "Practice Kanji from Chapter 2.",
   },
   genki_1_ch3_nouns: {
@@ -631,16 +631,6 @@ export const dynamic_modules: Record<string, DynamicModule> = {
     title: "Nouns 2",
     module_type: "vocab-practice",
     vocab_set_ids: ["genki_1_ch10_nouns-2"],
-  },
-  genki_1_ch10_verbs: {
-    title: "Verbs",
-    module_type: "vocab-practice",
-    vocab_set_ids: [], // FIX
-  },
-  "genki_1_ch10_adj-adv-misc": {
-    title: "Adj, Adv, & Misc.",
-    module_type: "vocab-practice",
-    vocab_set_ids: [], // FIX
   },
   "sentence-practice-Comparison-between-Two-Items": {
     title: "Comparison Between Two Items",
