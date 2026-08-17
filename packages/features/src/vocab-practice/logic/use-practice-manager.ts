@@ -1,4 +1,4 @@
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import type { Grade } from "ts-fsrs";
 
 import type { PracticeCard, PracticeSessionState } from "../types";
@@ -24,11 +24,14 @@ const EMPTY_SNAPSHOT: ManagerSnapshot = {
 
 function readSnapshot(manager: PracticeSessionManager): ManagerSnapshot {
   const progress = manager.getModuleProgress();
+  const hasCard = !manager.isFinished() && manager.getActiveQueue().length > 0;
   return {
-    currentCard: manager.isFinished() ? null : manager.getCurrentCard(),
+    currentCard: hasCard ? manager.getCurrentCard() : null,
     activeQueue: manager.getActiveQueue(),
     isFinished: manager.isFinished(),
-    cardMap: manager.getCardMap(),
+    // Copy: the manager mutates its map in place, so a fresh reference is
+    // what lets React consumers (useMemo on cardMap) see updates.
+    cardMap: new Map(manager.getCardMap()),
     dependencyMap: manager.getState().dependencyMap,
     moduleProgress: { completed: progress.done, total: progress.total },
   };
@@ -38,15 +41,24 @@ export function usePracticeManager(
   persistCard?: (card: PracticeCard, rating: Grade) => Promise<void>,
 ) {
   const managerRef = useRef<PracticeSessionManager | null>(null);
+  const unsubscribeRef = useRef<(() => void) | null>(null);
   const [snapshot, setSnapshot] = useState<ManagerSnapshot>(EMPTY_SNAPSHOT);
   const persistCardRef = useRef(persistCard);
-  persistCardRef.current = persistCard;
+  useEffect(() => {
+    persistCardRef.current = persistCard;
+  });
+  useEffect(() => {
+    return () => {
+      unsubscribeRef.current?.();
+    };
+  }, []);
 
   // Call from an effect, not during render (sets state).
   const initializeManager = useCallback(
     (sessionState: PracticeSessionState, options?: { reviewOnly?: boolean }): void => {
+      unsubscribeRef.current?.();
       const manager = new PracticeSessionManager(sessionState, options);
-      manager.onChange(() => {
+      unsubscribeRef.current = manager.onChange(() => {
         setSnapshot(readSnapshot(manager));
       });
       managerRef.current = manager;

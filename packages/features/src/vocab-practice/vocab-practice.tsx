@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { Rating, type Grade } from "ts-fsrs";
 
 import { FinishScreen } from "./components/finish-screen";
@@ -35,7 +35,7 @@ export function VocabPractice({
   onAnswer: (rating: Grade) => Promise<void>;
   onIntroductionComplete: () => void;
   onProgressEvent?: (progressUnitsDelta: number, questionsAnsweredDelta: number) => void;
-  onReturn?: () => void;
+  onReturn: () => void;
   returnLabel?: string;
 }) {
   const { currentCard, isFinished, cardMap, moduleProgress } = practiceManager;
@@ -45,6 +45,10 @@ export function VocabPractice({
   const [allResults, setAllResults] = useState<ReviewResult[]>([]);
   const [lastReviewIndex, setLastReviewIndex] = useState(0);
   const [showReview, setShowReview] = useState(false);
+  // Refs, not render state: burst events (double keypress) would read a
+  // stale count from the render closure and double-process an answer.
+  const resultsCountRef = useRef(0);
+  const answerInFlight = useRef(false);
 
   const recentHistory = allResults.slice(lastReviewIndex);
 
@@ -64,40 +68,40 @@ export function VocabPractice({
   const wrongCount = allResults.filter((r) => !r.correct).length;
 
   const handleAnswer = async (rating: Grade) => {
-    if (!currentCard) return;
+    if (!currentCard || answerInFlight.current) return;
+    answerInFlight.current = true;
+    try {
+      const isCorrect = rating !== Rating.Again;
+      resultsCountRef.current += 1;
+      setAllResults((prev) => [...prev, { card: currentCard, correct: isCorrect }]);
 
-    const isCorrect = rating !== Rating.Again;
-    const answeredCount = allResults.length + 1;
-    setAllResults((prev) => [...prev, { card: currentCard, correct: isCorrect }]);
+      if (resultsCountRef.current - lastReviewIndex >= CARDS_UNTIL_REVIEW) {
+        setShowReview(true);
+      }
 
-    if (answeredCount - lastReviewIndex >= CARDS_UNTIL_REVIEW) {
-      setShowReview(true);
+      if (currentCard.sessionStyle === "multiple-choice") {
+        onProgressEvent?.(5, 1);
+      } else if (currentCard.sessionStyle === "write") {
+        onProgressEvent?.(10, 1);
+      } else if (currentCard.sessionStyle === "flashcard") {
+        onProgressEvent?.(5, 1);
+      }
+
+      await onAnswer(rating);
+    } finally {
+      answerInFlight.current = false;
     }
-
-    if (currentCard.sessionStyle === "multiple-choice") {
-      onProgressEvent?.(5, 1);
-    } else if (currentCard.sessionStyle === "write") {
-      onProgressEvent?.(10, 1);
-    } else if (currentCard.sessionStyle === "flashcard") {
-      onProgressEvent?.(5, 1);
-    }
-
-    await onAnswer(rating);
   };
 
   const handleReviewContinue = () => {
     setShowReview(false);
-    setLastReviewIndex(allResults.length);
+    setLastReviewIndex(resultsCountRef.current);
     onProgressEvent?.(5, 0);
   };
 
   const handleReturn = () => {
     onProgressEvent?.(10, 0);
-    if (onReturn) {
-      onReturn();
-    } else {
-      window.location.href = "/vocab";
-    }
+    onReturn();
   };
 
   const showCard = !isFinished && !showReview;

@@ -7,13 +7,16 @@ export function useRecordVocabProgress(modulePath: string) {
 
   return useCallback(
     (progressUnitsDelta: number, questionsAnsweredDelta: number) => {
-      void mutate({
+      mutate({
         modulePath,
         moduleType: "vocab-practice",
         progressUnitsDelta,
         questionsAnsweredDelta,
         eventTs: Date.now(),
         timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone || "UTC",
+      }).catch((error: unknown) => {
+        // Progress tracking is not session-critical.
+        console.error("Failed to record vocab progress:", error);
       });
     },
     [mutate, modulePath],

@@ -1,5 +1,5 @@
 import type { PracticeItemType } from "@nn/convex/validators";
-import { convertFuriganaToRubyHtml } from "@nn/data/utils/text/furigana";
+import { convertFuriganaToRubyHtml, escapeHtml } from "@nn/data/utils/text/furigana";
 
 import type { PracticeCard } from "../types";
 
@@ -17,24 +17,26 @@ export const TYPE_TEXT_COLORS: Record<PracticeItemType, string> = {
   radical: "text-purple-500",
 };
 
-// Pre-compiled regex patterns for mnemonic formatting
+// Pre-compiled regex patterns for mnemonic formatting. They match the
+// ESCAPED tag forms: the mnemonic text is HTML-escaped first, so only
+// these known tags become markup and everything else stays inert.
 const MNEMONIC_REPLACEMENTS = [
   {
-    pattern: /<radical>([^<]+)<\/radical>/g,
+    pattern: /&lt;radical&gt;(.*?)&lt;\/radical&gt;/g,
     replacement: '<span class="text-purple-500 font-medium">$1</span>',
   },
   {
-    pattern: /<kanji>([^<]+)<\/kanji>/g,
+    pattern: /&lt;kanji&gt;(.*?)&lt;\/kanji&gt;/g,
     replacement: '<span class="text-indigo-500 font-medium">$1</span>',
   },
   {
-    pattern: /<reading>([^<]+)<\/reading>/g,
+    pattern: /&lt;reading&gt;(.*?)&lt;\/reading&gt;/g,
     replacement: '<span class="text-orange-500 font-medium">$1</span>',
   },
 ] as const;
 
 export function formatMnemonic(text: string): string {
-  let result = text;
+  let result = escapeHtml(text);
   for (const { pattern, replacement } of MNEMONIC_REPLACEMENTS) {
     result = result.replace(pattern, replacement);
   }

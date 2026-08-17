@@ -26,7 +26,13 @@ export function PracticeHeader({
         >
           <X size={24} />
         </button>
-        <div className="relative h-3.5 w-full overflow-hidden rounded-full bg-muted dark:bg-white/10">
+        <div
+          role="progressbar"
+          aria-valuemin={0}
+          aria-valuemax={totalItems}
+          aria-valuenow={Math.min(currentIndex + 1, totalItems)}
+          className="relative h-3.5 w-full overflow-hidden rounded-full bg-muted dark:bg-white/10"
+        >
           <div
             className="h-full rounded-full transition-all duration-500"
             style={{

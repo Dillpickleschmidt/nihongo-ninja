@@ -60,8 +60,11 @@ export function WriteCard({
       const label = p.label ?? "default";
       (available[label] ??= []).push(p.particle.toLowerCase());
     }
-    return particleAnswers.map((answer, idx) => {
-      const label = parts[idx]?.label ?? "default";
+    // Iterate parts, not particleAnswers: the answers array can be sparse
+    // when a later input is filled first, and a hole must count as wrong.
+    return parts.map((part, idx) => {
+      const answer = particleAnswers[idx] ?? "";
+      const label = part.label ?? "default";
       const pool = available[label];
       if (!pool?.length) return false;
       const matchIdx = pool.indexOf(answer.trim().toLowerCase());
@@ -75,15 +78,18 @@ export function WriteCard({
 
   const handleSubmit = () => {
     if (isAnswered || !userAnswer.trim()) return;
+    let particleResults: boolean[] | null = null;
     if (particles?.length) {
-      setParticleCorrectness(checkParticleAnswers());
+      particleResults = checkParticleAnswers();
+      setParticleCorrectness(particleResults);
     }
     setIsAnswered(true);
     // Dismiss the mobile keyboard so it doesn't cover the action bar.
     if (document.activeElement instanceof HTMLElement) {
       document.activeElement.blur();
     }
-    if (isMainCorrect) {
+    const fullyCorrect = isMainCorrect && (particleResults?.every(Boolean) ?? true);
+    if (fullyCorrect) {
       playCorrectSound();
     } else {
       playErrorSound();
