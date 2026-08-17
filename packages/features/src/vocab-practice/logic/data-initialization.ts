@@ -10,6 +10,7 @@ import type {
 import { createEmptyCard, State, type Card } from "ts-fsrs";
 
 import type { PracticeCard, PracticeSessionState, FSRSInfo, SessionCardStyle } from "../types";
+import { shuffleArray } from "../utils/distractor-generation";
 import { addKanaAndRuby } from "../utils/transforms";
 
 /**
@@ -285,10 +286,12 @@ export function initializePracticeSession(
   }
 
   // --- Phase 3 & 4: Build dependencies and populate queues ---
+  // One timestamp for every due check, so cards sharing a due date agree.
+  const dueCheckAt = new Date();
   const queues = buildSessionQueues(cardMap, hierarchy, {
     enablePrerequisites,
     shuffle,
-    isDue: (card) => !card.fsrs.card.due || card.fsrs.card.due <= new Date(),
+    isDue: (card) => !card.fsrs.card.due || card.fsrs.card.due <= dueCheckAt,
   });
 
   return {
@@ -382,7 +385,7 @@ export function buildSessionQueues(
   }
 
   if (options.shuffle) {
-    moduleQueue = [...moduleQueue].sort(() => Math.random() - 0.5);
+    moduleQueue = shuffleArray(moduleQueue);
   }
 
   return { dependencyMap, unlocksMap, lockedKeys, moduleQueue, reviewQueue };

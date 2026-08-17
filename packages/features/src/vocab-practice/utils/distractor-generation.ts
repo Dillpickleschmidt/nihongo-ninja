@@ -21,22 +21,37 @@ export function generateDistractors(
         .map((answer) => ({ answer, particles: card.vocab.particles })),
     );
 
+  // Deduplicate by answer string (keep first occurrence's particles), so
+  // pool sizes reflect unique answers before the fallback thresholds.
+  const dedupeByAnswer = (options: ChoiceOption[]): ChoiceOption[] => {
+    const seen = new Set<string>();
+    const unique: ChoiceOption[] = [];
+    for (const option of options) {
+      const normalized = option.answer.toLowerCase();
+      if (!seen.has(normalized)) {
+        seen.add(normalized);
+        unique.push(option);
+      }
+    }
+    return unique;
+  };
+
   // Filter by: same item type + same POS category
   const matchingCards = allCards.filter(
     (card) =>
       card.practiceItemType === currentCard.practiceItemType &&
       getPosCategory(card.vocab.partOfSpeech) === currentPosCategory,
   );
-  const matchingOptions = toOptions(matchingCards);
+  const matchingOptions = dedupeByAnswer(toOptions(matchingCards));
 
   // Fallback 1: same item type only (relax POS filter)
   const sameTypeCards = allCards.filter(
     (card) => card.practiceItemType === currentCard.practiceItemType,
   );
-  const sameTypeOptions = toOptions(sameTypeCards);
+  const sameTypeOptions = dedupeByAnswer(toOptions(sameTypeCards));
 
   // Fallback 2: any card (relax all filters)
-  const allOtherOptions = toOptions(allCards);
+  const allOtherOptions = dedupeByAnswer(toOptions(allCards));
 
   // Use strictest pool with enough distractors, else fall back
   const distractorPool =
@@ -46,17 +61,7 @@ export function generateDistractors(
         ? sameTypeOptions
         : allOtherOptions;
 
-  // Deduplicate by answer string (keep first occurrence's particles)
-  const seen = new Set<string>();
-  const uniqueDistractors: ChoiceOption[] = [];
-  for (const option of distractorPool) {
-    if (!seen.has(option.answer)) {
-      seen.add(option.answer);
-      uniqueDistractors.push(option);
-    }
-  }
-
-  const shuffled = shuffleArray(uniqueDistractors);
+  const shuffled = shuffleArray(distractorPool);
   return shuffled.slice(0, count);
 }
 

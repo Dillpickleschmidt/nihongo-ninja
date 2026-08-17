@@ -196,6 +196,27 @@ describe("Data Initialization", () => {
       expect(result.cardMap.get("vocabulary:食べる")?.sessionScope).toBe("module");
     });
 
+    it("should keep the same module cards when shuffle is enabled", () => {
+      const unshuffled = initializePracticeSession(
+        mockHierarchy,
+        createModuleData(),
+        createNonModuleData(),
+        "meanings",
+        false,
+        false, // no prerequisites, so every module card lands in moduleQueue
+      );
+      const shuffled = initializePracticeSession(
+        mockHierarchy,
+        createModuleData(),
+        createNonModuleData(),
+        "meanings",
+        true, // shuffle
+        false,
+      );
+
+      expect([...shuffled.moduleQueue].sort()).toEqual([...unshuffled.moduleQueue].sort());
+    });
+
     it("should handle duplicate keys between module and due cards correctly", () => {
       const duplicateDueCards: FSRSCardInput[] = [
         createMockFSRSCard("食べる", "meanings", "vocabulary"),

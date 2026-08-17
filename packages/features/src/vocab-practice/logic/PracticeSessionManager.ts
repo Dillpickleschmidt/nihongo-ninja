@@ -36,7 +36,6 @@ export class PracticeSessionManager {
       this.state.moduleQueue = moduleQueue;
       this.state.reviewQueue = reviewQueue;
       this.state.activeQueue = activeQueue;
-      this.notifyChange();
     }
   }
 
@@ -174,7 +173,11 @@ export class PracticeSessionManager {
     }
 
     const key = this.state.activeQueue[0]!;
-    const originalCard = this.state.cardMap.get(key)!;
+    const originalCard = this.state.cardMap.get(key);
+    if (!originalCard) {
+      console.error(`Card with key ${key} not found in map.`);
+      return null;
+    }
 
     // 1. Update card state based on answer
     const updatedCard = this.ankiMode
@@ -284,7 +287,12 @@ export class PracticeSessionManager {
     if (this.state.activeQueue.length === 0) {
       throw new Error("Cannot get current card from an empty active queue.");
     }
-    return this.state.cardMap.get(this.state.activeQueue[0]!)!;
+    const key = this.state.activeQueue[0]!;
+    const card = this.state.cardMap.get(key);
+    if (!card) {
+      throw new Error(`Card with key ${key} is in the active queue but not in the card map.`);
+    }
+    return card;
   }
 
   public isFinished(): boolean {
@@ -319,7 +327,7 @@ export class PracticeSessionManager {
    * This is calculated once and represents all non-disabled module cards.
    */
   public getTotalModuleWork(): number {
-    if (!this._totalModuleWork) {
+    if (this._totalModuleWork === undefined) {
       // Calculate once: count all module cards that aren't disabled
       this._totalModuleWork = Array.from(this.state.cardMap.values()).filter(
         (card) => card.sessionScope === "module" && !card.isDisabled,

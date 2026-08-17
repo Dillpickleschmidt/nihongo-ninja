@@ -3,6 +3,8 @@ import { FSRS, Rating, Grade } from "ts-fsrs";
 
 import type { PracticeCard, SessionCardStyle } from "../types";
 
+const fsrsInstance = new FSRS({});
+
 /** Pure session-style transition — shared by FSRS and Anki modes */
 export function nextSessionStyle(
   currentStyle: SessionCardStyle,
@@ -11,14 +13,14 @@ export function nextSessionStyle(
 ): SessionCardStyle {
   switch (currentStyle) {
     case "multiple-choice":
-      if (grade === Rating.Good) {
+      if (grade >= Rating.Good) {
         return practiceItemType === "kanji" || practiceItemType === "radical"
           ? "flashcard"
           : "write";
       }
       return "multiple-choice";
     case "write":
-      return grade === Rating.Good ? "done" : "multiple-choice";
+      return grade >= Rating.Good ? "done" : "multiple-choice";
     case "flashcard":
       return grade === Rating.Again ? "multiple-choice" : "flashcard";
     case "done":
@@ -30,8 +32,6 @@ export function nextSessionStyle(
 
 /** FSRS mode: style transition + FSRS card/log update */
 export function handleCardAnswer(card: PracticeCard, grade: Grade): PracticeCard {
-  const fsrsInstance = new FSRS({});
-
   const { card: updatedFSRSCard, log: reviewLog } = fsrsInstance.next(
     card.fsrs.card,
     new Date(),

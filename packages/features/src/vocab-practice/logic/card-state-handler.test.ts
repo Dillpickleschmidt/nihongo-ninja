@@ -4,7 +4,7 @@ import { createEmptyCard, Rating, State } from "ts-fsrs";
 import { describe, it, expect } from "vitest";
 
 import type { PracticeCard, SessionCardStyle } from "../types";
-import { handleCardAnswer } from "./card-state-handler";
+import { handleCardAnswer, handleCardAnswerAnki } from "./card-state-handler";
 
 // Helper to create a mock PracticeCard
 const createMockPracticeCard = (
@@ -73,6 +73,20 @@ describe("Card State Handler", () => {
       expect(updatedCard.fsrs.card.difficulty).not.toBe(initialCard.fsrs.card.difficulty);
       expect(updatedCard.fsrs.logs).toHaveLength(1);
     });
+
+    it("should treat Easy as success (transition to 'write' for vocabulary)", () => {
+      const initialCard = createMockPracticeCard("multiple-choice", "vocabulary");
+      const updatedCard = handleCardAnswer(initialCard, Rating.Easy);
+
+      expect(updatedCard.sessionStyle).toBe("write");
+    });
+
+    it("should stay 'multiple-choice' on Hard", () => {
+      const initialCard = createMockPracticeCard("multiple-choice");
+      const updatedCard = handleCardAnswer(initialCard, Rating.Hard);
+
+      expect(updatedCard.sessionStyle).toBe("multiple-choice");
+    });
   });
 
   describe("when initial style is 'write'", () => {
@@ -101,6 +115,13 @@ describe("Card State Handler", () => {
       expect(updatedCard.sessionStyle).toBe("multiple-choice");
       expect(updatedCard.fsrs.card.stability).not.toBe(initialCard.fsrs.card.stability);
       expect(updatedCard.fsrs.logs).toHaveLength(1);
+    });
+
+    it("should transition to 'done' on Easy", () => {
+      const initialCard = createMockPracticeCard("write");
+      const updatedCard = handleCardAnswer(initialCard, Rating.Easy);
+
+      expect(updatedCard.sessionStyle).toBe("done");
     });
   });
 
@@ -170,6 +191,25 @@ describe("Card State Handler", () => {
 
       // After enough correct ratings, the card should be scheduled for review
       expect(card.fsrs.card.state).toBe(State.Review);
+    });
+  });
+
+  describe("handleCardAnswerAnki", () => {
+    it("should transition sessionStyle without touching FSRS data", () => {
+      const initialCard = createMockPracticeCard("multiple-choice", "vocabulary");
+      const updatedCard = handleCardAnswerAnki(initialCard, Rating.Good);
+
+      expect(updatedCard.sessionStyle).toBe("write");
+      expect(updatedCard.fsrs).toBe(initialCard.fsrs);
+      expect(updatedCard.fsrs.logs).toBeUndefined();
+    });
+
+    it("should demote a failed flashcard without touching FSRS data", () => {
+      const initialCard = createMockPracticeCard("flashcard");
+      const updatedCard = handleCardAnswerAnki(initialCard, Rating.Again);
+
+      expect(updatedCard.sessionStyle).toBe("multiple-choice");
+      expect(updatedCard.fsrs).toBe(initialCard.fsrs);
     });
   });
 

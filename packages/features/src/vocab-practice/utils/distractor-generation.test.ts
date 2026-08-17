@@ -209,6 +209,24 @@ describe("generateDistractors", () => {
       const drinkCount = ans.filter((d) => d === "drink").length;
       expect(drinkCount).toBeLessThanOrEqual(1);
     });
+
+    it("should fall back when the strict pool only meets the count via duplicates", () => {
+      const currentCard = createMockCard("vocabulary:食べる", ["eat"], "Ichidan verb");
+      // Strict pool (verbs): 3 raw options but only 1 unique answer.
+      const dup1 = createMockCard("vocabulary:飲む", ["drink"], "Ichidan verb");
+      const dup2 = createMockCard("vocabulary:飲む2", ["drink"], "Ichidan verb");
+      const dup3 = createMockCard("vocabulary:飲む3", ["drink"], "Ichidan verb");
+      // Same-type fallback pool has unique non-verb answers.
+      const other1 = createMockCard("vocabulary:本", ["book"]);
+      const other2 = createMockCard("vocabulary:水", ["water"]);
+
+      const allCards = [currentCard, dup1, dup2, dup3, other1, other2];
+      const distractors = generateDistractors(currentCard, allCards, 3);
+      const ans = answers(distractors);
+
+      expect(distractors).toHaveLength(3);
+      expect(new Set(ans).size).toBe(3);
+    });
   });
 
   describe("particles", () => {
