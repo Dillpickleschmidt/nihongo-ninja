@@ -18,7 +18,12 @@ export default function DeckPracticePage({ deckId, mode }: { deckId: string; mod
   const router = useRouter();
   // Gate on the Convex connection's auth (see review-session-page.tsx).
   const { isLoading: authPending, isAuthenticated: authed } = useConvexAuth();
-  const { data: practiceData, isPending } = useQuery({
+  const {
+    data: practiceData,
+    isPending,
+    isError,
+    refetch,
+  } = useQuery({
     ...convexQuery(api.api.practice.getPracticeData, { deckId, mode }),
     enabled: authed,
   });
@@ -66,6 +71,18 @@ export default function DeckPracticePage({ deckId, mode }: { deckId: string; mod
         actionLabel="Go to sign in"
         onAction={() => {
           router.push("/auth");
+        }}
+      />
+    );
+  }
+
+  if (isError) {
+    return (
+      <EmptyState
+        message="Could not load the practice session."
+        actionLabel="Try again"
+        onAction={() => {
+          void refetch();
         }}
       />
     );

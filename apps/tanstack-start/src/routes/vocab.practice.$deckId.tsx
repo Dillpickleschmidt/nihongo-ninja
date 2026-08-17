@@ -35,7 +35,9 @@ function RouteComponent() {
   const { mode } = Route.useSearch();
   return (
     <HomeShell>
-      <DeckPracticePage deckId={deckId} mode={mode} />
+      {/* Param changes must remount: the session manager and persistence
+          cursors inside are per-session state. */}
+      <DeckPracticePage key={`${deckId}:${mode}`} deckId={deckId} mode={mode} />
     </HomeShell>
   );
 }

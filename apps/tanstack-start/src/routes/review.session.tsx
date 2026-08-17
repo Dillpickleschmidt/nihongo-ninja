@@ -31,7 +31,7 @@ function RouteComponent() {
   const { mode } = Route.useSearch();
   return (
     <HomeShell>
-      <ReviewSessionPage mode={mode} />
+      <ReviewSessionPage key={mode} mode={mode} />
     </HomeShell>
   );
 }
