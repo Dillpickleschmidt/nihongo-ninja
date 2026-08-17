@@ -65,7 +65,7 @@ function ExternalResourceCard({
           />
         </div>
         <div>
-          <div className="font-outfit text-[13px] leading-tight font-semibold text-white drop-shadow-sm">
+          <div className="font-outfit text-[13px] leading-tight font-semibold text-white drop-shadow-sm drop-shadow-black">
             {truncate(resource.title, 35)}
           </div>
           <div className="pt-[5px] text-[11px] leading-none text-muted-foreground capitalize drop-shadow-sm">

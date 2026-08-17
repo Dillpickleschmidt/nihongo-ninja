@@ -35,7 +35,7 @@ export function TimelineItem({
       <div
         className={cn(
           "absolute top-1/2 left-[-7px] size-3 -translate-y-1/2 rounded-full border-2 bg-background transition-colors",
-          "border-card-foreground/20 group-hover:border-dynamic-accent/50 group-hover:bg-dynamic-accent/50",
+          "border-card-foreground/20 group-hover:border-dynamic-accent/50 group-hover:bg-dynamic-accent/50 dark:group-hover:border-white/50 dark:group-hover:bg-white/50",
           dotClass,
         )}
       />
@@ -56,8 +56,8 @@ export function TimelineItem({
 
   const baseClasses = cn(
     "group flex items-center gap-3 rounded-lg py-2.5 pr-3 pl-6 transition-all duration-150",
-    "text-foreground/75 hover:bg-accent hover:text-foreground",
-    "focus-visible:bg-accent focus-visible:outline-none",
+    "text-foreground/75 hover:bg-accent hover:text-foreground dark:text-white/70 dark:hover:bg-white/5 dark:hover:text-white",
+    "focus-visible:bg-accent focus-visible:outline-none dark:focus-visible:bg-white/10",
     disabled && "cursor-not-allowed opacity-50",
     className,
   );

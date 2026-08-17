@@ -33,21 +33,13 @@ interface NavigationItem {
   href: string;
   icon: LucideIcon | string;
   className: string;
-  // Only some targets exist yet; the rest render as plain anchors.
-  ported?: boolean;
 }
 
 export const NAVIGATION: { label?: string; items: NavigationItem[] }[] = [
   {
     items: [
-      { title: "Home", href: "/dashboard", icon: House, className: "text-primary", ported: true },
-      {
-        title: "Learning Path",
-        href: "/learn",
-        icon: BookOpen,
-        className: "text-primary",
-        ported: true,
-      },
+      { title: "Home", href: "/dashboard", icon: House, className: "text-primary" },
+      { title: "Learning Path", href: "/learn", icon: BookOpen, className: "text-primary" },
       { title: "Real Content", href: "/discover", icon: Clapperboard, className: "text-primary" },
     ],
   },
@@ -115,7 +107,7 @@ export function Sidebar() {
           <div
             className={cn(
               "shrink-0 space-y-3 px-6 pt-6 pb-3",
-              tab === "course" && "border-b border-border/70",
+              tab === "course" && "border-b border-border/70 dark:border-white/10",
             )}
           >
             <SidebarBrand />
@@ -132,7 +124,7 @@ export function Sidebar() {
             {tab === "course" ? <CourseOutline /> : <MenuContent />}
           </div>
 
-          <div className="shrink-0 border-t border-border/70 px-4 py-2">
+          <div className="shrink-0 border-t border-border/70 px-4 py-2 dark:border-white/10">
             <SidebarAuthFooter />
           </div>
         </div>
@@ -164,7 +156,7 @@ function SidebarTabs({
         onChange(next as SidebarTab);
       }}
     >
-      <Tabs.List className="grid h-8 w-full grid-cols-2 rounded-md bg-transparent p-0">
+      <Tabs.List className="grid h-8 w-full grid-cols-2 rounded-md bg-transparent p-0 text-muted-foreground">
         {(["menu", "course"] as const).map((tabValue) => (
           <Tabs.Tab
             key={tabValue}
@@ -184,7 +176,7 @@ export function MenuContent({ onNavigate }: { onNavigate?: () => void }) {
   const isActive = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
 
   return (
-    <nav className="flex flex-col gap-4 px-1 pt-4 pb-4 lg:gap-0 xl:pt-11">
+    <nav className="flex flex-col gap-4 px-1 pb-4 lg:gap-0 xl:pt-11 2xl:pt-15 xl:[@media(min-height:900px)]:gap-8">
       {NAVIGATION.map((section) => (
         <div key={section.label ?? "main"} className="flex flex-col">
           {section.label === undefined ? null : (
@@ -197,10 +189,7 @@ export function MenuContent({ onNavigate }: { onNavigate?: () => void }) {
               key={item.href}
               href={item.href}
               onClick={onNavigate}
-              className={cn(
-                "flex w-full items-center justify-start gap-2 rounded-md py-2.5 pr-6 pl-6.5 text-sm font-medium hover:bg-dynamic-accent/20",
-                !item.ported && "opacity-50",
-              )}
+              className="flex w-full items-center justify-start gap-2 rounded-md py-2.5 pr-6 pl-6.5 text-sm font-medium hover:bg-dynamic-accent/20"
             >
               {typeof item.icon === "string" ? (
                 <span
@@ -238,14 +227,23 @@ export function MenuContent({ onNavigate }: { onNavigate?: () => void }) {
 }
 
 function CourseBackButton() {
+  const goBack = () => {
+    if (window.history.length > 1) {
+      window.history.back();
+      return;
+    }
+    window.location.assign("/dashboard");
+  };
+
   return (
-    <a
-      href="/learn"
-      className="flex items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-foreground"
+    <button
+      type="button"
+      onClick={goBack}
+      className="flex cursor-pointer items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-foreground dark:text-white/30 dark:hover:text-white/60"
     >
       <ArrowLeft className="size-3.5" />
       Back
-    </a>
+    </button>
   );
 }
 
@@ -263,7 +261,7 @@ function CourseSummary() {
       <p className="text-[0.62rem] font-semibold tracking-[0.22em] text-muted-foreground uppercase">
         Active Course
       </p>
-      <h2 className="mt-1 truncate text-sm font-semibold text-foreground">
+      <h2 className="mt-1 truncate text-sm font-semibold text-foreground dark:text-white">
         {selectedPath?.shortName ?? selectedPath?.name}
       </h2>
       <p className="mt-1 text-xs text-muted-foreground">
@@ -317,12 +315,12 @@ function CourseOutline() {
           <Accordion.Item
             key={chapter.slug}
             value={chapter.slug}
-            className="border-t border-border/50"
+            className="border-t border-b border-border/50 dark:border-white/8"
           >
             <Accordion.Header className="sticky top-0 z-20">
               <Accordion.Trigger className="group flex w-full cursor-pointer items-center gap-2 px-6 py-3 text-left font-medium hover:text-dynamic-accent">
                 <div className="min-w-0 flex-1">
-                  <div className="truncate text-xs font-semibold text-foreground">
+                  <div className="truncate text-xs font-semibold text-foreground dark:text-white">
                     {chapter.title}
                   </div>
                   <div className="mt-0.5 text-[0.68rem] text-muted-foreground">
@@ -333,7 +331,7 @@ function CourseOutline() {
               </Accordion.Trigger>
             </Accordion.Header>
             <Accordion.Panel className="px-0">
-              <div className="border-t border-border/40 py-1">
+              <div className="border-t border-border/40 py-1 dark:border-white/5">
                 {chapter.modules.map((module, index) => (
                   <CourseModuleLink
                     key={module.moduleId}
@@ -365,9 +363,9 @@ function CourseModuleLink({
   const active = pathname === module.linkTo.to;
 
   const statusIcon = completed ? (
-    <CircleCheckBig className="size-3.5 text-dynamic-accent" />
+    <CircleCheckBig className="size-3.5 text-dynamic-accent dark:brightness-125" />
   ) : active ? (
-    <PlayCircle className="size-3.5 text-dynamic-accent" />
+    <PlayCircle className="size-3.5 text-dynamic-accent dark:brightness-125" />
   ) : (
     <Circle className="size-3 text-muted-foreground/45" />
   );

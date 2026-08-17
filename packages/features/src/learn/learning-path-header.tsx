@@ -126,7 +126,7 @@ export function LearningPathHeader() {
   return (
     <section className="animate-fade-up">
       <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
-        <div className="text-xs tracking-[0.28em] text-muted-foreground uppercase">
+        <div className="text-xs tracking-[0.28em] text-muted-foreground uppercase dark:text-white/40">
           Learning Path
         </div>
         <DueCountBadge
@@ -198,7 +198,7 @@ export function LearningPathHeader() {
             ) : null}
           </div>
 
-          <div className="relative min-w-0 flex-1 border-border/70 lg:self-start lg:border-l lg:pl-5">
+          <div className="relative min-w-0 flex-1 border-border/70 lg:self-start lg:border-l lg:pl-5 dark:lg:border-white/10">
             <div
               ref={chapterScrollContainer}
               className={cn(
@@ -250,10 +250,10 @@ export function LearningPathHeader() {
                 className="group absolute inset-x-0 top-full flex w-full cursor-pointer flex-col items-center"
                 aria-expanded={chaptersExpanded}
               >
-                <div className="h-px w-full bg-border/70 lg:hidden" />
+                <div className="h-px w-full bg-border/70 lg:hidden dark:bg-white/10" />
                 <ChevronDown
                   className={cn(
-                    "mt-2 size-5 text-muted-foreground/50 transition-all duration-200 group-hover:text-muted-foreground lg:size-4",
+                    "mt-2 size-5 text-muted-foreground/50 transition-all duration-200 group-hover:text-muted-foreground lg:size-4 dark:text-white/20 dark:group-hover:text-white/40",
                     chaptersExpanded && "rotate-180",
                   )}
                 />
@@ -330,7 +330,7 @@ function ChapterCard({
           "block w-full overflow-hidden rounded-2xl border text-left transition-colors",
           active
             ? "border-2 border-dynamic-accent/80"
-            : "border-border/40 hover:border-dynamic-accent/25",
+            : "border-border/40 hover:border-dynamic-accent/25 dark:border-white/10 dark:hover:border-white/20",
         )}
       >
         <div className="relative h-32">

@@ -20,7 +20,7 @@ export function ViewToggle({
 
   return (
     <div className="flex items-center gap-2 font-excalifont">
-      <span className="text-sm text-muted-foreground">{label}</span>
+      <span className="text-sm text-muted-foreground dark:text-white/40">{label}</span>
       <div className="flex h-8 items-center justify-end gap-1">
         <button
           type="button"

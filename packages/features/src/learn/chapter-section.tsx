@@ -29,13 +29,16 @@ export function ChapterSection({
       >
         <div className={cn(hasExternalResources && "min-w-0 flex-1")}>
           {chapter.description === undefined ? null : (
-            <p className="text-muted-foreground">{chapter.description}</p>
+            <p className="text-muted-foreground dark:text-neutral-300">{chapter.description}</p>
           )}
 
           {chapter.features === undefined || chapter.features.length === 0 ? null : (
             <ul className="space-y-1">
               {chapter.features.map((feature) => (
-                <li key={feature} className="flex items-center gap-2 text-sm text-muted-foreground">
+                <li
+                  key={feature}
+                  className="flex items-center gap-2 text-sm text-muted-foreground dark:text-neutral-400"
+                >
                   <span className="h-1.5 w-1.5 rounded-full bg-primary" />
                   {feature}
                 </li>
