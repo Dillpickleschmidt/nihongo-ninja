@@ -18,9 +18,9 @@
     "typecheck": "tsc --noEmit -p convex"
   },
   "dependencies": {
-    "@convex-dev/better-auth": "0.12.2",
+    "@convex-dev/better-auth": "catalog:",
     "@nn/data": "workspace:*",
-    "better-auth": "1.6.9",
+    "better-auth": "catalog:",
     "convex": "catalog:",
     "ts-fsrs": "^5.3.2"
   },

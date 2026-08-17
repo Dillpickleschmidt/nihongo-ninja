@@ -9,12 +9,14 @@
       "scripts"
     ],
     "catalog": {
+      "@convex-dev/better-auth": "0.12.2",
       "@convex-dev/react-query": "^0.1.0",
       "@react-native-async-storage/async-storage": "2.2.0",
       "@tanstack/react-query": "^5.90.8",
       "@tanstack/react-router": "^1.135.2",
       "@tanstack/react-start": "^1.135.2",
       "@types/node": "^26.0.0",
+      "better-auth": "1.6.9",
       "convex": "^1.38.0",
       "expo-router": "~6.0.13",
       "nativewind": "5.0.0-preview.4",

@@ -1,5 +1,6 @@
 /// <reference types="vite/client" />
 
+import type { ConvexQueryClient } from "@convex-dev/react-query";
 import { AmbientBackground } from "@nn/features/ambient-background";
 import { PreferencesProvider } from "@nn/features/preferences";
 import type { Theme } from "@nn/ui";
@@ -11,6 +12,8 @@ import { getCookie } from "@tanstack/react-start/server";
 import type * as React from "react";
 import { StyleSheet } from "react-native-web";
 
+import { fetchAuth } from "~/lib/auth";
+
 import appCss from "~/styles.css?url";
 
 const getThemeCookie = createServerFn({ method: "GET" }).handler((): Theme => {
@@ -18,7 +21,17 @@ const getThemeCookie = createServerFn({ method: "GET" }).handler((): Theme => {
   return value === "light" || value === "dark" ? value : "system";
 });
 
-export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
+export const Route = createRootRouteWithContext<{
+  queryClient: QueryClient;
+  convexQueryClient: ConvexQueryClient;
+}>()({
+  beforeLoad: async ({ context }) => {
+    const { session, token, userId } = await fetchAuth();
+    // Authenticate SSR Convex queries in route loaders. The client instead
+    // gets its token from ConvexBetterAuthProvider.
+    if (token) context.convexQueryClient.serverHttpClient?.setAuth(token);
+    return { session, userId };
+  },
   loader: () => getThemeCookie(),
   head: () => ({
     meta: [

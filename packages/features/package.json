@@ -4,19 +4,22 @@
   "license": "MIT",
   "type": "module",
   "exports": {
-    "./*": "./src/*/index.tsx"
+    "./*": "./src/*/index.tsx",
+    "./auth/client": "./src/auth/client.ts"
   },
   "scripts": {
     "typecheck": "tsc --noEmit --emitDeclarationOnly false"
   },
   "dependencies": {
     "@base-ui/react": "^1.7.0",
+    "@convex-dev/better-auth": "catalog:",
     "@convex-dev/react-query": "catalog:",
     "@nn/convex": "workspace:*",
     "@nn/data": "workspace:*",
     "@nn/router": "workspace:*",
     "@nn/ui": "workspace:*",
     "@tanstack/react-query": "catalog:",
+    "better-auth": "catalog:",
     "convex": "catalog:",
     "fast-average-color": "^9.5.2",
     "lucide-react": "^1.31.0"

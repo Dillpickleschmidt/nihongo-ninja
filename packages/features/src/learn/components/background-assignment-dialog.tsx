@@ -20,11 +20,9 @@ import { useQuery } from "@tanstack/react-query";
 import { Check, Lock, Upload, X } from "lucide-react";
 import { useRef, useState } from "react";
 
+import { authClient } from "../../auth/client";
 import { usePreferences } from "../../preferences";
 import { BackgroundPreviewMedia, type BackgroundPreviewItem } from "./background-preview-media";
-
-// Sign-in and uploads activate with the auth port.
-const IS_SIGNED_IN = false;
 
 type UploadState =
   | { status: "idle" }
@@ -47,6 +45,8 @@ export function BackgroundAssignmentDialog({
   getPathLabel?: (pathId: string) => string;
 }) {
   const { preferences, setPreference } = usePreferences();
+  const { data: session } = authClient.useSession();
+  const isSignedIn = !!session;
   const [applyScope, setApplyScope] = useState<BackgroundApplyScope>("chapter");
   const [uploadState, setUploadState] = useState<UploadState>({ status: "idle" });
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -192,7 +192,10 @@ export function BackgroundAssignmentDialog({
                 trailing={
                   <button
                     type="button"
-                    disabled={!IS_SIGNED_IN || uploadState.status === "uploading"}
+                    // Stays disabled until the image upload endpoint is
+                    // ported (Cloudflare R2 + image transforms).
+                    disabled
+                    title="Uploads arrive with the image pipeline"
                     onClick={() => fileInputRef.current?.click()}
                     className="inline-flex items-center gap-1.5 rounded-lg border border-white/10 bg-white/5 px-3 py-1.5 text-sm text-white/80 transition-colors hover:bg-white/10 hover:text-white disabled:opacity-60"
                   >
@@ -203,7 +206,7 @@ export function BackgroundAssignmentDialog({
               />
               <BackgroundUploadsGrid
                 open={open}
-                signedIn={IS_SIGNED_IN}
+                signedIn={isSignedIn}
                 assignedBackgroundId={assignedSelection?.id}
                 effectiveBackgroundId={resolvedBackground.selection.id}
                 onSelect={selectBackground}

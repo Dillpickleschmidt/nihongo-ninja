@@ -24,6 +24,7 @@ import { useEffect, useState } from "react";
 
 import { LearningPathProvider, useLearningPath, type LearningPathModule } from "../learn/context";
 import { getModuleIcon, getModuleIconClasses } from "../learn/module-helpers";
+import { SidebarAuthFooter } from "./sidebar-auth-footer";
 
 type SidebarTab = "menu" | "course";
 
@@ -132,8 +133,7 @@ export function Sidebar() {
           </div>
 
           <div className="shrink-0 border-t border-border/70 px-4 py-2">
-            {/* Sign-in arrives with the auth port */}
-            <span className="block px-2 py-1.5 text-sm text-muted-foreground/60">Sign In</span>
+            <SidebarAuthFooter />
           </div>
         </div>
       </LearningPathProvider>
