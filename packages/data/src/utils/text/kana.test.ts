@@ -40,6 +40,6 @@ describe("buildBracketFurigana", () => {
   it("appends leftover reading after a kana-final word", () => {
     // The heuristic aligns kana greedily; an unmatched remainder is
     // appended so no part of the reading is lost.
-    expect(buildBracketFurigana("行く", "いく")).toBe("行[い]く");
+    expect(buildBracketFurigana("行く", "いくよ")).toBe("行[い]く[よ]");
   });
 });
