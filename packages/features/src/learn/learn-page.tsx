@@ -54,17 +54,17 @@ function LearningPathSection() {
         </div>
       ) : currentChapter === undefined ? (
         <div className="space-y-4">
-          <div className="h-24 animate-pulse rounded bg-muted/70" />
-          <div className="h-24 animate-pulse rounded bg-muted/70" />
+          <div className="h-24 animate-pulse rounded bg-muted/70 dark:bg-white/5" />
+          <div className="h-24 animate-pulse rounded bg-muted/70 dark:bg-white/5" />
         </div>
       ) : (
         <>
           <div className="mb-5 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
             <div>
-              <p className="text-xs tracking-[0.28em] text-muted-foreground uppercase">
+              <p className="text-xs tracking-[0.28em] text-muted-foreground uppercase dark:text-white/35">
                 Selected Chapter
               </p>
-              <h2 className="mt-3 font-excalifont text-2xl font-bold text-foreground md:text-3xl">
+              <h2 className="mt-3 font-excalifont text-2xl font-bold text-foreground md:text-3xl dark:text-white">
                 {currentChapter.title}
               </h2>
             </div>

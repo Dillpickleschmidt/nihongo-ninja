@@ -241,7 +241,7 @@ function CourseBackButton() {
   return (
     <a
       href="/learn"
-      className="flex items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-foreground"
+      className="flex items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-foreground dark:text-white/30 dark:hover:text-white/60"
     >
       <ArrowLeft className="size-3.5" />
       Back
@@ -263,7 +263,7 @@ function CourseSummary() {
       <p className="text-[0.62rem] font-semibold tracking-[0.22em] text-muted-foreground uppercase">
         Active Course
       </p>
-      <h2 className="mt-1 truncate text-sm font-semibold text-foreground">
+      <h2 className="mt-1 truncate text-sm font-semibold text-foreground dark:text-white">
         {selectedPath?.shortName ?? selectedPath?.name}
       </h2>
       <p className="mt-1 text-xs text-muted-foreground">
@@ -322,7 +322,7 @@ function CourseOutline() {
             <Accordion.Header className="sticky top-0 z-20">
               <Accordion.Trigger className="group flex w-full cursor-pointer items-center gap-2 px-6 py-3 text-left font-medium hover:text-dynamic-accent">
                 <div className="min-w-0 flex-1">
-                  <div className="truncate text-xs font-semibold text-foreground">
+                  <div className="truncate text-xs font-semibold text-foreground dark:text-white">
                     {chapter.title}
                   </div>
                   <div className="mt-0.5 text-[0.68rem] text-muted-foreground">
@@ -365,9 +365,9 @@ function CourseModuleLink({
   const active = pathname === module.linkTo.to;
 
   const statusIcon = completed ? (
-    <CircleCheckBig className="size-3.5 text-dynamic-accent" />
+    <CircleCheckBig className="size-3.5 text-dynamic-accent dark:brightness-125" />
   ) : active ? (
-    <PlayCircle className="size-3.5 text-dynamic-accent" />
+    <PlayCircle className="size-3.5 text-dynamic-accent dark:brightness-125" />
   ) : (
     <Circle className="size-3 text-muted-foreground/45" />
   );

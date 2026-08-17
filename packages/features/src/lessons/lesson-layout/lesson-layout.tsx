@@ -47,7 +47,7 @@ export function LessonLayout({
       <div className="fixed top-4 left-4 z-50">
         <Link
           href="/learn"
-          className="flex items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-foreground"
+          className="flex items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-foreground dark:text-white/30 dark:hover:text-white/60"
         >
           <ArrowLeft className="size-3.5" />
           Back

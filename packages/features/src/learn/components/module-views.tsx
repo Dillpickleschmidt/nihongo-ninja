@@ -192,7 +192,7 @@ export function ModuleCategorizedView({ modules, isCompleted, onModuleSelect }: 
                           "text-sm",
                           completed
                             ? "text-green-600 dark:text-green-500"
-                            : "text-foreground hover:text-dynamic-accent",
+                            : "text-foreground hover:text-dynamic-accent dark:text-white dark:hover:text-neutral-300",
                         )}
                       >
                         <div className="flex items-center gap-2">
