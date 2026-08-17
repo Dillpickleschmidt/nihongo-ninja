@@ -5,4 +5,5 @@ export type Href =
   | "/auth"
   | "/learn"
   | "/lessons/greetings"
+  | "/settings"
   | "/watch";

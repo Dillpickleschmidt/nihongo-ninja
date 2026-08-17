@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+import { CompletionsSyncDialog } from "../completions";
 import { FloatingKanji } from "../homepage/landing/floating-kanji";
 import { ChapterSection } from "./chapter-section";
 import { ModuleDetailDialog } from "./components/module-detail-dialog";
@@ -18,6 +19,7 @@ export default function LearnPage() {
           <LearningPathHeader />
           <LearningPathSection />
         </LearningPathProvider>
+        <CompletionsSyncDialog />
       </main>
     </div>
   );
