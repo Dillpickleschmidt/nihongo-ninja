@@ -34,3 +34,4 @@ packages/convex/convex/_generated
 
 # Expo generated types
 expo-env.d.ts
+scripts/seed/.tmp-*

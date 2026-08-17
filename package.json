@@ -50,7 +50,10 @@
     "lint:fix": "oxlint --type-aware --fix",
     "typecheck": "nub run -r --if-present typecheck",
     "android": "nub run -F @nn/expo android",
-    "ios": "nub run -F @nn/expo ios"
+    "ios": "nub run -F @nn/expo ios",
+    "seed:vocab": "nub scripts/seed/upsert-core-vocab.ts",
+    "seed:dictionary": "nub scripts/seed/import-dictionary.ts",
+    "seed:wanikani": "nub scripts/seed/import-wanikani.ts"
   },
   "devDependencies": {
     "oxfmt": "^0.63.0",
