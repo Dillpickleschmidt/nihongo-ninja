@@ -14,12 +14,8 @@ export function DashboardCardTile({
 }) {
   const ModuleIcon = card.moduleType ? getModuleIcon(card.moduleType) : null;
 
-  const dueLabel =
-    card.dueCountType === "sentences"
-      ? "–" // not tracked yet
-      : card.dueCountType === "vocab"
-        ? (vocabDueCount?.toString() ?? "–")
-        : undefined;
+  // Sentence due counts are not tracked yet; only vocab shows a count.
+  const dueLabel = card.dueCountType === "vocab" ? (vocabDueCount?.toString() ?? "–") : undefined;
 
   return (
     <div className="animate-fade-up relative" style={{ animationDelay: `${index * 75}ms` }}>

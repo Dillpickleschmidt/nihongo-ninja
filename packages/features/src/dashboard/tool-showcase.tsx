@@ -118,8 +118,8 @@ export function ToolShowcase({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // Sentence due counts are not tracked yet; only vocab shows a count.
   const dueLabel = (tool: DashboardCard) => {
-    if (tool.dueCountType === "sentences") return "–";
     if (tool.dueCountType === "vocab") return vocabDueCount?.toString() ?? "–";
     return undefined;
   };
