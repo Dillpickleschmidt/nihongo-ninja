@@ -1,13 +1,12 @@
 import { ContextMenu } from "@base-ui/react/context-menu";
-import { Dialog } from "@base-ui/react/dialog";
 import { cn } from "@nn/ui";
+import { Dialog } from "@nn/ui/dialog";
 import { PencilLine, Trash2 } from "lucide-react";
 import { useState } from "react";
 
 import { useVocab, type Folder, type FolderDeleteStrategy } from "../context";
 import { useFolderTree } from "../hooks/use-folder-tree";
 import { DeleteConfirmation } from "./delete-confirmation";
-import { dialogBackdropClass, dialogPopupClass } from "./dialog-styles";
 import {
   destructiveMenuItemClass,
   menuItemClass,
@@ -92,35 +91,29 @@ export function FolderContextMenu({
         </ContextMenu.Portal>
       </ContextMenu.Root>
 
-      <Dialog.Root
+      <Dialog
         open={showDeleteConfirm}
         onOpenChange={(open) => {
           if (!open) setShowDeleteConfirm(false);
         }}
+        title={`Delete ${folder.folderName}`}
+        className="max-w-lg"
       >
-        <Dialog.Portal>
-          <Dialog.Backdrop className={dialogBackdropClass} />
-          <Dialog.Popup className={cn(dialogPopupClass, "max-w-lg")}>
-            <Dialog.Title className="text-lg font-semibold">
-              Delete {folder.folderName}
-            </Dialog.Title>
-            <div className="mt-4">
-              <DeleteConfirmation
-                item={folder}
-                folderContents={folderContents}
-                deleteStrategy={deleteStrategy}
-                onStrategyChange={setDeleteStrategy}
-                onCancel={() => {
-                  setShowDeleteConfirm(false);
-                }}
-                onConfirm={() => {
-                  void handleDelete();
-                }}
-              />
-            </div>
-          </Dialog.Popup>
-        </Dialog.Portal>
-      </Dialog.Root>
+        <div className="mt-4">
+          <DeleteConfirmation
+            item={folder}
+            folderContents={folderContents}
+            deleteStrategy={deleteStrategy}
+            onStrategyChange={setDeleteStrategy}
+            onCancel={() => {
+              setShowDeleteConfirm(false);
+            }}
+            onConfirm={() => {
+              void handleDelete();
+            }}
+          />
+        </div>
+      </Dialog>
     </>
   );
 }

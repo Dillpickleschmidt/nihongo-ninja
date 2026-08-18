@@ -11,12 +11,14 @@
     "./utils": "./src/utils.ts",
     "./tabs": "./src/tabs.tsx",
     "./icons": "./src/icons.ts",
-    "./furigana-text": "./src/furigana-text.ts"
+    "./furigana-text": "./src/furigana-text.ts",
+    "./dialog": "./src/dialog.ts"
   },
   "scripts": {
     "typecheck": "tsc --noEmit --emitDeclarationOnly false"
   },
   "dependencies": {
+    "@base-ui/react": "^1.7.0",
     "@nn/data": "workspace:*",
     "@react-native-async-storage/async-storage": "catalog:",
     "class-variance-authority": "^0.7.1",

@@ -1,5 +1,5 @@
-import { Dialog } from "@base-ui/react/dialog";
 import { cn } from "@nn/ui";
+import { Dialog } from "@nn/ui/dialog";
 import { Check, SquarePen, Trash2, X } from "lucide-react";
 import { useRef, useState } from "react";
 
@@ -12,7 +12,6 @@ import {
   validateNoCircularReference,
 } from "../validation/deck-folder-validation";
 import { DeleteConfirmation } from "./delete-confirmation";
-import { dialogBackdropClass, dialogPopupClass } from "./dialog-styles";
 import { LocationSelector } from "./location-selector";
 import { confirmAction } from "./web-dialogs";
 
@@ -20,27 +19,24 @@ export function FolderEditModal() {
   const { editingFolder, setEditingFolder } = useVocab();
 
   return (
-    <Dialog.Root
+    <Dialog
       open={!!editingFolder}
       onOpenChange={(open) => {
         if (!open) setEditingFolder(null);
       }}
+      title={editingFolder ? `Edit ${editingFolder.folderName}` : ""}
+      className="max-w-lg"
     >
-      <Dialog.Portal>
-        <Dialog.Backdrop className={dialogBackdropClass} />
-        <Dialog.Popup className={cn(dialogPopupClass, "max-w-lg")}>
-          {editingFolder && (
-            <FolderEditForm
-              key={editingFolder.id}
-              folder={editingFolder}
-              onClose={() => {
-                setEditingFolder(null);
-              }}
-            />
-          )}
-        </Dialog.Popup>
-      </Dialog.Portal>
-    </Dialog.Root>
+      {editingFolder && (
+        <FolderEditForm
+          key={editingFolder.id}
+          folder={editingFolder}
+          onClose={() => {
+            setEditingFolder(null);
+          }}
+        />
+      )}
+    </Dialog>
   );
 }
 
@@ -135,8 +131,6 @@ function FolderEditForm({ folder, onClose }: { folder: Folder; onClose: () => vo
 
   return (
     <div>
-      <Dialog.Title className="text-lg font-semibold">Edit {folder.folderName}</Dialog.Title>
-
       {saveError && (
         <p className="mt-3 rounded-md border border-destructive/40 bg-destructive/10 px-3 py-2 text-sm text-destructive">
           {saveError}

@@ -8,3 +8,4 @@ export type { Theme } from "./theme-shared";
 export { cn } from "./utils";
 export { Tabs, TabsList, TabsPanel, TabsTrigger } from "./tabs";
 export { FuriganaText } from "./furigana-text";
+export { Dialog } from "./dialog";

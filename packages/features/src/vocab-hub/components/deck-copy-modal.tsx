@@ -1,8 +1,7 @@
-import { Dialog } from "@base-ui/react/dialog";
 import { useConvexMutation } from "@convex-dev/react-query";
 import { api } from "@nn/convex/_generated/api";
 import type { Id } from "@nn/convex/_generated/dataModel";
-import { cn } from "@nn/ui";
+import { Dialog } from "@nn/ui/dialog";
 import { useState } from "react";
 
 import { useVocab, type Deck } from "../context";
@@ -13,34 +12,30 @@ import {
   DescriptionSchema,
   validateDeckNameUnique,
 } from "../validation/deck-folder-validation";
-import { dialogBackdropClass, dialogPopupClass } from "./dialog-styles";
 import { LocationSelector } from "./location-selector";
 
 export function DeckCopyModal() {
   const { copyingDeck, setCopyingDeck } = useVocab();
 
   return (
-    <Dialog.Root
+    <Dialog
       open={!!copyingDeck}
       onOpenChange={(open) => {
         if (!open) setCopyingDeck(null);
       }}
+      title={copyingDeck ? `Copy "${copyingDeck.deckName}"` : ""}
+      className="max-w-lg"
     >
-      <Dialog.Portal>
-        <Dialog.Backdrop className={dialogBackdropClass} />
-        <Dialog.Popup className={cn(dialogPopupClass, "max-w-lg")}>
-          {copyingDeck && (
-            <DeckCopyForm
-              key={copyingDeck.id}
-              deck={copyingDeck}
-              onClose={() => {
-                setCopyingDeck(null);
-              }}
-            />
-          )}
-        </Dialog.Popup>
-      </Dialog.Portal>
-    </Dialog.Root>
+      {copyingDeck && (
+        <DeckCopyForm
+          key={copyingDeck.id}
+          deck={copyingDeck}
+          onClose={() => {
+            setCopyingDeck(null);
+          }}
+        />
+      )}
+    </Dialog>
   );
 }
 
@@ -121,8 +116,6 @@ function DeckCopyForm({ deck, onClose }: { deck: Deck; onClose: () => void }) {
 
   return (
     <div>
-      <Dialog.Title className="text-lg font-semibold">Copy "{deck.deckName}"</Dialog.Title>
-
       {saveError && (
         <p className="mt-3 rounded-md border border-destructive/40 bg-destructive/10 px-3 py-2 text-sm text-destructive">
           {saveError}

@@ -1,13 +1,10 @@
-import { Dialog } from "@base-ui/react/dialog";
 import { convexQuery } from "@convex-dev/react-query";
 import { api } from "@nn/convex/_generated/api";
 import type { Id } from "@nn/convex/_generated/dataModel";
 import { convertFuriganaToRubyHtml } from "@nn/data/utils/text/furigana";
-import { cn } from "@nn/ui";
+import { Dialog } from "@nn/ui/dialog";
 import { useQuery } from "@tanstack/react-query";
 import { Download } from "lucide-react";
-
-import { dialogBackdropClass, dialogPopupClass } from "../../components/dialog-styles";
 
 export function DeckPreviewModal({
   deckId,
@@ -21,28 +18,24 @@ export function DeckPreviewModal({
   isImporting: boolean;
 }) {
   return (
-    <Dialog.Root
+    <Dialog
       open={!!deckId}
       onOpenChange={(open) => {
         if (!open) onClose();
       }}
+      title="Deck Preview"
+      className="max-h-[80vh] sm:max-w-2xl"
     >
-      <Dialog.Portal>
-        <Dialog.Backdrop className={dialogBackdropClass} />
-        <Dialog.Popup className={cn(dialogPopupClass, "max-h-[80vh] sm:max-w-2xl")}>
-          <Dialog.Title className="text-lg font-semibold">Deck Preview</Dialog.Title>
-          {deckId && (
-            <PreviewContent
-              key={deckId}
-              deckId={deckId}
-              onClose={onClose}
-              onImport={onImport}
-              isImporting={isImporting}
-            />
-          )}
-        </Dialog.Popup>
-      </Dialog.Portal>
-    </Dialog.Root>
+      {deckId && (
+        <PreviewContent
+          key={deckId}
+          deckId={deckId}
+          onClose={onClose}
+          onImport={onImport}
+          isImporting={isImporting}
+        />
+      )}
+    </Dialog>
   );
 }
 

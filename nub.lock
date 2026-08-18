@@ -458,6 +458,9 @@ importers:
 
   packages/ui:
     dependencies:
+      '@base-ui/react':
+        specifier: ^1.7.0
+        version: 1.7.0(@types/react@19.1.17)(react@19.1.4)(react-dom@19.1.4(react@19.1.4))
       '@nn/data':
         specifier: workspace:*
         version: link:../data
