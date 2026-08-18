@@ -30,11 +30,12 @@ function TreeViewNode(props: TreeViewProps & { node: TreeNode }) {
 
   return (
     <div>
+      {/* Button semantics, not role="tree": tree roles promise Arrow/Home/End
+          roving focus this flat Tab-order list doesn't implement. */}
       <div
-        role="treeitem"
-        aria-selected={isSelected && isSelectable}
-        aria-expanded={hasChildren ? isExpanded : undefined}
-        tabIndex={isSelectable ? 0 : -1}
+        role={isSelectable ? "button" : undefined}
+        aria-pressed={isSelectable ? isSelected : undefined}
+        tabIndex={isSelectable ? 0 : undefined}
         className={`flex items-center rounded-sm px-2 py-1 text-xs ${
           isSelectable ? "cursor-pointer hover:bg-accent" : "cursor-default"
         } ${isSelected && isSelectable ? "bg-accent ring-1 ring-border" : ""}`}
@@ -54,6 +55,7 @@ function TreeViewNode(props: TreeViewProps & { node: TreeNode }) {
           <button
             type="button"
             aria-label={isExpanded ? `Collapse ${node.label}` : `Expand ${node.label}`}
+            aria-expanded={isExpanded}
             className="mr-1 flex h-4 w-4 items-center justify-center rounded-sm hover:bg-accent"
             onClick={(e) => {
               e.stopPropagation();
@@ -98,7 +100,7 @@ function TreeViewNode(props: TreeViewProps & { node: TreeNode }) {
 
 export function TreeView(props: TreeViewProps) {
   return (
-    <div role={props.level ? "group" : "tree"} className={props.className}>
+    <div className={props.className}>
       {props.nodes.map((node) => (
         <TreeViewNode key={node.id} {...props} node={node} />
       ))}
