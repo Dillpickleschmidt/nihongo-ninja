@@ -1,6 +1,4 @@
-import { ConvexBetterAuthProvider } from "@convex-dev/better-auth/react";
 import { ConvexQueryClient } from "@convex-dev/react-query";
-import { authClient } from "@nn/features/auth/client";
 import { QueryClient } from "@tanstack/react-query";
 import { createRouter } from "@tanstack/react-router";
 import { setupRouterSsrQueryIntegration } from "@tanstack/react-router-ssr-query";
@@ -17,7 +15,11 @@ export function getRouter() {
 
   // Route Convex queries through TanStack Query so route loaders can prime the
   // cache on the server. Pages read the same cache with useQuery.
-  const convexQueryClient = new ConvexQueryClient(convexUrl);
+  // expectAuth holds the WebSocket until setAuth runs, so the client can never
+  // overwrite loader-hydrated authenticated data with an unauthenticated
+  // snapshot. The root route resumes it: with the SSR token when signed in,
+  // via a null-token setAuth when signed out.
+  const convexQueryClient = new ConvexQueryClient(convexUrl, { expectAuth: true });
   const queryClient = new QueryClient({
     defaultOptions: {
       queries: {
@@ -32,11 +34,6 @@ export function getRouter() {
     routeTree,
     context: { queryClient, convexQueryClient },
     defaultPreload: "intent",
-    Wrap: (props) => (
-      <ConvexBetterAuthProvider client={convexQueryClient.convexClient} authClient={authClient}>
-        {props.children}
-      </ConvexBetterAuthProvider>
-    ),
   });
 
   setupRouterSsrQueryIntegration({ router, queryClient });

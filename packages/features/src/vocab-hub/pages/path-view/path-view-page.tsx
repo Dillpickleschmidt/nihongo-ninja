@@ -13,6 +13,12 @@ export default function PathViewPage({ splat }: { splat: string }) {
     return <UnsortedView />;
   }
 
+  const deck = resolveDeckFromPath(pathSegments, decks, folders);
+  if (deck) return <DeckView deck={deck} />;
+
+  const folder = resolveFolderFromPath(pathSegments, folders);
+  if (folder) return <FolderView folderId={folder.id} />;
+
   if (isLoading) {
     return (
       <div className="flex items-center justify-center py-12">
@@ -20,12 +26,6 @@ export default function PathViewPage({ splat }: { splat: string }) {
       </div>
     );
   }
-
-  const folder = resolveFolderFromPath(pathSegments, folders);
-  if (folder) return <FolderView folderId={folder.id} />;
-
-  const deck = resolveDeckFromPath(pathSegments, decks, folders);
-  if (deck) return <DeckView deck={deck} />;
 
   return <EmptyState message="Not found" />;
 }
