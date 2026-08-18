@@ -8,7 +8,8 @@ import { getUserDeckVocabItems, createDeckVocabItems } from "./vocabulary";
 type SortBy = "recent" | "popular";
 
 // sharedBy stays out of this type on purpose: it is the raw auth subject, and
-// a public listing must not publish a stable account identifier.
+// a public listing must not publish a stable account identifier. isOwn is the
+// server-computed replacement the client needs for its "your deck" affordances.
 export interface SharedDeckInfo {
   shareId: Id<"publicDeckShares">;
   deckId: Id<"userDecks">;
@@ -16,6 +17,7 @@ export interface SharedDeckInfo {
   deckDescription?: string;
   sharedAt: number;
   importCount: number;
+  isOwn: boolean;
 }
 
 // ===== Helpers =====
@@ -54,6 +56,8 @@ export async function getSharedDecks(
           .paginate(paginationOpts)
       : await ctx.db.query("publicDeckShares").order("desc").paginate(paginationOpts);
 
+  const identity = await ctx.auth.getUserIdentity();
+
   const page = await Promise.all(
     shares.page.map(async (share): Promise<SharedDeckInfo | null> => {
       const deck = await ctx.db.get(share.deckId);
@@ -66,11 +70,20 @@ export async function getSharedDecks(
         deckDescription: deck.deckDescription,
         sharedAt: share._creationTime,
         importCount: share.importCount,
+        isOwn: share.sharedBy === identity?.subject,
       };
     }),
   );
 
   return { ...shares, page: page.filter((entry) => entry !== null) };
+}
+
+// Vocab items become public data by virtue of the share, so this is gated on
+// the share's existence instead of ownership.
+export async function getSharedDeckVocabItems(ctx: QueryCtx, deckId: Id<"userDecks">) {
+  const share = await getShareByDeckId(ctx, deckId);
+  if (!share) throw new Error("Deck is not shared");
+  return getUserDeckVocabItems(ctx, deckId);
 }
 
 export async function isShared(ctx: QueryCtx, deckId: Id<"userDecks">) {

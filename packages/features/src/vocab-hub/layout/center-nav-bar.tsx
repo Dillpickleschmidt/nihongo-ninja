@@ -47,12 +47,10 @@ export function CenterNavBar() {
           <Plus className="h-3.5 w-3.5" />
           <span className="text-xs">Create Decks</span>
         </Link>
-        {/* Plain anchor until the browse page ports — keeps the typed Href
-            union honest. */}
-        <a href="/vocab/browse" className={ITEM_CLASSES(pathname.startsWith("/vocab/browse"))}>
+        <Link href="/vocab/browse" className={ITEM_CLASSES(pathname.startsWith("/vocab/browse"))}>
           <Search className="h-3.5 w-3.5" />
           <span className="text-xs">Browse Decks</span>
-        </a>
+        </Link>
       </div>
     </div>
   );

@@ -119,6 +119,12 @@ family) — do not "upgrade to latest" without reading it.
   typed routes off it DELETES them on every run. That's why `process.env`
   typing lives in `apps/expo/env.d.ts` (a name Expo doesn't own). Don't
   recreate `expo-env.d.ts` by hand.
+- Expo's tsc has no DOM lib but follows the generated native route stubs into
+  web-only feature code (its `moduleSuffixes` picks `.native` variants only
+  where they exist). Web files reachable from a native stub must not touch
+  `window` or DOM element types — use platform-suffixed wrappers (see
+  `vocab-hub/components/web-dialogs.ts`) or give the importing layout/page a
+  `.native` placeholder so the web graph drops out of expo's typecheck.
 
 ### TanStack Start
 

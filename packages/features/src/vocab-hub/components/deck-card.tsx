@@ -1,5 +1,11 @@
 import { ContextMenu } from "@base-ui/react/context-menu";
+import { convexQuery, useConvexMutation } from "@convex-dev/react-query";
+import { api } from "@nn/convex/_generated/api";
+import type { Id } from "@nn/convex/_generated/dataModel";
+import { useRouter } from "@nn/router";
 import { cn } from "@nn/ui";
+import { useQuery } from "@tanstack/react-query";
+import { useConvexAuth } from "convex/react";
 import {
   Copy,
   FileText,
@@ -7,6 +13,7 @@ import {
   FolderPlus,
   House,
   PencilLine,
+  Share,
   SquarePen,
   Trash2,
 } from "lucide-react";
@@ -25,6 +32,7 @@ import {
 } from "./menu-styles";
 import { alertMutationError } from "./mutation-error";
 import { TreeView } from "./tree-view";
+import { alertMessage, confirmAction, promptText } from "./web-dialogs";
 
 export function DeckCard({
   deck,
@@ -36,11 +44,38 @@ export function DeckCard({
   className?: string;
 }) {
   const { folders, decks, updateDeck, deleteDeck, setCopyingDeck } = useVocab();
+  const router = useRouter();
   const deckPath = `/vocab/${buildDeckUrlPath(deck, folders)}`;
   const editPath = `/vocab/deck/${deck.id}/edit`;
   const canEdit = deck.source === "user";
 
   const [expandedFolderIds, setExpandedFolderIds] = useState<Set<string>>(new Set());
+  const [isSharing, setIsSharing] = useState(false);
+
+  const { isAuthenticated } = useConvexAuth();
+  const { data: isShared } = useQuery({
+    ...convexQuery(api.api.sharing.isShared, { deckId: deck.id as Id<"userDecks"> }),
+    enabled: canEdit && isAuthenticated,
+  });
+  const shareDeck = useConvexMutation(api.api.sharing.shareDeck);
+  const unshareDeck = useConvexMutation(api.api.sharing.unshareDeck);
+
+  const handleShare = async () => {
+    setIsSharing(true);
+    try {
+      if (isShared) {
+        if (!confirmAction("Are you sure you want to unshare this deck?")) return;
+        await unshareDeck({ deckId: deck.id as Id<"userDecks"> });
+      } else {
+        await shareDeck({ deckId: deck.id as Id<"userDecks"> });
+        router.push("/vocab/browse");
+      }
+    } catch (error) {
+      alertMutationError("update sharing status")(error);
+    } finally {
+      setIsSharing(false);
+    }
+  };
 
   const { folderTreeNodes } = useFolderTree({ folders, decks: [], item: deck });
 
@@ -68,13 +103,13 @@ export function DeckCard({
   };
 
   const handleRename = () => {
-    const newName = window.prompt("Enter new deck name:", deck.deckName);
+    const newName = promptText("Enter new deck name:", deck.deckName);
     const trimmed = newName?.trim();
     if (!trimmed || trimmed === deck.deckName) return;
 
     const schemaResult = DeckNameSchema.safeParse(trimmed);
     if (!schemaResult.success) {
-      window.alert(schemaResult.error.issues[0]?.message ?? "Invalid name");
+      alertMessage(schemaResult.error.issues[0]?.message ?? "Invalid name");
       return;
     }
     const unique = validateDeckNameUnique(
@@ -83,14 +118,14 @@ export function DeckCard({
       deck.id,
     );
     if (!unique.isValid) {
-      window.alert(unique.error);
+      alertMessage(unique.error ?? "A deck with this name already exists");
       return;
     }
     updateDeck(deck.id, { deckName: trimmed }).catch(alertMutationError("rename the deck"));
   };
 
   const handleDelete = () => {
-    const confirmed = window.confirm(
+    const confirmed = confirmAction(
       `Are you sure you want to delete "${deck.deckName}"? This action cannot be undone.`,
     );
     if (confirmed) deleteDeck(deck.id).catch(alertMutationError("delete the deck"));
@@ -202,6 +237,23 @@ export function DeckCard({
                   </ContextMenu.Positioner>
                 </ContextMenu.Portal>
               </ContextMenu.SubmenuRoot>
+            )}
+
+            {canEdit && isAuthenticated && (
+              <ContextMenu.Item
+                disabled={isSharing || isShared === undefined}
+                className={cn(menuItemClass, isShared && "text-amber-600 dark:text-amber-400")}
+                onClick={() => {
+                  void handleShare();
+                }}
+              >
+                {isSharing ? (
+                  <div className="mr-2 h-3 w-3 animate-spin rounded-full border border-current border-t-transparent" />
+                ) : (
+                  <Share className="mr-2 h-3 w-3" />
+                )}
+                {isShared ? "Unshare" : "Share"}
+              </ContextMenu.Item>
             )}
 
             <ContextMenu.Item

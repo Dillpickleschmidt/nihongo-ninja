@@ -1,8 +1,10 @@
+import { alertMessage } from "./web-dialogs";
+
 // Menu actions have no form to surface errors in, so fall back to an alert.
 export function alertMutationError(action: string) {
   return (error: unknown) => {
     console.error(`Failed to ${action}:`, error);
-    window.alert(`Failed to ${action}. ${extractConvexMessage(error)}`.trim());
+    alertMessage(`Failed to ${action}. ${extractConvexMessage(error)}`.trim());
   };
 }
 

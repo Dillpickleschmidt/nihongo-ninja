@@ -24,6 +24,14 @@ export const isShared = query({
 });
 
 /**
+ * Preview a shared deck's vocabulary items
+ */
+export const getSharedDeckVocabItems = query({
+  args: { deckId: v.id("userDecks") },
+  handler: (ctx, { deckId }) => Sharing.getSharedDeckVocabItems(ctx, deckId),
+});
+
+/**
  * Share a deck publicly
  */
 export const shareDeck = mutation({
