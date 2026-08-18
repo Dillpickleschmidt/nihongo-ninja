@@ -6,3 +6,5 @@ export { ThemeToggle } from "./theme-toggle";
 export { useTheme, themeInitScript } from "./theme-shared";
 export type { Theme } from "./theme-shared";
 export { cn } from "./utils";
+export { Tabs, TabsList, TabsPanel, TabsTrigger } from "./tabs";
+export { FuriganaText } from "./furigana-text";

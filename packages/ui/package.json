@@ -8,15 +8,22 @@
     "./button": "./src/button.tsx",
     "./text": "./src/text.tsx",
     "./semantic": "./src/semantic.tsx",
-    "./utils": "./src/utils.ts"
+    "./utils": "./src/utils.ts",
+    "./tabs": "./src/tabs.tsx",
+    "./icons": "./src/icons.ts",
+    "./furigana-text": "./src/furigana-text.ts"
   },
   "scripts": {
     "typecheck": "tsc --noEmit --emitDeclarationOnly false"
   },
   "dependencies": {
+    "@nn/data": "workspace:*",
     "@react-native-async-storage/async-storage": "catalog:",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "lucide-react": "^1.31.0",
+    "lucide-react-native": "^1.31.0",
+    "react-native-svg": "^15.12.1",
     "tailwind-merge": "^3.6.0"
   },
   "devDependencies": {
