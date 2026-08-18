@@ -44,7 +44,9 @@ export default function DeckCreatePage() {
         </Tabs.Tab>
       </Tabs.List>
 
-      <Tabs.Panel value="manual" className="mt-0">
+      {/* keepMounted: unmounting would drop the in-progress deck draft when
+          the user peeks at the missed-words tab. */}
+      <Tabs.Panel value="manual" className="mt-0" keepMounted>
         <DeckCreationStoreProvider>
           <DeckCreationContainer />
         </DeckCreationStoreProvider>

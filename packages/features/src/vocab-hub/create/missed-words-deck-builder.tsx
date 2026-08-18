@@ -3,11 +3,12 @@ import { convexQuery, useConvexMutation } from "@convex-dev/react-query";
 import { api } from "@nn/convex/_generated/api";
 import type { practiceModeValidator } from "@nn/convex/validators";
 import { useRouter } from "@nn/router";
-import { useQuery } from "@tanstack/react-query";
+import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import type { Infer } from "convex/values";
 import { useState } from "react";
 
 import { alertMutationError } from "../components/mutation-error";
+import { alertMessage } from "../components/web-dialogs";
 
 type PracticeMode = Infer<typeof practiceModeValidator>;
 
@@ -24,9 +25,14 @@ export function MissedWordsDeckBuilder() {
   const daysBack = DAYS_PRESETS[daysIdx] ?? 14;
   const maxItems = MAX_ITEMS_PRESETS[maxIdx] ?? 25;
 
-  const { data: missedItems } = useQuery(
-    convexQuery(api.api.missedWords.getMostMissedItems, { daysBack, maxItems, mode }),
-  );
+  const {
+    data: missedItems,
+    isError,
+    refetch,
+  } = useQuery({
+    ...convexQuery(api.api.missedWords.getMostMissedItems, { daysBack, maxItems, mode }),
+    placeholderData: keepPreviousData,
+  });
 
   const buildDeck = useConvexMutation(api.api.missedWords.buildMissedWordsDeck);
 
@@ -43,7 +49,10 @@ export function MissedWordsDeckBuilder() {
       const fmt = (d: Date) =>
         `${d.getMonth() + 1}/${d.getDate()}/${String(d.getFullYear()).slice(2)}`;
       const deckName = `Missed Words ${fmt(from)} - ${fmt(now)} (${mode})`;
-      const { deckId } = await buildDeck({ practiceItemKeys: keys, deckName });
+      const { deckId, skippedKeys } = await buildDeck({ practiceItemKeys: keys, deckName });
+      if (skippedKeys.length > 0) {
+        alertMessage(`${skippedKeys.length} word(s) had no vocab entry and were left out.`);
+      }
       router.push(`/vocab/deck/${deckId}/edit`);
     } catch (error) {
       alertMutationError("create the deck")(error);
@@ -89,13 +98,15 @@ export function MissedWordsDeckBuilder() {
         min={0}
         max={max}
         step={1}
-        aria-label={label}
         className="w-48"
       >
         <Slider.Control className="flex w-full touch-none items-center py-2 select-none">
           <Slider.Track className="h-1.5 w-full rounded-full bg-muted select-none dark:bg-white/[0.06]">
             <Slider.Indicator className="rounded-full bg-dynamic-accent/50 select-none dark:bg-white/20" />
-            <Slider.Thumb className="size-4 rounded-full border border-border bg-background select-none dark:border-white/40" />
+            <Slider.Thumb
+              aria-label={label}
+              className="size-4 rounded-full border border-border bg-background select-none dark:border-white/40"
+            />
           </Slider.Track>
         </Slider.Control>
       </Slider.Root>
@@ -140,7 +151,20 @@ export function MissedWordsDeckBuilder() {
         </div>
       </div>
 
-      {missedItems === undefined ? (
+      {isError ? (
+        <div className="rounded-lg border border-dashed border-destructive/50 p-8 text-center">
+          <p className="text-sm text-destructive">Failed to load missed words.</p>
+          <button
+            type="button"
+            className="mt-2 cursor-pointer text-sm underline"
+            onClick={() => {
+              void refetch();
+            }}
+          >
+            Try again
+          </button>
+        </div>
+      ) : missedItems === undefined ? (
         <div className="rounded-lg border border-dashed border-border/70 p-8 text-center dark:border-white/10">
           <p className="text-sm text-muted-foreground dark:text-white/30">
             Loading missed words...
