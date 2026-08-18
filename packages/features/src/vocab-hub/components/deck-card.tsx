@@ -239,9 +239,9 @@ export function DeckCard({
               </ContextMenu.SubmenuRoot>
             )}
 
-            {canEdit && (
+            {canEdit && isAuthenticated && (
               <ContextMenu.Item
-                disabled={isSharing}
+                disabled={isSharing || isShared === undefined}
                 className={cn(menuItemClass, isShared && "text-amber-600 dark:text-amber-400")}
                 onClick={() => {
                   void handleShare();

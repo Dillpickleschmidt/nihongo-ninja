@@ -19,8 +19,7 @@ export function BrowsePage() {
   const [sortBy, setSortBy] = useState<SortBy>("recent");
   const [previewDeckId, setPreviewDeckId] = useState<Id<"userDecks"> | null>(null);
 
-  // Cursor pagination replaces the source's offset/merge bookkeeping; the
-  // hook resets itself when sortBy changes.
+  // The hook drops its loaded pages and restarts whenever sortBy changes.
   const { results, status, loadMore } = usePaginatedQuery(
     api.api.sharing.getSharedDecks,
     { sortBy },
@@ -189,6 +188,7 @@ function SortButton({
     <button
       type="button"
       onClick={onClick}
+      aria-pressed={active}
       className={`flex cursor-pointer items-center gap-2 rounded-md px-3 py-2 text-xs transition-all ${
         active
           ? "bg-card font-medium text-foreground shadow backdrop-blur-sm dark:bg-background/70"
