@@ -25,9 +25,12 @@ export function MissedWordsDeckBuilder() {
   const daysBack = DAYS_PRESETS[daysIdx] ?? 14;
   const maxItems = MAX_ITEMS_PRESETS[maxIdx] ?? 25;
 
+  // isPlaceholderData guards creation: with keepPreviousData the visible list
+  // can belong to the previous criteria while the new query resolves.
   const {
     data: missedItems,
     isError,
+    isPlaceholderData,
     refetch,
   } = useQuery({
     ...convexQuery(api.api.missedWords.getMostMissedItems, { daysBack, maxItems, mode }),
@@ -187,7 +190,7 @@ export function MissedWordsDeckBuilder() {
               onClick={() => {
                 void handleCreateDeck();
               }}
-              disabled={isCreating}
+              disabled={isCreating || isPlaceholderData}
               className="cursor-pointer rounded-lg bg-dynamic-accent/80 px-4 py-2 text-sm font-medium text-white transition-all hover:scale-[1.02] hover:bg-dynamic-accent disabled:cursor-not-allowed disabled:opacity-50"
             >
               {isCreating ? "Creating..." : `Create Deck (${items.length} words)`}
