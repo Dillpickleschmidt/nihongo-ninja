@@ -43,12 +43,12 @@ export function CenterNavBar() {
           <CardDeckIcon className="h-3.5 w-3.5" />
           <span className="text-xs">Vocab Cards</span>
         </Link>
-        {/* Plain anchors until the create/browse pages port — keeps the
-            typed Href union honest. */}
-        <a href="/vocab/create" className={ITEM_CLASSES(pathname.startsWith("/vocab/create"))}>
+        <Link href="/vocab/create" className={ITEM_CLASSES(pathname.startsWith("/vocab/create"))}>
           <Plus className="h-3.5 w-3.5" />
           <span className="text-xs">Create Decks</span>
-        </a>
+        </Link>
+        {/* Plain anchor until the browse page ports — keeps the typed Href
+            union honest. */}
         <a href="/vocab/browse" className={ITEM_CLASSES(pathname.startsWith("/vocab/browse"))}>
           <Search className="h-3.5 w-3.5" />
           <span className="text-xs">Browse Decks</span>
