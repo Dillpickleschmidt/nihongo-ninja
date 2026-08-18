@@ -60,6 +60,9 @@ catalogs:
     typescript:
       specifier: ~6.0.3
       version: 6.0.3
+    zod:
+      specifier: ^4.4.3
+      version: 4.4.3
   react19:
     '@types/react':
       specifier: ~19.1.0
@@ -397,6 +400,9 @@ importers:
       wanakana:
         specifier: ^5.3.1
         version: 5.3.1
+      zod:
+        specifier: 'catalog:'
+        version: 4.4.3
     devDependencies:
       '@nn/tsconfig':
         specifier: workspace:*

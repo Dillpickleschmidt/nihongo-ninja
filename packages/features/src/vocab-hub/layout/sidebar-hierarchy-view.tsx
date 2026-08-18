@@ -1,3 +1,4 @@
+import { Link } from "@nn/router";
 import { Book, Folder as FolderIcon, Plus } from "lucide-react";
 
 import { CollapsibleSection } from "../components/collapsible-section";
@@ -82,14 +83,13 @@ export function SidebarHierarchyView({ selectedDeckId }: { selectedDeckId: strin
       </div>
 
       <div className="pt-4">
-        {/* Plain anchor until the create page ports. */}
-        <a
+        <Link
           href="/vocab/create"
           className="flex w-full items-center justify-center gap-2 rounded-md border border-border/70 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-foreground dark:border-card-foreground/70"
         >
           <Plus className="h-4 w-4" />
           Create New
-        </a>
+        </Link>
       </div>
     </div>
   );

@@ -1,7 +1,9 @@
 /// <reference types="vite/client" />
 
+import { ConvexBetterAuthProvider } from "@convex-dev/better-auth/react";
 import type { ConvexQueryClient } from "@convex-dev/react-query";
 import { AmbientBackground } from "@nn/features/ambient-background";
+import { authClient } from "@nn/features/auth/client";
 import { PreferencesProvider } from "@nn/features/preferences";
 import type { Theme } from "@nn/ui";
 import { ThemeProvider, themeInitScript } from "@nn/ui";
@@ -10,6 +12,7 @@ import { createRootRouteWithContext, HeadContent, Outlet, Scripts } from "@tanst
 import { createServerFn } from "@tanstack/react-start";
 import { getCookie } from "@tanstack/react-start/server";
 import type * as React from "react";
+import { useEffect } from "react";
 import { StyleSheet } from "react-native-web";
 
 import { fetchAuth } from "~/lib/auth";
@@ -30,9 +33,14 @@ export const Route = createRootRouteWithContext<{
     // Authenticate SSR Convex queries in route loaders. The client instead
     // gets its token from ConvexBetterAuthProvider.
     if (token) context.convexQueryClient.serverHttpClient?.setAuth(token);
-    return { session, userId };
+    return { session, userId, token };
   },
-  loader: () => getThemeCookie(),
+  // Loader data is dehydrated to the client, so the SSR token reaches the
+  // provider on first render — beforeLoad context alone is not serialized.
+  loader: async ({ context }) => ({
+    theme: await getThemeCookie(),
+    initialToken: context.token,
+  }),
   head: () => ({
     meta: [
       { charSet: "utf-8" },
@@ -45,12 +53,34 @@ export const Route = createRootRouteWithContext<{
 });
 
 function RootComponent() {
-  const theme = Route.useLoaderData();
+  const { theme, initialToken } = Route.useLoaderData();
+  const { convexQueryClient } = Route.useRouteContext();
   return (
-    <RootDocument theme={theme}>
-      <Outlet />
-    </RootDocument>
+    <ConvexBetterAuthProvider
+      client={convexQueryClient.convexClient}
+      authClient={authClient}
+      initialToken={initialToken}
+    >
+      <ReleaseGuestSocket convexQueryClient={convexQueryClient} />
+      <RootDocument theme={theme}>
+        <Outlet />
+      </RootDocument>
+    </ConvexBetterAuthProvider>
   );
+}
+
+// The client is constructed with expectAuth, which pauses its WebSocket until
+// setAuth runs — but ConvexProviderWithAuth never calls setAuth for a visitor
+// who is never authenticated. Release the socket with a null token so guests
+// still get (unauthenticated) query results.
+function ReleaseGuestSocket({ convexQueryClient }: { convexQueryClient: ConvexQueryClient }) {
+  const { data: session, isPending } = authClient.useSession();
+  useEffect(() => {
+    if (!isPending && !session) {
+      convexQueryClient.convexClient.setAuth(async () => null);
+    }
+  }, [isPending, session, convexQueryClient]);
+  return null;
 }
 
 function RootDocument({ theme, children }: { theme: Theme; children: React.ReactNode }) {

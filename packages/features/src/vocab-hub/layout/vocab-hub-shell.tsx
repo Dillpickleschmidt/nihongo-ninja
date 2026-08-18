@@ -11,7 +11,7 @@ export function VocabHubShell({
 }) {
   return (
     <VocabProvider>
-      <div className={`px-4 pb-16 ${showPanel ? "md:pr-40" : ""}`}>
+      <div className={`px-4 pb-16 ${showPanel ? "md:pr-80" : ""}`}>
         <CenterNavBar />
         {children}
       </div>
