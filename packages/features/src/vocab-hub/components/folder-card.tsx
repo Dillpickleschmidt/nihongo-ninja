@@ -2,22 +2,19 @@ import { Folder as FolderIcon } from "lucide-react";
 
 import { useVocab, type Folder } from "../context";
 import { buildFolderUrlPath } from "../utils/navigation";
+import { FolderContextMenu } from "./folder-context-menu";
 
-// Read-only card; the edit/delete context menu arrives with the CRUD PR.
 export function FolderCard({ folder }: { folder: Folder }) {
   const { folders } = useVocab();
   const folderPath = `/vocab/${buildFolderUrlPath(folder.id, folders)}`;
 
   return (
-    <a
-      href={folderPath}
-      className="block cursor-pointer rounded-lg border border-card-foreground/70 bg-card/60 p-4 shadow-sm backdrop-blur-sm transition-colors hover:bg-card/70 hover:shadow-md"
-    >
+    <FolderContextMenu folder={folder} href={folderPath}>
       <FolderCardContent
         title={folder.folderName}
         subtitle={folder.source === "built-in" ? "Built-in" : undefined}
       />
-    </a>
+    </FolderContextMenu>
   );
 }
 
