@@ -97,7 +97,7 @@ export function formDataToVocabularyItem(formData: VocabItemFormData): Vocabular
 export function deckVocabItemToFormData(item: Doc<"deckVocabularyItems">): VocabItemFormData {
   return {
     word: item.word,
-    furigana: item.furigana || item.word,
+    furigana: item.furigana ?? "",
     english: [...item.english],
     isVerb: item.isVerb || false,
     notes: item.info || [],

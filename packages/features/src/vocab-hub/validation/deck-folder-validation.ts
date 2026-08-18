@@ -39,7 +39,7 @@ export function validateDeckNameUnique(
   excludeDeckId?: string,
 ): { isValid: boolean; error?: string } {
   const duplicate = existingDecks.find(
-    (d) => d.deckName.toLowerCase() === name.toLowerCase() && d.id !== excludeDeckId,
+    (d) => d.deckName.trim().toLowerCase() === name.trim().toLowerCase() && d.id !== excludeDeckId,
   );
   return duplicate
     ? { isValid: false, error: "A deck with this name already exists" }
@@ -80,7 +80,9 @@ export function validateNoCircularReference(
 
   // Check if target is a descendant of the folder being moved
   let currentId: string | undefined = targetParentId;
-  while (currentId) {
+  const visited = new Set<string>();
+  while (currentId && !visited.has(currentId)) {
+    visited.add(currentId);
     if (currentId === folderId) {
       return {
         isValid: false,

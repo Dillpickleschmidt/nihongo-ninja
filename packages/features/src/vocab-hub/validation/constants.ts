@@ -6,7 +6,7 @@ export const DECK_NAME_MAX_LENGTH = 100;
 export const DESCRIPTION_MAX_LENGTH = 500;
 
 // Base Zod schemas for reuse
-export const RequiredStringSchema = z.string().min(1, "This field is required");
+export const RequiredStringSchema = z.string().trim().min(1, "This field is required");
 
 export const NonEmptyStringArraySchema = z
   .array(z.string())

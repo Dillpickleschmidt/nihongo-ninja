@@ -31,6 +31,10 @@ function TreeViewNode(props: TreeViewProps & { node: TreeNode }) {
   return (
     <div>
       <div
+        role="treeitem"
+        aria-selected={isSelected && isSelectable}
+        aria-expanded={hasChildren ? isExpanded : undefined}
+        tabIndex={isSelectable ? 0 : -1}
         className={`flex items-center rounded-sm px-2 py-1 text-xs ${
           isSelectable ? "cursor-pointer hover:bg-accent" : "cursor-default"
         } ${isSelected && isSelectable ? "bg-accent ring-1 ring-border" : ""}`}
@@ -39,10 +43,17 @@ function TreeViewNode(props: TreeViewProps & { node: TreeNode }) {
           e.stopPropagation();
           if (isSelectable) props.onSelect?.(node.id, node);
         }}
+        onKeyDown={(e) => {
+          if (e.key !== "Enter" && e.key !== " ") return;
+          e.preventDefault();
+          e.stopPropagation();
+          if (isSelectable) props.onSelect?.(node.id, node);
+        }}
       >
         {hasChildren ? (
           <button
             type="button"
+            aria-label={isExpanded ? `Collapse ${node.label}` : `Expand ${node.label}`}
             className="mr-1 flex h-4 w-4 items-center justify-center rounded-sm hover:bg-accent"
             onClick={(e) => {
               e.stopPropagation();
@@ -87,7 +98,7 @@ function TreeViewNode(props: TreeViewProps & { node: TreeNode }) {
 
 export function TreeView(props: TreeViewProps) {
   return (
-    <div className={props.className}>
+    <div role={props.level ? "group" : "tree"} className={props.className}>
       {props.nodes.map((node) => (
         <TreeViewNode key={node.id} {...props} node={node} />
       ))}

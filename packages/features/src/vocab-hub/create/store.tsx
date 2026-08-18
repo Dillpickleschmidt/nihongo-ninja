@@ -166,8 +166,10 @@ function useDeckCreationStoreValue(initialData?: DeckEditData) {
       setCurrentTab: (tab: string) => {
         update((s) => ({ ...s, ui: { currentTab: tab } }));
       },
+      // In edit mode this reverts to the loaded deck, keeping the edit
+      // identity so the next save still takes the update path.
       resetStore: () => {
-        setStore(createInitialState());
+        setStore(createInitialState(initialData));
       },
       isEditMode: () => !!initialData,
     };

@@ -1,4 +1,5 @@
 import { Minus, Plus } from "lucide-react";
+import { useId } from "react";
 
 export function Field({
   label,
@@ -19,10 +20,16 @@ export function Field({
   title?: string;
   inputClassName?: string;
 }) {
+  const inputId = useId();
   return (
     <div className="relative flex-1" title={title}>
-      {label && <label className="mb-1 block text-sm font-medium">{label}</label>}
+      {label && (
+        <label htmlFor={inputId} className="mb-1 block text-sm font-medium">
+          {label}
+        </label>
+      )}
       <input
+        id={inputId}
         type="text"
         value={value}
         onChange={(e) => {

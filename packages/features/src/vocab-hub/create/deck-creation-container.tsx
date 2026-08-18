@@ -34,9 +34,10 @@ export function DeckCreationContainer() {
     actions.setHasAttemptedSubmit(true);
     setSaveError(null);
 
+    const deckName = store.deck.name.trim();
     const nameValid =
-      store.deck.name.trim().length > 0 &&
-      validateDeckNameUnique(store.deck.name, decks, store.original?.deckId).isValid;
+      deckName.length > 0 &&
+      validateDeckNameUnique(deckName, decks, store.original?.deckId).isValid;
     if (!nameValid || validFormDataItems.length === 0) return;
 
     setIsSaving(true);
@@ -55,7 +56,7 @@ export function DeckCreationContainer() {
         if (!deckId) throw new Error("Deck ID is required for editing");
         await updateDeckWithVocab({
           deckId: deckId as Id<"userDecks">,
-          deckName: store.deck.name,
+          deckName,
           deckDescription: store.deck.description || undefined,
           folderId: folderId ?? null,
           allowedPracticeModes: store.deck.allowedPracticeModes,
@@ -63,7 +64,7 @@ export function DeckCreationContainer() {
         });
       } else {
         await createDeckWithVocab({
-          deckName: store.deck.name,
+          deckName,
           deckDescription: store.deck.description || undefined,
           folderId,
           allowedPracticeModes: store.deck.allowedPracticeModes,

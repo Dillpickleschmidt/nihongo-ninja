@@ -25,7 +25,9 @@ export function LocationSelector({
     if (open) {
       setTempSelectedFolderId(selectedFolderId);
 
-      if (selectedFolderId !== "root") {
+      if (selectedFolderId === "root") {
+        setExpandedFolderIds(new Set(["root"]));
+      } else {
         const expandPath = (
           targetId: string,
           nodes: TreeNode[],
