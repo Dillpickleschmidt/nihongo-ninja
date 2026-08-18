@@ -14,6 +14,7 @@ import {
   menuPopupClass,
   menuSeparatorClass,
 } from "./menu-styles";
+import { alertMutationError } from "./mutation-error";
 
 export function FolderContextMenu({
   folder,
@@ -27,14 +28,23 @@ export function FolderContextMenu({
   const { folders, decks, deleteFolder, setEditingFolder } = useVocab();
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
   const [deleteStrategy, setDeleteStrategy] = useState<FolderDeleteStrategy>("move-up");
+  const [isDeleting, setIsDeleting] = useState(false);
 
   const { folderContents } = useFolderTree({ folders, decks, item: folder });
 
   const canEdit = folder.source === "user";
 
   const handleDelete = async () => {
-    await deleteFolder(folder.id, deleteStrategy);
-    setShowDeleteConfirm(false);
+    if (isDeleting) return;
+    setIsDeleting(true);
+    try {
+      await deleteFolder(folder.id, deleteStrategy);
+      setShowDeleteConfirm(false);
+    } catch (error) {
+      alertMutationError("delete the folder")(error);
+    } finally {
+      setIsDeleting(false);
+    }
   };
 
   const card = (
@@ -97,7 +107,6 @@ export function FolderContextMenu({
             <div className="mt-4">
               <DeleteConfirmation
                 item={folder}
-                itemType="folder"
                 folderContents={folderContents}
                 deleteStrategy={deleteStrategy}
                 onStrategyChange={setDeleteStrategy}

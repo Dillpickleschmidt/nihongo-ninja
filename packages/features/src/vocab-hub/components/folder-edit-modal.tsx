@@ -60,14 +60,20 @@ function FolderEditForm({ folder, onClose }: { folder: Folder; onClose: () => vo
   const { folderTreeNodes, folderContents } = useFolderTree({ folders, decks, item: folder });
 
   const targetParentId = selectedFolderId === "root" ? undefined : selectedFolderId;
+  const trimmedName = name.trim();
 
   const nameValidation = (() => {
-    const schemaResult = FolderNameSchema.safeParse(name);
+    const schemaResult = FolderNameSchema.safeParse(trimmedName);
     if (!schemaResult.success) {
       return { isValid: false, error: schemaResult.error.issues[0]?.message ?? "Invalid name" };
     }
 
-    const uniqueResult = validateFolderNameUnique(name, userFolders, targetParentId, folder.id);
+    const uniqueResult = validateFolderNameUnique(
+      trimmedName,
+      userFolders,
+      targetParentId,
+      folder.id,
+    );
     if (!uniqueResult.isValid) return uniqueResult;
 
     if (targetParentId && targetParentId !== folder.parentFolderId) {
@@ -79,7 +85,7 @@ function FolderEditForm({ folder, onClose }: { folder: Folder; onClose: () => vo
   })();
 
   const hasChanges =
-    name !== folder.folderName || targetParentId !== (folder.parentFolderId ?? undefined);
+    trimmedName !== folder.folderName || targetParentId !== (folder.parentFolderId ?? undefined);
 
   const canSave = nameValidation.isValid && hasChanges;
 
@@ -101,7 +107,7 @@ function FolderEditForm({ folder, onClose }: { folder: Folder; onClose: () => vo
     if (!canSave) return;
 
     const updates: { folderName?: string; parentFolderId?: string | null } = {};
-    if (name !== folder.folderName) updates.folderName = name.trim();
+    if (trimmedName !== folder.folderName) updates.folderName = trimmedName;
     const nextParentId = selectedFolderId === "root" ? null : selectedFolderId;
     if (nextParentId !== (folder.parentFolderId ?? null)) updates.parentFolderId = nextParentId;
 
@@ -140,7 +146,6 @@ function FolderEditForm({ folder, onClose }: { folder: Folder; onClose: () => vo
         <div className="mt-4">
           <DeleteConfirmation
             item={folder}
-            itemType="folder"
             folderContents={folderContents}
             deleteStrategy={deleteStrategy}
             onStrategyChange={setDeleteStrategy}

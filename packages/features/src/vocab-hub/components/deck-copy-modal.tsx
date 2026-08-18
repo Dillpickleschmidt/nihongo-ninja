@@ -50,7 +50,14 @@ function DeckCopyForm({ deck, onClose }: { deck: Deck; onClose: () => void }) {
 
   const [name, setName] = useState(`${deck.deckName} (copy)`);
   const [description, setDescription] = useState(deck.deckDescription || "");
-  const [selectedFolderId, setSelectedFolderId] = useState(deck.folderId || "root");
+  // Built-in folder ids are path strings, not Convex ids — only a user
+  // folder is a valid copy destination.
+  const [selectedFolderId, setSelectedFolderId] = useState(() => {
+    const current = deck.folderId
+      ? folders.find((f) => f.id === deck.folderId && f.source === "user")
+      : undefined;
+    return current?.id ?? "root";
+  });
   const [showValidation, setShowValidation] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
   const [saveError, setSaveError] = useState<string | null>(null);

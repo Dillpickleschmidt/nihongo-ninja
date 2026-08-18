@@ -16,6 +16,7 @@ import { useVocab, type Deck } from "../context";
 import { useFolderTree } from "../hooks/use-folder-tree";
 import { getFolderPath } from "../utils/hierarchy";
 import { buildDeckUrlPath } from "../utils/navigation";
+import { DeckNameSchema, validateDeckNameUnique } from "../validation/deck-folder-validation";
 import {
   destructiveMenuItemClass,
   menuItemClass,
@@ -34,7 +35,7 @@ export function DeckCard({
   isSelected?: boolean;
   className?: string;
 }) {
-  const { folders, updateDeck, deleteDeck, setCopyingDeck } = useVocab();
+  const { folders, decks, updateDeck, deleteDeck, setCopyingDeck } = useVocab();
   const deckPath = `/vocab/${buildDeckUrlPath(deck, folders)}`;
   const editPath = `/vocab/deck/${deck.id}/edit`;
   const canEdit = deck.source === "user";
@@ -68,11 +69,24 @@ export function DeckCard({
 
   const handleRename = () => {
     const newName = window.prompt("Enter new deck name:", deck.deckName);
-    if (newName && newName.trim() && newName.trim() !== deck.deckName) {
-      updateDeck(deck.id, { deckName: newName.trim() }).catch(
-        alertMutationError("rename the deck"),
-      );
+    const trimmed = newName?.trim();
+    if (!trimmed || trimmed === deck.deckName) return;
+
+    const schemaResult = DeckNameSchema.safeParse(trimmed);
+    if (!schemaResult.success) {
+      window.alert(schemaResult.error.issues[0]?.message ?? "Invalid name");
+      return;
     }
+    const unique = validateDeckNameUnique(
+      trimmed,
+      decks.filter((d) => d.source === "user"),
+      deck.id,
+    );
+    if (!unique.isValid) {
+      window.alert(unique.error);
+      return;
+    }
+    updateDeck(deck.id, { deckName: trimmed }).catch(alertMutationError("rename the deck"));
   };
 
   const handleDelete = () => {
