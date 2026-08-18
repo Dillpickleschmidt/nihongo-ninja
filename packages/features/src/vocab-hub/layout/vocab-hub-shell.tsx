@@ -1,3 +1,5 @@
+import { DeckCopyModal } from "../components/deck-copy-modal";
+import { FolderEditModal } from "../components/folder-edit-modal";
 import { VocabProvider } from "../context";
 import { CenterNavBar } from "./center-nav-bar";
 import { VocabRightPanel } from "./vocab-right-panel";
@@ -21,6 +23,9 @@ export function VocabHubShell({
           <VocabRightPanel />
         </div>
       )}
+
+      <FolderEditModal />
+      <DeckCopyModal />
     </VocabProvider>
   );
 }

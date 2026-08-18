@@ -1,7 +1,7 @@
-import { Link } from "@nn/router";
-import { Book, Folder as FolderIcon, Plus } from "lucide-react";
+import { Book, Folder as FolderIcon } from "lucide-react";
 
 import { CollapsibleSection } from "../components/collapsible-section";
+import { CreateNewDropdown } from "../components/create-new-dropdown";
 import { DeckCard } from "../components/deck-card";
 import { useVocab, type Deck, type Folder } from "../context";
 import {
@@ -83,13 +83,7 @@ export function SidebarHierarchyView({ selectedDeckId }: { selectedDeckId: strin
       </div>
 
       <div className="pt-4">
-        <Link
-          href="/vocab/create"
-          className="flex w-full items-center justify-center gap-2 rounded-md border border-border/70 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-foreground dark:border-card-foreground/70"
-        >
-          <Plus className="h-4 w-4" />
-          Create New
-        </Link>
+        <CreateNewDropdown />
       </div>
     </div>
   );

@@ -1,5 +1,6 @@
-import { convexQuery } from "@convex-dev/react-query";
+import { convexQuery, useConvexMutation } from "@convex-dev/react-query";
 import { api } from "@nn/convex/_generated/api";
+import type { Id } from "@nn/convex/_generated/dataModel";
 import type { UnifiedDeck } from "@nn/convex/model/decks";
 import type { UnifiedFolder } from "@nn/convex/model/folders";
 import { useQuery } from "@tanstack/react-query";
@@ -10,8 +11,8 @@ import { getFolderPath } from "./utils/hierarchy";
 export type Folder = UnifiedFolder;
 export type Deck = UnifiedDeck;
 
-// Deck/folder CRUD arrives with the editing PR; until then the hub is
-// read-only and guests simply browse the built-in content.
+export type FolderDeleteStrategy = "move-up" | "delete-all";
+
 type VocabContextValue = {
   folders: Folder[];
   decks: Deck[];
@@ -21,6 +22,23 @@ type VocabContextValue = {
   toggleSection: (id: string) => void;
   initializeExpandedFromDeck: (deckId: string | null) => void;
   initializeExpandedFromFolder: (folderId: string | null) => void;
+
+  editingFolder: Folder | null;
+  setEditingFolder: (folder: Folder | null) => void;
+  copyingDeck: Deck | null;
+  setCopyingDeck: (deck: Deck | null) => void;
+
+  createFolder: (name: string, parentId?: string) => Promise<void>;
+  updateFolder: (
+    folderId: string,
+    updates: { folderName?: string; parentFolderId?: string | null },
+  ) => Promise<void>;
+  deleteFolder: (folderId: string, strategy: FolderDeleteStrategy) => Promise<void>;
+  updateDeck: (
+    deckId: string,
+    updates: { deckName?: string; deckDescription?: string; folderId?: string | null },
+  ) => Promise<void>;
+  deleteDeck: (deckId: string) => Promise<void>;
 };
 
 const VocabContext = createContext<VocabContextValue | null>(null);
@@ -71,6 +89,65 @@ export function VocabProvider({ children }: { children: React.ReactNode }) {
     [folders],
   );
 
+  const [editingFolder, setEditingFolder] = useState<Folder | null>(null);
+  const [copyingDeck, setCopyingDeck] = useState<Deck | null>(null);
+
+  const createFolderMutation = useConvexMutation(api.api.folders.createFolder);
+  const updateFolderMutation = useConvexMutation(api.api.folders.updateFolder);
+  const deleteFolderMutation = useConvexMutation(api.api.folders.deleteFolder);
+  const updateDeckMutation = useConvexMutation(api.api.decks.updateDeck);
+  const deleteDeckMutation = useConvexMutation(api.api.decks.deleteDeck);
+
+  const createFolder = useCallback(
+    async (name: string, parentId?: string) => {
+      await createFolderMutation({
+        folderName: name,
+        parentFolderId: parentId as Id<"userDeckFolders"> | undefined,
+      });
+    },
+    [createFolderMutation],
+  );
+
+  const updateFolder = useCallback(
+    async (folderId: string, updates: { folderName?: string; parentFolderId?: string | null }) => {
+      await updateFolderMutation({
+        folderId: folderId as Id<"userDeckFolders">,
+        folderName: updates.folderName,
+        parentFolderId: updates.parentFolderId as Id<"userDeckFolders"> | null | undefined,
+      });
+    },
+    [updateFolderMutation],
+  );
+
+  const deleteFolder = useCallback(
+    async (folderId: string, strategy: FolderDeleteStrategy) => {
+      await deleteFolderMutation({ folderId: folderId as Id<"userDeckFolders">, strategy });
+    },
+    [deleteFolderMutation],
+  );
+
+  const updateDeck = useCallback(
+    async (
+      deckId: string,
+      updates: { deckName?: string; deckDescription?: string; folderId?: string | null },
+    ) => {
+      await updateDeckMutation({
+        deckId: deckId as Id<"userDecks">,
+        deckName: updates.deckName,
+        deckDescription: updates.deckDescription,
+        folderId: updates.folderId as Id<"userDeckFolders"> | null | undefined,
+      });
+    },
+    [updateDeckMutation],
+  );
+
+  const deleteDeck = useCallback(
+    async (deckId: string) => {
+      await deleteDeckMutation({ deckId: deckId as Id<"userDecks"> });
+    },
+    [deleteDeckMutation],
+  );
+
   const value = useMemo(
     () => ({
       folders,
@@ -80,6 +157,15 @@ export function VocabProvider({ children }: { children: React.ReactNode }) {
       toggleSection,
       initializeExpandedFromDeck,
       initializeExpandedFromFolder,
+      editingFolder,
+      setEditingFolder,
+      copyingDeck,
+      setCopyingDeck,
+      createFolder,
+      updateFolder,
+      deleteFolder,
+      updateDeck,
+      deleteDeck,
     }),
     [
       folders,
@@ -89,6 +175,13 @@ export function VocabProvider({ children }: { children: React.ReactNode }) {
       toggleSection,
       initializeExpandedFromDeck,
       initializeExpandedFromFolder,
+      editingFolder,
+      copyingDeck,
+      createFolder,
+      updateFolder,
+      deleteFolder,
+      updateDeck,
+      deleteDeck,
     ],
   );
 
