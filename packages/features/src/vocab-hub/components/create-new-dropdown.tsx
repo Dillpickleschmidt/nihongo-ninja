@@ -7,6 +7,7 @@ import { useVocab } from "../context";
 import { resolveFolderFromPath } from "../utils/navigation";
 import { menuItemClass, menuPopupClass } from "./menu-styles";
 import { alertMutationError } from "./mutation-error";
+import { promptText } from "./web-dialogs";
 
 export function CreateNewDropdown() {
   const { folders, createFolder } = useVocab();
@@ -20,7 +21,7 @@ export function CreateNewDropdown() {
   const parentId = currentFolder?.source === "user" ? currentFolder.id : undefined;
 
   const handleCreateFolder = () => {
-    const name = window.prompt("Enter folder name:");
+    const name = promptText("Enter folder name:");
     if (name && name.trim()) {
       createFolder(name.trim(), parentId).catch(alertMutationError("create the folder"));
     }

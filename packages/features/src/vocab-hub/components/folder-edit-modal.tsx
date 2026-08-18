@@ -14,6 +14,7 @@ import {
 import { DeleteConfirmation } from "./delete-confirmation";
 import { dialogBackdropClass, dialogPopupClass } from "./dialog-styles";
 import { LocationSelector } from "./location-selector";
+import { confirmAction } from "./web-dialogs";
 
 export function FolderEditModal() {
   const { editingFolder, setEditingFolder } = useVocab();
@@ -96,7 +97,7 @@ function FolderEditForm({ folder, onClose }: { folder: Folder; onClose: () => vo
 
   const handleSave = async () => {
     if (isEditingName) {
-      const shouldApply = window.confirm(
+      const shouldApply = confirmAction(
         "You have unsaved name changes! Would you like to apply them?",
       );
       if (!shouldApply) return;

@@ -10,6 +10,7 @@ export type Href =
   | "/settings"
   | "/vocab"
   | `/vocab/${string}`
+  | "/vocab/browse"
   | "/vocab/create"
   | `/vocab/deck/${string}/edit`
   | `/vocab/practice/${string}`

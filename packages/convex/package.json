@@ -24,6 +24,9 @@
     "./model/folders": {
       "types": "./convex/model/folders.ts"
     },
+    "./model/sharing": {
+      "types": "./convex/model/sharing.ts"
+    },
     "./model/learning_paths": {
       "types": "./convex/model/learning_paths.ts"
     }
