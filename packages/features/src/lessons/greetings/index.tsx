@@ -4,10 +4,10 @@ import { Heading, Main, Paragraph, Text } from "@nn/ui";
 import { useQuery } from "@tanstack/react-query";
 import { View } from "react-native";
 
+import { VocabularyCard } from "../../vocab-hub/pages/deck-view/vocabulary-card";
 import { LessonHeader, OverviewItem } from "../components/lesson-header";
 import { LessonSummary, SummaryItem } from "../components/lesson-summary";
 import { MultipleChoiceText } from "../components/multiple-choice-text";
-import { VocabCard } from "../components/vocab-card";
 
 export const GREETINGS_SET_ID = "genki_1_ch0_greetings-common-expressions";
 
@@ -61,14 +61,9 @@ export default function GreetingsLesson() {
           </Paragraph>
         </View>
 
-        <View className="mx-auto w-full max-w-3xl gap-4 px-8">
-          {vocabItems?.map((item) => (
-            <VocabCard
-              key={item.key}
-              word={item.word}
-              furigana={item.furigana}
-              english={item.english}
-            />
+        <View className="gap-4 px-8">
+          {vocabItems?.map((item, index) => (
+            <VocabularyCard key={item.key} item={item} index={index} />
           ))}
         </View>
 

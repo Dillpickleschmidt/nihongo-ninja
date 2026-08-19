@@ -49,6 +49,15 @@ family) — do not "upgrade to latest" without reading it.
   `href` is typed: `Href` is a union generated from the web route tree
   (`packages/router/src/routes.gen.ts`, emitted by the route generator), so
   a bad path is a compile error. `$param` segments become `${string}`.
+- **Feature UI is written once, in React Native primitives** (`View`, `Text`,
+  `Pressable` + NativeWind) plus `@nn/ui` components — no DOM elements and no
+  `@base-ui/react` imports inside `packages/features`. Non-overlay `@nn/ui`
+  components are a single RN implementation; only the overlay family (Dialog,
+  Menu, ContextMenu, Popover, Select) splits presentation per platform (Base
+  UI on web, sheets/modals on native) behind one shared API. See
+  `docs/adr/0001-rn-first-ui-with-web-overlay-exception.md`. Pre-pivot
+  web-only domains are converting incrementally — match this rule in new and
+  touched code.
 - **Use the semantic components from `@nn/ui` for page structure** (`Heading`,
   `Paragraph`, `Main`, `Nav`, `Header`, `Footer`, `Article`, `Section`,
   `Aside`). On web, react-native-web maps their `role` to real HTML tags
