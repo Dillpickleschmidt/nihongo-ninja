@@ -1,6 +1,6 @@
-import { Dialog } from "@base-ui/react/dialog";
 import { Link } from "@nn/router";
 import { cn } from "@nn/ui";
+import { Dialog } from "@nn/ui/dialog";
 
 export function ReviewModeDialog({
   open,
@@ -14,36 +14,30 @@ export function ReviewModeDialog({
   spellingsCount: number | undefined;
 }) {
   return (
-    <Dialog.Root open={open} onOpenChange={onOpenChange}>
-      <Dialog.Portal>
-        <Dialog.Backdrop className="fixed inset-0 z-50 bg-black/55 transition-opacity data-ending-style:opacity-0 data-starting-style:opacity-0" />
-        <Dialog.Popup className="fixed top-1/2 left-1/2 z-50 w-full max-w-[calc(100vw-2rem)] -translate-x-1/2 -translate-y-1/2 rounded-xl border border-border/70 bg-card p-6 transition-all outline-none data-ending-style:scale-95 data-ending-style:opacity-0 data-starting-style:scale-95 data-starting-style:opacity-0 sm:max-w-md dark:border-white/10 dark:bg-[#121212]">
-          <Dialog.Title className="text-lg font-semibold text-foreground">
-            Choose review mode
-          </Dialog.Title>
-          <Dialog.Description className="mt-1 text-sm text-muted-foreground">
-            Pick the type of review you want to practice right now.
-          </Dialog.Description>
-
-          <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
-            <ReviewModeOption
-              mode="meanings"
-              label="Meanings"
-              symbol="読"
-              symbolClass="text-sky-500 dark:text-sky-300"
-              count={meaningsCount}
-            />
-            <ReviewModeOption
-              mode="spellings"
-              label="Spellings"
-              symbol="あ"
-              symbolClass="text-orange-500 dark:text-orange-300"
-              count={spellingsCount}
-            />
-          </div>
-        </Dialog.Popup>
-      </Dialog.Portal>
-    </Dialog.Root>
+    <Dialog
+      open={open}
+      onOpenChange={onOpenChange}
+      title="Choose review mode"
+      description="Pick the type of review you want to practice right now."
+      className="max-w-[calc(100vw-2rem)] sm:max-w-md"
+    >
+      <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
+        <ReviewModeOption
+          mode="meanings"
+          label="Meanings"
+          symbol="読"
+          symbolClass="text-sky-500 dark:text-sky-300"
+          count={meaningsCount}
+        />
+        <ReviewModeOption
+          mode="spellings"
+          label="Spellings"
+          symbol="あ"
+          symbolClass="text-orange-500 dark:text-orange-300"
+          count={spellingsCount}
+        />
+      </div>
+    </Dialog>
   );
 }
 
