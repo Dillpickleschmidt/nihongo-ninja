@@ -12,3 +12,5 @@ export { Dialog } from "./dialog";
 export { ContextMenu, DropdownMenu, MenuItem, MenuLink, MenuSeparator, MenuSub } from "./menu";
 export { Popover } from "./popover";
 export { Select } from "./select";
+export { Collapsible, CollapsiblePanel, CollapsibleTrigger } from "./collapsible";
+export { Slider } from "./slider";

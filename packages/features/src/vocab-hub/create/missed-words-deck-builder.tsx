@@ -1,8 +1,8 @@
-import { Slider } from "@base-ui/react/slider";
 import { convexQuery, useConvexMutation } from "@convex-dev/react-query";
 import { api } from "@nn/convex/_generated/api";
 import type { practiceModeValidator } from "@nn/convex/validators";
 import { useRouter } from "@nn/router";
+import { Slider } from "@nn/ui/slider";
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import type { Infer } from "convex/values";
 import { useState } from "react";
@@ -93,26 +93,14 @@ export function MissedWordsDeckBuilder() {
         {label}
         <span className="ml-2 text-foreground/70 dark:text-white/70">{display}</span>
       </span>
-      <Slider.Root
+      <Slider
         value={value}
-        onValueChange={(next) => {
-          onChange(Array.isArray(next) ? (next[0] ?? 0) : next);
-        }}
+        onValueChange={onChange}
         min={0}
         max={max}
-        step={1}
+        label={label}
         className="w-48"
-      >
-        <Slider.Control className="flex w-full touch-none items-center py-2 select-none">
-          <Slider.Track className="h-1.5 w-full rounded-full bg-muted select-none dark:bg-white/[0.06]">
-            <Slider.Indicator className="rounded-full bg-dynamic-accent/50 select-none dark:bg-white/20" />
-            <Slider.Thumb
-              aria-label={label}
-              className="size-4 rounded-full border border-border bg-background select-none dark:border-white/40"
-            />
-          </Slider.Track>
-        </Slider.Control>
-      </Slider.Root>
+      />
     </div>
   );
 

@@ -15,7 +15,9 @@
     "./dialog": "./src/dialog.ts",
     "./menu": "./src/menu.ts",
     "./popover": "./src/popover.ts",
-    "./select": "./src/select.ts"
+    "./select": "./src/select.ts",
+    "./collapsible": "./src/collapsible.tsx",
+    "./slider": "./src/slider.ts"
   },
   "scripts": {
     "typecheck": "tsc --noEmit --emitDeclarationOnly false"

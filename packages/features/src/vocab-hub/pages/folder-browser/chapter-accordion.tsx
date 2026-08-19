@@ -1,5 +1,5 @@
-import { Accordion } from "@base-ui/react/accordion";
 import { getChapterDisplayNumber } from "@nn/data/utils/chapter-helpers";
+import { Collapsible, CollapsiblePanel, CollapsibleTrigger } from "@nn/ui";
 import { ChevronDown } from "lucide-react";
 import { useEffect, useState } from "react";
 
@@ -53,14 +53,12 @@ export function ChapterAccordion({
       )
     : chapters;
 
+  const toggleChapter = (id: string, open: boolean) => {
+    setExpandedIds((prev) => (open ? [...prev, id] : prev.filter((entry) => entry !== id)));
+  };
+
   return (
-    <Accordion.Root
-      multiple
-      value={expandedIds}
-      onValueChange={(value) => {
-        setExpandedIds(value as string[]);
-      }}
-    >
+    <div>
       {visibleChapters.map((chapter) => {
         const chapterDecks = filterDecks(getDecksInFolder(decks, chapter.id), matchingDeckIds);
         const isActive = chapter.id === activeChapterFolderId;
@@ -69,39 +67,48 @@ export function ChapterAccordion({
           getChapterDisplayNumber(slug) || chapter.folderName.match(/\d+/)?.[0] || "";
 
         return (
-          <Accordion.Item key={chapter.id} value={chapter.id} className="border-0" id={slug}>
-            <Accordion.Header>
-              <Accordion.Trigger className="group flex w-full flex-1 cursor-pointer items-center justify-between py-4 font-excalifont font-medium hover:no-underline">
-                <div className="flex items-center gap-2">
-                  <div
-                    className={`flex size-6 items-center justify-center rounded-md text-xs font-bold ${
-                      isActive
-                        ? "bg-gradient-to-br from-orange-500/30 to-amber-500/30 text-orange-400"
-                        : "bg-muted text-muted-foreground dark:bg-gradient-to-br dark:from-white/10 dark:to-white/5 dark:text-white/50"
-                    }`}
-                  >
-                    {displayNum}
-                  </div>
-                  <span
-                    className={`text-sm font-semibold ${
-                      isActive ? "text-orange-400" : "text-foreground/70 dark:text-white/70"
-                    }`}
-                  >
-                    {chapter.folderName}
-                  </span>
-                  <span className="text-xs text-muted-foreground/60">
-                    · {chapterDecks.length} {chapterDecks.length === 1 ? "deck" : "decks"}
-                  </span>
+          <Collapsible
+            key={chapter.id}
+            id={slug}
+            open={expandedIds.includes(chapter.id)}
+            onOpenChange={(open) => {
+              toggleChapter(chapter.id, open);
+            }}
+          >
+            <CollapsibleTrigger className="group w-full flex-1 cursor-pointer flex-row items-center justify-between py-4 font-excalifont font-medium hover:no-underline">
+              <div className="flex items-center gap-2">
+                <div
+                  className={`flex size-6 items-center justify-center rounded-md text-xs font-bold ${
+                    isActive
+                      ? "bg-gradient-to-br from-orange-500/30 to-amber-500/30 text-orange-400"
+                      : "bg-muted text-muted-foreground dark:bg-gradient-to-br dark:from-white/10 dark:to-white/5 dark:text-white/50"
+                  }`}
+                >
+                  {displayNum}
                 </div>
-                <ChevronDown className="size-4 shrink-0 text-muted-foreground transition-transform duration-200 group-data-panel-open:rotate-180" />
-              </Accordion.Trigger>
-            </Accordion.Header>
-            <Accordion.Panel>
+                <span
+                  className={`text-sm font-semibold ${
+                    isActive ? "text-orange-400" : "text-foreground/70 dark:text-white/70"
+                  }`}
+                >
+                  {chapter.folderName}
+                </span>
+                <span className="text-xs text-muted-foreground/60">
+                  · {chapterDecks.length} {chapterDecks.length === 1 ? "deck" : "decks"}
+                </span>
+              </div>
+              <ChevronDown
+                className={`size-4 shrink-0 text-muted-foreground transition-transform duration-200 ${
+                  expandedIds.includes(chapter.id) ? "rotate-180" : ""
+                }`}
+              />
+            </CollapsibleTrigger>
+            <CollapsiblePanel>
               <DeckTimelineList decks={chapterDecks} defaultExpanded={chapterFromUrl === slug} />
-            </Accordion.Panel>
-          </Accordion.Item>
+            </CollapsiblePanel>
+          </Collapsible>
         );
       })}
-    </Accordion.Root>
+    </div>
   );
 }

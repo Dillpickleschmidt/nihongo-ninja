@@ -1,6 +1,6 @@
-import { Collapsible } from "@base-ui/react/collapsible";
-import { cn } from "@nn/ui";
-import { ChevronRight, type LucideIcon } from "lucide-react";
+import { cn, Collapsible, CollapsiblePanel, CollapsibleTrigger } from "@nn/ui";
+import { ChevronRight } from "@nn/ui/icons";
+import type { MenuIcon } from "@nn/ui/menu";
 
 export function CollapsibleSection({
   title,
@@ -12,7 +12,7 @@ export function CollapsibleSection({
   children,
 }: {
   title: string;
-  icon?: LucideIcon;
+  icon?: MenuIcon;
   isExpanded: boolean;
   onToggle: () => void;
   depth?: number;
@@ -20,8 +20,8 @@ export function CollapsibleSection({
   children: React.ReactNode;
 }) {
   return (
-    <Collapsible.Root open={isExpanded} onOpenChange={onToggle} className={cn("w-full", className)}>
-      <Collapsible.Trigger
+    <Collapsible open={isExpanded} onOpenChange={onToggle} className={cn("w-full", className)}>
+      <CollapsibleTrigger
         className={cn(
           "inline-flex w-full cursor-pointer items-center justify-start gap-2 rounded-md text-sm font-medium transition-colors",
           "focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none",
@@ -38,8 +38,8 @@ export function CollapsibleSection({
         />
         {Icon && <Icon className="h-4 w-4 shrink-0" />}
         <span className="truncate text-xs">{title}</span>
-      </Collapsible.Trigger>
-      <Collapsible.Panel className="pl-4">{children}</Collapsible.Panel>
-    </Collapsible.Root>
+      </CollapsibleTrigger>
+      <CollapsiblePanel className="pl-4">{children}</CollapsiblePanel>
+    </Collapsible>
   );
 }

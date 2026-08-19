@@ -1,8 +1,8 @@
-import { Tabs } from "@base-ui/react/tabs";
 import { useConvexMutation } from "@convex-dev/react-query";
 import { api } from "@nn/convex/_generated/api";
 import type { Id } from "@nn/convex/_generated/dataModel";
 import { useRouter } from "@nn/router";
+import { Tabs, TabsList, TabsPanel, TabsTrigger } from "@nn/ui";
 import { Plus } from "lucide-react";
 import { useState } from "react";
 
@@ -105,23 +105,25 @@ export function DeckCreationContainer() {
           <h2 className="text-lg font-semibold">Vocabulary Items</h2>
         </div>
 
-        <Tabs.Root value={store.ui.currentTab} onValueChange={actions.setCurrentTab}>
-          <Tabs.List className="mb-4 inline-flex rounded-md border border-border/60 bg-background/60 p-1 backdrop-blur-sm dark:border-card-foreground/70">
-            <Tabs.Tab
+        <Tabs value={store.ui.currentTab} onValueChange={actions.setCurrentTab}>
+          <TabsList className="mb-4 inline-flex rounded-md border border-border/60 bg-background/60 p-1 backdrop-blur-sm dark:border-card-foreground/70">
+            <TabsTrigger
               value="items"
-              className="cursor-pointer rounded-sm px-3 py-1.5 text-sm font-medium text-muted-foreground data-active:bg-card data-active:text-foreground data-active:shadow"
+              className="cursor-pointer rounded-sm px-3 py-1.5 text-sm font-medium text-muted-foreground"
+              activeClassName="bg-card text-foreground shadow"
             >
               List
-            </Tabs.Tab>
-            <Tabs.Tab
+            </TabsTrigger>
+            <TabsTrigger
               value="preview"
-              className="cursor-pointer rounded-sm px-3 py-1.5 text-sm font-medium text-muted-foreground data-active:bg-card data-active:text-foreground data-active:shadow"
+              className="cursor-pointer rounded-sm px-3 py-1.5 text-sm font-medium text-muted-foreground"
+              activeClassName="bg-card text-foreground shadow"
             >
               Preview
-            </Tabs.Tab>
-          </Tabs.List>
+            </TabsTrigger>
+          </TabsList>
 
-          <Tabs.Panel value="items" className="mt-0">
+          <TabsPanel value="items" className="mt-0">
             <div className="space-y-4">
               {store.vocabItems.activeIds.map((id, index) => (
                 <VocabItemEditor
@@ -146,9 +148,9 @@ export function DeckCreationContainer() {
                 </button>
               </div>
             </div>
-          </Tabs.Panel>
+          </TabsPanel>
 
-          <Tabs.Panel value="preview" className="mt-0">
+          <TabsPanel value="preview" className="mt-0">
             {validFormDataItems.length > 0 ? (
               <div className="space-y-4">
                 {validFormDataItems.map((item, index) => (
@@ -163,8 +165,8 @@ export function DeckCreationContainer() {
                 </p>
               </div>
             )}
-          </Tabs.Panel>
-        </Tabs.Root>
+          </TabsPanel>
+        </Tabs>
       </section>
     </div>
   );

@@ -1,5 +1,5 @@
-import { Tabs } from "@base-ui/react/tabs";
 import { Link } from "@nn/router";
+import { Tabs, TabsList, TabsPanel, TabsTrigger } from "@nn/ui";
 import { useConvexAuth } from "convex/react";
 
 import { DeckCreationContainer } from "../../create/deck-creation-container";
@@ -28,33 +28,35 @@ export default function DeckCreatePage() {
   }
 
   return (
-    <Tabs.Root defaultValue="manual" className="mx-auto max-w-5xl p-2 sm:px-4 lg:px-6">
-      <Tabs.List className="mb-6 inline-flex rounded-md border border-border/60 bg-background/60 p-1 backdrop-blur-sm dark:border-card-foreground/70">
-        <Tabs.Tab
+    <Tabs defaultValue="manual" className="mx-auto max-w-5xl p-2 sm:px-4 lg:px-6">
+      <TabsList className="mb-6 inline-flex rounded-md border border-border/60 bg-background/60 p-1 backdrop-blur-sm dark:border-card-foreground/70">
+        <TabsTrigger
           value="manual"
-          className="cursor-pointer rounded-sm px-3 py-1.5 text-sm font-medium text-muted-foreground data-active:bg-card data-active:text-foreground data-active:shadow"
+          className="cursor-pointer rounded-sm px-3 py-1.5 text-sm font-medium text-muted-foreground"
+          activeClassName="bg-card text-foreground shadow"
         >
           Manual
-        </Tabs.Tab>
-        <Tabs.Tab
+        </TabsTrigger>
+        <TabsTrigger
           value="missed-words"
-          className="cursor-pointer rounded-sm px-3 py-1.5 text-sm font-medium text-muted-foreground data-active:bg-card data-active:text-foreground data-active:shadow"
+          className="cursor-pointer rounded-sm px-3 py-1.5 text-sm font-medium text-muted-foreground"
+          activeClassName="bg-card text-foreground shadow"
         >
           From Missed Words
-        </Tabs.Tab>
-      </Tabs.List>
+        </TabsTrigger>
+      </TabsList>
 
       {/* keepMounted: unmounting would drop the in-progress deck draft when
           the user peeks at the missed-words tab. */}
-      <Tabs.Panel value="manual" className="mt-0" keepMounted>
+      <TabsPanel value="manual" className="mt-0" keepMounted>
         <DeckCreationStoreProvider>
           <DeckCreationContainer />
         </DeckCreationStoreProvider>
-      </Tabs.Panel>
+      </TabsPanel>
 
-      <Tabs.Panel value="missed-words" className="mt-0">
+      <TabsPanel value="missed-words" className="mt-0">
         <MissedWordsDeckBuilder />
-      </Tabs.Panel>
-    </Tabs.Root>
+      </TabsPanel>
+    </Tabs>
   );
 }
