@@ -13,7 +13,9 @@
     "./icons": "./src/icons.ts",
     "./furigana-text": "./src/furigana-text.ts",
     "./dialog": "./src/dialog.ts",
-    "./menu": "./src/menu.ts"
+    "./menu": "./src/menu.ts",
+    "./popover": "./src/popover.ts",
+    "./select": "./src/select.ts"
   },
   "scripts": {
     "typecheck": "tsc --noEmit --emitDeclarationOnly false"

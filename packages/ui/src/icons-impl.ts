@@ -2,7 +2,12 @@
 // so every icon has a native counterpart in icons-impl.native.tsx.
 export {
   Book,
+  ChevronDown,
+  ChevronRight,
   Copy,
+  Crown,
+  Download,
+  Eye,
   FileText,
   Folder,
   FolderPlus,
@@ -11,6 +16,8 @@ export {
   PencilLine,
   Plus,
   Share,
+  Search,
   SquarePen,
   Trash2,
+  Users,
 } from "lucide-react";

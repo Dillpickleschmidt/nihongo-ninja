@@ -1,9 +1,9 @@
-import { Select } from "@base-ui/react/select";
 import { convexQuery } from "@convex-dev/react-query";
 import { api } from "@nn/convex/_generated/api";
+import { Search } from "@nn/ui/icons";
+import { Select } from "@nn/ui/select";
 import { useQuery } from "@tanstack/react-query";
-import { ChevronDown, Search } from "lucide-react";
-import { Fragment, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 
 import { usePreferences } from "../../../preferences";
 import { DeckCard } from "../../components/deck-card";
@@ -110,8 +110,6 @@ export function FolderBrowser({
     return matches;
   }, [search, scopeDecks, indexData]);
 
-  const selectItems = allItems.map((m) => ({ value: m.id, label: m.label }));
-
   return (
     <div className={className}>
       <div className="mb-6 flex flex-wrap items-center justify-end gap-3 sm:justify-between">
@@ -120,42 +118,16 @@ export function FolderBrowser({
         </h2>
 
         <div className="flex items-center gap-2">
-          <Select.Root
-            items={selectItems}
+          <Select
             value={selectedId}
-            onValueChange={(value) => {
-              if (value) setSelectedId(value);
-            }}
-          >
-            <Select.Trigger className="flex h-9 w-auto min-w-48 cursor-pointer items-center justify-between gap-2 rounded-md border border-border/60 bg-card/70 px-3 font-excalifont text-sm text-foreground hover:bg-card dark:border-0 dark:bg-white/[0.04] dark:text-white/70 dark:hover:bg-white/[0.06]">
-              <Select.Value />
-              <Select.Icon>
-                <ChevronDown className="size-4 opacity-50" />
-              </Select.Icon>
-            </Select.Trigger>
-            <Select.Portal>
-              <Select.Positioner className="z-50" sideOffset={4}>
-                <Select.Popup className="rounded-md border border-border/70 bg-popover py-1 text-popover-foreground shadow-md backdrop-blur-2xl dark:border-dynamic-accent/20 dark:bg-[color-mix(in_srgb,var(--dynamic-accent)_15%,rgb(10_10_10_/_0.7))]">
-                  {menuGroups.map((group) => (
-                    <Fragment key={group.label}>
-                      <div className="px-2 py-1.5 text-xs text-muted-foreground dark:text-white/40">
-                        {group.label}
-                      </div>
-                      {group.options.map((item) => (
-                        <Select.Item
-                          key={item.id}
-                          value={item.id}
-                          className="cursor-pointer px-3 py-1.5 text-sm outline-none select-none data-highlighted:bg-accent data-highlighted:text-accent-foreground"
-                        >
-                          <Select.ItemText>{item.label}</Select.ItemText>
-                        </Select.Item>
-                      ))}
-                    </Fragment>
-                  ))}
-                </Select.Popup>
-              </Select.Positioner>
-            </Select.Portal>
-          </Select.Root>
+            onValueChange={setSelectedId}
+            groups={menuGroups.map((group) => ({
+              label: group.label,
+              options: group.options.map((item) => ({ value: item.id, label: item.label })),
+            }))}
+            triggerClassName="flex h-9 w-auto min-w-48 cursor-pointer items-center justify-between gap-2 rounded-md border border-border/60 bg-card/70 px-3 font-excalifont text-sm text-foreground hover:bg-card dark:border-0 dark:bg-white/[0.04] dark:text-white/70 dark:hover:bg-white/[0.06]"
+            popupClassName="backdrop-blur-2xl dark:border-dynamic-accent/20 dark:bg-[color-mix(in_srgb,var(--dynamic-accent)_15%,rgb(10_10_10_/_0.7))]"
+          />
 
           <div className="relative w-48 sm:w-56">
             <Search className="pointer-events-none absolute top-1/2 left-3 z-10 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
