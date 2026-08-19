@@ -25,4 +25,21 @@ function themed(Icon: LucideIcon) {
 }
 
 export const Book = themed(L.Book);
+export const ChevronDown = themed(L.ChevronDown);
+export const ChevronRight = themed(L.ChevronRight);
+export const Copy = themed(L.Copy);
+export const Crown = themed(L.Crown);
+export const Download = themed(L.Download);
+export const Eye = themed(L.Eye);
+export const FileText = themed(L.FileText);
+export const Folder = themed(L.Folder);
+export const FolderPlus = themed(L.FolderPlus);
 export const Grid2x2 = themed(L.Grid2x2);
+export const House = themed(L.House);
+export const PencilLine = themed(L.PencilLine);
+export const Plus = themed(L.Plus);
+export const Share = themed(L.Share);
+export const Search = themed(L.Search);
+export const SquarePen = themed(L.SquarePen);
+export const Trash2 = themed(L.Trash2);
+export const Users = themed(L.Users);

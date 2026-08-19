@@ -1,4 +1,4 @@
-import { Tabs } from "@base-ui/react/tabs";
+import { Tabs, TabsList, TabsPanel, TabsTrigger } from "@nn/ui";
 
 import type { Deck } from "../../context";
 import { DeckHeader, PracticeButton } from "./deck-header";
@@ -43,38 +43,40 @@ export function DeckView({ deck }: { deck: Deck }) {
         />
       )}
 
-      <Tabs.Root
+      <Tabs
         value={view.activeTab}
         onValueChange={(v) => {
           view.setActiveTab(v as TabValue);
         }}
       >
-        <Tabs.List className="inline-flex rounded-md border border-border/60 bg-background/60 p-1 backdrop-blur-sm dark:border-card-foreground/70 dark:bg-background/40">
-          <Tabs.Tab
+        <TabsList className="inline-flex rounded-md border border-border/60 bg-background/60 p-1 backdrop-blur-sm dark:border-card-foreground/70 dark:bg-background/40">
+          <TabsTrigger
             value="vocabulary"
-            className="cursor-pointer rounded-sm px-3 py-1.5 text-sm font-medium text-muted-foreground data-active:bg-card data-active:text-foreground data-active:shadow"
+            className="cursor-pointer rounded-sm px-3 py-1.5 text-sm font-medium text-muted-foreground"
+            activeClassName="bg-card text-foreground shadow"
           >
             Vocabulary
             {view.selectedKanji && view.filteredVocab && (
               <span className="ml-1.5 text-xs text-indigo-400">({view.filteredVocab.length})</span>
             )}
-          </Tabs.Tab>
-          <Tabs.Tab
+          </TabsTrigger>
+          <TabsTrigger
             value="kanji"
-            className="cursor-pointer rounded-sm px-3 py-1.5 text-sm font-medium text-muted-foreground data-active:bg-card data-active:text-foreground data-active:shadow"
+            className="cursor-pointer rounded-sm px-3 py-1.5 text-sm font-medium text-muted-foreground"
+            activeClassName="bg-card text-foreground shadow"
           >
             Kanji → Radicals
             {view.selectedRadical && view.filteredKanji && (
               <span className="ml-1.5 text-xs text-purple-400">({view.filteredKanji.length})</span>
             )}
-          </Tabs.Tab>
-        </Tabs.List>
+          </TabsTrigger>
+        </TabsList>
 
-        <Tabs.Panel value="vocabulary" className="mt-4">
+        <TabsPanel value="vocabulary" className="mt-4">
           <VocabTab vocabulary={view.filteredVocab} />
-        </Tabs.Panel>
+        </TabsPanel>
 
-        <Tabs.Panel value="kanji" className="mt-4">
+        <TabsPanel value="kanji" className="mt-4">
           <KanjiTab
             kanjiEntries={view.filteredKanji}
             kanjiToVocab={view.kanjiToVocab}
@@ -84,8 +86,8 @@ export function DeckView({ deck }: { deck: Deck }) {
             toggleKanji={view.toggleKanji}
             toggleRadical={view.toggleRadical}
           />
-        </Tabs.Panel>
-      </Tabs.Root>
+        </TabsPanel>
+      </Tabs>
 
       <div className="fixed bottom-20 left-1/2 -translate-x-1/2 md:hidden">
         <PracticeButton deckId={deck.id} />

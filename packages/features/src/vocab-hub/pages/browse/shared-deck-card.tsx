@@ -1,6 +1,6 @@
-import { Popover } from "@base-ui/react/popover";
 import type { SharedDeckInfo } from "@nn/convex/model/sharing";
-import { Crown, Download, Eye, FileText, Share, SquarePen, Users } from "lucide-react";
+import { Crown, Download, Eye, FileText, Share, SquarePen, Users } from "@nn/ui/icons";
+import { Popover } from "@nn/ui/popover";
 
 import { alertMutationError } from "../../components/mutation-error";
 import { alertMessage, promptText } from "../../components/web-dialogs";
@@ -99,47 +99,42 @@ export function SharedDeckCard({
 
           <div className="ml-4">
             {deck.isOwn ? (
-              <Popover.Root>
-                <Popover.Trigger className="cursor-pointer rounded-md bg-secondary px-3 py-1.5 text-xs font-medium text-secondary-foreground shadow-sm hover:bg-secondary/80">
-                  Manage
-                </Popover.Trigger>
-                <Popover.Portal>
-                  <Popover.Positioner className="z-50" sideOffset={4}>
-                    <Popover.Popup className="w-48 rounded-md border border-border bg-card p-2 shadow-md outline-none dark:border-card-foreground">
-                      <div className="space-y-1">
-                        <a
-                          href={`/vocab/deck/${deck.deckId}/edit`}
-                          className="flex w-full cursor-pointer items-center rounded-md px-2 py-1.5 text-sm hover:bg-accent"
-                        >
-                          <SquarePen className="mr-2 h-3 w-3" />
-                          Edit contents
-                        </a>
-                        <button
-                          type="button"
-                          className="flex w-full cursor-pointer items-center rounded-md px-2 py-1.5 text-sm hover:bg-accent"
-                          onClick={handleRename}
-                        >
-                          <FileText className="mr-2 h-3 w-3" />
-                          Rename
-                        </button>
-                        <button
-                          type="button"
-                          className="flex w-full cursor-pointer items-center rounded-md px-2 py-1.5 text-sm text-red-600 hover:bg-red-50 hover:text-red-900 disabled:cursor-not-allowed disabled:opacity-50 dark:text-red-400 dark:hover:bg-red-950 dark:hover:text-red-300"
-                          disabled={isUnsharing}
-                          onClick={onUnshare}
-                        >
-                          {isUnsharing ? (
-                            <div className="mr-2 h-3 w-3 animate-spin rounded-full border border-current border-t-transparent" />
-                          ) : (
-                            <Share className="mr-2 h-3 w-3" />
-                          )}
-                          Unshare
-                        </button>
-                      </div>
-                    </Popover.Popup>
-                  </Popover.Positioner>
-                </Popover.Portal>
-              </Popover.Root>
+              <Popover
+                trigger="Manage"
+                triggerClassName="cursor-pointer rounded-md bg-secondary px-3 py-1.5 text-xs font-medium text-secondary-foreground shadow-sm hover:bg-secondary/80"
+                popupClassName="w-48 p-2"
+              >
+                <div className="space-y-1">
+                  <a
+                    href={`/vocab/deck/${deck.deckId}/edit`}
+                    className="flex w-full cursor-pointer items-center rounded-md px-2 py-1.5 text-sm hover:bg-accent"
+                  >
+                    <SquarePen className="mr-2 h-3 w-3" />
+                    Edit contents
+                  </a>
+                  <button
+                    type="button"
+                    className="flex w-full cursor-pointer items-center rounded-md px-2 py-1.5 text-sm hover:bg-accent"
+                    onClick={handleRename}
+                  >
+                    <FileText className="mr-2 h-3 w-3" />
+                    Rename
+                  </button>
+                  <button
+                    type="button"
+                    className="flex w-full cursor-pointer items-center rounded-md px-2 py-1.5 text-sm text-red-600 hover:bg-red-50 hover:text-red-900 disabled:cursor-not-allowed disabled:opacity-50 dark:text-red-400 dark:hover:bg-red-950 dark:hover:text-red-300"
+                    disabled={isUnsharing}
+                    onClick={onUnshare}
+                  >
+                    {isUnsharing ? (
+                      <div className="mr-2 h-3 w-3 animate-spin rounded-full border border-current border-t-transparent" />
+                    ) : (
+                      <Share className="mr-2 h-3 w-3" />
+                    )}
+                    Unshare
+                  </button>
+                </div>
+              </Popover>
             ) : (
               <div className="flex gap-2">
                 <button

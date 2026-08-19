@@ -1,6 +1,6 @@
-import { Collapsible } from "@base-ui/react/collapsible";
 import { convexQuery } from "@convex-dev/react-query";
 import { api } from "@nn/convex/_generated/api";
+import { Collapsible, CollapsiblePanel, CollapsibleTrigger } from "@nn/ui";
 import { useQuery } from "@tanstack/react-query";
 import { ChevronRight } from "lucide-react";
 import { useState } from "react";
@@ -45,12 +45,12 @@ function DeckTimelineEntry({
   const [expanded, setExpanded] = useState(defaultExpanded);
 
   return (
-    <Collapsible.Root open={expanded} onOpenChange={setExpanded}>
+    <Collapsible open={expanded} onOpenChange={setExpanded}>
       {/* The Start link is a sibling of the trigger, not a child — an <a>
           inside a <button> is invalid and breaks keyboard/AT behavior. */}
       <div className="group relative">
         {/* Only phrasing content (spans) inside the native button. */}
-        <Collapsible.Trigger className="relative flex w-full cursor-pointer items-center gap-3 rounded-lg py-2.5 pr-3 pl-6 text-left text-foreground/75 transition-all duration-150 group-hover:bg-accent group-hover:text-foreground focus-visible:bg-accent focus-visible:outline-none dark:text-white/70 dark:group-hover:bg-white/5 dark:group-hover:text-white dark:focus-visible:bg-white/10">
+        <CollapsibleTrigger className="relative flex w-full cursor-pointer items-center gap-3 rounded-lg py-2.5 pr-3 pl-6 text-left text-foreground/75 transition-all duration-150 group-hover:bg-accent group-hover:text-foreground focus-visible:bg-accent focus-visible:outline-none dark:text-white/70 dark:group-hover:bg-white/5 dark:group-hover:text-white dark:focus-visible:bg-white/10">
           <span className="absolute top-1/2 left-[-7px] size-3 -translate-y-1/2 rounded-full border-2 border-card-foreground/20 bg-background transition-colors group-hover:border-dynamic-accent/50 group-hover:bg-dynamic-accent/50 dark:group-hover:border-white/50 dark:group-hover:bg-white/50" />
 
           <span className="flex min-w-0 flex-1 items-center gap-1.5 pr-20 text-sm leading-tight font-medium">
@@ -58,7 +58,7 @@ function DeckTimelineEntry({
           </span>
 
           <ChevronRight className="size-4 shrink-0 opacity-40 transition-all duration-200 group-hover:translate-x-0.5 group-hover:opacity-70 [[aria-expanded=true]_&]:rotate-90" />
-        </Collapsible.Trigger>
+        </CollapsibleTrigger>
 
         <a
           href={linkTo}
@@ -68,12 +68,12 @@ function DeckTimelineEntry({
         </a>
       </div>
 
-      <Collapsible.Panel>
+      <CollapsiblePanel>
         <div className="pr-3 pb-2 pl-6">
           <DeckVocabPanel deckId={deck.id} />
         </div>
-      </Collapsible.Panel>
-    </Collapsible.Root>
+      </CollapsiblePanel>
+    </Collapsible>
   );
 }
 

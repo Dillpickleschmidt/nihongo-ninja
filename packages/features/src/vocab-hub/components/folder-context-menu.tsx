@@ -1,19 +1,11 @@
-import { ContextMenu } from "@base-ui/react/context-menu";
-import { Dialog } from "@base-ui/react/dialog";
-import { cn } from "@nn/ui";
-import { PencilLine, Trash2 } from "lucide-react";
+import { Dialog } from "@nn/ui/dialog";
+import { PencilLine, Trash2 } from "@nn/ui/icons";
+import { ContextMenu, MenuItem, MenuSeparator } from "@nn/ui/menu";
 import { useState } from "react";
 
 import { useVocab, type Folder, type FolderDeleteStrategy } from "../context";
 import { useFolderTree } from "../hooks/use-folder-tree";
 import { DeleteConfirmation } from "./delete-confirmation";
-import { dialogBackdropClass, dialogPopupClass } from "./dialog-styles";
-import {
-  destructiveMenuItemClass,
-  menuItemClass,
-  menuPopupClass,
-  menuSeparatorClass,
-} from "./menu-styles";
 import { alertMutationError } from "./mutation-error";
 
 export function FolderContextMenu({
@@ -60,67 +52,48 @@ export function FolderContextMenu({
 
   return (
     <>
-      <ContextMenu.Root>
-        <ContextMenu.Trigger render={<div />}>{card}</ContextMenu.Trigger>
+      <ContextMenu content={card} popupClassName="w-48">
+        <MenuItem
+          icon={PencilLine}
+          label="Edit folder"
+          onSelect={() => {
+            setEditingFolder(folder);
+          }}
+        />
+        <MenuSeparator />
+        <MenuItem
+          destructive
+          icon={Trash2}
+          label="Delete folder"
+          onSelect={() => {
+            setShowDeleteConfirm(true);
+          }}
+        />
+      </ContextMenu>
 
-        <ContextMenu.Portal>
-          <ContextMenu.Positioner className="z-50">
-            <ContextMenu.Popup className={cn(menuPopupClass, "w-48")}>
-              <ContextMenu.Item
-                className={menuItemClass}
-                onClick={() => {
-                  setEditingFolder(folder);
-                }}
-              >
-                <PencilLine className="mr-2 h-3 w-3" />
-                Edit folder
-              </ContextMenu.Item>
-
-              <ContextMenu.Separator className={menuSeparatorClass} />
-
-              <ContextMenu.Item
-                className={cn(menuItemClass, destructiveMenuItemClass)}
-                onClick={() => {
-                  setShowDeleteConfirm(true);
-                }}
-              >
-                <Trash2 className="mr-2 h-3 w-3" />
-                Delete folder
-              </ContextMenu.Item>
-            </ContextMenu.Popup>
-          </ContextMenu.Positioner>
-        </ContextMenu.Portal>
-      </ContextMenu.Root>
-
-      <Dialog.Root
+      <Dialog
         open={showDeleteConfirm}
         onOpenChange={(open) => {
           if (!open) setShowDeleteConfirm(false);
         }}
+        title={`Delete ${folder.folderName}`}
+        className="max-w-lg"
       >
-        <Dialog.Portal>
-          <Dialog.Backdrop className={dialogBackdropClass} />
-          <Dialog.Popup className={cn(dialogPopupClass, "max-w-lg")}>
-            <Dialog.Title className="text-lg font-semibold">
-              Delete {folder.folderName}
-            </Dialog.Title>
-            <div className="mt-4">
-              <DeleteConfirmation
-                item={folder}
-                folderContents={folderContents}
-                deleteStrategy={deleteStrategy}
-                onStrategyChange={setDeleteStrategy}
-                onCancel={() => {
-                  setShowDeleteConfirm(false);
-                }}
-                onConfirm={() => {
-                  void handleDelete();
-                }}
-              />
-            </div>
-          </Dialog.Popup>
-        </Dialog.Portal>
-      </Dialog.Root>
+        <div className="mt-4">
+          <DeleteConfirmation
+            item={folder}
+            folderContents={folderContents}
+            deleteStrategy={deleteStrategy}
+            onStrategyChange={setDeleteStrategy}
+            onCancel={() => {
+              setShowDeleteConfirm(false);
+            }}
+            onConfirm={() => {
+              void handleDelete();
+            }}
+          />
+        </div>
+      </Dialog>
     </>
   );
 }

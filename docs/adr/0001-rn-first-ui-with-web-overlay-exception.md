@@ -30,9 +30,11 @@ where desktop wants anchored popovers and right-click.
   `Text`, `Pressable`, NativeWind classes) plus `@nn/ui` components. Feature
   files do not use DOM elements and do not import `@base-ui/react`.
 - **Non-overlay components have a single RN implementation** in `@nn/ui` —
-  Tabs, Collapsible, Slider, inputs, cards, buttons, layout. No platform
-  variants, so cross-platform drift is impossible by construction.
-- **The overlay family — Dialog, Menu, ContextMenu, Popover, Select — has one
+  Tabs, Collapsible, inputs, cards, buttons, layout. No platform variants,
+  so cross-platform drift is impossible by construction.
+- **The overlay family — Dialog, Menu, ContextMenu, Popover, Select — and
+  Slider (its web keyboard/AT behavior comes from the platform range input,
+  which native lacks) have one
   shared API in `@nn/ui` with two presentations**: Base UI on web (keeping its
   keyboard, focus, and positioning behavior), sheet/modal idioms on native.
   This is the only sanctioned platform divergence, and it is deliberate UX,
