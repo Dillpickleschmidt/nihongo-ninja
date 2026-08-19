@@ -12,7 +12,8 @@
     "./tabs": "./src/tabs.tsx",
     "./icons": "./src/icons.ts",
     "./furigana-text": "./src/furigana-text.ts",
-    "./dialog": "./src/dialog.ts"
+    "./dialog": "./src/dialog.ts",
+    "./menu": "./src/menu.ts"
   },
   "scripts": {
     "typecheck": "tsc --noEmit --emitDeclarationOnly false"

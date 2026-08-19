@@ -1,18 +1,11 @@
-import { ContextMenu } from "@base-ui/react/context-menu";
-import { cn } from "@nn/ui";
 import { Dialog } from "@nn/ui/dialog";
-import { PencilLine, Trash2 } from "lucide-react";
+import { PencilLine, Trash2 } from "@nn/ui/icons";
+import { ContextMenu, MenuItem, MenuSeparator } from "@nn/ui/menu";
 import { useState } from "react";
 
 import { useVocab, type Folder, type FolderDeleteStrategy } from "../context";
 import { useFolderTree } from "../hooks/use-folder-tree";
 import { DeleteConfirmation } from "./delete-confirmation";
-import {
-  destructiveMenuItemClass,
-  menuItemClass,
-  menuPopupClass,
-  menuSeparatorClass,
-} from "./menu-styles";
 import { alertMutationError } from "./mutation-error";
 
 export function FolderContextMenu({
@@ -59,37 +52,24 @@ export function FolderContextMenu({
 
   return (
     <>
-      <ContextMenu.Root>
-        <ContextMenu.Trigger render={<div />}>{card}</ContextMenu.Trigger>
-
-        <ContextMenu.Portal>
-          <ContextMenu.Positioner className="z-50">
-            <ContextMenu.Popup className={cn(menuPopupClass, "w-48")}>
-              <ContextMenu.Item
-                className={menuItemClass}
-                onClick={() => {
-                  setEditingFolder(folder);
-                }}
-              >
-                <PencilLine className="mr-2 h-3 w-3" />
-                Edit folder
-              </ContextMenu.Item>
-
-              <ContextMenu.Separator className={menuSeparatorClass} />
-
-              <ContextMenu.Item
-                className={cn(menuItemClass, destructiveMenuItemClass)}
-                onClick={() => {
-                  setShowDeleteConfirm(true);
-                }}
-              >
-                <Trash2 className="mr-2 h-3 w-3" />
-                Delete folder
-              </ContextMenu.Item>
-            </ContextMenu.Popup>
-          </ContextMenu.Positioner>
-        </ContextMenu.Portal>
-      </ContextMenu.Root>
+      <ContextMenu content={card} popupClassName="w-48">
+        <MenuItem
+          icon={PencilLine}
+          label="Edit folder"
+          onSelect={() => {
+            setEditingFolder(folder);
+          }}
+        />
+        <MenuSeparator />
+        <MenuItem
+          destructive
+          icon={Trash2}
+          label="Delete folder"
+          onSelect={() => {
+            setShowDeleteConfirm(true);
+          }}
+        />
+      </ContextMenu>
 
       <Dialog
         open={showDeleteConfirm}

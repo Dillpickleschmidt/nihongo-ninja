@@ -9,3 +9,4 @@ export { cn } from "./utils";
 export { Tabs, TabsList, TabsPanel, TabsTrigger } from "./tabs";
 export { FuriganaText } from "./furigana-text";
 export { Dialog } from "./dialog";
+export { ContextMenu, DropdownMenu, MenuItem, MenuLink, MenuSeparator, MenuSub } from "./menu";

@@ -1,11 +1,10 @@
-import { Menu } from "@base-ui/react/menu";
 import { usePathname } from "@nn/router";
-import { cn } from "@nn/ui";
-import { FileText, Folder, Plus } from "lucide-react";
+import { Text } from "@nn/ui";
+import { FileText, Folder, Plus } from "@nn/ui/icons";
+import { DropdownMenu, MenuItem, MenuLink } from "@nn/ui/menu";
 
 import { useVocab } from "../context";
 import { resolveFolderFromPath } from "../utils/navigation";
-import { menuItemClass, menuPopupClass } from "./menu-styles";
 import { alertMutationError } from "./mutation-error";
 import { promptText } from "./web-dialogs";
 
@@ -28,27 +27,26 @@ export function CreateNewDropdown() {
   };
 
   return (
-    <Menu.Root>
-      <Menu.Trigger className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-md border border-border/70 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-foreground dark:border-card-foreground/70">
-        <Plus className="h-4 w-4" />
-        Create New
-      </Menu.Trigger>
-      <Menu.Portal>
-        <Menu.Positioner className="z-50" sideOffset={4}>
-          <Menu.Popup className={cn(menuPopupClass, "w-48")}>
-            <Menu.LinkItem href="/vocab/create" className={menuItemClass}>
-              <FileText className="mr-2 h-4 w-4" />
-              New Deck
-            </Menu.LinkItem>
-            <Menu.Item className={menuItemClass} onClick={handleCreateFolder}>
-              <Folder className="mr-2 h-4 w-4" />
-              {currentFolder?.source === "user"
-                ? `New Folder in ${currentFolder.folderName}`
-                : "New Folder"}
-            </Menu.Item>
-          </Menu.Popup>
-        </Menu.Positioner>
-      </Menu.Portal>
-    </Menu.Root>
+    <DropdownMenu
+      trigger={
+        <>
+          <Plus className="h-4 w-4 text-muted-foreground" />
+          <Text className="text-sm font-medium text-muted-foreground">Create New</Text>
+        </>
+      }
+      triggerClassName="w-full cursor-pointer flex-row items-center justify-center gap-2 rounded-md border border-border/70 py-2 transition-colors hover:bg-accent dark:border-card-foreground/70"
+      popupClassName="w-48"
+    >
+      <MenuLink icon={FileText} label="New Deck" href="/vocab/create" />
+      <MenuItem
+        icon={Folder}
+        label={
+          currentFolder?.source === "user"
+            ? `New Folder in ${currentFolder.folderName}`
+            : "New Folder"
+        }
+        onSelect={handleCreateFolder}
+      />
+    </DropdownMenu>
   );
 }
